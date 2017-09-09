@@ -1,0 +1,4 @@
+[03-Jul-2017 10:31:40 America/Chicago] PHP Warning:  include(includes/nav.php): failed to open stream: No such file or directory in /home/gmg/public_html/gmg/index.php on line 159
+[03-Jul-2017 10:31:40 America/Chicago] PHP Warning:  include(includes/nav.php): failed to open stream: No such file or directory in /home/gmg/public_html/gmg/index.php on line 159
+[03-Jul-2017 10:31:40 America/Chicago] PHP Warning:  include(): Failed opening 'includes/nav.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home/gmg/public_html/gmg/index.php on line 159
+[04-Jul-2017 10:42:01 America/Chicago] PHP Parse error:  syntax error, unexpected '(', expecting variable (T_VARIABLE) or '$' in /home/gmg/public_html/gmg/index.php on line 101
