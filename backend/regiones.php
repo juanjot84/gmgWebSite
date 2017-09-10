@@ -34,6 +34,25 @@
         <div class="col-md-12">
             <div class="panel panel-default">
 
+            <form action="" id="formularioAgregar" style="display:none">
+              <input type="test" name="id" id="idRegion" class="hidden">
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                <input id="nombreRegion" name="nombreRegion" type="text" class="form-control" placeholder="Nombre de la Region" aria-describedby="sizing-addon3">
+              </div></p>
+            
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                <input id="descripcionRegion" name="descripcionRegion" type="text" class="form-control" placeholder="Descripción de la Region" aria-describedby="sizing-addon3">
+              </div></p>
+
+              <div class="input-group">
+                 <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" style="padding: 17px;" onClick="send()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+                </span>
+              </div>
+            </form>
+
               <!-- Table -->
               <div class="panel-heading tituloseccion">Regiones</div>
                   <table class="table">
@@ -77,12 +96,7 @@
 </div>
 </div>
 
-<form action="" id="formularioAgregar" style="display:none">
-  <input type="test" name="id" id="idRegion" class="hidden">
-  <input type="text" placeholder="nombre de la region" name="nombreRegion" id="nombreRegion">
-  <input type="text" placeholder="descripcion de la region" name="descripcionRegion" id="descripcionRegion">
-  <button type="button" onClick="send()">Submit</button>
-</form>
+
 
 
 <?php include("includes/footer.php"); ?>
@@ -104,133 +118,8 @@
 <!-- Theme JavaScript -->
 <script src="../js/agency.min.js"></script>
 
-<script type="text/javascript">
-
-
-    $(function() {
-
-        $('#login-form-link').click(function(e) {
-            $("#login-form").delay(100).fadeIn(100);
-            $("#register-form").fadeOut(100);
-            $('#register-form-link').removeClass('active');
-            $(this).addClass('active');
-            e.preventDefault();
-        });
-        $('#register-form-link').click(function(e) {
-            $("#register-form").delay(100).fadeIn(100);
-            $("#login-form").fadeOut(100);
-            $('#login-form-link').removeClass('active');
-            $(this).addClass('active');
-            e.preventDefault();
-        });
-
-    });
-    var regiones;
-
-    obtenerListado();
-
-    function obtenerListado() {
-        $('#listadoRegiones').html('');
-        $('#target').html('obteniendo...');       
-        $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/region',
-            type: 'GET',
-            
-            dataType: "json",
-            crossDomain: true,
-            contentType:"application/json",
-            success: function (data) {
-                regiones = data;              
-              _.each(data, function(region){
-                $('#listadoRegiones').append(' <tr>' +
-                    '<th scope="row" style="font-size: 1.5em;">1</th>' +
-                    '<td>' +region.nombreRegion+ '</td><td class="centrarbotaccion">' +
-                    '<button onClick="mostrar(\'' + region._id + '\')" title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>' +
-                    '<button onClick="editar(\'' + region._id + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button> ' +
-                    '<button title="Eliminar" onClick="eliminar(\'' + region._id + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +
-                    '</td> ' +
-                    '</tr>');
-            }) 
-          },
-          error:function(jqXHR,textStatus,errorThrown)
-          {
-              $('#target').append("jqXHR: "+jqXHR);
-              $('#target').append("textStatus: "+textStatus);
-              $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
-          },
-      });
-    }
-
-    function editar(idRegion){
-       var region =  _.find(regiones, { '_id': idRegion});
-       console.log(region);
-       $('#formularioAgregar').show();
-       $("#formularioAgregar :input").attr("disabled", false);
-       $("#formularioAgregar button").show();
-       $("#nombreRegion").val(region.nombreRegion);
-       $("#descripcionRegion").val(region.descripcionRegion);
-    }
-
-    function mostrar(idRegion){
-       var region =  _.find(regiones, { '_id': idRegion});
-       console.log(region);
-       $('#formularioAgregar').show();
-       $("#formularioAgregar :input").attr("disabled", true);
-       $("#formularioAgregar button").hide();
-       $("#nombreRegion").val(region.nombreRegion);
-       $("#descripcionRegion").val(region.descripcionRegion);
-       $("#idRegion").val(region._id);
-    }
-
-    function eliminar(idRegion){
-       $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/region?id=' + idRegion,
-            type: 'DELETE',
-            
-            dataType: "json",
-            crossDomain: true,
-            contentType:"application/json",
-            success: function (data) {
-                obtenerListado() ;
-            },
-            error:function(jqXHR,textStatus,errorThrown)
-            {
-          }
-      });
-    }
-    
-    function agregarRegion(){
-        $('#formularioAgregar').show();
-       $("#formularioAgregar :input").attr("disabled", false);
-       $("#formularioAgregar button").show();
-    }
-
-    function send() {
-        var region = JSON.stringify({
-            "nombreRegion": $("#nombreRegion").val(),
-            "descripcionRegion":$("#descripcionRegion").val()
-        });
-
-        $('#target').html('sending..');
-
-        $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/region',
-            type: 'POST',
-            
-            dataType: "json",
-            crossDomain: true,
-            contentType:"application/json",
-            success: function (data) {
-                obtenerListado() ;
-            },
-            error:function(jqXHR,textStatus,errorThrown)
-            {
-          },
-          data: region
-      });
-    }
-
-</script>
+<!-- Funcione de Regiones JavaScript -->
+<script src="js/regiones.js"></script>
 
 </body>
 
