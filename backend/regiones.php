@@ -36,16 +36,16 @@
 
               <!-- Table -->
               <div class="panel-heading tituloseccion">Regiones</div>
-              <table class="table">
-                <thead class="titulotabla">
-                    <tr> 
-                        <th >#</th>
-                        <th >Regiones</th>
-                        <th style="text-align: center;">Acción</th>
-                    </tr>
-                </thead>
-                <tbody id="listadoRegiones">
-                   
+                  <table class="table">
+                    <thead class="titulotabla">
+                        <tr> 
+                            <th >#</th>
+                            <th >Regiones</th>
+                            <th style="text-align: center;">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listadoRegiones">
+                       
                     </tbody>
                 </table>
             </div>
@@ -78,6 +78,7 @@
 </div>
 
 <form action="" id="formularioAgregar" style="display:none">
+  <input type="test" name="id" id="idRegion" class="hidden">
   <input type="text" placeholder="nombre de la region" name="nombreRegion" id="nombreRegion">
   <input type="text" placeholder="descripcion de la region" name="descripcionRegion" id="descripcionRegion">
   <button type="button" onClick="send()">Submit</button>
@@ -126,18 +127,11 @@
     });
     var regiones;
 
-    function agregarRegion(){
-        $('#formularioAgregar').show();
-    }
-
-
     obtenerListado();
 
     function obtenerListado() {
-
-
-        $('#target').html('obteniendo...');
-       
+        $('#listadoRegiones').html('');
+        $('#target').html('obteniendo...');       
         $.ajax({
             url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/region',
             type: 'GET',
@@ -146,19 +140,17 @@
             crossDomain: true,
             contentType:"application/json",
             success: function (data) {
-                regiones = data;
-              $('#target').html('');
+                regiones = data;              
               _.each(data, function(region){
                 $('#listadoRegiones').append(' <tr>' +
                     '<th scope="row" style="font-size: 1.5em;">1</th>' +
                     '<td>' +region.nombreRegion+ '</td><td class="centrarbotaccion">' +
-                    '<button title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>' +
+                    '<button onClick="mostrar(\'' + region._id + '\')" title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>' +
                     '<button onClick="editar(\'' + region._id + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button> ' +
-                    '<button title="Eliminar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +
+                    '<button title="Eliminar" onClick="eliminar(\'' + region._id + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +
                     '</td> ' +
                     '</tr>');
-            })                
-              console.log(data);
+            }) 
           },
           error:function(jqXHR,textStatus,errorThrown)
           {
@@ -173,11 +165,45 @@
        var region =  _.find(regiones, { '_id': idRegion});
        console.log(region);
        $('#formularioAgregar').show();
+       $("#formularioAgregar :input").attr("disabled", false);
+       $("#formularioAgregar button").show();
        $("#nombreRegion").val(region.nombreRegion);
        $("#descripcionRegion").val(region.descripcionRegion);
     }
 
+    function mostrar(idRegion){
+       var region =  _.find(regiones, { '_id': idRegion});
+       console.log(region);
+       $('#formularioAgregar').show();
+       $("#formularioAgregar :input").attr("disabled", true);
+       $("#formularioAgregar button").hide();
+       $("#nombreRegion").val(region.nombreRegion);
+       $("#descripcionRegion").val(region.descripcionRegion);
+       $("#idRegion").val(region._id);
+    }
 
+    function eliminar(idRegion){
+       $.ajax({
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/region?id=' + idRegion,
+            type: 'DELETE',
+            
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+                obtenerListado() ;
+            },
+            error:function(jqXHR,textStatus,errorThrown)
+            {
+          }
+      });
+    }
+    
+    function agregarRegion(){
+        $('#formularioAgregar').show();
+       $("#formularioAgregar :input").attr("disabled", false);
+       $("#formularioAgregar button").show();
+    }
 
     function send() {
         var region = JSON.stringify({
@@ -195,13 +221,10 @@
             crossDomain: true,
             contentType:"application/json",
             success: function (data) {
-                $('#target').html(data.msg);
+                obtenerListado() ;
             },
             error:function(jqXHR,textStatus,errorThrown)
             {
-              $('#target').append("jqXHR: "+jqXHR);
-              $('#target').append("textStatus: "+textStatus);
-              $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
           },
           data: region
       });
