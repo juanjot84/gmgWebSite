@@ -67,7 +67,6 @@
 
     function mostrar(idNivelPrecio){
        var nivelPrecio =  _.find(nivelPrecios, { '_id': idNivelPrecio});
-       alert(nivelPrecio);
        $('#formularioAgregar').show();
        $("#formularioAgregar :input").attr("disabled", true);
        $("#formularioAgregar button").hide();
