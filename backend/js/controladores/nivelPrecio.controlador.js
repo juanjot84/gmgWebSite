@@ -17,7 +17,7 @@
         });
 
     });
-    var servicios;
+    var nivelPrecios;
 
     obtenerListado();
 
@@ -33,7 +33,7 @@
             contentType:"application/json",
             success: function (data) {
                 nivelPrecio = data;              
-              _.each(data, function(nivelPrecio){
+              _.each(nivelPrecio, function(nivelPrecio){
                 $('#listadoNivelPrecio').append(' <tr>' +
                     '<th scope="row" style="font-size: 1.5em;">1</th>' +
                     '<td>' +nivelPrecio.label+ '</td><td>'+ nivelPrecio.valorInicial +'</td><td>'+ nivelPrecio.valorFinal +'</td><td>'+ nivelPrecio.valorComision +'</td>  <td class="centrarbotaccion">'+
@@ -55,12 +55,11 @@
 
     function editar(idNivelPrecio){
        var nivelPrecio =  _.find(nivelPrecios, { '_id': idNivelPrecio});
-       console.log(nivelPrecio);
        $('#formularioAgregar').show();
        $("#formularioAgregar :input").attr("disabled", false);
        $("#formularioAgregar button").show();
        $("#idNivelPrecio").val(nivelPrecio._id);
-       $("#nombrelabel").val(nivelPrecio.label);
+       $("#label").val(nivelPrecio.label);
        $("#valorInicial").val(nivelPrecio.valorInicial);
        $("#valorFinal").val(nivelPrecio.valorFinal);
        $("#valorComision").val(nivelPrecio.valorComision);
@@ -68,7 +67,7 @@
 
     function mostrar(idNivelPrecio){
        var nivelPrecio =  _.find(nivelPrecios, { '_id': idNivelPrecio});
-       console.log(nivelPrecio);
+       alert(nivelPrecio);
        $('#formularioAgregar').show();
        $("#formularioAgregar :input").attr("disabled", true);
        $("#formularioAgregar button").hide();
