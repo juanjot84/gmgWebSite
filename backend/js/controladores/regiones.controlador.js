@@ -84,12 +84,12 @@
             crossDomain: true,
             contentType:"application/json",
             success: function (data) {
-                obtenerListado() ;
             },
             error:function(jqXHR,textStatus,errorThrown)
             {
+              obtenerListado();
           }
-      });
+      });    
     }
     
     function agregarRegion(){
@@ -97,11 +97,6 @@
        $("#formularioAgregar :input").attr("disabled", false);
        $("#formularioAgregar button").show();
        $("#idRegion").val('');
-    }
-
-    function blanquearImputs(){
-      document.formularioAgregar.nombreRegion.value = '';
-      document.formularioAgregar.descripcionRegion.value = '';
     }
 
     function send() {
@@ -130,6 +125,5 @@
             {
           },
           data: region
-      });
-      //  blanquearImputs();
+      }); 
     }
