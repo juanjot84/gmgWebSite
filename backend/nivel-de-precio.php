@@ -21,7 +21,7 @@
                 <div class="col-md-6" style="text-align: right;">
                     <div class="input-group">
                       <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" style="padding: 17px;"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVO</button>
+                        <button class="btn btn-default" type="button" style="padding: 17px;" onClick="agregarNivelPrecio()"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVO</button>
                       </span>
                     </div>
                 </div>
@@ -34,56 +34,54 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
 
+
+            <form action="" id="formularioAgregar" style="display:none">
+
+              <input type="text" name="idNivelPrecio" id="idNivelPrecio" class="hidden">
+            
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                <input id="label" name="label" type="text" class="form-control" placeholder="Identificador de Nivel de Precio" aria-describedby="sizing-addon3">
+              </div></p>
+            
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                <input id="valorInicial" name="valorInicial" type="text" class="form-control" placeholder="Valor inicial de Nivel de Precio" aria-describedby="sizing-addon3">
+              </div></p>
+
+             <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                <input id="valorFinal" name="valorFinal" type="text" class="form-control" placeholder="Valor final de Nivel de Precio" aria-describedby="sizing-addon3">
+              </div></p>
+
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                <input id="valorComision" name="valorComision" type="text" class="form-control" placeholder="Valor final de Comisión" aria-describedby="sizing-addon3">
+              </div></p>
+
+              <div class="input-group">
+                 <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" style="padding: 17px;" onClick="send()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+                </span>
+              </div>
+            </form>
+
+
                   <!-- Table -->
                   <div class="panel-heading tituloseccion">Nivel de precio</div>
                     <table class="table">
                         <thead class="titulotabla">
-                            <tr> 
+                            <tr style="text-align: center;"> 
                                 <th >#</th>
-                                    <th>Negocio</th>
                                     <th style="text-align: center;">Nivel de precio</th>
+                                    <th style="text-align: center;">Desde</th>
+                                    <th style="text-align: center;">Hasta</th>
+                                    <th style="text-align: center;">Comisión</th>
                                     <th style="text-align: center;">Acción</th>
-                                </tr>
+                            </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row" style="font-size: 1.5em;">1</th>
+                        <tbody id="listadoNivelPrecio">
 
-                                    <td>
-                                        El Mercadito
-                                    </td>
-                                    <td>$$</td>
-                                    <td class="centrarbotaccion">
-                                        <button title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>
-                                        <button title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button title="Eliminar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>
-                                    </td>
-                            </tr>
-                            <tr>
-                                <th scope="row" style="font-size: 1.5em;">2</th>
-
-                                    <td>
-                                        Zampa
-                                    </td>
-                                    <td>$$$</td>
-                                    <td class="centrarbotaccion">
-                                        <button title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>
-                                        <button title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button title="Eliminar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>
-                                    </td>
-
-                                <tr> <th scope="row" style="font-size: 1.5em;">3</th>
-
-                                    <td>
-                                        Don Mario
-                                    </td>
-                                    <td>$$$$</td>
-                                    <td class="centrarbotaccion">
-                                        <button title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>
-                                        <button title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button title="Eliminar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>
-                                    </td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -131,6 +129,9 @@
     <!-- Contact Form JavaScript -->
     <script src="../js/jqBootstrapValidation.js"></script>
     <script src="../js/contact_me.js"></script>
+
+    <!-- Funciones de Nivel de precio JavaScript -->
+    <script src="js/controladores/nivelPrecio.controlador.js"></script>
 
     <!-- Theme JavaScript -->
     <script src="../js/agency.min.js"></script>
