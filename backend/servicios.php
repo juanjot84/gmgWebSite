@@ -21,7 +21,7 @@
                 <div class="col-md-6" style="text-align: right;">
                     <div class="input-group">
                       <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" style="padding: 17px;"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVO</button>
+                        <button class="btn btn-default" type="button" style="padding: 17px;" onClick="agregarServicio()"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVO</button>
                       </span>
                     </div>
                 </div>
@@ -34,6 +34,33 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
 
+
+            <form action="" id="formularioAgregar" style="display:none">
+
+              <input type="text" name="idServicio" id="idServicio" class="hidden">
+            
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                <input id="nombreServicio" name="nombreServicio" type="text" class="form-control" placeholder="Nombre del Servicio" aria-describedby="sizing-addon3">
+              </div></p>
+            
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                <input id="descripcionServicio" name="descripcionServicio" type="text" class="form-control" placeholder="Descripción del Servicio" aria-describedby="sizing-addon3">
+              </div></p>
+
+             <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                <input id="urlIconoServicio" name="urlIconoServicio" type="text" class="form-control" placeholder="Nombre de Imagen del Servicio" aria-describedby="sizing-addon3">
+              </div></p>
+
+              <div class="input-group">
+                 <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" style="padding: 17px;" onClick="send()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+                </span>
+              </div>
+            </form>
+
                   <!-- Table -->
                   <div class="panel-heading tituloseccion">Servicios</div>
                     <table class="table">
@@ -41,80 +68,12 @@
                             <tr> 
                                 <th >#</th>
                                     <th>Negocio</th>
-                                    <th style="text-align: center;">Servicios</th>
+                                    <th style="text-align: left;">Icono de Servicio</th>
                                     <th style="text-align: center;">Acción</th>
                                 </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row" style="font-size: 1.5em;">1</th>
-
-                                    <td>
-                                        El Mercadito
-                                    </td>
-                                    <td style="display: flex;">
-                                        <img class="img-responsive iconos" src="../img/01-icon-abierto.svg"><img class="img-responsive iconos" src="../img/02-icon-abierto-noche.svg">
-                                        <img class="img-responsive iconos" src="../img/03-icon-acceso.svg">
-                                        <img class="img-responsive iconos" src="../img/04-icon-familia.svg">
-                                        <img class="img-responsive iconos" src="../img/05-icon-aa.svg">
-                                        <img class="img-responsive iconos" src="../img/06-icon-desayuno.svg">
-                                        <img class="img-responsive iconos" src="../img/07-icon-vinocopa.svg">
-                                        <img class="img-responsive iconos" src="../img/08-icon-nogluten.svg">
-                                        <img class="img-responsive iconos" src="../img/09-icon-vegetariana.svg">
-                                        <img class="img-responsive iconos" src="../img/10-icon-tarjeta.svg">
-                                    </td>
-                                    <td class="centrarbotaccion">
-                                        <button title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>
-                                        <button title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button title="Eliminar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>
-                                    </td>
-                            </tr>
-                            <tr>
-                                <th scope="row" style="font-size: 1.5em;">2</th>
-
-                                    <td>
-                                        Zampa
-                                    </td>
-                                    <td style="display: flex;">
-                                        <img class="img-responsive iconos" src="../img/01-icon-abierto.svg">
-                                        <img class="img-responsive iconos" src="../img/02-icon-abierto-noche.svg">
-                                        <img class="img-responsive iconos" src="../img/03-icon-acceso.svg">
-                                        <img class="img-responsive iconos" src="../img/04-icon-familia.svg">
-                                        <img class="img-responsive iconos" src="../img/05-icon-aa.svg">
-                                        <img class="img-responsive iconos" src="../img/06-icon-desayuno.svg">
-                                        <img class="img-responsive iconos" src="../img/07-icon-vinocopa.svg">
-                                        <img class="img-responsive iconos" src="../img/08-icon-nogluten.svg">
-                                        <img class="img-responsive iconos" src="../img/09-icon-vegetariana.svg">
-                                        <img class="img-responsive iconos" src="../img/10-icon-tarjeta.svg">
-                                    </td>
-                                    <td class="centrarbotaccion">
-                                        <button title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>
-                                        <button title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button title="Eliminar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>
-                                    </td>
-
-                                <tr> <th scope="row" style="font-size: 1.5em;">3</th>
-
-                                    <td>
-                                        Don Mario
-                                    </td>
-                                    <td style="display: flex;">
-                                        <img class="img-responsive iconos" src="../img/01-icon-abierto.svg"><img class="img-responsive iconos" src="../img/02-icon-abierto-noche.svg">
-                                        <img class="img-responsive iconos" src="../img/03-icon-acceso.svg">
-                                        <img class="img-responsive iconos" src="../img/04-icon-familia.svg">
-                                        <img class="img-responsive iconos" src="../img/05-icon-aa.svg">
-                                        <img class="img-responsive iconos" src="../img/06-icon-desayuno.svg">
-                                        <img class="img-responsive iconos" src="../img/07-icon-vinocopa.svg">
-                                        <img class="img-responsive iconos" src="../img/08-icon-nogluten.svg">
-                                        <img class="img-responsive iconos" src="../img/09-icon-vegetariana.svg">
-                                        <img class="img-responsive iconos" src="../img/10-icon-tarjeta.svg">
-                                    </td>
-                                    <td class="centrarbotaccion">
-                                        <button title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>
-                                        <button title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button title="Eliminar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>
-                                    </td>
-                            </tr>
+                        <tbody id="listadoServicios">
+                            
                         </tbody>
                     </table>
                 </div>
@@ -162,6 +121,9 @@
     <!-- Contact Form JavaScript -->
     <script src="../js/jqBootstrapValidation.js"></script>
     <script src="../js/contact_me.js"></script>
+
+    <!-- Funcione de Regiones JavaScript -->
+    <script src="js/controladores/servicios.controlador.js"></script>
 
     <!-- Theme JavaScript -->
     <script src="../js/agency.min.js"></script>
