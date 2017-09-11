@@ -59,6 +59,7 @@
        $('#formularioAgregar').show();
        $("#formularioAgregar :input").attr("disabled", false);
        $("#formularioAgregar button").show();
+       $("#idRegion").val(region._id);
        $("#nombreRegion").val(region.nombreRegion);
        $("#descripcionRegion").val(region.descripcionRegion);
     }
@@ -92,27 +93,31 @@
     }
     
     function agregarRegion(){
-        $('#formularioAgregar').show();
+       $('#formularioAgregar').show();
        $("#formularioAgregar :input").attr("disabled", false);
        $("#formularioAgregar button").show();
+       $("#idRegion").val('');
     }
 
     function send() {
+        var operacion = _.isNil($("#idRegion").val()) ? "POST": "PUT";
         var region = JSON.stringify({
             "nombreRegion": $("#nombreRegion").val(),
             "descripcionRegion":$("#descripcionRegion").val()
         });
 
         $('#target').html('sending..');
-
+        var queryParam = _.isNil($("#idRegion").val()) ? "": "?id=" + $("#idRegion").val();
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/region',
-            type: 'POST',
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/region' + queryParam,
+            type: operacion,
             
             dataType: "json",
             crossDomain: true,
             contentType:"application/json",
             success: function (data) {
+                $('#formularioAgregar').hide();
+                $("#formularioAgregar :input").val('');
                 obtenerListado() ;
             },
             error:function(jqXHR,textStatus,errorThrown)

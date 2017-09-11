@@ -35,7 +35,9 @@
             <div class="panel panel-default">
 
             <form action="" id="formularioAgregar" style="display:none">
-              <input type="test" name="id" id="idRegion" class="hidden">
+
+              <input type="text" name="id" id="idRegion" class="hidden">
+            
               <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
                 <input id="nombreRegion" name="nombreRegion" type="text" class="form-control" placeholder="Nombre de la Region" aria-describedby="sizing-addon3">
@@ -119,7 +121,7 @@
 <script src="../js/agency.min.js"></script>
 
 <!-- Funcione de Regiones JavaScript -->
-<script src="js/regiones.js"></script>
+<script src="js/controladores/regiones.controlador.js"></script>
 
 </body>
 
