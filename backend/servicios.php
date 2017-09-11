@@ -122,7 +122,7 @@
     <script src="../js/jqBootstrapValidation.js"></script>
     <script src="../js/contact_me.js"></script>
 
-    <!-- Funcione de Regiones JavaScript -->
+    <!-- Funciones de Servicios JavaScript -->
     <script src="js/controladores/servicios.controlador.js"></script>
 
     <!-- Theme JavaScript -->
