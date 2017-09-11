@@ -99,6 +99,11 @@
        $("#idRegion").val('');
     }
 
+    function blanquearImputs(){
+      document.formularioAgregar.nombreRegion.value = '';
+      document.formularioAgregar.descripcionRegion.value = '';
+    }
+
     function send() {
         var operacion = _.isNil($("#idRegion").val()) ? "POST": "PUT";
         var region = JSON.stringify({
@@ -125,4 +130,5 @@
           },
           data: region
       });
+      //  blanquearImputs();
     }
