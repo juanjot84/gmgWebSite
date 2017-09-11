@@ -130,7 +130,8 @@
     }
 
     function send() {
-        var operacion = _.isNil($("#idPolo").val())  ? "POST": "PUT";
+        var isNew =$("#idPolo").val() == '';
+        var operacion = isNew  ? "POST": "PUT";
         var polo = JSON.stringify({
             "nombrePoloGastronomico": $("#nombrePoloGastronomico").val(),
             "idRegion":$("#comboRegiones").val(),
@@ -139,7 +140,7 @@
         });
 
         $('#target').html('sending..');
-        var queryParam = _.isNil($("#idPolo").val()) ? "": "?id=" + $("#idPolo").val();
+        var queryParam = isNew  ? "": "?id=" + $("#idPolo").val();
         $.ajax({
             url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/polo' + queryParam,
             type: operacion,

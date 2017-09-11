@@ -105,14 +105,15 @@
     }
 
     function send() {
-        var operacion = _.isNil($("#idRegion").val()) ? "POST": "PUT";
+        var isNew = $("#idRegion").val() == "";
+        var operacion = isNew ? "POST": "PUT";
         var region = JSON.stringify({
             "nombreRegion": $("#nombreRegion").val(),
             "descripcionRegion":$("#descripcionRegion").val()
         });
 
         $('#target').html('sending..');
-        var queryParam = _.isNil($("#idRegion").val()) ? "": "?id=" + $("#idRegion").val();
+        var queryParam = isNew  ? "": "?id=" + $("#idRegion").val();
         $.ajax({
             url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/region' + queryParam,
             type: operacion,
