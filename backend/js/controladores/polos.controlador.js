@@ -60,6 +60,7 @@
     }
 
     function popularDropdown(){
+      $('#comboRegiones').html('');
       _.each(regiones, function (region){
         $('<option>').val(region._id).text(region.nombreRegion).appendTo('#comboRegiones')
       })
