@@ -22,6 +22,7 @@
             </div>
             <!-- /.navbar-collapse -->
         </div>
+        
         <!-- /.container-fluid -->
     </nav>
 
@@ -89,7 +90,7 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Formas de pago <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="forma-de-pago.php">Listar</a></li>
+                    <li><a href="medio-de-pago.php">Listar</a></li>
                     <li><a href="#">Crear nuevo</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="#">Otra acción</a></li>
@@ -107,7 +108,7 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Descuentos <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="descripcion.php">Listar</a></li>
+                    <li><a href="descuentos.php">Listar</a></li>
                     <li><a href="#">Crear nuevo</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="#">Otra acción</a></li>
@@ -116,8 +117,8 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Restaurants<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="alta-restaurant.php">Listar</a></li>
-                    <li><a href="#">Crear nuevo</a></li>
+                    <li><a href="restaurants.php">Listar</a></li>
+                    <li><a href="alta-restaurant.php">Crear nuevo</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="#">Otra acción</a></li>
                   </ul>
@@ -125,8 +126,8 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Negocios<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Restaurant</a></li>
-                    <li><a href="#">Negocio</a></li>
+                    <li><a href="negocios.php">Listar</a></li>
+                    <li><a href="alta-negocio.php">Crear nuevo</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="#">Perfil</a></li>
                   </ul>
