@@ -17,29 +17,29 @@
         });
 
     });
-    var nivelPrecios;
+    var descuentos;
 
     obtenerListado();
 
     function obtenerListado() {
-        $('#listadoNivelPrecio').html('');
+        $('#listadoDescuentos').html('');
         $('#target').html('obteniendo...');       
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/nivelPrecio',
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/descuento',
             type: 'GET',
             
             dataType: "json",
             crossDomain: true,
             contentType:"application/json",
             success: function (data) {
-                nivelPrecios = data;              
-              _.each(nivelPrecios, function(nivelPrecio){
-                $('#listadoNivelPrecio').append(' <tr>' +
+                descuentos = data;              
+              _.each(data, function(descuento){
+                $('#listadoDescuentos').append(' <tr>' +
                     '<th scope="row" style="font-size: 1.5em;">1</th>' +
-                    '<td>' +nivelPrecio.label+ '</td><td>'+ nivelPrecio.valorInicial +'</td><td>'+ nivelPrecio.valorFinal +'</td><td>'+ nivelPrecio.valorComision +'</td>  <td class="centrarbotaccion">'+
-                    '<button onClick="mostrar(\'' + nivelPrecio._id + '\')" title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>' +
-                    '<button onClick="editar(\'' + nivelPrecio._id + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button> ' +
-                    '<button title="Eliminar" onClick="eliminar(\'' + nivelPrecio._id + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +
+                    '<td>' +descuento.nombreRegion+ '</td><td class="centrarbotaccion">' +
+                    '<button onClick="mostrar(\'' + descuento._id + '\')" title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>' +
+                    '<button onClick="editar(\'' + descuento._id + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button> ' +
+                    '<button title="Eliminar" onClick="eliminar(\'' + descuento._id + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +
                     '</td> ' +
                     '</tr>');
             }) 
@@ -53,33 +53,31 @@
       });
     }
 
-    function editar(idNivelPrecio){
-       var nivelPrecio =  _.find(nivelPrecios, { '_id': idNivelPrecio});
+    function editar(idRegion){
+       var region =  _.find(regiones, { '_id': idRegion});
+       console.log(region);
        $('#formularioAgregar').show();
        $("#formularioAgregar :input").attr("disabled", false);
        $("#formularioAgregar button").show();
-       $("#idNivelPrecio").val(nivelPrecio._id);
-       $("#label").val(nivelPrecio.label);
-       $("#valorInicial").val(nivelPrecio.valorInicial);
-       $("#valorFinal").val(nivelPrecio.valorFinal);
-       $("#valorComision").val(nivelPrecio.valorComision);
+       $("#idRegion").val(region._id);
+       $("#nombreRegion").val(region.nombreRegion);
+       $("#descripcionRegion").val(region.descripcionRegion);
     }
 
-    function mostrar(idNivelPrecio){
-       var nivelPrecio =  _.find(nivelPrecios, { '_id': idNivelPrecio});
+    function mostrar(idRegion){
+       var region =  _.find(regiones, { '_id': idRegion});
+       console.log(region);
        $('#formularioAgregar').show();
        $("#formularioAgregar :input").attr("disabled", true);
        $("#formularioAgregar button").hide();
-       $("#label").val(nivelPrecio.label);
-       $("#valorInicial").val(nivelPrecio.valorInicial);
-       $("#valorFinal").val(nivelPrecio.valorFinal);
-       $("#valorComision").val(nivelPrecio.valorComision);
-       $("#idNivelPrecio").val(nivelPrecio._id);
+       $("#nombreRegion").val(region.nombreRegion);
+       $("#descripcionRegion").val(region.descripcionRegion);
+       $("#idRegion").val(region._id);
     }
 
-    function eliminar(idNivelPrecio){
+    function eliminar(idRegion){
        $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/nivelPrecio?id=' + idNivelPrecio,
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/region?id=' + idRegion,
             type: 'DELETE',
             
             dataType: "json",
@@ -94,27 +92,25 @@
       });    
     }
     
-    function agregarNivelPrecio(){
+    function agregarRegion(){
        $('#formularioAgregar').show();
        $("#formularioAgregar :input").attr("disabled", false);
        $("#formularioAgregar button").show();
-       $("#idNivelPrecio").val('');
+       $("#idRegion").val('');
     }
 
     function send() {
-        var isNew = $("#idNivelPrecio").val() == "";
+        var isNew = $("#idRegion").val() == "";
         var operacion = isNew ? "POST": "PUT";
-        var nivelPrecio = JSON.stringify({
-            "label": $("#label").val(),
-            "valorInicial":$("#valorInicial").val(),
-            "valorFinal":$("#valorFinal").val(),
-            "valorComision":$("#valorComision").val()
+        var region = JSON.stringify({
+            "nombreRegion": $("#nombreRegion").val(),
+            "descripcionRegion":$("#descripcionRegion").val()
         });
 
         $('#target').html('sending..');
-        var queryParam = isNew  ? "": "?id=" + $("#idNivelPrecio").val();
+        var queryParam = isNew  ? "": "?id=" + $("#idRegion").val();
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/nivelPrecio' + queryParam,
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/region' + queryParam,
             type: operacion,
             
             dataType: "json",
@@ -128,6 +124,6 @@
             error:function(jqXHR,textStatus,errorThrown)
             {
           },
-          data: nivelPrecio
+          data: region
       }); 
     }

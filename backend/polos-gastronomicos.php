@@ -71,45 +71,8 @@
                 </tr>
             </thead>
             <tbody  id="listadoPolos">
-                <tr>
-                    <th scope="row" style="font-size: 1.5em;">1</th>
 
-                    <td>
-                        Peatonal Sarmiento
-                    </td>
-                    <td>Mendoza</td>
-                    <td class="centrarbotaccion">
-                        <button title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>
-                        <button title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                        <button title="Eliminar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row" style="font-size: 1.5em;">2</th>
-
-                    <td>
-                        Av. Juan B. Justo
-                    </td>
-                    <td>Mendoza</td>
-                    <td class="centrarbotaccion">
-                        <button title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>
-                        <button title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                        <button title="Eliminar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>
-                    </td>
-
-                    <tr> <th scope="row" style="font-size: 1.5em;">3</th>
-
-                        <td>
-                            Av. San Martín Sur
-                        </td>
-                        <td>Mendoza</td>
-                        <td class="centrarbotaccion">
-                            <button title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>
-                            <button title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                            <button title="Eliminar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>
-                        </td>
-                    </tr>
-                </tbody>
+            </tbody>
             </table>
         </div>
     </div>
@@ -119,31 +82,32 @@
 <div class="container">
     <div class="row">
         <nav aria-label="Page navigation">
-          <ul class="pagination">
-            <li>
-              <a href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-            </a>
-        </li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li>
-          <a href="#" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-        </a>
-    </li>
-</ul>
-</nav>
+            <ul class="pagination">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </div>
 <div class="container" style="padding-top: 2%; padding-bottom: 1%;">   
 </div>
 
 <?php include("includes/footer.php"); ?>
 
-c
+
 <!-- jQuery -->
 <script src="../vendor/jquery/jquery.min.js"></script>
 
