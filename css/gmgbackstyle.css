@@ -20,6 +20,9 @@ header {
     color: #ffff00 !important;
     outline: 0;
 }
+.navbar-default .navbar-nav>li>a {
+    color: #000;
+}
 .btn-xl {
     color: #111 !important;
     background-color: #FFED00 !important;
@@ -369,7 +372,7 @@ td {
 }
 
 .nav>li>a {
-    padding: 10px 13px;
+    padding: 10px 9px;
 }
 
 .form-control {
@@ -440,7 +443,7 @@ h5.titulosalta {
 }
 
 
-/*MEDIA QUERIES*/
+/*MEDIA  QUERIES*/
 
 
 @media only screen and (max-width : 425px) {

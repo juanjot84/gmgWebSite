@@ -22,8 +22,7 @@
             </div>
             <!-- /.navbar-collapse -->
         </div>
-        
-        <!-- /.container-fluid -->
+        <!-- /.container-fluid   -->
     </nav>
 
     <div class="container-fluid" style="margin-top: 90px; padding: 0;">
@@ -43,76 +42,34 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tipo de negocio <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="tipo-de-negocio.php">Listar</a></li>
-                    <li><a href="#">Crear nuevo</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Otra acción</a></li>
-                  </ul>
+                  <a href="tipo-de-negocio.php" role="button" aria-haspopup="true" aria-expanded="false">Tipo de negocio <span class="caret"></span></a>
                 </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Regiones <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="regiones.php">Listar</a></li>
-                    <li><a href="#">Crear nuevo</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Otra acción</a></li>
-                  </ul>
+                <li>
+                  <a href="regiones.php" role="button" aria-haspopup="true" aria-expanded="false">Regiones <span class="caret"></span></a>
                 </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Polos <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="polos-gastronomicos.php">Listar</a></li>
-                    <li><a href="#">Crear nuevo</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Otra acción</a></li>
-                  </ul>
+                <li>
+                  <a href="polos-gastronomicos.php" role="button" aria-haspopup="true" aria-expanded="false">Polos<span class="caret"></span></a>
                 </li>
-                <li class="dropdown">
-                  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cocina <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="tipo-de-cocina.php">Listar</a></li>
-                    <li><a href="#">Crear nuevo</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Otra acción</a></li>
-                  </ul>
+                <li>
+                  <a href="tipo-de-cocina.php" role="button" aria-haspopup="true" aria-expanded="false">Cocina<span class="caret"></span></a>
                 </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Servicios<span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="servicios.php">Listar</a></li>
-                    <li><a href="#">Crear nuevo</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Otra acción</a></li>
-                  </ul>
+                <li>
+                  <a href="especialidades.php" role="button" aria-haspopup="true" aria-expanded="false">Especialidades<span class="caret"></span></a>
                 </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Formas de pago <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="medio-de-pago.php">Listar</a></li>
-                    <li><a href="#">Crear nuevo</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Otra acción</a></li>
-                  </ul>
+                <li>
+                  <a href="ocasiones.php" role="button" aria-haspopup="true" aria-expanded="false">Ocasiones<span class="caret"></span></a>
                 </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Precio <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="nivel-de-precio.php">Listar</a></li>
-                    <li><a href="#">Crear nuevo</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Otra acción</a></li>
-                  </ul>
+                <li>
+                  <a href="servicios.php" role="button" aria-haspopup="true" aria-expanded="false">Servicios<span class="caret"></span></a>
                 </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Descuentos <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="descuentos.php">Listar</a></li>
-                    <li><a href="#">Crear nuevo</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Otra acción</a></li>
-                  </ul>
+                <li>
+                  <a href="medio-de-pago.php" role="button" aria-haspopup="true" aria-expanded="false">Formas de pago <span class="caret"></span></a>
+                </li>
+                <li>
+                  <a href="nivel-de-precio.php" role="button" aria-haspopup="true" aria-expanded="false">Precio <span class="caret"></span></a>
+                </li>
+                <li>
+                  <a href="descuentos.php" role="button" aria-haspopup="true" aria-expanded="false">Descuentos <span class="caret"></span></a>
                 </li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Restaurants<span class="caret"></span></a>

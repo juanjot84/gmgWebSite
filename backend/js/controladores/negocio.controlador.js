@@ -1,0 +1,153 @@
+
+    $(function() {
+
+        $('#login-form-link').click(function(e) {
+            $("#login-form").delay(100).fadeIn(100);
+            $("#register-form").fadeOut(100);
+            $('#register-form-link').removeClass('active');
+            $(this).addClass('active');
+            e.preventDefault();
+        });
+        $('#register-form-link').click(function(e) {
+            $("#register-form").delay(100).fadeIn(100);
+            $("#login-form").fadeOut(100);
+            $('#login-form-link').removeClass('active');
+            $(this).addClass('active');
+            e.preventDefault();
+        });
+
+    });
+    var negocios;
+
+    obtenerListado();
+
+    function obtenerListado() {
+        $('#listadoNegocios').html('');
+        $('#target').html('obteniendo...');       
+        $.ajax({
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/negocio',
+            type: 'GET',
+            
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+                negocios = data;              
+              _.each(data, function(negocio){
+                $('#listadoNegocios').append(' <tr>' +
+                    '<th scope="row" style="font-size: 1.5em;">1</th>' +
+                    '<td>' +negocio.nombreNegocio+ '</td><td>' + negocio.descripcionNegocio+ '</td><td class="centrarbotaccion">' +
+                    '<button onClick="mostrar(\'' + negocio._id + '\')" title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>' +
+                    '<button onClick="editar(\'' + negocio._id + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button> ' +
+                    '<button title="Eliminar" onClick="eliminar(\'' + negocio._id + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +
+                    '</td> ' +
+                    '</tr>');
+            }) 
+          },
+          error:function(jqXHR,textStatus,errorThrown)
+          {
+              $('#target').append("jqXHR: "+jqXHR);
+              $('#target').append("textStatus: "+textStatus);
+              $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+          },
+      });
+    }
+
+    function editar(idNegocio){
+       var negocio =  _.find(negocios, { '_id': idNegocio});
+       console.log(negocio);
+       $('#formularioAgregar').show();
+       $("#formularioAgregar :input").attr("disabled", false);
+       $("#formularioAgregar button").show();
+       $("#nombreNegocio").val(negocio.nombreNegocio);
+       $("#descripcionNegocio").val(negocio.descripcionNegocio);
+       $("#destacadoNegocio").val(negocio.destacadoNegocio);
+       $("#urlIconoNegocio").val(negocio.urlIconoNegocio);
+       $("#tipoNegocio").val(negocio.tipoNegocio);
+       $("#tagsNegocio").val(negocio.tagsNegocio);
+       $("#tripadvisorNegocio").val(negocio.tripadvisorNegocio);
+       $("#twitterNegocio").val(negocio.twitterNegocio);
+       $("#instagramNegocio").val(negocio.instagramNegocio);
+       $("#facebookNegocio").val(negocio.facebookNegocio);
+       $("#idNegocio").val(negocio._id);
+    }
+
+    function mostrar(idNegocio){
+       var negocio =  _.find(negocios, { '_id': idNegocio});
+       console.log(negocio);
+       $('#formularioAgregar').show();
+       $("#formularioAgregar :input").attr("disabled", true);
+       $("#formularioAgregar button").hide();
+       $("#nombreNegocio").val(negocio.nombreNegocio);
+       $("#descripcionNegocio").val(negocio.descripcionNegocio);
+       $("#destacadoNegocio").val(negocio.destacadoNegocio);
+       $("#urlIconoNegocio").val(negocio.urlIconoNegocio);
+       $("#tipoNegocio").val(negocio.tipoNegocio);
+       $("#tagsNegocio").val(negocio.tagsNegocio);
+       $("#tripadvisorNegocio").val(negocio.tripadvisorNegocio);
+       $("#twitterNegocio").val(negocio.twitterNegocio);
+       $("#instagramNegocio").val(negocio.instagramNegocio);
+       $("#facebookNegocio").val(negocio.facebookNegocio);
+       $("#idNegocio").val(negocio._id);
+    }
+
+    function eliminar(idRegion){
+       $.ajax({
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/negocio?id=' + idNegocio,
+            type: 'DELETE',
+            
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+            },
+            error:function(jqXHR,textStatus,errorThrown)
+            {
+              obtenerListado();
+          }
+      });    
+    }
+    
+    function agregarNegocio(){
+       $('#formularioAgregar').show();
+       $("#formularioAgregar :input").attr("disabled", false);
+       $("#formularioAgregar button").show();
+       $("#idNegocio").val('');
+    }
+
+    function send() {
+        var isNew = $("#idNegocio").val() == "";
+        var operacion = isNew ? "POST": "PUT";
+        var negocio = JSON.stringify({
+            "nombreNegocio": $("#nombreNegocio").val(),
+            "descripcionNegocio": $("#descripcionNegocio").val(),
+            "destacadoNegocio": $('input[name=destacadoNegocio]:checked', '#formularioAgregar').val(),
+            "urlIconoNegocio": $("#urlIconoNegocio").val(),
+            "tipoNegocio": $("#tipoNegocio").val(),
+            "tagsNegocio":$("#tagsNegocio").val(),
+            "tripadvisorNegocio":$("#tripadvisorNegocio").val(),
+            "twitterNegocio":$("#twitterNegocio").val(),
+            "instagramNegocio":$("#instagramNegocio").val(),
+            "facebookNegocio":$("#facebookNegocio").val()
+        });
+
+        $('#target').html('sending..');
+        var queryParam = isNew  ? "": "?id=" + $("#idNegocio").val();
+        $.ajax({
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/negocio' + queryParam,
+            type: operacion,
+            
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+                $('#formularioAgregar').hide();
+                $("#formularioAgregar :input").val('');
+                obtenerListado() ;
+            },
+            error:function(jqXHR,textStatus,errorThrown)
+            {
+          },
+          data: negocio
+      }); 
+    }
