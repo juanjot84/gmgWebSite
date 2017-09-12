@@ -21,7 +21,7 @@
             <div class="col-md-6" style="text-align: right;">
                 <div class="input-group">
                   <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" style="padding: 17px;" onClick="agregarPolo()"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVO</button>
+                    <button class="btn btn-default" type="button" style="padding: 17px;" onClick="agregarProvincia()"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVO</button>
                 </span>
             </div>
         </div>
@@ -36,21 +36,21 @@
             <div class="panel panel-default">
                 <form action="" id="formularioAgregar" style="display:none">
 
-                  <input type="text" name="id" id="idPolo" class="hidden">
+                  <input type="text" name="idProvincia" id="idProvincia" class="hidden">
 
                   <p><div class="input-group input-group-sm">
                     <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                    <input id="nombrePoloGastronomico" name="nombrePoloGastronomico" type="text" class="form-control" placeholder="Nombre del Polo" aria-describedby="sizing-addon3">
+                    <input id="nombreProvincia" name="nombreProvincia" type="text" class="form-control" placeholder="Nombre de la Provincia" aria-describedby="sizing-addon3">
                 </div></p>
 
                 <p><div class="input-group input-group-sm">
                     <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                    <input id="descripcionPoloGastronomico" name="descripcionPoloGastronomico" type="text" class="form-control" placeholder="Descripción del Polo" aria-describedby="sizing-addon3">
+                    <input id="codigoProvincia" name="codigoProvincia" type="text" class="form-control" placeholder="Código de la Provincia" aria-describedby="sizing-addon3">
                 </div></p>
 
                 <p><div class="input-group input-group-sm">
                     <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                    <select id="comboRegiones" class="form-control"></select>
+                    <select id="comboPaises" class="form-control"></select>
                 </div></p>
 
                 <div class="input-group">
@@ -60,17 +60,17 @@
               </div>
           </form>
           <!-- Table -->
-          <div class="panel-heading tituloseccion">Polos gastronómicos</div>
+          <div class="panel-heading tituloseccion">Provincias</div>
           <table class="table">
             <thead class="titulotabla">
                 <tr> 
                     <th >#</th>
-                    <th>Polos gastronómicos</th>
-                    <th>Región</th>
+                    <th>Provincias</th>
+                    <th>Pais</th>
                     <th style="text-align: center;">Acción</th>
                 </tr>
             </thead>
-            <tbody  id="listadoPolos">
+            <tbody  id="listadoProvincias">
 
             </tbody>
             </table>
@@ -131,7 +131,7 @@
 
 </script>
 
-<script src="js/controladores/polos.controlador.js"></script>
+<script src="js/controladores/provincia.controlador.js"></script>
 
 </body>
 

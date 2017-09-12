@@ -56,12 +56,12 @@
             </form>
 
               <!-- Table -->
-              <div class="panel-heading tituloseccion">Regiones</div>
+              <div class="panel-heading tituloseccion">Paises</div>
                   <table class="table">
                     <thead class="titulotabla">
                         <tr> 
                             <th >#</th>
-                            <th >Regiones</th>
+                            <th >Paises</th>
                             <th style="text-align: center;">Acción</th>
                         </tr>
                     </thead>
