@@ -21,7 +21,7 @@
                 <div class="col-md-6" style="text-align: right;">
                     <div class="input-group">
                       <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" style="padding: 17px;"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVO</button>
+                        <button class="btn btn-default" type="button" style="padding: 17px;" onClick="agregarDescuento()"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVO</button>
                       </span>
                     </div>
                 </div>
@@ -33,6 +33,52 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
+
+            <form action="" id="formularioAgregar" style="display:none">
+
+              <input type="text" name="idDescuento" id="idDescuento" class="hidden">
+            
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                <input id="nombreDescuento" name="nombreDescuento" type="text" class="form-control" placeholder="Nombre del descuento" aria-describedby="sizing-addon3">
+              </div></p>
+            
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                <input id="descripcionDescuento" name="descripcionDescuento" type="text" class="form-control" placeholder="Descripción del Descuento" aria-describedby="sizing-addon3">
+              </div></p>
+
+             <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                <input id="porcentajeDescuento" name="porcentajeDescuento" type="text" class="form-control" placeholder="Porcentaje de Descuento" aria-describedby="sizing-addon3">
+              </div></p>
+
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                <input id="condicionDescuento" name="condicionDescuento" type="text" class="form-control" placeholder="Condición de Descuento" aria-describedby="sizing-addon3">
+              </div></p> 
+
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                <input id="diaDescuento" name="diaDescuento" type="text" class="form-control" placeholder="Dias del Descuento" aria-describedby="sizing-addon3">
+              </div></p>
+
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                <input id="horaDesdeDescuento" name="horaDesdeDescuento" type="text" class="form-control" placeholder="Hora desde del Descuento HH:MM" aria-describedby="sizing-addon3">
+              </div></p>
+
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                <input id="horaHastaDescuento" name="horaHastaDescuento" type="text" class="form-control" placeholder="Hora hasta del Descuento HH:MM" aria-describedby="sizing-addon3">
+              </div></p>
+
+              <div class="input-group">
+                 <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" style="padding: 17px;" onClick="send()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+                </span>
+              </div>
+            </form>
 
                   <!-- Table -->
                   <div class="panel-heading tituloseccion">Descuentos</div>
@@ -48,21 +94,6 @@
                         </thead>
                         <tbody id="listadoDescuentos">
 
-
-                            <tr>
-                                <th scope="row" style="font-size: 1.5em;">1</th>
-
-                                    <td>
-                                        2x1
-                                    </td>
-                                    <td>Descripción</td>
-                                    <td>0%</td>
-                                    <td class="centrarbotaccion">
-                                        <button title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>
-                                        <button title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button title="Eliminar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>
-                                    </td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -110,6 +141,9 @@
     <!-- Contact Form JavaScript -->
     <script src="../js/jqBootstrapValidation.js"></script>
     <script src="../js/contact_me.js"></script>
+
+    <!-- Funciones de Descuento JavaScript -->
+    <script src="js/controladores/descuento.controlador.js"></script>
 
     <!-- Theme JavaScript -->
     <script src="../js/agency.min.js"></script>

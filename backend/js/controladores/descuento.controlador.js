@@ -36,7 +36,7 @@
               _.each(data, function(descuento){
                 $('#listadoDescuentos').append(' <tr>' +
                     '<th scope="row" style="font-size: 1.5em;">1</th>' +
-                    '<td>' +descuento.nombreRegion+ '</td><td class="centrarbotaccion">' +
+                    '<td>' +descuento.nombreDescuento+ '</td><td>' +descuento.descripcionDescuento+ '</td><td>' +descuento.porcentajeDescuento+ '</td><td class="centrarbotaccion">' +
                     '<button onClick="mostrar(\'' + descuento._id + '\')" title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>' +
                     '<button onClick="editar(\'' + descuento._id + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button> ' +
                     '<button title="Eliminar" onClick="eliminar(\'' + descuento._id + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +
@@ -53,31 +53,41 @@
       });
     }
 
-    function editar(idRegion){
-       var region =  _.find(regiones, { '_id': idRegion});
-       console.log(region);
+    function editar(idDescuento){
+       var descuento =  _.find(descuentos, { '_id': idDescuento});
+       console.log(descuento);
        $('#formularioAgregar').show();
        $("#formularioAgregar :input").attr("disabled", false);
        $("#formularioAgregar button").show();
-       $("#idRegion").val(region._id);
-       $("#nombreRegion").val(region.nombreRegion);
-       $("#descripcionRegion").val(region.descripcionRegion);
+       $("#nombreDescuento").val(descuento.nombreDescuento);
+       $("#descripcionDescuento").val(descuento.descripcionDescuento);
+       $("#porcentajeDescuento").val(descuento.porcentajeDescuento);
+       $("#condicionDescuento").val(descuento.condicionDescuento);
+       $("#diaDescuento").val(descuento.diaDescuento);
+       $("#horaDesdeDescuento").val(descuento.horaDesdeDescuento);
+       $("#horaHastaDescuento").val(descuento.horaHastaDescuento);
+       $("#idDescuento").val(descuento._id);
     }
 
-    function mostrar(idRegion){
-       var region =  _.find(regiones, { '_id': idRegion});
-       console.log(region);
+    function mostrar(idDescuento){
+       var descuento =  _.find(descuentos, { '_id': idDescuento});
+       console.log(descuento);
        $('#formularioAgregar').show();
        $("#formularioAgregar :input").attr("disabled", true);
        $("#formularioAgregar button").hide();
-       $("#nombreRegion").val(region.nombreRegion);
-       $("#descripcionRegion").val(region.descripcionRegion);
-       $("#idRegion").val(region._id);
+       $("#nombreDescuento").val(descuento.nombreDescuento);
+       $("#descripcionDescuento").val(descuento.descripcionDescuento);
+       $("#porcentajeDescuento").val(descuento.porcentajeDescuento);
+       $("#condicionDescuento").val(descuento.condicionDescuento);
+       $("#diaDescuento").val(descuento.diaDescuento);
+       $("#horaDesdeDescuento").val(descuento.horaDesdeDescuento);
+       $("#horaHastaDescuento").val(descuento.horaHastaDescuento);
+       $("#idDescuento").val(descuento._id);
     }
 
-    function eliminar(idRegion){
+    function eliminar(idDescuento){
        $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/region?id=' + idRegion,
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/descuento?id=' + idDescuento,
             type: 'DELETE',
             
             dataType: "json",
@@ -92,25 +102,30 @@
       });    
     }
     
-    function agregarRegion(){
+    function agregarDescuento(){
        $('#formularioAgregar').show();
        $("#formularioAgregar :input").attr("disabled", false);
        $("#formularioAgregar button").show();
-       $("#idRegion").val('');
+       $("#idDescuento").val('');
     }
 
     function send() {
-        var isNew = $("#idRegion").val() == "";
+        var isNew = $("#idDescuento").val() == "";
         var operacion = isNew ? "POST": "PUT";
-        var region = JSON.stringify({
-            "nombreRegion": $("#nombreRegion").val(),
-            "descripcionRegion":$("#descripcionRegion").val()
+        var descuento = JSON.stringify({
+            "nombreDescuento": $("#nombreDescuento").val(),
+            "descripcionDescuento":$("#descripcionDescuento").val(),
+            "porcentajeDescuento":$("#porcentajeDescuento").val(),
+            "condicionDescuento":$("#condicionDescuento").val(),
+            "diaDescuento":$("#diaDescuento").val(),
+            "horaDesdeDescuento":$("#horaDesdeDescuento").val(),
+            "horaHastaDescuento":$("#horaHastaDescuento").val()
         });
 
         $('#target').html('sending..');
-        var queryParam = isNew  ? "": "?id=" + $("#idRegion").val();
+        var queryParam = isNew  ? "": "?id=" + $("#idDescuento").val();
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/region' + queryParam,
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/descuento' + queryParam,
             type: operacion,
             
             dataType: "json",
@@ -124,6 +139,6 @@
             error:function(jqXHR,textStatus,errorThrown)
             {
           },
-          data: region
+          data: descuento
       }); 
     }
