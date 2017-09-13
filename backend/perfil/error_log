@@ -1,0 +1,6 @@
+[12-Sep-2017 11:31:42 America/Chicago] PHP Warning:  include(../../includes/head.php): failed to open stream: No such file or directory in /home/gmg/public_html/gmg/backend/perfil/mi-perfil.php on line 1
+[12-Sep-2017 11:31:42 America/Chicago] PHP Warning:  include(../../includes/head.php): failed to open stream: No such file or directory in /home/gmg/public_html/gmg/backend/perfil/mi-perfil.php on line 1
+[12-Sep-2017 11:31:42 America/Chicago] PHP Warning:  include(): Failed opening '../../includes/head.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home/gmg/public_html/gmg/backend/perfil/mi-perfil.php on line 1
+[12-Sep-2017 11:34:08 America/Chicago] PHP Warning:  include(../../includes/head.php): failed to open stream: No such file or directory in /home/gmg/public_html/gmg/backend/perfil/mi-perfil.php on line 1
+[12-Sep-2017 11:34:08 America/Chicago] PHP Warning:  include(../../includes/head.php): failed to open stream: No such file or directory in /home/gmg/public_html/gmg/backend/perfil/mi-perfil.php on line 1
+[12-Sep-2017 11:34:08 America/Chicago] PHP Warning:  include(): Failed opening '../../includes/head.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home/gmg/public_html/gmg/backend/perfil/mi-perfil.php on line 1
