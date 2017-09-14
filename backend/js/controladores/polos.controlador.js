@@ -46,9 +46,8 @@
                           '<button title="Eliminar" onClick="eliminar(\'' + polo._id + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +
                           '</td> ' +
                           '</tr>');
-                  }) ;
-                });    
-              
+                  });
+                });            
           },
           error:function(jqXHR,textStatus,errorThrown)
           {

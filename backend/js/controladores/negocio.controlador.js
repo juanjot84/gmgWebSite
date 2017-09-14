@@ -18,6 +18,7 @@
 
     });
     var negocios;
+    var tipoNegocios;
 
     obtenerListado();
 
@@ -32,7 +33,7 @@
             crossDomain: true,
             contentType:"application/json",
             success: function (data) {
-                negocios = data;              
+                negocios = data;          
               _.each(data, function(negocio){
                 $('#listadoNegocios').append(' <tr>' +
                     '<th scope="row" style="font-size: 1.5em;">1</th>' +
@@ -42,7 +43,8 @@
                     '<button title="Eliminar" onClick="eliminar(\'' + negocio._id + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +
                     '</td> ' +
                     '</tr>');
-            }) 
+               
+              });
           },
           error:function(jqXHR,textStatus,errorThrown)
           {
@@ -56,6 +58,10 @@
     function editar(idNegocio){
        var negocio =  _.find(negocios, { '_id': idNegocio});
        console.log(negocio);
+      obtenerListadoTipoNegocios().done(function(data){
+            tipoNegocios= data
+              
+      popularDropdown(negocio.idTipoNegocio);
        $('#formularioAgregar').show();
        $("#formularioAgregar :input").attr("disabled", false);
        $("#formularioAgregar button").show();
@@ -63,13 +69,14 @@
        $("#descripcionNegocio").val(negocio.descripcionNegocio);
        $("#destacadoNegocio").val(negocio.destacadoNegocio);
        $("#urlIconoNegocio").val(negocio.urlIconoNegocio);
-       $("#tipoNegocio").val(negocio.tipoNegocio);
+       //$("#tipoNegocio").val(negocio.tipoNegocio);
        $("#tagsNegocio").val(negocio.tagsNegocio);
        $("#tripadvisorNegocio").val(negocio.tripadvisorNegocio);
        $("#twitterNegocio").val(negocio.twitterNegocio);
        $("#instagramNegocio").val(negocio.instagramNegocio);
        $("#facebookNegocio").val(negocio.facebookNegocio);
        $("#idNegocio").val(negocio._id);
+       })
     }
 
     function mostrar(idNegocio){
@@ -107,12 +114,38 @@
           }
       });    
     }
+
+    function popularDropdown(idTipoNegocio){
+      $('#tipoNegocio').html('');
+      _.each(tipoNegocios, function (tipoNegocio){;
+        var option = $('<option>').val(tipoNegocio._id).text(tipoNegocio.nombreTipoNegocio);
+        if (idTipoNegocio==tipoNegocio._id)
+        option.attr('selected', 'selected');
+        option.appendTo('#tipoNegocio');
+      });
+    }
+
+    function obtenerListadoTipoNegocios() {   
+        return $.ajax({
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/tipoNegocio',
+            type: 'GET',
+            
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+               return data;
+            } 
+      });
+    }
+
     
     function agregarNegocio(){
        $('#formularioAgregar').show();
        $("#formularioAgregar :input").attr("disabled", false);
        $("#formularioAgregar button").show();
        $("#idNegocio").val('');
+       popularDropdown();
     }
 
     function send() {
@@ -123,7 +156,7 @@
             "descripcionNegocio": $("#descripcionNegocio").val(),
             "destacadoNegocio": $('input[name=destacadoNegocio]:checked', '#formularioAgregar').val(),
             "urlIconoNegocio": $("#urlIconoNegocio").val(),
-            "tipoNegocio": $("#tipoNegocio").val(),
+            "idTipoNegocio": $("#tipoNegocio").val(),
             "tagsNegocio":$("#tagsNegocio").val(),
             "tripadvisorNegocio":$("#tripadvisorNegocio").val(),
             "twitterNegocio":$("#twitterNegocio").val(),

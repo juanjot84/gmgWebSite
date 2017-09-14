@@ -54,16 +54,10 @@
 
               <h5 class="titulosalta"> Tipo de Negocio</h5>
 
-                    <p>
-                        <div class="form-group">
-                          <label for="sel1">Seleccionar tipo de negocio:</label>
-                          <select class="form-control" id="tipoNegocio" name="tipoNegocio">
-                            <option value="" disabled selected>Seleccione un tipo de negocio...</option>
-                            <option value="Restaurante">Restaurante</option>
-                            <option value="Bazar">Bazar</option>
-                          </select>
-                        </div>
-                    </p>
+              <p><div class="input-group input-group-sm">
+                    <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                    <select id="tipoNegocio" name="tipoNegocio" class="form-control"></select>
+              </div></p>
 
               <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-facebook-official" aria-hidden="true"></i></span>
