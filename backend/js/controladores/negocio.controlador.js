@@ -69,7 +69,6 @@
        $("#descripcionNegocio").val(negocio.descripcionNegocio);
        $("#destacadoNegocio").val(negocio.destacadoNegocio);
        $("#urlIconoNegocio").val(negocio.urlIconoNegocio);
-       //$("#tipoNegocio").val(negocio.tipoNegocio);
        $("#tagsNegocio").val(negocio.tagsNegocio);
        $("#tripadvisorNegocio").val(negocio.tripadvisorNegocio);
        $("#twitterNegocio").val(negocio.twitterNegocio);
@@ -82,6 +81,10 @@
     function mostrar(idNegocio){
        var negocio =  _.find(negocios, { '_id': idNegocio});
        console.log(negocio);
+             obtenerListadoTipoNegocios().done(function(data){
+            tipoNegocios= data
+              
+      popularDropdown(negocio.idTipoNegocio);
        $('#formularioAgregar').show();
        $("#formularioAgregar :input").attr("disabled", true);
        $("#formularioAgregar button").hide();
@@ -89,13 +92,13 @@
        $("#descripcionNegocio").val(negocio.descripcionNegocio);
        $("#destacadoNegocio").val(negocio.destacadoNegocio);
        $("#urlIconoNegocio").val(negocio.urlIconoNegocio);
-       $("#tipoNegocio").val(negocio.tipoNegocio);
        $("#tagsNegocio").val(negocio.tagsNegocio);
        $("#tripadvisorNegocio").val(negocio.tripadvisorNegocio);
        $("#twitterNegocio").val(negocio.twitterNegocio);
        $("#instagramNegocio").val(negocio.instagramNegocio);
        $("#facebookNegocio").val(negocio.facebookNegocio);
        $("#idNegocio").val(negocio._id);
+     })
     }
 
     function eliminar(idRegion){
@@ -125,6 +128,13 @@
       });
     }
 
+    function popularDropdownSolo(){
+      $('#tipoNegocio').html('');
+      _.each(tipoNegocios, function (tipoNegocio){
+        $('<option>').val(tipoNegocio._id).text(tipoNegocio.nombreTipoNegocio).appendTo('#tipoNegocio')
+      })
+    }
+
     function obtenerListadoTipoNegocios() {   
         return $.ajax({
             url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/tipoNegocio',
@@ -145,7 +155,10 @@
        $("#formularioAgregar :input").attr("disabled", false);
        $("#formularioAgregar button").show();
        $("#idNegocio").val('');
-       popularDropdown();
+             obtenerListadoTipoNegocios().done(function(data){
+            tipoNegocios= data
+       popularDropdownSolo();
+       });
     }
 
     function send() {

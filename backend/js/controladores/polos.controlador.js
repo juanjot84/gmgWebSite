@@ -65,6 +65,16 @@
       })
     }
 
+    function popularDropdownEditar(idRegion){
+      $('#comboRegiones').html('');
+       _.each(regiones, function(region){;
+        var option = $('<option>').val(region._id).text(region.nombreRegion);
+        if (idRegion==region._id)
+          option.attr('selected', 'selected');
+          option.appendTo('#comboRegiones');
+        });
+    }
+
      function obtenerListadoRegiones() {   
         return $.ajax({
             url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/region',
@@ -81,26 +91,32 @@
 
     function editar(idPolo){
        var polo =  _.find(polos, { '_id': idPolo});
+       obtenerListadoRegiones().done(function(data){
+             regiones = data
+       popularDropdownEditar(polo.idRegion._id);
        $('#formularioAgregar').show();
        $("#formularioAgregar :input").attr("disabled", false);
        $("#formularioAgregar button").show();       
        $("#idPolo").val(polo._id);
        $("#nombrePoloGastronomico").val(polo.nombrePoloGastronomico);
-       $("#nombreRegion").val(polo.idRegion.nombreRegion);
        $("#descripcionPoloGastronomico").val(polo.descripcionPoloGastronomico);
-       popularDropdown();
+       });
     }
 
     function mostrar(idPolo){
        var polo =  _.find(polos, { '_id': idPolo});
+
+      obtenerListadoRegiones().done(function(data){
+             regiones = data
+       popularDropdownEditar(polo.idRegion._id);
        $('#formularioAgregar').show();
        $("#formularioAgregar :input").attr("disabled", true);
        $("#formularioAgregar button").hide();
        $("#idPolo").val(polo._id);
        $("#nombrePoloGastronomico").val(polo.nombrePoloGastronomico);
-       $("#nombreRegion").val(polo.idRegion.nombreRegion);
        $("#descripcionPoloGastronomico").val(polo.descripcionPoloGastronomico);
        $("#idPolo").val(polo._id);
+     });
     }
 
     function eliminar(idPolo){
@@ -125,7 +141,10 @@
         $("#formularioAgregar :input").attr("disabled", false);
         $("#formularioAgregar button").show();
         $("#idPolo").val('');
+        obtenerListadoRegiones().done(function(data){
+             regiones = data
        popularDropdown();
+     });
     }
 
     function send() {

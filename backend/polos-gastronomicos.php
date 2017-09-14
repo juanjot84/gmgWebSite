@@ -50,7 +50,7 @@
 
                 <p><div class="input-group input-group-sm">
                     <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                    <select id="comboRegiones" class="form-control"></select>
+                    <select id="comboRegiones" name="comboRegiones" class="form-control"></select>
                 </div></p>
 
                 <div class="input-group">
