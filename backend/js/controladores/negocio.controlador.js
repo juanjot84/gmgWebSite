@@ -67,7 +67,8 @@
        $("#formularioAgregar button").show();
        $("#nombreNegocio").val(negocio.nombreNegocio);
        $("#descripcionNegocio").val(negocio.descripcionNegocio);
-       $("#destacadoNegocio").val(negocio.destacadoNegocio);
+       $("input[name=destacadoNegocio][value=" + negocio.destacadoNegocio + "]").prop("checked",true);
+       //$("#destacadoNegocio").val(negocio.destacadoNegocio);
        $("#urlIconoNegocio").val(negocio.urlIconoNegocio);
        $("#tagsNegocio").val(negocio.tagsNegocio);
        $("#tripadvisorNegocio").val(negocio.tripadvisorNegocio);
@@ -90,7 +91,8 @@
        $("#formularioAgregar button").hide();
        $("#nombreNegocio").val(negocio.nombreNegocio);
        $("#descripcionNegocio").val(negocio.descripcionNegocio);
-       $("#destacadoNegocio").val(negocio.destacadoNegocio);
+       $("input[name=destacadoNegocio][value=" + negocio.destacadoNegocio + "]").prop("checked",true);
+      // $("#destacadoNegocio").val(negocio.destacadoNegocio);
        $("#urlIconoNegocio").val(negocio.urlIconoNegocio);
        $("#tagsNegocio").val(negocio.tagsNegocio);
        $("#tripadvisorNegocio").val(negocio.tripadvisorNegocio);
@@ -101,7 +103,7 @@
      })
     }
 
-    function eliminar(idRegion){
+    function eliminar(idNegocio){
        $.ajax({
             url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/negocio?id=' + idNegocio,
             type: 'DELETE',
@@ -110,6 +112,7 @@
             crossDomain: true,
             contentType:"application/json",
             success: function (data) {
+              obtenerListado();
             },
             error:function(jqXHR,textStatus,errorThrown)
             {

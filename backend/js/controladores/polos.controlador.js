@@ -128,6 +128,7 @@
             crossDomain: true,
             contentType:"application/json",
             success: function (data) {
+              obtenerListado();
             },
             error:function(jqXHR,textStatus,errorThrown)
             {

@@ -96,8 +96,8 @@
               <h5 class="titulosalta"> Negocio Destacado</h5>
 
               <p>
-                <label class="radio-inline"><input type="radio" name="destacadoNegocio" id="destacadoNegocio" value="true">Si</label>
-                <label class="radio-inline"><input type="radio" name="destacadoNegocio" id="destacadoNegocio" value="false">No</label>
+                <label class="radio-inline"><input type="radio" name="destacadoNegocio" id="destacadoNegocio-true" value="true">Si</label>
+                <label class="radio-inline"><input type="radio" name="destacadoNegocio" id="destacadoNegocio-false" value="false">No</label>
               </p>
 
               <div class="input-group">
