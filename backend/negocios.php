@@ -121,11 +121,45 @@
               </div>
             </form>
             
-            <!-- Formulario de alta negocio -->
+            <!-- Formulario de alta de local -->
 
             <form action="" id="formularioLocal" style="display:none">
               <h2 class="tituloseccion">Alta De Local</h2>
                 <input type="text" name="idLocal" id="idLocal" class="hidden">
+
+                <h5 class="titulosalta"> Datos de contacto</h5>
+
+                    <p> 
+                        <div class="input-group input-group-sm">
+                          <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-mobile" aria-hidden="true"></i></span>
+                          <input id="telContacto" name="telContacto" type="text" class="form-control" placeholder="Teléfono" aria-describedby="sizing-addon3">
+                        </div>
+                    </p>
+                    <p>
+                        <div class="input-group input-group-sm">
+                          <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                          <input id="mailContacto" name="mailContacto" type="text" class="form-control" placeholder="Mail" aria-describedby="sizing-addon3">
+                        </div>
+                    </p>
+
+                <h5 class="titulosalta"> Dirección fiscal</h5>
+
+                    <p>
+                        <div class="input-group input-group-sm">
+                          <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-road" aria-hidden="true"></i></span>
+                          <input id="calleLocal" name="calleLocal" type="text" class="form-control" placeholder="Calle" aria-describedby="sizing-addon3">
+                        </div>
+                    </p>
+                    <p>
+                        <div class="input-group input-group-sm">
+                          <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-road" aria-hidden="true"></i></span>
+                          <input id="alturaLocal" name="alturaLocal" type="text" class="form-control" placeholder="Altura" aria-describedby="sizing-addon3">
+                        </div>
+                    </p>
+                    <p>
+                        Marcar en Google Maps <br>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d13401.403859122534!2d-68.8526042!3d-32.8888878!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1504296277826" width="100%" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </p>
 
               <h5 class="titulosalta"> Polo gastronómico</h5>
 
@@ -133,6 +167,26 @@
                     <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
                     <select id="poloNegocio" name="poloNegocio" class="form-control"></select>
                   </div></p>
+
+              <h5 class="titulosalta"> Acepta reserva</h5>
+
+                 <p>
+                    <label class="radio-inline"><input type="radio" name="aceptaReservaNegocio" id="aceptaReservaNegocio-true" value="true">Si</label>
+                    <label class="radio-inline"><input type="radio" name="aceptaReservaNegocio" id="aceptaReservaNegocio-false" value="false">No</label>
+                  </p>
+
+              <h5 class="titulosalta"> Nivel de precio</h5>
+
+                  <p><div class="input-group input-group-sm">
+                    <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                    <select id="nivelPrecio" name="nivelPrecio" class="form-control"></select>
+                  </div></p>
+
+              <div class="input-group">
+                 <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" style="padding: 17px;" onClick="volverEditarNegocio()"><i class="fa fa-hand-o-left" aria-hidden="true"></i> Atrás</button>
+                </span>
+              </div>
 
             </form>
 

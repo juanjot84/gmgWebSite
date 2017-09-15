@@ -21,6 +21,8 @@
     var negocios;
     var tipoNegocios;
     var polos;
+    var nivelPrecios;
+    var negocioCreado;
 
     obtenerListado();
 
@@ -175,10 +177,27 @@
     }
 
 
-
-
-
-
+  // Traer nivel de precio para lista desplegable
+    function obtenerListadoNivelPrecio() {   
+        return $.ajax({
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/nivelPrecio',
+            type: 'GET',
+            
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+               return data;
+            } 
+      });
+    }
+  // Funcion para armar lista desplegable Nivel de Precio para alta de negocio
+    function popularDropdownNivelPrecioAlta(){
+      $('#nivelPrecio').html('');
+      _.each(nivelPrecios, function (nivelPrecio){
+        $('<option>').val(nivelPrecio._id).text(nivelPrecio.label + '  | Valor inicial $' + nivelPrecio.valorInicial + ' | Valor final $' + nivelPrecio.valorFinal).appendTo('#nivelPrecio')
+      })
+    }
 
 
     
@@ -195,7 +214,9 @@
             });
     }
   // Mostrar form de alta de local y ocultar el de negocio
+
     function mostrarAltaLocal(){
+    //  send();
        $('#formularioAgregar').hide();
        $('#formularioLocal').show();
        $("#formularioLocal :input").attr("disabled", false);
@@ -206,6 +227,16 @@
             popularDropdownPolosAlta();
             });
 
+            obtenerListadoNivelPrecio().done(function(data){
+                nivelPrecios = data
+            popularDropdownNivelPrecioAlta();
+            });
+    }
+
+    function volverEditarNegocio(){
+      
+      $('#formularioAgregar').show();
+       $('#formularioLocal').hide();
     }
 
     function send() {
@@ -234,9 +265,13 @@
             crossDomain: true,
             contentType:"application/json",
             success: function (data) {
+
+              var resultado = data;
+              negocioCreado =  resultado._id;
+
                 $('#formularioAgregar').hide();
                 $("#formularioAgregar :input").val('');
-                obtenerListado() ;
+             //   obtenerListado() ;
             },
             error:function(jqXHR,textStatus,errorThrown)
             {

@@ -772,17 +772,26 @@
                     <p>
                         <div class="form-group">
                           
-                          <select class="form-control" id="sel1">
-                            <option>Efectivo</option>
-                            <option>Tarjeta de débito</option>
-                            <option>Tarjeta de crédito</option>
-                            <option>Cheque</option>
-                            <option>Cuenta corriente corporativa</option>
-                          </select>
+                          <div class="checkbox">
+                              <label><input type="checkbox" value="">Efectivo</label>
+                            </div>
+                            <div class="checkbox">
+                              <label><input type="checkbox" value="">Tarjeta de débito</label>
+                            </div>
+                            <div class="checkbox">
+                              <label><input type="checkbox" value="">Tarjeta de crédito</label>
+                            </div>
+                            <div class="checkbox">
+                              <label><input type="checkbox" value="">Cheque</label>
+                            </div>
+                            <div class="checkbox">
+                              <label><input type="checkbox" value="">Cuenta corriente corporativa</label>
+                            </div>
+
                         </div>
                     </p>
 
-                    <h5 class="titulosalta"> Tipo de cocina</h5>
+                    <h5 class="titulosalta"> Tipo de cocina principal - 1 sola opción</h5>
 
                     <p>
                         <div class="form-group">
@@ -844,27 +853,352 @@
                         </div>
                     </p>
 
-                    <h5 class="titulosalta"> Indicar especialidad</h5>
+
+                    <h5 class="titulosalta"> Otros tipos de cocina</h5>
 
                     <p>
                         <div class="form-group">
-                          
-                          <select class="form-control" id="sel1">
-                            <option>Pescados</option>
-                            <option>Mariscos</option>
-                            <option>Carnes</option>
-                            <option>Parrilla</option>
-                            <option>Sándwiches</option>
-                            <option>Lomitos</option>
-                            <option>Tapas</option>
-                            <option>Fondue</option>
-                            <option>Pizza</option>
-                            <option>Pastas</option>
-                            <option>Picadas</option>
-                            <option>Fuegos</option>
-                            <option>Ceviche</option>
-                            <option>Platos regionales</option>
-                          </select>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Fusión</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">De autor</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Gourmet</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Molecular</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Vanguardia</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Tecnoemocional</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Alta Cocina</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Contemporánea</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Tradicional</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Casera</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Regional</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Criolla</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Argentina</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Autóctona</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Saludable</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Vegetariana</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Vegana</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Paleolítica</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Sin gluten</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Italiana</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Peruana</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Española</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Mediterránea</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Griega</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Francesa</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Árabe</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Armenia</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Alemana</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Mexicana</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Tex Mex</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Asiática</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Coreana</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">China</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Japonesa</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">India</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Thailandesa</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Estadounidense</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">"Americana"</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Nikkei</label>
+                                    </div>
+                                </div>
+                            
+                                <div class="col-md-3">
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Chifa</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Judía</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Kosher</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Halal</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Slow Food</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">De mercado</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">De proximidad</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Estacional</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Orgánica</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Artesanal</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Fast Food</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Otra</label>
+                                    </div>
+                                </div>
+                            </div>
+                                    
+                        </div>
+                    </p>
+
+                    <h5 class="titulosalta"> Indicar especialidades</h5>
+
+                    <p>
+                        <div class="form-group">
+                                
+                            <div class="row">
+                            
+                                <div class="col-md-3">
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Pescados</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Mariscos</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Carnes</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Parrilla</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Sándwiches</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Lomitos</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Tapas</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Fondue</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Pizza</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Pastas</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Picadas</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Fuegos</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Ceviche</label>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" value="">Platos regionales</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </p>
+
+
+                    <h5 class="titulosalta"> Servicios - Marcar los que correspondan</h5>
+
+                    <p>
+                        <div class="form-group">
+
+                        <div class="row">
+                                <div class="col-md-3">
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Desayunos</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Almuerzos</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Cenas</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Meriendas</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Brunch (Breakfast + Lunch)</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Teanner (Tea + Dinner)</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Pastelería</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Coctelería</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Abre 365 días</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Opciones sin gluten</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Opciones vegetarianas</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Estacionamiento propio</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Estacionamiento cerca incluido</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Opciones veganas</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Cava climatizada</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Kid friendly</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Valet parking</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Sillas altas para niños</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Buffet</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Juegos para niños</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Delivery</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Take away (para llevar)</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Show</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Sala privada</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Mesas al aire libre</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Seguridad privada</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Wi Fi</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Acceso para discapacitados</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Baño para discapacitados</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Aire acondicionado</label>
+                                    </div>
+                                    <div class="checkbox">
+                                           <label><input type="checkbox" value="">Catering</label>
+                                    </div>
+                                </div>
                         </div>
                     </p>
 
