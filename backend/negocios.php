@@ -33,9 +33,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
+                 <!-- Table -->
 
-                <!-- Table -->
-
+          <!-- Formulario de alta negocio -->
             <form action="" id="formularioAgregar" style="display:none">
 
             <h2 class="tituloseccion">Alta Negocio</h2>
@@ -113,10 +113,32 @@
                   <button class="btn btn-default" type="button" style="padding: 17px;" onClick="send()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
                 </span>
               </div>
+
+              <div class="input-group">
+                 <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" style="padding: 17px;" onClick="mostrarAltaLocal()"><i class="fa fa-hand-o-right" aria-hidden="true"></i> Siguiente</button>
+                </span>
+              </div>
+            </form>
+            
+            <!-- Formulario de alta negocio -->
+
+            <form action="" id="formularioLocal" style="display:none">
+              <h2 class="tituloseccion">Alta De Local</h2>
+                <input type="text" name="idLocal" id="idLocal" class="hidden">
+
+              <h5 class="titulosalta"> Polo gastronómico</h5>
+
+                  <p><div class="input-group input-group-sm">
+                    <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                    <select id="poloNegocio" name="poloNegocio" class="form-control"></select>
+                  </div></p>
+
             </form>
 
                   <!-- Table -->
-                  <div class="panel-heading tituloseccion">Negocios</div>
+                  <div id="cabeceraTablaNegocios">
+                   <div class="panel-heading tituloseccion" >Negocios</div>
                     <table class="table">
                         <thead class="titulotabla">
                             <tr> 
@@ -130,6 +152,7 @@
 
                         </tbody>
                     </table>
+                  </div>
                 </div>
             </div>
         </div>
@@ -137,6 +160,8 @@
 
     <div class="container">
         <div class="row">
+
+        <!--
             <nav aria-label="Page navigation">
               <ul class="pagination">
                 <li>
@@ -156,9 +181,10 @@
                 </li>
               </ul>
             </nav>
+            -->
         </div>
     </div>
-
+    
     
     <?php include("includes/footer.php"); ?>
     

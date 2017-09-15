@@ -17,8 +17,10 @@
         });
 
     });
+
     var negocios;
     var tipoNegocios;
+    var polos;
 
     obtenerListado();
 
@@ -68,7 +70,6 @@
        $("#nombreNegocio").val(negocio.nombreNegocio);
        $("#descripcionNegocio").val(negocio.descripcionNegocio);
        $("input[name=destacadoNegocio][value=" + negocio.destacadoNegocio + "]").prop("checked",true);
-       //$("#destacadoNegocio").val(negocio.destacadoNegocio);
        $("#urlIconoNegocio").val(negocio.urlIconoNegocio);
        $("#tagsNegocio").val(negocio.tagsNegocio);
        $("#tripadvisorNegocio").val(negocio.tripadvisorNegocio);
@@ -92,7 +93,6 @@
        $("#nombreNegocio").val(negocio.nombreNegocio);
        $("#descripcionNegocio").val(negocio.descripcionNegocio);
        $("input[name=destacadoNegocio][value=" + negocio.destacadoNegocio + "]").prop("checked",true);
-      // $("#destacadoNegocio").val(negocio.destacadoNegocio);
        $("#urlIconoNegocio").val(negocio.urlIconoNegocio);
        $("#tagsNegocio").val(negocio.tagsNegocio);
        $("#tripadvisorNegocio").val(negocio.tripadvisorNegocio);
@@ -121,23 +121,7 @@
       });    
     }
 
-    function popularDropdown(idTipoNegocio){
-      $('#tipoNegocio').html('');
-      _.each(tipoNegocios, function (tipoNegocio){;
-        var option = $('<option>').val(tipoNegocio._id).text(tipoNegocio.nombreTipoNegocio);
-        if (idTipoNegocio==tipoNegocio._id)
-        option.attr('selected', 'selected');
-        option.appendTo('#tipoNegocio');
-      });
-    }
-
-    function popularDropdownSolo(){
-      $('#tipoNegocio').html('');
-      _.each(tipoNegocios, function (tipoNegocio){
-        $('<option>').val(tipoNegocio._id).text(tipoNegocio.nombreTipoNegocio).appendTo('#tipoNegocio')
-      })
-    }
-
+  // Traer tipos de negocio para lista desplegable
     function obtenerListadoTipoNegocios() {   
         return $.ajax({
             url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/tipoNegocio',
@@ -151,17 +135,77 @@
             } 
       });
     }
+  // Funcion para armar lista desplegable Tipos de Negocio para alta de negocio
+    function popularDropdownSolo(){
+      $('#tipoNegocio').html('');
+      _.each(tipoNegocios, function (tipoNegocio){
+        $('<option>').val(tipoNegocio._id).text(tipoNegocio.nombreTipoNegocio).appendTo('#tipoNegocio')
+      })
+    }
+  // Funcion para armar lista desplegable Tipos de Negocio para modificar o ver de negocio
+    function popularDropdown(idTipoNegocio){
+      $('#tipoNegocio').html('');
+      _.each(tipoNegocios, function (tipoNegocio){;
+        var option = $('<option>').val(tipoNegocio._id).text(tipoNegocio.nombreTipoNegocio);
+        if (idTipoNegocio==tipoNegocio._id)
+        option.attr('selected', 'selected');
+        option.appendTo('#tipoNegocio');
+      });
+    }
+  // Traer polos para lista desplegable
+    function obtenerListadoPolos() {   
+        return $.ajax({
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/polo',
+            type: 'GET',
+            
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+               return data;
+            } 
+      });
+    }
+  // Funcion para armar lista desplegable Polos para alta de negocio
+    function popularDropdownPolosAlta(){
+      $('#poloNegocio').html('');
+      _.each(polos, function (polo){
+        $('<option>').val(polo._id).text(polo.nombrePoloGastronomico).appendTo('#poloNegocio')
+      })
+    }
+
+
+
+
+
+
+
 
     
     function agregarNegocio(){
+       $('#cabeceraTablaNegocios').hide();
+       $('#listadoNegocios').hide();
        $('#formularioAgregar').show();
        $("#formularioAgregar :input").attr("disabled", false);
        $("#formularioAgregar button").show();
        $("#idNegocio").val('');
-             obtenerListadoTipoNegocios().done(function(data){
-            tipoNegocios= data
-       popularDropdownSolo();
-       });
+            obtenerListadoTipoNegocios().done(function(data){
+                tipoNegocios= data
+            popularDropdownSolo();
+            });
+    }
+  // Mostrar form de alta de local y ocultar el de negocio
+    function mostrarAltaLocal(){
+       $('#formularioAgregar').hide();
+       $('#formularioLocal').show();
+       $("#formularioLocal :input").attr("disabled", false);
+       $("#formularioLocal button").show();
+       $("#idLocal").val('');
+            obtenerListadoPolos().done(function(data){
+                polos = data
+            popularDropdownPolosAlta();
+            });
+
     }
 
     function send() {
