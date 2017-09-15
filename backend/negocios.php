@@ -34,30 +34,36 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
 
+                <!-- Table -->
+
             <form action="" id="formularioAgregar" style="display:none">
 
+            <h2 class="tituloseccion">Alta Negocio</h2>
+ 
               <input type="text" name="idNegocio" id="idNegocio" class="hidden">
-            
+
+             <h5 class="titulosalta"> Nombre</h5>
+ 
               <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
                 <input id="nombreNegocio" name="nombreNegocio" type="text" class="form-control" placeholder="Nombre del Negocio" aria-describedby="sizing-addon3">
               </div></p>
 
-               <h5 class="titulosalta"> Descripción</h5>
-
-                        <p>Texto con un máxio de 500 caracteres incluyendo espacios</p>
-
-                            <div class="form-group">
-                              <label for="comment">Descripción:</label>
-                              <textarea class="form-control" rows="5" id="descripcionNegocio" name="descripcionNegocio"></textarea>
-                            </div>
-
               <h5 class="titulosalta"> Tipo de Negocio</h5>
-
-              <p><div class="input-group input-group-sm">
+ 
+               <p><div class="input-group input-group-sm">
                     <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
                     <select id="tipoNegocio" name="tipoNegocio" class="form-control"></select>
               </div></p>
+
+              <h5 class="titulosalta"> Negocio Destacado</h5>
+
+              <p>
+                <label class="radio-inline"><input type="radio" name="destacadoNegocio" id="destacadoNegocio-true" value="true">Si</label>
+                <label class="radio-inline"><input type="radio" name="destacadoNegocio" id="destacadoNegocio-false" value="false">No</label>
+              </p>
+
+              <h5 class="titulosalta"> Datos de contacto</h5>
 
               <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-facebook-official" aria-hidden="true"></i></span>
@@ -83,6 +89,15 @@
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
                 <input id="urlIconoNegocio" name="urlIconoNegocio" type="text" class="form-control" placeholder="Url del Icono del Negocio" aria-describedby="sizing-addon3">
               </div></p>
+ 
+               <h5 class="titulosalta"> Descripción</h5>
+
+                        <p>Texto con un máxio de 500 caracteres incluyendo espacios</p>
+
+                            <div class="form-group">
+                              <label for="comment">Descripción:</label>
+                              <textarea class="form-control" rows="5" id="descripcionNegocio" name="descripcionNegocio"></textarea>
+                            </div>
 
               <h5 class="titulosalta"> Palabras de búsqueda</h5>
 
@@ -92,13 +107,6 @@
                               <label for="comment">Tags:</label>
                               <textarea class="form-control" rows="5" id="tagsNegocio" name="tagsNegocio"></textarea>
                             </div>
-
-              <h5 class="titulosalta"> Negocio Destacado</h5>
-
-              <p>
-                <label class="radio-inline"><input type="radio" name="destacadoNegocio" id="destacadoNegocio-true" value="true">Si</label>
-                <label class="radio-inline"><input type="radio" name="destacadoNegocio" id="destacadoNegocio-false" value="false">No</label>
-              </p>
 
               <div class="input-group">
                  <span class="input-group-btn">
