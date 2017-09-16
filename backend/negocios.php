@@ -182,6 +182,65 @@
                     <select id="nivelPrecio" name="nivelPrecio" class="form-control"></select>
                   </div></p>
 
+              <h5 class="titulosalta"> Indicar medio de pago</h5>
+
+                    <p>
+                        <div class="form-group" id="mediosPagoCheckbox">
+                          
+                        </div>
+                    </p>
+
+              <h5 class="titulosalta"> Tipo de cocina principal - 1 sola opción</h5>
+
+                  <p><div class="input-group input-group-sm">
+                    <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                    <select id="TipoCocinaPpal" name="TipoCocinaPpal" class="form-control"></select>
+                  </div></p>
+
+              <h5 class="titulosalta"> Otros tipos de cocina</h5>
+                   
+                  <p>
+                        <div class="form-group">
+
+                            <div class="row">
+                                <div class="col-md-3" id="otroTipoCocina">
+
+                                </div>
+                            </div>
+                        </div>
+                  </p> 
+
+              <h5 class="titulosalta"> Indicar especialidades</h5>
+              
+                  <p>
+                        <div class="form-group">
+
+                            <div class="row">
+                                <div class="col-md-3" id="especialidades">
+
+                                </div>
+                            </div>
+                        </div>
+                  </p>
+
+              <h5 class="titulosalta"> Servicios - Marcar los que correspondan</h5>
+
+                  <p>
+                        <div class="form-group">
+
+                            <div class="row">
+                                <div class="col-md-3" id="servicios">
+
+                                </div>
+                            </div>
+                        </div>
+                  </p>
+
+              <h5 class="titulosalta"> Descuento</h5>
+
+              
+
+
               <div class="input-group">
                  <span class="input-group-btn">
                   <button class="btn btn-default" type="button" style="padding: 17px;" onClick="volverEditarNegocio()"><i class="fa fa-hand-o-left" aria-hidden="true"></i> Atrás</button>

@@ -22,7 +22,11 @@
     var tipoNegocios;
     var polos;
     var nivelPrecios;
-    var negocioCreado;
+    var medioPagos;
+    var tipoCocinas;
+    var especialidades;
+    var servicios;
+
 
     obtenerListado();
 
@@ -199,6 +203,106 @@
       })
     }
 
+  // Traer medio de pago para checkbox
+    function obtenerListadoMedioPago() {   
+        return $.ajax({
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/medioPago',
+            type: 'GET',
+            
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+               return data;
+            } 
+      });
+    }
+  // Funcion para armar lista checkbox medios de pago para alta de negocio
+    function popularDropdownMedioPagoAlta(){
+      $('#mediosPagoCheckbox').html('');
+      _.each(medioPagos, function (medioPago){
+        $('#mediosPagoCheckbox').append(
+          '<div class="checkbox"><label><input type="checkbox" value="'+medioPago._id+'">'+medioPago.nombreMedioPago+'</label></div>')              
+      });
+    }
+
+
+    // Traer tipo Cocina para lista desplegable
+    function obtenerListadoTipoCocina() {   
+        return $.ajax({
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/tipoCocina',
+            type: 'GET',           
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+               return data;
+            } 
+      });
+    }
+
+    // Funcion para armar lista desplegable tipo Cocina Principal para alta de local
+    function popularDropdownTipoCocinaPpalAlta(){
+      $('#TipoCocinaPpal').html('');
+      _.each(tipoCocinas, function (tipoCocina){
+        $('<option>').val(tipoCocina._id).text(tipoCocina.nombreTipoCocina).appendTo('#TipoCocinaPpal')
+      })
+    }
+
+    // Funcion para armar lista checkbox otros tipo cocina para alta de negocio
+    function popularDropdownMedioOtrosTipoAlta(){
+      $('#otroTipoCocina').html('');
+      _.each(tipoCocinas, function (tipoCocina){
+        $('#otroTipoCocina').append(
+          '<div class="checkbox"><label><input type="checkbox" value="'+tipoCocina._id+'">'+tipoCocina.nombreTipoCocina+'</label></div>')              
+      });
+    }
+
+    // Traer Especialidad para lista desplegable
+    function obtenerListadoEspecialidad(){   
+        return $.ajax({
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/especialidad',
+            type: 'GET',           
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+               return data;
+            } 
+      });
+    }
+
+    // Funcion para armar lista checkbox Especialidades para alta de negocio
+    function popularDropdownEspecialidadAlta(){
+      $('#especialidades').html('');
+      _.each(especialidades, function (especialidad){
+        $('#especialidades').append(
+          '<div class="checkbox"><label><input type="checkbox" value="'+especialidad._id+'">'+especialidad.nombreEspecialidad+'</label></div>')              
+      });
+    }
+
+    // Traer Servicios para lista desplegable
+    function obtenerListadoServicio(){   
+        return $.ajax({
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/servicio',
+            type: 'GET',           
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+               return data;
+            } 
+      });
+    }
+
+    // Funcion para armar lista checkbox Servicios para alta de negocio
+    function popularDropdownServicioAlta(){
+      $('#servicios').html('');
+      _.each(servicios, function (servicio){
+        $('#servicios').append(
+          '<div class="checkbox"><label><input type="checkbox" value="'+servicio._id+'">'+servicio.nombreServicio+'</label></div>')              
+      });
+    }
 
     
     function agregarNegocio(){
@@ -216,12 +320,13 @@
   // Mostrar form de alta de local y ocultar el de negocio
 
     function mostrarAltaLocal(){
-    //  send();
+
        $('#formularioAgregar').hide();
        $('#formularioLocal').show();
        $("#formularioLocal :input").attr("disabled", false);
        $("#formularioLocal button").show();
        $("#idLocal").val('');
+
             obtenerListadoPolos().done(function(data){
                 polos = data
             popularDropdownPolosAlta();
@@ -231,6 +336,28 @@
                 nivelPrecios = data
             popularDropdownNivelPrecioAlta();
             });
+
+            obtenerListadoMedioPago().done(function(data){
+                medioPagos = data
+            popularDropdownMedioPagoAlta();
+            });
+
+            obtenerListadoTipoCocina().done(function(data){
+                tipoCocinas = data
+            popularDropdownTipoCocinaPpalAlta();
+            popularDropdownMedioOtrosTipoAlta();
+            });
+
+            obtenerListadoEspecialidad().done(function(data){
+                especialidades = data
+            popularDropdownEspecialidadAlta();
+            });
+
+            obtenerListadoServicio().done(function(data){
+                servicios = data
+            popularDropdownServicioAlta();
+            });
+
     }
 
     function volverEditarNegocio(){
