@@ -28,16 +28,16 @@
     var servicios;
     var descuentos;
 
+
     
 var marker;          //variable del marcador
 var coords = {};    //coordenadas obtenidas con la geolocalización
-
+var iconBase = 'http://guiamendozagourmet.com/map/'; //direccion base del icono de marcador
 //Funcion principal
 initMap = function () 
 {
-
     //usamos la API para geolocalizar el usuario
-        navigator.geolocation.getCurrentPosition(
+      navigator.geolocation.getCurrentPosition(
           function (position){
             coords =  {
               lng: position.coords.longitude,
@@ -45,7 +45,6 @@ initMap = function ()
             };
             setMapa(coords);  //pasamos las coordenadas al metodo para crear el mapa            
           },function(error){console.log(error);});
-    
 }
 
 function setMapa (coords)
@@ -55,22 +54,20 @@ function setMapa (coords)
       {
         zoom: 14,
         center:new google.maps.LatLng(coords.lat,coords.lng),
-
       });
       //Creamos el marcador en el mapa con sus propiedades
       //para nuestro obetivo tenemos que poner el atributo draggable en true
       //position pondremos las mismas coordenas que obtuvimos en la geolocalización
         marker = new google.maps.Marker({
+        icon: iconBase + 'marcador.png',
         map: map,
         draggable: true,
         animation: google.maps.Animation.DROP,
         position: new google.maps.LatLng(coords.lat,coords.lng),
-
       });
       //agregamos un evento al marcador junto con la funcion callback al igual que el evento dragend que indica 
       //cuando el usuario a soltado el marcador
-      marker.addListener('click', toggleBounce);
-      
+      marker.addListener('click', toggleBounce);      
       marker.addListener( 'dragend', function (event)
       {
         //escribimos las coordenadas de la posicion actual del marcador dentro del input #coords
@@ -87,7 +84,6 @@ function toggleBounce() {
     marker.setAnimation(google.maps.Animation.BOUNCE);
   }
 }
-
 
     obtenerListado();
 
@@ -452,7 +448,6 @@ function toggleBounce() {
   // Mostrar form de alta de local y ocultar el de negocio
 
     function mostrarAltaLocal(){
-
        $('#formularioAgregar').hide();
        $('#formularioLocal').show();
        $("#formularioLocal :input").attr("disabled", false);

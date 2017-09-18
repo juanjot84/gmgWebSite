@@ -110,11 +110,23 @@
                               <textarea class="form-control" rows="5" id="tagsNegocio" name="tagsNegocio"></textarea>
                             </div>
 
-              <div class="input-group">
+              <h5 class="titulosalta"> Datos de acceso</h5>
+
+                    <p><div class="input-group input-group-sm">
+                      <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-user" aria-hidden="true"></i></span>
+                      <input id="nombreUsuario" name="nombreUsuario" type="text" class="form-control" placeholder="Nombre de usuario (Email)" aria-describedby="sizing-addon3">
+                    </div></p>
+
+                    <p><div class="input-group input-group-sm">
+                      <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
+                      <input id="passUsuario" name="passUsuario" type="text" class="form-control" placeholder="Contraseña" aria-describedby="sizing-addon3">
+                    </div></p>
+
+              <!--<div class="input-group">
                  <span class="input-group-btn">
                   <button class="btn btn-default" type="button" style="padding: 17px;" onClick="send()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
                 </span>
-              </div>
+              </div> -->
 
               <div class="input-group">
                  <span class="input-group-btn">
@@ -162,10 +174,8 @@
                         Marcar en Google Maps <br>
 
                         <div id="map" Style="width: 100%; height:250px;"></div>
-
-                        <input type="text" id="lat" />
-                        <input type="text" id="long" />
-
+                        <input type="text" id="lat"  class="hidden"/>
+                        <input type="text" id="long"  class="hidden"/>
                     </p>
 
               <h5 class="titulosalta"> Polo gastronómico</h5>
