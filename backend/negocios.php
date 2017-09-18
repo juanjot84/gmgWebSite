@@ -1,9 +1,9 @@
 <?php include("includes/head.php"); ?>
 
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHhrWZLpRB2OO1JJEU3Ls9FpfZzbXaQ-A&callback=initMap"></script>
+
 <body id="page-top" class="index">
 
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHhrWZLpRB2OO1JJEU3Ls9FpfZzbXaQ-A&callback=initMap" async defer></script>
 
 <?php include("includes/nav.php"); ?>
 
@@ -122,12 +122,6 @@
                       <input id="passUsuario" name="passUsuario" type="text" class="form-control" placeholder="Contraseña" aria-describedby="sizing-addon3">
                     </div></p>
 
-              <!--<div class="input-group">
-                 <span class="input-group-btn">
-                  <button class="btn btn-default" type="button" style="padding: 17px;" onClick="send()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
-                </span>
-              </div> -->
-
               <div class="input-group">
                  <span class="input-group-btn">
                   <button class="btn btn-default" type="button" style="padding: 17px;" onClick="mostrarAltaLocal()"><i class="fa fa-hand-o-right" aria-hidden="true"></i> Siguiente</button>
@@ -171,9 +165,9 @@
                         </div>
                     </p>
                     <p>
-                        Marcar en Google Maps <br>
-
-                        <div id="map" Style="width: 100%; height:250px;"></div>
+                    
+                <h5 class="titulosalta"> Marcar en Google Maps</h5>
+                        <div id="map"></div>
                         <input type="text" id="lat"  class="hidden"/>
                         <input type="text" id="long"  class="hidden"/>
                     </p>

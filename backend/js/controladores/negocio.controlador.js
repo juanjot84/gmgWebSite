@@ -28,13 +28,12 @@
     var servicios;
     var descuentos;
 
-
     
 var marker;          //variable del marcador
 var coords = {};    //coordenadas obtenidas con la geolocalización
 var iconBase = 'http://guiamendozagourmet.com/map/'; //direccion base del icono de marcador
 //Funcion principal
-initMap = function () 
+ initMap = function () 
 {
     //usamos la API para geolocalizar el usuario
       navigator.geolocation.getCurrentPosition(
@@ -52,7 +51,7 @@ function setMapa (coords)
       //Se crea una nueva instancia del objeto mapa
       var map = new google.maps.Map(document.getElementById('map'),
       {
-        zoom: 14,
+        zoom: 13,
         center:new google.maps.LatLng(coords.lat,coords.lng),
       });
       //Creamos el marcador en el mapa con sus propiedades
