@@ -26,6 +26,67 @@
     var tipoCocinas;
     var especialidades;
     var servicios;
+    var descuentos;
+
+    
+var marker;          //variable del marcador
+var coords = {};    //coordenadas obtenidas con la geolocalización
+
+//Funcion principal
+initMap = function () 
+{
+
+    //usamos la API para geolocalizar el usuario
+        navigator.geolocation.getCurrentPosition(
+          function (position){
+            coords =  {
+              lng: position.coords.longitude,
+              lat: position.coords.latitude
+            };
+            setMapa(coords);  //pasamos las coordenadas al metodo para crear el mapa            
+          },function(error){console.log(error);});
+    
+}
+
+function setMapa (coords)
+{   
+      //Se crea una nueva instancia del objeto mapa
+      var map = new google.maps.Map(document.getElementById('map'),
+      {
+        zoom: 14,
+        center:new google.maps.LatLng(coords.lat,coords.lng),
+
+      });
+      //Creamos el marcador en el mapa con sus propiedades
+      //para nuestro obetivo tenemos que poner el atributo draggable en true
+      //position pondremos las mismas coordenas que obtuvimos en la geolocalización
+        marker = new google.maps.Marker({
+        map: map,
+        draggable: true,
+        animation: google.maps.Animation.DROP,
+        position: new google.maps.LatLng(coords.lat,coords.lng),
+
+      });
+      //agregamos un evento al marcador junto con la funcion callback al igual que el evento dragend que indica 
+      //cuando el usuario a soltado el marcador
+      marker.addListener('click', toggleBounce);
+      
+      marker.addListener( 'dragend', function (event)
+      {
+        //escribimos las coordenadas de la posicion actual del marcador dentro del input #coords
+        document.getElementById("lat").value = this.getPosition().lat();
+        document.getElementById("long").value = this.getPosition().lng();
+      });
+}
+
+//callback al hacer clic en el marcador lo que hace es quitar y poner la animacion BOUNCE
+function toggleBounce() {
+  if (marker.getAnimation() !== null) {
+    marker.setAnimation(null);
+  } else {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
 
 
     obtenerListado();
@@ -304,6 +365,77 @@
       });
     }
 
+    // Traer Descuentos para lista desplegable
+    function obtenerListadoDescuento(){   
+        return $.ajax({
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/descuento',
+            type: 'GET',           
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+               return data;
+            } 
+      });
+    }
+
+    // Funcion para armar lista desplegable Descuento para alta de local
+    function popularDropdownDescLunesAlta(){
+      $('#descuentoLunes').html('');
+      _.each(descuentos, function (descuento){
+        $('<option>').val(descuento._id).text(descuento.porcentajeDescuento + '  |  ' + descuento.descripcionDescuento).appendTo('#descuentoLunes')
+      })
+    }
+
+    function popularDropdownDescMartesAlta(){
+      $('#descuentoMartes').html('');
+      _.each(descuentos, function (descuento){
+        $('<option>').val(descuento._id).text(descuento.porcentajeDescuento + '  |  ' + descuento.descripcionDescuento).appendTo('#descuentoMartes')
+      })
+    }
+
+    function popularDropdownDescMiercolesAlta(){
+      $('#descuentoMiercoles').html('');
+      _.each(descuentos, function (descuento){
+        $('<option>').val(descuento._id).text(descuento.porcentajeDescuento + '  |  ' + descuento.descripcionDescuento).appendTo('#descuentoMiercoles')
+      })
+    }
+
+    function popularDropdownDescJuevesAlta(){
+      $('#descuentoJueves').html('');
+      _.each(descuentos, function (descuento){
+        $('<option>').val(descuento._id).text(descuento.porcentajeDescuento + '  |  ' + descuento.descripcionDescuento).appendTo('#descuentoJueves')
+      })
+    }
+
+    function popularDropdownDescViernesAlta(){
+      $('#descuentoViernes').html('');
+      _.each(descuentos, function (descuento){
+        $('<option>').val(descuento._id).text(descuento.porcentajeDescuento + '  |  ' + descuento.descripcionDescuento).appendTo('#descuentoViernes')
+      })
+    }
+
+    function popularDropdownDescSabadoAlta(){
+      $('#descuentoSabados').html('');
+      _.each(descuentos, function (descuento){
+        $('<option>').val(descuento._id).text(descuento.porcentajeDescuento + '  |  ' + descuento.descripcionDescuento).appendTo('#descuentoSabados')
+      })
+    }
+
+    function popularDropdownDescDomingoAlta(){
+      $('#descuentoDomingos').html('');
+      _.each(descuentos, function (descuento){
+        $('<option>').val(descuento._id).text(descuento.porcentajeDescuento + '  |  ' + descuento.descripcionDescuento).appendTo('#descuentoDomingos')
+      })
+    }
+
+    function popularDropdownDescFeriadoAlta(){
+      $('#descuentoFeriados').html('');
+      _.each(descuentos, function (descuento){
+        $('<option>').val(descuento._id).text(descuento.porcentajeDescuento + '  |  ' + descuento.descripcionDescuento).appendTo('#descuentoFeriados')
+      })
+    }
+
     
     function agregarNegocio(){
        $('#cabeceraTablaNegocios').hide();
@@ -356,6 +488,18 @@
             obtenerListadoServicio().done(function(data){
                 servicios = data
             popularDropdownServicioAlta();
+            });
+
+            obtenerListadoDescuento().done(function(data){
+                descuentos = data
+            popularDropdownDescLunesAlta();
+            popularDropdownDescMartesAlta();
+            popularDropdownDescMiercolesAlta();
+            popularDropdownDescJuevesAlta();
+            popularDropdownDescViernesAlta();
+            popularDropdownDescSabadoAlta();
+            popularDropdownDescDomingoAlta();
+            popularDropdownDescFeriadoAlta();
             });
 
     }

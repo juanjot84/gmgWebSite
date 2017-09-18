@@ -3,6 +3,8 @@
 <body id="page-top" class="index">
 
 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHhrWZLpRB2OO1JJEU3Ls9FpfZzbXaQ-A&callback=initMap" async defer></script>
+
 <?php include("includes/nav.php"); ?>
 
     
@@ -158,7 +160,12 @@
                     </p>
                     <p>
                         Marcar en Google Maps <br>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d13401.403859122534!2d-68.8526042!3d-32.8888878!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1504296277826" width="100%" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+                        <div id="map" Style="width: 100%; height:250px;"></div>
+
+                        <input type="text" id="lat" />
+                        <input type="text" id="long" />
+
                     </p>
 
               <h5 class="titulosalta"> Polo gastronómico</h5>
@@ -238,7 +245,159 @@
 
               <h5 class="titulosalta"> Descuento</h5>
 
-              
+                           <p>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    Lunes
+                                </div>
+                                <div class="col-md-10">
+                                   <select id="descuentoLunes" name="descuentoLunes" class="form-control"></select>                                   
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    Martes
+                                </div>
+                                <div class="col-md-10">
+                                   <select id="descuentoMartes" name="descuentoMartes" class="form-control"></select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    Miércoles
+                                </div>
+                                <div class="col-md-10">
+                                    <select id="descuentoMiercoles" name="descuentoMiercoles" class="form-control"></select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    Jueves
+                                </div>
+                                <div class="col-md-10">
+                                    <select id="descuentoJueves" name="descuentoJueves" class="form-control"></select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    Viernes
+                                </div>
+                                <div class="col-md-10">
+                                    <select id="descuentoViernes" name="descuentoViernes" class="form-control"></select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    Sábados
+                                </div>
+                                <div class="col-md-10">
+                                    <select id="descuentoSabados" name="descuentoSabados" class="form-control"></select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    Domingos
+                                </div>
+                                <div class="col-md-10">
+                                    <select id="descuentoDomingos" name="descuentoDomingos" class="form-control"></select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    Feriados
+                                </div>
+                                <div class="col-md-10">
+                                    <select id="descuentoFeriados" name="descuentoFeriados" class="form-control"></select>
+                                </div>
+                            </div>
+                        </p>
+
+                  <h5 class="titulosalta"> Duración de la reserva</h5>
+
+                    <p>
+                       Indicar la duración de la reserva (el tiempo en que un cubierto vuelve a estar disponible para que pueda reservarse nuevamente) <br>
+                        <p><div class="input-group input-group-sm">
+                        <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+                        <input id="duracionReserva" name="duracionReserva" type="number" class="form-control" placeholder="Colocar el valor en minutos" aria-describedby="sizing-addon3">
+                        </div></p>
+                    </p>
+
+                  <h5 class="titulosalta"> Indicar cubiertos disponibles</h5>
+
+                        <p>Mínimo 10% de cubiertos disponibles / máximo 100%</p>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>Lunes</p>                                
+                                <p>
+                                    <div class="input-group input-group-sm">
+                                      <input id="cubiertosLunes" name="cubiertosLunes" type="number" class="form-control" placeholder="Cantidad" aria-describedby="sizing-addon3">
+                                    </div>
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>Martes</p>                                
+                                <p>
+                                    <div class="input-group input-group-sm">
+                                      <input id="cubiertosMartes" name="cubiertosMartes" type="number" class="form-control" placeholder="Cantidad" aria-describedby="sizing-addon3">
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>Miércoles</p>                                
+                                <p>
+                                    <div class="input-group input-group-sm">
+                                      <input id="cubiertosMiercoles" name="cubiertosMiercoles" type="number" class="form-control" placeholder="Cantidad" aria-describedby="sizing-addon3">
+                                    </div>
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>Jueves</p>                                
+                                <p>
+                                    <div class="input-group input-group-sm">
+                                      <input id="cubiertosJueves" name="cubiertosJueves" type="number" class="form-control" placeholder="Cantidad" aria-describedby="sizing-addon3">
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>Viernes</p>                                
+                                <p>
+                                    <div class="input-group input-group-sm">
+                                      <input id="cubiertosViernes" name="cubiertosViernes" type="number" class="form-control" placeholder="Cantidad" aria-describedby="sizing-addon3">
+                                    </div>
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>Sábados</p>                                
+                                <p>
+                                    <div class="input-group input-group-sm">
+                                      <input id="cubiertosSabado" name="cubiertosSabado" type="number" class="form-control" placeholder="Cantidad" aria-describedby="sizing-addon3">
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>Domigo</p>                                
+                                <p>
+                                    <div class="input-group input-group-sm">
+                                      <input id="cubiertosDomingo" name="cubiertosDomingo" type="number" class="form-control" placeholder="Cantidad" aria-describedby="sizing-addon3">
+                                    </div>
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>Feriados</p>                                
+                                <p>
+                                    <div class="input-group input-group-sm">
+                                      <input id="cubiertosFeriado" name="cubiertosFeriado" type="number" class="form-control" placeholder="Cantidad" aria-describedby="sizing-addon3">
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
 
 
               <div class="input-group">
