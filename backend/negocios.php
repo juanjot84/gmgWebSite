@@ -1,6 +1,5 @@
 <?php include("includes/head.php"); ?>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHhrWZLpRB2OO1JJEU3Ls9FpfZzbXaQ-A&callback=initMap"></script>
 
 <body id="page-top" class="index">
 
@@ -507,6 +506,8 @@
     });
 
 </script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHhrWZLpRB2OO1JJEU3Ls9FpfZzbXaQ-A&callback=initMap"></script>
 
 </body>
 
