@@ -1,11 +1,16 @@
+
+<?php    
+   $idNegocio = $_GET['idNegocio'];
+?>
+
 <?php include("includes/head.php"); ?>
 
 <body id="page-top" class="index">
 
 
-<?php include("includes/nav.php"); ?>
+<?php include("includes/nav.php"); 
 
-    
+?>
 
     <div class="container-fluid" style="padding: 1%;background: yellow;margin-top: -21px;">
         <div class="container">
@@ -34,32 +39,64 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
 
-            <form action="" id="formularioAgregar" style="display:none">
+            <form action="" id="formularioAgregar">
 
-              <input type="text" name="idContacto" id="idContacto" class="hidden">
+              <input type="text" name="idUsuarioNegocio" id="idUsuarioNegocio" class="hidden">
+
+              <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
             
               <h5 class="titulosalta"> Datos de acceso</h5>
 
                     <p><div class="input-group input-group-sm">
                       <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-user" aria-hidden="true"></i></span>
-                      <input id="nombreUsuario" name="nombreUsuario" type="text" class="form-control" placeholder="Nombre de usuario (Email)" aria-describedby="sizing-addon3">
+                      <input id="email" name="email" type="email" class="form-control" placeholder="(Email)" aria-describedby="sizing-addon3">
+                    </div></p>
+
+                    <p><div class="input-group input-group-sm">
+                      <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-user" aria-hidden="true"></i></span>
+                      <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre" aria-describedby="sizing-addon3">
+                    </div></p>
+
+
+
+                    <p><div class="input-group input-group-sm">
+                      <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-user" aria-hidden="true"></i></span>
+                      <input id="apellido" name="apellido" type="text" class="form-control" placeholder="Apellido" aria-describedby="sizing-addon3">
+                    </div></p>
+
+                    <h5 class="titulosalta"> Sexo</h5>
+
+                    <p>
+                        <div class="form-group">
+                          <label for="sel1">Seleccionar sexo:</label>
+                          <select class="form-control" id="sexoUsuario">
+                            <option></option>
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                          </select>
+                        </div>
+                    </p>
+
+                    <p><div class="input-group input-group-sm">
+                      <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                      <input id="fechaNacimientoUsuario" name="fechaNacimientoUsuario" type="date" class="form-control" placeholder="Apellido" aria-describedby="sizing-addon3">
                     </div></p>
 
                     <p><div class="input-group input-group-sm">
                       <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
-                      <input id="passUsuario" name="passUsuario" type="text" class="form-control" placeholder="Contraseña" aria-describedby="sizing-addon3">
+                      <input id="password" name="password" type="password" class="form-control" placeholder="Contraseña" aria-describedby="sizing-addon3">
                     </div></p> 
 
               <div class="input-group">
                  <span class="input-group-btn">
-                  <button class="btn btn-default" type="button" style="padding: 17px;"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+                  <button class="btn btn-default" type="button" style="padding: 17px;" onClick="send()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
                 </span>
               </div>
             </form>
 
                   <!-- Table -->
-                  <div class="panel-heading tituloseccion">Usuarios Administradores de Restaurantes</div>
-                    <table class="table">
+                  <div class="panel-heading tituloseccion" style="display: none">Usuarios Administradores de Restaurantes</div>
+              <!--      <table class="table">
                         <thead class="titulotabla">
                             <tr> 
                                 <th >#</th>
@@ -71,13 +108,13 @@
                         <tbody id="listadoContactos">
 
                         </tbody>
-                    </table>
+                    </table> -->
                 </div> 
             </div>
         </div>
     </div>
 
-    <div class="container">
+    <div class="container" style="display: none">
         <div class="row">
             <nav aria-label="Page navigation">
               <ul class="pagination">
