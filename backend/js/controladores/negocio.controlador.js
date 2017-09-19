@@ -36,14 +36,13 @@ var iconBase = 'http://guiamendozagourmet.com/map/'; //direccion base del icono 
  initMap = function () 
 {
     //usamos la API para geolocalizar el usuario
-      navigator.geolocation.getCurrentPosition(
+  /*    navigator.geolocation.getCurrentPosition(
           function (position){
-            coords =  {
-              lng: position.coords.longitude,
-              lat: position.coords.latitude
-            };
-            setMapa(coords);  //pasamos las coordenadas al metodo para crear el mapa            
-          },function(error){console.log(error);});
+            
+          },function(error){console.log(error);});  */
+
+            coords =  {lng: -68.839412, lat: -32.890667};
+            setMapa(coords);  //pasamos las coordenadas al metodo para crear el mapa
 }
 
 function setMapa (coords)
@@ -377,6 +376,7 @@ function toggleBounce() {
     // Funcion para armar lista desplegable Descuento para alta de local
     function popularDropdownDescLunesAlta(){
       $('#descuentoLunes').html('');
+      $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#descuentoLunes');
       _.each(descuentos, function (descuento){
         $('<option>').val(descuento._id).text(descuento.porcentajeDescuento + '  |  ' + descuento.descripcionDescuento).appendTo('#descuentoLunes')
       })
@@ -384,6 +384,7 @@ function toggleBounce() {
 
     function popularDropdownDescMartesAlta(){
       $('#descuentoMartes').html('');
+      $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#descuentoMartes');
       _.each(descuentos, function (descuento){
         $('<option>').val(descuento._id).text(descuento.porcentajeDescuento + '  |  ' + descuento.descripcionDescuento).appendTo('#descuentoMartes')
       })
@@ -391,6 +392,7 @@ function toggleBounce() {
 
     function popularDropdownDescMiercolesAlta(){
       $('#descuentoMiercoles').html('');
+      $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#descuentoMiercoles');
       _.each(descuentos, function (descuento){
         $('<option>').val(descuento._id).text(descuento.porcentajeDescuento + '  |  ' + descuento.descripcionDescuento).appendTo('#descuentoMiercoles')
       })
@@ -398,6 +400,7 @@ function toggleBounce() {
 
     function popularDropdownDescJuevesAlta(){
       $('#descuentoJueves').html('');
+      $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#descuentoJueves');
       _.each(descuentos, function (descuento){
         $('<option>').val(descuento._id).text(descuento.porcentajeDescuento + '  |  ' + descuento.descripcionDescuento).appendTo('#descuentoJueves')
       })
@@ -405,6 +408,7 @@ function toggleBounce() {
 
     function popularDropdownDescViernesAlta(){
       $('#descuentoViernes').html('');
+      $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#descuentoViernes');
       _.each(descuentos, function (descuento){
         $('<option>').val(descuento._id).text(descuento.porcentajeDescuento + '  |  ' + descuento.descripcionDescuento).appendTo('#descuentoViernes')
       })
@@ -412,6 +416,7 @@ function toggleBounce() {
 
     function popularDropdownDescSabadoAlta(){
       $('#descuentoSabados').html('');
+      $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#descuentoSabados');
       _.each(descuentos, function (descuento){
         $('<option>').val(descuento._id).text(descuento.porcentajeDescuento + '  |  ' + descuento.descripcionDescuento).appendTo('#descuentoSabados')
       })
@@ -419,6 +424,7 @@ function toggleBounce() {
 
     function popularDropdownDescDomingoAlta(){
       $('#descuentoDomingos').html('');
+      $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#descuentoDomingos');
       _.each(descuentos, function (descuento){
         $('<option>').val(descuento._id).text(descuento.porcentajeDescuento + '  |  ' + descuento.descripcionDescuento).appendTo('#descuentoDomingos')
       })
@@ -426,6 +432,7 @@ function toggleBounce() {
 
     function popularDropdownDescFeriadoAlta(){
       $('#descuentoFeriados').html('');
+      $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#descuentoFeriados');
       _.each(descuentos, function (descuento){
         $('<option>').val(descuento._id).text(descuento.porcentajeDescuento + '  |  ' + descuento.descripcionDescuento).appendTo('#descuentoFeriados')
       })
