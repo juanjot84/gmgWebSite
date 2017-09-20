@@ -490,7 +490,7 @@ function toggleBounce() {
             "idMedioPago": medioPagoSeleccionado,
             "idServicio": servicioSeleccionado,
             "idEspecialidad": especialidadSeleccionada,
-            "especialidadCheck": tipoCocinaSeleccionado,
+            "idTipoCocina": tipoCocinaSeleccionado,
             "longitudLocal":$("#long").val(),
             "latitudLocal":$("#lat").val(),
             "telContacto":$("#telContacto").val(),
