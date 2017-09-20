@@ -129,7 +129,11 @@
             success: function (data) {              
                 
              var negocioCreado = $("#idNegocio").val();  
+<<<<<<< Updated upstream
              var url = "//local.php?idNegocio="+ negocioCreado+"";
+=======
+             var url = "http://localhost/gmg/gmgWebSite/backend/local.php?idNegocio="+ negocioCreado; 
+>>>>>>> Stashed changes
             $(location).attr('href',url);
 
             $("#formularioAgregar :input").val('');
