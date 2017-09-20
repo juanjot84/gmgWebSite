@@ -497,7 +497,7 @@ function toggleBounce() {
             "mailContacto":$("#mailContacto").val(),
             "alturaLocal":$("#alturaLocal").val(),
             "calleLocal":$("#calleLocal").val(),
-            "aceptaReservaNegocio":$('input[name=aceptaReservaNegocio]:checked', '#formularioLocal').val(),
+            "aceptaReservaNegocio":$('input[name=aceptaReservaNegocio]:checked', '#formularioLocal').val()
         });
 
 

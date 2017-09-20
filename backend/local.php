@@ -226,16 +226,6 @@
                             </div>
                         </p>
 
-                  <h5 class="titulosalta"> Duración de la reserva</h5>
-
-                    <p>
-                       Indicar la duración de la reserva (el tiempo en que un cubierto vuelve a estar disponible para que pueda reservarse nuevamente) <br>
-                        <p><div class="input-group input-group-sm">
-                        <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
-                        <input id="duracionReserva" name="duracionReserva" type="number" class="form-control" placeholder="Colocar el valor en minutos" aria-describedby="sizing-addon3">
-                        </div></p>
-                    </p>
-
               <div class="input-group">
                  <span class="input-group-btn">
                   <button class="btn btn-default" type="button" style="padding: 17px;" onClick="send()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
