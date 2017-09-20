@@ -1,3 +1,7 @@
+<?php
+   $idLocal = $_GET['idLocal'];
+?>
+
 <?php include("includes/head.php"); ?>
 
 <body id="page-top" class="index">
@@ -18,13 +22,7 @@
                       </span>
                     </div>
                 </div>
-                <div class="col-md-6" style="text-align: right;">
-                    <div class="input-group">
-                      <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" style="padding: 17px;" onClick="agregarContacto()"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVO</button>
-                      </span>
-                    </div>
-                </div>
+
 
             </div>
         </div>
@@ -34,24 +32,35 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
 
-            <form action="" id="formularioAgregar" style="display:none">
+        <h2 class="tituloseccion">Contacto Administrativo</h2>
+
+            <form action="" id="formularioAgregar">
 
               <input type="text" name="idContacto" id="idContacto" class="hidden">
+              <input type="text" name="idLocal" id="idLocal" value="<?php echo $idLocal; ?>">
+
+          <h5 class="titulosalta"> Nombre</h5>
             
               <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-user" aria-hidden="true"></i></span>
                 <input id="nombreContacto" name="nombreContacto" type="text" class="form-control" placeholder="Nombre del Contacto" aria-describedby="sizing-addon3">
               </div></p>
+
+          <h5 class="titulosalta"> Mail</h5>    
             
               <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-envelope" aria-hidden="true"></i></span>
                 <input id="mailContacto" name="mailContacto" type="text" class="form-control" placeholder="Mail del Contacto" aria-describedby="sizing-addon3">
               </div></p>
 
+          <h5 class="titulosalta"> Teléfono fijo</h5> 
+
              <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-mobile" aria-hidden="true"></i></span>
                 <input id="telefonoContacto" name="telefonoContacto" type="text" class="form-control" placeholder="Numero de telefono del Contacto" aria-describedby="sizing-addon3">
               </div></p>
+
+          <h5 class="titulosalta"> Celular</h5>     
 
               <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-mobile" aria-hidden="true"></i></span>
@@ -60,14 +69,14 @@
 
               <div class="input-group">
                  <span class="input-group-btn">
-                  <button class="btn btn-default" type="button" style="padding: 17px;" onClick="send()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+                  <button class="btn btn-default" type="button" style="padding: 17px;" onClick="send()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
                 </span>
               </div>
             </form>
 
                   <!-- Table -->
-                  <div class="panel-heading tituloseccion">Descuentos</div>
-                    <table class="table">
+                  <div class="panel-heading tituloseccion" style="display: none">Descuentos</div>
+                   <!-- <table class="table">
                         <thead class="titulotabla">
                             <tr> 
                                 <th >#</th>
@@ -79,7 +88,7 @@
                         <tbody id="listadoContactos">
 
                         </tbody>
-                    </table>
+                    </table> -->
                 </div>
             </div>
         </div>
@@ -88,7 +97,7 @@
     <div class="container">
         <div class="row">
             <nav aria-label="Page navigation">
-              <ul class="pagination">
+         <!--     <ul class="pagination">
                 <li>
                   <a href="#" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
@@ -104,7 +113,7 @@
                     <span aria-hidden="true">&raquo;</span>
                   </a>
                 </li>
-              </ul>
+              </ul> -->
             </nav>
         </div>
     </div>
@@ -128,6 +137,9 @@
 
     <!-- Funciones de Contacto JavaScript -->
     <script src="js/controladores/contacto.controlador.js"></script>
+
+    <!-- Funciones de Actualizar Local JavaScript -->
+    <script src="js/controladores/actualizarLocal.controlador.js"></script>
 
     <!-- Theme JavaScript -->
     <script src="../js/agency.min.js"></script>

@@ -43,7 +43,7 @@
             <form action="" id="formularioLocal">
               <h2 class="tituloseccion">Alta De Local</h2>
                 <input type="text" name="idLocal" id="idLocal" class="hidden">
-                <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
+                <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>">
 
                 <h5 class="titulosalta"> Datos de contacto</h5>
 
@@ -78,8 +78,8 @@
                     
                 <h5 class="titulosalta"> Marcar en Google Maps</h5>
                         <div id="map"></div>
-                        <input type="text" id="lat"  class="hidden"/>
-                        <input type="text" id="long"  class="hidden"/>
+                        <input type="text" id="lat"  class="hidden" value="-32.890667" />
+                        <input type="text" id="long"  class="hidden" value="-68.839412" />
                     </p>
 
               <h5 class="titulosalta"> Polo gastronómico</h5>

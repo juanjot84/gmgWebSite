@@ -478,12 +478,14 @@ function toggleBounce() {
       var seleccionados = $('input[name=tipoCocinasCheck]:checked', '#formularioLocal');
         _.each(seleccionados, function(item){ 
             tipoCocinaSeleccionado.push(item.value);
-        })        
+        })  
+
+        var idNeg =   $("#idNegocio").val();  
 
        var isNew = $("#idLocal").val() == "";
         var operacion = isNew ? "POST": "PUT";
         var local = JSON.stringify({
-            "idNegocio": $("#idNegocio").val(),
+            "idNegocio": idNeg,
             "idPoloGastronomico": $("#poloNegocio").val(),
             "idNivelPrecio": $("#nivelPrecio").val(),
             "idTipoCocinaPrincipal": $("#TipoCocinaPpal").val(),
@@ -501,13 +503,11 @@ function toggleBounce() {
         });
 
 
-
         $('#target').html('sending..');
         var queryParam = isNew  ? "": "?id=" + $("#idLocal").val();
         $.ajax({
             url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local' + queryParam,
-            type: operacion,
-            
+            type: operacion,          
             dataType: "json",
             crossDomain: true,
             contentType:"application/json",
@@ -516,14 +516,15 @@ function toggleBounce() {
               var resultado = data;
               var localCreado =  resultado._id;
 
-          //    var url = "http://localhost/gmg/gmgWebSite/backend/usuario-negocio.php?idNegocio="+ localCreado+""; 
-          //    $(location).attr('href',url);
+              var url = "http://localhost/gmg/gmgWebSite/backend/contacto.php?idLocal="+ localCreado+""; 
+              $(location).attr('href',url);
 
-           //     $("#formularioLocal :input").val('');
+                $("#formularioLocal :input").val('');  
           
             },
             error:function(jqXHR,textStatus,errorThrown)
             {
+
           },
           data: local
       });    

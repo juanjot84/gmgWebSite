@@ -19,7 +19,7 @@
     });
     var contactos;
 
-    obtenerListado();
+ //   obtenerListado();
 
     function obtenerListado() {
         $('#listadoContactos').html('');
@@ -97,6 +97,7 @@
     }
     
     function agregarContacto(){
+
        $('#formularioAgregar').show();
        $("#formularioAgregar :input").attr("disabled", false);
        $("#formularioAgregar button").show();
@@ -104,6 +105,7 @@
     }
 
     function send() {
+
         var isNew = $("#idContacto").val() == "";
         var operacion = isNew ? "POST": "PUT";
         var contacto = JSON.stringify({
@@ -123,13 +125,21 @@
             crossDomain: true,
             contentType:"application/json",
             success: function (data) {
-                $('#formularioAgregar').hide();
-                $("#formularioAgregar :input").val('');
-                obtenerListado() ;
+
+                $("#formularioAgregar :input").val(''); 
+
+              var resultado = data;
+              var contactoCreado =  resultado._id;
+              var idLocal = $("#idLocal").val();
+              var campo = "idContacto";  
+
+              actualizarLocal(idLocal, contactoCreado, campo);
+
+
             },
             error:function(jqXHR,textStatus,errorThrown)
             {
           },
-          data: contacto
+          data: contacto 
       }); 
     }
