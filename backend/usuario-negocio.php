@@ -94,6 +94,7 @@
               </div>
             </form>
 
+
                   <!-- Table -->
                   <div class="panel-heading tituloseccion" style="display: none">Usuarios Administradores de Restaurantes</div>
               <!--      <table class="table">

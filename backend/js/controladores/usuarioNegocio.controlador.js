@@ -96,6 +96,7 @@
       });    
     }
 /*    
+
     function agregarContacto(){
        $('#formularioAgregar').show();
        $("#formularioAgregar :input").attr("disabled", false);
