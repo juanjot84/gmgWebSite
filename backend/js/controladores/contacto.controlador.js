@@ -125,16 +125,12 @@
             crossDomain: true,
             contentType:"application/json",
             success: function (data) {
-
-                $("#formularioAgregar :input").val(''); 
-
+              var idLocalCreado = $("#idLocalCreado").val();
               var resultado = data;
-              var contactoCreado =  resultado._id;
-              var idLocal = $("#idLocal").val();
+              var contactoCreado =  resultado._id;           
               var campo = "idContacto";  
-
-              actualizarLocal(idLocal, contactoCreado, campo);
-
+              actualizarLocal(idLocalCreado, contactoCreado, campo);
+              $("#formularioAgregar :input").val(''); 
 
             },
             error:function(jqXHR,textStatus,errorThrown)

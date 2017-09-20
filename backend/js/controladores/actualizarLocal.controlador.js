@@ -19,7 +19,7 @@ function actualizarParametro(idLocalRecibido, valorAActualizar, campoAAcuatualiz
 function actualizarLocal(idLocal, valorAActualizar, campoAAcuatualizar){
      
     var objetoActualizado = JSON.stringify({
-        campoAAcuatualizar: valorAActualizar
+        "idContacto": valorAActualizar
     });
     $.ajax({
         url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id=' + idLocal,
