@@ -19,10 +19,10 @@
     });
 
     var descuentos;
-    var idLocalCreado = $("#idLocalCreado").val();
+    
     var localDescuentoCreados = [];
 
-    mostrarAltaLocal();
+    mostrarAltaLocalDescuento();
 
     function agregarContacto(){
 
@@ -112,7 +112,7 @@
 
   // Mostrar form de asignar descuentos
 
-    function mostrarAltaLocal(){
+    function mostrarAltaLocalDescuento(){
 
        $("#idLocal").val('');
             obtenerListadoDescuento().done(function(data){
@@ -135,26 +135,26 @@
 
   var dias = ["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo","Feriados"];
   var idDescuentos = [$("#descuentoLunes").val(), $("#descuentoMartes").val(), $("#descuentoMiercoles").val(), $("#descuentoJueves").val(), $("#descuentoViernes").val(), $("#descuentoSabados").val(), $("#descuentoDomingos").val(), $("#descuentoFeriados").val() ];
-
+  var idLocalCreado = $("#idLocalCreado").val();
 
 
       for (var i = 0; i < dias.length; i+=1) {
             console.log(dias[i],idDescuentos[i]);
-            sendLocalDescuento(dias[i],idDescuentos[i]);
+            sendLocalDescuento(dias[i],idDescuentos[i]);          
       }
 
-         var campoAAcuatualizar = "idLocalDescuento";
-         actualizarLocal(idLocalCreado, localDescuentoCreados, campoAAcuatualizar);
-         console.log(localDescuentoCreados);
-  }
 
+        var campoAAcuatualizar = "idLocalDescuento";
+        actualizarLocal(idLocalCreado, localDescuentoCreados, campoAAcuatualizar);
+        console.log(localDescuentoCreados);
+  }
 
     function sendLocalDescuento(diaDescuento,idDescuento) {
         var isNew = $("#idLocalDescuento").val() == "";
         var operacion = isNew ? "POST": "PUT";
         var localDescuento = JSON.stringify({
             "diaDescuento": diaDescuento,
-            "idLocal": idLocalCreado,
+            "idLocal": $("#idLocalCreado").val(),
             "idDescuento": idDescuento
         });
 

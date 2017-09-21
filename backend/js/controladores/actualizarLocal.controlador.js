@@ -12,7 +12,7 @@ function actualizarLocal(idLocal, valorAActualizar, campoAAcuatualizar){
     crossDomain: true,
     contentType:"application/json",
     success: function (data) {
-      console.log('contacto Actualizado');
+      
     },
     error:function(jqXHR,textStatus,errorThrown)
     {
