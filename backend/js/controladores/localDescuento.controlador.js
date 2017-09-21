@@ -81,45 +81,61 @@ function SendLocalDescuento(){
   });
 
   var idLocalCreado = $("#idLocalCreado").val();
+  var guardarLocales = [];
 
   for (var i = 0; i < dias.length; i+=1) {
     console.log(dias[i],idDescuentos[i]);
-    sendLocalDescuento(dias[i],idDescuentos[i]);
+    var guardar =  sendLocalDescuento(dias[i],idDescuentos[i]).then(function(id){
+      localDescuentoCreados.push(id);
+    });
+    guardarLocales.push(guardar);
   }
 
+  Promise.all(guardarLocales).then(function () {
+    var campoAAcuatualizar = "idLocalDescuento";
+    actualizarLocal(idLocalCreado, localDescuentoCreados, campoAAcuatualizar);
+    console.log(localDescuentoCreados);
+  });
 
-  var campoAAcuatualizar = "idLocalDescuento";
-  actualizarLocal(idLocalCreado, localDescuentoCreados, campoAAcuatualizar);
-  console.log(localDescuentoCreados);
 }
 
 function sendLocalDescuento(diaDescuento,idDescuento) {
-  var isNew = $("#idLocalDescuento").val() == "";
-  var operacion = isNew ? "POST": "PUT";
-  var localDescuento = JSON.stringify({
-    "diaDescuento": diaDescuento,
-    "idLocal": $("#idLocalCreado").val(),
-    "idDescuento": idDescuento
+
+  var promise = new Promise(function(resolve, reject) {
+
+    if(!_.isNil(diaDescuento) && !_.isNil(idDescuento)){
+      var isNew = $("#idLocalDescuento").val() == "";
+      var operacion = isNew ? "POST": "PUT";
+      var localDescuento = JSON.stringify({
+        "diaDescuento": diaDescuento,
+        "idLocal": $("#idLocalCreado").val(),
+        "idDescuento": idDescuento
+      });
+
+      $('#target').html('sending..');
+      var queryParam = isNew  ? "": "?id=" + $("#idLocalDescuento").val();
+      $.ajax({
+        url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/localDescuento' + queryParam,
+        type: operacion,
+
+        dataType: "json",
+        crossDomain: true,
+        contentType:"application/json",
+        success: function (data) {
+          resolve(resultado._id);
+        },
+        error:function(jqXHR,textStatus,errorThrown)
+        {
+          reject(Error("It broke"));
+        },
+        data: localDescuento
+      });
+    } else {
+      resolve('');
+    }
   });
 
-  $('#target').html('sending..');
-  var queryParam = isNew  ? "": "?id=" + $("#idLocalDescuento").val();
-  $.ajax({
-    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/localDescuento' + queryParam,
-    type: operacion,
-
-    dataType: "json",
-    crossDomain: true,
-    contentType:"application/json",
-    success: function (data) {
-      var resultado = data;
-      localDescuentoCreados.push(resultado._id);
-    },
-    error:function(jqXHR,textStatus,errorThrown)
-    {
-    },
-    data: localDescuento
-  });
+  return promise
 }
 
 
