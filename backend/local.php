@@ -43,7 +43,7 @@
             <form action="" id="formularioLocal">
               <h2 class="tituloseccion">Alta De Local</h2>
                 <input type="text" name="idLocal" id="idLocal" class="hidden">
-                <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>">
+                <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
 
                 <h5 class="titulosalta"> Datos de contacto</h5>
 
@@ -156,75 +156,6 @@
                             </div>
                         </div>
                   </p>
-
-              <h5 class="titulosalta"> Descuento</h5>
-
-                           <p>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    Lunes
-                                </div>
-                                <div class="col-md-10">
-                                   <select id="descuentoLunes" name="descuentoLunes" class="form-control"></select>                                   
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    Martes
-                                </div>
-                                <div class="col-md-10">
-                                   <select id="descuentoMartes" name="descuentoMartes" class="form-control"></select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    Miércoles
-                                </div>
-                                <div class="col-md-10">
-                                    <select id="descuentoMiercoles" name="descuentoMiercoles" class="form-control"></select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    Jueves
-                                </div>
-                                <div class="col-md-10">
-                                    <select id="descuentoJueves" name="descuentoJueves" class="form-control"></select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    Viernes
-                                </div>
-                                <div class="col-md-10">
-                                    <select id="descuentoViernes" name="descuentoViernes" class="form-control"></select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    Sábados
-                                </div>
-                                <div class="col-md-10">
-                                    <select id="descuentoSabados" name="descuentoSabados" class="form-control"></select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    Domingos
-                                </div>
-                                <div class="col-md-10">
-                                    <select id="descuentoDomingos" name="descuentoDomingos" class="form-control"></select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    Feriados
-                                </div>
-                                <div class="col-md-10">
-                                    <select id="descuentoFeriados" name="descuentoFeriados" class="form-control"></select>
-                                </div>
-                            </div>
-                        </p>
 
               <div class="input-group">
                  <span class="input-group-btn">

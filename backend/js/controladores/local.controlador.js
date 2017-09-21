@@ -26,7 +26,7 @@
     var tipoCocinas;
     var especialidades;
     var servicios;
-    var descuentos;
+
 
     
 var marker;          //variable del marcador
@@ -322,84 +322,7 @@ function toggleBounce() {
       });
     }
 
-    // Traer Descuentos para lista desplegable
-    function obtenerListadoDescuento(){   
-        return $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/descuento',
-            type: 'GET',           
-            dataType: "json",
-            crossDomain: true,
-            contentType:"application/json",
-            success: function (data) {
-               return data;
-            } 
-      });
-    }
 
-    // Funcion para armar lista desplegable Descuento para alta de local
-    function popularDropdownDescLunesAlta(){
-      $('#descuentoLunes').html('');
-      $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#descuentoLunes');
-      _.each(descuentos, function (descuento){
-        $('<option>').val(descuento._id).text(descuento.porcentajeDescuento + '  |  ' + descuento.descripcionDescuento).appendTo('#descuentoLunes')
-      })
-    }
-
-    function popularDropdownDescMartesAlta(){
-      $('#descuentoMartes').html('');
-      $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#descuentoMartes');
-      _.each(descuentos, function (descuento){
-        $('<option>').val(descuento._id).text(descuento.porcentajeDescuento + '  |  ' + descuento.descripcionDescuento).appendTo('#descuentoMartes')
-      })
-    }
-
-    function popularDropdownDescMiercolesAlta(){
-      $('#descuentoMiercoles').html('');
-      $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#descuentoMiercoles');
-      _.each(descuentos, function (descuento){
-        $('<option>').val(descuento._id).text(descuento.porcentajeDescuento + '  |  ' + descuento.descripcionDescuento).appendTo('#descuentoMiercoles')
-      })
-    }
-
-    function popularDropdownDescJuevesAlta(){
-      $('#descuentoJueves').html('');
-      $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#descuentoJueves');
-      _.each(descuentos, function (descuento){
-        $('<option>').val(descuento._id).text(descuento.porcentajeDescuento + '  |  ' + descuento.descripcionDescuento).appendTo('#descuentoJueves')
-      })
-    }
-
-    function popularDropdownDescViernesAlta(){
-      $('#descuentoViernes').html('');
-      $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#descuentoViernes');
-      _.each(descuentos, function (descuento){
-        $('<option>').val(descuento._id).text(descuento.porcentajeDescuento + '  |  ' + descuento.descripcionDescuento).appendTo('#descuentoViernes')
-      })
-    }
-
-    function popularDropdownDescSabadoAlta(){
-      $('#descuentoSabados').html('');
-      $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#descuentoSabados');
-      _.each(descuentos, function (descuento){
-        $('<option>').val(descuento._id).text(descuento.porcentajeDescuento + '  |  ' + descuento.descripcionDescuento).appendTo('#descuentoSabados')
-      })
-    }
-
-    function popularDropdownDescDomingoAlta(){
-      $('#descuentoDomingos').html('');
-      $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#descuentoDomingos');
-      _.each(descuentos, function (descuento){
-        $('<option>').val(descuento._id).text(descuento.porcentajeDescuento + '  |  ' + descuento.descripcionDescuento).appendTo('#descuentoDomingos')
-      })
-    }
-
-    function popularDropdownDescFeriadoAlta(){
-      $('#descuentoFeriados').html('');
-      $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#descuentoFeriados');
-      _.each(descuentos, function (descuento){
-        $('<option>').val(descuento._id).text(descuento.porcentajeDescuento + '  |  ' + descuento.descripcionDescuento).appendTo('#descuentoFeriados')
-      })
-    }
 
   // Mostrar form de alta de local y ocultar el de negocio
 
