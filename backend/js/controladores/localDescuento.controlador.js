@@ -22,7 +22,7 @@ var descuentos;
 
 var localDescuentoCreados = [];
 
-var dias = ["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo","Feriados"];
+var dias = ["Lunes","Martes","Miercoles","Jueves","Viernes","Sabados","Domingos","Feriados"];
 
 mostrarAltaLocalDescuento();
 
@@ -81,7 +81,6 @@ function SendLocalDescuento(){
   });
 
   var idLocalCreado = $("#idLocalCreado").val();
-
 
   for (var i = 0; i < dias.length; i+=1) {
     console.log(dias[i],idDescuentos[i]);
