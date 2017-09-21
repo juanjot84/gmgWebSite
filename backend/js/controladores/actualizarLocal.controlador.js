@@ -1,30 +1,23 @@
 
 
 function actualizarLocal(idLocal, valorAActualizar, campoAAcuatualizar){
-   
-    /*    var contacto = JSON.stringify({
-            campoAAcuatualizar : valorAActualizar
-        });   */
+  var  nuevoCampo= {};
+  nuevoCampo[campoAAcuatualizar]= valorAActualizar;
 
-    var  contacto[campoAAcuatualizar]= valorAActualizar;
+  $.ajax({
+    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id=' + idLocal,
+    type: 'PUT',
 
-
-
-
-    $.ajax({
-        url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id=' + idLocal,
-        type: 'PUT',
-            
-        dataType: "json",
-        crossDomain: true,
-        contentType:"application/json",
-        success: function (data) {
-
-        },
-        error:function(jqXHR,textStatus,errorThrown)
-        {
-
-        },
-        data: contacto
-    });  
+    dataType: "json",
+    crossDomain: true,
+    contentType:"application/json",
+    success: function (data) {
+      console.log('contacto Actualizado');
+    },
+    error:function(jqXHR,textStatus,errorThrown)
+    {
+      console.log('Error al actualizar contacto')
+    },
+    data: JSON.stringify(nuevoCampo)
+  });
 }
