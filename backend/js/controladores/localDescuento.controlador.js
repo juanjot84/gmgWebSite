@@ -20,7 +20,7 @@
 
     var descuentos;
     var idLocalCreado = $("#idLocalCreado").val();
-
+    var localDescuentoCreados = [];
 
     mostrarAltaLocal();
 
@@ -129,34 +129,24 @@
     }
 
 
-  var dias = ["Lunes","Martes","Miercoles","Jueves","Viernes","Sábado","Domingo","Feriados"];
-  var idDescuentos = [$("#descuentoLunes").val(), $("#descuentoMartes").val(), $("#descuentoMiercoles").val(), $("#descuentoJueves").val(), $("#descuentoViernes").val(), $("#descuentoSabados").val(), $("#descuentoDomingos").val(), $("#descuentoFeriados").val() ];
 
-  for (var i = 0; i < dias.length; i+=1) {
 
-  console.log(dias[i],idDescuentos[i]);
-
- //  sendLocalDescuento(dias[i],idDescuentos[i])
-
-  }
-
-  function Mostrar(){
+  function SendLocalDescuento(){
 
   var dias = ["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo","Feriados"];
   var idDescuentos = [$("#descuentoLunes").val(), $("#descuentoMartes").val(), $("#descuentoMiercoles").val(), $("#descuentoJueves").val(), $("#descuentoViernes").val(), $("#descuentoSabados").val(), $("#descuentoDomingos").val(), $("#descuentoFeriados").val() ];
 
-  for (var i = 0; i < dias.length; i+=1) {
 
-  console.log(dias[i],idDescuentos[i]);
 
- //  sendLocalDescuento(dias[i],idDescuentos[i])
+      for (var i = 0; i < dias.length; i+=1) {
+            console.log(dias[i],idDescuentos[i]);
+            sendLocalDescuento(dias[i],idDescuentos[i]);
+      }
 
+         var campoAAcuatualizar = "idLocalDescuento";
+         actualizarLocal(idLocalCreado, localDescuentoCreados, campoAAcuatualizar);
+         console.log(localDescuentoCreados);
   }
-
-  }
-
-
-
 
 
     function sendLocalDescuento(diaDescuento,idDescuento) {
@@ -178,8 +168,8 @@
             crossDomain: true,
             contentType:"application/json",
             success: function (data) {
-            
-
+               var resultado = data;
+               localDescuentoCreados.push(resultado._id);
             },
             error:function(jqXHR,textStatus,errorThrown)
             {
@@ -187,3 +177,8 @@
           data: localDescuento  
       }); 
     } 
+
+
+
+
+    
