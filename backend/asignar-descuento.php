@@ -37,7 +37,7 @@
             <form action="" id="formularioAgregar">
               
               <input type="text" name="idLocalDescuento" id="idLocalDescuento" class="hidden">
-              <input type="text" name="idLocalCreado" id="idLocalCreado" value="<?php echo $idLocal; ?>">
+              <input type="text" name="idLocalCreado" id="idLocalCreado" value="<?php echo $idLocal; ?>" class="hidden">
 
               <h5 class="titulosalta"> Descuento</h5>
 

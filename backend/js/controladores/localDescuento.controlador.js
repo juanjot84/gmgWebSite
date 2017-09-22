@@ -122,7 +122,7 @@ function sendLocalDescuento(diaDescuento,idDescuento) {
         crossDomain: true,
         contentType:"application/json",
         success: function (data) {
-          resolve(resultado._id);
+          resolve(data._id);
         },
         error:function(jqXHR,textStatus,errorThrown)
         {
