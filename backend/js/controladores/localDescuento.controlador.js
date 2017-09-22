@@ -95,6 +95,9 @@ function SendLocalDescuento(){
     var campoAAcuatualizar = "idLocalDescuento";
     actualizarLocal(idLocalCreado, localDescuentoCreados, campoAAcuatualizar);
     console.log(localDescuentoCreados);
+
+    var url = "http://localhost/gmg/gmgWebSite/backend/asignar-horario.php?idLocal="+ idLocalCreado+""; 
+    $(location).attr('href',url);
   });
 
 }

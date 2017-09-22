@@ -36,77 +36,99 @@
 
             <form action="" id="formularioAgregar">
               
-              <input type="text" name="idLocalDescuento" id="idLocalDescuento" class="hidden">
+              <input type="text" name="idHorario" id="idHorario" class="hidden">
               <input type="text" name="idLocalCreado" id="idLocalCreado" value="<?php echo $idLocal; ?>">
 
-              <h5 class="titulosalta"> Descuento</h5>
+                    <h5 class="titulosalta"> Abierto</h5>
 
-                           <p>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    Lunes
-                                </div>
-                                <div class="col-md-10">
-                                   <select id="descuentoLunes" name="descuentoLunes" class="form-control"></select>                                   
-                                </div>
+                    <p>
+                        <strong>Lunes </strong>
+                        <div class="row">    
+                            <div class="col-md-6">
+                               <input id="HdesdeLunes" name="HdesdeLunes" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3">
                             </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    Martes
-                                </div>
-                                <div class="col-md-10">
-                                   <select id="descuentoMartes" name="descuentoMartes" class="form-control"></select>
-                                </div>
+                            <div class="col-md-6">
+                               <input id="HhastaLunes" name="HhastaLunes" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3">
                             </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    Miércoles
-                                </div>
-                                <div class="col-md-10">
-                                    <select id="descuentoMiercoles" name="descuentoMiercoles" class="form-control"></select>
-                                </div>
+                        </div>
+                    </p>
+                    <p>
+                        <strong>Martes </strong>
+                        <div class="row">    
+                            <div class="col-md-6">
+                               <input id="HdesdeMartes" name="HdesdeMartes" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3">
                             </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    Jueves
-                                </div>
-                                <div class="col-md-10">
-                                    <select id="descuentoJueves" name="descuentoJueves" class="form-control"></select>
-                                </div>
+                            <div class="col-md-6">
+                               <input id="HhastaMartes" name="HhastaMartes" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3">
                             </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    Viernes
-                                </div>
-                                <div class="col-md-10">
-                                    <select id="descuentoViernes" name="descuentoViernes" class="form-control"></select>
-                                </div>
+                        </div>
+                    </p>
+                    <p>
+                        <strong>Miércoles </strong>
+                        <div class="row">    
+                            <div class="col-md-6">
+                               <input id="HhastaMiercoles" name="HhastaMiercoles" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3">
                             </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    Sábados
-                                </div>
-                                <div class="col-md-10">
-                                    <select id="descuentoSabados" name="descuentoSabados" class="form-control"></select>
-                                </div>
+                            <div class="col-md-6">
+                               <input id="HhastaMiercoles" name="HhastaMiercoles" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3">
                             </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    Domingos
-                                </div>
-                                <div class="col-md-10">
-                                    <select id="descuentoDomingos" name="descuentoDomingos" class="form-control"></select>
-                                </div>
+                        </div>
+                    </p>
+                    <p>
+                        <strong>Jueves </strong>
+                        <div class="row">    
+                            <div class="col-md-6">
+                               <input id="HdesdeJueves" name="HdesdeJueves" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3">
                             </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    Feriados
-                                </div>
-                                <div class="col-md-10">
-                                    <select id="descuentoFeriados" name="descuentoFeriados" class="form-control"></select>
-                                </div>
+                            <div class="col-md-6">
+                               <input id="HhastaJueves" name="HhastaJueves" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3">
                             </div>
-                        </p> 
+                        </div>
+                    </p>
+                    <p>
+                        <strong>Viernes </strong>
+                        <div class="row">    
+                            <div class="col-md-6">
+                               <input id="HdesdeViernes" name="HdesdeViernes" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3">
+                            </div>
+                            <div class="col-md-6">
+                               <input id="HhastaViernes" name="HhastaViernes" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3">
+                            </div>
+                        </div>
+                    </p>
+                    <p>
+                        <strong>Sábados </strong>
+                        <div class="row">    
+                            <div class="col-md-6">
+                               <input id="HdesdeSabados" name="HdesdeSabados" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3">
+                            </div>
+                            <div class="col-md-6">
+                               <input id="HhastaSabados" name="HhastaSabados" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3">
+                            </div>
+                        </div>
+                    </p>
+                    <p>
+                        <strong>Domingos</strong>
+                        <div class="row">    
+                            <div class="col-md-6">
+                               <input id="HdesdeDomingos" name="HdesdeDomingos" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3">
+                            </div>
+                            <div class="col-md-6">
+                               <input id="DomingosHhasta" name="DomingosHhasta" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3">
+                            </div>
+                        </div>
+                    </p>
+                    <p>
+                        <strong>Feriados </strong>
+                        <div class="row">    
+                            <div class="col-md-6">
+                               <input id="HdesdeFeriados" name="HdesdeFeriados" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3">
+                            </div>
+                            <div class="col-md-6">
+                               <input id="HhastaFeriados" name="HhastaFeriados" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3">
+                            </div>
+                        </div>
+                    </p>
 
               <div class="input-group">
                  <span class="input-group-btn">
@@ -116,7 +138,7 @@
             </form>
 
                   <!-- Table -->
-                  <div class="panel-heading tituloseccion" style="display: none">Descuentos</div>
+                  <div class="panel-heading tituloseccion" style="display: none">Horarios de Atencion</div>
                    <!-- <table class="table">
                         <thead class="titulotabla">
                             <tr> 
@@ -176,8 +198,8 @@
     <script src="../js/jqBootstrapValidation.js"></script>
     <script src="../js/contact_me.js"></script>
 
-    <!-- Funciones de Actualizar Local JavaScript -->
-    <script src="js/controladores/localDescuento.controlador.js"></script>
+    <!-- Funciones de Horario Atencion JavaScript -->
+    <script src="js/controladores/horarioAtencion.controlador.js"></script>
 
     <!-- Funciones de Actualizar Local JavaScript -->
     <script src="js/controladores/actualizarLocal.controlador.js"></script>
