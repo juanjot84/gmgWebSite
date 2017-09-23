@@ -50,13 +50,13 @@
                     <p> 
                         <div class="input-group input-group-sm">
                           <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-mobile" aria-hidden="true"></i></span>
-                          <input id="telContacto" name="telContacto" type="text" class="form-control" placeholder="Teléfono" aria-describedby="sizing-addon3">
+                          <input id="telContacto" name="telContacto" type="text" class="form-control" placeholder="Teléfono" aria-describedby="sizing-addon3" required>
                         </div>
                     </p>
                     <p>
                         <div class="input-group input-group-sm">
                           <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                          <input id="mailContacto" name="mailContacto" type="text" class="form-control" placeholder="Mail" aria-describedby="sizing-addon3">
+                          <input id="mailContacto" name="mailContacto" type="email" class="form-control" placeholder="Mail" aria-describedby="sizing-addon3" required>
                         </div>
                     </p>
 
@@ -71,7 +71,7 @@
                     <p>
                         <div class="input-group input-group-sm">
                           <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-road" aria-hidden="true"></i></span>
-                          <input id="alturaLocal" name="alturaLocal" type="text" class="form-control" placeholder="Altura" aria-describedby="sizing-addon3">
+                          <input id="alturaLocal" name="alturaLocal" type="text" class="form-control" placeholder="Altura" aria-describedby="sizing-addon3" required>
                         </div>
                     </p>
                     <p>
@@ -79,7 +79,7 @@
 
                   <p><div class="input-group input-group-sm">
                     <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                    <select id="idLocalidad" name="idLocalidad" class="form-control"></select>
+                    <select id="idLocalidad" name="idLocalidad" class="form-control" required></select>
                   </div></p>
                     
                 <h5 class="titulosalta"> Marcar en Google Maps</h5>
@@ -92,7 +92,7 @@
 
                   <p><div class="input-group input-group-sm">
                     <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                    <select id="poloNegocio" name="poloNegocio" class="form-control"></select>
+                    <select id="poloNegocio" name="poloNegocio" class="form-control" required></select>
                   </div></p>
 
               <h5 class="titulosalta"> Acepta reserva</h5>
@@ -106,7 +106,7 @@
 
                   <p><div class="input-group input-group-sm">
                     <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                    <select id="nivelPrecio" name="nivelPrecio" class="form-control"></select>
+                    <select id="nivelPrecio" name="nivelPrecio" class="form-control" required></select>
                   </div></p>
 
               <h5 class="titulosalta"> Indicar medio de pago</h5>
@@ -121,7 +121,7 @@
 
                   <p><div class="input-group input-group-sm">
                     <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                    <select id="TipoCocinaPpal" name="TipoCocinaPpal" class="form-control"></select>
+                    <select id="TipoCocinaPpal" name="TipoCocinaPpal" class="form-control" required></select>
                   </div></p>
 
               <h5 class="titulosalta"> Otros tipos de cocina</h5>

@@ -15,7 +15,6 @@
             $(this).addClass('active');
             e.preventDefault();
         });
-
     });
     
     var locales;
@@ -27,8 +26,6 @@
     var especialidades;
     var servicios;
     var localidades;
-
-
     
 var marker;          //variable del marcador
 var coords = {};    //coordenadas obtenidas con la geolocalización
@@ -78,8 +75,8 @@ function toggleBounce() {
   }
 }
 
-   obtenerListado();
-      mostrarAltaLocal();
+  obtenerListado();
+  mostrarAltaLocal();
 
     function obtenerListado() {
         $('#listadoLocal').html('');
@@ -102,7 +99,6 @@ function toggleBounce() {
                     '<button title="Eliminar" onClick="eliminar(\'' + local._id + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +
                     '</td> ' +
                     '</tr>');
-               
               });
           },
           error:function(jqXHR,textStatus,errorThrown)
@@ -195,6 +191,7 @@ function toggleBounce() {
   // Funcion para armar lista desplegable Polos para alta de negocio
     function popularDropdownPolosAlta(){
       $('#poloNegocio').html('');
+      $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#poloNegocio');
       _.each(polos, function (polo){
         $('<option>').val(polo._id).text(polo.nombrePoloGastronomico).appendTo('#poloNegocio')
       })
@@ -217,6 +214,7 @@ function toggleBounce() {
   // Funcion para armar lista desplegable Nivel de Precio para alta de negocio
     function popularDropdownNivelPrecioAlta(){
       $('#nivelPrecio').html('');
+      $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#nivelPrecio');
       _.each(nivelPrecios, function (nivelPrecio){
         $('<option>').val(nivelPrecio._id).text(nivelPrecio.label + '  | Valor inicial $' + nivelPrecio.valorInicial + ' | Valor final $' + nivelPrecio.valorFinal).appendTo('#nivelPrecio')
       })
@@ -245,7 +243,6 @@ function toggleBounce() {
       });
     }
 
-
     // Traer tipo Cocina para lista desplegable
     function obtenerListadoTipoCocina() {   
         return $.ajax({
@@ -263,6 +260,7 @@ function toggleBounce() {
     // Funcion para armar lista desplegable tipo Cocina Principal para alta de local
     function popularDropdownTipoCocinaPpalAlta(){
       $('#TipoCocinaPpal').html('');
+      $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#TipoCocinaPpal');
       _.each(tipoCocinas, function (tipoCocina){
         $('<option>').val(tipoCocina._id).text(tipoCocina.nombreTipoCocina).appendTo('#TipoCocinaPpal')
       })
@@ -340,12 +338,11 @@ function toggleBounce() {
   // Funcion para armar lista desplegable Localidades para alta de negocio
     function popularDropdownLocalidadesAlta(){
       $('#idLocalidad').html('');
+      $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#idLocalidad');
       _.each(localidades, function (localidad){
         $('<option>').val(localidad._id).text(localidad.nombreLocalidad).appendTo('#idLocalidad')
       })
     }
-
-
 
   // Mostrar form de alta de local y ocultar el de negocio
 
@@ -390,18 +387,6 @@ function toggleBounce() {
             obtenerListadoServicio().done(function(data){
                 servicios = data
             popularDropdownServicioAlta();
-            });
-
-            obtenerListadoDescuento().done(function(data){
-                descuentos = data
-            popularDropdownDescLunesAlta();
-            popularDropdownDescMartesAlta();
-            popularDropdownDescMiercolesAlta();
-            popularDropdownDescJuevesAlta();
-            popularDropdownDescViernesAlta();
-            popularDropdownDescSabadoAlta();
-            popularDropdownDescDomingoAlta();
-            popularDropdownDescFeriadoAlta();
             });
     }
 
@@ -471,12 +456,10 @@ function toggleBounce() {
               var url = "http://localhost/gmg/gmgWebSite/backend/contacto.php?idLocal="+ localCreado+""; 
               $(location).attr('href',url);
 
-                $("#formularioLocal :input").val('');  
-          
+                $("#formularioLocal :input").val('');         
             },
             error:function(jqXHR,textStatus,errorThrown)
             {
-
           },
           data: local
       });    

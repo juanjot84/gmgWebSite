@@ -139,6 +139,7 @@
   // Funcion para armar lista desplegable Tipos de Negocio para alta de negocio
     function popularDropdownSolo(){
       $('#tipoNegocio').html('');
+      $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#tipoNegocio');
       _.each(tipoNegocios, function (tipoNegocio){
         $('<option>').val(tipoNegocio._id).text(tipoNegocio.nombreTipoNegocio).appendTo('#tipoNegocio')
       })
@@ -187,8 +188,7 @@
         var queryParam = isNew  ? "": "?id=" + $("#idNegocio").val();
         $.ajax({
             url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/negocio' + queryParam,
-            type: operacion,
-            
+            type: operacion,            
             dataType: "json",
             crossDomain: true,
             contentType:"application/json",
@@ -200,8 +200,7 @@
               var url = "http://localhost/gmg/gmgWebSite/backend/usuario-negocio.php?idNegocio="+ negocioCreado+"";
               $(location).attr('href',url);
 
-                $("#formularioAgregar :input").val('');
-          
+                $("#formularioAgregar :input").val('');          
             },
             error:function(jqXHR,textStatus,errorThrown)
             {
@@ -209,3 +208,31 @@
           data: negocio
       }); 
     }
+
+function validar(){
+  var nombreNegocio = $("#nombreNegocio").val();
+  var tipoNegocio = $("#tipoNegocio").val();
+  var urlImagenNegocio = $("#urlIconoNegocio").val();
+  var hayError = false;
+
+    if(nombreNegocio.length < 2){
+      $("#nombreNegocio").parent().after('<span id="nombreNegocioAlert" style="color:red"> Debe ingresar un nombre para el negocio</span>');
+      $("#nombreNegocio").addClass('alert-danger');
+      hayError = true;
+    }
+   if(tipoNegocio == null){
+      $("#tipoNegocio").parent().after('<span id="tipoNegocioAlert" style="color:red"> Debe seleccionar un tipo de Negocio</span>');
+      $("#tipoNegocio").addClass('alert-danger');
+      hayError = true;
+   }
+   if(urlImagenNegocio.length < 2){
+      $("#urlIconoNegocio").parent().after('<span id="urlIconoNegocioAlert" style="color:red"> Debe ingresar la url de la imagen del Negocio</span>');
+      $("#urlIconoNegocio").addClass('alert-danger');
+      hayError = true;
+   }     
+}
+
+function limpiar(campo){
+   $("#"+campo+"Alert").hide();
+   $("#"+campo).removeClass('alert-danger');
+}
