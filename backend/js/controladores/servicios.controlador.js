@@ -33,10 +33,10 @@
             contentType:"application/json",
             success: function (data) {
                 servicios = data;              
-              _.each(data, function(servicio){
+              _.each(data, function(servicio, index){
                 $('#listadoServicios').append(' <tr>' +
-                    '<th scope="row" style="font-size: 1.5em;">1</th>' +
-                    '<td>' +servicio.nombreServicio+ '</td><td style="display: flex;"><img class="img-responsive iconos" src="../img/'+ servicio.urlIconoServicio +'"></td>   <td class="centrarbotaccion">'+
+                    '<th scope="row" style="font-size: 1.5em;">' + parseInt(index+1) + '</th>' +
+                    '<td>' +servicio.nombreServicio+ '</td><td style="display: flex;"><img class="img-responsive iconos" src="'+ servicio.urlIconoServicio +'"></td>   <td class="centrarbotaccion">'+
                     '<button onClick="mostrar(\'' + servicio._id + '\')" title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>' +
                     '<button onClick="editar(\'' + servicio._id + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button> ' +
                     '<button title="Eliminar" onClick="eliminar(\'' + servicio._id + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +
@@ -104,7 +104,7 @@
     function send() {
         var isNew = $("#idServicio").val() == "";
         var operacion = isNew ? "POST": "PUT";
-        var region = JSON.stringify({
+        var servicio = JSON.stringify({
             "nombreServicio": $("#nombreServicio").val(),
             "descripcionServicio":$("#descripcionServicio").val(),
             "urlIconoServicio":$("#urlIconoServicio").val()
