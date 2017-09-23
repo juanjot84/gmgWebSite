@@ -35,10 +35,11 @@
             crossDomain: true,
             contentType:"application/json",
             success: function (data) {
-                negocios = data;          
+                negocios = data;
+                var cont = 1;          
               _.each(data, function(negocio){
                 $('#listadoNegocios').append(' <tr>' +
-                    '<th scope="row" style="font-size: 1.5em;">1</th>' +
+                    '<th scope="row" style="font-size: 1.5em;">'+cont+++'</th>' +
                     '<td>' +negocio.nombreNegocio+ '</td><td>' + negocio.descripcionNegocio+ '</td><td class="centrarbotaccion">' +
                     '<button onClick="mostrar(\'' + negocio._id + '\')" title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>' +
                     '<button onClick="editar(\'' + negocio._id + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button> ' +
@@ -196,7 +197,7 @@
               var resultado = data;
               var negocioCreado =  resultado._id;
 
-              var url = "../backend/usuario-negocio.php?idNegocio="+ negocioCreado+"";
+              var url = "http://localhost/gmg/gmgWebSite/backend/usuario-negocio.php?idNegocio="+ negocioCreado+"";
               $(location).attr('href',url);
 
                 $("#formularioAgregar :input").val('');

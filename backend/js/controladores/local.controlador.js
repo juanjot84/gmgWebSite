@@ -26,6 +26,7 @@
     var tipoCocinas;
     var especialidades;
     var servicios;
+    var localidades;
 
 
     
@@ -322,6 +323,28 @@ function toggleBounce() {
       });
     }
 
+  // Traer localidades para lista desplegable
+    function obtenerListadoLocalidades() {   
+        return $.ajax({
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/localidad',
+            type: 'GET',
+            
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+               return data;
+            } 
+      });
+    }
+  // Funcion para armar lista desplegable Localidades para alta de negocio
+    function popularDropdownLocalidadesAlta(){
+      $('#idLocalidad').html('');
+      _.each(localidades, function (localidad){
+        $('<option>').val(localidad._id).text(localidad.nombreLocalidad).appendTo('#idLocalidad')
+      })
+    }
+
 
 
   // Mostrar form de alta de local y ocultar el de negocio
@@ -336,6 +359,11 @@ function toggleBounce() {
             obtenerListadoPolos().done(function(data){
                 polos = data
             popularDropdownPolosAlta();
+            });
+
+            obtenerListadoLocalidades().done(function(data){
+                localidades = data
+            popularDropdownLocalidadesAlta();
             });
 
             obtenerListadoNivelPrecio().done(function(data){
@@ -422,6 +450,7 @@ function toggleBounce() {
             "mailContacto":$("#mailContacto").val(),
             "alturaLocal":$("#alturaLocal").val(),
             "calleLocal":$("#calleLocal").val(),
+            "idLocalidad":$("#idLocalidad").val(),
             "aceptaReservaNegocio":$('input[name=aceptaReservaNegocio]:checked', '#formularioLocal').val()
         });
 

@@ -49,6 +49,9 @@ function SendLocalDescuento(){
     var campoAAcuatualizar = "idHorarioAtencion";
     actualizarLocal(idLocalCreado, localHorariosCreados, campoAAcuatualizar);
     console.log(localHorariosCreados);
+
+    var url = "http://localhost/gmg/gmgWebSite/backend/asignar-cubiertos.php?idLocal="+ idLocalCreado+""; 
+    $(location).attr('href',url);
   });
 
 }

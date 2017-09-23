@@ -75,6 +75,12 @@
                         </div>
                     </p>
                     <p>
+                <h5 class="titulosalta"> Localidad</h5>
+
+                  <p><div class="input-group input-group-sm">
+                    <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                    <select id="idLocalidad" name="idLocalidad" class="form-control"></select>
+                  </div></p>
                     
                 <h5 class="titulosalta"> Marcar en Google Maps</h5>
                         <div id="map"></div>

@@ -37,7 +37,7 @@
             <form action="" id="formularioAgregar">
               
               <input type="text" name="idHorario" id="idHorario" class="hidden">
-              <input type="text" name="idLocalCreado" id="idLocalCreado" value="<?php echo $idLocal; ?>">
+              <input type="text" name="idLocalCreado" id="idLocalCreado" value="<?php echo $idLocal; ?>" class="hidden">
 
                     <h5 class="titulosalta"> Abierto</h5>
 
@@ -67,7 +67,7 @@
                         <strong>Miércoles </strong>
                         <div class="row">    
                             <div class="col-md-6">
-                               <input id="HhastaMiercoles" name="HhastaMiercoles" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3">
+                               <input id="HdesdeMiercoles" name="HdesdeMiercoles" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3">
                             </div>
                             <div class="col-md-6">
                                <input id="HhastaMiercoles" name="HhastaMiercoles" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3">
@@ -114,7 +114,7 @@
                                <input id="HdesdeDomingos" name="HdesdeDomingos" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3">
                             </div>
                             <div class="col-md-6">
-                               <input id="DomingosHhasta" name="DomingosHhasta" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3">
+                               <input id="HhastaDomingos" name="HhastaDomingos" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3">
                             </div>
                         </div>
                     </p>
