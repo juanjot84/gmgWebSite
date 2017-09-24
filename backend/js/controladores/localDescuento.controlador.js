@@ -85,10 +85,13 @@ function SendLocalDescuento(){
 
   for (var i = 0; i < dias.length; i+=1) {
     console.log(dias[i],idDescuentos[i]);
-    var guardar =  sendLocalDescuento(dias[i],idDescuentos[i]).then(function(id){
-      localDescuentoCreados.push(id);
-    });
-    guardarLocales.push(guardar);
+
+    if(idDescuentos[i] != null){
+      var guardar =  sendLocalDescuento(dias[i],idDescuentos[i]).then(function(id){
+        localDescuentoCreados.push(id);
+      });
+        guardarLocales.push(guardar);
+    }
   }
 
   Promise.all(guardarLocales).then(function () {
