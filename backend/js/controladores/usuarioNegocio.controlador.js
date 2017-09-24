@@ -18,40 +18,6 @@
 
     });
     var usuarioNegocios;
-/*
-    obtenerListado();
-
-    function obtenerListado() {
-        $('#listadoContactos').html('');
-        $('#target').html('obteniendo...');       
-        $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/contacto',
-            type: 'GET',
-            
-            dataType: "json",
-            crossDomain: true,
-            contentType:"application/json",
-            success: function (data) {
-                contactos = data;              
-              _.each(data, function(contacto){
-                $('#listadoContactos').append(' <tr>' +
-                    '<th scope="row" style="font-size: 1.5em;">1</th>' +
-                    '<td>' +contacto.nombreContacto+ '</td><td>' +contacto.mailContacto+ '</td><td class="centrarbotaccion">' +
-                    '<button onClick="mostrar(\'' + contacto._id + '\')" title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>' +
-                    '<button onClick="editar(\'' + contacto._id + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button> ' +
-                    '<button title="Eliminar" onClick="eliminar(\'' + contacto._id + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +
-                    '</td> ' +
-                    '</tr>');
-            }) 
-          },
-          error:function(jqXHR,textStatus,errorThrown)
-          {
-              $('#target').append("jqXHR: "+jqXHR);
-              $('#target').append("textStatus: "+textStatus);
-              $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
-          },
-      });
-    }  */
 
     function editar(idContacto){
        var contacto =  _.find(contactos, { '_id': idContacto});
@@ -95,14 +61,6 @@
           }
       });    
     }
-/*    
-
-    function agregarContacto(){
-       $('#formularioAgregar').show();
-       $("#formularioAgregar :input").attr("disabled", false);
-       $("#formularioAgregar button").show();
-       $("#idContacto").val('');
-    } */
 
     function send() {
         var isNew = $("#idUsuarioNegocio").val() == "";
@@ -142,3 +100,49 @@
           data: usuarioNegocio
       }); 
     }
+
+function validar(){
+  var email = $("#email").val();
+  var nombre = $("#nombre").val();
+  var password = $("#password").val();
+  var hayError = false;
+
+    if(email.length < 2){
+      $("#email").parent().after('<span id="emailAlert" style="color:red"> Debe ingresar un Email para el Usuario</span>');
+      $("#email").addClass('alert-danger');
+      hayError = true;
+    }else {
+      caracteresCorreoValido(email);
+    }
+
+   if(nombre.length < 2){
+      $("#nombre").parent().after('<span id="nombreAlert" style="color:red"> Debe ingresar el Nombre del Usuario</span>');
+      $("#nombre").addClass('alert-danger');
+      hayError = true;
+   }
+   if(password.length < 2){
+      $("#password").parent().after('<span id="passwordAlert" style="color:red"> Debe ingresar una Contraseña para el Usuario</span>');
+      $("#password").addClass('alert-danger');
+      hayError = true;
+   } 
+  if(hayError==false){
+     send();
+  }else{
+    $(location).attr('href',"#formularioAgregar");
+  }
+
+}
+
+function limpiar(campo){
+   $("#"+campo+"Alert").hide();
+   $("#"+campo).removeClass('alert-danger');
+}
+
+function caracteresCorreoValido(email){
+    var caract = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);   
+    if (! caract.test(email)){
+      $("#email").parent().after('<span id="emailAlert" style="color:red"> Debe ingresar un Email válido para el Usuario</span>');
+      $("#email").addClass('alert-danger');
+      hayError = true;      
+    }
+}

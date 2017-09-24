@@ -49,15 +49,13 @@
 
                     <p><div class="input-group input-group-sm">
                       <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-user" aria-hidden="true"></i></span>
-                      <input id="email" name="email" type="email" class="form-control" placeholder="(Email)" aria-describedby="sizing-addon3">
+                      <input id="email" name="email" type="email" class="form-control" placeholder="(Email)" aria-describedby="sizing-addon3" onfocus="limpiar('email')" required>
                     </div></p>
 
                     <p><div class="input-group input-group-sm">
                       <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-user" aria-hidden="true"></i></span>
-                      <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre" aria-describedby="sizing-addon3">
+                      <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre" aria-describedby="sizing-addon3" onfocus="limpiar('nombre')" required>
                     </div></p>
-
-
 
                     <p><div class="input-group input-group-sm">
                       <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-user" aria-hidden="true"></i></span>
@@ -84,18 +82,16 @@
 
                     <p><div class="input-group input-group-sm">
                       <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
-                      <input id="password" name="password" type="password" class="form-control" placeholder="Contraseña" aria-describedby="sizing-addon3">
+                      <input id="password" name="password" type="password" class="form-control" placeholder="Contraseña" aria-describedby="sizing-addon3" onfocus="limpiar('password')" required>
                     </div></p> 
 
               <div class="input-group">
                  <span class="input-group-btn">
-                  <button class="btn btn-default" type="button" style="padding: 17px;" onClick="send()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
+                  <button class="btn btn-default" type="button" style="padding: 17px;" onClick="validar()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
                 </span>
               </div>
             </form>
-
-
-                  <!-- Table -->
+              <!-- Table -->
                   <div class="panel-heading tituloseccion" style="display: none">Usuarios Administradores de Restaurantes</div>
               <!--      <table class="table">
                         <thead class="titulotabla">
@@ -164,7 +160,6 @@
 
     <script type="text/javascript">
         
-
     $(function() {
 
     $('#login-form-link').click(function(e) {

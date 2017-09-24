@@ -229,7 +229,13 @@ function validar(){
       $("#urlIconoNegocio").parent().after('<span id="urlIconoNegocioAlert" style="color:red"> Debe ingresar la url de la imagen del Negocio</span>');
       $("#urlIconoNegocio").addClass('alert-danger');
       hayError = true;
-   }     
+   } 
+  if(hayError==false){
+     send();
+  }else{
+    $(location).attr('href',"#formularioAgregar");
+  }
+
 }
 
 function limpiar(campo){
