@@ -50,13 +50,13 @@
                     <p> 
                         <div class="input-group input-group-sm">
                           <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-mobile" aria-hidden="true"></i></span>
-                          <input id="telContacto" name="telContacto" type="text" class="form-control" placeholder="Teléfono" aria-describedby="sizing-addon3" required>
+                          <input id="telContacto" name="telContacto" type="number" class="form-control" placeholder="Teléfono" aria-describedby="sizing-addon3" onfocus="limpiar('telContacto')" required>
                         </div>
                     </p>
                     <p>
                         <div class="input-group input-group-sm">
                           <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                          <input id="mailContacto" name="mailContacto" type="email" class="form-control" placeholder="Mail" aria-describedby="sizing-addon3" required>
+                          <input id="mailContacto" name="mailContacto" type="email" class="form-control" placeholder="Mail" aria-describedby="sizing-addon3" onfocus="limpiar('mailContacto')" required>
                         </div>
                     </p>
 
@@ -65,13 +65,13 @@
                     <p>
                         <div class="input-group input-group-sm">
                           <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-road" aria-hidden="true"></i></span>
-                          <input id="calleLocal" name="calleLocal" type="text" class="form-control" placeholder="Calle" aria-describedby="sizing-addon3">
+                          <input id="calleLocal" name="calleLocal" type="text" class="form-control" placeholder="Calle" aria-describedby="sizing-addon3" onfocus="limpiar('calleLocal')" required>
                         </div>
                     </p>
                     <p>
                         <div class="input-group input-group-sm">
                           <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-road" aria-hidden="true"></i></span>
-                          <input id="alturaLocal" name="alturaLocal" type="text" class="form-control" placeholder="Altura" aria-describedby="sizing-addon3" required>
+                          <input id="alturaLocal" name="alturaLocal" type="number" class="form-control" placeholder="Altura" aria-describedby="sizing-addon3" onfocus="limpiar('alturaLocal')" required>
                         </div>
                     </p>
                     <p>
@@ -79,7 +79,7 @@
 
                   <p><div class="input-group input-group-sm">
                     <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                    <select id="idLocalidad" name="idLocalidad" class="form-control" required></select>
+                    <select id="idLocalidad" name="idLocalidad" class="form-control" onfocus="limpiar('idLocalidad')" required></select>
                   </div></p>
                     
                 <h5 class="titulosalta"> Marcar en Google Maps</h5>
@@ -92,13 +92,13 @@
 
                   <p><div class="input-group input-group-sm">
                     <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                    <select id="poloNegocio" name="poloNegocio" class="form-control" required></select>
+                    <select id="poloNegocio" name="poloNegocio" class="form-control" onfocus="limpiar('poloNegocio')" required></select>
                   </div></p>
 
               <h5 class="titulosalta"> Acepta reserva</h5>
 
                  <p>
-                    <label class="radio-inline"><input type="radio" name="aceptaReservaNegocio" id="aceptaReservaNegocio-true" value="true">Si</label>
+                    <label class="radio-inline"><input type="radio" name="aceptaReservaNegocio" id="aceptaReservaNegocio-true" value="true" checked="checked">Si</label>
                     <label class="radio-inline"><input type="radio" name="aceptaReservaNegocio" id="aceptaReservaNegocio-false" value="false">No</label>
                   </p>
 
@@ -106,7 +106,7 @@
 
                   <p><div class="input-group input-group-sm">
                     <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                    <select id="nivelPrecio" name="nivelPrecio" class="form-control" required></select>
+                    <select id="nivelPrecio" name="nivelPrecio" class="form-control" onfocus="limpiar('nivelPrecio')" required></select>
                   </div></p>
 
               <h5 class="titulosalta"> Indicar medio de pago</h5>
@@ -121,7 +121,7 @@
 
                   <p><div class="input-group input-group-sm">
                     <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                    <select id="TipoCocinaPpal" name="TipoCocinaPpal" class="form-control" required></select>
+                    <select id="TipoCocinaPpal" name="TipoCocinaPpal" class="form-control" onfocus="limpiar('TipoCocinaPpal')" required></select>
                   </div></p>
 
               <h5 class="titulosalta"> Otros tipos de cocina</h5>
@@ -165,7 +165,7 @@
 
               <div class="input-group">
                  <span class="input-group-btn">
-                  <button class="btn btn-default" type="button" style="padding: 17px;" onClick="send()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
+                  <button class="btn btn-default" type="button" style="padding: 17px;" onClick="validar()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
                 </span>
               </div>
 
@@ -174,7 +174,7 @@
                   <!-- Table -->
                   <div id="cabeceraTablaNegocios">
                    <div class="panel-heading tituloseccion" style="display: none">Negocios</div>
-                    <table class="table">
+               <!--     <table class="table">
                         <thead class="titulotabla">
                             <tr> 
                                 <th >#</th>
@@ -186,7 +186,7 @@
                         <tbody id="listadoLocal">
 
                         </tbody>
-                    </table> 
+                    </table> -->
                   </div> 
                 </div>
             </div>

@@ -75,7 +75,6 @@ function toggleBounce() {
   }
 }
 
-  obtenerListado();
   mostrarAltaLocal();
 
     function obtenerListado() {
@@ -465,4 +464,85 @@ function toggleBounce() {
       });    
     }
  
+function validar(){
+  var telContacto = $("#telContacto").val();
+  var mailContacto = $("#mailContacto").val();
+  var calleLocal = $("#calleLocal").val();
+  var alturaLocal = $("#alturaLocal").val();
+  var idLocalidad = $("#idLocalidad").val();
+  var poloNegocio = $("#poloNegocio").val();
+  var nivelPrecio = $("#nivelPrecio").val();
+  var TipoCocinaPpal = $("#TipoCocinaPpal").val();
+  var hayError = false;
 
+    if(telContacto.length < 7){
+      $("#telContacto").parent().after('<span id="telContactoAlert" style="color:red"> Debe ingresar un Teléfono de contacto del Local</span>');
+      $("#telContacto").addClass('alert-danger');
+      hayError = true;
+    }
+
+   if(mailContacto.length < 2){
+      $("#mailContacto").parent().after('<span id="mailContactoAlert" style="color:red"> Debe ingresar un Email de contacto para el Local</span>');
+      $("#mailContacto").addClass('alert-danger');
+      hayError = true;
+   }else {
+      caracteresCorreoValido(mailContacto);
+    }
+
+   if(calleLocal.length < 2){
+      $("#calleLocal").parent().after('<span id="calleLocalAlert" style="color:red"> Debe ingresar una Calle para el Local</span>');
+      $("#calleLocal").addClass('alert-danger');
+      hayError = true;
+   }
+
+   if(alturaLocal.length < 2){
+      $("#alturaLocal").parent().after('<span id="alturaLocalAlert" style="color:red"> Debe ingresar una Altura para el Local</span>');
+      $("#alturaLocal").addClass('alert-danger');
+      hayError = true;
+   }
+
+   if(idLocalidad == null){
+      $("#idLocalidad").parent().after('<span id="idLocalidadAlert" style="color:red"> Debe seleccionar una Localidad para el Local</span>');
+      $("#idLocalidad").addClass('alert-danger');
+      hayError = true;
+   }
+
+   if(poloNegocio == null){
+      $("#poloNegocio").parent().after('<span id="poloNegocioAlert" style="color:red"> Debe seleccionar un Polo Gastronómico para el Local</span>');
+      $("#poloNegocio").addClass('alert-danger');
+      hayError = true;
+   }
+
+   if(nivelPrecio == null){
+      $("#nivelPrecio").parent().after('<span id="nivelPrecioAlert" style="color:red"> Debe seleccionar un Nivel de Precio para el Local</span>');
+      $("#nivelPrecio").addClass('alert-danger');
+      hayError = true;
+   }
+
+   if(TipoCocinaPpal == null){
+      $("#TipoCocinaPpal").parent().after('<span id="TipoCocinaPpalAlert" style="color:red"> Debe seleccionar un Tipo de Cocina Principal para el Local</span>');
+      $("#TipoCocinaPpal").addClass('alert-danger');
+      hayError = true;
+   }
+
+  if(hayError==false){
+     send();
+  }else{
+    $(location).attr('href',"#formularioLocal");
+  }
+
+}
+
+function limpiar(campo){
+   $("#"+campo+"Alert").hide();
+   $("#"+campo).removeClass('alert-danger');
+}
+
+function caracteresCorreoValido(email){
+    var caract = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);   
+    if (! caract.test(email)){
+      $("#mailContacto").parent().after('<span id="mailContactoAlert" style="color:red"> Debe ingresar un Email válido para el contacto del Local</span>');
+      $("#mailContacto").addClass('alert-danger');
+      hayError = true;      
+    }
+}
