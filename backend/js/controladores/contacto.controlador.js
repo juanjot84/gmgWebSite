@@ -60,3 +60,57 @@
           data: contacto  
       }); 
     } 
+
+function validar(){
+  var nombreContacto = $("#nombreContacto").val();
+  var mailContacto = $("#mailContacto").val();
+  var telefonoContacto = $("#telefonoContacto").val();
+  var celContacto = $("#celContacto").val();
+  var hayError = false;
+
+    if(mailContacto.length < 2){
+      $("#mailContacto").parent().after('<span id="mailContactoAlert" style="color:red"> Debe ingresar un Email para el Contacto</span>');
+      $("#mailContacto").addClass('alert-danger');
+      hayError = true;
+    }else {
+      caracteresCorreoValido(mailContacto);
+    }
+
+   if(nombreContacto.length < 2){
+      $("#nombreContacto").parent().after('<span id="nombreContactoAlert" style="color:red"> Debe ingresar un Nombre para el Contacto</span>');
+      $("#nombreContacto").addClass('alert-danger');
+      hayError = true;
+   }
+   if(telefonoContacto.length < 7){
+      $("#telefonoContacto").parent().after('<span id="telefonoContactoAlert" style="color:red"> Debe ingresar una Teléfono fijo para el Contacto</span>');
+      $("#telefonoContacto").addClass('alert-danger');
+      hayError = true;
+   }
+
+   if(celContacto.length < 7){
+      $("#celContacto").parent().after('<span id="celContactoAlert" style="color:red"> Debe ingresar una Celular para el Contacto</span>');
+      $("#celContacto").addClass('alert-danger');
+      hayError = true;
+   } 
+
+  if(hayError==false){
+     send();
+  }else{
+    $(location).attr('href',"#formularioAgregar");
+  }
+
+}
+
+function limpiar(campo){
+   $("#"+campo+"Alert").hide();
+   $("#"+campo).removeClass('alert-danger');
+}
+
+function caracteresCorreoValido(email){
+    var caract = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);   
+    if (! caract.test(email)){
+      $("#mailContacto").parent().after('<span id="mailContactoAlert" style="color:red"> Debe ingresar un Email válido para el Usuario</span>');
+      $("#mailContacto").addClass('alert-danger');
+      hayError = true;      
+    }
+}

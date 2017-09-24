@@ -43,33 +43,33 @@
             
               <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-user" aria-hidden="true"></i></span>
-                <input id="nombreContacto" name="nombreContacto" type="text" class="form-control" placeholder="Nombre del Contacto" aria-describedby="sizing-addon3">
+                <input id="nombreContacto" name="nombreContacto" type="text" class="form-control" placeholder="Nombre del Contacto" aria-describedby="sizing-addon3" onfocus="limpiar('nombreContacto')" required>
               </div></p>
 
           <h5 class="titulosalta"> Mail</h5>    
             
               <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                <input id="mailContacto" name="mailContacto" type="text" class="form-control" placeholder="Mail del Contacto" aria-describedby="sizing-addon3">
+                <input id="mailContacto" name="mailContacto" type="text" class="form-control" placeholder="Mail del Contacto" aria-describedby="sizing-addon3" onfocus="limpiar('mailContacto')" required>
               </div></p>
 
           <h5 class="titulosalta"> Teléfono fijo</h5> 
 
              <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-mobile" aria-hidden="true"></i></span>
-                <input id="telefonoContacto" name="telefonoContacto" type="text" class="form-control" placeholder="Numero de telefono del Contacto" aria-describedby="sizing-addon3">
+                <input id="telefonoContacto" name="telefonoContacto" type="number" class="form-control" placeholder="Numero de telefono del Contacto" aria-describedby="sizing-addon3" onfocus="limpiar('telefonoContacto')" required>
               </div></p>
 
           <h5 class="titulosalta"> Celular</h5>     
 
               <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-mobile" aria-hidden="true"></i></span>
-                <input id="celContacto" name="celContacto" type="text" class="form-control" placeholder="Número de celular del Contacto" aria-describedby="sizing-addon3">
+                <input id="celContacto" name="celContacto" type="number" class="form-control" placeholder="Número de celular del Contacto" aria-describedby="sizing-addon3" onfocus="limpiar('celContacto')" required>
               </div></p> 
 
               <div class="input-group">
                  <span class="input-group-btn">
-                  <button class="btn btn-default" type="button" style="padding: 17px;" onClick="send()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
+                  <button class="btn btn-default" type="button" style="padding: 17px;" onClick="validar()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
                 </span>
               </div>
             </form>
