@@ -45,10 +45,10 @@
                         <strong>Lunes </strong>
                         <div class="row">    
                             <div class="col-md-6">
-                               <input id="HdesdeLunes" name="HdesdeLunes" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3">
+                               <input id="HdesdeLunes" name="HdesdeLunes" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3" onfocus="limpiar('HhastaLunes','HdesdeLunes')">
                             </div>
                             <div class="col-md-6">
-                               <input id="HhastaLunes" name="HhastaLunes" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3">
+                               <input id="HhastaLunes" name="HhastaLunes" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3" onfocus="limpiar('HhastaLunes','HhastaLunes')">
                             </div>
                         </div>
                     </p>
@@ -56,10 +56,10 @@
                         <strong>Martes </strong>
                         <div class="row">    
                             <div class="col-md-6">
-                               <input id="HdesdeMartes" name="HdesdeMartes" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3">
+                               <input id="HdesdeMartes" name="HdesdeMartes" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3" onfocus="limpiar('HhastaMartes','HdesdeMartes')">
                             </div>
                             <div class="col-md-6">
-                               <input id="HhastaMartes" name="HhastaMartes" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3">
+                               <input id="HhastaMartes" name="HhastaMartes" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3" onfocus="limpiar('HhastaMartes','HhastaMartes')">
                             </div>
                         </div>
                     </p>
@@ -67,10 +67,10 @@
                         <strong>Miércoles </strong>
                         <div class="row">    
                             <div class="col-md-6">
-                               <input id="HdesdeMiercoles" name="HdesdeMiercoles" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3">
+                               <input id="HdesdeMiercoles" name="HdesdeMiercoles" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3" onfocus="limpiar('HhastaMiercoles','HdesdeMiercoles')">
                             </div>
                             <div class="col-md-6">
-                               <input id="HhastaMiercoles" name="HhastaMiercoles" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3">
+                               <input id="HhastaMiercoles" name="HhastaMiercoles" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3" onfocus="limpiar('HhastaMiercoles','HhastaMiercoles')">
                             </div>
                         </div>
                     </p>
@@ -78,10 +78,10 @@
                         <strong>Jueves </strong>
                         <div class="row">    
                             <div class="col-md-6">
-                               <input id="HdesdeJueves" name="HdesdeJueves" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3">
+                               <input id="HdesdeJueves" name="HdesdeJueves" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3" onfocus="limpiar('HhastaJueves','HdesdeJueves')">
                             </div>
                             <div class="col-md-6">
-                               <input id="HhastaJueves" name="HhastaJueves" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3">
+                               <input id="HhastaJueves" name="HhastaJueves" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3" onfocus="limpiar('HhastaJueves','HhastaJueves')">
                             </div>
                         </div>
                     </p>
@@ -89,10 +89,10 @@
                         <strong>Viernes </strong>
                         <div class="row">    
                             <div class="col-md-6">
-                               <input id="HdesdeViernes" name="HdesdeViernes" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3">
+                               <input id="HdesdeViernes" name="HdesdeViernes" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3" onfocus="limpiar('HhastaViernes','HdesdeViernes')">
                             </div>
                             <div class="col-md-6">
-                               <input id="HhastaViernes" name="HhastaViernes" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3">
+                               <input id="HhastaViernes" name="HhastaViernes" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3" onfocus="limpiar('HhastaViernes','HhastaViernes')">
                             </div>
                         </div>
                     </p>
@@ -100,10 +100,10 @@
                         <strong>Sábados </strong>
                         <div class="row">    
                             <div class="col-md-6">
-                               <input id="HdesdeSabados" name="HdesdeSabados" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3">
+                               <input id="HdesdeSabados" name="HdesdeSabados" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3" onfocus="limpiar('HhastaSabados','HdesdeSabados')">
                             </div>
                             <div class="col-md-6">
-                               <input id="HhastaSabados" name="HhastaSabados" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3">
+                               <input id="HhastaSabados" name="HhastaSabados" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3" onfocus="limpiar('HhastaSabados','HhastaSabados')">
                             </div>
                         </div>
                     </p>
@@ -111,10 +111,10 @@
                         <strong>Domingos</strong>
                         <div class="row">    
                             <div class="col-md-6">
-                               <input id="HdesdeDomingos" name="HdesdeDomingos" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3">
+                               <input id="HdesdeDomingos" name="HdesdeDomingos" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3" onfocus="limpiar('HhastaDomingos','HdesdeDomingos')">
                             </div>
                             <div class="col-md-6">
-                               <input id="HhastaDomingos" name="HhastaDomingos" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3">
+                               <input id="HhastaDomingos" name="HhastaDomingos" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3" onfocus="limpiar('HhastaDomingos','HhastaDomingos')">
                             </div>
                         </div>
                     </p>
@@ -122,17 +122,17 @@
                         <strong>Feriados </strong>
                         <div class="row">    
                             <div class="col-md-6">
-                               <input id="HdesdeFeriados" name="HdesdeFeriados" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3">
+                               <input id="HdesdeFeriados" name="HdesdeFeriados" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3" onfocus="limpiar('HhastaFeriados','HdesdeFeriados')">
                             </div>
                             <div class="col-md-6">
-                               <input id="HhastaFeriados" name="HhastaFeriados" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3">
+                               <input id="HhastaFeriados" name="HhastaFeriados" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3" onfocus="limpiar('HhastaFeriados','HhastaFeriados')">
                             </div>
                         </div>
                     </p>
 
               <div class="input-group">
                  <span class="input-group-btn">
-                  <button class="btn btn-default" type="button" style="padding: 17px;" onClick="SendLocalDescuento()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
+                  <button class="btn btn-default" type="button" style="padding: 17px;" onClick="validar()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
                 </span>
               </div>
             </form>
