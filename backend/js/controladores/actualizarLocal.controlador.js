@@ -1,23 +1,28 @@
 
 
 function actualizarLocal(idLocal, valorAActualizar, campoAAcuatualizar){
-  var  nuevoCampo= {};
-  nuevoCampo[campoAAcuatualizar]= valorAActualizar;
 
-  $.ajax({
-    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id=' + idLocal,
-    type: 'PUT',
+  var promise = new Promise(function(resolve, reject) {
+    var nuevoCampo = {};
+    nuevoCampo[campoAAcuatualizar] = valorAActualizar;
 
-    dataType: "json",
-    crossDomain: true,
-    contentType:"application/json",
-    success: function (data) {
-      
-    },
-    error:function(jqXHR,textStatus,errorThrown)
-    {
-      console.log('Error al actualizar local')
-    },
-    data: JSON.stringify(nuevoCampo)
+    $.ajax({
+      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id=' + idLocal,
+      type: 'PUT',
+
+      dataType: "json",
+      crossDomain: true,
+      contentType: "application/json",
+      success: function (data) {
+        resolve(data);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        reject(errorThrown);
+      },
+      data: JSON.stringify(nuevoCampo)
+    });
+
   });
+
+  return promise;
 }

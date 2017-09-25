@@ -38,20 +38,25 @@ function SendCubiertos(){
   var guardarCubiertos = [];
 
   for (var i = 0; i < dias.length; i+=1) {
-    console.log(dias[i],idCantCubiertos[i],idDuracionReser[i]);    
-    var guardar =  sendCubiertos(dias[i],idCantCubiertos[i],idDuracionReser[i]).then(function(id){ 
-      localCubiertosCreados.push(id);
-    });
-    guardarCubiertos.push(guardar);
+    if (idCantCubiertos[i] != "" && idDuracionReser[i] != "") {
+      console.log(dias[i],idCantCubiertos[i],idDuracionReser[i]);
+      var guardar =  sendCubiertos(dias[i],idCantCubiertos[i],idDuracionReser[i]).then(function(id){
+        localCubiertosCreados.push(id);
+      });
+      guardarCubiertos.push(guardar);
+    }
   }
 
   Promise.all(guardarCubiertos).then(function () {
     var campoAAcuatualizar = "idCubiertosDia";
-    actualizarLocal(idLocalCreado, localCubiertosCreados, campoAAcuatualizar);
-    console.log(localCubiertosCreados);
+    actualizarLocal(idLocalCreado, localCubiertosCreados, campoAAcuatualizar).then( function(data){
+      console.log(localCubiertosCreados);
 
-    var url = "../backend/negocios.php"; 
-    $(location).attr('href',url);
+      var url = "../backend/negocios.php";
+      $(location).attr('href',url);
+    }).catch(function(err){
+      console.log(err);
+    });
   });
 
 }
@@ -121,9 +126,9 @@ function validar(){
       $("#Cubiertos" + dias[i]).addClass('alert-danger');
       hayError = true;
     }
-    if(hayError==false){
-       SendCubiertos();
-    }
+  }
+  if(hayError==false){
+    SendCubiertos();
   }
 
 }

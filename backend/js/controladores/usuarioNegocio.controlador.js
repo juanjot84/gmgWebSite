@@ -112,7 +112,7 @@ function validar(){
       $("#email").addClass('alert-danger');
       hayError = true;
     }else {
-      caracteresCorreoValido(email);
+      hayError = caracteresCorreoValido(email);
     }
 
    if(nombre.length < 2){
@@ -143,6 +143,8 @@ function caracteresCorreoValido(email){
     if (! caract.test(email)){
       $("#email").parent().after('<span id="emailAlert" style="color:red"> Debe ingresar un Email válido para el Usuario</span>');
       $("#email").addClass('alert-danger');
-      hayError = true;      
+      return true;
+    } else {
+      return false;
     }
 }

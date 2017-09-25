@@ -45,14 +45,13 @@
               var resultado = data;
               var contactoCreado =  resultado._id;           
               var campo = "idContacto";  
-              actualizarLocal(idLocalCreado, contactoCreado, campo);
-
-              var url = "../backend/asignar-descuento.php?idLocal="+ idLocalCreado+""; 
-              $(location).attr('href',url);
-
-              $("#formularioAgregar :input").val('');
-
-
+              actualizarLocal(idLocalCreado, contactoCreado, campo).then( function(data){
+                var url = "../backend/asignar-descuento.php?idLocal="+ idLocalCreado+"";
+                $(location).attr('href',url);
+                $("#formularioAgregar :input").val('');
+              }).catch(function(err){
+                console.log(err);
+              });
             },
             error:function(jqXHR,textStatus,errorThrown)
             {

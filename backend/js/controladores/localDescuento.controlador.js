@@ -95,11 +95,15 @@ function SendLocalDescuento(){
 }
   Promise.all(guardarLocales).then(function () {
     var campoAAcuatualizar = "idLocalDescuento";
-    actualizarLocal(idLocalCreado, localDescuentoCreados, campoAAcuatualizar);
-    console.log(localDescuentoCreados);
+    actualizarLocal(idLocalCreado, localDescuentoCreados, campoAAcuatualizar).then( function(data){
+      console.log(localDescuentoCreados);
 
-    var url = "../backend/asignar-horarios.php?idLocal="+ idLocalCreado+""; 
-    $(location).attr('href',url);
+      var url = "../backend/asignar-horarios.php?idLocal="+ idLocalCreado+"";
+      $(location).attr('href',url);
+    }).catch(function(err){
+      console.log(err);
+    });
+
   });
 
 }
