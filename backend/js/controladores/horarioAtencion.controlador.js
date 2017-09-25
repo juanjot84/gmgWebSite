@@ -40,13 +40,13 @@ function SendHorarioAtencion(){
   for (var i = 0; i < dias.length; i+=1) {
     console.log(dias[i],idHorariosDesde[i],idHorariosHasta[i]); 
    
-   if(idHorariosDesde[i] != "" && idHorariosHasta[i] != ""){
+//   if(idHorariosDesde[i] != "" && idHorariosHasta[i] != ""){
 
     var guardar =  sendHorarios(dias[i],idHorariosDesde[i],idHorariosHasta[i]).then(function(id){ 
       localHorariosCreados.push(id);
     });
     guardarHorarios.push(guardar);
-  }
+//  }
 } 
   Promise.all(guardarHorarios).then(function () {
     var campoAAcuatualizar = "idHorarioAtencion";
