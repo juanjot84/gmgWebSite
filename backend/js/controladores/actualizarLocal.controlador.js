@@ -16,7 +16,7 @@ function actualizarLocal(idLocal, valorAActualizar, campoAAcuatualizar){
     },
     error:function(jqXHR,textStatus,errorThrown)
     {
-      console.log('Error al actualizar contacto')
+      console.log('Error al actualizar local')
     },
     data: JSON.stringify(nuevoCampo)
   });
