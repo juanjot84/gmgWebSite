@@ -37,7 +37,7 @@
             <form action="" id="formularioAgregar">
               
               <input type="text" name="idCubierto" id="idCubierto" class="hidden">
-              <input type="text" name="idLocalCreado" id="idLocalCreado" value="<?php echo $idLocal; ?>">
+              <input type="text" name="idLocalCreado" id="idLocalCreado" value="<?php echo $idLocal; ?>" class="hidden">
 
                     <h5 class="titulosalta"> Abierto</h5>
 
@@ -45,10 +45,10 @@
                         <strong>Lunes </strong>
                         <div class="row">    
                             <div class="col-md-6">
-                               <input id="CubiertosLunes" name="CubiertosLunes" type="number" class="form-control" placeholder="Cantidad de cubiertos" aria-describedby="sizing-addon3">
+                               <input id="CubiertosLunes" name="CubiertosLunes" type="number" class="form-control" placeholder="Cantidad de cubiertos" aria-describedby="sizing-addon3" onfocus="limpiar('DuracionLunes','CubiertosLunes')">
                             </div>
                             <div class="col-md-6">
-                               <input id="DuracionLunes" name="DuracionLunes" type="number" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3">
+                               <input id="DuracionLunes" name="DuracionLunes" type="number" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3" onfocus="limpiar('DuracionLunes','DuracionLunes')">
                             </div>
                         </div>
                     </p>
@@ -56,10 +56,10 @@
                         <strong>Martes </strong>
                         <div class="row">    
                             <div class="col-md-6">
-                               <input id="CubiertosMartes" name="CubiertosMartes" type="number" class="form-control" placeholder="Cantidad de cubiertos" aria-describedby="sizing-addon3">
+                               <input id="CubiertosMartes" name="CubiertosMartes" type="number" class="form-control" placeholder="Cantidad de cubiertos" aria-describedby="sizing-addon3" onfocus="limpiar('DuracionMartes','CubiertosMartes')">
                             </div>
                             <div class="col-md-6">
-                               <input id="DuracionMartes" name="DuracionMartes" type="number" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3">
+                               <input id="DuracionMartes" name="DuracionMartes" type="number" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3" onfocus="limpiar('DuracionMartes','DuracionMartes')">
                             </div>
                         </div>
                     </p>
@@ -67,10 +67,10 @@
                         <strong>Miércoles </strong>
                         <div class="row">    
                             <div class="col-md-6">
-                               <input id="CubiertosMiercoles" name="CubiertosMiercoles" type="number" class="form-control" placeholder="Cantidad de cubiertos" aria-describedby="sizing-addon3">
+                               <input id="CubiertosMiercoles" name="CubiertosMiercoles" type="number" class="form-control" placeholder="Cantidad de cubiertos" aria-describedby="sizing-addon3" onfocus="limpiar('DuracionMiercoles','CubiertosMiercoles')">
                             </div>
                             <div class="col-md-6">
-                               <input id="DuracionMiercoles" name="DuracionMiercoles" type="number" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3">
+                               <input id="DuracionMiercoles" name="DuracionMiercoles" type="number" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3" onfocus="limpiar('DuracionMiercoles','DuracionMiercoles')">
                             </div>
                         </div>
                     </p>
@@ -78,10 +78,10 @@
                         <strong>Jueves </strong>
                         <div class="row">    
                             <div class="col-md-6">
-                               <input id="CubiertosJueves" name="CubiertosJueves" type="number" class="form-control" placeholder="Cantidad de cubiertos" aria-describedby="sizing-addon3">
+                               <input id="CubiertosJueves" name="CubiertosJueves" type="number" class="form-control" placeholder="Cantidad de cubiertos" aria-describedby="sizing-addon3" onfocus="limpiar('DuracionJueves','CubiertosJueves')">
                             </div>
                             <div class="col-md-6">
-                               <input id="DuracionJueves" name="DuracionJueves" type="number" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3">
+                               <input id="DuracionJueves" name="DuracionJueves" type="number" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3" onfocus="limpiar('DuracionJueves','DuracionJueves')">
                             </div>
                         </div>
                     </p>
@@ -89,10 +89,10 @@
                         <strong>Viernes </strong>
                         <div class="row">    
                             <div class="col-md-6">
-                               <input id="CubiertosViernes" name="CubiertosViernes" type="number" class="form-control" placeholder="Cantidad de cubiertos" aria-describedby="sizing-addon3">
+                               <input id="CubiertosViernes" name="CubiertosViernes" type="number" class="form-control" placeholder="Cantidad de cubiertos" aria-describedby="sizing-addon3" onfocus="limpiar('DuracionViernes','CubiertosViernes')">
                             </div>
                             <div class="col-md-6">
-                               <input id="DuracionViernes" name="DuracionViernes" type="number" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3">
+                               <input id="DuracionViernes" name="DuracionViernes" type="number" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3" onfocus="limpiar('DuracionViernes','DuracionViernes')">
                             </div>
                         </div>
                     </p>
@@ -100,10 +100,10 @@
                         <strong>Sábados </strong>
                         <div class="row">    
                             <div class="col-md-6">
-                               <input id="CubiertosSabados" name="CubiertosSabados" type="number" class="form-control" placeholder="Cantidad de cubiertos" aria-describedby="sizing-addon3">
+                               <input id="CubiertosSabados" name="CubiertosSabados" type="number" class="form-control" placeholder="Cantidad de cubiertos" aria-describedby="sizing-addon3" onfocus="limpiar('DuracionSabados','CubiertosSabados')">
                             </div>
                             <div class="col-md-6">
-                               <input id="DuracionSabados" name="DuracionSabados" type="number" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3">
+                               <input id="DuracionSabados" name="DuracionSabados" type="number" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3" onfocus="limpiar('DuracionSabados','DuracionSabados')">
                             </div>
                         </div>
                     </p>
@@ -111,10 +111,10 @@
                         <strong>Domingos</strong>
                         <div class="row">    
                             <div class="col-md-6">
-                               <input id="CubiertosDomingos" name="CubiertosDomingos" type="number" class="form-control" placeholder="Cantidad de cubiertos" aria-describedby="sizing-addon3">
+                               <input id="CubiertosDomingos" name="CubiertosDomingos" type="number" class="form-control" placeholder="Cantidad de cubiertos" aria-describedby="sizing-addon3" onfocus="limpiar('DuracionDomingos','CubiertosDomingos')">
                             </div>
                             <div class="col-md-6">
-                               <input id="DuracionDomingos" name="DuracionDomingos" type="number" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3">
+                               <input id="DuracionDomingos" name="DuracionDomingos" type="number" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3" onfocus="limpiar('DuracionDomingos','DuracionDomingos')">
                             </div>
                         </div>
                     </p>
@@ -122,17 +122,17 @@
                         <strong>Feriados </strong>
                         <div class="row">    
                             <div class="col-md-6">
-                               <input id="CubiertosFeriados" name="CubiertosFeriados" type="number" class="form-control" placeholder="Cantidad de cubiertos" aria-describedby="sizing-addon3">
+                               <input id="CubiertosFeriados" name="CubiertosFeriados" type="number" class="form-control" placeholder="Cantidad de cubiertos" aria-describedby="sizing-addon3" onfocus="limpiar('DuracionFeriados','CubiertosFeriados')">
                             </div>
                             <div class="col-md-6">
-                               <input id="DuracionFeriados" name="DuracionFeriados" type="number" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3">
+                               <input id="DuracionFeriados" name="DuracionFeriados" type="number" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3" onfocus="limpiar('DuracionFeriados','DuracionFeriados')">
                             </div>
                         </div>
                     </p>
 
               <div class="input-group">
                  <span class="input-group-btn">
-                  <button class="btn btn-default" type="button" style="padding: 17px;" onClick="SendCubiertos()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
+                  <button class="btn btn-default" type="button" style="padding: 17px;" onClick="validar()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
                 </span>
               </div>
             </form>

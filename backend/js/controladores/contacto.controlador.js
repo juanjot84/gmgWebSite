@@ -47,7 +47,7 @@
               var campo = "idContacto";  
               actualizarLocal(idLocalCreado, contactoCreado, campo);
 
-              var url = "http://localhost/gmg/gmgWebSite/backend/asignar-descuento.php?idLocal="+ idLocalCreado+""; 
+              var url = "../backend/asignar-descuento.php?idLocal="+ idLocalCreado+""; 
               $(location).attr('href',url);
 
               $("#formularioAgregar :input").val('');

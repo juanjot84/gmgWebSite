@@ -197,7 +197,7 @@
               var resultado = data;
               var negocioCreado =  resultado._id;
 
-              var url = "http://localhost/gmg/gmgWebSite/backend/usuario-negocio.php?idNegocio="+ negocioCreado+"";
+              var url = "../backend/usuario-negocio.php?idNegocio="+ negocioCreado+"";
               $(location).attr('href',url);
 
                 $("#formularioAgregar :input").val('');          

@@ -38,21 +38,22 @@ function SendHorarioAtencion(){
   var guardarHorarios = [];
 
   for (var i = 0; i < dias.length; i+=1) {
-    console.log(dias[i],idHorariosDesde[i],idHorariosHasta[i]);
-    if(idHorariosDesde[i] != "" && idHorariosHasta[i] != ""){
+    console.log(dias[i],idHorariosDesde[i],idHorariosHasta[i]); 
+   
+   if(idHorariosDesde[i] != "" && idHorariosHasta[i] != ""){
+
     var guardar =  sendHorarios(dias[i],idHorariosDesde[i],idHorariosHasta[i]).then(function(id){ 
       localHorariosCreados.push(id);
     });
     guardarHorarios.push(guardar);
-    }
   }
-
+} 
   Promise.all(guardarHorarios).then(function () {
     var campoAAcuatualizar = "idHorarioAtencion";
     actualizarLocal(idLocalCreado, localHorariosCreados, campoAAcuatualizar);
     console.log(localHorariosCreados);
 
-    var url = "http://localhost/gmg/gmgWebSite/backend/asignar-cubiertos.php?idLocal="+ idLocalCreado+""; 
+    var url = "../backend/asignar-cubiertos.php?idLocal="+ idLocalCreado+""; 
     $(location).attr('href',url);
   });
 
@@ -126,11 +127,7 @@ function validar(){
     }
     if(hayError==false){
      SendHorarioAtencion();
-    }else{
-      $(location).attr('href',"#formularioAgregar");
     }
-
-
   }
 
 }

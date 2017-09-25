@@ -452,7 +452,7 @@ function toggleBounce() {
               var resultado = data;
               var localCreado =  resultado._id;
 
-              var url = "http://localhost/gmg/gmgWebSite/backend/contacto.php?idLocal="+ localCreado+""; 
+              var url = "../backend/contacto.php?idLocal="+ localCreado+""; 
               $(location).attr('href',url);
 
                 $("#formularioLocal :input").val('');         

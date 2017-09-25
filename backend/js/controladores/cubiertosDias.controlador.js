@@ -38,7 +38,7 @@ function SendCubiertos(){
   var guardarCubiertos = [];
 
   for (var i = 0; i < dias.length; i+=1) {
-    console.log(dias[i],idCantCubiertos[i],idDuracionReser[i]);
+    console.log(dias[i],idCantCubiertos[i],idDuracionReser[i]);    
     var guardar =  sendCubiertos(dias[i],idCantCubiertos[i],idDuracionReser[i]).then(function(id){ 
       localCubiertosCreados.push(id);
     });
@@ -50,7 +50,7 @@ function SendCubiertos(){
     actualizarLocal(idLocalCreado, localCubiertosCreados, campoAAcuatualizar);
     console.log(localCubiertosCreados);
 
-    var url = "http://localhost/gmg/gmgWebSite/backend/negocios.php"; 
+    var url = "../backend/negocios.php"; 
     $(location).attr('href',url);
   });
 
@@ -93,4 +93,42 @@ function sendCubiertos(diaCubierto,cantCubiertos, duracionReserva) {
   });
 
   return promise
+}
+
+function validar(){
+
+  var idCantCubiertos = [];
+  var idDuracionReser = [];
+  var hayError = false;
+
+  _.each(dias, function(dia){
+    idCantCubiertos.push($("#Cubiertos" + dia).val());
+    idDuracionReser.push($("#Duracion" + dia).val());
+  });
+
+  var idLocalCreado = $("#idLocalCreado").val();
+  var guardarCubiertos = [];
+
+  for (var i = 0; i < dias.length; i+=1) {
+
+    if(idCantCubiertos[i] != "" && idDuracionReser[i] == ""){
+      $("#Duracion" + dias[i]).parent().after('<span id="Duracion'+dias[i]+'Alert" style="color:red"> Debe ingresar la Duración de la reserva para el día</span>');
+      $("#Duracion" + dias[i]).addClass('alert-danger');
+      hayError = true;
+    }
+    if(idCantCubiertos[i] == "" && idDuracionReser[i] != ""){
+      $("#Duracion" + dias[i]).parent().after('<span id="Duracion'+dias[i]+'Alert" style="color:red"> Debe ingresar una Cantidad de Cubiertos para el día</span>');
+      $("#Cubiertos" + dias[i]).addClass('alert-danger');
+      hayError = true;
+    }
+    if(hayError==false){
+       SendCubiertos();
+    }
+  }
+
+}
+
+function limpiar(campo,campoBack){
+   $("#"+campo+"Alert").hide();
+   $("#"+campoBack).removeClass('alert-danger');
 }

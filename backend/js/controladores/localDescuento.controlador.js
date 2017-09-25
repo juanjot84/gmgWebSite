@@ -86,20 +86,19 @@ function SendLocalDescuento(){
   for (var i = 0; i < dias.length; i+=1) {
     console.log(dias[i],idDescuentos[i]);
 
-    if(idDescuentos[i] != ""){
+    if(idDescuentos[i] != null){
       var guardar =  sendLocalDescuento(dias[i],idDescuentos[i]).then(function(id){
         localDescuentoCreados.push(id);
       });
-        guardarLocales.push(guardar);
-    }
+        guardarLocales.push(guardar); 
   }
-
+}
   Promise.all(guardarLocales).then(function () {
     var campoAAcuatualizar = "idLocalDescuento";
     actualizarLocal(idLocalCreado, localDescuentoCreados, campoAAcuatualizar);
     console.log(localDescuentoCreados);
 
-    var url = "http://localhost/gmg/gmgWebSite/backend/asignar-horarios.php?idLocal="+ idLocalCreado+""; 
+    var url = "../backend/asignar-horarios.php?idLocal="+ idLocalCreado+""; 
     $(location).attr('href',url);
   });
 
