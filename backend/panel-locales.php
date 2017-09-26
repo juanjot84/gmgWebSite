@@ -1,7 +1,3 @@
-<?php    
-   $idNegocio = $_GET['idNegocio'];
-?>
-
 <?php include("includes/head.php"); ?>
 
 <head>
@@ -45,32 +41,41 @@
 
 
     <div class="container" style="height: 65vh; padding-top: 13%; min-height: 715px;">
-
-    <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
-
         <div class="row text-center">
             <div class="col-md-4">
-                <a onclick="cargarForm('negocio')"><div style="font-size: 2em;">
-                    <span style="font-size: 3em; padding: 5%;" class="glyphicon glyphicon-cog" aria-hidden="true"></span><br>
+                <a href="#"><div style="font-size: 1.5em;">
+                    <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-cog" aria-hidden="true"></span><br>
                     DATOS GENERALES
                 </div></a>
             </div>
             <div class="col-md-4">
-                <a onclick="cargarForm('contacto')"><div style="font-size: 2em;">
-                    <span style="font-size: 3em; padding: 5%;" class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><br>
-                    DATOS DE ACCESO
+                <a href="#"><div style="font-size: 1.5em;">
+                    <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span><br>
+                    CONTACTO ADMINISTRATIVO
                 </div></a>
             </div>
             <div class="col-md-4">
-                <a href="#"><div style="font-size: 2em;">
-                    <span style="font-size: 3em; padding: 5%;" class="glyphicon glyphicon-th" aria-hidden="true"></span><br>
-                    LOCALES
+                <a href="#"><div style="font-size: 1.5em;">
+                    <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-usd" aria-hidden="true"></span><br>
+                    DESCUENTOS
                 </div></a>
             </div>
         </div>
-        <div class="row text-center">
-        <div class="col-md-12">
-                <a href="../backend/negocios.php"><div style="font-size: 1.5em;">
+        <div class="row text-center" style="padding-top: 5%;">
+            <div class="col-md-4">
+                <a href="#"><div style="font-size: 1.5em;">
+                    <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-cutlery" aria-hidden="true"></span><br>
+                    CUBIERTOS POR DÍA
+                </div></a>
+            </div>
+            <div class="col-md-4">
+                <a href="#"><div style="font-size: 1.5em;">
+                    <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-time" aria-hidden="true"></span><br>
+                    HORARIOS DE ATENCIÓN
+                </div></a>
+            </div>
+            <div class="col-md-4">
+                <a href="#"><div style="font-size: 1.5em;">
                     <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span><br>
                     VOLVER
                 </div></a>
@@ -96,9 +101,6 @@
     <!-- Contact Form JavaScript -->
     <script src="../js/jqBootstrapValidation.js"></script>
     <script src="../js/contact_me.js"></script>
-
-    <!-- Funciones de Negocio JavaScript -->
-    <script src="js/controladores/negocio.controlador.js"></script>
 
     <!-- Theme JavaScript -->
     <script src="../js/agency.min.js"></script>
