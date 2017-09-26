@@ -465,6 +465,7 @@ function toggleBounce() {
     }
  
 function validar(){
+  $("#botonGuardar").addClass('disabled');
   var telContacto = $("#telContacto").val();
   var mailContacto = $("#mailContacto").val();
   var calleLocal = $("#calleLocal").val();
@@ -536,6 +537,7 @@ function validar(){
 function limpiar(campo){
    $("#"+campo+"Alert").hide();
    $("#"+campo).removeClass('alert-danger');
+   $("#botonGuardar").removeClass('disabled');
 }
 
 function caracteresCorreoValido(email){

@@ -43,7 +43,7 @@
  
               <input type="text" name="idNegocio" id="idNegocio" class="hidden">
 
-             <h5 class="titulosalta"> Nombre</h5>
+             <h5 class="titulosalta"> Nombre del Negocio</h5>
  
               <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
@@ -64,7 +64,7 @@
                 <label class="radio-inline"><input type="radio" name="destacadoNegocio" id="destacadoNegocio-false" value="false" checked="checked">No</label>
               </p>
 
-              <h5 class="titulosalta"> Datos de contacto</h5>
+              <h5 class="titulosalta"> Datos de contacto de redes sociales</h5>
 
               <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-facebook-official" aria-hidden="true"></i></span>
@@ -85,6 +85,8 @@
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-tripadvisor" aria-hidden="true"></i></span>
                 <input id="tripadvisorNegocio" name="tripadvisorNegocio" type="text" class="form-control" placeholder="Tripadvisor del Negocio" aria-describedby="sizing-addon3">
               </div></p>
+
+              <h5 class="titulosalta"> Url de imagen principal del negocio</h5>
 
               <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
@@ -111,7 +113,7 @@
 
               <div class="input-group">
                  <span class="input-group-btn">
-                  <button class="btn btn-default" type="button" style="padding: 17px;" onClick="validar()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
+                  <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
                 </span>
               </div>
             </form>           

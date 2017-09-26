@@ -73,6 +73,8 @@ function mostrarAltaLocalDescuento(){
 
 
 function SendLocalDescuento(){
+  
+  $("#botonGuardar").addClass('disabled');
 
   var idDescuentos = [];
 

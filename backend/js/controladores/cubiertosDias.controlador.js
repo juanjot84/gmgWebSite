@@ -101,7 +101,7 @@ function sendCubiertos(diaCubierto,cantCubiertos, duracionReserva) {
 }
 
 function validar(){
-
+  $("#botonGuardar").addClass('disabled');
   var idCantCubiertos = [];
   var idDuracionReser = [];
   var hayError = false;
@@ -129,6 +129,8 @@ function validar(){
   }
   if(hayError==false){
     SendCubiertos();
+  }else{
+    $(location).attr('href',"#formularioAgregar");
   }
 
 }
@@ -136,4 +138,5 @@ function validar(){
 function limpiar(campo,campoBack){
    $("#"+campo+"Alert").hide();
    $("#"+campoBack).removeClass('alert-danger');
+   $("#botonGuardar").removeClass('disabled');
 }

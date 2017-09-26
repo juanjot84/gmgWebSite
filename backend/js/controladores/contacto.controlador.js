@@ -61,6 +61,7 @@
     } 
 
 function validar(){
+  $("#botonGuardar").addClass('disabled');
   var nombreContacto = $("#nombreContacto").val();
   var mailContacto = $("#mailContacto").val();
   var telefonoContacto = $("#telefonoContacto").val();
@@ -103,6 +104,7 @@ function validar(){
 function limpiar(campo){
    $("#"+campo+"Alert").hide();
    $("#"+campo).removeClass('alert-danger');
+   $("#botonGuardar").removeClass('disabled');
 }
 
 function caracteresCorreoValido(email){

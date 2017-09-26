@@ -210,6 +210,7 @@
     }
 
 function validar(){
+  $("#botonGuardar").addClass('disabled');
   var nombreNegocio = $("#nombreNegocio").val();
   var tipoNegocio = $("#tipoNegocio").val();
   var urlImagenNegocio = $("#urlIconoNegocio").val();
@@ -241,4 +242,5 @@ function validar(){
 function limpiar(campo){
    $("#"+campo+"Alert").hide();
    $("#"+campo).removeClass('alert-danger');
+   $("#botonGuardar").removeClass('disabled');
 }

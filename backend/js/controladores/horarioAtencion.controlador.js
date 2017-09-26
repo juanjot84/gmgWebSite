@@ -106,7 +106,7 @@ function sendHorarios(diaHorario, horaDesde, horaHasta) {
 }
 
 function validar() {
-
+  $("#botonGuardar").addClass('disabled');
   var idHorariosDesde = [];
   var idHorariosHasta = [];
   var hayError = false;
@@ -135,10 +135,13 @@ function validar() {
 
   if (hayError == false) {
     SendHorarioAtencion();
+  }else{
+    $(location).attr('href',"#formularioAgregar");
   }
 }
 
 function limpiar(campo, campoBack) {
   $("#" + campo + "Alert").hide();
   $("#" + campoBack).removeClass('alert-danger');
+  $("#botonGuardar").removeClass('disabled');
 }

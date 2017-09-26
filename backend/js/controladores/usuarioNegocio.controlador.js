@@ -102,6 +102,7 @@
     }
 
 function validar(){
+  $("#botonGuardar").addClass('disabled');
   var email = $("#email").val();
   var nombre = $("#nombre").val();
   var password = $("#password").val();
@@ -136,6 +137,7 @@ function validar(){
 function limpiar(campo){
    $("#"+campo+"Alert").hide();
    $("#"+campo).removeClass('alert-danger');
+   $("#botonGuardar").removeClass('disabled');
 }
 
 function caracteresCorreoValido(email){

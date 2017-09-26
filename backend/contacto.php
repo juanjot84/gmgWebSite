@@ -32,12 +32,12 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
 
-        <h2 class="tituloseccion">Contacto Administrativo</h2>
+        <h2 class="tituloseccion">Contacto Administrativo Referente del Local</h2>
 
             <form action="" id="formularioAgregar">
 
               <input type="text" name="idContacto" id="idContacto" class="hidden">
-              <input type="text" name="idLocalCreado" id="idLocalCreado" value="<?php echo $idLocal; ?>">
+              <input type="text" name="idLocalCreado" id="idLocalCreado" value="<?php echo $idLocal; ?>" class="hidden">
 
           <h5 class="titulosalta"> Nombre</h5>
             
@@ -69,7 +69,7 @@
 
               <div class="input-group">
                  <span class="input-group-btn">
-                  <button class="btn btn-default" type="button" style="padding: 17px;" onClick="validar()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
+                  <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
                 </span>
               </div>
             </form>

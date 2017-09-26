@@ -43,7 +43,7 @@
                 <input type="text" name="idLocal" id="idLocal" class="hidden">
                 <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
 
-                <h5 class="titulosalta"> Datos de contacto</h5>
+                <h5 class="titulosalta"> Datos de contacto del local visibles para el clinte</h5>
 
                     <p> 
                         <div class="input-group input-group-sm">
@@ -163,7 +163,7 @@
 
               <div class="input-group">
                  <span class="input-group-btn">
-                  <button class="btn btn-default" type="button" style="padding: 17px;" onClick="validar()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
+                  <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
                 </span>
               </div>
 

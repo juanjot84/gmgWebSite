@@ -45,7 +45,7 @@
 
               <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
             
-              <h5 class="titulosalta"> Datos de acceso</h5>
+              <h5 class="titulosalta"> Datos de usuario administrador del negocio</h5>
 
                     <p><div class="input-group input-group-sm">
                       <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-user" aria-hidden="true"></i></span>
@@ -61,8 +61,6 @@
                       <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-user" aria-hidden="true"></i></span>
                       <input id="apellido" name="apellido" type="text" class="form-control" placeholder="Apellido" aria-describedby="sizing-addon3">
                     </div></p>
-
-                    <h5 class="titulosalta"> Sexo</h5>
 
                     <p>
                         <div class="form-group">
@@ -87,7 +85,7 @@
 
               <div class="input-group">
                  <span class="input-group-btn">
-                  <button class="btn btn-default" type="button" style="padding: 17px;" onClick="validar()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
+                  <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
                 </span>
               </div>
             </form>
