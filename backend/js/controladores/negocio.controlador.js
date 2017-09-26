@@ -70,7 +70,7 @@
        $(location).attr('href',url);
       }else if(formulario == "contacto"){
        var negocioEditar = $("#idNegocio").val();
-       var url = "../backend/usuario-negocio.php?idNegocio="+ negocioEditar+"";
+       var url = "../backend/editar-usuario-negocio.php?idNegocio="+ negocioEditar+"";
        $(location).attr('href',url);
       }
 
@@ -192,6 +192,12 @@
               obtenerListado();
           }
       });    
+    }
+
+    function volverPanelNegocio(){
+      var negocioCreado = $("#idNegocio").val(); 
+      var url = "../backend/panel-negocio.php?idNegocio="+ negocioCreado+"";
+      $(location).attr('href',url);
     }
 
   // Traer tipos de negocio para lista desplegable

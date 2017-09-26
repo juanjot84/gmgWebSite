@@ -17,20 +17,40 @@
         });
 
     });
-    var usuarioNegocios;
 
-    function editar(idContacto){
-       var contacto =  _.find(contactos, { '_id': idContacto});
-       console.log(contacto);
-       $('#formularioAgregar').show();
-       $("#formularioAgregar :input").attr("disabled", false);
-       $("#formularioAgregar button").show();
-       $("#nombreContacto").val(contacto.nombreContacto);
-       $("#mailContacto").val(contacto.mailContacto);
-       $("#telefonoContacto").val(contacto.telefonoContacto);
-       $("#celContacto").val(contacto.celContacto);
-       $("#idContacto").val(contacto._id);
-    }
+        $(function() {
+      var idNegocio = $("#idNegocioSeleccionado").val();
+      cargarFormEditar(idNegocio);
+    });
+
+
+    function cargarFormEditar(idNegocio){
+      var idNegocioEditar = idNegocio;
+      var usuariosNegocios;
+
+      $.ajax({
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/usuarioNegocio',
+            type: 'GET',           
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+                usuariosNegocios = data;
+                var usuario =  _.find(usuariosNegocios, { 'idNegocio': idNegocioEditar});
+               
+                $('#formularioAgregar').show();
+                $("#formularioAgregar :input").attr("disabled", false);
+                $("#formularioAgregar button").show();
+                $("#nombre").val(usuario.nombre);
+                $("#email").val(usuario.email);
+                $("#apellido").val(usuario.apellido);
+                $("#sexoUsuario").val(usuario.sexoUsuario);
+                $("#fechaNacimientoUsuario").val(usuario.fechaNacimientoUsuario);
+                $("#idUsuarioNegocio").val(usuario._id);
+                $("#password").val('');   
+            }
+      });
+  }
 
     function mostrar(idContacto){
        var contacto =  _.find(contactos, { '_id': idContacto});
@@ -60,6 +80,49 @@
               obtenerListado();
           }
       });    
+    }
+
+    function volverPanelNegocio(){
+      var negocioCreado = $("#idNegocioEditar").val(); 
+      var url = "../backend/panel-negocio.php?idNegocio="+ negocioCreado+"";
+      $(location).attr('href',url);
+    }
+
+    function editarUsuarioNegocio(){
+        var usuarioNegocio = JSON.stringify({
+            "email": $("#email").val(),
+            "nombre":$("#nombre").val(),
+            "apellido":$("#apellido").val(),
+            "sexoUsuario":$("#sexoUsuario").val(),
+            "fechaNacimientoUsuario":$("#fechaNacimientoUsuario").val(),
+            "password":$("#password").val(),
+            "idNegocio":$("#idNegocio").val()
+        });
+
+        $('#target').html('sending..');
+        var queryParam = $("#idUsuarioNegocio").val();
+        $.ajax({
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/usuarioNegocio?id=' + queryParam,
+            type: "PUT",
+            
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {              
+                
+             var negocioCreado = $("#idNegocioSeleccionado").val();  
+
+             var url = "../backend/panel-negocio.php?idNegocio="+ negocioCreado+"";
+            $(location).attr('href',url);
+
+            $("#formularioAgregar :input").val('');
+
+            },
+            error:function(jqXHR,textStatus,errorThrown)
+            {
+          },
+          data: usuarioNegocio
+      });
     }
 
     function send() {
@@ -101,7 +164,7 @@
       }); 
     }
 
-function validar(){
+function validar(accion){
   $("#botonGuardar").addClass('disabled');
   var email = $("#email").val();
   var nombre = $("#nombre").val();
@@ -127,7 +190,13 @@ function validar(){
       hayError = true;
    } 
   if(hayError==false){
-     send();
+
+    if(accion == "editar"){
+        editarUsuarioNegocio();
+
+    }else if(accion == "crear"){
+        send();
+    }
   }else{
     $(location).attr('href',"#formularioAgregar");
   }
