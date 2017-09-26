@@ -1,3 +1,6 @@
+<?php    
+   $idNegocio = $_GET['idNegocio'];
+?>
 <?php include("includes/head.php"); ?>
 
 
@@ -34,12 +37,14 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
+
+                <input type="text" name="idNegocioEditar" id="idNegocioEditar" value="<?php echo $idNegocio; ?>" class="hidden">
                  <!-- Table -->
 
           <!-- Formulario de alta negocio -->
-            <form action="" id="formularioAgregar" style="display:none">
+            <form action="" id="formularioEditar">
 
-            <h2 class="tituloseccion">Alta Negocio</h2>
+            <h2 class="tituloseccion">Editar datos Generales del Negocio</h2>
  
               <input type="text" name="idNegocio" id="idNegocio" class="hidden">
 
@@ -113,26 +118,14 @@
 
               <div class="input-group">
                  <span class="input-group-btn">
-                  <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar('crear')"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
+                  <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar('editar')"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
                 </span>
               </div>
             </form>           
                   <!-- Table -->
                   <div id="cabeceraTablaNegocios">
-                   <div class="panel-heading tituloseccion" >Negocios</div>
-                    <table class="table">
-                        <thead class="titulotabla">
-                            <tr> 
-                                <th >#</th>
-                                    <th >Nombre</th>
-                                    <th >Descripción</th>
-                                    <th style="text-align: center;">Acción</th>
-                                </tr>
-                        </thead>
-                        <tbody id="listadoNegocios">
+                   
 
-                        </tbody>
-                    </table>
                   </div>
                 </div>
             </div>
@@ -211,6 +204,10 @@
 
     });
 
+    $(function() {
+      var idNegocio = $("#idNegocioEditar").val()
+      cargarFormEditar(idNegocio);
+    });
 
 </script>
 

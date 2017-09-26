@@ -43,7 +43,7 @@
 
               <input type="text" name="idUsuarioNegocio" id="idUsuarioNegocio" class="hidden">
 
-              <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
+              <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>">
             
               <h5 class="titulosalta"> Datos de usuario administrador del negocio</h5>
 

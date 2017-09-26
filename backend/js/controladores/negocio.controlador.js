@@ -21,7 +21,6 @@
     var negocios;
     var tipoNegocios;
 
-
     obtenerListado();
 
     function obtenerListado() {
@@ -58,28 +57,101 @@
       });
     }
 
-    function editar(idNegocio){
-       var negocio =  _.find(negocios, { '_id': idNegocio});
+    function editar(idNegocio){    
+       var url = "../backend/panel-negocio.php?idNegocio="+ idNegocio+"";
+       $(location).attr('href',url);
+    }
+  
+    function cargarForm(formulario){
+
+      if(formulario == "negocio"){
+       var negocioEditar = $("#idNegocio").val();
+       var url = "../backend/datos-generales-negocio.php?idNegocio="+ negocioEditar+"";
+       $(location).attr('href',url);
+      }else if(formulario == "contacto"){
+       var negocioEditar = $("#idNegocio").val();
+       var url = "../backend/usuario-negocio.php?idNegocio="+ negocioEditar+"";
+       $(location).attr('href',url);
+      }
+
+
+
+    }
+
+  function cargarFormEditar(idNegocio){
+     
+     var listadoNegocios;
+          $.ajax({
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/negocio',
+            type: 'GET',
+            
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+               listadoNegocios = data;
+
+       var negocio =  _.find(listadoNegocios, { '_id': idNegocio});
        console.log(negocio);
-      obtenerListadoTipoNegocios().done(function(data){
-            tipoNegocios= data
+             obtenerListadoTipoNegocios().done(function(data){
+            tipoNegocios = data
               
       popularDropdown(negocio.idTipoNegocio);
-       $('#formularioAgregar').show();
-       $("#formularioAgregar :input").attr("disabled", false);
-       $("#formularioAgregar button").show();
-       $("#nombreNegocio").val(negocio.nombreNegocio);
-       $("#descripcionNegocio").val(negocio.descripcionNegocio);
-       $("input[name=destacadoNegocio][value=" + negocio.destacadoNegocio + "]").prop("checked",true);
-       $("#urlIconoNegocio").val(negocio.urlIconoNegocio);
-       $("#tagsNegocio").val(negocio.tagsNegocio);
-       $("#tripadvisorNegocio").val(negocio.tripadvisorNegocio);
-       $("#twitterNegocio").val(negocio.twitterNegocio);
-       $("#instagramNegocio").val(negocio.instagramNegocio);
-       $("#facebookNegocio").val(negocio.facebookNegocio);
-       $("#idNegocio").val(negocio._id);
+         $('#formularioEditar').show();
+         $("#formularioEditar :input").attr("disabled", false);
+         $("#formularioEditar button").show();
+         $("#nombreNegocio").val(negocio.nombreNegocio);
+         $("#descripcionNegocio").val(negocio.descripcionNegocio);
+         $("input[name=destacadoNegocio][value=" + negocio.destacadoNegocio + "]").prop("checked",true);
+         $("#urlIconoNegocio").val(negocio.urlIconoNegocio);
+         $("#tagsNegocio").val(negocio.tagsNegocio);
+         $("#tripadvisorNegocio").val(negocio.tripadvisorNegocio);
+         $("#twitterNegocio").val(negocio.twitterNegocio);
+         $("#instagramNegocio").val(negocio.instagramNegocio);
+         $("#facebookNegocio").val(negocio.facebookNegocio);
+         $("#idNegocio").val(negocio._id);
        })
-    }
+      } 
+    });
+  }
+
+  function actualizarNegocio(){
+         var idNegocio = $("#idNegocio").val();
+         var negocio = JSON.stringify({
+            "nombreNegocio": $("#nombreNegocio").val(),
+            "descripcionNegocio": $("#descripcionNegocio").val(),
+            "destacadoNegocio": $('input[name=destacadoNegocio]:checked', '#formularioEditar').val(),
+            "urlIconoNegocio": $("#urlIconoNegocio").val(),
+            "idTipoNegocio": $("#tipoNegocio").val(),
+            "tagsNegocio":$("#tagsNegocio").val(),
+            "tripadvisorNegocio":$("#tripadvisorNegocio").val(),
+            "twitterNegocio":$("#twitterNegocio").val(),
+            "instagramNegocio":$("#instagramNegocio").val(),
+            "facebookNegocio":$("#facebookNegocio").val()
+        });
+        $('#target').html('sending..');
+        $.ajax({
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/negocio?id=' + idNegocio,
+            type: "PUT",            
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+
+              var resultado = data;
+              var negocioCreado =  resultado._id;
+
+              var url = "../backend/panel-negocio.php?idNegocio="+ negocioCreado+"";
+              $(location).attr('href',url);
+
+                $("#formularioAgregar :input").val('');          
+            },
+            error:function(jqXHR,textStatus,errorThrown)
+            {
+          },
+          data: negocio
+      });
+  }
 
     function mostrar(idNegocio){
        var negocio =  _.find(negocios, { '_id': idNegocio});
@@ -209,7 +281,7 @@
       }); 
     }
 
-function validar(){
+function validar(accion){
   $("#botonGuardar").addClass('disabled');
   var nombreNegocio = $("#nombreNegocio").val();
   var tipoNegocio = $("#tipoNegocio").val();
@@ -232,7 +304,13 @@ function validar(){
       hayError = true;
    } 
   if(hayError==false){
-     send();
+     
+      if(accion == "crear"){
+        send();
+      } else if(accion == "editar"){
+        actualizarNegocio();
+      }   
+
   }else{
     $(location).attr('href',"#formularioAgregar");
   }

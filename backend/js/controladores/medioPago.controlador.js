@@ -36,7 +36,7 @@
               _.each(data, function(medioPago){
                 $('#listadoMedioPago').append(' <tr>' +
                     '<th scope="row" style="font-size: 1.5em;">1</th>' +
-                    '<td>' +medioPago.nombreMedioPago+ '</td><td style="display: flex;"><img class="img-responsive iconos" src="../img/'+ medioPago.iconoMedioPago +'"></td>   <td class="centrarbotaccion">'+
+                    '<td>' +medioPago.nombreMedioPago+ '</td><td style="display: flex;"><img class="img-responsive iconos" src="'+ medioPago.iconoMedioPago +'"></td>   <td class="centrarbotaccion">'+
                     '<button onClick="mostrar(\'' + medioPago._id + '\')" title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>' +
                     '<button onClick="editar(\'' + medioPago._id + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button> ' +
                     '<button title="Eliminar" onClick="eliminar(\'' + medioPago._id + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +

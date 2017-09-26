@@ -22,7 +22,7 @@
             </div>
             <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container-fluid   -->
+        <!-- /.container-fluid -->
     </nav>
 
     <div class="container-fluid" style="margin-top: 90px; padding: 0;">
@@ -42,6 +42,15 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
                 <li class="dropdown">
+                  <a href="negocios.php" role="button" aria-haspopup="true" aria-expanded="false">Negocios<span class="caret"></span></a>
+              <!--    <ul class="dropdown-menu">
+                    <li><a href="negocios.php">Listar</a></li>
+                    <li><a href="alta-negocio.php">Crear nuevo</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Perfil</a></li>
+                  </ul> -->
+                </li>
+                <li class="dropdown">
                   <a href="tipo-de-negocio.php" role="button" aria-haspopup="true" aria-expanded="false">Tipo de negocio <span class="caret"></span></a>
                 </li>
                 <li>
@@ -57,7 +66,7 @@
                   <a href="especialidades.php" role="button" aria-haspopup="true" aria-expanded="false">Especialidades<span class="caret"></span></a>
                 </li>
                 <li>
-                  <a href="ocasiones.php" role="button" aria-haspopup="true" aria-expanded="false">Ocasiones<span class="caret"></span></a>
+                  <a href="#" role="button" aria-haspopup="true" aria-expanded="false">Ocasiones<span class="caret"></span></a>
                 </li>
                 <li>
                   <a href="servicios.php" role="button" aria-haspopup="true" aria-expanded="false">Servicios<span class="caret"></span></a>
@@ -71,7 +80,7 @@
                 <li>
                   <a href="descuentos.php" role="button" aria-haspopup="true" aria-expanded="false">Descuentos <span class="caret"></span></a>
                 </li>
-                <li class="dropdown">
+           <!--     <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Restaurants<span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="restaurants.php">Listar</a></li>
@@ -79,16 +88,7 @@
                     <li role="separator" class="divider"></li>
                     <li><a href="#">Otra acción</a></li>
                   </ul>
-                </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Negocios<span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="negocios.php">Listar</a></li>
-                    <li><a href="alta-negocio.php">Crear nuevo</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Perfil</a></li>
-                  </ul>
-                </li>
+                </li> -->
               </ul>
              
             </div><!-- /.navbar-collapse -->
