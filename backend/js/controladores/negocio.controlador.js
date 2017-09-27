@@ -63,7 +63,6 @@
     }
   
     function cargarForm(formulario){
-
       if(formulario == "negocio"){
        var negocioEditar = $("#idNegocio").val();
        var url = "../backend/datos-generales-negocio.php?idNegocio="+ negocioEditar+"";
@@ -72,9 +71,11 @@
        var negocioEditar = $("#idNegocio").val();
        var url = "../backend/editar-usuario-negocio.php?idNegocio="+ negocioEditar+"";
        $(location).attr('href',url);
+      }else if(formulario == "local"){
+       var negocioEditar = $("#idNegocio").val();
+       var url = "../backend/locales.php?idNegocio="+ negocioEditar+"";
+       $(location).attr('href',url);
       }
-
-
 
     }
 

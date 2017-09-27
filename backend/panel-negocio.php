@@ -62,7 +62,7 @@
                 </div></a>
             </div>
             <div class="col-md-4">
-                <a href="#"><div style="font-size: 2em;">
+                <a onclick="cargarForm('local')"><div style="font-size: 2em;">
                     <span style="font-size: 3em; padding: 5%;" class="glyphicon glyphicon-th" aria-hidden="true"></span><br>
                     LOCALES
                 </div></a>
@@ -70,7 +70,7 @@
         </div>
         <div class="row text-center">
         <div class="col-md-12">
-                <a href="../backend/negocios.php"><div style="font-size: 1.5em;">
+                <a href="javascript:history.back(1)"><div style="font-size: 1.5em;">
                     <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span><br>
                     VOLVER
                 </div></a>
@@ -78,9 +78,6 @@
         </div>
     </div>
 
-    
-
-    
     <?php include("includes/footer.php"); ?>
     
 

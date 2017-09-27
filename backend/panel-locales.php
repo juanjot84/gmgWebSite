@@ -1,3 +1,7 @@
+
+<?php    
+   $idLocal = $_GET['idLocal'];
+?>
 <?php include("includes/head.php"); ?>
 
 <head>
@@ -38,12 +42,11 @@
         <!-- /.container-fluid -->
     </nav>
 
-
-
     <div class="container" style="height: 65vh; padding-top: 13%; min-height: 715px;">
+     <input type="text" name="idLocal" id="idLocal" value="<?php echo $idLocal; ?>" class="hidden">
         <div class="row text-center">
             <div class="col-md-4">
-                <a href="#"><div style="font-size: 1.5em;">
+                <a onclick="cargarForm('local')"><div style="font-size: 1.5em;">
                     <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-cog" aria-hidden="true"></span><br>
                     DATOS GENERALES
                 </div></a>
@@ -75,7 +78,7 @@
                 </div></a>
             </div>
             <div class="col-md-4">
-                <a href="#"><div style="font-size: 1.5em;">
+                <a href="javascript:history.back(1)"><div style="font-size: 1.5em;">
                     <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span><br>
                     VOLVER
                 </div></a>
@@ -101,6 +104,9 @@
     <!-- Contact Form JavaScript -->
     <script src="../js/jqBootstrapValidation.js"></script>
     <script src="../js/contact_me.js"></script>
+
+    <!-- Funcione de Local JavaScript -->
+    <script src="js/controladores/panelControlLocal.controlador.js"></script>
 
     <!-- Theme JavaScript -->
     <script src="../js/agency.min.js"></script>
