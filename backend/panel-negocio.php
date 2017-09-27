@@ -70,7 +70,7 @@
         </div>
         <div class="row text-center">
         <div class="col-md-12">
-                <a href="javascript:history.back(1)"><div style="font-size: 1.5em;">
+                <a href="../backend/negocios.php"><div style="font-size: 1.5em;">
                     <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span><br>
                     VOLVER
                 </div></a>

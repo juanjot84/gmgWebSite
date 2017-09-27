@@ -75,3 +75,9 @@
        var url = "../backend/locales.php?idNegocio="+idNegocio+"";
        $(location).attr('href',url);
     }
+
+    function volverPanelNegocio(){
+       var idNegocio = $("#idNegocio").val();
+       var url = "../backend/panel-negocio.php?idNegocio="+idNegocio+"";
+       $(location).attr('href',url);
+    }

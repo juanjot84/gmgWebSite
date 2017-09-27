@@ -83,7 +83,7 @@
     }
 
     function volverPanelNegocio(){
-      var negocioCreado = $("#idNegocioEditar").val(); 
+      var negocioCreado = $("#idNegocioSeleccionado").val(); 
       var url = "../backend/panel-negocio.php?idNegocio="+ negocioCreado+"";
       $(location).attr('href',url);
     }
