@@ -109,51 +109,77 @@ function toggleBounce() {
       });
     }
 
-    function editar(idNegocio){
-       var negocio =  _.find(negocios, { '_id': idNegocio});
-       console.log(negocio);
-      obtenerListadoTipoNegocios().done(function(data){
-            tipoNegocios= data
-              
-      popularDropdown(negocio.idTipoNegocio);
-       $('#formularioAgregar').show();
-       $("#formularioAgregar :input").attr("disabled", false);
-       $("#formularioAgregar button").show();
-       $("#nombreNegocio").val(negocio.nombreNegocio);
-       $("#descripcionNegocio").val(negocio.descripcionNegocio);
-       $("input[name=destacadoNegocio][value=" + negocio.destacadoNegocio + "]").prop("checked",true);
-       $("#urlIconoNegocio").val(negocio.urlIconoNegocio);
-       $("#tagsNegocio").val(negocio.tagsNegocio);
-       $("#tripadvisorNegocio").val(negocio.tripadvisorNegocio);
-       $("#twitterNegocio").val(negocio.twitterNegocio);
-       $("#instagramNegocio").val(negocio.instagramNegocio);
-       $("#facebookNegocio").val(negocio.facebookNegocio);
-       $("#idNegocio").val(negocio._id);
-       })
+    function editarLocal(){
+       var idLocal = $('#idLocalRecibido').val();
+        $('#target').html('obteniendo...');       
+        $.ajax({
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id='+ idLocal +"",
+            type: 'GET',
+            
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+                var local = data;
+            $('#idNegocio').val(local.idNegocio._id);
+             $('#telContacto').val(local.telContacto);
+             $('#mailContacto').val(local.mailContacto);
+             $('#calleLocal').val(local.calleLocal);
+             $('#alturaLocal').val(local.alturaLocal);
+             var idLocalidad = local.idLocalidad._id;
+              obtenerListadoLocalidades().done(function(data){
+                localidades = data
+              popularDropdownLocalidadesEditar(idLocalidad);
+              });
+             var coordenadas = {lng: local.longitudLocal, lat: local.latitudLocal};
+             setMapa (coordenadas);
+             $('#long').val(local.longitudLocal);
+             $('#lat').val(local.latitudLocal);
+            var idPolo = local.idPoloGastronomico._id;
+             obtenerListadoPolos().done(function(data){
+                polos = data
+             popularDropdownPolosEditar(idPolo);
+             });
+             $("input[name=aceptaReservaNegocio][value=" + local.aceptaReservaNegocio + "]").prop("checked",true);
+            var idNivelPrecio = local.idNivelPrecio._id ;
+            obtenerListadoNivelPrecio().done(function(data){
+                nivelPrecios = data
+            popularDropdownNivelPrecioEditar(idNivelPrecio);
+            });
+            var idTipoCocinaPrincipal = local.idTipoCocinaPrincipal;
+            var tipoCocinaSeleccionados = local.idTipoCocina;
+            obtenerListadoTipoCocina().done(function(data){
+                tipoCocinas = data
+            popularDropdownTipoCocinaPpalEditar(idTipoCocinaPrincipal);
+            popularDropdownOtrosTipoEditar(tipoCocinaSeleccionados);
+            });
+            var mediosSeleccionados = local.idMedioPago;
+            obtenerListadoMedioPago().done(function(data){
+                medioPagos = data
+            popularDropdownMedioPagoEditar(mediosSeleccionados);
+            });
+            var especialidadesSeleccionadas = local.idEspecialidad;
+            obtenerListadoEspecialidad().done(function(data){
+                especialidades = data
+            popularDropdownEspecialidadEditar(especialidadesSeleccionadas);
+            });
+            var ServiciosSeleccionados = local.idServicio;
+            obtenerListadoServicio().done(function(data){
+                servicios = data
+            popularDropdownServicioEditar(ServiciosSeleccionados);
+            });
+
+
+          },
+          error:function(jqXHR,textStatus,errorThrown)
+          {
+              $('#target').append("jqXHR: "+jqXHR);
+              $('#target').append("textStatus: "+textStatus);
+              $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+          },
+      });
     }
 
-    function mostrar(idNegocio){
-       var negocio =  _.find(negocios, { '_id': idNegocio});
-       console.log(negocio);
-             obtenerListadoTipoNegocios().done(function(data){
-            tipoNegocios= data
-              
-      popularDropdown(negocio.idTipoNegocio);
-       $('#formularioAgregar').show();
-       $("#formularioAgregar :input").attr("disabled", true);
-       $("#formularioAgregar button").hide();
-       $("#nombreNegocio").val(negocio.nombreNegocio);
-       $("#descripcionNegocio").val(negocio.descripcionNegocio);
-       $("input[name=destacadoNegocio][value=" + negocio.destacadoNegocio + "]").prop("checked",true);
-       $("#urlIconoNegocio").val(negocio.urlIconoNegocio);
-       $("#tagsNegocio").val(negocio.tagsNegocio);
-       $("#tripadvisorNegocio").val(negocio.tripadvisorNegocio);
-       $("#twitterNegocio").val(negocio.twitterNegocio);
-       $("#instagramNegocio").val(negocio.instagramNegocio);
-       $("#facebookNegocio").val(negocio.facebookNegocio);
-       $("#idNegocio").val(negocio._id);
-     })
-    }
 
     function eliminar(idLocal){
        $.ajax({
@@ -195,7 +221,16 @@ function toggleBounce() {
         $('<option>').val(polo._id).text(polo.nombrePoloGastronomico).appendTo('#poloNegocio')
       })
     }
-
+  // Funcion para armar lista desplegable polos para editar local
+      function popularDropdownPolosEditar(idPolo){
+      $('#poloNegocio').html('');
+      _.each(polos, function (polo){;
+        var option = $('<option>').val(polo._id).text(polo.nombrePoloGastronomico);
+        if (idPolo==polo._id)
+        option.attr('selected', 'selected');
+        option.appendTo('#poloNegocio');
+      });
+    }
   // Traer nivel de precio para lista desplegable
     function obtenerListadoNivelPrecio() {   
         return $.ajax({
@@ -218,6 +253,16 @@ function toggleBounce() {
         $('<option>').val(nivelPrecio._id).text(nivelPrecio.label + '  | Valor inicial $' + nivelPrecio.valorInicial + ' | Valor final $' + nivelPrecio.valorFinal).appendTo('#nivelPrecio')
       })
     }
+      // Funcion para armar lista desplegable Nivel de Precio para editar el local
+      function popularDropdownNivelPrecioEditar(idNivelPrecio){
+      $('#nivelPrecio').html('');
+      _.each(nivelPrecios, function (nivelPrecio){;
+        var option = $('<option>').val(nivelPrecio._id).text(nivelPrecio.label + '  | Valor inicial $' + nivelPrecio.valorInicial + ' | Valor final $' + nivelPrecio.valorFinal);
+        if (idNivelPrecio==nivelPrecio._id)
+        option.attr('selected', 'selected');
+        option.appendTo('#nivelPrecio');
+      });
+    }
 
   // Traer medio de pago para checkbox
     function obtenerListadoMedioPago() {   
@@ -239,6 +284,20 @@ function toggleBounce() {
       _.each(medioPagos, function (medioPago){
         $('#mediosPagoCheckbox').append(
           '<div class="checkbox"><label><input type="checkbox" value="'+medioPago._id+'" id="medioPagoCheck" name="medioPagoCheck">'+medioPago.nombreMedioPago+'</label></div>')              
+      });
+    }
+  // Funcion para armar lista checkbox medios de pago para editar local
+    function popularDropdownMedioPagoEditar(mediosSeleccionados){
+      $('#mediosPagoCheckbox').html('');
+      _.each(medioPagos, function (medioPago){
+           $('#mediosPagoCheckbox').append(
+           '<div class="checkbox"><label><input type="checkbox" value="'+medioPago._id+'" id="medioPagoCheck" name="medioPagoCheck">'+medioPago.nombreMedioPago+'</label></div>')
+           
+        _.each(mediosSeleccionados, function (medioPagoSeleccionado){
+             if(medioPagoSeleccionado._id == medioPago._id){
+             $("input[name=medioPagoCheck][value=" + medioPago._id + "]").prop("checked",true);    
+          }
+        });
       });
     }
 
@@ -264,7 +323,30 @@ function toggleBounce() {
         $('<option>').val(tipoCocina._id).text(tipoCocina.nombreTipoCocina).appendTo('#TipoCocinaPpal')
       })
     }
+      // Funcion para armar lista desplegable Yipo Cocina Ppal para editar el local
+      function popularDropdownTipoCocinaPpalEditar(idTipoCocinaPpal){
+      $('#TipoCocinaPpal').html('');
+      _.each(tipoCocinas, function (tipoCocina){;
+        var option = $('<option>').val(tipoCocina._id).text(tipoCocina.nombreTipoCocina);
+        if (idTipoCocinaPpal==tipoCocina._id)
+        option.attr('selected', 'selected');
+        option.appendTo('#TipoCocinaPpal');
+      });
+    }
+    // Funcion para armar lista checkbox otros tipo cocina para editar local
+    function popularDropdownOtrosTipoEditar(tipoCocinaSeleccionados){
+      $('#otroTipoCocina').html('');
+      _.each(tipoCocinas, function (tipoCocina){
+            $('#otroTipoCocina').append(
+            '<div class="checkbox"><label><input type="checkbox" value="'+tipoCocina._id+'" id="tipoCocinasCheck" name="tipoCocinasCheck">'+tipoCocina.nombreTipoCocina+'</label></div>') 
 
+          _.each(tipoCocinaSeleccionados, function (tipoSeleccionado){
+            if(tipoSeleccionado._id == tipoCocina._id){
+              $("input[name=tipoCocinasCheck][value=" + tipoCocina._id + "]").prop("checked",true);  
+            }   
+         });           
+      });
+    }
     // Funcion para armar lista checkbox otros tipo cocina para alta de negocio
     function popularDropdownMedioOtrosTipoAlta(){
       $('#otroTipoCocina').html('');
@@ -296,6 +378,19 @@ function toggleBounce() {
           '<div class="checkbox"><label><input type="checkbox" value="'+especialidad._id+'" id="especialidadCheck" name="especialidadCheck">'+especialidad.nombreEspecialidad+'</label></div>')              
       });
     }
+    // Funcion para armar lista checkbox Especialidades para editar
+    function popularDropdownEspecialidadEditar(especialidadesSeleccionadas){
+      $('#especialidades').html('');
+      _.each(especialidades, function (especialidad){
+        $('#especialidades').append(
+          '<div class="checkbox"><label><input type="checkbox" value="'+especialidad._id+'" id="especialidadCheck" name="especialidadCheck">'+especialidad.nombreEspecialidad+'</label></div>')
+        _.each(especialidadesSeleccionadas, function (especialidadSeleccionada){
+            if(especialidadSeleccionada._id == especialidad._id){
+               $("input[name=especialidadCheck][value=" + especialidad._id + "]").prop("checked",true); 
+            }
+        });
+      });
+    }
 
     // Traer Servicios para lista desplegable
     function obtenerListadoServicio(){   
@@ -319,6 +414,19 @@ function toggleBounce() {
           '<div class="checkbox"><label><input type="checkbox" value="'+servicio._id+'" id="servicioCheck" name="servicioCheck">'+servicio.nombreServicio+'</label></div>')              
       });
     }
+    // Funcion para armar lista checkbox Servicios para editar local
+    function popularDropdownServicioEditar(ServiciosSeleccionados){
+      $('#servicios').html('');
+      _.each(servicios, function (servicio){
+        $('#servicios').append(
+          '<div class="checkbox"><label><input type="checkbox" value="'+servicio._id+'" id="servicioCheck" name="servicioCheck">'+servicio.nombreServicio+'</label></div>')
+            _.each(ServiciosSeleccionados, function (servicioSeleccionado){
+              if(servicioSeleccionado._id == servicio._id){
+                  $("input[name=servicioCheck][value=" + servicio._id + "]").prop("checked",true); 
+              }
+            });          
+      });
+    }
 
   // Traer localidades para lista desplegable
     function obtenerListadoLocalidades() {   
@@ -334,13 +442,23 @@ function toggleBounce() {
             } 
       });
     }
-  // Funcion para armar lista desplegable Localidades para alta de negocio
+  // Funcion para armar lista desplegable Localidades para alta de local
     function popularDropdownLocalidadesAlta(){
       $('#idLocalidad').html('');
       $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#idLocalidad');
       _.each(localidades, function (localidad){
         $('<option>').val(localidad._id).text(localidad.nombreLocalidad).appendTo('#idLocalidad')
       })
+    }
+  // Funcion para armar lista desplegable Localidades para editar local
+      function popularDropdownLocalidadesEditar(idLocalidad){
+      $('#idLocalidad').html('');
+      _.each(localidades, function (localidad){;
+        var option = $('<option>').val(localidad._id).text(localidad.nombreLocalidad);
+        if (idLocalidad==localidad._id)
+        option.attr('selected', 'selected');
+        option.appendTo('#idLocalidad');
+      });
     }
 
   // Mostrar form de alta de local y ocultar el de negocio
@@ -388,6 +506,78 @@ function toggleBounce() {
             popularDropdownServicioAlta();
             });
     }
+
+  function actualizarLocal(){
+      var medioPagoSeleccionado = [];
+      var seleccionados = $('input[name=medioPagoCheck]:checked', '#formularioLocal');
+        _.each(seleccionados, function(item){ 
+            medioPagoSeleccionado.push(item.value);
+        })
+
+      var servicioSeleccionado = [];
+      var seleccionados = $('input[name=servicioCheck]:checked', '#formularioLocal');
+        _.each(seleccionados, function(item){ 
+            servicioSeleccionado.push(item.value);
+        })
+
+      var especialidadSeleccionada = [];
+      var seleccionados = $('input[name=especialidadCheck]:checked', '#formularioLocal');
+        _.each(seleccionados, function(item){ 
+            especialidadSeleccionada.push(item.value);
+        })
+
+      var tipoCocinaSeleccionado = [];
+      var seleccionados = $('input[name=tipoCocinasCheck]:checked', '#formularioLocal');
+        _.each(seleccionados, function(item){ 
+            tipoCocinaSeleccionado.push(item.value);
+        })  
+       
+
+       var isNew = $("#idLocal").val() == "";
+        var local = JSON.stringify({
+            "idNegocio": $("#idNegocio").val(),
+            "idPoloGastronomico": $("#poloNegocio").val(),
+            "idNivelPrecio": $("#nivelPrecio").val(),
+            "idTipoCocinaPrincipal": $("#TipoCocinaPpal").val(),
+            "idMedioPago": medioPagoSeleccionado,
+            "idServicio": servicioSeleccionado,
+            "idEspecialidad": especialidadSeleccionada,
+            "idTipoCocina": tipoCocinaSeleccionado,
+            "longitudLocal":$("#long").val(),
+            "latitudLocal":$("#lat").val(),
+            "telContacto":$("#telContacto").val(),
+            "mailContacto":$("#mailContacto").val(),
+            "alturaLocal":$("#alturaLocal").val(),
+            "calleLocal":$("#calleLocal").val(),
+            "idLocalidad":$("#idLocalidad").val(),
+            "aceptaReservaNegocio":$('input[name=aceptaReservaNegocio]:checked', '#formularioLocal').val()
+        });
+        var idLocalActualizar = $("#idLocalRecibido").val();
+        $('#target').html('sending..');
+        $.ajax({
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id=' + idLocalActualizar,
+            type: "PUT",          
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+
+              var resultado = data;
+              var localCreado =  resultado._id;
+
+              var url = "../backend/panel-locales.php?idLocal="+ localCreado+""; 
+              $(location).attr('href',url);
+
+                $("#formularioLocal :input").val('');         
+            },
+            error:function(jqXHR,textStatus,errorThrown)
+            {
+          },
+          data: local
+      });    
+  }
+
+
 
     function send(){
 
@@ -464,7 +654,7 @@ function toggleBounce() {
       });    
     }
  
-function validar(){
+function validar(accion){
   $("#botonGuardar").addClass('disabled');
   var telContacto = $("#telContacto").val();
   var mailContacto = $("#mailContacto").val();
@@ -527,7 +717,14 @@ function validar(){
    }
 
   if(hayError==false){
-     send();
+    if(accion == 'crear'){
+       send();
+    }else if(accion == 'editar'){
+       actualizarLocal();
+    }
+  
+
+     
   }else{
     $(location).attr('href',"#formularioLocal");
   }
@@ -548,3 +745,10 @@ function caracteresCorreoValido(email){
       hayError = true;      
     }
 }
+
+    function volverPanelLocal(){
+      var localEditado = $("#idLocalRecibido").val();
+      var idNegocio = $("#idNegocio").val(); 
+      var url = "../backend/panel-locales.php?idLocal="+ localEditado+"&idNegocio="+ idNegocio +"";
+      $(location).attr('href',url);
+    }

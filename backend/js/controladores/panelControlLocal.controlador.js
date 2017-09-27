@@ -69,3 +69,9 @@
        var url = "../backend/panel-locales.php?idLocal="+idLocal+"";
        $(location).attr('href',url);
     }
+
+    function cargarLocales(){
+       var idNegocio = $("#idNegocio").val();
+       var url = "../backend/locales.php?idNegocio="+idNegocio+"";
+       $(location).attr('href',url);
+    }

@@ -1,6 +1,7 @@
 
 <?php    
    $idLocal = $_GET['idLocal'];
+   $idNegocio = $_GET['idNegocio'];
 ?>
 <?php include("includes/head.php"); ?>
 
@@ -42,8 +43,12 @@
         <!-- /.container-fluid -->
     </nav>
 
+
+
     <div class="container" style="height: 65vh; padding-top: 13%; min-height: 715px;">
-     <input type="text" name="idLocal" id="idLocal" value="<?php echo $idLocal; ?>" class="hidden">
+    <input type="text" name="idLocal" id="idLocal" value="<?php echo $idLocal; ?>" class="hidden">
+    <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
+
         <div class="row text-center">
             <div class="col-md-4">
                 <a onclick="cargarForm('local')"><div style="font-size: 1.5em;">
@@ -78,7 +83,7 @@
                 </div></a>
             </div>
             <div class="col-md-4">
-                <a href="javascript:history.back(1)"><div style="font-size: 1.5em;">
+                <a onclick="cargarLocales()"><div style="font-size: 1.5em;">
                     <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span><br>
                     VOLVER
                 </div></a>

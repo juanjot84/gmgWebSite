@@ -37,10 +37,11 @@
                 <div class="panel panel-default">
                  <!-- Table -->
             <!-- Formulario de alta de local -->
+            <input type="text" name="idLocalRecibido" id="idLocalRecibido" value="<?php echo $idLocal; ?>" class="hidden">
+            <input type="text" name="idNegocio" id="idNegocio" class="hidden">
 
             <form action="" id="formularioLocal">
               <h2 class="tituloseccion">Alta De Local</h2>
-                <input type="text" name="idLocal" id="idLocal" value="<?php echo $idLocal; ?>" class="hidden">
 
                 <h5 class="titulosalta"> Datos de contacto del local visibles para el clinte</h5>
 
@@ -81,8 +82,8 @@
                     
                 <h5 class="titulosalta"> Marcar en Google Maps</h5>
                         <div id="map"></div>
-                        <input type="text" id="lat"  class="hidden" value="-32.890667" />
-                        <input type="text" id="long"  class="hidden" value="-68.839412" />
+                        <input type="text" id="lat"  class="hidden" />
+                        <input type="text" id="long"  class="hidden" />
                     </p>
 
               <h5 class="titulosalta"> Polo gastronómico</h5>
@@ -95,7 +96,7 @@
               <h5 class="titulosalta"> Acepta reserva</h5>
 
                  <p>
-                    <label class="radio-inline"><input type="radio" name="aceptaReservaNegocio" id="aceptaReservaNegocio-true" value="true" checked="checked">Si</label>
+                    <label class="radio-inline"><input type="radio" name="aceptaReservaNegocio" id="aceptaReservaNegocio-true" value="true">Si</label>
                     <label class="radio-inline"><input type="radio" name="aceptaReservaNegocio" id="aceptaReservaNegocio-false" value="false">No</label>
                   </p>
 
@@ -162,28 +163,17 @@
 
               <div class="input-group">
                  <span class="input-group-btn">
-                  <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick=""><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+                 <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
+                  <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar('editar')"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
                 </span>
               </div>
 
             </form>
 
-                  <!-- Table -->
+                
                   <div id="cabeceraTablaNegocios">
                    <div class="panel-heading tituloseccion" style="display: none">Negocios</div>
-               <!--     <table class="table">
-                        <thead class="titulotabla">
-                            <tr> 
-                                <th >#</th>
-                                    <th >Nombre</th>
-                                    <th >Descripción</th>
-                                    <th style="text-align: center;">Acción</th>
-                                </tr>
-                        </thead>
-                        <tbody id="listadoLocal">
 
-                        </tbody>
-                    </table> -->
                   </div> 
                 </div>
             </div>
@@ -193,27 +183,6 @@
     <div class="container">
         <div class="row">
 
-        <!--
-            <nav aria-label="Page navigation">
-              <ul class="pagination">
-                <li>
-                  <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>
-                  <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-            -->
         </div>
     </div>
     
@@ -263,6 +232,10 @@
         e.preventDefault();
     });
 
+    });
+
+    $(function() {
+      editarLocal();
     });
 
 </script>
