@@ -57,7 +57,7 @@
                 </div></a>
             </div>
             <div class="col-md-4">
-                <a href="#"><div style="font-size: 1.5em;">
+                <a onclick="editarContacto()"><div style="font-size: 1.5em;">
                     <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span><br>
                     CONTACTO ADMINISTRATIVO
                 </div></a>

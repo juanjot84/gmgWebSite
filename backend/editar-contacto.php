@@ -1,5 +1,6 @@
 <?php
    $idLocal = $_GET['idLocal'];
+   $idContacto = $_GET['idContacto'];
 ?>
 
 <?php include("includes/head.php"); ?>
@@ -36,8 +37,8 @@
 
             <form action="" id="formularioAgregar">
 
-              <input type="text" name="idContacto" id="idContacto" class="hidden">
-              <input type="text" name="idLocalCreado" id="idLocalCreado" value="<?php echo $idLocal; ?>" class="hidden">
+              <input type="text" name="idContactoRecibido" id="idContactoRecibido" value="<?php echo $idContacto; ?>" >
+              <input type="text" name="idLocalRecibido" id="idLocalRecibido" value="<?php echo $idLocal; ?>" >
 
           <h5 class="titulosalta"> Nombre</h5>
             
@@ -57,38 +58,25 @@
 
              <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-mobile" aria-hidden="true"></i></span>
-                <input id="telefonoContacto" name="telefonoContacto" type="number" class="form-control" placeholder="Numero de telefono del Contacto" aria-describedby="sizing-addon3" onfocus="limpiar('telefonoContacto')" required>
+                <input id="telefonoContacto" name="telefonoContacto" type="text" class="form-control" placeholder="Numero de telefono del Contacto" aria-describedby="sizing-addon3" onfocus="limpiar('telefonoContacto')" required>
               </div></p>
 
           <h5 class="titulosalta"> Celular</h5>     
 
               <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-mobile" aria-hidden="true"></i></span>
-                <input id="celContacto" name="celContacto" type="number" class="form-control" placeholder="Número de celular del Contacto" aria-describedby="sizing-addon3" onfocus="limpiar('celContacto')" required>
+                <input id="celContacto" name="celContacto" type="text" class="form-control" placeholder="Número de celular del Contacto" aria-describedby="sizing-addon3" onfocus="limpiar('celContacto')" required>
               </div></p> 
 
               <div class="input-group">
                  <span class="input-group-btn">
-                  <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar('crear')"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
+                 <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
+                  <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar('editar')"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
                 </span>
               </div>
             </form>
 
-                  <!-- Table -->
-                  <div class="panel-heading tituloseccion" style="display: none">Descuentos</div>
-                   <!-- <table class="table">
-                        <thead class="titulotabla">
-                            <tr> 
-                                <th >#</th>
-                                    <th >Nombre</th>
-                                    <th >Mail</th>
-                                    <th style="text-align: center;">Acción</th>
-                                </tr>
-                        </thead>
-                        <tbody id="listadoContactos">
-
-                        </tbody>
-                    </table> -->
+                  <div class="panel-heading tituloseccion" style="display: none">Contactos</div>
                 </div>
             </div>
         </div>
@@ -97,23 +85,7 @@
     <div class="container">
         <div class="row">
             <nav aria-label="Page navigation">
-         <!--     <ul class="pagination">
-                <li>
-                  <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>
-                  <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </a>
-                </li>
-              </ul> -->
+
             </nav>
         </div>
     </div>
@@ -164,6 +136,10 @@
         e.preventDefault();
     });
 
+    });
+
+    $(function() {
+      cargarFormContacto();
     });
 
 </script>
