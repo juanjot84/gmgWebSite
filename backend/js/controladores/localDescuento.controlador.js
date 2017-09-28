@@ -46,6 +46,17 @@ function obtenerListadoDescuento(){
     }
   });
 }
+    
+// Funcion para armar lista desplegable descuentos editar
+      function popularDropdownDescLunesEditar(idDescuento){
+      $('#descuentoLunes').html('');
+      _.each(descuentos, function (polo){;
+        var option = $('<option>').val(descuento._id).text(descuento.porcentajeDescuento+ '  |  ' + descuento.descripcionDescuento);
+        if (idDescuento==descuento._id)
+        option.attr('selected', 'selected');
+        option.appendTo('#descuentoLunes');
+      });
+    }
 
 function popularDropdownDescAlta(dia){
   $('#descuento' +  dia).html('');
@@ -67,6 +78,33 @@ function mostrarAltaLocalDescuento(){
     });
 
   });
+}
+
+function cargarDescuentosSeleccionados(){
+  var idLocal = $("#idLocalCreado").val();
+  $('#target').html('obteniendo...');       
+    $.ajax({
+      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id='+ idLocal +"",
+            type: 'GET',
+            
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+             var local = data;
+             var idDescuentos = local.idLocalDescuento;
+
+
+    
+          },
+          error:function(jqXHR,textStatus,errorThrown)
+          {
+              $('#target').append("jqXHR: "+jqXHR);
+              $('#target').append("textStatus: "+textStatus);
+              $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+          },
+    });
+
 }
 
 

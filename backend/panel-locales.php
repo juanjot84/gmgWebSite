@@ -63,7 +63,7 @@
                 </div></a>
             </div>
             <div class="col-md-4">
-                <a href="#"><div style="font-size: 1.5em;">
+                <a onclick="editarDescuentos()"><div style="font-size: 1.5em;">
                     <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-usd" aria-hidden="true"></span><br>
                     DESCUENTOS
                 </div></a>

@@ -110,3 +110,9 @@
           },
       });
     }
+
+    function editarDescuentos(){
+      var idLocal = $("#idLocal").val();
+      var url = "../backend/editar-descuentos.php?idLocal="+idLocal+"";
+      $(location).attr('href',url);
+    }

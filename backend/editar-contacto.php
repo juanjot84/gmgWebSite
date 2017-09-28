@@ -37,8 +37,8 @@
 
             <form action="" id="formularioAgregar">
 
-              <input type="text" name="idContactoRecibido" id="idContactoRecibido" value="<?php echo $idContacto; ?>" >
-              <input type="text" name="idLocalRecibido" id="idLocalRecibido" value="<?php echo $idLocal; ?>" >
+              <input type="text" name="idContactoRecibido" id="idContactoRecibido" value="<?php echo $idContacto; ?>" class="hidden">
+              <input type="text" name="idLocalRecibido" id="idLocalRecibido" value="<?php echo $idLocal; ?>" class="hidden">
 
           <h5 class="titulosalta"> Nombre</h5>
             
