@@ -48,15 +48,23 @@ function obtenerListadoDescuento(){
 }
     
 // Funcion para armar lista desplegable descuentos editar
-      function popularDropdownDescLunesEditar(idDescuento){
-      $('#descuentoLunes').html('');
-      _.each(descuentos, function (polo){;
-        var option = $('<option>').val(descuento._id).text(descuento.porcentajeDescuento+ '  |  ' + descuento.descripcionDescuento);
-        if (idDescuento==descuento._id)
-        option.attr('selected', 'selected');
-        option.appendTo('#descuentoLunes');
+function popularDropdownDescEditar(dia,idLocaldescuentos){
+      $('#descuento' +  dia).html('');
+      $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#descuento' +  dia);
+
+      _.each(descuentos, function (descuento){;
+          var option = $('<option>').val(descuento._id).text(descuento.porcentajeDescuento+ '  |  ' + descuento.descripcionDescuento);
+          option.appendTo('#descuento' +  dia);
+
+         _.each(idLocaldescuentos, function(descSeleccionado){
+           if(dia == descSeleccionado.diaDescuento){
+              option.attr('selected', 'selected');
+            }
+
+         });
+         
       });
-    }
+}
 
 function popularDropdownDescAlta(dia){
   $('#descuento' +  dia).html('');
@@ -94,6 +102,12 @@ function cargarDescuentosSeleccionados(){
              var local = data;
              var idDescuentos = local.idLocalDescuento;
 
+            obtenerListadoDescuento().done(function(data){
+              descuentos = data;
+             _.each(dias, function(dia){
+             popularDropdownDescEditar(dia,idDescuentos);
+            });
+          });
 
     
           },
