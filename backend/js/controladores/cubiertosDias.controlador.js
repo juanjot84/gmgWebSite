@@ -14,7 +14,6 @@ $(function() {
     $(this).addClass('active');
     e.preventDefault();
   });
-
 });
 
 
@@ -23,8 +22,34 @@ var localCubiertosCreados = [];
 var dias = ["Lunes","Martes","Miercoles","Jueves","Viernes","Sabados","Domingos","Feriados"];
 
 
+function cargarCubiertosSeteados(){
+     var idLocal = $("#idLocalCreado").val();
+    $('#target').html('obteniendo...');       
+    $.ajax({
+      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id='+ idLocal +"",
+            type: 'GET',
+            
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+            var cubiertosDia = data.idCubiertosDia;
 
-function SendCubiertos(){
+              _.each(cubiertosDia, function(cubierto){
+                      $("#Cubiertos" + cubierto.diaSemanaCubiertoDia).val(cubierto.cantidadCubiertoDia);
+                      $("#Duracion" + cubierto.diaSemanaCubiertoDia).val(cubierto.duracionReserva)
+              });
+          },
+          error:function(jqXHR,textStatus,errorThrown)
+          {
+              $('#target').append("jqXHR: "+jqXHR);
+              $('#target').append("textStatus: "+textStatus);
+              $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+          },
+    });
+}
+
+function SendCubiertos(accion){
 
   var idCantCubiertos = [];
   var idDuracionReser = [];
@@ -52,13 +77,18 @@ function SendCubiertos(){
     actualizarLocal(idLocalCreado, localCubiertosCreados, campoAAcuatualizar).then( function(data){
       console.log(localCubiertosCreados);
 
+     if(accion == 'crear'){
       var url = "../backend/negocios.php";
       $(location).attr('href',url);
+     }else if(accion == 'editar'){
+       
+       volverPanelLocal()
+     }
+
     }).catch(function(err){
       console.log(err);
     });
   });
-
 }
 
 function sendCubiertos(diaCubierto,cantCubiertos, duracionReserva) {
@@ -100,7 +130,7 @@ function sendCubiertos(diaCubierto,cantCubiertos, duracionReserva) {
   return promise
 }
 
-function validar(){
+function validar(accion){
   $("#botonGuardar").addClass('disabled');
   var idCantCubiertos = [];
   var idDuracionReser = [];
@@ -128,7 +158,7 @@ function validar(){
     }
   }
   if(hayError==false){
-    SendCubiertos();
+    SendCubiertos(accion);
   }else{
     $(location).attr('href',"#formularioAgregar");
   }
@@ -139,4 +169,30 @@ function limpiar(campo,campoBack){
    $("#"+campo+"Alert").hide();
    $("#"+campoBack).removeClass('alert-danger');
    $("#botonGuardar").removeClass('disabled');
+}
+
+function volverPanelLocal(){
+  var idLocal = $("#idLocalCreado").val();
+    $('#target').html('obteniendo...');       
+    $.ajax({
+      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id='+ idLocal +"",
+            type: 'GET',
+            
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+             var local = data;
+             var idNegocio = local.idNegocio._id;
+             var url = "../backend/panel-locales.php?idLocal="+ idLocal+"&idNegocio="+idNegocio+"";
+             $(location).attr('href',url);
+        
+          },
+          error:function(jqXHR,textStatus,errorThrown)
+          {
+              $('#target').append("jqXHR: "+jqXHR);
+              $('#target').append("textStatus: "+textStatus);
+              $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+          },
+    });
 }

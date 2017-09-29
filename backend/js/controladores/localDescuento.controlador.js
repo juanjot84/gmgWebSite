@@ -122,8 +122,6 @@ function cargarDescuentosSeleccionados(){
 }
 
 
-
-
 function SendLocalDescuento(){
   
   $("#botonGuardar").addClass('disabled');
@@ -201,7 +199,30 @@ function sendLocalDescuento(diaDescuento,idDescuento) {
   return promise
 }
 
-
-
+function volverPanelLocal(){
+  var idLocal = $("#idLocalCreado").val();
+    $('#target').html('obteniendo...');       
+    $.ajax({
+      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id='+ idLocal +"",
+            type: 'GET',
+            
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+             var local = data;
+             var idNegocio = local.idNegocio._id;
+             var url = "../backend/panel-locales.php?idLocal="+ idLocal+"&idNegocio="+idNegocio+"";
+             $(location).attr('href',url);
+        
+          },
+          error:function(jqXHR,textStatus,errorThrown)
+          {
+              $('#target').append("jqXHR: "+jqXHR);
+              $('#target').append("textStatus: "+textStatus);
+              $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+          },
+    });
+}
 
     

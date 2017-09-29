@@ -116,3 +116,9 @@
       var url = "../backend/editar-descuentos.php?idLocal="+idLocal+"";
       $(location).attr('href',url);
     }
+
+    function editarCubiertos(){
+      var idLocal = $("#idLocal").val();
+      var url = "../backend/editar-cubiertos.php?idLocal="+idLocal+"";
+      $(location).attr('href',url);
+    }
