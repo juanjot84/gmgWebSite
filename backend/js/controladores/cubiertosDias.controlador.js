@@ -91,6 +91,7 @@ function SendCubiertos(accion){
   });
 }
 
+
 function sendCubiertos(diaCubierto,cantCubiertos, duracionReserva) {
 
   var promise = new Promise(function(resolve, reject) {

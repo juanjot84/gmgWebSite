@@ -18,11 +18,10 @@
 
     });
 
-        $(function() {
+    $(function() {
       var idNegocio = $("#idNegocioSeleccionado").val();
       cargarFormEditar(idNegocio);
     });
-
 
     function cargarFormEditar(idNegocio){
       var idNegocioEditar = idNegocio;

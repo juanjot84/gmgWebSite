@@ -45,8 +45,7 @@
                     '<button title="Eliminar" onClick="#" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +
                     '</td> ' +
                     '</tr>');
-               }
-              
+               }            
               });
           },
           error:function(jqXHR,textStatus,errorThrown)
@@ -58,7 +57,6 @@
       });
     }
 
-
     function cargarForm(formulario){
       if(formulario == "local"){
        var idLocal = $("#idLocal").val();
@@ -68,7 +66,8 @@
     }
 
     function editarLocal(idLocal){
-       var url = "../backend/panel-locales.php?idLocal="+idLocal+"";
+       var idNegocio = $("#idNegocio").val();
+       var url = "../backend/panel-locales.php?idLocal="+idLocal+"&idNegocio="+idNegocio+"";
        $(location).attr('href',url);
     }
 

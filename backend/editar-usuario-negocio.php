@@ -65,7 +65,6 @@
                         <div class="form-group">
                           <label for="sel1">Seleccionar sexo:</label>
                           <select class="form-control" id="sexoUsuario">
-                            <option value=""></option>
                             <option value="masculino">Masculino</option>
                             <option value="femenino">Femenino</option>
                           </select>
