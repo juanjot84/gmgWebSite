@@ -122,3 +122,9 @@
       var url = "../backend/editar-cubiertos.php?idLocal="+idLocal+"";
       $(location).attr('href',url);
     }
+
+    function editarHorarios(){
+      var idLocal = $("#idLocal").val();
+      var url = "../backend/editar-horarios.php?idLocal="+idLocal+"";
+      $(location).attr('href',url);
+    }

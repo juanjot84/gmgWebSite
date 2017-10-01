@@ -77,7 +77,7 @@
                 </div></a>
             </div>
             <div class="col-md-4">
-                <a href="#"><div style="font-size: 1.5em;">
+                <a onclick="editarHorarios()"><div style="font-size: 1.5em;">
                     <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-time" aria-hidden="true"></span><br>
                     HORARIOS DE ATENCIÓN
                 </div></a>
@@ -90,8 +90,6 @@
             </div>
         </div>
     </div>
-
-    
 
     
     <?php include("includes/footer.php"); ?>
