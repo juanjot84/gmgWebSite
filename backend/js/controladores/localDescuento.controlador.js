@@ -46,23 +46,20 @@ function obtenerListadoDescuento(){
     }
   });
 }
-    
+
 // Funcion para armar lista desplegable descuentos editar
 function popularDropdownDescEditar(dia,idLocaldescuentos){
       $('#descuento' +  dia).html('');
       $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#descuento' +  dia);
 
       _.each(descuentos, function (descuento){;
-          var option = $('<option>').val(descuento._id).text(descuento.porcentajeDescuento+ '  |  ' + descuento.descripcionDescuento);
-          option.appendTo('#descuento' +  dia);
+       var option = $('<option>').val(descuento._id).text(descuento.porcentajeDescuento+ '  |  ' + descuento.descripcionDescuento);
+       option.appendTo('#descuento' +  dia);
+       var descDia = _.find(idLocaldescuentos, {diaDescuento : dia});
+       if(!_.isUndefined(descDia) && descDia.idDescuento == descuento._id){
+          option.attr('selected', 'selected');
+        }
 
-         _.each(idLocaldescuentos, function(descSeleccionado){
-           if(dia == descSeleccionado.diaDescuento){
-              option.attr('selected', 'selected');
-            }
-
-         });
-         
       });
 }
 
@@ -90,11 +87,11 @@ function mostrarAltaLocalDescuento(){
 
 function cargarDescuentosSeleccionados(){
   var idLocal = $("#idLocalCreado").val();
-  $('#target').html('obteniendo...');       
+  $('#target').html('obteniendo...');
     $.ajax({
       url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id='+ idLocal +"",
             type: 'GET',
-            
+
             dataType: "json",
             crossDomain: true,
             contentType:"application/json",
@@ -104,12 +101,12 @@ function cargarDescuentosSeleccionados(){
 
             obtenerListadoDescuento().done(function(data){
               descuentos = data;
-             _.each(dias, function(dia){
-             popularDropdownDescEditar(dia,idDescuentos);
-            });
+              _.each(dias, function(dia){
+                popularDropdownDescEditar(dia,idDescuentos);
+              });
           });
 
-    
+
           },
           error:function(jqXHR,textStatus,errorThrown)
           {
@@ -123,7 +120,7 @@ function cargarDescuentosSeleccionados(){
 
 
 function SendLocalDescuento(){
-  
+
   $("#botonGuardar").addClass('disabled');
 
   var idDescuentos = [];
@@ -142,7 +139,7 @@ function SendLocalDescuento(){
       var guardar =  sendLocalDescuento(dias[i],idDescuentos[i]).then(function(id){
         localDescuentoCreados.push(id);
       });
-        guardarLocales.push(guardar); 
+        guardarLocales.push(guardar);
   }
 }
   Promise.all(guardarLocales).then(function () {
@@ -201,11 +198,11 @@ function sendLocalDescuento(diaDescuento,idDescuento) {
 
 function volverPanelLocal(){
   var idLocal = $("#idLocalCreado").val();
-    $('#target').html('obteniendo...');       
+    $('#target').html('obteniendo...');
     $.ajax({
       url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id='+ idLocal +"",
             type: 'GET',
-            
+
             dataType: "json",
             crossDomain: true,
             contentType:"application/json",
@@ -214,7 +211,7 @@ function volverPanelLocal(){
              var idNegocio = local.idNegocio._id;
              var url = "../backend/panel-locales.php?idLocal="+ idLocal+"&idNegocio="+idNegocio+"";
              $(location).attr('href',url);
-        
+
           },
           error:function(jqXHR,textStatus,errorThrown)
           {
@@ -224,5 +221,3 @@ function volverPanelLocal(){
           },
     });
 }
-
-    

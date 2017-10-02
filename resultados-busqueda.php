@@ -19,7 +19,7 @@
     <!-- Custom Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    
+
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <!-- Theme CSS -->
@@ -35,7 +35,15 @@
 
 </head>
 
+<?php
+   $parametro = $_POST["parametro"];
+   $filtro = $_POST['filtro'];
+?>
+
 <body id="page-top" class="index">
+
+        <input type="text" name="parametro" id="parametro" value="<?php echo $parametro; ?>" class="hidden">
+        <input type="text" name="filtro" id="filtro" value="<?php echo $filtro; ?>" class="hidden">
 
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
@@ -73,16 +81,15 @@
             <div class="row">
                 <div class="col-md-6 intro-text" style="margin-top: 3%;">
 
-                    
                     <!-- <div class="intro-heading">RESERVÁ TU LUGAR</div>
                     <div class="intro-lead-in">Buscá <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Elegí <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Reservá <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> ES GRATIS!!</div>
                     <a href="#" class="page-scroll btn btn-xl">CÓMO FUNCIONA</a> -->
 
                     <div class="form-group" style="padding-top: 0%;">
-                        
+
                     <input type="text" class="form-control" placeholder="Qué buscas?">
-                          
-                        
+
+
                     </div>
                     <div class="filtros">
                         <input type="radio" aria-label="..."> POR NOMBRE
@@ -92,10 +99,10 @@
                     <div style="padding-top: 5%;">
                         <button type="submit" class="btn btn-default">FECHA</button>
                         <button type="submit" class="btn btn-default">HORA</button>
-                        <button type="submit" class="btn btn-default">COMENSALES</button> 
+                        <button type="submit" class="btn btn-default">COMENSALES</button>
                         <button type="submit" class="btn btn-default btnbuscar">BUSCAR</button>
                     </div>
-                      
+
                 </div>
                 <div class="col-md-6 intro-text">
                     <img class="img-responsive" style="margin: 0 auto;" src="img/reserva.png">
@@ -108,10 +115,10 @@
         <div class="row">
             <div class="col-md-12">
                 <h3>Restaurantes para la búsqueda "ciudad"</h3>
-            </div>            
+            </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container locales">
 
         <div class="row" style="padding-top: 5%;">
             <div class="col-md-4">
@@ -130,8 +137,8 @@
                                     <i class="fa fa-star" aria-hidden="true"></i>
                                     <i class="fa fa-star-o" aria-hidden="true"></i>
                                 </li>
-                                
-                            </ul> | 
+
+                            </ul> |
                 <span class="precio">$$$$</span> <br>
                 <span class="descripcion">Ambiente cálido y familiar que invita a disfrutar una variada oferta de platos regionales creados por el Chef Martin Gonzalez. Productos de estación, cocina casera y una completa carta de vinos que los amantes de la buena mesa sabrán valorar...</span>
             </div>
@@ -158,8 +165,8 @@
                                     <i class="fa fa-star" aria-hidden="true"></i>
                                     <i class="fa fa-star-o" aria-hidden="true"></i>
                                 </li>
-                                
-                            </ul> | 
+
+                            </ul> |
                 <span class="precio">$$$$</span> <br>
                 <span class="descripcion">Ambiente cálido y familiar que invita a disfrutar una variada oferta de platos regionales creados por el Chef Martin Gonzalez. Productos de estación, cocina casera y una completa carta de vinos que los amantes de la buena mesa sabrán valorar...</span>
             </div>
@@ -223,7 +230,7 @@
         </div>
     </footer>
 
-    
+
 
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -238,8 +245,19 @@
     <script src="js/jqBootstrapValidation.js"></script>
     <script src="js/contact_me.js"></script>
 
+    <!-- Funciones de Locales JavaScript -->
+    <script src="js/controladores/locales.controlador.js"></script>
+
     <!-- Theme JavaScript -->
     <script src="js/agency.min.js"></script>
+
+    <script  src=" https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"
+          crossorigin="anonymous"></script>
+
+    <script>
+        buscar('<?php echo $parametro; ?>', '<?php echo $filtro; ?>');
+
+    </script>
 
 </body>
 

@@ -19,7 +19,7 @@
     <!-- Custom Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    
+
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <!-- Theme CSS -->
@@ -77,25 +77,27 @@
                     <!-- <div class="intro-heading">RESERVÁ TU LUGAR</div>
                     <div class="intro-lead-in">Buscá <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Elegí <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Reservá <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> ES GRATIS!!</div>
                     <a href="#" class="page-scroll btn btn-xl">CÓMO FUNCIONA</a> -->
+                    <form action="resultados-busqueda.php" method="post">
+                      <div class="form-group" style="padding-top: 5%;">
+                          <form action="resultados-busqueda.php" method="post">
+                      <div class="form-group" style="padding-top: 5%;">
 
-                    <div class="form-group" style="padding-top: 5%;">
-                        
-                    <input type="text" class="form-control" placeholder="Qué buscas?">
-                          
-                        
-                    </div>
-                    <div class="filtros">
-                        <input type="radio" aria-label="..."> POR NOMBRE
-                        <input type="radio" aria-label="..."> POR ZONA
-                        <input type="radio" aria-label="..."> TIPO DE COMIDA
-                    </div>
-                    <div style="padding-top: 5%;">
-                        <button type="submit" class="btn btn-default">FECHA</button>
-                        <button type="submit" class="btn btn-default">HORA</button>
-                        <button type="submit" class="btn btn-default">COMENSALES</button> 
-                        <button type="submit" class="btn btn-default btnbuscar">BUSCAR</button>
-                    </div>
-                      
+                      <input type="text" class="form-control" placeholder="Qué buscas?" name="parametro">
+
+
+                      </div>
+                      <div class="filtros">
+                          <input type="radio" name="filtro" value="nombre" aria-label="..."> POR NOMBRE
+                          <input type="radio" name="filtro" value="localidad" aria-label="..."> POR ZONA
+                          <input type="radio" name="filtro" value="tipoCocina" aria-label="..."> TIPO DE COMIDA
+                      </div>
+                      <div style="padding-top: 5%;">
+                          <button type="button" class="btn btn-default">FECHA</button>
+                          <button type="button" class="btn btn-default">HORA</button>
+                          <button type="button" class="btn btn-default">COMENSALES</button>
+                          <button type="submit" class="btn btn-default btnbuscar">BUSCAR</button>
+                      </div>
+                    </form>
                 </div>
                 <div class="col-md-6 intro-text">
                     <img style="margin: 0 auto;" class="img-responsive" src="img/cortes.png">
@@ -166,7 +168,7 @@
             <div class="row">
                <iframe class="altoocasiones" width='101%' height='auto' frameBorder='0' scrolling='no' src="ocasiones.php"></iframe>
             </div>
-            
+
         </div>
     </section>
 
@@ -406,7 +408,7 @@
         </div>
     </footer>
 
-    
+
 
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -421,8 +423,14 @@
     <script src="js/jqBootstrapValidation.js"></script>
     <script src="js/contact_me.js"></script>
 
+    <!-- Funciones de Home JavaScript -->
+    <script src="js/controladores/home.controlador.js"></script>
+
     <!-- Theme JavaScript -->
     <script src="js/agency.min.js"></script>
+
+    <script  src=" https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"
+          crossorigin="anonymous"></script>
 
 </body>
 
