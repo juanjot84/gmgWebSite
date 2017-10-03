@@ -127,8 +127,8 @@
                   <p>
                         <div class="form-group">
 
-                            <div class="row">
-                                <div class="col-md-3" id="otroTipoCocina">
+                            <div class="opcionesLocal row">
+                                <div class="col-md-12" id="otroTipoCocina">
 
                                 </div>
                             </div>
@@ -140,8 +140,8 @@
                   <p>
                         <div class="form-group">
 
-                            <div class="row">
-                                <div class="col-md-3" id="especialidades">
+                            <div class="opcionesLocal row">
+                                <div class="col-md-12" id="especialidades">
 
                                 </div>
                             </div>
@@ -153,8 +153,8 @@
                   <p>
                         <div class="form-group">
 
-                            <div class="row">
-                                <div class="col-md-3" id="servicios">
+                            <div class="opcionesLocal row">
+                                <div class="col-md-12" id="servicios">
 
                                 </div>
                             </div>
