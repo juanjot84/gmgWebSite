@@ -513,3 +513,7 @@ h5.titulosalta {
     width: 100%;
     height: 400px;
 }
+
+.opcionesLocal .checkbox{
+    margin-top: -5px;
+}
