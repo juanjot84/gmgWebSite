@@ -746,9 +746,15 @@ function caracteresCorreoValido(email){
     }
 }
 
-    function volverPanelLocal(){
-      var localEditado = $("#idLocalRecibido").val();
-      var idNegocio = $("#idNegocio").val(); 
-      var url = "../backend/panel-locales.php?idLocal="+ localEditado+"&idNegocio="+ idNegocio +"";
-      $(location).attr('href',url);
-    }
+function volverPanelLocal(){
+    var localEditado = $("#idLocalRecibido").val();
+    var idNegocio = $("#idNegocio").val(); 
+    var url = "../backend/panel-locales.php?idLocal="+ localEditado+"&idNegocio="+ idNegocio +"";
+    $(location).attr('href',url);
+}
+
+function volverPanelNegocio(){
+    var idNegocio = $("#idNegocio").val(); 
+    var url = "../backend/panel-negocio.php?idNegocio="+ idNegocio +"";
+    $(location).attr('href',url);
+}

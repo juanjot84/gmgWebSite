@@ -76,10 +76,6 @@
                       <input id="fechaNacimientoUsuario" name="fechaNacimientoUsuario" type="date" class="form-control" placeholder="Apellido" aria-describedby="sizing-addon3">
                     </div></p>
 
-                    <p><div class="input-group input-group-sm">
-                      <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
-                      <input id="password" name="password" type="password" class="form-control" placeholder="Contraseña" aria-describedby="sizing-addon3" onfocus="limpiar('password')" required>
-                    </div></p> 
 
               <div class="input-group">
                  <span class="input-group-btn">
@@ -90,19 +86,7 @@
             </form>
               <!-- Table -->
                   <div class="panel-heading tituloseccion" style="display: none">Usuarios Administradores de Restaurantes</div>
-              <!--      <table class="table">
-                        <thead class="titulotabla">
-                            <tr> 
-                                <th >#</th>
-                                    <th >Nombre</th>
-                                    <th >Mail</th>
-                                    <th style="text-align: center;">Acción</th>
-                                </tr>
-                        </thead>
-                        <tbody id="listadoContactos">
 
-                        </tbody>
-                    </table> -->
                 </div> 
             </div>
         </div>

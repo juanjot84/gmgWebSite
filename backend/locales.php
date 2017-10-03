@@ -25,6 +25,13 @@
                 </button>
                 <a class="navbar-brand page-scroll" href="#"><img class="logoweb" src="../img/logo-gmg-back.png"></a><div class="tituloback"> Panel de administración</div>
             </div>
+                            <div class="col-md-6" style="text-align: right;">
+                    <div class="input-group">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" style="padding: 17px;" onClick="nuevoLocal()" ><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVO</button>
+                      </span>
+                    </div>
+                </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -37,6 +44,7 @@
                     </li>
                 </ul>
             </div>
+
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->

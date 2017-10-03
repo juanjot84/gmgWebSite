@@ -1,4 +1,4 @@
-<?php
+|<?php
    $idNegocio = $_GET['idNegocio'];
 ?>
 
@@ -162,7 +162,8 @@
                   </p>
 
               <div class="input-group">
-                 <span class="input-group-btn">
+                  <span class="input-group-btn">
+                  <button id="botonAtras" class="btn btn-default" type="button" style="padding: 17px;" onClick=" volverPanelNegocio()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
                   <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar('crear')"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
                 </span>
               </div>
@@ -172,19 +173,7 @@
                   <!-- Table -->
                   <div id="cabeceraTablaNegocios">
                    <div class="panel-heading tituloseccion" style="display: none">Negocios</div>
-               <!--     <table class="table">
-                        <thead class="titulotabla">
-                            <tr> 
-                                <th >#</th>
-                                    <th >Nombre</th>
-                                    <th >Descripción</th>
-                                    <th style="text-align: center;">Acción</th>
-                                </tr>
-                        </thead>
-                        <tbody id="listadoLocal">
 
-                        </tbody>
-                    </table> -->
                   </div> 
                 </div>
             </div>
@@ -194,27 +183,6 @@
     <div class="container">
         <div class="row">
 
-        <!--
-            <nav aria-label="Page navigation">
-              <ul class="pagination">
-                <li>
-                  <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>
-                  <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-            -->
         </div>
     </div>
     

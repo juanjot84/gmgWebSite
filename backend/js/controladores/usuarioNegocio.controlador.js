@@ -94,7 +94,6 @@
             "apellido":$("#apellido").val(),
             "sexoUsuario":$("#sexoUsuario").val(),
             "fechaNacimientoUsuario":$("#fechaNacimientoUsuario").val(),
-            "password":$("#password").val(),
             "idNegocio":$("#idNegocio").val()
         });
 
@@ -183,11 +182,14 @@ function validar(accion){
       $("#nombre").addClass('alert-danger');
       hayError = true;
    }
-   if(password.length < 2){
-      $("#password").parent().after('<span id="passwordAlert" style="color:red"> Debe ingresar una Contraseña para el Usuario</span>');
-      $("#password").addClass('alert-danger');
-      hayError = true;
-   } 
+   if(accion == 'crear'){
+      if(password.length < 2){
+       $("#password").parent().after('<span id="passwordAlert" style="color:red"> Debe ingresar una Contraseña para el Usuario</span>');
+       $("#password").addClass('alert-danger');
+       hayError = true;
+      }
+   }
+ 
   if(hayError==false){
 
     if(accion == "editar"){
