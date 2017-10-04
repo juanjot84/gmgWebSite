@@ -63,9 +63,6 @@
        $("#descripcionDescuento").val(descuento.descripcionDescuento);
        $("#porcentajeDescuento").val(descuento.porcentajeDescuento);
        $("#condicionDescuento").val(descuento.condicionDescuento);
-       $("#diaDescuento").val(descuento.diaDescuento);
-       $("#horaDesdeDescuento").val(descuento.horaDesdeDescuento);
-       $("#horaHastaDescuento").val(descuento.horaHastaDescuento);
        $("#idDescuento").val(descuento._id);
     }
 
@@ -79,9 +76,6 @@
        $("#descripcionDescuento").val(descuento.descripcionDescuento);
        $("#porcentajeDescuento").val(descuento.porcentajeDescuento);
        $("#condicionDescuento").val(descuento.condicionDescuento);
-       $("#diaDescuento").val(descuento.diaDescuento);
-       $("#horaDesdeDescuento").val(descuento.horaDesdeDescuento);
-       $("#horaHastaDescuento").val(descuento.horaHastaDescuento);
        $("#idDescuento").val(descuento._id);
     }
 
@@ -116,10 +110,7 @@
             "nombreDescuento": $("#nombreDescuento").val(),
             "descripcionDescuento":$("#descripcionDescuento").val(),
             "porcentajeDescuento":$("#porcentajeDescuento").val(),
-            "condicionDescuento":$("#condicionDescuento").val(),
-            "diaDescuento":$("#diaDescuento").val(),
-            "horaDesdeDescuento":$("#horaDesdeDescuento").val(),
-            "horaHastaDescuento":$("#horaHastaDescuento").val()
+            "condicionDescuento":$("#condicionDescuento").val()
         });
 
         $('#target').html('sending..');

@@ -65,7 +65,7 @@
        $("#iconoMedioPago").val(medioPago.iconoMedioPago);
     }
 
-    function mostrar(idServicio){
+    function mostrar(idMedioPago){
        var medioPago =  _.find(medioPagos, { '_id': idMedioPago});
        console.log(medioPago);
        $('#formularioAgregar').show();

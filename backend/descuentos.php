@@ -58,21 +58,6 @@
                 <input id="condicionDescuento" name="condicionDescuento" type="text" class="form-control" placeholder="Condición de Descuento" aria-describedby="sizing-addon3">
               </div></p> 
 
-              <p><div class="input-group input-group-sm">
-                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                <input id="diaDescuento" name="diaDescuento" type="text" class="form-control" placeholder="Dias del Descuento" aria-describedby="sizing-addon3">
-              </div></p>
-
-              <p><div class="input-group input-group-sm">
-                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                <input id="horaDesdeDescuento" name="horaDesdeDescuento" type="text" class="form-control" placeholder="Hora desde del Descuento HH:MM" aria-describedby="sizing-addon3">
-              </div></p>
-
-              <p><div class="input-group input-group-sm">
-                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                <input id="horaHastaDescuento" name="horaHastaDescuento" type="text" class="form-control" placeholder="Hora hasta del Descuento HH:MM" aria-describedby="sizing-addon3">
-              </div></p>
-
               <div class="input-group">
                  <span class="input-group-btn">
                   <button class="btn btn-default" type="button" style="padding: 17px;" onClick="send()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
