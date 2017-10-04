@@ -89,19 +89,21 @@
                             <div class="col-lg-12">
                                 <form id="login-form" action="https://phpoll.com/login/process" method="post" role="form" style="display: block;">
                                     <div class="form-group">
-                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Nombre de usuario" value="">
+                                        <input type="text" name="emailUsuario" id="emailUsuario" tabindex="1" class="form-control" placeholder="Nombre de usuario" value="">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Contraseña">
+                                        <input type="password" name="passwordUsuario" id="passwordUsuario" tabindex="2" class="form-control" placeholder="Contraseña">
                                     </div>
+                                    <!--
                                     <div class="form-group text-center">
                                         <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
                                         <label class="recordar" for="remember"> Recordar mis datos</label>
                                     </div>
+                                    -->
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3">
-                                                <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Acceder">
+                                                <input type="button" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Acceder" onclick="login()">
                                             </div>
                                         </div>
                                     </div>
@@ -217,6 +219,9 @@
 
     <!-- Theme JavaScript -->
     <script src="js/agency.min.js"></script>
+
+    <!-- Funcione de Login JavaScript -->
+    <script src="js/controladores/login.controlador.js"></script>
 
     <script type="text/javascript">
         
