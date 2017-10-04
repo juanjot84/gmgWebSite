@@ -6,7 +6,6 @@ function obtenerListado() {
     $.ajax({
         url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local',
         type: 'GET',
-
         dataType: "json",
         crossDomain: true,
         contentType:"application/json",
@@ -25,9 +24,7 @@ function obtenerListado() {
   });
 }
 
-
 function buscar(parametro, filtro) {
-  debugger;
   if( _.isEmpty(parametro) || _.isEmpty(filtro)  ){
     obtenerListado()
   } else {
@@ -56,12 +53,8 @@ function buscar(parametro, filtro) {
       },
       data:JSON.stringify( obj)
     });
-
   }
-
-
 }
-
 
 function renderLocal(local){
   $('.container.locales').append('' +
@@ -70,7 +63,7 @@ function renderLocal(local){
     '<img class="img-responsive" src="' + local.idNegocio.urlIconoNegocio + '">' +
     '</div>' +
     '<div class="col-md-6">' +
-    '<h3 class="titulo">' + local.idNegocio.nombreNegocio + ' | ' + local.idEspecialidad[0].descripcionEspecialidad+ '</h3>' +
+    '<h3 class="titulo">' + local.idNegocio.nombreNegocio + ' | ' + local.idNegocio.bajadaNegocio + '</h3>' +
     '<span class="polo">' + local.idPoloGastronomico.nombrePoloGastronomico +'</span> | ' +
     '<span class="tiponegocio">' +local.idNegocio.tipoNegocio +'</span> <br>' +
     '<ul style="display: inline-flex; list-style: none;"">' +
