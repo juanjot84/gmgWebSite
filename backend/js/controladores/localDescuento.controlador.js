@@ -119,7 +119,7 @@ function cargarDescuentosSeleccionados(){
 }
 
 
-function SendLocalDescuento(){
+function SendLocalDescuento(accion){
 
   $("#botonGuardar").addClass('disabled');
 
@@ -146,9 +146,14 @@ function SendLocalDescuento(){
     var campoAAcuatualizar = "idLocalDescuento";
     actualizarLocal(idLocalCreado, localDescuentoCreados, campoAAcuatualizar).then( function(data){
       console.log(localDescuentoCreados);
-
-      var url = "../backend/asignar-horarios.php?idLocal="+ idLocalCreado+"";
-      $(location).attr('href',url);
+        if(accion == 'crear'){
+           var url = "../backend/asignar-horarios.php?idLocal="+ idLocalCreado+"";
+           $(location).attr('href',url);
+        }
+        if(accion == 'editar'){
+           volverPanelLocal();
+        }
+      
     }).catch(function(err){
       console.log(err);
     });

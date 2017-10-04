@@ -127,3 +127,9 @@
       var url = "../backend/editar-horarios.php?idLocal="+idLocal+"";
       $(location).attr('href',url);
     }
+
+    function nuevoLocal(){
+        var negocioCreado = $("#idNegocio").val(); 
+        var url = "../backend/local.php?idNegocio="+ negocioCreado+"";
+        $(location).attr('href',url);
+    }

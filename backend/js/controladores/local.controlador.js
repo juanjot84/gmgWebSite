@@ -338,7 +338,7 @@ function toggleBounce() {
       $('#otroTipoCocina').html('');
       _.each(tipoCocinas, function (tipoCocina){
             $('#otroTipoCocina').append(
-            '<div class="checkbox"><label><input type="checkbox" value="'+tipoCocina._id+'" id="tipoCocinasCheck" name="tipoCocinasCheck">'+tipoCocina.nombreTipoCocina+'</label></div>') 
+            '<div class="checkbox col-md-4"><label><input type="checkbox" value="'+tipoCocina._id+'" id="tipoCocinasCheck" name="tipoCocinasCheck">'+tipoCocina.nombreTipoCocina+'</label></div>') 
 
           _.each(tipoCocinaSeleccionados, function (tipoSeleccionado){
             if(tipoSeleccionado._id == tipoCocina._id){
@@ -352,7 +352,7 @@ function toggleBounce() {
       $('#otroTipoCocina').html('');
       _.each(tipoCocinas, function (tipoCocina){
         $('#otroTipoCocina').append(
-          '<div class="checkbox"><label><input type="checkbox" value="'+tipoCocina._id+'" id="tipoCocinasCheck" name="tipoCocinasCheck">'+tipoCocina.nombreTipoCocina+'</label></div>')              
+          '<div class="checkbox col-md-4"><label><input type="checkbox" value="'+tipoCocina._id+'" id="tipoCocinasCheck" name="tipoCocinasCheck">'+tipoCocina.nombreTipoCocina+'</label></div>')              
       });
     }
 
@@ -375,7 +375,7 @@ function toggleBounce() {
       $('#especialidades').html('');
       _.each(especialidades, function (especialidad){
         $('#especialidades').append(
-          '<div class="checkbox"><label><input type="checkbox" value="'+especialidad._id+'" id="especialidadCheck" name="especialidadCheck">'+especialidad.nombreEspecialidad+'</label></div>')              
+          '<div class="checkbox col-md-4"><label><input type="checkbox" value="'+especialidad._id+'" id="especialidadCheck" name="especialidadCheck">'+especialidad.nombreEspecialidad+'</label></div>')              
       });
     }
     // Funcion para armar lista checkbox Especialidades para editar
@@ -383,7 +383,7 @@ function toggleBounce() {
       $('#especialidades').html('');
       _.each(especialidades, function (especialidad){
         $('#especialidades').append(
-          '<div class="checkbox"><label><input type="checkbox" value="'+especialidad._id+'" id="especialidadCheck" name="especialidadCheck">'+especialidad.nombreEspecialidad+'</label></div>')
+          '<div class="checkbox col-md-4"><label><input type="checkbox" value="'+especialidad._id+'" id="especialidadCheck" name="especialidadCheck">'+especialidad.nombreEspecialidad+'</label></div>')
         _.each(especialidadesSeleccionadas, function (especialidadSeleccionada){
             if(especialidadSeleccionada._id == especialidad._id){
                $("input[name=especialidadCheck][value=" + especialidad._id + "]").prop("checked",true); 
@@ -411,7 +411,7 @@ function toggleBounce() {
       $('#servicios').html('');
       _.each(servicios, function (servicio){
         $('#servicios').append(
-          '<div class="checkbox"><label><input type="checkbox" value="'+servicio._id+'" id="servicioCheck" name="servicioCheck">'+servicio.nombreServicio+'</label></div>')              
+          '<div class="checkbox col-md-4"><label><input type="checkbox" value="'+servicio._id+'" id="servicioCheck" name="servicioCheck">'+servicio.nombreServicio+'</label></div>')              
       });
     }
     // Funcion para armar lista checkbox Servicios para editar local
@@ -419,7 +419,7 @@ function toggleBounce() {
       $('#servicios').html('');
       _.each(servicios, function (servicio){
         $('#servicios').append(
-          '<div class="checkbox"><label><input type="checkbox" value="'+servicio._id+'" id="servicioCheck" name="servicioCheck">'+servicio.nombreServicio+'</label></div>')
+          '<div class="checkbox col-md-4"><label><input type="checkbox" value="'+servicio._id+'" id="servicioCheck" name="servicioCheck">'+servicio.nombreServicio+'</label></div>')
             _.each(ServiciosSeleccionados, function (servicioSeleccionado){
               if(servicioSeleccionado._id == servicio._id){
                   $("input[name=servicioCheck][value=" + servicio._id + "]").prop("checked",true); 
@@ -746,9 +746,15 @@ function caracteresCorreoValido(email){
     }
 }
 
-    function volverPanelLocal(){
-      var localEditado = $("#idLocalRecibido").val();
-      var idNegocio = $("#idNegocio").val(); 
-      var url = "../backend/panel-locales.php?idLocal="+ localEditado+"&idNegocio="+ idNegocio +"";
-      $(location).attr('href',url);
-    }
+function volverPanelLocal(){
+    var localEditado = $("#idLocalRecibido").val();
+    var idNegocio = $("#idNegocio").val(); 
+    var url = "../backend/panel-locales.php?idLocal="+ localEditado+"&idNegocio="+ idNegocio +"";
+    $(location).attr('href',url);
+}
+
+function volverPanelNegocio(){
+    var idNegocio = $("#idNegocio").val(); 
+    var url = "../backend/panel-negocio.php?idNegocio="+ idNegocio +"";
+    $(location).attr('href',url);
+}
