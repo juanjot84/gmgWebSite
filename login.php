@@ -87,12 +87,12 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <form id="login-form" action="https://phpoll.com/login/process" method="post" role="form" style="display: block;">
+                                <form id="login-form" method="post" role="form" style="display: block;">
                                     <div class="form-group">
-                                        <input type="text" name="emailUsuario" id="emailUsuario" tabindex="1" class="form-control" placeholder="Nombre de usuario" value="">
+                                        <input type="text" name="emailUsuario" id="emailUsuario" tabindex="1" class="form-control" placeholder="Nombre de usuario" value=""       onfocus="limpiar('emailUsuario')" onclick="limpiar('passwordUsuario')">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="passwordUsuario" id="passwordUsuario" tabindex="2" class="form-control" placeholder="Contraseña">
+                                        <input type="password" name="passwordUsuario" id="passwordUsuario" tabindex="2" class="form-control" placeholder="Contraseña" onfocus="limpiar('passwordUsuario')">
                                     </div>
                                     <!--
                                     <div class="form-group text-center">
@@ -117,23 +117,23 @@
                                         </div>
                                     </div>
                                 </form>
-                                <form id="register-form" action="https://phpoll.com/register/process" method="post" role="form" style="display: none;">
+                                <form id="register-form" method="post" role="form" style="display: none;">
                                     <div class="form-group">
-                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Nombre de usuario" value="">
+                                        <input type="text" name="nombre" id="nombre" tabindex="1" class="form-control" placeholder="Nombre de usuario" onfocus="limpiar('nombre')">
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email" value="">
+                                        <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email" value="" onfocus="limpiar('email')">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Contraseña">
+                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Contraseña" onfocus="limpiar('password')">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirmar contraseña">
+                                        <input type="password" name="password2" id="password2" tabindex="2" class="form-control" placeholder="Confirmar contraseña" onfocus="limpiar('password2')">
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3">
-                                                <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Registrarme ahora">
+                                                <input type="button" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Registrarme ahora" onclick="validar()">
                                             </div>
                                         </div>
                                     </div>
