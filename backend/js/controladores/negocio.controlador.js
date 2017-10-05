@@ -188,7 +188,16 @@
             crossDomain: true,
             contentType:"application/json",
             success: function (data) {
-              obtenerListado();
+              if(data != 'Borrado'){
+               
+               $("#mostrarmodal").modal("show");
+
+
+
+              }else if(data == 'Borrado'){
+                 obtenerListado();
+              }
+              
             },
             error:function(jqXHR,textStatus,errorThrown)
             {
