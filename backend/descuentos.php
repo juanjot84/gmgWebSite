@@ -12,9 +12,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="input-group">
-                      <input type="text" class="form-control" placeholder="BUSCAR..." style="padding: 25.6px;">
                       <span class="input-group-btn">
-                        <button class="btn btn-default botonbuscar" style="color: #333; background-color: #fff; border: 1px solid #ccc; padding: 15px; border-radius: 0;" type="button"><i style="font-size: 1.5em;" class="fa fa-search" aria-hidden="true"></i></button>
                       </span>
                     </div>
                 </div>
@@ -57,21 +55,6 @@
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
                 <input id="condicionDescuento" name="condicionDescuento" type="text" class="form-control" placeholder="Condición de Descuento" aria-describedby="sizing-addon3">
               </div></p> 
-
-              <p><div class="input-group input-group-sm">
-                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                <input id="diaDescuento" name="diaDescuento" type="text" class="form-control" placeholder="Dias del Descuento" aria-describedby="sizing-addon3">
-              </div></p>
-
-              <p><div class="input-group input-group-sm">
-                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                <input id="horaDesdeDescuento" name="horaDesdeDescuento" type="text" class="form-control" placeholder="Hora desde del Descuento HH:MM" aria-describedby="sizing-addon3">
-              </div></p>
-
-              <p><div class="input-group input-group-sm">
-                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                <input id="horaHastaDescuento" name="horaHastaDescuento" type="text" class="form-control" placeholder="Hora hasta del Descuento HH:MM" aria-describedby="sizing-addon3">
-              </div></p>
 
               <div class="input-group">
                  <span class="input-group-btn">
