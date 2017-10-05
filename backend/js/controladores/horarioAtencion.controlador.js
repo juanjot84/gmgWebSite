@@ -17,7 +17,6 @@ $(function () {
 
 });
 
-
 var localHorariosCreados = [];
 
 var dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabados", "Domingos", "Feriados"];
@@ -34,7 +33,6 @@ function cargarHorariosSeteados(){
             contentType:"application/json",
             success: function (data) {
             var horariosAtencion = data.idHorarioAtencion;
-
               _.each(horariosAtencion, function(horario){
                       $("#Hdesde" + horario.diaSemanaHorarioAtencion).val(horario.horaInicioHorarioAtencion);
                       $("#Hhasta" + horario.diaSemanaHorarioAtencion).val(horario.horaFinHorarioAtencion)
@@ -84,7 +82,7 @@ function SendHorarioAtencion(accion) {
       if(accion == 'crear'){
           var url = "../backend/asignar-cubiertos.php?idLocal=" + idLocalCreado + "";
           $(location).attr('href', url);
-      }else if(accion == 'editar'){
+      }else if(accion == 'editar'){     
           volverPanelLocal()
       }
     }).catch(function (err) {
