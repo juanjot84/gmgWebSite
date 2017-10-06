@@ -182,3 +182,7 @@
           data: polo
       });
     }
+    
+    function cancelar(){
+      $('#formularioAgregar').hide();
+    }

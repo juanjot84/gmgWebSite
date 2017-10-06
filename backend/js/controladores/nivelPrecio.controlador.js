@@ -136,3 +136,7 @@
           data: nivelPrecio
       }); 
     }
+    
+    function cancelar(){
+      $('#formularioAgregar').hide();
+    }

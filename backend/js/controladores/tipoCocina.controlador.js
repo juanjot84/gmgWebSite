@@ -135,3 +135,7 @@
           data: tipoCocina
       }); 
     }
+
+    function cancelar(){
+      $('#formularioAgregar').hide();
+    }

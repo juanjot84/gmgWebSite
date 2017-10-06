@@ -132,3 +132,7 @@
           data: region
       }); 
     }
+
+    function cancelar(){
+      $('#formularioAgregar').hide();
+    }

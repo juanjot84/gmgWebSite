@@ -121,6 +121,7 @@
               <div class="input-group">
                  <span class="input-group-btn">
                   <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar('crear')"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
+                  <button class="btn btn-default" type="button" style="padding: 17px;" onClick="cancelar()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Cancelar</button>
                 </span>
               </div>
             </form>           
@@ -167,7 +168,7 @@
     <div class="container">
         <div class="row">
 
-        <!--
+        
             <nav aria-label="Page navigation">
               <ul class="pagination">
                 <li>
@@ -187,7 +188,7 @@
                 </li>
               </ul>
             </nav>
-            -->
+            
         </div>
     </div>
     

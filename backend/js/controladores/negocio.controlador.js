@@ -253,6 +253,13 @@
             });
     }
 
+
+    function cancelar(){
+      $('#formularioAgregar').hide();
+      $('#cabeceraTablaNegocios').show();
+      $('#listadoNegocios').show();
+    }
+
     function send() {
         var isNew = $("#idNegocio").val() == "";
         var operacion = isNew ? "POST": "PUT";
@@ -336,3 +343,4 @@ function limpiar(campo){
    $("#"+campo).removeClass('alert-danger');
    $("#botonGuardar").removeClass('disabled');
 }
+

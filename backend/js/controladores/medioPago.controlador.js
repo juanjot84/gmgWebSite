@@ -135,3 +135,7 @@
           data: medioPago
       }); 
     }
+    
+    function cancelar(){
+      $('#formularioAgregar').hide();
+    }

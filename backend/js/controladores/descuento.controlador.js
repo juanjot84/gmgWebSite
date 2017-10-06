@@ -138,3 +138,7 @@
           data: descuento
       }); 
     }
+    
+    function cancelar(){
+      $('#formularioAgregar').hide();
+    }

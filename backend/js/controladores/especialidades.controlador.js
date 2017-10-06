@@ -132,3 +132,7 @@
           data: especialidad
       }); 
     }
+    
+    function cancelar(){
+      $('#formularioAgregar').hide();
+    }

@@ -132,3 +132,7 @@
           data: tipoNegocio
       }); 
     }
+
+    function cancelar(){
+      $('#formularioAgregar').hide();
+    }

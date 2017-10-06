@@ -135,3 +135,7 @@
           data: servicio
       }); 
     }
+    
+    function cancelar(){
+      $('#formularioAgregar').hide();
+    }
