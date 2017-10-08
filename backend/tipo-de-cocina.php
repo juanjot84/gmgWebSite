@@ -51,6 +51,11 @@
               <input id="urlImagenTipoCocina" name="urlImagenTipoCocina" type="text" class="form-control" placeholder="URL de la imagen del Tipo de Cocina" aria-describedby="sizing-addon3">
             </div></p>
 
+            <p>
+              <label ><input type="radio" class="radio-inline" name="destacadoTipoCocina" id="destacadoTipoCocina-true" value="true"> Si</label>
+              <label ><input type="radio" class="radio-inline" name="destacadoTipoCocina" id="destacadoTipoCocina-false" value="false" checked="checked">No</label>
+            </p>
+
             <div class="input-group">
               <span class="input-group-btn">
                 <button class="btn btn-default" type="button" style="padding: 17px;" onClick="send()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>

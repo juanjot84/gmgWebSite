@@ -20,7 +20,7 @@ function obtenerListado() {
           $('#target').append("jqXHR: "+jqXHR);
           $('#target').append("textStatus: "+textStatus);
           $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
-      },
+      }
   });
 }
 
@@ -30,8 +30,15 @@ function buscar(parametro, filtro) {
   } else {
     $('.container.locales').html('');
     var obj={};
-    var llamada=  filtro == "nombre" ? "buscar" : "filtro";
-    obj.parametro = parametro;
+    var llamada;
+    if (filtro ==  "nombre"){
+      llamada ="buscar";
+      obj.parametro = parametro;
+    } else {
+     llamada = "filtro";
+      obj[filtro] = parametro
+    }
+
     $.ajax({
       url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/' + llamada,
       type: 'POST',
@@ -54,6 +61,11 @@ function buscar(parametro, filtro) {
       data:JSON.stringify( obj)
     });
   }
+}
+
+function getTituloBusqueda(parametro, filtro) {
+  var titulo = $("#labelRestaurantesBusquedas");
+  titulo.text('Restaurantes para la búsqueda "' + parametro +'"' );
 }
 
 function renderLocal(local){

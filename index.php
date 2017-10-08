@@ -250,93 +250,7 @@
 
   <!-- ELEGÍ TU COCINA -->
   <section id="team" class="bg-light-gray">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading">ELEGÍ TU COCINA</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-        </div>
-      </div>
-      <div class="row" style="padding-top: 3%;">
-        <a href="#" style="text-decoration: none; color: #111;">
-          <div class="col-md-3 text-center">
-            <img src="img/cocina01.jpg" class="img-responsive fotoscocina" alt="">
-            <h4 style="text-transform: none;">De autor</h4>
-          </div>
-        </a>
-        <a href="#" style="text-decoration: none; color: #111;">
-          <div class="col-md-3 text-center">
-            <img src="img/cocina02.jpg" class="img-responsive fotoscocina" alt="">
-            <h4 style="text-transform: none;">Alta Cocina</h4>
-          </div>
-        </a>
-        <a href="#" style="text-decoration: none; color: #111;">
-          <div class="col-md-3 text-center">
-            <img src="img/cocina03.jpg" class="img-responsive fotoscocina" alt="">
-            <h4 style="text-transform: none;">Regional</h4>
-          </div>
-        </a>
-        <a href="#" style="text-decoration: none; color: #111;">
-          <div class="col-md-3 text-center">
-            <img src="img/cocina04.jpg" class="img-responsive fotoscocina" alt="">
-            <h4 style="text-transform: none;">Vegetariana</h4>
-          </div>
-        </a>
-      </div>
-
-      <div class="row" style="padding-top: 3%;">
-        <a href="#" style="text-decoration: none; color: #111;">
-          <div class="col-md-3 text-center">
-            <img src="img/cocina05.jpg" class="img-responsive fotoscocina" alt="">
-            <h4 style="text-transform: none;">Italiana</h4>
-          </div>
-        </a>
-        <a href="#" style="text-decoration: none; color: #111;">
-          <div class="col-md-3 text-center">
-            <img src="img/cocina06.jpg" class="img-responsive fotoscocina" alt="">
-            <h4 style="text-transform: none;">Peruana</h4>
-          </div>
-        </a>
-        <a href="#" style="text-decoration: none; color: #111;">
-          <div class="col-md-3 text-center">
-            <img src="img/cocina07.jpg" class="img-responsive fotoscocina" alt="">
-            <h4 style="text-transform: none;">Española</h4>
-          </div>
-        </a>
-        <a href="#" style="text-decoration: none; color: #111;">
-          <div class="col-md-3 text-center">
-            <img src="img/cocina08.jpg" class="img-responsive fotoscocina" alt="">
-            <h4 style="text-transform: none;">Árabe</h4>
-          </div>
-        </a>
-      </div>
-
-      <div class="row" style="padding-top: 3%;">
-        <a href="#" style="text-decoration: none; color: #111;">
-          <div class="col-md-3 text-center">
-            <img src="img/cocina09.jpg" class="img-responsive fotoscocina" alt="">
-            <h4 style="text-transform: none;">Asiática</h4>
-          </div>
-        </a>
-        <a href="#" style="text-decoration: none; color: #111;">
-          <div class="col-md-3 text-center">
-            <img src="img/cocina10.jpg" class="img-responsive fotoscocina" alt="">
-            <h4 style="text-transform: none;">Slow Food</h4>
-          </div>
-        </a>
-        <a href="#" style="text-decoration: none; color: #111;">
-          <div class="col-md-3 text-center">
-            <img src="img/cocina11.jpg" class="img-responsive fotoscocina" alt="">
-            <h4 style="text-transform: none;">Fast Food</h4>
-          </div>
-        </a>
-        <a href="#" style="text-decoration: none; color: #111;">
-          <div class="col-md-3 text-center">
-            <img src="img/cocina12.jpg" class="img-responsive fotoscocina" alt="">
-            <h4 style="text-transform: none;">Nikkei</h4>
-          </div>
-        </a>
-      </div>
+    <div class="container tipoCocinas">
 
     </div>
   </section>
@@ -427,6 +341,11 @@
 
   <script  src=" https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"
   crossorigin="anonymous"></script>
+
+  <script>
+    obtenerListadoCocinas();
+
+  </script>
 
 </body>
 

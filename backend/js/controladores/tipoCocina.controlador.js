@@ -23,16 +23,15 @@
 
     function obtenerListado() {
         $('#listadoTiposCocina').html('');
-        $('#target').html('obteniendo...');       
+        $('#target').html('obteniendo...');
         $.ajax({
             url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/tipoCocina',
             type: 'GET',
-            
             dataType: "json",
             crossDomain: true,
             contentType:"application/json",
             success: function (data) {
-                tiposCocina = data;              
+                tiposCocina = data;
               _.each(data, function(tipoCocina, index){
                 $('#listadoTiposCocina').append(' <tr>' +
                     '<th scope="row" style="font-size: 1.5em;">' + parseInt(index+1) + '</th>' +
@@ -42,7 +41,7 @@
                     '<button title="Eliminar" onClick="eliminar(\'' + tipoCocina._id + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +
                     '</td> ' +
                     '</tr>');
-            }) 
+            })
           },
           error:function(jqXHR,textStatus,errorThrown)
           {
@@ -63,6 +62,10 @@
        $("#nombreTipoCocina").val(tipoCocina.nombreTipoCocina);
        $("#urlImagenTipoCocina").val(tipoCocina.urlImagenTipoCocina);
        $("#descripcionTipoCocina").val(tipoCocina.descripcionTipoCocina);
+       $("#destacadoTipoCocina-true").val(true);
+       $("#destacadoTipoCocina-false").val(false);
+       $("#destacadoTipoCocina-" + tipoCocina.destacadoTipoCocina).prop("checked",true);
+       $(location).attr('href',"#formularioAgregar");
     }
 
     function mostrar(idTipoCocina){
@@ -75,30 +78,33 @@
        $("#descripcionTipoCocina").val(tipoCocina.descripcionTipoCocina);
        $("#urlImagenTipoCocina").val(tipoCocina.urlImagenTipoCocina);
        $("#idTipoCocina").val(tipoCocina._id);
+       $("#destacadoTipoCocina-true").val(true);
+       $("#destacadoTipoCocina-false").val(false);
+       $("#destacadoTipoCocina-" + tipoCocina.destacadoTipoCocina).prop("checked",true);
+       $(location).attr('href',"#formularioLocal");
     }
 
     function eliminar(idTipoCocina){
        $.ajax({
             url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/tipoCocina?id=' + idTipoCocina,
             type: 'DELETE',
-            
             dataType: "json",
             crossDomain: true,
             contentType:"application/json",
             success: function (data) {
-              if(data != 'Borrado'){  
+              if(data != 'Borrado'){
                 $("#mostrarmodal").modal("show");
               }else if(data == 'Borrado'){
                  obtenerListado();
-              }               
+              }
             },
             error:function(jqXHR,textStatus,errorThrown)
             {
               obtenerListado();
           }
-      });    
+      });
     }
-    
+
     function agregarTipoCocina(){
        $('#formularioAgregar').show();
        $("#formularioAgregar :input").attr("disabled", false);
@@ -112,15 +118,13 @@
         var tipoCocina = JSON.stringify({
             "nombreTipoCocina": $("#nombreTipoCocina").val(),
             "descripcionTipoCocina":$("#descripcionTipoCocina").val(),
-            "urlImagenTipoCocina":$("#urlImagenTipoCocina").val()
+            "urlImagenTipoCocina":$("#urlImagenTipoCocina").val(),
+            "destacadoTipoCocina": $('input[name=destacadoTipoCocina]:checked').val()
         });
-
-        $('#target').html('sending..');
         var queryParam = isNew  ? "": "?id=" + $("#idTipoCocina").val();
         $.ajax({
             url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/tipoCocina' + queryParam,
             type: operacion,
-            
             dataType: "json",
             crossDomain: true,
             contentType:"application/json",
@@ -133,7 +137,7 @@
             {
           },
           data: tipoCocina
-      }); 
+      });
     }
 
     function cancelar(){

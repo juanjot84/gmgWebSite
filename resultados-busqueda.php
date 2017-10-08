@@ -40,6 +40,7 @@ $parametro = $_POST["parametro"];
 $filtro = $_POST['filtro'];
 ?>
 
+
 <body id="page-top" class="index">
 
   <input type="text" name="parametro" id="parametro" value="<?php echo $parametro; ?>" class="hidden">
@@ -114,67 +115,11 @@ $filtro = $_POST['filtro'];
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h3>Restaurantes para la búsqueda "ciudad"</h3>
+        <h3 id="labelRestaurantesBusquedas">Restaurantes para la búsqueda ""</h3>
       </div>
     </div>
   </div>
   <div class="container locales">
-
-    <div class="row" style="padding-top: 5%;">
-      <div class="col-md-4">
-        <img class="img-responsive" src="img/resto00.jpg">
-      </div>
-      <div class="col-md-6">
-        <h3 class="titulo">ZAMPA | Cocina + Barra</h3>
-        <span class="polo">Ciudad</span> | <span class="tiponegocio">Restaurante</span>
-        <br>
-        <ul style="display: inline-flex; list-style: none;"">
-
-          <li>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-          </li>
-
-        </ul> |
-        <span class="precio">$$$$</span> <br>
-        <span class="descripcion">Ambiente cálido y familiar que invita a disfrutar una variada oferta de platos regionales creados por el Chef Martin Gonzalez. Productos de estación, cocina casera y una completa carta de vinos que los amantes de la buena mesa sabrán valorar...</span>
-      </div>
-      <div class="col-md-2">
-        <a href="#" class="page-scroll btn btn-xl" style="width: 100%; margin-top: 8%; margin-bottom: 4.9%;">IR</a> <br>
-        <h2 style="text-align: center;">-10% OFF</h2>
-      </div>
-    </div>
-
-    <div class="row" style="padding-top: 5%;">
-      <div class="col-md-4">
-        <img class="img-responsive" src="img/resto01.jpg">
-      </div>
-      <div class="col-md-6">
-        <h3 class="titulo">ZAMPA | Cocina + Barra</h3>
-        <span class="polo">Ciudad</span> | <span class="tiponegocio">Restaurante</span>
-        <br>
-        <ul style="display: inline-flex; list-style: none;"">
-
-          <li>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-          </li>
-
-        </ul> |
-        <span class="precio">$$$$</span> <br>
-        <span class="descripcion">Ambiente cálido y familiar que invita a disfrutar una variada oferta de platos regionales creados por el Chef Martin Gonzalez. Productos de estación, cocina casera y una completa carta de vinos que los amantes de la buena mesa sabrán valorar...</span>
-      </div>
-      <div class="col-md-2">
-        <a href="#" class="page-scroll btn btn-xl" style="width: 100%; margin-top: 8%; margin-bottom: 4.9%;">IR</a> <br>
-        <h2 style="text-align: center;">-10% OFF</h2>
-      </div>
-    </div>
 
   </div>
 
@@ -247,7 +192,10 @@ $filtro = $_POST['filtro'];
 
   <!-- Funciones de Locales JavaScript -->
   <script src="js/controladores/locales.controlador.js"></script>
+<script>
+  getTituloBusqueda('<?php echo $parametro; ?>', '<?php echo $filtro; ?>');
 
+  </script>
   <!-- Theme JavaScript -->
   <script src="js/agency.min.js"></script>
 
