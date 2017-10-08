@@ -18,6 +18,7 @@ $(function() {
 
 
 var localCubiertosCreados = [];
+var cubiertosViejos = [];
 
 var dias = ["Lunes","Martes","Miercoles","Jueves","Viernes","Sabados","Domingos","Feriados"];
 
@@ -34,6 +35,7 @@ function cargarCubiertosSeteados(){
             contentType:"application/json",
             success: function (data) {
             var cubiertosDia = data.idCubiertosDia;
+                cubiertosViejos = data.idCubiertosDia;
 
               _.each(cubiertosDia, function(cubierto){
                       $("#Cubiertos" + cubierto.diaSemanaCubiertoDia).val(cubierto.cantidadCubiertoDia);
@@ -81,8 +83,17 @@ function SendCubiertos(accion){
       var url = "../backend/negocios.php";
       $(location).attr('href',url);
      }else if(accion == 'editar'){
-       
-       volverPanelLocal()
+
+
+        eliminarViejos(cubiertosViejos).then(function(error, success){
+        volverPanelLocal();
+        }).catch(function (err) {
+         console.log(err);
+        });
+
+
+     //   volverPanelLocal()
+
      }
 
     }).catch(function(err){
@@ -91,6 +102,35 @@ function SendCubiertos(accion){
   });
 }
 
+function eliminarViejos(vectorCubiertos){
+  var promise = new Promise(function(resolve, reject){
+    var vecPromesas = [];
+    _.each(vectorCubiertos, function(cubierto){
+     var promesa = eliminar(cubierto._id);
+     vecPromesas.push(promesa);
+   });
+    Promise.all(vecPromesas).then(function(){
+      resolve(true)
+    });
+  });
+  return promise;
+}
+
+function eliminar(idCubiertoDia){
+  $.ajax({
+    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/cubiertosDia?id=' + idCubiertoDia,
+    type: 'DELETE',      
+    dataType: "json",
+    crossDomain: true,
+    contentType:"application/json",
+    success: function(data){
+      return true;
+    },
+    error:function(jqXHR,textStatus,errorThrown){
+      return false;
+    }
+  });
+}
 
 function sendCubiertos(diaCubierto,cantCubiertos, duracionReserva) {
 

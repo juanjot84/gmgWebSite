@@ -90,7 +90,8 @@ function SendHorarioAtencion(accion) {
           volverPanelLocal();
         }).catch(function (err) {
          console.log(err);
-       });            
+        });
+
       }
     }).catch(function (err){
       console.log(err);
