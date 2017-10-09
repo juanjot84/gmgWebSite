@@ -7,9 +7,7 @@
 <body id="page-top" class="index">
 
 
-<?php include("includes/nav.php"); ?>
-
-    
+<?php include("includes/nav.php"); ?>  
 
     <div class="container-fluid" style="padding: 1%;background: yellow;margin-top: -21px;">
         <div class="container">

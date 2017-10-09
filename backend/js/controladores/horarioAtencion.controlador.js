@@ -18,33 +18,35 @@ $(function () {
 });
 
 var localHorariosCreados = [];
+var horariosViejos = [];
 
 var dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabados", "Domingos", "Feriados"];
 
 function cargarHorariosSeteados(){
-     var idLocal = $("#idLocalCreado").val();
-    $('#target').html('obteniendo...');       
-    $.ajax({
-      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id='+ idLocal +"",
-            type: 'GET',
-            
-            dataType: "json",
-            crossDomain: true,
-            contentType:"application/json",
-            success: function (data) {
-            var horariosAtencion = data.idHorarioAtencion;
-              _.each(horariosAtencion, function(horario){
-                      $("#Hdesde" + horario.diaSemanaHorarioAtencion).val(horario.horaInicioHorarioAtencion);
-                      $("#Hhasta" + horario.diaSemanaHorarioAtencion).val(horario.horaFinHorarioAtencion)
-              });
-          },
-          error:function(jqXHR,textStatus,errorThrown)
-          {
-              $('#target').append("jqXHR: "+jqXHR);
-              $('#target').append("textStatus: "+textStatus);
-              $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
-          },
+ var idLocal = $("#idLocalCreado").val();
+ $('#target').html('obteniendo...');       
+ $.ajax({
+  url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id='+ idLocal +"",
+  type: 'GET',
+
+  dataType: "json",
+  crossDomain: true,
+  contentType:"application/json",
+  success: function (data) {
+    var horariosAtencion = data.idHorarioAtencion;
+    horariosViejos = data.idHorarioAtencion;
+    _.each(horariosAtencion, function(horario){
+      $("#Hdesde" + horario.diaSemanaHorarioAtencion).val(horario.horaInicioHorarioAtencion);
+      $("#Hhasta" + horario.diaSemanaHorarioAtencion).val(horario.horaFinHorarioAtencion)
     });
+  },
+  error:function(jqXHR,textStatus,errorThrown)
+  {
+    $('#target').append("jqXHR: "+jqXHR);
+    $('#target').append("textStatus: "+textStatus);
+    $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+  },
+});
 }
 
 function SendHorarioAtencion(accion) {
@@ -76,29 +78,63 @@ function SendHorarioAtencion(accion) {
   Promise.all(guardarHorarios).then(function () {
     var campoAAcuatualizar = "idHorarioAtencion";
     console.log(localHorariosCreados);
-    actualizarLocal(idLocalCreado, localHorariosCreados, campoAAcuatualizar).then(function (data) {
+    actualizarLocal(idLocalCreado, localHorariosCreados, campoAAcuatualizar).then(function(data){
       console.log(data);
       
       if(accion == 'crear'){
-          var url = "../backend/asignar-cubiertos.php?idLocal=" + idLocalCreado + "";
-          $(location).attr('href', url);
-      }else if(accion == 'editar'){     
-          volverPanelLocal()
+        var url = "../backend/asignar-cubiertos.php?idLocal=" + idLocalCreado + "";
+        $(location).attr('href', url);
+      }else if(accion == 'editar'){
+
+        eliminarViejos(horariosViejos).then(function(error, success){
+          volverPanelLocal();
+        }).catch(function (err) {
+         console.log(err);
+        });
+
       }
-    }).catch(function (err) {
+    }).catch(function (err){
       console.log(err);
     });
+
 
   }).catch(function (err) {
     console.log(err);
   });
+}
 
+function eliminarViejos(vectorHorarios){
+  var promise = new Promise(function(resolve, reject){
+    var vecPromesas = [];
+    _.each(vectorHorarios, function(horario){
+     var promesa = eliminar(horario._id);
+     vecPromesas.push(promesa);
+   });
+    Promise.all(vecPromesas).then(function(){
+      resolve(true)
+    });
+  });
+  return promise;
+}
+
+function eliminar(idHorarioAtencion){
+  $.ajax({
+    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/horarioAtencion?id=' + idHorarioAtencion,
+    type: 'DELETE',      
+    dataType: "json",
+    crossDomain: true,
+    contentType:"application/json",
+    success: function(data){
+      return true;
+    },
+    error:function(jqXHR,textStatus,errorThrown){
+      return false;
+    }
+  });
 }
 
 function sendHorarios(diaHorario, horaDesde, horaHasta) {
-
   var promise = new Promise(function (resolve, reject) {
-
     if (!_.isNil(diaHorario) && !_.isNil(horaDesde)) {
       var isNew = $("#idHorario").val() == "";
       var operacion = isNew ? "POST" : "PUT";
@@ -177,26 +213,26 @@ function limpiar(campo, campoBack) {
 
 function volverPanelLocal(){
   var idLocal = $("#idLocalCreado").val();
-    $('#target').html('obteniendo...');       
-    $.ajax({
-      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id='+ idLocal +"",
-            type: 'GET',
-            
-            dataType: "json",
-            crossDomain: true,
-            contentType:"application/json",
-            success: function (data) {
-             var local = data;
-             var idNegocio = local.idNegocio._id;
-             var url = "../backend/panel-locales.php?idLocal="+ idLocal+"&idNegocio="+idNegocio+"";
-             $(location).attr('href',url);
-        
-          },
-          error:function(jqXHR,textStatus,errorThrown)
-          {
-              $('#target').append("jqXHR: "+jqXHR);
-              $('#target').append("textStatus: "+textStatus);
-              $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
-          },
-    });
+  $('#target').html('obteniendo...');       
+  $.ajax({
+    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id='+ idLocal +"",
+    type: 'GET',
+
+    dataType: "json",
+    crossDomain: true,
+    contentType:"application/json",
+    success: function (data) {
+     var local = data;
+     var idNegocio = local.idNegocio._id;
+     var url = "../backend/panel-locales.php?idLocal="+ idLocal+"&idNegocio="+idNegocio+"";
+     $(location).attr('href',url);
+
+   },
+   error:function(jqXHR,textStatus,errorThrown)
+   {
+    $('#target').append("jqXHR: "+jqXHR);
+    $('#target').append("textStatus: "+textStatus);
+    $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+  },
+});
 }
