@@ -95,6 +95,12 @@ h3.section-heading {
 input.form-control {
     padding: 5% 2%;
 }
+
+input.form-control.perfil{
+    padding: 3% 2%;
+    margin: 7px;
+}
+
 header .intro-text .intro-heading {
     margin-bottom: 0px !important;
     color: #000 !important;
@@ -282,7 +288,29 @@ a.forgot-password:hover {
     margin: 0 auto;
 }
 
+.selechora {
+    padding: 0;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 80px;
+    border-bottom: 0px;
+    margin: 0 3.5px 7px;
+}
 
+.botonhorareserva {
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 40px;
+    border-radius: 4px;
+    font-size: 1.1em;
+    text-decoration: initial;
+}
 
 /*MEDIA QUERIES*/
 

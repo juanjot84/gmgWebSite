@@ -100,6 +100,7 @@
 
     <!-- Funcione de Local JavaScript -->
     <script src="js/controladores/panelControlLocal.controlador.js"></script>
+    <script src="js/controladores/local.controlador.js"></script>
 
     <!-- Theme JavaScript -->
     <script src="../js/agency.min.js"></script>

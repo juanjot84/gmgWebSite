@@ -42,7 +42,7 @@
                     '<th scope="row" style="font-size: 1.5em;">1</th>' +
                     '<td>' +local.idNegocio.nombreNegocio+'</td><td>' + local.calleLocal+' ( '+local.alturaLocal+' )</td><td class="centrarbotaccion">' +
                     '<button onClick="editarLocal(\'' + local._id + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button> ' +
-                    '<button title="Eliminar" onClick="#" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +
+                    '<button title="Eliminar" onClick="eliminar(\'' + local._id + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +
                     '</td> ' +
                     '</tr>');
                }            
