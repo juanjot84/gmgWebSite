@@ -1,5 +1,13 @@
 <?php include("includes/head-perfil.php"); ?>
 
+<head>
+    <style type="text/css">
+        .text-primary, a {
+            color: #000000;
+        }
+    </style>
+</head>
+
 <body id="page-top" class="index">
 
 
