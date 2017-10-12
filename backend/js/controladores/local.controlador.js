@@ -26,6 +26,8 @@
     var especialidades;
     var servicios;
     var localidades;
+
+
     
 var marker;          //variable del marcador
 var coords = {};    //coordenadas obtenidas con la geolocalización
@@ -180,113 +182,7 @@ function toggleBounce() {
     }
 
 
-    function (idLocal){
-      
-      $.ajax({
-      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id='+ idLocal +"",
-            type: 'GET',       
-            dataType: "json",
-            crossDomain: true,
-            contentType:"application/json",
-            success: function (data) {
-             var horariosViejos = data.idHorarioAtencion;
-             var cubiertosViejos = data.idCubiertosDia;
-          },
-          error:function(jqXHR,textStatus,errorThrown)
-          {
-              $('#target').append("jqXHR: "+jqXHR);
-              $('#target').append("textStatus: "+textStatus);
-              $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
-          },
-    });
 
-       $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id=' + idLocal,
-            type: 'DELETE',
-            
-            dataType: "json",
-            crossDomain: true,
-            contentType:"application/json",
-            success: function (data) {
-             
-              eliminarHorariosViejos(horariosViejos).then(function(error, success){
-
-                 eliminarCubiertosViejos(cubiertosViejos).then(function(error, success){
-                      obtenerListado();
-                 }).catch(function (err) {
-                   console.log(err);
-                 });  
-
-              }).catch(function (err) {
-              console.log(err);
-              });
-            },
-            error:function(jqXHR,textStatus,errorThrown)
-            {
-              obtenerListado();
-          }
-      });    
-    }
-
-function eliminarHorariosViejos(vectorHorarios){
-  var promise = new Promise(function(resolve, reject){
-    var vecPromesas = [];
-    _.each(vectorHorarios, function(horario){
-     var promesa = eliminarHorario(horario._id);
-     vecPromesas.push(promesa);
-   });
-    Promise.all(vecPromesas).then(function(){
-      resolve(true)
-    });
-  });
-  return promise;
-}
-
-function eliminarCubiertosViejos(vectorCubiertos){
-  var promise = new Promise(function(resolve, reject){
-    var vecPromesas = [];
-    _.each(vectorCubiertos, function(cubierto){
-     var promesa = eliminarCubierto(cubierto._id);
-     vecPromesas.push(promesa);
-   });
-    Promise.all(vecPromesas).then(function(){
-      resolve(true)
-    });
-  });
-  return promise;
-}
-
-function eliminarHorario(idHorarioAtencion){
-  $.ajax({
-    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/horarioAtencion?id=' + idHorarioAtencion,
-    type: 'DELETE',      
-    dataType: "json",
-    crossDomain: true,
-    contentType:"application/json",
-    success: function(data){
-      return true;
-    },
-    error:function(jqXHR,textStatus,errorThrown){
-      return false;
-    }
-  });
-}
-
-function eliminarCubierto(idCubiertoDia){
-  $.ajax({
-    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/cubiertosDia?id=' + idCubiertoDia,
-    type: 'DELETE',      
-    dataType: "json",
-    crossDomain: true,
-    contentType:"application/json",
-    success: function(data){
-      return true;
-    },
-    error:function(jqXHR,textStatus,errorThrown){
-      return false;
-    }
-  });
-}
 
   // Traer polos para lista desplegable
     function obtenerListadoPolos() {   

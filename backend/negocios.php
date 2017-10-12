@@ -106,7 +106,7 @@
 
                             <div class="form-group">
                               <label for="comment">Descripción:</label>
-                              <textarea class="form-control" rows="5" id="descripcionNegocio" name="descripcionNegocio"></textarea>
+                              <textarea class="form-control" rows="5" id="descripcionNegocio" name="descripcionNegocio" onfocus="limpiar('descripcionNegocio')"></textarea>
                             </div>
 
               <h5 class="titulosalta"> Palabras de búsqueda</h5>

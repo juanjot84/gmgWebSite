@@ -57,6 +57,23 @@
       });
     }
 
+    function eliminar(idLocal){     
+
+      $.ajax({
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id=' + idLocal,
+            type: 'DELETE',            
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: 
+            obtenerListado();
+
+            error:function(jqXHR,textStatus,errorThrown){
+              obtenerListado();
+            }
+      });    
+    }
+
     function cargarForm(formulario){
       if(formulario == "local"){
        var idLocal = $("#idLocal").val();
