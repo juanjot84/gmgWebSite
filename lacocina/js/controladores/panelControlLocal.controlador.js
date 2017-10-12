@@ -77,26 +77,26 @@
     function cargarForm(formulario){
       if(formulario == "local"){
        var idLocal = $("#idLocal").val();
-       var url = "../backend/datos-generales-local.php?idLocal="+ idLocal+"";
+       var url = "../lacocina/datos-generales-local.php?idLocal="+ idLocal+"";
        $(location).attr('href',url);
       }
     }
 
     function editarLocal(idLocal){
        var idNegocio = $("#idNegocio").val();
-       var url = "../backend/panel-locales.php?idLocal="+idLocal+"&idNegocio="+idNegocio+"";
+       var url = "../lacocina/panel-locales.php?idLocal="+idLocal+"&idNegocio="+idNegocio+"";
        $(location).attr('href',url);
     }
 
     function cargarLocales(){
        var idNegocio = $("#idNegocio").val();
-       var url = "../backend/locales.php?idNegocio="+idNegocio+"";
+       var url = "../lacocina/locales.php?idNegocio="+idNegocio+"";
        $(location).attr('href',url);
     }
 
     function volverPanelNegocio(){
        var idNegocio = $("#idNegocio").val();
-       var url = "../backend/panel-negocio.php?idNegocio="+idNegocio+"";
+       var url = "../lacocina/panel-negocio.php?idNegocio="+idNegocio+"";
        $(location).attr('href',url);
     }
 
@@ -115,7 +115,7 @@
             success: function (data) {
                 locales = data;
                 idContacto = locales.idContacto._id;
-                var url = "../backend/editar-contacto.php?idLocal="+idLocal+"&idContacto="+idContacto+"";
+                var url = "../lacocina/editar-contacto.php?idLocal="+idLocal+"&idContacto="+idContacto+"";
                 $(location).attr('href',url);
           },
           error:function(jqXHR,textStatus,errorThrown)
@@ -129,24 +129,24 @@
 
     function editarDescuentos(){
       var idLocal = $("#idLocal").val();
-      var url = "../backend/editar-descuentos.php?idLocal="+idLocal+"";
+      var url = "../lacocina/editar-descuentos.php?idLocal="+idLocal+"";
       $(location).attr('href',url);
     }
 
     function editarCubiertos(){
       var idLocal = $("#idLocal").val();
-      var url = "../backend/editar-cubiertos.php?idLocal="+idLocal+"";
+      var url = "../lacocina/editar-cubiertos.php?idLocal="+idLocal+"";
       $(location).attr('href',url);
     }
 
     function editarHorarios(){
       var idLocal = $("#idLocal").val();
-      var url = "../backend/editar-horarios.php?idLocal="+idLocal+"";
+      var url = "../lacocina/editar-horarios.php?idLocal="+idLocal+"";
       $(location).attr('href',url);
     }
 
     function nuevoLocal(){
         var negocioCreado = $("#idNegocio").val(); 
-        var url = "../backend/local.php?idNegocio="+ negocioCreado+"";
+        var url = "../lacocina/local.php?idNegocio="+ negocioCreado+"";
         $(location).attr('href',url);
     }

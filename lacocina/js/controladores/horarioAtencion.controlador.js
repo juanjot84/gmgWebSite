@@ -82,7 +82,7 @@ function SendHorarioAtencion(accion) {
       console.log(data);
       
       if(accion == 'crear'){
-        var url = "../backend/asignar-cubiertos.php?idLocal=" + idLocalCreado + "";
+        var url = "../lacocina/asignar-cubiertos.php?idLocal=" + idLocalCreado + "";
         $(location).attr('href', url);
       }else if(accion == 'editar'){
 
@@ -224,7 +224,7 @@ function volverPanelLocal(){
     success: function (data) {
      var local = data;
      var idNegocio = local.idNegocio._id;
-     var url = "../backend/panel-locales.php?idLocal="+ idLocal+"&idNegocio="+idNegocio+"";
+     var url = "../lacocina/panel-locales.php?idLocal="+ idLocal+"&idNegocio="+idNegocio+"";
      $(location).attr('href',url);
 
    },

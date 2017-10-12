@@ -45,7 +45,7 @@
                   <a href="reservas.php" role="button" aria-haspopup="true" aria-expanded="false">Reservas <span class="caret"></span></a>
                 </li>
                 <li class="dropdown">
-                  <a href="mi-pefil.php" role="button" aria-haspopup="true" aria-expanded="false">Mi perfil <span class="caret"></span></a>
+                  <a href="mi-perfil.php" role="button" aria-haspopup="true" aria-expanded="false">Mi perfil <span class="caret"></span></a>
                 </li>
                 <li>
                   <a href="#" role="button" aria-haspopup="true" aria-expanded="false">Remarketing<span class="caret"></span></a>

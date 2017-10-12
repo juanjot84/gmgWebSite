@@ -80,7 +80,7 @@ function SendCubiertos(accion){
       console.log(localCubiertosCreados);
 
      if(accion == 'crear'){
-      var url = "../backend/negocios.php";
+      var url = "../lacocina/negocios.php";
       $(location).attr('href',url);
      }else if(accion == 'editar'){
 
@@ -225,7 +225,7 @@ function volverPanelLocal(){
             success: function (data) {
              var local = data;
              var idNegocio = local.idNegocio._id;
-             var url = "../backend/panel-locales.php?idLocal="+ idLocal+"&idNegocio="+idNegocio+"";
+             var url = "../lacocina/panel-locales.php?idLocal="+ idLocal+"&idNegocio="+idNegocio+"";
              $(location).attr('href',url);
         
           },

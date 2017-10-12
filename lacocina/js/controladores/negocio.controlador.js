@@ -57,22 +57,22 @@
     }
 
     function editar(idNegocio){    
-       var url = "../backend/panel-negocio.php?idNegocio="+ idNegocio+"";
+       var url = "../lacocina/panel-negocio.php?idNegocio="+ idNegocio+"";
        $(location).attr('href',url);
     }
   
     function cargarForm(formulario){
       if(formulario == "negocio"){
        var negocioEditar = $("#idNegocio").val();
-       var url = "../backend/datos-generales-negocio.php?idNegocio="+ negocioEditar+"";
+       var url = "../lacocina/datos-generales-negocio.php?idNegocio="+ negocioEditar+"";
        $(location).attr('href',url);
       }else if(formulario == "contacto"){
        var negocioEditar = $("#idNegocio").val();
-       var url = "../backend/editar-usuario-negocio.php?idNegocio="+ negocioEditar+"";
+       var url = "../lacocina/editar-usuario-negocio.php?idNegocio="+ negocioEditar+"";
        $(location).attr('href',url);
       }else if(formulario == "local"){
        var negocioEditar = $("#idNegocio").val();
-       var url = "../backend/locales.php?idNegocio="+ negocioEditar+"";
+       var url = "../lacocina/locales.php?idNegocio="+ negocioEditar+"";
        $(location).attr('href',url);
       }
 
@@ -143,7 +143,7 @@
               var resultado = data;
               var negocioCreado =  resultado._id;
 
-              var url = "../backend/panel-negocio.php?idNegocio="+ negocioCreado+"";
+              var url = "../lacocina/panel-negocio.php?idNegocio="+ negocioCreado+"";
               $(location).attr('href',url);
 
                 $("#formularioAgregar :input").val('');          
@@ -203,7 +203,7 @@
 
     function volverPanelNegocio(){
       var negocioCreado = $("#idNegocio").val(); 
-      var url = "../backend/panel-negocio.php?idNegocio="+ negocioCreado+"";
+      var url = "../lacocina/panel-negocio.php?idNegocio="+ negocioCreado+"";
       $(location).attr('href',url);
     }
 
@@ -290,7 +290,7 @@
               var resultado = data;
               var negocioCreado =  resultado._id;
 
-              var url = "../backend/usuario-negocio.php?idNegocio="+ negocioCreado+"";
+              var url = "../lacocina/usuario-negocio.php?idNegocio="+ negocioCreado+"";
               $(location).attr('href',url);
 
                 $("#formularioAgregar :input").val('');          

@@ -90,7 +90,7 @@ function send() {
       var contactoCreado =  resultado._id;
       var campo = "idContacto";
       actualizarLocal(idLocalCreado, contactoCreado, campo).then( function(data){
-        var url = "../backend/asignar-descuento.php?idLocal="+ idLocalCreado+"";
+        var url = "../lacocina/asignar-descuento.php?idLocal="+ idLocalCreado+"";
         $(location).attr('href',url);
         $("#formularioAgregar :input").val('');
       }).catch(function(err){
@@ -177,7 +177,7 @@ function volverPanelLocal(){
     success: function (data) {
       var local = data;
       var idNegocio = local.idNegocio._id;
-      var url = "../backend/panel-locales.php?idLocal="+ idLocal+"&idNegocio="+idNegocio+"";
+      var url = "../lacocina/panel-locales.php?idLocal="+ idLocal+"&idNegocio="+idNegocio+"";
       $(location).attr('href',url);
 
     },

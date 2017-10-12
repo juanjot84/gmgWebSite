@@ -83,7 +83,7 @@
 
     function volverPanelNegocio(){
       var negocioCreado = $("#idNegocioSeleccionado").val(); 
-      var url = "../backend/panel-negocio.php?idNegocio="+ negocioCreado+"";
+      var url = "../lacocina/panel-negocio.php?idNegocio="+ negocioCreado+"";
       $(location).attr('href',url);
     }
 
@@ -110,7 +110,7 @@
                 
              var negocioCreado = $("#idNegocioSeleccionado").val();  
 
-             var url = "../backend/panel-negocio.php?idNegocio="+ negocioCreado+"";
+             var url = "../lacocina/panel-negocio.php?idNegocio="+ negocioCreado+"";
             $(location).attr('href',url);
 
             $("#formularioAgregar :input").val('');
@@ -149,7 +149,7 @@
                 
              var negocioCreado = $("#idNegocio").val();  
 
-             var url = "../backend/local.php?idNegocio="+ negocioCreado+"";
+             var url = "../lacocina/local.php?idNegocio="+ negocioCreado+"";
             $(location).attr('href',url);
 
             $("#formularioAgregar :input").val('');

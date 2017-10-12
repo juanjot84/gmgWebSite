@@ -1,4 +1,4 @@
-
+lacocina
     $(function() {
 
         $('#login-form-link').click(function(e) {
@@ -550,7 +550,7 @@ function toggleBounce() {
               var resultado = data;
               var localCreado =  resultado._id;
 
-              var url = "../backend/panel-locales.php?idLocal="+ localCreado+""; 
+              var url = "../lacocina/panel-locales.php?idLocal="+ localCreado+""; 
               $(location).attr('href',url);
 
                 $("#formularioLocal :input").val('');         
@@ -627,7 +627,7 @@ function toggleBounce() {
               var resultado = data;
               var localCreado =  resultado._id;
 
-              var url = "../backend/contacto.php?idLocal="+ localCreado+""; 
+              var url = "../lacocina/contacto.php?idLocal="+ localCreado+""; 
               $(location).attr('href',url);
 
                 $("#formularioLocal :input").val('');         
@@ -734,12 +734,12 @@ function caracteresCorreoValido(email){
 function volverPanelLocal(){
     var localEditado = $("#idLocalRecibido").val();
     var idNegocio = $("#idNegocio").val(); 
-    var url = "../backend/panel-locales.php?idLocal="+ localEditado+"&idNegocio="+ idNegocio +"";
+    var url = "../lacocina/panel-locales.php?idLocal="+ localEditado+"&idNegocio="+ idNegocio +"";
     $(location).attr('href',url);
 }
 
 function volverPanelNegocio(){
     var idNegocio = $("#idNegocio").val(); 
-    var url = "../backend/panel-negocio.php?idNegocio="+ idNegocio +"";
+    var url = "../lacocina/panel-negocio.php?idNegocio="+ idNegocio +"";
     $(location).attr('href',url);
 }
