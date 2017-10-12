@@ -1,3 +1,10 @@
+
+<?php 
+
+$idNegocio = '59c98d0394897d2100a5727f';
+
+?>
+
 <?php include("includes/head-perfil.php"); ?>
 
 <head>
@@ -25,19 +32,19 @@
 
         <div class="row text-center">
             <div class="col-md-4">
-                <a onclick=""><div style="font-size: 2em;">
+                <a onclick="cargarForm('negocio')"><div style="font-size: 2em;">
                     <span style="font-size: 3em; padding: 5%;" class="glyphicon glyphicon-cog" aria-hidden="true"></span><br>
                     DATOS GENERALES
                 </div></a>
             </div>
             <div class="col-md-4">
-                <a onclick=""><div style="font-size: 2em;">
+                <a onclick="cargarForm('contacto')"><div style="font-size: 2em;">
                     <span style="font-size: 3em; padding: 5%;" class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><br>
                     DATOS DE ACCESO
                 </div></a>
             </div>
             <div class="col-md-4">
-                <a onclick=""><div style="font-size: 2em;">
+                <a onclick="cargarForm('local')"><div style="font-size: 2em;">
                     <span style="font-size: 3em; padding: 5%;" class="glyphicon glyphicon-th" aria-hidden="true"></span><br>
                     LOCALES
                 </div></a>
@@ -61,6 +68,9 @@
     <!-- Contact Form JavaScript -->
     <script src="js/jqBootstrapValidation.js"></script>
     <script src="js/contact_me.js"></script>
+
+        <!-- Funciones de Negocio JavaScript -->
+    <script src="../js/controladores/perfilNegocio.controlador.js"></script>
 
     <!-- Theme JavaScript -->
     <script src="js/agency.min.js"></script>

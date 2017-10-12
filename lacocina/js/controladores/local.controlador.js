@@ -1,4 +1,4 @@
-lacocina
+
     $(function() {
 
         $('#login-form-link').click(function(e) {
