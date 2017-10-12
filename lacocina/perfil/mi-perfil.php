@@ -25,19 +25,19 @@
 
         <div class="row text-center">
             <div class="col-md-4">
-                <a onclick="cargarForm('negocio')"><div style="font-size: 2em;">
+                <a onclick=""><div style="font-size: 2em;">
                     <span style="font-size: 3em; padding: 5%;" class="glyphicon glyphicon-cog" aria-hidden="true"></span><br>
                     DATOS GENERALES
                 </div></a>
             </div>
             <div class="col-md-4">
-                <a onclick="cargarForm('contacto')"><div style="font-size: 2em;">
+                <a onclick=""><div style="font-size: 2em;">
                     <span style="font-size: 3em; padding: 5%;" class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><br>
                     DATOS DE ACCESO
                 </div></a>
             </div>
             <div class="col-md-4">
-                <a onclick="cargarForm('local')"><div style="font-size: 2em;">
+                <a onclick=""><div style="font-size: 2em;">
                     <span style="font-size: 3em; padding: 5%;" class="glyphicon glyphicon-th" aria-hidden="true"></span><br>
                     LOCALES
                 </div></a>
