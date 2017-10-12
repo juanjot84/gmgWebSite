@@ -65,9 +65,9 @@
             dataType: "json",
             crossDomain: true,
             contentType:"application/json",
-            success: 
-            obtenerListado();
-
+            success: function (data) {
+                  obtenerListado();
+             }, 
             error:function(jqXHR,textStatus,errorThrown){
               obtenerListado();
             }
