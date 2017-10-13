@@ -5,12 +5,8 @@ if (!isset($_SESSION)) {
   session_start();
 }
 
-$tipoUsuario= $_POST["tipoUsuario"];
-$idNegocio= $_POST["idNegocio"];
-
-
-$_SESSION['tipoUsuario'] = $tipoUsuario;
-$_SESSION['idNegocio'] = $idNegocio; 
+$_SESSION['tipoUsuario'] = $_POST["tipoUsuario"];
+$_SESSION['idNegocio'] = $_POST["idNegocio"];
 
 
 ?>

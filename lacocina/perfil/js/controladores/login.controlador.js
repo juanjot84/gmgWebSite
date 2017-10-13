@@ -57,9 +57,6 @@ function crearSesion(tipoUs, idNeg){
 }
 
 
-
-
-
 function limpiar(campo) {
   $("#"+campo+"Alert").hide();
   $("#"+campo).removeClass('alert-danger');
