@@ -44,16 +44,19 @@
 
               <h5 class="titulosalta"> Datos de usuario administrador del negocio</h5>
 
+                    <label for="comment">Email</label>
                     <p><div class="input-group input-group-sm">
                       <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-user" aria-hidden="true"></i></span>
                       <input id="email" name="email" type="email" class="form-control" placeholder="(Email)" aria-describedby="sizing-addon3" onfocus="limpiar('email')" required>
                     </div></p>
 
+                    <label for="comment">Nombre</label>
                     <p><div class="input-group input-group-sm">
                       <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-user" aria-hidden="true"></i></span>
                       <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre" aria-describedby="sizing-addon3" onfocus="limpiar('nombre')" required>
                     </div></p>
 
+                    <label for="comment">Apellido</label>
                     <p><div class="input-group input-group-sm">
                       <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-user" aria-hidden="true"></i></span>
                       <input id="apellido" name="apellido" type="text" class="form-control" placeholder="Apellido" aria-describedby="sizing-addon3">
@@ -69,6 +72,7 @@
                         </div>
                     </p>
 
+                    <label for="comment">Fecha de nacimiento</label>
                     <p><div class="input-group input-group-sm">
                       <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                       <input id="fechaNacimientoUsuario" name="fechaNacimientoUsuario" type="date" class="form-control" placeholder="Apellido" aria-describedby="sizing-addon3">
