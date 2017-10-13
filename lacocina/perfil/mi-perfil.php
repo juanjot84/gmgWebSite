@@ -3,6 +3,9 @@
 
 $idNegocio = '59c98d0394897d2100a5727f';
 
+
+$tipoUsuario = $_SESSION['tipoUsuario']
+
 ?>
 
 <?php include("includes/head-perfil.php"); ?>
@@ -29,6 +32,7 @@ $idNegocio = '59c98d0394897d2100a5727f';
     <div class="container" style="height: 65vh; padding-top: 13%; min-height: 715px;">
 
     <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
+    <input type="text" name="tipoUsuario" id="tipoUsuario" value="<?php echo $tipoUsuario; ?>" >
 
         <div class="row text-center">
             <div class="col-md-4">

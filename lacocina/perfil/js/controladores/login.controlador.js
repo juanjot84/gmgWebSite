@@ -22,20 +22,43 @@ function login() {
       dataType: "json",
       crossDomain: true,
       contentType:"application/json",
-      success: function (data) {
-
-      var url = "../perfil/mi-perfil.php";
-        $(location).attr('href',url);
-
+      success: function (data) { 
+       var tipoUsuario = 'usuarioNegocio';
+       var idNegocio = '59c98d0394897d2100a5727f';
+       crearSesion(tipoUsuario, idNegocio);
       },
       error:function(jqXHR,textStatus,errorThrown){
+        alert('error');
         $("#passwordUsuario").parent().after('<span id="passwordUsuarioAlert" style="color:red"> Usuario / contraseña incorrecto</span>');
         $("#emailUsuario").addClass('alert-danger');
         $("#passwordUsuario").addClass('alert-danger');
       },
     data: login
   });
-}; 
+};
+
+function crearSesion(tipoUs, idNeg){
+        var parametros = {
+                "tipoUsuario" : tipoUs,
+                "idNegocio" : idNeg
+        };
+        $.ajax({
+                data:  parametros,
+                url:   'login.php', 
+                type:  "POST",
+                error: function(){
+                        
+                },
+                success:  function(response) { 
+                  var url = "mi-perfil.php";
+                  $(location).attr('href',url);
+                }
+        });
+}
+
+
+
+
 
 function limpiar(campo) {
   $("#"+campo+"Alert").hide();
