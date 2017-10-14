@@ -23,28 +23,50 @@ function login() {
     "email": $("#emailUsuario").val(),
     "password":$("#passwordUsuario").val()
   });
-  //$('#target').html('obteniendo...');
   $.ajax({
-      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/sign_in',
-      type: "POST",
-      
-      dataType: "json",
-      crossDomain: true,
-      contentType:"application/json",
-      success: function (data) {
+    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/webLogin',
+    type: "POST",
 
-      var url = "../gmgWebSite/";
-        $(location).attr('href',url);
-
-      },
-      error:function(jqXHR,textStatus,errorThrown){
-        $("#passwordUsuario").parent().after('<span id="passwordUsuarioAlert" style="color:red"> Usuario / contraseña incorrecto</span>');
-        $("#emailUsuario").addClass('alert-danger');
-        $("#passwordUsuario").addClass('alert-danger');
-      },
+    dataType: "json",
+    crossDomain: true,
+    contentType:"application/json",
+    success: function (data) {
+      var tipoUsuario = 'usuarioNegocio';
+      var idNegocio = '59c98d0394897d2100a5727f';
+      crearSesion(tipoUsuario, idNegocio, data);
+    },
+    error:function(jqXHR,textStatus,errorThrown){
+      alert('error');
+      $("#passwordUsuario").parent().after('<span id="passwordUsuarioAlert" style="color:red"> Usuario / contraseña incorrecto</span>');
+      $("#emailUsuario").addClass('alert-danger');
+      $("#passwordUsuario").addClass('alert-danger');
+    },
     data: login
   });
-}; 
+};
+
+function crearSesion(tipoUs, idNeg, data){
+
+
+  var form = $('<form>', {
+    method: 'POST',
+    action: 'mi-perfil.php'
+  });
+  $(document.body).append(form);
+
+  $('<input />').attr('type', 'hidden')
+    .attr('name', "tipoUsuario")
+    .attr('value', tipoUs)
+    .appendTo(form);
+
+  $('<input />').attr('type', 'hidden')
+    .attr('name', "idNegocio")
+    .attr('value', idNeg)
+    .appendTo(form);
+
+  form.submit();
+}
+
 
 function validar() {
   var nombre = $("#nombre").val();

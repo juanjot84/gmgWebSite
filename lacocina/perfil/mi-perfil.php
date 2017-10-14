@@ -1,5 +1,4 @@
-
-<?php 
+<?php session_start();
 
 $idNegocio = '59c98d0394897d2100a5727f';
 
