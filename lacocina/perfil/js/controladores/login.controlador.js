@@ -39,24 +39,22 @@ function login() {
 
 function crearSesion(tipoUs, idNeg){
 
+        var parametros = {
+                "tipoUsuario" : tipoUs,
+                "idNegocio" : idNeg
+        };
+        $.ajax({
+                data:  parametros,
+                url:   'login.php',
+                type:  "POST",
+                error: function(){
 
-  var form = $('<form>', {
-    method: 'POST',
-    action: 'login.php'
-  });
-  $(document.body).append(form);
-
-  $('<input />').attr('type', 'hidden')
-    .attr('name', "tipoUsuario")
-    .attr('value', tipoUs)
-    .appendTo(form);
-
-  $('<input />').attr('type', 'hidden')
-    .attr('name', "idNegocio")
-    .attr('value', idNeg)
-    .appendTo(form);
-
-  form.submit();
+                },
+                success:  function(response) {
+                  var url = "mi-perfil.php";
+                  $(location).attr('href',url);
+                }
+        });
 }
 
 
