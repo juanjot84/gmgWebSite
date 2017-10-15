@@ -1,4 +1,20 @@
+<?php session_start();
 
+$idNegocio = $_SESSION['idNegocio'];
+$tipoUsuario = $_SESSION['tipoUsuario'];
+
+
+if (!$_SESSION) {
+       header('Location: login-un.php');
+} else {
+    if ($tipoUsuario == 'usuarioNegocio'  or $tipoUsuario == 'superAdmin') {
+        
+    } else {
+        header('Location: login-un.php');
+    }
+}
+
+?>
 <?php    
    $idNegocio = $_GET['idNegocio'];
 ?>
@@ -28,7 +44,6 @@
                             <div class="col-md-6" style="text-align: right;">
                     <div class="input-group">
                       <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" style="padding: 17px;" onClick="nuevoLocal()" ><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVO</button>
                       </span>
                     </div>
                 </div>
@@ -52,6 +67,7 @@
 
     <div class="container" style="height: 65vh; padding-top: 13%; min-height: 715px;">
      <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
+     <input type="text" name="tipoUs" id="tipoUs" value="<?php echo $tipoUsuario; ?>" class="hidden">
         <div class="row text-center">
                   <!-- Table -->
                   <div id="cabeceraTablaNegocios">

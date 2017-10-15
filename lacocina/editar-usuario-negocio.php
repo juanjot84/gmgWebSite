@@ -1,3 +1,22 @@
+<?php session_start();
+
+$idNegocio = $_SESSION['idNegocio'];
+$tipoUsuario = $_SESSION['tipoUsuario'];
+
+
+if (!$_SESSION) {
+       header('Location: login-un.php');
+} else {
+    if ($tipoUsuario == 'usuarioNegocio'  or $tipoUsuario == 'superAdmin') {
+        
+    } else {
+        header('Location: login-un.php');
+    }
+}
+
+?>
+
+
 <?php    
    $idNegocio = $_GET['idNegocio'];
 ?>
@@ -7,8 +26,13 @@
 <body id="page-top" class="index">
 
 
-<?php include("includes/nav.php"); 
-
+<?php
+     if($tipoUsuario == 'usuarioNegocio'){
+        $nav = 'perfil/'; 
+        include("perfil/includes/nav-perfil-superior.php");   
+    }else if($tipoUsuario == 'superAdmin'){
+        include("includes/nav.php"); 
+    }
 ?>
 
     <div class="container-fluid" style="padding: 1%;background: yellow;margin-top: -21px;">
@@ -22,9 +46,7 @@
                 </div>
                 <div class="col-md-6" style="text-align: right;">
                     <div class="input-group">
-                  <!--    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" style="padding: 17px;" onClick="agregarContacto()"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVO</button>
-                      </span> -->
+
                     </div>
                 </div>
 
@@ -41,6 +63,7 @@
             <form action="" id="formularioAgregar">
 
               <input type="text" name="idUsuarioNegocio" id="idUsuarioNegocio" class="hidden">
+              <input type="text" name="tipoUs" id="tipoUs" value="<?php echo $tipoUsuario; ?>" class="hidden">
 
               <h5 class="titulosalta"> Datos de usuario administrador del negocio</h5>
 

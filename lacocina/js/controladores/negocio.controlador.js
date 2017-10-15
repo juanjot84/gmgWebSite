@@ -111,6 +111,14 @@
          $("#instagramNegocio").val(negocio.instagramNegocio);
          $("#facebookNegocio").val(negocio.facebookNegocio);
          $("#idNegocio").val(negocio._id);
+      
+         var tipoUsuario = $("#tipoUs").val();
+         if(tipoUsuario == 'usuarioNegocio'){
+             $("#tipoNegocio").attr("disabled", true);
+             $("#destacadoNegocio-true").attr("disabled", true);
+             $("#destacadoNegocio-false").attr("disabled", true);
+         }
+
        })
       } 
     });
@@ -202,9 +210,16 @@
     }
 
     function volverPanelNegocio(){
-      var negocioCreado = $("#idNegocio").val(); 
-      var url = "../lacocina/panel-negocio.php?idNegocio="+ negocioCreado+"";
-      $(location).attr('href',url);
+     var tipoUsuario = $("#tipoUs").val();
+      if(tipoUsuario == 'usuarioNegocio'){
+          var url = "../lacocina/perfil/mi-perfil.php";
+          $(location).attr('href',url);
+      }else if(tipoUsuario == 'superAdmin'){
+          var negocioCreado = $("#idNegocio").val(); 
+          var url = "../lacocina/panel-negocio.php?idNegocio="+ negocioCreado+"";
+          $(location).attr('href',url);
+      }
+
     }
 
   // Traer tipos de negocio para lista desplegable

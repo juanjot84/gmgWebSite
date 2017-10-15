@@ -46,7 +46,12 @@
                 $("#sexoUsuario").val(usuario.sexoUsuario);
                 $("#fechaNacimientoUsuario").val(usuario.fechaNacimientoUsuario);
                 $("#idUsuarioNegocio").val(usuario._id);
-                $("#password").val('');   
+                $("#password").val(''); 
+
+                var tipoUsuario = $("#tipoUs").val();
+                if(tipoUsuario == 'usuarioNegocio'){
+                $("#email").attr("disabled", true);
+                }
             }
       });
   }
@@ -82,9 +87,15 @@
     }
 
     function volverPanelNegocio(){
-      var negocioCreado = $("#idNegocioSeleccionado").val(); 
-      var url = "../lacocina/panel-negocio.php?idNegocio="+ negocioCreado+"";
-      $(location).attr('href',url);
+      var tipoUsuario = $("#tipoUs").val();
+      if(tipoUsuario == 'usuarioNegocio'){
+          var url = "../lacocina/perfil/mi-perfil.php";
+          $(location).attr('href',url);
+      }else if(tipoUsuario == 'superAdmin'){
+          var negocioCreado = $("#idNegocio").val(); 
+          var url = "../lacocina/panel-negocio.php?idNegocio="+ negocioCreado+"";
+          $(location).attr('href',url);
+      }
     }
 
     function editarUsuarioNegocio(){

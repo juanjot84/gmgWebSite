@@ -1,11 +1,20 @@
 <?php session_start();
 
-$idNegocio = '59c98d0394897d2100a5727f';
+$idNegocio = $_SESSION['idNegocio'];
+$tipoUsuario = $_SESSION['tipoUsuario'];
 
-
-$tipoUsuario = $_SESSION['tipoUsuario']
+if (!$_SESSION) {
+       header('Location: ../login-un.php');
+} else {
+    if ($tipoUsuario == 'usuarioNegocio'  or $tipoUsuario == 'superAdmin') {
+        
+    } else {
+        header('Location: ../login-un.php');
+    }
+}
 
 ?>
+
 
 <?php include("includes/head-perfil.php"); ?>
 
@@ -19,10 +28,14 @@ $tipoUsuario = $_SESSION['tipoUsuario']
 
 <body id="page-top" class="index">
 
+<?php 
+    if($tipoUsuario == 'usuarioNegocio'){
+        include("includes/nav-perfil.php"); 
+    }else if($tipoUsuario == 'superAdmin'){
+        include("../includes/nav.php"); 
+    }
+?>
 
-<?php include("includes/nav-perfil.php"); ?>
-
-    
 
     <div class="container-fluid" style="padding: 1%;background: yellow;margin-top: -21px;">
         <div class="container">
@@ -31,7 +44,7 @@ $tipoUsuario = $_SESSION['tipoUsuario']
     <div class="container" style="height: 65vh; padding-top: 13%; min-height: 715px;">
 
     <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
-    <input type="text" name="tipoUs" id="tipoUs" value="<?php echo $tipoUsuario; ?>" >
+    <input type="text" name="tipoUs" id="tipoUs" value="<?php echo $tipoUsuario; ?>" class="hidden">
 
         <div class="row text-center">
             <div class="col-md-4">

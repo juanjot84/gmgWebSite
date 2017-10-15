@@ -1,16 +1,40 @@
-<?php    
-   $idNegocio = $_GET['idNegocio'];
+<?php session_start();
+
+$idNegocio = $_SESSION['idNegocio'];
+$tipoUsuario = $_SESSION['tipoUsuario'];
+
+
+if (!$_SESSION) {
+       header('Location: login-un.php');
+} else {
+    if ($tipoUsuario == 'usuarioNegocio'  or $tipoUsuario == 'superAdmin') {
+        
+    } else {
+        header('Location: login-un.php');
+    }
+}
+
+?>
+
+<?php 
+
+ $idNegocio = $_GET['idNegocio'];
+
 ?>
 <?php include("includes/head.php"); ?>
 
 
 <body id="page-top" class="index">
 
-
-<?php include("includes/nav.php"); ?>
-
-    
-
+<?php 
+    if($tipoUsuario == 'usuarioNegocio'){
+        $nav = 'perfil/'; 
+        include("perfil/includes/nav-perfil-superior.php");   
+    }else if($tipoUsuario == 'superAdmin'){
+        include("includes/nav.php"); 
+    }
+?>
+ 
     <div class="container-fluid" style="padding: 1%;background: yellow;margin-top: -21px;">
         <div class="container">
             <div class="row">
@@ -23,7 +47,6 @@
                 <div class="col-md-6" style="text-align: right;">
                     <div class="input-group">
                       <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" style="padding: 17px;" onClick="agregarNegocio()"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVO</button>
                       </span>
                     </div>
                 </div>
@@ -41,6 +64,7 @@
 
           <!-- Formulario de alta negocio -->
             <form action="" id="formularioEditar">
+            <input type="text" name="tipoUs" id="tipoUs" value="<?php echo $tipoUsuario; ?>" class="hidden">
 
             <h2 class="tituloseccion">Editar datos Generales del Negocio</h2>
  
@@ -57,14 +81,14 @@
  
                <p><div class="input-group input-group-sm">
                     <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                    <select id="tipoNegocio" name="tipoNegocio" class="form-control" onfocus="limpiar('tipoNegocio')" required></select>
+                    <select id="tipoNegocio" name="tipoNegocio" class="form-control" onfocus="limpiar('tipoNegocio')" required ></select>
               </div></p>
 
               <h5 class="titulosalta"> Negocio Destacado</h5>
 
               <p>
-                <label class="radio-inline"><input type="radio" name="destacadoNegocio" id="destacadoNegocio-true" value="true">Si</label>
-                <label class="radio-inline"><input type="radio" name="destacadoNegocio" id="destacadoNegocio-false" value="false" checked="checked">No</label>
+                <label class="radio-inline"><input type="radio" name="destacadoNegocio" id="destacadoNegocio-true" value="true" >Si</label>
+                <label class="radio-inline"><input type="radio" name="destacadoNegocio" id="destacadoNegocio-false" value="false" checked="checked" >No</label>
               </p>
 
               <h5 class="titulosalta"> Bajada Negocio</h5>
@@ -141,27 +165,7 @@
     <div class="container">
         <div class="row">
 
-        <!--
-            <nav aria-label="Page navigation">
-              <ul class="pagination">
-                <li>
-                  <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>
-                  <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-            -->
+
         </div>
     </div>
     

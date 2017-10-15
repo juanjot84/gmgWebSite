@@ -1,4 +1,21 @@
-|<?php
+<?php session_start();
+
+$idNegocio = $_SESSION['idNegocio'];
+$tipoUsuario = $_SESSION['tipoUsuario'];
+
+
+if (!$_SESSION) {
+       header('Location: login-un.php');
+} else {
+    if ($tipoUsuario == 'superAdmin') {
+        
+    } else {
+        header('Location: login-un.php');
+    }
+}
+
+?>
+<?php
    $idNegocio = $_GET['idNegocio'];
 ?>
 
