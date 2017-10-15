@@ -91,7 +91,7 @@ function renderLocal(local){
     '<span class="descripcion">' + local.idNegocio.descripcionNegocio + '</span>' +
     '</div>' +
     '<div class="col-md-2">' +
-    '<a href="#" class="page-scroll btn btn-xl" style="width: 100%; margin-top: 8%; margin-bottom: 4.9%;">IR</a> <br><h2 style="text-align: center;">-10% OFF</h2>' +
+    '<a href="ficha.php?id=' + local._id +'" class="page-scroll btn btn-xl" style="width: 100%; margin-top: 8%; margin-bottom: 4.9%;">IR</a> <br><h2 style="text-align: center;">-10% OFF</h2>' +
     '</div>' +
     '</div>');
 }

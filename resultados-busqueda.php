@@ -45,7 +45,7 @@ $filtro = $_POST['filtro'];
 
   <input type="text" name="parametro" id="parametro" value="<?php echo $parametro; ?>" class="hidden">
   <input type="text" name="filtro" id="filtro" value="<?php echo $filtro; ?>" class="hidden">
-  
+
   <!-- Navigation -->
   <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container">
@@ -192,7 +192,7 @@ $filtro = $_POST['filtro'];
 
   <!-- Funciones de Locales JavaScript -->
   <script src="js/controladores/locales.controlador.js"></script>
-<script>
+  <script>
   getTituloBusqueda('<?php echo $parametro; ?>', '<?php echo $filtro; ?>');
 
   </script>

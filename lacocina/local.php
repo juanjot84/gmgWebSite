@@ -26,7 +26,7 @@ if (!$_SESSION) {
 
 <?php include("includes/nav.php"); ?>
 
-   
+
 
     <div class="container-fluid" style="padding: 1%;background: yellow;margin-top: -21px;">
         <div class="container">
@@ -59,10 +59,10 @@ if (!$_SESSION) {
 
                 <h5 class="titulosalta"> Datos de contacto del local visibles para el clinte</h5>
 
-                    <p> 
+                    <p>
                         <div class="input-group input-group-sm">
                           <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-mobile" aria-hidden="true"></i></span>
-                          <input id="telContacto" name="telContacto" type="number" class="form-control" placeholder="Teléfono" aria-describedby="sizing-addon3" onfocus="limpiar('telContacto')" required>
+                          <input id="telContacto" name="telContacto" type="text" class="form-control" placeholder="Teléfono" aria-describedby="sizing-addon3" onfocus="limpiar('telContacto')" required>
                         </div>
                     </p>
                     <p>
@@ -93,7 +93,7 @@ if (!$_SESSION) {
                     <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
                     <select id="idLocalidad" name="idLocalidad" class="form-control" onfocus="limpiar('idLocalidad')" required></select>
                   </div></p>
-                    
+
                 <h5 class="titulosalta"> Marcar en Google Maps</h5>
                         <div id="map"></div>
                         <input type="text" id="lat"  class="hidden" value="-32.890667" />
@@ -125,7 +125,7 @@ if (!$_SESSION) {
 
                     <p>
                         <div class="form-group" id="mediosPagoCheckbox">
-                          
+
                         </div>
                     </p>
 
@@ -137,7 +137,7 @@ if (!$_SESSION) {
                   </div></p>
 
               <h5 class="titulosalta"> Otros tipos de cocina</h5>
-                   
+
                   <p>
                         <div class="form-group">
 
@@ -147,10 +147,10 @@ if (!$_SESSION) {
                                 </div>
                             </div>
                         </div>
-                  </p> 
+                  </p>
 
               <h5 class="titulosalta"> Indicar especialidades</h5>
-              
+
                   <p>
                         <div class="form-group">
 
@@ -188,7 +188,7 @@ if (!$_SESSION) {
                   <div id="cabeceraTablaNegocios">
                    <div class="panel-heading tituloseccion" style="display: none">Negocios</div>
 
-                  </div> 
+                  </div>
                 </div>
             </div>
         </div>
@@ -199,10 +199,10 @@ if (!$_SESSION) {
 
         </div>
     </div>
-    
-    
+
+
     <?php include("includes/footer.php"); ?>
-    
+
 
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
@@ -227,7 +227,7 @@ if (!$_SESSION) {
     <script src="../js/agency.min.js"></script>
 
     <script type="text/javascript">
-        
+
 
     $(function() {
 

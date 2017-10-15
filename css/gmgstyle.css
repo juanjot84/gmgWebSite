@@ -312,6 +312,11 @@ a.forgot-password:hover {
     text-decoration: initial;
 }
 
+#map {
+    width: 100%;
+    height: 400px;
+}
+
 /*MEDIA QUERIES*/
 
 
@@ -334,7 +339,7 @@ a.forgot-password:hover {
         padding-top: 10%;
     }
 
-    .navbar-custom {        
+    .navbar-custom {
         height: 80px;
     }
 
