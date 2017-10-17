@@ -81,7 +81,7 @@ function toggleBounce() {
 
     function obtenerListado() {
         $('#listadoLocal').html('');
-        $('#target').html('obteniendo...');       
+        $('#loading').html('<img class="img-responsive" src="img/loading.gif">');       
         $.ajax({
             url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local',
             type: 'GET',
@@ -100,6 +100,7 @@ function toggleBounce() {
                     '</td> ' +
                     '</tr>');
               });
+              $('#loading').hide();
           },
           error:function(jqXHR,textStatus,errorThrown)
           {

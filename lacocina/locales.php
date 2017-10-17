@@ -55,7 +55,7 @@ if (!$_SESSION) {
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-user" aria-hidden="true"></i> SALIR</a>
+                        <a href="scripts/cerrar_sesion.php"><i class="fa fa-user" aria-hidden="true"></i> SALIR</a>
                     </li>
                 </ul>
             </div>
@@ -85,6 +85,7 @@ if (!$_SESSION) {
 
                         </tbody>
                     </table>
+                    <center><div id="loading"></div></center>
                   </div> 
         </div>
         </br>

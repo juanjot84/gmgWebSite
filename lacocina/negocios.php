@@ -159,6 +159,7 @@ if (!$_SESSION) {
 
                         </tbody>
                     </table>
+                    <center><div id="loading"></div></center>
                   </div>
                 </div>
             </div>

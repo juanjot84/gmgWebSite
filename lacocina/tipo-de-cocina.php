@@ -91,10 +91,12 @@ if (!$_SESSION) {
                 <th style="text-align: center;">Acción</th>
               </tr>
             </thead>
+
             <tbody id="listadoTiposCocina">
 
             </tbody>
           </table>
+          <center><div id="loading"></div></center>
 
 <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
    <div class="modal-dialog">

@@ -23,7 +23,7 @@
 
     function obtenerListado() {
         $('#listadoServicios').html('');
-        $('#target').html('obteniendo...');       
+        $('#loading').html('<img class="img-responsive" src="img/loading.gif">');       
         $.ajax({
             url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/servicio',
             type: 'GET',
@@ -43,6 +43,7 @@
                     '</td> ' +
                     '</tr>');
             }) 
+              $('#loading').hide();
           },
           error:function(jqXHR,textStatus,errorThrown)
           {

@@ -25,7 +25,7 @@
 
     function obtenerListado() {
         $('#listadoPolos').html('');
-        $('#target').html('obteniendo...');       
+        $('#loading').html('<img class="img-responsive" src="img/loading.gif">');       
         $.ajax({
             url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/polo',
             type: 'GET',
@@ -45,12 +45,14 @@
                           '<button onClick="editar(\'' + polo._id + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button> ' +
                           '<button title="Eliminar" onClick="eliminar(\'' + polo._id + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +
                           '</td> ' +
-                          '</tr>');
+                          '</tr>');        
                   });
-                });            
+                       $('#loading').hide();
+                });
+
           },
           error:function(jqXHR,textStatus,errorThrown)
-          {
+          {           
               $('#target').append("jqXHR: "+jqXHR);
               $('#target').append("textStatus: "+textStatus);
               $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
