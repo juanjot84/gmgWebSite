@@ -26,16 +26,15 @@ function login() {
         var token = data.token;
         var tokenDecoded=jwt_decode(token);
         var tipoUsuario = tokenDecoded.tipoUsuario;
+        var idNegocio = tokenDecoded.idNegocio;
 
-        if tipoUsuario='superAdmin' {
-          //redireccionar al panel de control del super admin
-        } else {
-          //redireccionar al panel del usuario negocio
-          var idNegocio = '59c98d0394897d2100a5727f';
+        if(tipoUsuario == 'superAdmin'){
+          idNegocio = '';
           crearSesion(tipoUsuario, idNegocio);
         }
-        
-
+        if(tipoUsuario == 'usuarioNegocio'){
+          crearSesion(tipoUsuario, idNegocio);
+        }
       },
       error:function(jqXHR,textStatus,errorThrown){
         alert('error');
@@ -48,7 +47,6 @@ function login() {
 };
 
 function crearSesion(tipoUs, idNeg){
-
         var parametros = {
                 "tipoUsuario" : tipoUs,
                 "idNegocio" : idNeg
@@ -60,8 +58,13 @@ function crearSesion(tipoUs, idNeg){
                 error: function(){
                 },
                 success:  function(response) {
-                var url = "perfil/mi-perfil.php";
-                 $(location).attr('href',url);
+                  if(tipoUs == 'usuarioNegocio'){
+                    var url = "perfil/mi-perfil.php";
+                    $(location).attr('href',url);
+                  }else if(tipoUs == 'superAdmin'){
+                    var url = "panel-administrador.php";
+                    $(location).attr('href',url);
+                  }
                 }
         });
 }

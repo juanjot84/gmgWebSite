@@ -57,9 +57,6 @@
                     <li>
                         <a href="#"><i class="fa fa-user" aria-hidden="true"></i> ACCEDER</a>
                     </li>
-                    <li>
-                        <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> FAVORITOS</a>
-                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

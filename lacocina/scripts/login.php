@@ -8,6 +8,4 @@ if (!isset($_SESSION)) {
 $_SESSION['tipoUsuario'] = $_POST["tipoUsuario"];
 $_SESSION['idNegocio'] = $_POST["idNegocio"];
 
-//header('Location: ../perfil/mi-perfil.php');
-
 ?>
