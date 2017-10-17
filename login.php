@@ -19,7 +19,7 @@
     <!-- Custom Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    
+
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <!-- Theme CSS -->
@@ -67,7 +67,7 @@
         <!-- /.container-fluid -->
     </nav>
 
-    
+
 
     <div class="container">
         <div class="row">
@@ -149,7 +149,7 @@
         </div>
     </div>
 
-    
+
 
     <!-- Publicidad -->
     <section style="padding: 0px 0 !important;">
@@ -202,7 +202,7 @@
         </div>
     </footer>
 
-    
+
 
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -220,11 +220,13 @@
     <!-- Theme JavaScript -->
     <script src="js/agency.min.js"></script>
 
+    <script src="js/utils/jwt-decode.min.js"></script>
+
     <!-- Funcione de Login JavaScript -->
     <script src="js/controladores/login.controlador.js"></script>
 
     <script type="text/javascript">
-        
+
 
     $(function() {
 

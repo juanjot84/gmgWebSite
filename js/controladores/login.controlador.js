@@ -46,6 +46,10 @@ function login() {
 };
 
 function crearSesion(tipoUs, idNeg, data){
+// EJEMPLO uso del jwt_decode 
+//   var token = 'eyJ0eXAiO.../// jwt token';
+// var decoded = jwt_decode(token);
+// console.log(decoded);
 
   var parametros = {
           "tipoUsuario" : tipoUs,
@@ -77,7 +81,7 @@ function validar() {
   limpiar('email');
   limpiar('password');
   limpiar('password2');
-  
+
   if(email.length < 2){
     $("#email").parent().after('<span id="emailAlert" style="color:red"> Debe ingresar un Email para el Usuario</span>');
     $("#email").addClass('alert-danger');
@@ -123,7 +127,7 @@ function register() {
   $.ajax({
       url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/register',
       type: "POST",
-      
+
       dataType: "json",
       crossDomain: true,
       contentType:"application/json",
@@ -138,7 +142,7 @@ function register() {
       },
     data: register
   });
-}; 
+};
 
 function limpiar(campo) {
   $("#"+campo+"Alert").hide();
@@ -146,7 +150,7 @@ function limpiar(campo) {
 }
 
 function caracteresCorreoValido(email){
-  var caract = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);   
+  var caract = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);
   if (! caract.test(email)) {
     $("#email").parent().after('<span id="emailAlert" style="color:red"> Email inválido</span>');
     $("#email").addClass('alert-danger');
