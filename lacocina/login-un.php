@@ -198,6 +198,8 @@
 
     <!-- Funcione de Login JavaScript -->
     <script src="js/controladores/login.controlador.js"></script>
+    <script  src=" https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js" crossorigin="anonymous"></script>
+    <script src="../js/utils/jwt-decode.min.js"></script>
 
     <script type="text/javascript">
         

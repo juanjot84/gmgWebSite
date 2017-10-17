@@ -22,10 +22,20 @@ function login() {
       dataType: "json",
       crossDomain: true,
       contentType:"application/json",
-      success: function (data) { 
-       var tipoUsuario = 'superAdmin';
-       var idNegocio = '59c98d0394897d2100a5727f';
-       crearSesion(tipoUsuario, idNegocio);
+      success: function (data,statusText, xhr) {
+        var token = data.token;
+        var tokenDecoded=jwt_decode(token);
+        var tipoUsuario = tokenDecoded.tipoUsuario;
+
+        if tipoUsuario='superAdmin' {
+          //redireccionar al panel de control del super admin
+        } else {
+          //redireccionar al panel del usuario negocio
+          var idNegocio = '59c98d0394897d2100a5727f';
+          crearSesion(tipoUsuario, idNegocio);
+        }
+        
+
       },
       error:function(jqXHR,textStatus,errorThrown){
         alert('error');
