@@ -17,7 +17,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a href="scripts/cerrar_sesion.php"><i class="fa fa-user" aria-hidden="true"></i> SALIR</a>
+                        <a href="../scripts/cerrar_sesion.php"><i class="fa fa-user" aria-hidden="true"></i> SALIR</a>
                     </li>
                 </ul>
             </div>
