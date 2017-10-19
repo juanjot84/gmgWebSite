@@ -92,7 +92,7 @@
           var url = "../lacocina/perfil/mi-perfil.php";
           $(location).attr('href',url);
       }else if(tipoUsuario == 'superAdmin'){
-          var negocioCreado = $("#idNegocio").val(); 
+          var negocioCreado = $("#idNegocioSeleccionado").val(); 
           var url = "../lacocina/panel-negocio.php?idNegocio="+ negocioCreado+"";
           $(location).attr('href',url);
       }
