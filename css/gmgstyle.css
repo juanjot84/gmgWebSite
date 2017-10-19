@@ -399,3 +399,15 @@ input#login-submit:hover {
     }
 
 }
+
+p#nivelPrecio {
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+p#nivelPrecio {
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.2em;
+}
