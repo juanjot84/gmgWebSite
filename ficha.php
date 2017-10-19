@@ -323,7 +323,7 @@
             </div><!-- /row -->
 
         </div><!-- /container -->
-    </section>
+    </section> 
 
         <!-- Publicidad -->
         <section style="padding: 0px 0 !important;">

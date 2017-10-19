@@ -477,20 +477,25 @@ h5.titulosalta {
 @media only screen and (max-width : 425px) {
 
     button.navbar-toggle {
-        padding-top: 7%;
+        padding-top: 2%;
+        margin-top: 5%;
     }
 
     button.navbar-toggle.collapsed {
-        padding-top: 7%;
+        padding-top: 2%;
+        margin-top: 5%;
     }
 
     ul.nav.navbar-nav.navbar-right {
         background: #ffed00;
     }
 
-    img.logoweb {
-        width: 230px;
-        padding-top: 10%;
+     img.logoweb {
+        max-width: 50px;
+        padding-top: 35%;
+    }
+    .tituloback {
+        padding-top: 5%;
     }
 
     .navbar-custom {
@@ -533,6 +538,10 @@ h5.titulosalta {
     .texto-ficha {
         color: #111;
         padding-top: 13%;
+    }
+
+    td {
+        font-size: 1em;
     }
 
 }

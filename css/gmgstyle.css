@@ -318,6 +318,23 @@ a.forgot-password:hover {
 }
 
 /*MEDIA QUERIES*/
+input#login-submit {
+    color: #fff !important;
+    background-color: #000 !important;
+    border-color: #000 !important;
+    border-radius: 3px !important;
+    font-size: 1em !important;
+    padding: 8px 15px !important;
+}
+
+input#login-submit:hover {
+    color: #fff !important;
+    background-color: #7d7d7d !important;
+    border-color: #7d7d7d !important;
+    border-radius: 3px !important;
+    font-size: 1em !important;
+    padding: 8px 15px !important;
+}
 
 
 @media only screen and (max-width : 425px) {

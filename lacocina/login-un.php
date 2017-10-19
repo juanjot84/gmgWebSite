@@ -125,7 +125,7 @@
     
 
     <!-- Publicidad -->
-    <section style="padding: 0px 0 !important;">
+ <!--   <section style="padding: 0px 0 !important;">
         <div class="container-fluid fondopubli">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -134,7 +134,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <footer>
         <div class="container">

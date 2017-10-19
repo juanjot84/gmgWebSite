@@ -442,6 +442,12 @@ h5.titulosalta {
     padding-top: 2%;
 }
 
+.panellocales {
+    height: 65vh;
+    padding-top: 13%;
+    min-height: 715px;
+}
+
 
 /*MEDIA  QUERIES*/
 
@@ -449,11 +455,13 @@ h5.titulosalta {
 @media only screen and (max-width : 425px) {
 
     button.navbar-toggle {
-        padding-top: 7%;
+        padding-top: 2%;
+        margin-top: 5%;
     }
 
     button.navbar-toggle.collapsed {
-        padding-top: 7%;
+        padding-top: 2%;
+        margin-top: 5%;
     }
 
     ul.nav.navbar-nav.navbar-right {
@@ -461,10 +469,12 @@ h5.titulosalta {
     }
 
     img.logoweb {
-        width: 230px;
-        padding-top: 10%;
+        max-width: 50px;
+        padding-top: 35%;
     }
-
+    .tituloback {
+        padding-top: 5%;
+    }
     .navbar-custom {
         height: 80px;
     }
@@ -508,6 +518,12 @@ h5.titulosalta {
     }
 
 }
+.panellocales {
+        height: auto;
+        padding-top: 20%;
+        min-height: 715px;
+    }
+
 
 #map {
     width: 100%;
