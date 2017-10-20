@@ -184,6 +184,7 @@ i.fa.fa-globe.redesficha:hover {
 }
 .iconos {
     max-width: 40px;
+    padding: 10%;
 }
 
 .desact {
@@ -339,6 +340,10 @@ input#login-submit:hover {
 
 @media only screen and (max-width : 425px) {
 
+    .servicios {
+    display: block;
+    }
+
     button.navbar-toggle {
         padding-top: 7%;
     }
@@ -418,4 +423,7 @@ li#calificacionLocal {
 #bajadaNegocio {
     font-weight: 400;
     font-size: 0.9em;
+}
+.servicios {
+    display: inline-flex;
 }
