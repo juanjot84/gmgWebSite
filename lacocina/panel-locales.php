@@ -5,12 +5,12 @@ $tipoUsuario = $_SESSION['tipoUsuario'];
 
 
 if (!$_SESSION) {
-       header('Location: login-un.php');
+       header('Location: index.php');
 } else {
     if ($tipoUsuario == 'usuarioNegocio'  or $tipoUsuario == 'superAdmin') {
         
     } else {
-        header('Location: login-un.php');
+        header('Location: index.php');
     }
 }
 
@@ -42,6 +42,12 @@ if (!$_SESSION) {
                 </button>
                 <a class="navbar-brand page-scroll" href="#"><img class="logoweb" src="../img/logo-gmg-back.png"></a><div class="tituloback"> Panel de administración</div>
             </div>
+                            <div class="col-md-6" style="text-align: right;">
+                    <div class="input-group">
+                      <span class="input-group-btn">
+                      </span>
+                    </div>
+                </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -50,10 +56,11 @@ if (!$_SESSION) {
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-user" aria-hidden="true"></i> SALIR</a>
+                        <a href="scripts/cerrar_sesion.php"><i class="fa fa-user" aria-hidden="true"></i> SALIR</a>
                     </li>
                 </ul>
             </div>
+
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->

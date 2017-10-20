@@ -5,6 +5,6 @@ if($_SESSION){}
    session_destroy();
 
    echo'<script language = javascript> 
-      self.location = "../login-un.php"
+      self.location = "../index.php"
    </script>';
 ?>

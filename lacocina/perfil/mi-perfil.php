@@ -4,12 +4,12 @@ $idNegocio = $_SESSION['idNegocio'];
 $tipoUsuario = $_SESSION['tipoUsuario'];
 
 if (!$_SESSION) {
-       header('Location: ../login-un.php');
+       header('Location: ../index.php');
 } else {
     if ($tipoUsuario == 'usuarioNegocio'  or $tipoUsuario == 'superAdmin') {
         
     } else {
-        header('Location: ../login-un.php');
+        header('Location: ../index.php');
     }
 }
 
