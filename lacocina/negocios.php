@@ -151,7 +151,6 @@ if (!$_SESSION) {
                             <tr> 
                                 <th >#</th>
                                     <th >Nombre</th>
-                                    <th >Descripción</th>
                                     <th style="text-align: center;">Acción</th>
                                 </tr>
                         </thead>
