@@ -279,7 +279,7 @@ a.forgot-password:hover {
 }
 
 .precioficha {
-    height: 90px;
+    height: 0px;
     bottom: -54px;
     display: block;
 }
@@ -410,4 +410,7 @@ p#nivelPrecio {
     text-align: right;
     font-weight: bold;
     font-size: 1.2em;
+}
+li#calificacionLocal {
+    display: none;
 }
