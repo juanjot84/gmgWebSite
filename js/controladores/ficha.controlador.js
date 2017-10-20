@@ -94,7 +94,7 @@ function popularLocal(local) {
 
 function dibujarServicios(servicios){
   _.each(servicios, function(servicio){
-    $('.servicios').append('<div class="col-xs-3 col-md-1">' +
+    $('.servicios').append('<div class="col-xs-3 col-md-2">' +
         '<a href="#" data-toggle="tooltip" data-placement="bottom" title="' + servicio.descripcionServicio + '"><img class="img-responsive iconos" src="' + servicio.urlIconoServicio + '"></a> ' +
       '</div>');
   });

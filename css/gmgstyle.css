@@ -341,7 +341,7 @@ input#login-submit:hover {
 @media only screen and (max-width : 425px) {
 
     .servicios {
-    display: block;
+    display: block !important;
     }
 
     button.navbar-toggle {
