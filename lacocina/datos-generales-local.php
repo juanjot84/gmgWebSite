@@ -59,7 +59,7 @@ if (!$_SESSION) {
                 <div class="panel panel-default">
                  <!-- Table -->
             <!-- Formulario de alta de local -->
-            <input type="text" name="idLocalRecibido" id="idLocalRecibido" value="<?php echo $idLocal; ?>" class="hidden">telContacto
+            <input type="text" name="idLocalRecibido" id="idLocalRecibido" value="<?php echo $idLocal; ?>" class="hidden">
             <input type="text" name="idNegocio" id="idNegocio" class="hidden">
 
             <form action="" id="formularioLocal">

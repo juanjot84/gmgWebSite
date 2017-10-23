@@ -255,8 +255,9 @@
 
     </div>
 
+
     <div class="container">
-        <div class="row">
+     <!--   <div class="row">
             <nav aria-label="Page navigation">
               <ul class="pagination">
                 <li>
@@ -276,7 +277,7 @@
                 </li>
               </ul>
             </nav>
-        </div>
+        </div> -->
     </div>
 
     
@@ -295,6 +296,9 @@
     <!-- Contact Form JavaScript -->
     <script src="js/jqBootstrapValidation.js"></script>
     <script src="js/contact_me.js"></script>
+
+    <!-- Funcione de Local JavaScript -->
+    <script src="js/controladores/panelControlLocal.controlador.js"></script>
 
     <!-- Theme JavaScript -->
     <script src="js/agency.min.js"></script>

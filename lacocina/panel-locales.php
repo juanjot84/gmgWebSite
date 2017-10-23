@@ -33,38 +33,14 @@ if (!$_SESSION) {
 
 
 <!-- Navigation -->
-    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Menu</span> <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#"><img class="logoweb" src="../img/logo-gmg-back.png"></a><div class="tituloback"> Panel de administración</div>
-            </div>
-                            <div class="col-md-6" style="text-align: right;">
-                    <div class="input-group">
-                      <span class="input-group-btn">
-                      </span>
-                    </div>
-                </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li>
-                        <a href="scripts/cerrar_sesion.php"><i class="fa fa-user" aria-hidden="true"></i> SALIR</a>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
+        <?php 
+    if($tipoUsuario == 'usuarioNegocio'){
+        $nav = 'perfil/'; 
+        include("perfil/includes/nav-perfil-superior.php");   
+    }else if($tipoUsuario == 'superAdmin'){
+        include("includes/nav.php"); 
+    }
+?>
 
 
 

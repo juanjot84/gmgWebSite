@@ -1,11 +1,11 @@
-[16:03, 19/10/2017] Emmanuel Combes: <div class="container-fluid" style="background: #000; min-height: 70px;">
+<div class="container-fluid" style="background: #000; min-height: 70px;">
       <div class="container">
         <div class="row">
             <div class="col-md-8" style="text-align: right; padding: 2% 0;">
                 <a class="navbar-brand page-scroll" href="#"><img class="logoweb" src="../img/logo-gmg-back.png"></a><div class="tituloback"> Panel de administración</div>
             </div>
             <div class="col-md-4" style="text-align: right; padding: 2% 0;">
-                <a class="botsalir" href="scripts/cerrar_sesion.php"><i class="fa fa-user" aria-hidden="true"></i> SALIR</a>
+                <a class="botsalir" style="color: #FFFF00" href="scripts/cerrar_sesion.php"><i class="fa fa-user" aria-hidden="true"></i> SALIR</a>
             </div>
         </div>
       </div>
