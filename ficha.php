@@ -76,13 +76,13 @@
                     <div class="col-md-8 text-left texto-ficha">
                         <div class="row">
                             <div class="col-md-6">
-                                <h3 class="titulo"><span id="nombreNegocio"></span> <span id="bajadaNegocio"></span></h3>
+                                <h3 class="titulo"><span id="nombreNegocio"></span> | <span id="bajadaNegocio"></span></h3>
                                 <p id="rubro">RUBRO > TIPO DE COCINA</p>
                             </div>
                             <div class="col-md-6 text-center precioficha">
                                 <p id="nivelPrecio"></p>
                             </div>
-                            <div class="col-md-3 text-right" style="height: 90px; bottom: -54px;">
+                            <!-- <div class="col-md-3 text-right" style="height: 90px; bottom: -54px;">
                                 <ul style="display: inline-flex; list-style: none;">
 
                                     <li id="calificacionLocal">
@@ -95,7 +95,7 @@
 
                                 </ul>
 
-                            </div>
+                            </div> -->
                         </div>
 
                         <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -323,7 +323,7 @@
             </div><!-- /row -->
 
         </div><!-- /container -->
-    </section> 
+    </section>
 
         <!-- Publicidad -->
         <section style="padding: 0px 0 !important;">

@@ -78,16 +78,16 @@ function renderLocal(local){
     '<h3 class="titulo">' + local.idNegocio.nombreNegocio + ' | ' + local.idNegocio.bajadaNegocio + '</h3>' +
     '<span class="polo">' + local.idPoloGastronomico.nombrePoloGastronomico +'</span> | ' +
     '<span class="tiponegocio">' +local.idNegocio.tipoNegocio +'</span> <br>' +
-    '<ul style="display: inline-flex; list-style: none;"">' +
-    '<li>' +
-    '<i class="fa fa-star" aria-hidden="true"></i>' +
-    '<i class="fa fa-star" aria-hidden="true"></i>' +
-    '<i class="fa fa-star" aria-hidden="true"></i>' +
-    '<i class="fa fa-star" aria-hidden="true"></i>' +
-    '<i class="fa fa-star-o" aria-hidden="true"></i>' +
-    '</li>' +
-    '</ul> | ' +
-    '<span class="precio">' + local.idNivelPrecio.label +'</span> <br>' +
+    // '<ul style="display: inline-flex; list-style: none;"">' +
+    // '<li>' +
+    // '<i class="fa fa-star" aria-hidden="true"></i>' +
+    // '<i class="fa fa-star" aria-hidden="true"></i>' +
+    // '<i class="fa fa-star" aria-hidden="true"></i>' +
+    // '<i class="fa fa-star" aria-hidden="true"></i>' +
+    // '<i class="fa fa-star-o" aria-hidden="true"></i>' +
+    // '</li>' +
+    // '</ul> | ' +
+    // '<span class="precio">' + local.idNivelPrecio.label +'</span> <br>' +
     '<span class="descripcion">' + local.idNegocio.descripcionNegocio + '</span>' +
     '</div>' +
     '<div class="col-md-2">' +
