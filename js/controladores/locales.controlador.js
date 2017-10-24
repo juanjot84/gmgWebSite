@@ -75,9 +75,9 @@ function renderLocal(local){
     '<img class="img-responsive" src="' + local.idNegocio.urlIconoNegocio + '">' +
     '</div>' +
     '<div class="col-md-6">' +
-    '<h3 class="titulo">' + local.idNegocio.nombreNegocio + ' | ' + local.idNegocio.bajadaNegocio + '</h3>' +
-    '<span class="polo">' + local.idPoloGastronomico.nombrePoloGastronomico +'</span> | ' +
-    '<span class="tiponegocio">' +local.idNegocio.tipoNegocio +'</span> <br>' +
+    '<p><span style="font-size: 1.5em;"><strong>' + local.idNegocio.nombreNegocio + '</strong> | ' + local.idNegocio.bajadaNegocio + '</span></p>' +
+    '<p><i class="fa fa-map-marker" aria-hidden="true"></i><span class="polo">   ' + local.idPoloGastronomico.nombrePoloGastronomico +'</span> |  ' +
+    '<i class="fa fa-cutlery" aria-hidden="true"></i><span class="tiponegocio">  ' +local.idNegocio.tipoNegocio +'</span></p>' +
     // '<ul style="display: inline-flex; list-style: none;"">' +
     // '<li>' +
     // '<i class="fa fa-star" aria-hidden="true"></i>' +
@@ -88,7 +88,7 @@ function renderLocal(local){
     // '</li>' +
     // '</ul> | ' +
     // '<span class="precio">' + local.idNivelPrecio.label +'</span> <br>' +
-    '<span class="descripcion">' + local.idNegocio.descripcionNegocio + '</span>' +
+    '<p><span class="descripcion">' + local.idNegocio.descripcionNegocio.substr(0, 147) + '...</span></p>' +
     '</div>' +
     '<div class="col-md-3">' +
     ' <br><h2 class="etiquetadescuento">-10% OFF</h2>' +

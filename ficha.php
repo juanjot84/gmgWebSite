@@ -75,11 +75,11 @@
                 <div class="row" style="margin: 10% 0 5% 0;">
                     <div class="col-md-8 text-left texto-ficha">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <h3 class="titulo"><span id="nombreNegocio"></span> | <span id="bajadaNegocio"></span></h3>
                                 <p id="rubro">RUBRO > TIPO DE COCINA</p>
                             </div>
-                            <div class="col-md-6 text-center precioficha">
+                            <div class="col-md-4 text-center precioficha">
                                 <p id="nivelPrecio"></p>
                             </div>
                             <!-- <div class="col-md-3 text-right" style="height: 90px; bottom: -54px;">
