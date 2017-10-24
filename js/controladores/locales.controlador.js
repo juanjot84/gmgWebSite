@@ -85,7 +85,7 @@ function renderLocal(local){
     '<p><span style="font-size: 1.5em;"><strong>' + local.idNegocio.nombreNegocio + '</strong> | ' + local.idNegocio.bajadaNegocio + '</span></p>' +
     '<i class="fa fa-map-marker" aria-hidden="true"></i><span class="polo">   ' + local.idPoloGastronomico.nombrePoloGastronomico +'</span> |  ' +
     '<i class="fa fa-cutlery" aria-hidden="true"></i><span class="tiponegocio">  ' +local.idNegocio.tipoNegocio +'</span></br>' +
-    '<p style="letter-spacing: 1px;"><strong>'+ local.idNivelPrecio.label +'</strong><span style="#ccc">'+ labelGrises +'</span></p>'+
+    '<p style="letter-spacing: 1px;"><strong>'+ local.idNivelPrecio.label +'</strong><span style="color: #cbcbcb">'+ labelGrises +'</span></p>'+
     // '<ul style="display: inline-flex; list-style: none;"">' +
     // '<li>' +
     // '<i class="fa fa-star" aria-hidden="true"></i>' +
