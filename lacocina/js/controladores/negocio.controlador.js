@@ -41,7 +41,7 @@
                     '<th scope="row" style="font-size: 1.5em;">'+cont+++'</th>' +
                     '<td>' +negocio.nombreNegocio+ '  |  ' + negocio.bajadaNegocio+ '</td><td class="centrarbotaccion">' +
                     '<button onClick="editar(\'' + negocio._id + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button> ' +
-                    '<button title="Eliminar" onClick="eliminar(\'' + negocio._id + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +
+                    '<button title="Eliminar" onClick="mostrarModalEliminar(\'' + negocio._id + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +
                     '</td> ' +
                     '</tr>');             
               });
@@ -187,9 +187,11 @@
      })
     }
 
-    function eliminar(idNegocio){
+    function eliminar(){
+
+       var idNegocioEliminar = $("#idNegocio").val();
        $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/negocio?id=' + idNegocio,
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/negocio?id=' + idNegocioEliminar,
             type: 'DELETE',
             
             dataType: "json",
@@ -207,6 +209,11 @@
               obtenerListado();
           }
       });    
+    }
+
+    function mostrarModalEliminar(idNegocio){
+      $("#idNegocio").val(idNegocio);
+      $("#mostrarmodal2").modal("show");
     }
 
     function volverPanelNegocio(){

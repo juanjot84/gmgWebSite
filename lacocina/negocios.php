@@ -183,6 +183,24 @@ if (!$_SESSION) {
    </div>
 </div>
 
+<div class="modal fade" id="mostrarmodal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>ATENCIÓN</h3>
+     </div>
+         <div class="modal-body">
+            <h5>Está por eliminar un restaurante y toda la información asociada al mismo</h5>
+     </div>
+         <div class="modal-footer">
+        <a href="#" data-dismiss="modal" class="btn btn-danger">Cancelar</a>
+        <a onClick="eliminar()" data-dismiss="modal" class="btn btn-danger">Aceptar</a>
+     </div>
+      </div>
+   </div>
+</div>
+
     <div class="container">
         <div class="row">
 
