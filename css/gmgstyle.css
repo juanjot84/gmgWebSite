@@ -427,3 +427,13 @@ li#calificacionLocal {
 .servicios {
     display: inline-flex;
 }
+
+.etiquetadescuento {
+    text-align: center;
+    background: #f8981d;
+    font-size: 1.4em;
+    padding: 3%;
+    font-weight: 400;
+    color: #fff;
+    border-radius: 5px;
+}

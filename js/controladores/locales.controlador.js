@@ -70,8 +70,8 @@ function getTituloBusqueda(parametro, filtro) {
 
 function renderLocal(local){
   $('.container.locales').append('' +
-    '<div class="row" style="padding-top: 5%;">' +
-    '<div class="col-md-4">' +
+    '<a href="ficha.php?id=' + local._id +'"><div class="row" style="padding-top: 5%;color: #252525;border-bottom: 1px solid #e3e3e3;padding-bottom: 2%;">' +
+    '<div class="col-md-3">' +
     '<img class="img-responsive" src="' + local.idNegocio.urlIconoNegocio + '">' +
     '</div>' +
     '<div class="col-md-6">' +
@@ -90,8 +90,8 @@ function renderLocal(local){
     // '<span class="precio">' + local.idNivelPrecio.label +'</span> <br>' +
     '<span class="descripcion">' + local.idNegocio.descripcionNegocio + '</span>' +
     '</div>' +
-    '<div class="col-md-2">' +
-    '<a href="ficha.php?id=' + local._id +'" class="page-scroll btn btn-xl" style="width: 100%; margin-top: 8%; margin-bottom: 4.9%;">IR</a> <br><h2 style="text-align: center;">-10% OFF</h2>' +
+    '<div class="col-md-3">' +
+    ' <br><h2 class="etiquetadescuento">-10% OFF</h2>' +
     '</div>' +
-    '</div>');
+    '</div></a>');
 }
