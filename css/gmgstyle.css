@@ -436,4 +436,6 @@ li#calificacionLocal {
     font-weight: 400;
     color: #fff;
     border-radius: 5px;
+    width: 50%;
+    margin: 0 auto;
 }

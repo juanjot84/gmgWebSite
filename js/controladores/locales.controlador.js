@@ -68,6 +68,21 @@ function getTituloBusqueda(parametro, filtro) {
   titulo.text('Restaurantes para la búsqueda "' + parametro +'"' );
 }
 
+function getDia(dia) {
+    var d = new Date();
+    var n = dia || d.getDay();
+    var dias = {
+      0: "Domingo",
+      1: "Lunes",
+      2: "Martes",
+      3: "Miercoles",
+      4: "Jueves",
+      5: "Viernes",
+      6: "Sabado"
+    };
+    return dias[n];
+  };
+
 function renderLocal(local){
   var longNivelPrecio = local.idNivelPrecio.label.length;
   var nivelGris = 5 - longNivelPrecio;
@@ -75,6 +90,8 @@ function renderLocal(local){
   for(i = 0; i < nivelGris; i++){
     labelGrises += '$'
   }
+
+  var descuentoDia = _.filter(local.idLocalDescuento, {'diaDescuento': getDia()});
 
   $('.container.locales').append('' +
     '<a href="ficha.php?id=' + local._id +'"><div class="row" style="padding-top: 5%;color: #252525;border-bottom: 1px solid #e3e3e3;padding-bottom: 2%;">' +
@@ -84,7 +101,7 @@ function renderLocal(local){
     '<div class="col-md-6">' +
     '<p><span style="font-size: 1.5em;"><strong>' + local.idNegocio.nombreNegocio + '</strong> | ' + local.idNegocio.bajadaNegocio + '</span></p>' +
     '<i class="fa fa-map-marker" aria-hidden="true"></i><span class="polo">   ' + local.idPoloGastronomico.nombrePoloGastronomico +'</span> |  ' +
-    '<i class="fa fa-cutlery" aria-hidden="true"></i><span class="tiponegocio">  ' +local.idNegocio.tipoNegocio +'</span></br>' +
+    '<i class="fa fa-cutlery" aria-hidden="true"></i><span class="tiponegocio">  ' +local.idTipoCocinaPrincipal.nombreTipoCocina +'</span></br>' +
     '<p style="letter-spacing: 1px;"><strong>'+ local.idNivelPrecio.label +'</strong><span style="color: #cbcbcb">'+ labelGrises +'</span></p>'+
     // '<ul style="display: inline-flex; list-style: none;"">' +
     // '<li>' +
@@ -99,7 +116,7 @@ function renderLocal(local){
     '<p><span class="descripcion">' + local.idNegocio.descripcionNegocio.substr(0, 147) + '...</span></p>' +
     '</div>' +
     '<div class="col-md-3">' +
-    ' <br><h2 class="etiquetadescuento">-10% OFF</h2>' +
+    ' <br><h2 class="etiquetadescuento">'+ descuentoDia[0].idDescuento.nombreDescuento +'</h2>' +
     '</div>' +
     '</div></a>');
 }

@@ -338,9 +338,10 @@ td {
     font-weight: bold;
     font-size: 1.5em;
     text-transform: uppercase;
-    padding: 2% 0;
+    padding: 0 0;
     color: #464646 !important;
     background-color: transparent !important;
+    font-size: 2em;
 }
 
 .panel-default {
@@ -438,8 +439,9 @@ td {
 
 h5.titulosalta {
     margin-top: 3%;
-    border-top: 1px solid #eaeaea;
+    border-top: 0px solid #eaeaea;
     padding-top: 2%;
+    font-size: 1.4em;
 }
 
 .panellocales {
@@ -532,4 +534,21 @@ h5.titulosalta {
 
 .opcionesLocal .checkbox{
     margin-top: -5px;
+}
+
+span#sizing-addon3 {
+    background: #f8981d;
+    color: #ffffff;
+    font-size: 1.6em;
+    min-width: 50px;
+}
+
+button#botonGuardar {
+    background: #5cb85c;
+    color: #fff;
+}
+
+botoncancelar {
+    background: #fff6f6;
+    color: #b8221e;
 }
