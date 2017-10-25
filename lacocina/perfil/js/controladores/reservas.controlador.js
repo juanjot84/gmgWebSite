@@ -27,6 +27,13 @@ function obtenerListado() {
 
 function renderReservas(reservasLocal){
 
+    _.each(reservasLocal, function(reserva){
+        
+
+
+        
+    });
+
   $('.container.locales').append('' +
     '<a href="ficha.php?id=' + local._id +'"><div class="row" style="padding-top: 5%;color: #252525;border-bottom: 1px solid #e3e3e3;padding-bottom: 2%;">' +
     '<div class="col-md-3">' +
