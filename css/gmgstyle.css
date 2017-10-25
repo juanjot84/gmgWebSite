@@ -50,12 +50,23 @@ section {
     padding: 60px 0 !important;
 }
 footer {
-    background: #111;
-    color: #fff;
+    background: #ffff00;
+    color: #000;
     padding: 5% 0 !important;
 }
 ul.social-buttons li a {
-    background-color: #444 !important;
+    background-color: #000000 !important;
+    display: block;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    font-size: 20px;
+    line-height: 40px;
+    color: #ffff00;
+    outline: 0;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
 }
 ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
     background-color: #ffff00 !important;
@@ -438,4 +449,10 @@ li#calificacionLocal {
     border-radius: 5px;
     width: 50%;
     margin: 0 auto;
+}
+
+.appstore {
+    max-width: 115px;
+    display: inline-flex;
+    padding: 3% 0;
 }

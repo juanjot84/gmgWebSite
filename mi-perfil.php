@@ -125,46 +125,7 @@
   </div>
 
 
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 menufooter">
-          <p>QUIÉNES SOMOS</p>
-          <p>TÉRMINOS Y CONDICIONES</p>
-          <p>POLÍTICAS DE PRIVACIDAD</p>
-          <p>PREGUNTAS FRECUENTES</p>
-        </div>
-        <div class="col-md-4 menufooter">
-          <p>RESTAURANTES</p>
-          <p>TAKE A W</p>
-          <p>MUNDO DULCE</p>
-          <p>DESCARGAR APP</p>
-        </div>
-        <div class="col-md-4">
-
-          <ul class="list-inline social-buttons">
-            <li><a href="#"><i class="fa fa-twitter"></i></a>
-            </li>
-            <li><a href="#"><i class="fa fa-facebook"></i></a>
-            </li>
-            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-            </li>
-          </ul>
-
-          <ul class="list-inline quicklinks">
-            <li>
-              <span class="copyright">Copyright &copy; GMG 2017</span>
-            </li>
-            <li>
-              Desarrollado por <a style="text-decoration: none;" href="#">Estudio Pronet</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-
+<?php include("includes/footer.php"); ?>
 
   <!-- jQuery -->
   <script src="vendor/jquery/jquery.min.js"></script>
