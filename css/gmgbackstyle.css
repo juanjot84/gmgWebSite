@@ -548,7 +548,7 @@ button#botonGuardar {
     color: #fff;
 }
 
-botoncancelar {
+button#botoncancelar {
     background: #fff6f6;
     color: #b8221e;
 }
