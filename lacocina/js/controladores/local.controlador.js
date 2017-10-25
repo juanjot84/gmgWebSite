@@ -83,7 +83,7 @@ function toggleBounce() {
         $('#listadoLocal').html('');
         $('#loading').html('<img class="img-responsive" src="img/loading.gif">');       
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local',
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales',
             type: 'GET',
             
             dataType: "json",
@@ -115,7 +115,7 @@ function toggleBounce() {
        var idLocal = $('#idLocalRecibido').val();
         $('#target').html('obteniendo...');       
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id='+ idLocal +"",
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id='+ idLocal +"",
             type: 'GET',
             
             dataType: "json",
@@ -541,7 +541,7 @@ function toggleBounce() {
         var idLocalActualizar = $("#idLocalRecibido").val();
         $('#target').html('sending..');
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id=' + idLocalActualizar,
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id=' + idLocalActualizar,
             type: "PUT",          
             dataType: "json",
             crossDomain: true,
@@ -618,7 +618,7 @@ function toggleBounce() {
         $('#target').html('sending..');
         var queryParam = isNew  ? "": "?id=" + $("#idLocal").val();
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local' + queryParam,
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales' + queryParam,
             type: operacion,          
             dataType: "json",
             crossDomain: true,

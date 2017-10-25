@@ -4,7 +4,7 @@ function obtenerListado() {
     $('.container.locales').html('');
     $('#target').html('obteniendo...');
     $.ajax({
-        url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local',
+        url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales',
         type: 'GET',
         dataType: "json",
         crossDomain: true,

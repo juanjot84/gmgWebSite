@@ -1,0 +1,56 @@
+
+
+function obtenerListado() {
+    var idNegocio = $('#idNegocio').val();
+    $('.container.negocios').html('');
+    $('#target').html('obteniendo...');
+    $.ajax({
+        url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/reservasPendienteNegocio?id='+ idNegocio +"",
+        type: 'GET',
+        dataType: "json",
+        crossDomain: true,
+        contentType:"application/json",
+        success: function (data) {
+            reservas = data;
+          _.each(data, function(reservasLocal){
+              renderReservas(reservasLocal);
+          });
+      },
+      error:function(jqXHR,textStatus,errorThrown)
+      {
+          $('#target').append("jqXHR: "+jqXHR);
+          $('#target').append("textStatus: "+textStatus);
+          $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+      }
+  });
+}
+
+function renderReservas(reservasLocal){
+
+  $('.container.locales').append('' +
+    '<a href="ficha.php?id=' + local._id +'"><div class="row" style="padding-top: 5%;color: #252525;border-bottom: 1px solid #e3e3e3;padding-bottom: 2%;">' +
+    '<div class="col-md-3">' +
+    '<img class="img-responsive" src="' + local.idNegocio.urlIconoNegocio + '">' +
+    '</div>' +
+    '<div class="col-md-6">' +
+    '<p><span style="font-size: 1.5em;"><strong>' + local.idNegocio.nombreNegocio + '</strong> | ' + local.idNegocio.bajadaNegocio + '</span></p>' +
+    '<i class="fa fa-map-marker" aria-hidden="true"></i><span class="polo">   ' + local.idPoloGastronomico.nombrePoloGastronomico +'</span> |  ' +
+    '<i class="fa fa-cutlery" aria-hidden="true"></i><span class="tiponegocio">  ' +local.idTipoCocinaPrincipal.nombreTipoCocina +'</span></br>' +
+    '<p style="letter-spacing: 1px;"><strong>'+ local.idNivelPrecio.label +'</strong><span style="color: #cbcbcb">'+ labelGrises +'</span></p>'+
+    // '<ul style="display: inline-flex; list-style: none;"">' +
+    // '<li>' +
+    // '<i class="fa fa-star" aria-hidden="true"></i>' +
+    // '<i class="fa fa-star" aria-hidden="true"></i>' +
+    // '<i class="fa fa-star" aria-hidden="true"></i>' +
+    // '<i class="fa fa-star" aria-hidden="true"></i>' +
+    // '<i class="fa fa-star-o" aria-hidden="true"></i>' +
+    // '</li>' +
+    // '</ul> | ' +
+    // '<span class="precio">' + local.idNivelPrecio.label +'</span> <br>' +
+    '<p><span class="descripcion">' + local.idNegocio.descripcionNegocio.substr(0, 147) + '...</span></p>' +
+    '</div>' +
+    '<div class="col-md-3">' +
+    ' <br><h2 class="etiquetadescuento">'+ descuentoDia[0].idDescuento.nombreDescuento +'</h2>' +
+    '</div>' +
+    '</div></a>');
+}

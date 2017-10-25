@@ -25,7 +25,7 @@
         $('#listadoLocal').html('');
         $('#target').html('obteniendo...');       
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local',
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales',
             type: 'GET',
             
             dataType: "json",
@@ -60,7 +60,7 @@
     function eliminar(idLocal){     
 
       $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id=' + idLocal,
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id=' + idLocal,
             type: 'DELETE',            
             dataType: "json",
             crossDomain: true,
@@ -112,7 +112,7 @@
 
         $('#target').html('obteniendo...');       
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id='+idLocal,
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id='+idLocal,
             type: 'GET',
             
             dataType: "json",

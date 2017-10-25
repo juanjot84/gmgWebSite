@@ -1,3 +1,20 @@
+<?php session_start();
+
+$idNegocio = $_SESSION['idNegocio'];
+$tipoUsuario = $_SESSION['tipoUsuario'];
+
+if (!$_SESSION) {
+       header('Location: ../index.php');
+} else {
+    if ($tipoUsuario == 'usuarioNegocio'  or $tipoUsuario == 'superAdmin') {
+        
+    } else {
+        header('Location: ../index.php');
+    }
+}
+
+?>
+
 <?php include("includes/head-perfil.php"); ?>
 
 <body id="page-top" class="index">
@@ -32,6 +49,7 @@
     <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
 
         <div class="panel-heading tituloseccion">Reservas</div>
+        <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
 
         <div class="row">
             <div class="col-md-12">

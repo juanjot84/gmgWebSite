@@ -8,7 +8,7 @@ function getDetalleLocal(idLocal) {
     // $('.container.ficha').html('');
     $('#target').html('obteniendo...');
     $.ajax({
-        url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id=' + idLocal,
+        url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id=' + idLocal,
         type: 'GET',
         dataType: "json",
         crossDomain: true,
