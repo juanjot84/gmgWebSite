@@ -102,55 +102,6 @@
     </div>
   </header>
 
-  <!-- Novedades -->
-  <section id="services">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading">Novedades</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-        </div>
-      </div>
-      <div class="row text-center">
-        <div class="col-md-12">
-          <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#myCarousel" data-slide-to="1"></li>
-              <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-              <div class="item active">
-                <img src="img/novedad01.jpg" alt="Novedades">
-              </div>
-
-              <div class="item">
-                <img src="img/novedad02.jpg" alt="Novedades">
-              </div>
-
-              <div class="item">
-                <img src="img/novedad03.jpg" alt="Novedades">
-              </div>
-            </div>
-
-            <!-- Left and right controls -->
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Ocasiones -->
   <section id="portfolio" class="bg-light-gray">
     <div class="container">
@@ -252,30 +203,6 @@
   <section id="team" class="bg-light-gray">
     <div class="container tipoCocinas">
 
-    </div>
-  </section>
-
-  <!-- NOTAS -->
-  <section>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading">NOTAS</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-6 text-center">
-          <img src="img/noti1.jpg" class="img-responsive">
-          <h4 class="section-heading">NOTA A</h4>
-          <p class="section-subheading text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-        </div>
-        <div class="col-lg-6 text-center">
-          <img src="img/noti2.jpg" class="img-responsive">
-          <h4 class="section-heading">NOTA B</h4>
-          <p class="section-subheading text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-        </div>
-      </div>
     </div>
   </section>
 
