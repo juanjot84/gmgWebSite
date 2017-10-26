@@ -42,9 +42,11 @@ header {
 }
 
 .fondopubli {
-	background: url('../img/publicidad5.jpg') no-repeat;
-	background-size: cover;
-	min-height: 400px;
+    background: url(../img/banner-publicidad.jpg) no-repeat;
+    background-size: contain;
+    min-height: 400px;
+    background-position: center;
+    background-color: #fbfbfb;
 }
 section {
     padding: 60px 0 !important;

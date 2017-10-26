@@ -1,4 +1,6 @@
 
+obtenerListado();
+
 
 function obtenerListado() {
     var idNegocio = $('#idNegocio').val();
@@ -26,38 +28,59 @@ function obtenerListado() {
 }
 
 function renderReservas(reservasLocal){
+    
+    var cantLocales = reservasLocal.length;
+    
+    for(i = 0; i < cantLocales; i++){
+      $('.container.locales').append(''+
+          ' <div class="panel panel-default">'+
+            '<div class="panel-heading">'+
+                      '<p class="panel-title">'+
+                        '<a data-toggle="collapse" data-parent="#accordion" href="#'+i+'">'+
+                        '<table class="table" style="margin-bottom: 0;">'+                        
+                            '<tbody>'+
+                                '<tr>'+
+                                    '<td>'+
+                                      '  Local calle  ' + reservasLocal[i][i].idLocal.calleLocal + ' ('+ reservasLocal[i][i].idLocal.alturaLocal + ')'+
+                                   ' </td>'+
+                               ' </tr>'+
+                            '</tbody>'+
+                       ' </table></a>'+
+                    '  </p>'+
+                    '</div>'+
+                   ' <div id="'+i+'" class="panel-collapse collapse in">'+
+                      '<div class="panel-body">'+
+                        '<div class="row">'+
+                           ' <div class="col-md-12">'+
+                           '<div class="container dias"> </div>'+
+                          '  </div>'+
+                        '</div>'+
+                      '</div>'+
+                   ' </div>'+
+               ' </div>');
+      var cantReservasLocal = reservasLocal[i].length;
 
-    _.each(reservasLocal, function(reserva){
-        
+      for(z = 0; z < cantReservasLocal; z++){
+
+       // var anio = reservasLocal[i][z].fechaReserva.substr(6,9);
+        var mes = reservasLocal[i][z].fechaReserva.substr(3,3);
+        alert(mes);
+        $('.container.dias').append('');
+
+      }
 
 
-        
-    });
+    }
 
-  $('.container.locales').append('' +
-    '<a href="ficha.php?id=' + local._id +'"><div class="row" style="padding-top: 5%;color: #252525;border-bottom: 1px solid #e3e3e3;padding-bottom: 2%;">' +
-    '<div class="col-md-3">' +
-    '<img class="img-responsive" src="' + local.idNegocio.urlIconoNegocio + '">' +
-    '</div>' +
-    '<div class="col-md-6">' +
-    '<p><span style="font-size: 1.5em;"><strong>' + local.idNegocio.nombreNegocio + '</strong> | ' + local.idNegocio.bajadaNegocio + '</span></p>' +
-    '<i class="fa fa-map-marker" aria-hidden="true"></i><span class="polo">   ' + local.idPoloGastronomico.nombrePoloGastronomico +'</span> |  ' +
-    '<i class="fa fa-cutlery" aria-hidden="true"></i><span class="tiponegocio">  ' +local.idTipoCocinaPrincipal.nombreTipoCocina +'</span></br>' +
-    '<p style="letter-spacing: 1px;"><strong>'+ local.idNivelPrecio.label +'</strong><span style="color: #cbcbcb">'+ labelGrises +'</span></p>'+
-    // '<ul style="display: inline-flex; list-style: none;"">' +
-    // '<li>' +
-    // '<i class="fa fa-star" aria-hidden="true"></i>' +
-    // '<i class="fa fa-star" aria-hidden="true"></i>' +
-    // '<i class="fa fa-star" aria-hidden="true"></i>' +
-    // '<i class="fa fa-star" aria-hidden="true"></i>' +
-    // '<i class="fa fa-star-o" aria-hidden="true"></i>' +
-    // '</li>' +
-    // '</ul> | ' +
-    // '<span class="precio">' + local.idNivelPrecio.label +'</span> <br>' +
-    '<p><span class="descripcion">' + local.idNegocio.descripcionNegocio.substr(0, 147) + '...</span></p>' +
-    '</div>' +
-    '<div class="col-md-3">' +
-    ' <br><h2 class="etiquetadescuento">'+ descuentoDia[0].idDescuento.nombreDescuento +'</h2>' +
-    '</div>' +
-    '</div></a>');
+
+
+
+    var cantReservasLocal = reservasLocal[0].length;
+    
+
+
+       
+    
+
+ // $('.container.locales').append('');
 }
