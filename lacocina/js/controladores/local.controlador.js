@@ -541,7 +541,7 @@ function toggleBounce() {
         var idLocalActualizar = $("#idLocalRecibido").val();
         $('#target').html('sending..');
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id=' + idLocalActualizar,
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id=' + idLocalActualizar,
             type: "PUT",          
             dataType: "json",
             crossDomain: true,
@@ -618,7 +618,7 @@ function toggleBounce() {
         $('#target').html('sending..');
         var queryParam = isNew  ? "": "?id=" + $("#idLocal").val();
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales' + queryParam,
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local' + queryParam,
             type: operacion,          
             dataType: "json",
             crossDomain: true,

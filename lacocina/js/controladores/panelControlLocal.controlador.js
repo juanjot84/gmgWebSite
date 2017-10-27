@@ -74,6 +74,12 @@
       });    
     }
 
+    function crearLocal(){
+      var idNegocio = $("#idNegocio").val();
+      var url = "../lacocina/local.php?idNegocio="+idNegocio+"";
+      $(location).attr('href',url);    
+    }
+
     function cargarForm(formulario){
       if(formulario == "local"){
        var idLocal = $("#idLocal").val();

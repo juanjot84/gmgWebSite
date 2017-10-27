@@ -2,17 +2,23 @@
 
 $idNegocio = $_SESSION['idNegocio'];
 $tipoUsuario = $_SESSION['tipoUsuario'];
-
+$display = '';
 
 if (!$_SESSION) {
        header('Location: index.php');
 } else {
     if ($tipoUsuario == 'usuarioNegocio'  or $tipoUsuario == 'superAdmin') {
-        
+          
     } else {
         header('Location: index.php');
     }
 }
+
+if($tipoUsuario == 'usuarioNegocio'){
+  $display = 'display: none';
+}
+      
+
 
 ?>
 <?php    
@@ -40,6 +46,24 @@ if (!$_SESSION) {
           include("includes/nav.php"); 
        }
     ?>
+
+        <div class="container-fluid" style="padding: 1%;background: yellow;margin-top: -21px; <?php echo $display; ?> ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6" style="text-align: right;">
+                    <div class="input-group">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" style="padding: 17px;" onClick="crearLocal()"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVO</button>
+                      </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
             <!-- /.navbar-collapse -->
 

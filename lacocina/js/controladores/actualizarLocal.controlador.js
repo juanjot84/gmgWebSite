@@ -7,7 +7,7 @@ function actualizarLocal(idLocal, valorAActualizar, campoAAcuatualizar){
     nuevoCampo[campoAAcuatualizar] = valorAActualizar;
 
     $.ajax({
-      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id=' + idLocal,
+      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id=' + idLocal,
       type: 'PUT',
 
       dataType: "json",

@@ -13,8 +13,11 @@ function obtenerListado() {
         crossDomain: true,
         contentType:"application/json",
         success: function (data) {
-            reservas = data;
+          
           _.each(data, function(reservasLocal){
+
+             alert(data.length);
+
               renderReservas(reservasLocal);
           });
       },
@@ -28,7 +31,9 @@ function obtenerListado() {
 }
 
 function renderReservas(reservasLocal){
-    
+
+
+  /*  
     var cantLocales = reservasLocal.length;
     
     for(i = 0; i < cantLocales; i++){
@@ -65,9 +70,9 @@ function renderReservas(reservasLocal){
        // var anio = reservasLocal[i][z].fechaReserva.substr(6,9);
         var mes = reservasLocal[i][z].fechaReserva.substr(3,3);
         alert(mes);
-        $('.container.dias').append('');
+        $('.container.dias').append(''); 
 
-      }
+      } */
 
 
     }
@@ -75,7 +80,7 @@ function renderReservas(reservasLocal){
 
 
 
-    var cantReservasLocal = reservasLocal[0].length;
+ //   var cantReservasLocal = reservasLocal[0].length;
     
 
 
@@ -83,4 +88,3 @@ function renderReservas(reservasLocal){
     
 
  // $('.container.locales').append('');
-}
