@@ -51,7 +51,18 @@ footer {
     padding: 5% 0 !important;
 }
 ul.social-buttons li a {
-    background-color: #444 !important;
+    display: block;
+    background-color: #222;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    font-size: 20px;
+    line-height: 40px;
+    color: #111;
+    outline: 0;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
 }
 ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
     background-color: #FFED00 !important;
@@ -395,7 +406,7 @@ td {
 }
 
 .titulosoporte {
-    font-size: 3em;
+    font-size: 2em;
     font-weight: 700;
     color: #eaeaea;
     line-height: 1.9em;
@@ -551,4 +562,7 @@ button#botonGuardar {
 button#botoncancelar {
     background: #fff6f6;
     color: #b8221e;
+}
+.panel.panel-default {
+    min-height: 40vh;
 }
