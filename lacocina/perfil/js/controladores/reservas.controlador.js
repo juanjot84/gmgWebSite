@@ -30,6 +30,7 @@ function renderReservas(reservasLocal){
    var cantLocales = _.size(reservasLocal);
    var contLocales = 1;
    var collapseReserva = 99999;
+   var conteinReservas = 999;
 
     _.each(reservasLocal, function(local,index){
    
@@ -62,7 +63,7 @@ function renderReservas(reservasLocal){
       '');
 
          var fecha = '';
-         var conteinReservas = 999;
+         
 
         _.each(local, function(reserva){  
           

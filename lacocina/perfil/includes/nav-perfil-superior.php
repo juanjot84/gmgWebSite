@@ -28,7 +28,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
                 <li>
-                  <a href="reservas.php" role="button" aria-haspopup="true" aria-expanded="false">Reservas <span class="caret"></span></a>
+                  <a href="perfil/reservas.php" role="button" aria-haspopup="true" aria-expanded="false">Reservas <span class="caret"></span></a>
                 </li>
                 <li class="dropdown">
                   <a href="perfil/mi-perfil.php" role="button" aria-haspopup="true" aria-expanded="false">Mi perfil <span class="caret"></span></a>
