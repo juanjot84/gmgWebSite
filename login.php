@@ -1,3 +1,7 @@
+
+<?php
+$redirect = $_GET["redirect"];
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -183,8 +187,14 @@
 
     <script src="js/utils/jwt-decode.min.js"></script>
 
+    <script  src=" https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"
+    crossorigin="anonymous"></script>
     <!-- Funcione de Login JavaScript -->
     <script src="js/controladores/login.controlador.js"></script>
+
+    <script>
+      setRedirect('<?php echo $redirect; ?>');
+    </script>
 
     <script type="text/javascript">
 

@@ -1,3 +1,11 @@
+<?php session_start();
+$idLocal = $_GET["id"];
+
+
+    $jwt = $_SESSION['jwt'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -34,6 +42,7 @@
   <![endif]-->
 
 </head>
+
 
 <body id="page-top" class="index">
 
@@ -79,29 +88,29 @@
       <div class="col-md-4">
         <p>
           <div class="form-group">
-            <label for="sel1">¿Para cuántos adultos?</label>
-            <select class="form-control" id="sel1">
-              <option>1 adulto</option>
-              <option>2 adultos</option>
-              <option>3 adultos</option>
-              <option>4 adultos</option>
-              <option>5 adultos</option>
-              <option>6 adultos</option>
-              <option>7 adultos</option>
-              <option>8 adultos</option>
-              <option>9 adultos</option>
-              <option>10 adultos</option>
-              <option>11 adultos</option>
-              <option>12 adultos</option>
-              <option>13 adultos</option>
-              <option>14 adultos</option>
-              <option>15 adultos</option>
-              <option>16 adultos</option>
-              <option>17 adultos</option>
-              <option>18 adultos</option>
-              <option>19 adultos</option>
-              <option>20 adultos</option>
-              <option>21 adultos o más</option>
+            <label for="selectAdulto">¿Para cuántos adultos?</label>
+            <select class="form-control" id="selectAdulto">
+              <option value="1">1 adulto</option>
+              <option value="2">2 adultos</option>
+              <option value="3">3 adultos</option>
+              <option value="4">4 adultos</option>
+              <option value="5">5 adultos</option>
+              <option value="6">6 adultos</option>
+              <option value="7">7 adultos</option>
+              <option value="8">8 adultos</option>
+              <option value="9">9 adultos</option>
+              <option value="10">10 adultos</option>
+              <option value="11">11 adultos</option>
+              <option value="12">12 adultos</option>
+              <option value="13">13 adultos</option>
+              <option value="14">14 adultos</option>
+              <option value="15">15 adultos</option>
+              <option value="16">16 adultos</option>
+              <option value="17">17 adultos</option>
+              <option value="18">18 adultos</option>
+              <option value="19">19 adultos</option>
+              <option value="20">20 adultos</option>
+              <option value="0">21 adultos o más</option>
             </select>
           </div>
         </p>
@@ -109,29 +118,29 @@
       <div class="col-md-4">
         <p>
           <div class="form-group">
-            <label for="sel1">¿Para cuántos niños?</label>
-            <select class="form-control" id="sel1">
-              <option>1 niño</option>
-              <option>2 niños</option>
-              <option>3 niños</option>
-              <option>4 niños</option>
-              <option>5 niños</option>
-              <option>6 niños</option>
-              <option>7 niños</option>
-              <option>8 niños</option>
-              <option>9 niños</option>
-              <option>10 niños</option>
-              <option>11 niños</option>
-              <option>12 niños</option>
-              <option>13 niños</option>
-              <option>14 niños</option>
-              <option>15 niños</option>
-              <option>16 niños</option>
-              <option>17 niños</option>
-              <option>18 niños</option>
-              <option>19 niños</option>
-              <option>20 niños</option>
-              <option>21 niños o más</option>
+            <label for="selectNino">¿Para cuántos niños?</label>
+            <select class="form-control" id="selectNino">
+              <option value="1">1 niño</option>
+              <option value="2">2 niños</option>
+              <option value="3">3 niños</option>
+              <option value="4">4 niños</option>
+              <option value="5">5 niños</option>
+              <option value="6">6 niños</option>
+              <option value="7">7 niños</option>
+              <option value="8">8 niños</option>
+              <option value="9">9 niños</option>
+              <option value="10">10 niños</option>
+              <option value="11">11 niños</option>
+              <option value="12">12 niños</option>
+              <option value="13">13 niños</option>
+              <option value="14">14 niños</option>
+              <option value="15">15 niños</option>
+              <option value="16">16 niños</option>
+              <option value="17">17 niños</option>
+              <option value="18">18 niños</option>
+              <option value="19">19 niños</option>
+              <option value="20">20 niños</option>
+              <option value="0">21 niños o más</option>
             </select>
           </div>
         </p>
@@ -139,45 +148,84 @@
       <div class="col-md-4">
         <p>
           <div class="form-group">
-            <label for="sel1">¿Qué día?</label>
-            <select class="form-control" id="sel1">
-              <option>Hoy</option>
-              <option>Mañana 9</option>
-              <option>Miércoles 10</option>
-              <option>Jueves 11</option>
+            <label for="selectDia">¿Qué día?</label>
+            <select class="form-control" id="selectDia">
             </select>
           </div>
-      </p>
+        </p>
       </div>
     </div>
-    <div class="row">
+
+    <div id="noHorario" style="display: none">
+      No existen horarios que cumplan con los datos ingresados.
+    </div>
+
+    <div class="horas row" style="display: none">
       <div class="col-md-12" style="display: inline-flex;">
-        <ul style="flex-direction: row; flex-wrap: wrap; display: flex;">
-          <li class="selechora"><button class="botonhorareserva">12:00</button></li>
-          <li class="selechora"><button class="botonhorareserva">12:00</button></li>
-          <li class="selechora"><button class="botonhorareserva">12:00</button></li>
-          <li class="selechora"><button class="botonhorareserva">12:00</button></li>
-          <li class="selechora"><button class="botonhorareserva">12:00</button></li>
-          <li class="selechora"><button class="botonhorareserva">12:00</button></li>
-          <li class="selechora"><button class="botonhorareserva">12:00</button></li>
-          <li class="selechora"><button class="botonhorareserva">12:00</button></li>
-          <li class="selechora"><button class="botonhorareserva">12:00</button></li>
-          <li class="selechora"><button class="botonhorareserva">12:00</button></li>
-          <li class="selechora"><button class="botonhorareserva">12:00</button></li>
-          <li class="selechora"><button class="botonhorareserva">12:00</button></li>
-          <li class="selechora"><button class="botonhorareserva">12:00</button></li>
-          <li class="selechora"><button class="botonhorareserva">12:00</button></li>
-          <li class="selechora"><button class="botonhorareserva">12:00</button></li>
-          <li class="selechora"><button class="botonhorareserva">12:00</button></li>
+        <ul  id="selecHoras" style="flex-direction: row; flex-wrap: wrap; display: flex;">
         </ul>
       </div>
       <div style="text-align: center;">
-        <a href="#" class="page-scroll btn btn-xl" style="max-width: 300px; margin: 5% 0;">RESERVAR</a>
+        <a href="#" onClick="checkLogin()" id="reservar" class="page-scroll btn btn-xl" style="max-width: 300px; margin: 5% 0;">RESERVAR</a>
       </div>
     </div>
-  </div> 
 
- <?php include("includes/footer.php"); ?>
+    <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>No has iniciado sesión</h3>
+          </div>
+          <div class="modal-body">
+            <h5>Por favor, inicie sesión para continuar</h5>
+
+          </div>
+          <div class="modal-footer">
+            <a href="login.php" data-confirm="modal" class="btn btn-info" id="botonLogin">Iniciar sesión</a>
+            <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="realizarReserva" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>Confirmar Reserva</h3>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="alert alert-info" style="text-align: center; font-size: 1.5em;">
+                  <strong>Atención!</strong> Esta reserva no posee ningún descuento.
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="titulo">ZAMPA | Cocina + Barra</h3>
+                <p id="cantidadReserva"></p>
+                <p id="horarioReserva" >21:30 hs. | Mañana 10 de Octubre</p>
+                <p id="direccionLocal" >Av. Bartolomé Mitre 794, Ciudad</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a href="#" class="page-scroll btn btn-xl" style="max-width: 300px; margin: 5% 0;">MODIFICAR</a>
+
+            <a href="#" class="page-scroll btn btn-xl" style="max-width: 300px; margin: 5% 0;">CONFIRMAR RESERVA</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+  <?php include("includes/footer.php"); ?>
 
 
   <!-- jQuery -->
@@ -201,6 +249,12 @@
 
   <script  src=" https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"
   crossorigin="anonymous"></script>
+  <!-- Funciones de Local JavaScript -->
+  <script src="js/controladores/reserva.controlador.js"></script>
+  <script>
+    setJWT('<?php echo $jwt; ?>');
+    getOpcionesReservaLocal('<?php echo $idLocal; ?>');
+  </script>
 
 </body>
 

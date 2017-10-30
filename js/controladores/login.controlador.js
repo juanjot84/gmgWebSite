@@ -17,6 +17,13 @@ $(function () {
 
 });
 
+var redirect = 'mi-perfil.php';
+
+function setRedirect(url){
+  if(!_.isNil(url))
+  redirect = url;
+}
+
 function login() {
 
   var login = JSON.stringify({
@@ -24,16 +31,14 @@ function login() {
     "password":$("#passwordUsuario").val()
   });
   $.ajax({
-    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/webLogin',
+    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/sign_in',
     type: "POST",
 
     dataType: "json",
     crossDomain: true,
     contentType:"application/json",
     success: function (data) {
-      var tipoUsuario = 'usuarioNegocio';
-      var idNegocio = '59c98d0394897d2100a5727f';
-      crearSesion(tipoUsuario, idNegocio, data);
+      crearSesion(data);
     },
     error:function(jqXHR,textStatus,errorThrown){
       alert('error');
@@ -45,30 +50,21 @@ function login() {
   });
 };
 
-function crearSesion(tipoUs, idNeg, data){
-// EJEMPLO uso del jwt_decode 
-//   var token = 'eyJ0eXAiO.../// jwt token';
-// var decoded = jwt_decode(token);
-// console.log(decoded);
-
-  var parametros = {
-          "tipoUsuario" : tipoUs,
-          "idNegocio" : idNeg
+function crearSesion(jwt){
+  var parametros =  {
+    "jwt" : jwt.token
   };
   $.ajax({
-          data:  parametros,
-          url:   'login.php',
-          type:  "POST",
-          error: function(){
-
-          },
-          success:  function(response) {
-            var url = "mi-perfil.php";
-            $(location).attr('href',url);
-          }
+    data:  parametros,
+    url:   'redirect-login.php',
+    type:  "POST",
+    error: function(){
+    },
+    success:  function(response) {
+      $(location).attr('href',redirect);
+    }
   });
 }
-
 
 function validar() {
   var nombre = $("#nombre").val();
@@ -90,34 +86,33 @@ function validar() {
     hayError=caracteresCorreoValido(email);
   }
 
- if(nombre.length < 2){
+  if(nombre.length < 2){
     $("#nombre").parent().after('<span id="nombreAlert" style="color:red"> Debe ingresar el Nombre del Usuario</span>');
     $("#nombre").addClass('alert-danger');
     hayError=true;
- }
-
- if (password.length < 6){
-  $("#password").parent().after('<span id="passwordAlert" style="color:red"> La contraseña debe tener al menos 6 caracteres</span>');
-  $("#password").addClass('alert-danger');
-  hayError=true;
- } else {
-  if (password!=password2) {
-    $("#password2").parent().after('<span id="password2Alert" style="color:red"> Las contraseñas no coinciden entre si</span>');
-    $("#password2").addClass('alert-danger');
-    hayError=true
   }
- }
+
+  if (password.length < 6){
+    $("#password").parent().after('<span id="passwordAlert" style="color:red"> La contraseña debe tener al menos 6 caracteres</span>');
+    $("#password").addClass('alert-danger');
+    hayError=true;
+  } else {
+    if (password!=password2) {
+      $("#password2").parent().after('<span id="password2Alert" style="color:red"> Las contraseñas no coinciden entre si</span>');
+      $("#password2").addClass('alert-danger');
+      hayError=true
+    }
+  }
 
 
- if (hayError!=true) {
-  register();
- }
+  if (hayError!=true) {
+    register();
+  }
 
 
 }
 
 function register() {
-
   var register = JSON.stringify({
     "nombre": $("#nombre").val(),
     "email": $("#email").val(),
@@ -125,21 +120,18 @@ function register() {
   });
 
   $.ajax({
-      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/register',
-      type: "POST",
+    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/register',
+    type: "POST",
 
-      dataType: "json",
-      crossDomain: true,
-      contentType:"application/json",
-      success: function (data) {
+    dataType: "json",
+    crossDomain: true,
+    contentType:"application/json",
+    success: function (data) {
+      crearSesion(data);
+    },
+    error:function(jqXHR,textStatus,errorThrown){
 
-      var url = "../gmgWebSite/";
-        $(location).attr('href',url);
-
-      },
-      error:function(jqXHR,textStatus,errorThrown){
-
-      },
+    },
     data: register
   });
 };
