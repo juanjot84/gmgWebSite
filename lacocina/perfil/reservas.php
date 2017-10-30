@@ -36,8 +36,6 @@ if (!$_SESSION) {
     }
 ?>
 
-    
-
     <div class="container-fluid" style="padding: 1%;background: yellow;margin-top: -21px;">
         <div class="container">
             <div class="row">
@@ -66,71 +64,6 @@ if (!$_SESSION) {
     <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
 
         <div class="panel-heading tituloseccion">Reservas</div>
-
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                      <p class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseA">
-                        <table class="table" style="margin-bottom: 0;">                        
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        Local 1
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table></a>
-                      </p>
-                    </div>
-                    <div id="collapseA" class="panel-collapse collapse in">
-                      <div class="panel-body">
-
-                        <div class="row">
-                            <div class="col-md-12">
-<!-- Segundo bucle de locales -->
-                                <h3 >Hoy</h3>
-
-                                  <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                      <p class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseA1">
-                                        <table class="table" style="margin-bottom: 0;">                        
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        Roberto Carlos Hernández
-                                                    </td>
-                                                    <td><img src="imgs/adultos.png"> 3</td>
-                                                    <td><img src="imgs/ninos.png"> 1</td>
-                                                    <td>21:30 hs</td>
-                                                    <td><i class="fa fa-cutlery" aria-hidden="true"></i></td>
-                                                    <td class="centrarbotaccion">
-                                                        <button title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>
-                                                        <button title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                                        <button title="Eliminar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table></a>
-                                      </p>
-                                    </div>
-                                    <div id="collapseA1" class="panel-collapse collapse">
-                                      <div class="panel-body">
-
-                                        <p><i class="fa fa-mobile" aria-hidden="true"></i> +54 9 261 000 0000</p>
-                                        <p><i class="fa fa-envelope-o" aria-hidden="true"></i> mail@mail.com</p>
-                                        <p>Observaciones:</p>
-                                      </div>
-                                    </div>
-                                  </div>
-
-                            </div>
-                        </div>
-
-                      </div>
-                    </div>
-                </div>
-
 
              <div class="container locales">
                  
