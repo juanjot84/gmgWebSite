@@ -65,7 +65,7 @@ if (!$_SESSION) {
             <form action="" id="formularioLocal">
               <h2 class="tituloseccion">Alta De Local</h2>
 
-                <h5 class="titulosalta"> Datos de contacto del local visibles para el clinte</h5>
+                <h5 class="titulosalta"> Datos de contacto del local visibles para el cliente</h5>
 
                     <p>
                         <div class="input-group input-group-sm">
