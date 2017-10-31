@@ -77,6 +77,11 @@ function renderReservas(reservasLocal){
             
           }
 
+          var medioDeReserva = '';
+          if (reserva.medioReserva == 'gmg'){
+            medioDeReserva = 'fa fa-cutlery';
+          }
+
           $('.container.'+conteinReservas).append(''+
               '<div class="panel panel-default">'+
                   '<div class="panel-heading">'+
@@ -91,10 +96,11 @@ function renderReservas(reservasLocal){
                             '<td><img src="imgs/adultos.png">'+reserva.cubiertosAdultos+'</td>'+
                             '<td><img src="imgs/ninos.png">'+reserva.cubiertosMenores+'</td>'+
                             '<td>'+reserva.horaSola+' hs</td>'+
-                            '<td><i class="fa fa-cutlery" aria-hidden="true"></i></td>'+
+                            '<td><i class="'+medioDeReserva+'" aria-hidden="true"></i></td>'+
                             '<td class="centrarbotaccion">'+
                               '<button title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>'+
-                              '<button title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>'+
+                              '<button title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>'+ 
+                              '<button title="Eliminar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>'+ 
                             '</td>'+
                           '</tr>'+
                         '</tbody>'+
