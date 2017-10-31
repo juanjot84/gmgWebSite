@@ -566,3 +566,20 @@ button#botoncancelar {
 .panel.panel-default {
     min-height: 40vh;
 }
+.btn-danger {
+    color: #fff;
+    background-color: #000000;
+    border-color: #000000;
+}
+
+.btn-danger:hover {
+    color: #505050 !important;
+    background-color: #ffff00;
+    border-color: #dfdfdf;
+}
+
+.btn-danger.active, .btn-danger:active, .open>.dropdown-toggle.btn-danger {
+    color: #505050 !important;
+    background-color: #ffff00;
+    border-color: #dfdfdf;
+}
