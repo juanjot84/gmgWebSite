@@ -85,7 +85,7 @@ function renderReservas(reservasLocal){
                       '<table class="table" style="margin-bottom: 0;">'+                        
                         '<tbody>'+
                           '<tr>'+
-                            '<td>'+
+                            '<td style="width: 230px;">'+
                               reserva.nombreUsuarioReserva+
                             '</td>'+
                             '<td><img src="imgs/adultos.png">'+reserva.cubiertosAdultos+'</td>'+
