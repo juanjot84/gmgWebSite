@@ -64,12 +64,12 @@ if (!$_SESSION) {
     <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
 
         <div class="panel-heading tituloseccion">Reservas</div>
-
+        
              <div class="container locales">
                  
 
-
-             </div>   
+<center><div id="loading"></div></center> 
+             </div>
 
     </div>
 

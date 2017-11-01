@@ -5,7 +5,7 @@ obtenerListado();
 function obtenerListado() {
     var idNegocio = $('#idNegocio').val();
     $('.container.negocios').html('');
-    $('#target').html('obteniendo...');
+    $('#loading').html('<img class="img-responsive" src="/imgs/loading.gif">');
     $.ajax({
         url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/reservasPendienteNegocio?id='+ idNegocio +"",
         type: 'GET',
@@ -14,7 +14,9 @@ function obtenerListado() {
         contentType:"application/json",
         success: function (data) {
              renderReservas(data);
+             
       },
+
       error:function(jqXHR,textStatus,errorThrown)
       {
           $('#target').append("jqXHR: "+jqXHR);
@@ -67,8 +69,8 @@ function renderReservas(reservasLocal){
 
         _.each(local, function(reserva){
 
-          if(fecha != reserva.fechaReserva){
-            fecha = reserva.fechaReserva;
+          if(fecha != reserva.fechaSola){
+            fecha = reserva.fechaSola;
             conteinReservas++;
             $('.container.'+contLocales).append(''+
                 '<h3 >'+fecha+'</h3>'+
@@ -119,7 +121,7 @@ function renderReservas(reservasLocal){
 
 
             collapseReserva++;
-            fecha = reserva.fechaReserva;
+            fecha = reserva.fechaSola;
         });
 
 
@@ -127,5 +129,5 @@ function renderReservas(reservasLocal){
         contLocales++;
     } );
 
-
+    $('#loading').hide();
 }
