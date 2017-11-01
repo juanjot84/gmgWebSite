@@ -73,6 +73,41 @@ if (!$_SESSION) {
 
     </div>
 
+<div class="container" style="height: 90vh; margin-top: 10%;">
+  
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="display: none">Editar Reserva</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Editar Reserva</h4>
+        </div>
+        <div class="modal-body">
+          <p>Juan Carlos Hernandez | <i class="fa fa-cutlery" aria-hidden="true"></i> </p>
+          <p><span style="font-size: 1.5em;"><strong>Bardot</strong> | Comer &amp; Beber</span></p>
+          <p>Reserva para
+            <input type="text" class="form-control" placeholder="3" aria-describedby="sizing-addon3"> personas</p>
+          <p>El día
+            <input type="text" class="form-control" placeholder="3 de octubre" aria-describedby="sizing-addon3"></p>
+          <p>A las <input type="text" class="form-control" placeholder="21:00 hs" aria-describedby="sizing-addon3"></p>
+          <p>Observaciones:</p>
+          <p> <textarea class="form-control" rows="3" id="comment"></textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <div class="modal-footer">
+          <button id="botonGuardar" type="button" class="btn btn-default" data-dismiss="modal">Guardar cambios</button>
+          <button id="botoncancelar" type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>  
+    </div>
+  </div>
+  
+</div>
+
+
 
     <div class="container">
 
