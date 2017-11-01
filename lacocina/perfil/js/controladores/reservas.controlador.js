@@ -69,8 +69,8 @@ function renderReservas(reservasLocal){
 
         _.each(local, function(reserva){
 
-          if(fecha != reserva.fechaSola){
-            fecha = reserva.fechaSola;
+          if(fecha != reserva.fechaReserva){
+            fecha = reserva.fechaReserva;
             conteinReservas++;
             $('.container.'+contLocales).append(''+
                 '<h3 >'+fecha+'</h3>'+
@@ -121,7 +121,7 @@ function renderReservas(reservasLocal){
 
 
             collapseReserva++;
-            fecha = reserva.fechaSola;
+            fecha = reserva.fechaReserva;
         });
 
 
