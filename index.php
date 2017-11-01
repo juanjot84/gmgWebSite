@@ -81,15 +81,15 @@
             <form action="resultados-busqueda.php" method="post">
               <input type="text" class="form-control" placeholder="Qué buscas?" name="parametro">
 
-              <div class="filtros">
+              <!-- <div class="filtros">
                 <input type="radio" name="filtro" value="nombre" aria-label="..."> POR NOMBRE
                 <input type="radio" name="filtro" value="localidad" aria-label="..."> POR ZONA
                 <input type="radio" name="filtro" value="tipoCocina" aria-label="..."> TIPO DE COMIDA
-              </div>
+              </div> -->
               <div style="padding-top: 5%;">
-                <button type="button" class="btn btn-default">FECHA</button>
+                <!-- <button type="button" class="btn btn-default">FECHA</button>
                 <button type="button" class="btn btn-default">HORA</button>
-                <button type="button" class="btn btn-default">COMENSALES</button>
+                <button type="button" class="btn btn-default">COMENSALES</button> -->
                 <button type="submit" class="btn btn-default btnbuscar">BUSCAR</button>
               </div>
             </form>
@@ -108,7 +108,7 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading">Ocasiones</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          
         </div>
       </div>
 
@@ -138,7 +138,7 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading">POLOS GASTRONÓMICOS</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          
         </div>
       </div>
       <div class="row">
@@ -201,6 +201,9 @@
 
   <!-- ELEGÍ TU COCINA -->
   <section id="team" class="bg-light-gray">
+
+    <h2 style="text-align: center; margin-bottom: 2%;" class="section-heading">Elegí tu cocina</h2>
+
     <div class="container tipoCocinas">
 
     </div>

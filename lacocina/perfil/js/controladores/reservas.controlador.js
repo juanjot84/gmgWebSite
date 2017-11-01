@@ -80,8 +80,12 @@ function renderReservas(reservasLocal){
           }
 
           var medioDeReserva = '';
+          var botonEditar = '';
           if (reserva.medioReserva == 'gmg'){
             medioDeReserva = 'fa fa-cutlery';
+            botonEditar = '';
+          }else{
+              botonEditar = '<button title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>';
           }
 
           $('.container.'+conteinReservas).append(''+
@@ -101,7 +105,7 @@ function renderReservas(reservasLocal){
                             '<td><i class="'+medioDeReserva+'" aria-hidden="true"></i></td>'+
                             '<td class="centrarbotaccion">'+
                               '<button title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>'+
-                              '<button title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>'+
+                              botonEditar +
                               '<button title="Eliminar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>'+
                             '</td>'+
                           '</tr>'+

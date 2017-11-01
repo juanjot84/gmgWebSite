@@ -23,17 +23,16 @@ if (!$_SESSION) {
 <?php include("includes/nav.php"); ?>
 
 
-
-    <div class="container">
-        <div class="row">
-             <div class="row">
-                <div class="col-md-6 text-center" style="padding-top: 15%;">
-                    <span style="font-size: 3em;">Panel de Administración</span>
+    <div class="container-fluid fondococina">
+        <div class="container">
+                 <div class="row">
+                    <div class="col-md-6 text-center" style="padding-top: 15%;">
+                        <span style="font-size: 4em; color: #fff;">La cocina</span>
+                    </div>
+                    <div class="col-md-6">
+                        <span></span>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <img style="margin: 0 auto;" class="img-responsive" src="img/cortes.png">
-                </div>
-            </div>
         </div>
     </div>
 

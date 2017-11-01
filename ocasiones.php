@@ -48,42 +48,42 @@
               <div id="owl-demo" class="owl-carousel">
                 <div class="item"><img class="img-responsive fotosocasiones" style="max-width:280px; " src="img/ocasion01.png">  
                   <h2 class="section-heading">Cena romántica</h2>
-                  <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                  
 
                 </div>
                 <div class="item"><img class="img-responsive fotosocasiones" style="max-width:280px; " src="img/ocasion02.png">  
                   <h2 class="section-heading">Salida en familia</h2>
-                  <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                  
 
                 </div>
                 <div class="item"><img class="img-responsive fotosocasiones" style="max-width:280px; " src="img/ocasion03.png">  
                   <h2 class="section-heading">Juntada con amigos</h2>
-                  <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                  
 
                 </div>
                 <div class="item"><img class="img-responsive fotosocasiones" style="max-width:280px; " src="img/ocasion04.png">  
                   <h2 class="section-heading">Comer con niños</h2>
-                  <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                  
 
                 </div>
                 <div class="item"><img class="img-responsive fotosocasiones" style="max-width:280px; " src="img/ocasion05.png">  
                   <h2 class="section-heading">Reunión de negocios</h2>
-                  <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                  
 
                 </div>
                 <div class="item"><img class="img-responsive fotosocasiones" style="max-width:280px; " src="img/ocasion06.png">  
                   <h2 class="section-heading">Festejo</h2>
-                  <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                  
 
                 </div>
                 <div class="item"><img class="img-responsive fotosocasiones" style="max-width:280px; " src="img/ocasion07.png">  
                   <h2 class="section-heading">Pic nic</h2>
-                  <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                  
 
                 </div>
                 <div class="item"><img class="img-responsive fotosocasiones" style="max-width:280px; " src="img/ocasion08.png">  
                   <h2 class="section-heading">Fin de año</h2>
-                  <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                  
 
                 </div>
               </div>

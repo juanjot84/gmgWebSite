@@ -2,10 +2,11 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4 menufooter">
-          <p><a style="color: #000;" href="#">Quiénes somos</a></p>
-          <p><a style="color: #000;" href="#">Términos y condiciones</a></p>
+          <p><a style="color: #000;" href="quienes-somos.php">Quiénes somos</a></p>
+          <p><a style="color: #000;" href="terminos-y-condiciones.php">Términos y condiciones</a></p>
           <p><a style="color: #000;" href="politicas-de-privacidad.php">Políticas de privacidad</a></p>
-          <p><a style="color: #000;" href="#">Preguntas frecuentes</a></p>
+          <p><a style="color: #000;" href="faqs.php">Preguntas frecuentes</a></p>
+          <p><a style="color: #000; font-weight: bold; text-transform: uppercase; font-size: 1.2em;" target="_blank" href="#"><i class="fa fa-map-o" aria-hidden="true"></i></i> Descargá el mapa Ciudad / Palmares</a></p>
         </div>
         <div class="col-md-4 menufooter">
         
@@ -19,11 +20,11 @@
         <div class="col-md-4">
 
           <ul class="list-inline social-buttons">
-            <li><a href="#"><i class="fa fa-twitter"></i></a>
+            <li><a target="_blank" href="https://twitter.com/guiamendozagour"><i class="fa fa-twitter"></i></a>
             </li>
-            <li><a href="#"><i class="fa fa-facebook"></i></a>
+            <li><a target="_blank" href="https://www.facebook.com/guiamendozagourmet"><i class="fa fa-facebook"></i></a>
             </li>
-            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+            <li><a target="_blank" href="https://www.instagram.com/guiamendozagourmet"><i class="fa fa-linkedin"></i></a>
             </li>
           </ul>
 

@@ -72,7 +72,10 @@ ul.social-buttons li a {
 }
 ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
     background-color: #ffff00 !important;
+    color: #000 !important;
+    border: 1px solid #000;
     color: #111;
+    margin-top: -1px;
 }
 h3 {
     text-transform: none !important;
@@ -123,17 +126,18 @@ header .intro-text {
     padding-bottom: 0px !important;
 }
 button.btn.btn-default.btnbuscar {
-    padding: 6px 10%;
+    padding: 10px 20%;
     background-color: #000000;
     border-color: #000;
     margin: 15px 0;
     color: white;
-    margin-left: 7%;
+    margin-left: 0%;
 }
 button.btn.btn-default.btnbuscar:hover {
-    padding: 6px 10%;
-    background-color: #ccc;
-    border-color: #ccc;
+    padding: 10px 20%;
+    background-color: #f8f8f8;
+    border-color: #cecece;
+    color: #000;
 }
 .texto-ficha {
     color: #111;

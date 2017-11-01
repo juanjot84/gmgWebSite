@@ -583,3 +583,9 @@ button#botoncancelar {
     background-color: #ffff00;
     border-color: #dfdfdf;
 }
+.fondococina {
+    background: url(img/back-cocina.jpg) no-repeat;
+    height: 645px;
+    margin-top: -1.2%;
+    background-size: cover;
+}

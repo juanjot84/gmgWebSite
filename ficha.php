@@ -255,80 +255,13 @@
             </div>
         </section>
 
-    <section style="background-color: #f7f7f7;">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h2 class="titulocomentarios">Comentarios</h2>
-                </div><!-- /col-sm-12 -->
-            </div><!-- /row -->
-            <div class="row">
-                <div class="col-sm-1">
-                    <div class="thumbnail">
-                        <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-                    </div><!-- /thumbnail -->
-                </div><!-- /col-sm-1 -->
-
-                <div class="col-sm-5">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <strong>nombre de usuario</strong> <span class="text-muted">Hace 3 días</span>
-                        </div>
-                        <div class="panel-body">
-                            Lorem ipsum dolor sit amet consectetur
-                        </div><!-- /panel-body -->
-                    </div><!-- /panel panel-default -->
-                </div><!-- /col-sm-5 -->
-            </div><!-- /row -->
-
-            <div class="row">
-                <div class="col-sm-1">
-                    <div class="thumbnail">
-                        <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-                    </div><!-- /thumbnail -->
-                </div><!-- /col-sm-1 -->
-
-                <div class="col-sm-5">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <strong>nombre de usuario</strong> <span class="text-muted">Hace 3 días</span>
-                        </div>
-                        <div class="panel-body">
-                            Lorem ipsum dolor sit amet consectetur
-                        </div><!-- /panel-body -->
-                    </div><!-- /panel panel-default -->
-                </div><!-- /col-sm-5 -->
-            </div><!-- /row -->
-
-            <div class="row">
-                <div class="col-sm-1">
-                    <div class="thumbnail">
-                        <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-                    </div><!-- /thumbnail -->
-                </div><!-- /col-sm-1 -->
-
-                <div class="col-sm-5">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <strong>nombre de usuario</strong> <span class="text-muted">Hace 3 días</span>
-                        </div>
-                        <div class="panel-body">
-                            Lorem ipsum dolor sit amet consectetur
-                        </div><!-- /panel-body -->
-                    </div><!-- /panel panel-default -->
-                </div><!-- /col-sm-5 -->
-            </div><!-- /row -->
-
-        </div><!-- /container -->
-    </section>
 
         <!-- Publicidad -->
         <section style="padding: 0px 0 !important;">
             <div class="container-fluid fondopubli">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2 style="color: #fff; padding-top: 8%;" class="section-heading">PUBLICIDAD</h2>
-                        <h3 style="color: #fff;" class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    
                     </div>
                 </div>
             </div>
