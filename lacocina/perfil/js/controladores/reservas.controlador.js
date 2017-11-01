@@ -12,8 +12,8 @@ function obtenerListado() {
         dataType: "json",
         crossDomain: true,
         contentType:"application/json",
-        success: function (data) {   
-             renderReservas(data); 
+        success: function (data) {
+             renderReservas(data);
       },
       error:function(jqXHR,textStatus,errorThrown)
       {
@@ -33,13 +33,13 @@ function renderReservas(reservasLocal){
    var conteinReservas = 999;
 
     _.each(reservasLocal, function(local,index){
-   
+
       $('.container.locales').append(''+
           '<div class="panel panel-default">'+
               '<div class="panel-heading">'+
                   '<p class="panel-title">'+
                     '<a data-toggle="collapse" data-parent="#accordion" href="#'+index+'">'+
-                      '<table class="table" style="margin-bottom: 0;">'+                        
+                      '<table class="table" style="margin-bottom: 0;">'+
                         '<tbody>'+
                           '<tr>'+
                             '<td>'+
@@ -63,18 +63,18 @@ function renderReservas(reservasLocal){
       '');
 
          var fecha = '';
-         
 
-        _.each(local, function(reserva){  
-          
-          if(fecha != reserva.fechaSola){
-            fecha = reserva.fechaSola;
+
+        _.each(local, function(reserva){
+
+          if(fecha != reserva.fechaReserva){
+            fecha = reserva.fechaReserva;
             conteinReservas++;
             $('.container.'+contLocales).append(''+
                 '<h3 >'+fecha+'</h3>'+
                 '<div class="container '+conteinReservas+'"></div>'+
             '');
-            
+
           }
 
           var medioDeReserva = '';
@@ -87,7 +87,7 @@ function renderReservas(reservasLocal){
                   '<div class="panel-heading">'+
                     '<p class="panel-title">'+
                       '<a data-toggle="collapse" data-parent="#accordion" href="#'+collapseReserva+'">'+
-                      '<table class="table" style="margin-bottom: 0;">'+                        
+                      '<table class="table" style="margin-bottom: 0;">'+
                         '<tbody>'+
                           '<tr>'+
                             '<td style="width: 230px;">'+
@@ -99,8 +99,8 @@ function renderReservas(reservasLocal){
                             '<td><i class="'+medioDeReserva+'" aria-hidden="true"></i></td>'+
                             '<td class="centrarbotaccion">'+
                               '<button title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>'+
-                              '<button title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>'+ 
-                              '<button title="Eliminar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>'+ 
+                              '<button title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>'+
+                              '<button title="Eliminar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>'+
                             '</td>'+
                           '</tr>'+
                         '</tbody>'+
@@ -116,18 +116,16 @@ function renderReservas(reservasLocal){
                   '</div>'+
                 '</div>'+
           '');
-          
+
 
             collapseReserva++;
-            fecha = reserva.fechaSola;
+            fecha = reserva.fechaReserva;
         });
 
 
 
-        contLocales++; 
+        contLocales++;
     } );
 
 
 }
-
-
