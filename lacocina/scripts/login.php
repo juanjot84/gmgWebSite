@@ -7,5 +7,6 @@ if (!isset($_SESSION)) {
 
 $_SESSION['tipoUsuario'] = $_POST["tipoUsuario"];
 $_SESSION['idNegocio'] = $_POST["idNegocio"];
+$_SESSION['jwt'] = $_POST["jwt"];
 
 ?>

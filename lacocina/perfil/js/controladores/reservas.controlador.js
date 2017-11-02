@@ -1,7 +1,7 @@
 
 var jwt;
 
-obtenerListado();
+
 
 
 function obtenerListado() {
@@ -30,7 +30,7 @@ function obtenerListado() {
 
 
 function renderReservas(reservasLocal){
-
+   $('.container.locales').html('');
    var cantLocales = _.size(reservasLocal);
    var contLocales = 1;
    var collapseReserva = 99999;
@@ -185,31 +185,26 @@ function mostrarModal(idModal,accion){
 function accion(idModal,accion){
     if(accion == 'cancelar'){
        var idReserva = $("#id"+idModal).val();
-       cancelarReserva(idReserva);
+       cancelarReserva(idReserva, idModal);
     }
 }
 
-function setJWT(jwtToken, local){
-  idLocal = local;
+function setJWT(jwtToken){
   if (_.isNil(jwtToken)) {
-    mostrarModalLogin();
+    //redireccionar al loguin
   } else {
     jwt = jwtToken;
-    getOpcionesReservaLocal(idLocal);
-  
+    obtenerListado(); 
+    } 
 };
 
-function isLoggedIn(){
-  if (_.isNil(jwt)) {
-    return false;
-  } else {
-    return true;
-  }
-};
 
-function cancelarReserva(idReserva){
+function cancelarReserva(idReserva, idModal){
     $('.container.negocios').html('');
     $('#loading').html('<img class="img-responsive" src="/imgs/loading.gif">');
+        var parametros = {
+            "comentarioUsuarioReserva" : $("#comment"+idModal).val(),
+        };
     $.ajax({
         url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/reservaCancelar?id='+ idReserva +"",
         type: 'POST',
@@ -229,6 +224,7 @@ function cancelarReserva(idReserva){
       },
       headers: {
         Authorization: 'JWT ' + jwt
-      }
+      },
+      data: parametros
   });
 }

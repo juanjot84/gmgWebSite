@@ -30,10 +30,10 @@ function login() {
 
         if(tipoUsuario == 'superAdmin'){
           idNegocio = '';
-          crearSesion(tipoUsuario, idNegocio);
+          crearSesion(tipoUsuario, idNegocio, token);
         }
         if(tipoUsuario == 'usuarioNegocio'){
-          crearSesion(tipoUsuario, idNegocio);
+          crearSesion(tipoUsuario, idNegocio, token);
         }
       },
       error:function(jqXHR,textStatus,errorThrown){
@@ -45,10 +45,11 @@ function login() {
   });
 };
 
-function crearSesion(tipoUs, idNeg){
+function crearSesion(tipoUs, idNeg, token){
         var parametros = {
                 "tipoUsuario" : tipoUs,
-                "idNegocio" : idNeg
+                "idNegocio" : idNeg,
+                "jwt": token
         };
         $.ajax({
                 data:  parametros,

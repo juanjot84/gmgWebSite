@@ -2,6 +2,7 @@
 
 $idNegocio = $_SESSION['idNegocio'];
 $tipoUsuario = $_SESSION['tipoUsuario'];
+$jwt = $_SESSION['jwt'];
 
 if (!$_SESSION) {
        header('Location: ../index.php');
@@ -158,6 +159,9 @@ if (!$_SESSION) {
 
     });
 
+</script>
+<script>
+    setJWT('<?php echo $jwt; ?>');
 </script>
 
 </body>
