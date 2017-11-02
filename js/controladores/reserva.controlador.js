@@ -5,6 +5,8 @@ var coords = {};    //coordenadas obtenidas con la geolocalización
 var iconBase = 'http://guiamendozagourmet.com/map/'; //direccion base del icono de marcador
 var local = '';
 var jwt;
+var horaSeleccionada;
+var idLocal;
 
 $('#selectDia, #selectAdulto, #selectNino ').change( function (){
   $('.horas').hide();
@@ -16,7 +18,6 @@ $('#selectDia, #selectAdulto, #selectNino ').change( function (){
 //Funcion principal
 //TODO: buscar datos del local
 function getOpcionesReservaLocal(idLocal) {
-    local= idLocal
 
     var localData = $.ajax({
         url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id=' + idLocal,
@@ -57,17 +58,26 @@ function getOpcionesReservaLocal(idLocal) {
 
 }
 
-function setJWT(jwtToken){
-  if (!_.isNil(jwtToken))
+function setJWT(jwtToken, local){
+  idLocal = local;
+  if (_.isNil(jwtToken)) {
+    mostrarModalLogin();
+  } else {
     jwt = jwtToken;
+    getOpcionesReservaLocal(idLocal);
+  
 };
 
-function checkLogin(){
-  if (!jwt) {
-    $("#botonLogin").attr("href", 'login.php?redirect=' + encodeURIComponent(window.location.href));
-    $("#mostrarmodal").modal("show");
+function mostrarModalLogin(){
+  $("#botonLogin").attr("href", 'login.php?redirect=' + encodeURIComponent(window.location.href));
+  $("#mostrarmodal").modal("show");
+}
+
+function isLoggedIn(){
+  if (_.isNil(jwt)) {
+    return false;
   } else {
-    realizarReserva()
+    return true;
   }
 };
 
@@ -75,10 +85,10 @@ function buscarHorarios() {
   $('.horas').hide();
   $('#noHorario').hide();
   var data = {
-    'idLocal': local,
+    'idLocal': idLocal,
     'fechaReserva': $('#selectDia').val(),
     'cubiertosAdultosReservados': $('#selectAdulto').val(),
-    'cubiertosMenoresReservados': $('#selectNino').val(),
+    'cubiertosMenoresReservados': $('#selectNino').val()
   };
   $.ajax({
     url: 'http://aqueous-woodland-46461.herokuapp.com/api/v1/admin/reservas',
@@ -113,7 +123,7 @@ function popularOpcionesReserva(opciones) {
 
     if (!_.isNil(opcion.descuento))
       datosDia += espacio + opcion.descuento;
-      var option = $('<option>').val(opcion.fecha).text(datosDia);
+    var option = $('<option>').val(opcion.fecha).attr('descuento', opcion.descuento).text(datosDia);
     option.appendTo('#selectDia')
   })
 }
@@ -122,29 +132,54 @@ function mostrarHoras(horas) {
   $('#selecHoras').html('');
   _.each(horas, function (hora){
     var li = $('<li>').val(hora.valor).text(hora.key);
-    $('#selecHoras').append('<li class="selechora" value="' + hora.valor + '"><button class="botonhorareserva">' + hora.key + '</button></li>');
+    $('#selecHoras').append('<li class="selechora" value="' + hora.valor + '"  onClick="seleccionarHora(\'' + hora.key + '\')"><button class="botonhorareserva">' + hora.key + '</button></li>');
   })
   $('.horas').show();
+}
+
+function seleccionarHora(hora){
+  horaSeleccionada = hora;
 }
 
 // TODO obtener horario de la reserva seleccionado
 function realizarReserva() {
-  $("#realizarReserva").modal("show");
-
-  $("#cantidadReserva").html("Reserva para " + $('#selectAdulto').val() + " adultos y " + $('#selectNino').val() + " niño");
-  $("#horarioReserva").html("21:30 hs. | " + $('#selectDia').val());
+  if (isLoggedIn()) {
+    $("#realizarReserva").modal("show");
+    $("#cantidadReserva").html("Reserva para " + $('#selectAdulto').val() + " adultos y " + $('#selectNino').val() + " niño");
+    $("#horarioReserva").html(horaSeleccionada + " hs. | " + $('#selectDia').val());
+  } else {
+    mostrarModalLogin();
+  }
 }
 
 function confirmarReserva() {
-  $("#realizarReserva").modal("show");
+  var data = {
+    'idLocal': idLocal,
+    'fechaReserva': $('#selectDia').val(),
+    'horaReserva': horaSeleccionada,
+    'cubiertosAdultosReservados': $('#selectAdulto').val(),
+    'cubiertosMenoresReservados': $('#selectNino').val()
+  };
+  $.ajax({
+    url: 'http://aqueous-woodland-46461.herokuapp.com/api/v1/admin/reserva',
+    type: 'POST',
+    dataType: "json",
+    crossDomain: true,
+    contentType:"application/json",
+    success: function (data) {
 
-  $("#cantidadReserva").html("Reserva para " + $('#selectAdulto').val() + " adultos y " + $('#selectNino').val() + " niño");
-
-
-  $('#selecHoras').html('');
-  _.each(horas, function (hora){
-    var li = $('<li>').val(hora.valor).text(hora.key);
-    $('#selecHoras').append('<li class="selechora" value="' + hora.valor + '"><button class="botonhorareserva">' + hora.key + '</button></li>');
-  })
-  $('.horas').show();
+      $("#realizarReserva").modal("hide");
+      $("#reservaConfirmada").modal("show");
+    },
+    error:function(jqXHR,textStatus,errorThrown)
+    {
+      $('#target').append("jqXHR: "+jqXHR);
+      $('#target').append("textStatus: "+textStatus);
+      $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+    },
+    headers: {
+        Authorization: 'JWT ' + jwt
+    },
+    data: JSON.stringify(data)
+  });
 }

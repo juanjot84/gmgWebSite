@@ -1,3 +1,7 @@
+<?php session_start();
+    $jwt = $_SESSION['jwt'];
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -37,7 +41,7 @@
 
 <body id="page-top" class="index">
 
-    
+
   <!-- Navigation -->
   <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container">
@@ -70,7 +74,7 @@
 
   <!-- Header -->
   <header>
-    
+
   </header>
 
   <div class="container" style="padding: 7% 0 2% 0;">
@@ -80,7 +84,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -91,39 +95,98 @@
           </div>
         </div>
         <div class="form-group">
+          <label class="control-label col-sm-2" for="apellido">Apellido:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control perfil" id="apellido" placeholder="Nombre y apellido">
+          </div>
+        </div>
+        <div class="form-group">
           <label class="control-label col-sm-2" for="email">Email:</label>
           <div class="col-sm-10">
-            <input type="email" class="form-control perfil" id="email" placeholder="Enter email">
+            <input type="email" class="form-control perfil" disabled="disabled" id="email" placeholder="Enter email">
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-2" for="nombre">Celular:</label>
+          <label class="control-label col-sm-2" for="nroCelular">Celular:</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control perfil" id="celular" placeholder="Celular">
+            <input type="text" class="form-control perfil" id="nroCelular" placeholder="Celular">
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-2" for="nombre">Fecha de nacimiento:</label>
+          <label class="control-label col-sm-2" for="fechaNacimientoUsuario">Fecha de nacimiento:</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control perfil" id="fechanac" placeholder="Fecha de nacimiento">
+            <input type="text" class="form-control perfil" id="fechaNacimientoUsuario" placeholder="Fecha de nacimiento">
           </div>
         </div>
-        <div class="form-group"> 
+        <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
             <div class="checkbox">
-              <label><input type="checkbox"> Acepto los términos y condiciones. <a target="_blank" style="color: #ababab;" href="#">Leer</a></label>
+              <label><input type="checkbox" id="aceptoTerminos"> Acepto los términos y condiciones. <a target="_blank" style="color: #ababab;" href="#">Leer</a></label>
             </div>
           </div>
         </div>
 
         <p>
-          <a href="#" class="page-scroll btn btn-xl" style="max-width: 300px; margin: 5% 0;">MODIFICAR</a>
-          <a href="#" class="page-scroll btn btn-xl" style="max-width: 300px; margin: 5% 0;">GUARDAR</a>
+          <a href="#"  onClick="actualizarPerfil()" class="page-scroll btn btn-xl" style="max-width: 300px; margin: 5% 0;">MODIFICAR</a>
         </p>
       </div>
     </div>
   </div>
 
+  <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h3>No has iniciado sesión</h3>
+        </div>
+        <div class="modal-body">
+          <h5>Por favor, inicie sesión para continuar</h5>
+
+        </div>
+        <div class="modal-footer">
+          <a href="login.php" data-confirm="modal" class="btn btn-info" id="botonLogin">Iniciar sesión</a>
+          <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="aceptarCondiciones" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h3>No has aceptados los términos y condiciones.</h3>
+        </div>
+        <div class="modal-body">
+          <h5>Por favor, acepte los términos y condiciones. para continuar</h5>
+
+        </div>
+        <div class="modal-footer">
+          <a href="#" data-dismiss="modal" class="btn btn btn-xl">Aceptar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="datosActualizados" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h3>Datos actualizados correctamente.</h3>
+        </div>
+        <div class="modal-body">
+          <h5>Sus datos han sido actualizados correctamente</h5>
+
+        </div>
+        <div class="modal-footer">
+          <a href="#" data-dismiss="modal" class="btn btn btn-xl">Aceptar</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <?php include("includes/footer.php"); ?>
 
@@ -140,14 +203,18 @@
   <script src="js/jqBootstrapValidation.js"></script>
   <script src="js/contact_me.js"></script>
 
-  <!-- Funciones de Locales JavaScript -->
-  <script src="js/controladores/locales.controlador.js"></script>
-
   <!-- Theme JavaScript -->
   <script src="js/agency.min.js"></script>
 
   <script  src=" https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"
   crossorigin="anonymous"></script>
+
+  <script src="js/utils/jwt-decode.min.js"></script>
+  <!-- Funciones de perfil JavaScript -->
+  <script src="js/controladores/perfil.controlador.js"></script>
+  <script>
+    setJWT('<?php echo $jwt; ?>');
+  </script>
 
 
 </body>

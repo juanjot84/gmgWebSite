@@ -166,7 +166,7 @@ $idLocal = $_GET["id"];
         </ul>
       </div>
       <div style="text-align: center;">
-        <a href="#" onClick="checkLogin()" id="reservar" class="page-scroll btn btn-xl" style="max-width: 300px; margin: 5% 0;">RESERVAR</a>
+        <a href="#" onClick="realizarReserva()" id="reservar" class="page-scroll btn btn-xl" style="max-width: 300px; margin: 5% 0;">RESERVAR</a>
       </div>
     </div>
 
@@ -207,17 +207,40 @@ $idLocal = $_GET["id"];
 
             <div class="row">
               <div class="col-md-12">
-                <h3 class="titulo">ZAMPA | Cocina + Barra</h3>
+                <h3 class="titulo"></h3>
                 <p id="cantidadReserva"></p>
-                <p id="horarioReserva" >21:30 hs. | Mañana 10 de Octubre</p>
-                <p id="direccionLocal" >Av. Bartolomé Mitre 794, Ciudad</p>
+                <p id="horarioReserva" ></p>
+                <p id="direccionLocal" ></p>
               </div>
             </div>
           </div>
           <div class="modal-footer">
-            <a href="#" class="page-scroll btn btn-xl" style="max-width: 300px; margin: 5% 0;">MODIFICAR</a>
+            <a href="#" class="page-scroll btn btn-xl" data-dismiss="modal" style="max-width: 300px; margin: 5% 0;">MODIFICAR</a>
 
-            <a href="#" class="page-scroll btn btn-xl" style="max-width: 300px; margin: 5% 0;">CONFIRMAR RESERVA</a>
+            <a href="#" class="page-scroll btn btn-xl" onClick="confirmarReserva()" style="max-width: 300px; margin: 5% 0;">CONFIRMAR RESERVA</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="reservaConfirmada" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>Reserva realizada</h3>
+          </div>
+          <div class="modal-body">
+
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="titulo">La reserva se ha realizado correctamente</h3>
+                <p > Un email con los datos sera enviado a su casilla de contacto.</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a href="#" class="page-scroll btn btn-xl"  data-dismiss="modal" style="max-width: 300px; margin: 5% 0;">ACEPTAR</a>
           </div>
         </div>
       </div>
@@ -252,8 +275,7 @@ $idLocal = $_GET["id"];
   <!-- Funciones de Local JavaScript -->
   <script src="js/controladores/reserva.controlador.js"></script>
   <script>
-    setJWT('<?php echo $jwt; ?>');
-    getOpcionesReservaLocal('<?php echo $idLocal; ?>');
+    setJWT('<?php echo $jwt; ?>', '<?php echo $idLocal; ?>');
   </script>
 
 </body>
