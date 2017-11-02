@@ -1,4 +1,6 @@
 
+var jwt;
+
 obtenerListado();
 
 
@@ -81,18 +83,23 @@ function renderReservas(reservasLocal){
 
           var medioDeReserva = '';
           var botonEditar = '';
+          var nombreBoton = '';
+          var tituloModal = '';
+          var cancelar = 'cancelar';
+
           if (reserva.medioReserva == 'gmg'){
             medioDeReserva = 'fa fa-cutlery';
             botonEditar = '';
           }else{
               botonEditar = '<button title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>';
+
           }
 
           $('.container.'+conteinReservas).append(''+
               '<div class="panel panel-default">'+
                   '<div class="panel-heading">'+
                     '<p class="panel-title">'+
-                      '<a data-toggle="collapse" data-parent="#accordion" href="#'+collapseReserva+'">'+
+                      ''+
                       '<table class="table" style="margin-bottom: 0;">'+
                         '<tbody>'+
                           '<tr>'+
@@ -104,13 +111,14 @@ function renderReservas(reservasLocal){
                             '<td>'+reserva.horaSola+' hs</td>'+
                             '<td><i class="'+medioDeReserva+'" aria-hidden="true"></i></td>'+
                             '<td class="centrarbotaccion">'+
-                              '<button title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>'+
+                            '<a data-toggle="collapse" data-parent="#accordion" href="#'+collapseReserva+'">'+
+                              '<button title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button></a>'+
                               botonEditar +
-                              '<button title="Eliminar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>'+
+                              '<button title="Eliminar" class="btn btn-default botaccion" type="button" data-toggle="modal" onClick="mostrarModal(\''+ collapseReserva +'\',\''+cancelar+'\')"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>'+
                             '</td>'+
                           '</tr>'+
                         '</tbody>'+
-                      '</table></a>'+
+                      '</table>'+
                     '</p>'+
                 '</div>'+
                 '<div id="'+collapseReserva+'" class="panel-collapse collapse">'+
@@ -122,26 +130,26 @@ function renderReservas(reservasLocal){
                   '</div>'+
                 '</div>'+
 
-                  '<div class="modal fade" id="myModal" role="dialog">'+
+                  '<div class="modal fade" id="modal'+collapseReserva+'" role="dialog">'+
+                  '<input type="text" name="id'+collapseReserva+'" id="id'+collapseReserva+'" value="" class="hidden">'+
                     '<div class="modal-dialog">'+
                       '<div class="modal-content">'+
                           '<div class="modal-header">'+
                            '<button type="button" class="close" data-dismiss="modal">&times;</button>'+
-                           '<h4 class="modal-title">Editar Reserva</h4>'+
+                           '<h4 class="modal-title" id="titulo'+collapseReserva+'"></h4>'+
                           '</div>'+
                       '<div class="modal-body">'+
-                        '<p>Juan Carlos Hernandez | <i class="fa fa-cutlery" aria-hidden="true"></i> </p>'+
-                        '<p><span style="font-size: 1.5em;"><strong>Bardot</strong> | Comer &amp; Beber</span></p>'+
+                        '<p> '+reserva.nombreUsuarioReserva+' | <i class="'+medioDeReserva+'" aria-hidden="true"></i> </p>'+
                         '<p>Reserva para'+
-                        '<input type="text" class="form-control" placeholder="3" aria-describedby="sizing-addon3"> personas</p>'+
+                        '<input type="text" class="form-control" id="cantPers'+collapseReserva+'" placeholder="'+reserva.cubiertosTotales+'" aria-describedby="sizing-addon3"> personas</p>'+
                         '<p>El día'+
-                        '<input type="text" class="form-control" placeholder="3 de octubre" aria-describedby="sizing-addon3"></p>'+
-                        '<p>A las <input type="text" class="form-control" placeholder="21:00 hs" aria-describedby="sizing-addon3"></p>'+
+                        '<input type="text" class="form-control" id="fechaRe'+collapseReserva+'"  placeholder="'+reserva.fechaReserva+'" aria-describedby="sizing-addon3"></p>'+
+                        '<p>A las <input type="text" class="form-control" id="horaRe'+collapseReserva+'" placeholder="'+reserva.horaSola+' hs" aria-describedby="sizing-addon3"></p>'+
                         '<p>Observaciones:</p>'+
-                        '<p> <textarea class="form-control" rows="3" id="comment"></textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>'+
+                        '<p> <textarea class="form-control" rows="3" id="comment'+collapseReserva+'"></textarea></p>'+
                       '</div>'+
                     '<div class="modal-footer">'+
-                      '<button id="botonGuardar" type="button" class="btn btn-default" data-dismiss="modal">Guardar cambios</button>'+
+                      '<button id="botonGuardar'+collapseReserva+'" onClick="accion(\''+ collapseReserva +'\',\''+cancelar+'\')" type="button" class="btn btn-default" data-dismiss="modal"></button>'+
                       '<button id="botoncancelar" type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>'+
                     '</div>'+
                     '</div>'+  
@@ -149,7 +157,7 @@ function renderReservas(reservasLocal){
                 '</div>'+
           '');
 
-
+            $("#id"+collapseReserva).val(reserva.idReserva);
             collapseReserva++;
             fecha = reserva.fechaReserva;
         });
@@ -160,4 +168,67 @@ function renderReservas(reservasLocal){
     } );
 
     $('#loading').hide();
+}
+
+function mostrarModal(idModal,accion){
+  if(accion == 'cancelar'){
+     $('#titulo'+idModal).append('Cancelar Reserva');
+     $('#botonGuardar'+idModal).append('Cancelar reserva');
+     $( "#cantPers"+idModal).prop( "disabled", true );
+     $( "#fechaRe"+idModal).prop( "disabled", true );
+     $( "#horaRe"+idModal).prop( "disabled", true );
+   $("#modal"+idModal).modal("show");
+
+  }
+}
+
+function accion(idModal,accion){
+    if(accion == 'cancelar'){
+       var idReserva = $("#id"+idModal).val();
+       cancelarReserva(idReserva);
+    }
+}
+
+function setJWT(jwtToken, local){
+  idLocal = local;
+  if (_.isNil(jwtToken)) {
+    mostrarModalLogin();
+  } else {
+    jwt = jwtToken;
+    getOpcionesReservaLocal(idLocal);
+  
+};
+
+function isLoggedIn(){
+  if (_.isNil(jwt)) {
+    return false;
+  } else {
+    return true;
+  }
+};
+
+function cancelarReserva(idReserva){
+    $('.container.negocios').html('');
+    $('#loading').html('<img class="img-responsive" src="/imgs/loading.gif">');
+    $.ajax({
+        url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/reservaCancelar?id='+ idReserva +"",
+        type: 'POST',
+        dataType: "json",
+        crossDomain: true,
+        contentType:"application/json",
+        success: function (data) {
+             
+             obtenerListado();
+      },
+
+      error:function(jqXHR,textStatus,errorThrown)
+      {
+          $('#target').append("jqXHR: "+jqXHR);
+          $('#target').append("textStatus: "+textStatus);
+          $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+      },
+      headers: {
+        Authorization: 'JWT ' + jwt
+      }
+  });
 }

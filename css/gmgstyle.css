@@ -457,6 +457,19 @@ li#calificacionLocal {
     margin: 0 auto;
 }
 
+.botonverreserva {
+    text-align: center;
+    background: #f8981d;
+    font-size: 1.4em;
+    padding: 3%;
+    font-weight: 400;
+    color: #fff;
+    border-radius: 5px;
+    width: 62%;
+    margin: 0 auto;
+    text-transform: inherit;
+}
+
 .appstore {
     max-width: 115px;
     display: inline-flex;
