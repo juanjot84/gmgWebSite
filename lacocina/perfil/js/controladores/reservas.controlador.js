@@ -203,7 +203,7 @@ function cancelarReserva(idReserva, idModal){
     $('.container.negocios').html('');
     $('#loading').html('<img class="img-responsive" src="/imgs/loading.gif">');
         var parametros = {
-            "comentarioUsuarioReserva" : $("#comment"+idModal).val(),
+            "comentarioLocal" : $("#comment"+idModal).val(),
         };
     $.ajax({
         url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/reservaCancelar?id='+ idReserva +"",
