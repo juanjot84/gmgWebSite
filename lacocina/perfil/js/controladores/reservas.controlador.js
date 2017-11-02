@@ -202,19 +202,18 @@ function setJWT(jwtToken){
 function cancelarReserva(idReserva, idModal){
     $('.container.negocios').html('');
     $('#loading').html('<img class="img-responsive" src="/imgs/loading.gif">');
-        var parametros = {
-            "comentarioLocal" : $("#comment"+idModal).val(),
-        };
+        var parametros = JSON.stringify({
+            "comentarioLocal" : $("#comment"+idModal).val()
+        });
     $.ajax({
         url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/reservaCancelar?id='+ idReserva +"",
         type: 'POST',
         dataType: "json",
         crossDomain: true,
         contentType:"application/json",
-        success: function (data) {
-             
+        success: function (data) {       
              obtenerListado();
-      },
+    },
 
       error:function(jqXHR,textStatus,errorThrown)
       {
