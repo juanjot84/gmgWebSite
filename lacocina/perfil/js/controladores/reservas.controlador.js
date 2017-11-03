@@ -86,12 +86,14 @@ function renderReservas(reservasLocal){
           var nombreBoton = '';
           var tituloModal = '';
           var cancelar = 'cancelar';
+          var editar = 'editar';
 
           if (reserva.medioReserva == 'gmg'){
             medioDeReserva = 'fa fa-cutlery';
-            botonEditar = '';
+            botonEditar = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
           }else{
-              botonEditar = '<button title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>';
+              medioDeReserva = 'fa fa-globe';
+              botonEditar = '<button title="Editar" onClick="mostrarModal(\''+ collapseReserva +'\',\''+editar+'\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>';
 
           }
 
@@ -141,7 +143,8 @@ function renderReservas(reservasLocal){
                       '<div class="modal-body">'+
                         '<p> '+reserva.nombreUsuarioReserva+' | <i class="'+medioDeReserva+'" aria-hidden="true"></i> </p>'+
                         '<p>Reserva para'+
-                        '<input type="text" class="form-control" id="cantPers'+collapseReserva+'" placeholder="'+reserva.cubiertosTotales+'" aria-describedby="sizing-addon3"> personas</p>'+
+                        '<input type="text" class="form-control" id="cantAdultos'+collapseReserva+'" placeholder="'+reserva.cubiertosAdultos+'" aria-describedby="sizing-addon3"> adultos</p>'+
+                        '<input type="text" class="form-control" id="cantMenores'+collapseReserva+'" placeholder="'+reserva.cubiertosMenores+'" aria-describedby="sizing-addon3"> menores</p>'+
                         '<p>El día'+
                         '<input type="text" class="form-control" id="fechaRe'+collapseReserva+'"  placeholder="'+reserva.fechaReserva+'" aria-describedby="sizing-addon3"></p>'+
                         '<p>A las <input type="text" class="form-control" id="horaRe'+collapseReserva+'" placeholder="'+reserva.horaSola+' hs" aria-describedby="sizing-addon3"></p>'+
@@ -172,13 +175,25 @@ function renderReservas(reservasLocal){
 
 function mostrarModal(idModal,accion){
   if(accion == 'cancelar'){
+     cancelar = 'cancelar';
      $('#titulo'+idModal).append('Cancelar Reserva');
+     $('#botonGuardar'+idModal).html('');
      $('#botonGuardar'+idModal).append('Cancelar reserva');
-     $( "#cantPers"+idModal).prop( "disabled", true );
+     $( "#cantAdultos"+idModal).prop( "disabled", true );
+     $( "#cantMenores"+idModal).prop( "disabled", true );
      $( "#fechaRe"+idModal).prop( "disabled", true );
      $( "#horaRe"+idModal).prop( "disabled", true );
-   $("#modal"+idModal).modal("show");
-
+     $("#modal"+idModal).modal("show");
+  }else if(accion == 'editar'){
+     cancelar = 'editar';
+     $('#botonGuardar'+idModal).html('');
+     $('#titulo'+idModal).append('Editar Reserva');
+     $('#botonGuardar'+idModal).append('Editar reserva');
+     $( "#cantAdultos"+idModal).prop( "enabled", true );
+     $( "#cantMenores"+idModal).prop( "enabled", true );
+     $( "#fechaRe"+idModal).prop( "enabled", true );
+     $( "#horaRe"+idModal).prop( "enabled", true );
+     $("#modal"+idModal).modal("show");
   }
 }
 
@@ -186,6 +201,9 @@ function accion(idModal,accion){
     if(accion == 'cancelar'){
        var idReserva = $("#id"+idModal).val();
        cancelarReserva(idReserva, idModal);
+    }else if(accion == 'editar'){
+       var idReserva = $("#id"+idModal).val();
+       editarReserva(idReserva, idModal);
     }
 }
 
@@ -227,4 +245,8 @@ function cancelarReserva(idReserva, idModal){
       },
       data: parametros
   });
+}
+
+function editarReserva(idReserva, idModal){
+  
 }

@@ -475,3 +475,19 @@ li#calificacionLocal {
     display: inline-flex;
     padding: 3% 0;
 }
+@media only screen and (max-width : 1024px) {
+        .altoocasiones {
+            width: 960px;
+        }
+}
+@media only screen and (max-width : 768px) {
+        .altoocasiones {
+            width: 750px;
+        }
+}
+
+@media only screen and (max-width : 425px) {
+        .altoocasiones {
+            width: 420px;
+        }
+ }
