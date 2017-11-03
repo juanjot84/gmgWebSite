@@ -193,6 +193,7 @@ function setJWT(jwtToken){
   if (_.isNil(jwtToken)) {
     //redireccionar al loguin
   } else {
+    
     jwt = jwtToken;
     obtenerListado(); 
     } 
