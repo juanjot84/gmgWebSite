@@ -60,13 +60,17 @@ function getOpcionesReservaLocal(idLocal) {
 
 function setJWT(jwtToken, local){
   idLocal = local;
-  if (_.isNil(jwtToken)) {
+  if (_.isNil(jwtToken) || _.isEmpty(jwtToken)) {
     mostrarModalLogin();
   } else {
     jwt = jwtToken;
-    getOpcionesReservaLocal(idLocal);
-  
-};
+    if (!_.isNil(local)){
+      getOpcionesReservaLocal(idLocal);
+    } else  {
+      getMisReservas();
+    }
+  }
+}
 
 function mostrarModalLogin(){
   $("#botonLogin").attr("href", 'login.php?redirect=' + encodeURIComponent(window.location.href));
@@ -79,7 +83,7 @@ function isLoggedIn(){
   } else {
     return true;
   }
-};
+}
 
 function buscarHorarios() {
   $('.horas').hide();
@@ -182,4 +186,56 @@ function confirmarReserva() {
     },
     data: JSON.stringify(data)
   });
+}
+
+function getMisReservas(){
+   $.ajax({
+      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/reservaUsuario',
+      type: 'GET',
+      dataType: "json",
+      crossDomain: true,
+      contentType:"application/json",
+      success: function (data) {
+        renderMisReservas(data);
+      },
+      error:function(jqXHR,textStatus,errorThrown)
+      {
+          $('#target').append("jqXHR: "+jqXHR);
+          $('#target').append("textStatus: "+textStatus);
+          $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+      },
+      headers: {
+          Authorization: 'JWT ' + jwt
+      }
+  });
+}
+
+function renderMisReservas(reservas){
+  $('.container.mis-reservas').html('');
+  $('.container.mis-reservas').append('<div class="row"><div class="col-lg-12 text-center"><h2 class="section-heading">Mis reservas</h2></div></div>');
+
+  _.each(reservas, function(reserva){
+    $('.container.mis-reservas').append(  '' +
+      '<div class="row" style="padding-top: 5%;color: #252525;border-bottom: 1px solid #e3e3e3;padding-bottom: 2%;">' +
+      ' <div class="col-md-3"><img class="img-responsive" src="' + reserva.idLocal.idNegocio.urlIconoNegocio + '">' +
+      ' </div>' +
+      '  <div class="col-md-6"> <p><span style="font-size: 1.5em;">' +
+      '   <strong>' + reserva.idLocal.idNegocio.nombreNegocio + '</strong> | ' + reserva.idLocal.idNegocio.bajadaNegocio + '</span></p> ' +
+      '   <i class="fa fa-map-marker" aria-hidden="true"></i><span class="polo">' + reserva.idLocal.calleLocal + '</span> |  <i class="fa fa-cutlery" aria-hidden="true"></i>' +
+      '   <span class="tiponegocio">' + reserva.idLocal.idTipoCocinaPrincipal.descripcionTipoCocina + '</span><br>  ' +
+      '   <p style="letter-spacing: 1px;">' +
+      '     <strong>' + reserva.idLocal.idNivelPrecio.label + '</strong><span style="color: #cbcbcb">$$</span>' +
+      '   </p>  ' +
+      '   <p>' +
+      '     <span class="descripcion">' + reserva.idLocal.idNegocio.descripcionNegocio +
+      '     </span>' +
+      '   </p>  ' +
+      '  </div>  ' +
+      '  <div class="col-md-3">    ' +
+      '    <a href="#"><h2 class="etiquetadescuento">Ver reserva</h2></a>' +
+      '  </div>' +
+      '  </div>')
+  });
+
+
 }

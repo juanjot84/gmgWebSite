@@ -1,3 +1,10 @@
+<?php session_start();
+$idLocal = $_GET["id"];
+
+    $jwt = $_SESSION['jwt'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -71,47 +78,30 @@
 
   <!-- Texto Politicas -->
   <section id="politicas" style="margin-top: 5%; min-height: 50vh;">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading">Mis reservas</h2>
-        </div>
-      </div>
-      <div class="row" style="padding-top: 5%;color: #252525;border-bottom: 1px solid #e3e3e3;padding-bottom: 2%;">
-            <div class="col-md-3">
-                <img class="img-responsive" src="http://guiamendozagourmet.com/gmg/img/bardotprincipal.jpg">
-            </div>
-            <div class="col-md-6">
-                <p><span style="font-size: 1.5em;"><strong>Bardot</strong> | Comer &amp; Beber</span></p>
-                <i class="fa fa-map-marker" aria-hidden="true"></i><span class="polo">   Calle Belgrano</span> |  <i class="fa fa-cutlery" aria-hidden="true"></i><span class="tiponegocio">  De autor</span><br>
-                <p style="letter-spacing: 1px;"><strong>$$$</strong><span style="color: #cbcbcb">$$</span></p>
-                <p><span class="descripcion">Nuestra propuesta es ideal para todo momento del día. Te invitamos desde temprano a disfrutar de nuestra cafetería y pastelería casera. Para el al...</span></p>
-            </div>
-
-            <div class="col-md-3">
-                <a href="#"><h2 class="etiquetadescuento">Ver reserva</h2></a>
-            </div>
-        </div>
-
-        <div class="row" style="padding-top: 5%;color: #252525; border-bottom: 1px solid #e3e3e3;padding-bottom: 2%;">
-            <div class="col-md-3">
-                <img class="img-responsive" src="http://guiamendozagourmet.com/gmg/img/bardotprincipal.jpg">
-            </div>
-            <div class="col-md-6">
-                <p><span style="font-size: 1.5em;"><strong>Bardot</strong> | Comer &amp; Beber</span></p>
-                <i class="fa fa-map-marker" aria-hidden="true"></i><span class="polo">   Calle Belgrano</span> |  <i class="fa fa-cutlery" aria-hidden="true"></i><span class="tiponegocio">  De autor</span><br>
-                <p style="letter-spacing: 1px;"><strong>$$$</strong><span style="color: #cbcbcb">$$</span></p>
-                <p><span class="descripcion">Nuestra propuesta es ideal para todo momento del día. Te invitamos desde temprano a disfrutar de nuestra cafetería y pastelería casera. Para el al...</span></p>
-            </div>
-
-            <div class="col-md-3">
-                <a href="#"><h2 class="botonverreserva">Ver reserva</h2></a>
-            </div>
-        </div>
+    <div class="container mis-reservas">
     </div>
   </section>
 
- 
+  <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h3>No has iniciado sesión</h3>
+        </div>
+        <div class="modal-body">
+          <h5>Por favor, inicie sesión para continuar</h5>
+
+        </div>
+        <div class="modal-footer">
+          <a href="login.php" data-confirm="modal" class="btn btn-info" id="botonLogin">Iniciar sesión</a>
+          <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
  <?php include("includes/footer.php"); ?>
 
 
@@ -129,18 +119,16 @@
   <script src="js/jqBootstrapValidation.js"></script>
   <script src="js/contact_me.js"></script>
 
-  <!-- Funciones de Home JavaScript -->
-  <script src="js/controladores/home.controlador.js"></script>
 
   <!-- Theme JavaScript -->
   <script src="js/agency.min.js"></script>
 
   <script  src=" https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"
   crossorigin="anonymous"></script>
-
+  <!-- Funciones de Local JavaScript -->
+  <script src="js/controladores/reserva.controlador.js"></script>
   <script>
-    obtenerListadoCocinas();
-
+    setJWT('<?php echo $jwt; ?>');
   </script>
 
 </body>
