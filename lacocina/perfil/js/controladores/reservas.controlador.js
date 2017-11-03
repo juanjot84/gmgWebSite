@@ -143,11 +143,11 @@ function renderReservas(reservasLocal){
                       '<div class="modal-body">'+
                         '<p> '+reserva.nombreUsuarioReserva+' | <i class="'+medioDeReserva+'" aria-hidden="true"></i> </p>'+
                         '<p>Reserva para'+
-                        '<input type="text" class="form-control" id="cantAdultos'+collapseReserva+'" placeholder="'+reserva.cubiertosAdultos+'" aria-describedby="sizing-addon3"> adultos</p>'+
-                        '<input type="text" class="form-control" id="cantMenores'+collapseReserva+'" placeholder="'+reserva.cubiertosMenores+'" aria-describedby="sizing-addon3"> menores</p>'+
+                        '<input type="text" class="form-control" id="cantAdultos'+collapseReserva+'" value="'+reserva.cubiertosAdultos+'" aria-describedby="sizing-addon3"> adultos</p>'+
+                        '<input type="text" class="form-control" id="cantMenores'+collapseReserva+'" value="'+reserva.cubiertosMenores+'" aria-describedby="sizing-addon3"> menores</p>'+
                         '<p>El día'+
-                        '<input type="text" class="form-control" id="fechaRe'+collapseReserva+'"  placeholder="'+reserva.fechaReserva+'" aria-describedby="sizing-addon3"></p>'+
-                        '<p>A las <input type="text" class="form-control" id="horaRe'+collapseReserva+'" placeholder="'+reserva.horaSola+' hs" aria-describedby="sizing-addon3"></p>'+
+                        '<input type="text" class="form-control" id="fechaRe'+collapseReserva+'"  value="'+reserva.fechaReserva+'" aria-describedby="sizing-addon3"></p>'+
+                        '<p>A las <input type="text" class="form-control" id="horaRe'+collapseReserva+'" value="'+reserva.horaSola+' hs" aria-describedby="sizing-addon3"></p>'+
                         '<p>Observaciones:</p>'+
                         '<p> <textarea class="form-control" rows="3" id="comment'+collapseReserva+'"></textarea></p>'+
                       '</div>'+
@@ -187,6 +187,7 @@ function mostrarModal(idModal,accion){
   }else if(accion == 'editar'){
      cancelar = 'editar';
      $('#botonGuardar'+idModal).html('');
+     $('#botonGuardar'+idModal).val(cancelar);
      $('#titulo'+idModal).append('Editar Reserva');
      $('#botonGuardar'+idModal).append('Editar reserva');
      $( "#cantAdultos"+idModal).prop( "enabled", true );
@@ -248,5 +249,37 @@ function cancelarReserva(idReserva, idModal){
 }
 
 function editarReserva(idReserva, idModal){
-  
+        var cubiertosTotales = $("#cantAdultos"+idModal).val() + $("#cantMenores"+idModal).val() ;
+
+    $('#loading').html('<img class="img-responsive" src="/imgs/loading.gif">');
+        var parametros = JSON.stringify({
+            "comentarioLocal" : $("#comment"+idModal).val(),
+            "horaSola" : $("#horaRe"+idModal).val(),
+            "cubiertosAdultos" : $("#cantAdultos"+idModal).val(),
+            "cubiertosMenores" : $("#cantMenores"+idModal).val(),
+            "fechaReserva" : $("#fechaRe"+idModal).val(),
+            "cubiertosTotales" : cubiertosTotales
+        });
+    $.ajax({
+        url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/updateReservaEventual?id='+ idReserva +"",
+        type: 'POST',
+        dataType: "json",
+        crossDomain: true,
+        contentType:"application/json",
+        success: function (data) {       
+             obtenerListado();
+    },
+
+      error:function(jqXHR,textStatus,errorThrown)
+      {
+          $('#target').append("jqXHR: "+jqXHR);
+          $('#target').append("textStatus: "+textStatus);
+          $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+      },
+      headers: {
+        Authorization: 'JWT ' + jwt
+      },
+      data: parametros
+  });
+
 }
