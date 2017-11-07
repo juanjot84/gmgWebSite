@@ -2,8 +2,19 @@
 
 session_start();
     $idNegocio = $_SESSION['idNegocio'];
+    $tipoUsuario = $_SESSION['tipoUsuario'];
 
     $jwt = $_SESSION['jwt'];
+
+if (!$_SESSION) {
+       header('Location: ../index.php');
+} else {
+    if ($tipoUsuario == 'usuarioNegocio'  or $tipoUsuario == 'superAdmin') {
+        
+    } else {
+        header('Location: ../index.php');
+    }
+}
 
 ?>
 
@@ -32,7 +43,7 @@ session_start();
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
   <!-- Theme CSS -->
-  <link href="css/gmgstyle.css" rel="stylesheet">
+  <link href="css/gmgbackstyle-perfil.css" rel="stylesheet">
   <link href="css/agency.min.css" rel="stylesheet">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -47,37 +58,17 @@ session_start();
 
 <body id="page-top" class="index">
 
-  <!-- Navigation -->
-  <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header page-scroll">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span> <i class="fa fa-bars"></i>
-        </button>
-        <a class="navbar-brand page-scroll" href="#"><img class="logoweb" src="img/logo-gmg.png"></a>
-      </div>
+<?php 
+    if($tipoUsuario == 'usuarioNegocio'){
+        include("includes/nav-perfil.php"); 
+    }else if($tipoUsuario == 'superAdmin'){
+        include("../includes/nav.php"); 
+    }
+?>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="hidden">
-            <a href="#page-top"></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-user" aria-hidden="true"></i> ACCEDER</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-heart" style="color: #e02222 !important;" aria-hidden="true"></i> FAVORITOS</a>
-          </li>
-        </ul>
-      </div>
-      <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-  </nav>
 
-  <div class="container" style="padding-top: 7%;">
+
+  <div class="container" style="padding-top: 2%;">
   <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
     <div class="row">
       <div class="col-md-4">
@@ -85,6 +76,22 @@ session_start();
           <select class="form-control" id="selectLocal">
 
           </select>
+      </div>
+    </div></br>
+    
+
+    <div class="row">
+      <div class="col-md-4">
+      <label for="selectNino">Nombre y apellido </label>
+       <input id="nombrePersona" name="nombrePersona" type="text" class="form-control" placeholder="" aria-describedby="sizing-addon3" >  
+      </div>
+      <div class="col-md-4">
+      <label for="selectNino">Teléfono</label>
+       <input id="telPersona" name="telPersona" type="text" class="form-control" placeholder="" aria-describedby="sizing-addon3" >  
+      </div>
+      <div class="col-md-4">
+      <label for="selectNino">Email</label>
+       <input id="mailPersona" name="mailPersona" type="email" class="form-control" placeholder="" aria-describedby="sizing-addon3" >  
       </div>
     </div>
 
@@ -212,6 +219,9 @@ session_start();
             <div class="row">
               <div class="col-md-12">
                 <h3 class="titulo"></h3>
+                <p id="personaReserva"></p>
+                <p id="telPersReserva"></p>
+                <p id="mailPersReserva"></p>
                 <p id="cantidadReserva"></p>
                 <p id="horarioReserva" ></p>
                 <p id="direccionLocal" ></p>

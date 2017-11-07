@@ -153,7 +153,10 @@ function seleccionarHora(hora){
 function realizarReserva() {
   if (isLoggedIn()) {
     $("#realizarReserva").modal("show");
-    $("#cantidadReserva").html("Reserva para " + $('#selectAdulto').val() + " adultos y " + $('#selectNino').val() + " niño");
+    $("#personaReserva").html("Reserva para: " + $('#nombrePersona').val());
+    $("#telPersReserva").html('Teléfono: '+ $('#telPersona').val() );
+    $("#mailPersReserva").html('Mail: '+ $('#mailPersona').val() );
+    $("#cantidadReserva").html(" " + $('#selectAdulto').val() + " adultos y " + $('#selectNino').val() + " niño");
     $("#horarioReserva").html(horaSeleccionada + " hs. | " + $('#selectDia').val());
   } else {
     mostrarModalLogin();
@@ -166,10 +169,13 @@ function confirmarReserva() {
     'fechaReserva': $('#selectDia').val(),
     'horaReserva': horaSeleccionada,
     'cubiertosAdultosReservados': $('#selectAdulto').val(),
-    'cubiertosMenoresReservados': $('#selectNino').val()
+    'cubiertosMenoresReservados': $('#selectNino').val(),
+    'nombreReservaEventual': $('#nombrePersona').val(),
+    'mailReservaEventual': $('#mailPersona').val(),
+    'telefonoUsuarioReserva': $('#telPersona').val()
   };
   $.ajax({
-    url: 'http://aqueous-woodland-46461.herokuapp.com/api/v1/admin/reserva',
+    url: 'http://aqueous-woodland-46461.herokuapp.com/api/v1/admin/reservaEventual',
     type: 'POST',
     dataType: "json",
     crossDomain: true,
