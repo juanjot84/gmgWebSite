@@ -90,10 +90,10 @@ function renderReservas(reservasLocal){
 
           if (reserva.medioReserva == 'gmg'){
             medioDeReserva = 'fa fa-cutlery';
-            botonEditar = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+         //   botonEditar = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
           }else{
               medioDeReserva = 'fa fa-globe';
-              botonEditar = '<button title="Editar" onClick="mostrarModal(\''+ collapseReserva +'\',\''+editar+'\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>';
+          //    botonEditar = '<button title="Editar" onClick="mostrarModal(\''+ collapseReserva +'\',\''+editar+'\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>';
 
           }
 
