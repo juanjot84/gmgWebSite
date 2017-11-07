@@ -72,7 +72,7 @@ if (!$_SESSION) {
   <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
     <div class="row">
       <div class="col-md-4">
-        <h3 class="titulo">Seleccionar Local</h3>
+        
           <select class="form-control" id="selectLocal">
 
           </select>

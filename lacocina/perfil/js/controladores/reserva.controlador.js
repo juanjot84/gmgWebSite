@@ -172,7 +172,8 @@ function confirmarReserva() {
     'cubiertosMenoresReservados': $('#selectNino').val(),
     'nombreReservaEventual': $('#nombrePersona').val(),
     'mailReservaEventual': $('#mailPersona').val(),
-    'telefonoUsuarioReserva': $('#telPersona').val()
+    'telefonoUsuarioReserva': $('#telPersona').val(),
+    'medioCreacionReserva': 'web'
   };
   $.ajax({
     url: 'http://aqueous-woodland-46461.herokuapp.com/api/v1/admin/reservaEventual',
