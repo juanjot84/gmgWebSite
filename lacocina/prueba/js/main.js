@@ -9,9 +9,13 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
       myAwesomeDropzone = {
         url: "php/main.php",
         addRemoveLinks: true,
-        paramName: "archivoDesarrolloHidrocalido",
+        paramName: "konostech",
         maxFilesize: 4, // MB
         dictRemoveFile: "Remover",
+        maxFiles: 10,
+        acceptedFiles: '.jpg',
+        resizeWidth: 750,
+        resizeHeight: 420,
         params: {
             parametro1:'valor1',
             parametro2:'valor2'
