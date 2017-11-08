@@ -71,7 +71,7 @@
   <header>
     <div class="container">
       <div class="row">
-        <div class="col-md-6 intro-text" style="margin-top: 5%;">
+        <div class="col-md-6 intro-text" style="margin-top: 6%;">
 
           <img class="img-responsive" style="margin: 0 auto;" src="img/reserva.png">
           <!-- <div class="intro-heading">RESERVÁ TU LUGAR</div>
