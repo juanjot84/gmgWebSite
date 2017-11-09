@@ -481,6 +481,12 @@ h5.titulosalta {
     margin-top: 12%;
     padding: 5%;
 }
+.miniatura-galeria {
+    object-fit: cover;
+    object-position: center;
+    height: 170px;
+    width: 250px;
+}
 
 /*MEDIA  QUERIES*/
 
