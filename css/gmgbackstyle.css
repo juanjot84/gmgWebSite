@@ -488,6 +488,10 @@ h5.titulosalta {
     width: 220px;
 }
 
+.miniaturas-orden {
+    display: inline-block;
+}
+
 /*MEDIA  QUERIES*/
 
 

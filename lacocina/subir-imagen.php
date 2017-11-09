@@ -56,8 +56,8 @@ if (!$_SESSION) {
 
             <div class="row">
 
-              <div class="col-md-12" style="display: -webkit-box; float: left; list-style: none;">
-                  <li>
+              <div class="col-md-12" style="display: -webkit-box; list-style: none; text-align: center; padding-top: 5%;">
+                  <li class="miniaturas-orden">
                     <a href="#">
                       <img class="miniatura-galeria" src="img/img-muestra.jpg">
                     </a>
@@ -65,7 +65,7 @@ if (!$_SESSION) {
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </li>
 
-                  <li>
+                  <li class="miniaturas-orden">
                     <a href="#">
                       <img class="miniatura-galeria" src="img/img-muestra.jpg">
                     </a>
@@ -73,7 +73,7 @@ if (!$_SESSION) {
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </li>
 
-                  <li>
+                  <li class="miniaturas-orden">
                     <a href="#">
                       <img class="miniatura-galeria" src="img/img-muestra.jpg">
                     </a>
@@ -81,7 +81,7 @@ if (!$_SESSION) {
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </li>
 
-                  <li>
+                  <li class="miniaturas-orden">
                     <a href="#">
                       <img class="miniatura-galeria" src="img/img-muestra.jpg">
                     </a>
@@ -89,14 +89,14 @@ if (!$_SESSION) {
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </li>
 
-                  <li>
+                  <li class="miniaturas-orden">
                     <a href="#">
                       <img class="miniatura-galeria" src="img/img-muestra.jpg">
                     </a>
                     <br>
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </li>
-                  <li>
+                  <li class="miniaturas-orden">
                     <a href="#">
                       <img class="miniatura-galeria" src="img/img-muestra.jpg">
                     </a>
@@ -128,32 +128,7 @@ if (!$_SESSION) {
         </div><!-- /.modal-dialog -->
       </div><!-- /.modal -->
 
-    <div class="container">
-        <div class="row">
-            <nav aria-label="Page navigation">
-              <ul class="pagination">
-                <li>
-                  <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>
-                  <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-        </div>
-    </div>
-
-
-    
+        
     <?php include("includes/footer.php"); ?>
     
 
