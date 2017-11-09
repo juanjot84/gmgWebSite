@@ -42,7 +42,7 @@ if (!$_SESSION) {
                 <div class="col-md-6" style="text-align: right;">
                     <div class="input-group">
                       <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" style="padding: 17px;" onClick="agregarEspecialidad()"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVO</button>
+                        <button class="btn btn-default" type="button" style="padding: 17px;" data-toggle="modal"  data-target="#mdlArchivos"><i class="fa fa-plus-square-o" aria-hidden="true"></i> CARGAR IMAGENES</button>
                       </span>
                     </div>
                 </div>
@@ -96,6 +96,26 @@ if (!$_SESSION) {
         
     </div>
 
+      <!-- Modal -->
+      <div id="mdlArchivos" class="modal fade">
+        <div class="modal-dialog" style="width: 65%;">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Subir Archivos</h4>
+            </div>
+            <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12" id="formDropZone"></div>
+            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
     <div class="container">
         <div class="row">
             <nav aria-label="Page navigation">
@@ -138,7 +158,10 @@ if (!$_SESSION) {
     <script src="../js/contact_me.js"></script>
 
     <!-- Funcione de Especialidades JavaScript -->
-<script src="js/controladores/especialidades.controlador.js"></script>
+    <script src="js/controladores/especialidades.controlador.js"></script>
+
+    <script src="js/dropzone.js"></script>
+    <script src="js/main.js"></script>
 
     <!-- Theme JavaScript -->
     <script src="../js/agency.min.js"></script>

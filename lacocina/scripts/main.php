@@ -4,7 +4,7 @@
 // En versiones de PHP anteriores a la 4.1.0, debería utilizarse $HTTP_POST_FILES en lugar
 // de $_FILES.
 
-$dir_subida = '../archivos/';
+$dir_subida = '../img-locales/';
 $fichero_subido = $dir_subida . basename($_FILES['konostech']['name']);
 echo '<pre>';
 if (move_uploaded_file($_FILES['konostech']['tmp_name'], $fichero_subido)) {

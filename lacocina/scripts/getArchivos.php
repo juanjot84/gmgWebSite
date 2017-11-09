@@ -1,5 +1,5 @@
 <?php
-	$directorio = '../archivos/';
+	$directorio = '../img-locales/';
 	$gestor_dir = opendir($directorio);
 	$archivos = '';
 	while (false !== ($nombre_fichero = readdir($gestor_dir))) {

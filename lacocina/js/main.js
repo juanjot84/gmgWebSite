@@ -8,7 +8,7 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
  	                         "<p>(o Clic para seleccionar)</p>"+
                            "<p>Cantidad máxima 10 imágenes</p></div></form>");
       myAwesomeDropzone = {
-        url: "php/main.php",
+        url: "scripts/main.php",
         addRemoveLinks: true,
         paramName: "konostech",
         maxFilesize: 4, // MB
@@ -43,7 +43,7 @@ $('#mdlArchivos').on('hidden.bs.modal', function (event) {
 function getArchivos() {
     $.ajax({
         type: 'GET',
-        url: 'php/getArchivos.php',
+        url: 'scripts/getArchivos.php',
         success: function(data){
           $("#divMostrarArchivos br").remove();
           $("#divMostrarArchivos").html("<br><p>Archivos:</p>"+data+"</br>");
