@@ -53,47 +53,59 @@ if (!$_SESSION) {
     <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
 
       <div class="panel-heading tituloseccion">Galería</div>
-        
-             <div class="row">
 
-              <div class="col-md-3">
-                <div class="miniatura-galeria">
-                  <a href="#">
-                    <img src="img/img-muestra.jpg" style="width:100%;">
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="miniatura-galeria">
-                  <a href="#">
-                    <img src="img/img-muestra.jpg" style="width:100%">
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="miniatura-galeria">
-                  <a href="#">
-                    <img src="img/img-muestra.jpg" style="width:100%">
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="miniatura-galeria">
-                  <a href="#">
-                    <img src="img/img-muestra.jpg" style="width:100%">
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="miniatura-galeria">
-                  <a href="#">
-                    <img src="img/img-muestra.jpg" style="width:100%">
-                  </a>
-                </div>
+            <div class="row">
+
+              <div class="col-md-12" style="display: -webkit-box; float: left; list-style: none;">
+                  <li>
+                    <a href="#">
+                      <img class="miniatura-galeria" src="img/img-muestra.jpg">
+                    </a>
+                    <br>
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </li>
+
+                  <li>
+                    <a href="#">
+                      <img class="miniatura-galeria" src="img/img-muestra.jpg">
+                    </a>
+                    <br>
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </li>
+
+                  <li>
+                    <a href="#">
+                      <img class="miniatura-galeria" src="img/img-muestra.jpg">
+                    </a>
+                    <br>
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </li>
+
+                  <li>
+                    <a href="#">
+                      <img class="miniatura-galeria" src="img/img-muestra.jpg">
+                    </a>
+                    <br>
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </li>
+
+                  <li>
+                    <a href="#">
+                      <img class="miniatura-galeria" src="img/img-muestra.jpg">
+                    </a>
+                    <br>
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img class="miniatura-galeria" src="img/img-muestra.jpg">
+                    </a>
+                    <br>
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </li>
               </div>
 
             </div>
-        
     </div>
 
       <!-- Modal -->
@@ -139,6 +151,7 @@ if (!$_SESSION) {
             </nav>
         </div>
     </div>
+
 
     
     <?php include("includes/footer.php"); ?>
