@@ -82,7 +82,7 @@ if (!$_SESSION) {
                 </div></a>
             </div>
             <div class="col-md-3">
-                <a onclick="editarHorarios()"><div style="font-size: 1.5em;">
+                <a onclick="cargarImagenes()"><div style="font-size: 1.5em;">
                     <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-picture" aria-hidden="true"></span><br>
                     CARGAR IMÁGENES
                 </div></a>

@@ -1,12 +1,17 @@
+
+
 $(document).ready(function(){
   getArchivos();
 });
+
+var cont = 1;
 $('#mdlArchivos').on('show.bs.modal', function (event) {
  $("#formDropZone").append("<form id='dZUpload' class='dropzone borde-dropzone' style='cursor: pointer;'>"+
  	                         "<div class='dz-default dz-message text-center'>"+
  	                           "<span><h2>Arrastra las imagenes aquí</h2></span><br>"+
  	                         "<p>(o Clic para seleccionar)</p>"+
                            "<p>Cantidad máxima 10 imágenes</p></div></form>");
+
       myAwesomeDropzone = {
         url: "scripts/main.php",
         addRemoveLinks: true,

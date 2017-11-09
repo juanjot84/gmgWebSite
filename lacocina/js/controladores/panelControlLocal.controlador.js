@@ -162,3 +162,8 @@
         var url = "../lacocina/local.php?idNegocio="+ negocioCreado+"";
         $(location).attr('href',url);
     }
+    function cargarImagenes(){
+      var idLocal = $("#idLocal").val();
+       var url = "../lacocina/subir-imagen.php?idLocal="+idLocal+"";
+       $(location).attr('href',url);
+    }
