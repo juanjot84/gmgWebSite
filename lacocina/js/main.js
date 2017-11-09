@@ -4,7 +4,7 @@ $(document).ready(function(){
 $('#mdlArchivos').on('show.bs.modal', function (event) {
  $("#formDropZone").append("<form id='dZUpload' class='dropzone borde-dropzone' style='cursor: pointer;'>"+
  	                         "<div class='dz-default dz-message text-center'>"+
- 	                           "<span><h2>Arrastra los archivos aquí</h2></span><br>"+
+ 	                           "<span><h2>Arrastra las imagenes aquí</h2></span><br>"+
  	                         "<p>(o Clic para seleccionar)</p>"+
                            "<p>Cantidad máxima 10 imágenes</p></div></form>");
       myAwesomeDropzone = {
