@@ -468,6 +468,20 @@ h5.titulosalta {
     border: 0px solid transparent !important;
 }
 
+.fondologincocina {
+    background: url(../lacocina/img/back-cocina.jpg) no-repeat;
+    height: 645px;
+    margin-top: -1.5%;
+    background-size: cover;
+}
+
+.panellacocina {
+    background: #ffffff21;
+    height: auto;
+    margin-top: 12%;
+    padding: 5%;
+}
+
 /*MEDIA  QUERIES*/
 
 

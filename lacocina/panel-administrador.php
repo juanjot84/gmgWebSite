@@ -27,7 +27,7 @@ if (!$_SESSION) {
         <div class="container">
                  <div class="row">
                     <div class="col-md-6 text-center" style="padding-top: 15%;">
-                        <span style="font-size: 4em; color: #fff;">La cocina</span>
+                        <span style="font-size: 4em; color: #fff; font-weight: bold;">La cocina</span>
                     </div>
                     <div class="col-md-6">
                         <span></span>

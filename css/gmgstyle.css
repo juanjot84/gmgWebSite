@@ -122,7 +122,7 @@ header .intro-text .intro-heading {
     color: #000 !important;
 }
 header .intro-text {
-    padding-top: 120px !important;
+    padding-top: 70px !important;
     padding-bottom: 0px !important;
 }
 button.btn.btn-default.btnbuscar {
@@ -260,12 +260,9 @@ ul, menu, dir {
 }
 
 .altoocasiones {
-    min-height: 530px;
+    min-height: 445px;
 }
 
-.fotosocasiones {
-
-}
 
 .fotoscocina {
     margin: 0 auto;
@@ -361,12 +358,16 @@ input#login-submit:hover {
     display: block !important;
     }
 
-    button.navbar-toggle {
-        padding-top: 7%;
+    button.navbar-toggle.collapsed {
+        padding-top: 5%;
     }
 
     button.navbar-toggle.collapsed {
-        padding-top: 7%;
+        padding-top: 3%;
+    }
+
+    i.fa.fa-bars {
+        font-size: 2em;
     }
 
     ul.nav.navbar-nav.navbar-right {

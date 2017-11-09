@@ -23,7 +23,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <!-- Theme CSS -->
-    <link href="../css/gmgstyle.css" rel="stylesheet">
+    <link href="../css/gmgbackstyle.css" rel="stylesheet">
     <link href="../css/agency.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -45,7 +45,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#"><img class="logoweb" src="img/logo-gmg.png"></a>
+                <a class="navbar-brand page-scroll" href="#"><img class="logoweb" src="img/logo-lacocina.png"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -65,59 +65,60 @@
     </nav>
 
     
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="panel panel-login">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <a href="#" class="active" id="login-form-link">Acceder</a>
+    <div class="container-fluid fondologincocina">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-login panellacocina">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <a href="#" class="active" id="login-form-link" style="color: #fff !important;">Acceder</a>
+                                </div>
                             </div>
+                            <hr>
                         </div>
-                        <hr>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <form id="login-form" method="post" role="form" style="display: block;">
-                                    <div class="form-group">
-                                        <input type="text" name="emailUsuario" id="emailUsuario" tabindex="1" class="form-control" placeholder="Nombre de usuario" value=""       onfocus="limpiar('emailUsuario')" onclick="limpiar('passwordUsuario')">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" name="passwordUsuario" id="passwordUsuario" tabindex="2" class="form-control" placeholder="Contraseña" onfocus="limpiar('passwordUsuario')">
-                                    </div>
-                                    <!--
-                                    <div class="form-group text-center">
-                                        <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-                                        <label class="recordar" for="remember"> Recordar mis datos</label>
-                                    </div>
-                                    -->
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-sm-6 col-sm-offset-3">
-                                                <input type="button" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Acceder" onclick="login()">
-                                            </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form id="login-form" method="post" role="form" style="display: block;">
+                                        <div class="form-group">
+                                            <input type="text" name="emailUsuario" id="emailUsuario" tabindex="1" class="form-control" placeholder="Nombre de usuario" value=""       onfocus="limpiar('emailUsuario')" onclick="limpiar('passwordUsuario')">
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="text-center">
-                                                    <a href="https://phpoll.com/recover" tabindex="5" class="forgot-password">Olvidaste tu contraseña?</a>
+                                        <div class="form-group">
+                                            <input type="password" name="passwordUsuario" id="passwordUsuario" tabindex="2" class="form-control" placeholder="Contraseña" onfocus="limpiar('passwordUsuario')">
+                                        </div>
+                                        <!--
+                                        <div class="form-group text-center">
+                                            <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+                                            <label class="recordar" for="remember"> Recordar mis datos</label>
+                                        </div>
+                                        -->
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-sm-6 col-sm-offset-3">
+                                                    <input type="button" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Acceder" onclick="login()">
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </form>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="text-center">
+                                                        <a href="https://phpoll.com/recover" tabindex="5" class="forgot-password">Olvidaste tu contraseña?</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <img style="padding-top: 22%;" class="img-responsive" src="img/fondologin.jpg">
+                <div class="col-md-6">
+                    <!-- <img style="padding-top: 22%;" class="img-responsive" src="img/fondologin.jpg"> -->
+                </div>
             </div>
         </div>
     </div>
@@ -136,44 +137,7 @@
         </div>
     </section> -->
 
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 menufooter">
-                    <p>QUIÉNES SOMOS</p>
-                    <p>TÉRMINOS Y CONDICIONES</p>
-                    <p>POLÍTICAS DE PRIVACIDAD</p>
-                    <p>PREGUNTAS FRECUENTES</p>
-                </div>
-                <div class="col-md-4 menufooter">
-                        <p>RESTAURANTES</p>
-                        <p>TAKE A W</p>
-                        <p>MUNDO DULCE</p>
-                        <p>DESCARGAR APP</p>
-                </div>
-                <div class="col-md-4">
-
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-
-                    <ul class="list-inline quicklinks">
-                        <li>
-                            <span class="copyright">Copyright &copy; GMG 2017</span>
-                        </li>
-                        <li>
-                            Desarrollado por <a style="text-decoration: none;" href="#">Estudio Pronet</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
+   <?php include("includes/footer.php"); ?>
 
     
 

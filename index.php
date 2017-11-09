@@ -71,7 +71,7 @@
   <header>
     <div class="container">
       <div class="row">
-        <div class="col-md-6 intro-text" style="margin-top: 7%;">
+        <div class="col-md-6 intro-text" style="margin-top: 5%;">
 
           <img class="img-responsive" style="margin: 0 auto;" src="img/reserva.png">
           <!-- <div class="intro-heading">RESERVÁ TU LUGAR</div>
@@ -124,8 +124,8 @@
     <div class="container-fluid fondopubli">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 style="color: #fff; padding-top: 8%;" class="section-heading">PUBLICIDAD</h2>
-          <h3 style="color: #fff;" class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <!-- <h2 style="color: #fff; padding-top: 8%;" class="section-heading">PUBLICIDAD</h2>
+          <h3 style="color: #fff;" class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
         </div>
       </div>
     </div>

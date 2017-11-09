@@ -123,6 +123,16 @@
       user-select: none;
       -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     }
+
+    @media only screen and (max-width : 1024px) {
+        .fotosocasiones {
+          object-fit: cover;
+          object-position: center;
+          height: 260px;
+          width: 180px;
+      }
+    }
+
     </style>
 
 
