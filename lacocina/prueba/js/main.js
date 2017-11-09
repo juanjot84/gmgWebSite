@@ -13,6 +13,10 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
         maxFilesize: 4, // MB
         dictRemoveFile: "Eliminar",
         maxFiles: 10,
+=======
+        dictRemoveFile: "Eliminar",
+        maxFiles: 2,
+>>>>>>> Stashed changes
         acceptedFiles: '.jpg',
         resizeWidth: 750,
         resizeHeight: 420,
@@ -28,6 +32,8 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
         error: function (file, response) {
           file.previewElement.classList.add("dz-error");
         }
+  }
+
       } // FIN myAwesomeDropzone
   var myDropzone = new Dropzone("#dZUpload", myAwesomeDropzone); 
     myDropzone.on("complete", function(file,response) {
