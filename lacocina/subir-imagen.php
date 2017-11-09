@@ -7,7 +7,7 @@ $tipoUsuario = $_SESSION['tipoUsuario'];
 if (!$_SESSION) {
        header('Location: index.php');
 } else {
-    if ($tipoUsuario == 'superAdmin') {
+    if ($tipoUsuario == 'usuarioNegocio'  or $tipoUsuario == 'superAdmin') {
         
     } else {
         header('Location: index.php');
@@ -15,15 +15,21 @@ if (!$_SESSION) {
 }
 
 ?>
-<?php include("includes/head.php"); ?>
+<?php include("includes/head-imagenes.php"); ?>
 
 <body id="page-top" class="index">
 
 
-<?php include("includes/nav.php"); ?>
+<?php
+     if($tipoUsuario == 'usuarioNegocio'){
+        $nav = 'perfil/'; 
+        include("perfil/includes/nav-perfil-superior.php");   
+    }else if($tipoUsuario == 'superAdmin'){
+        include("includes/nav.php"); 
+    }
+?>
 
-    
-
+  
     <div class="container-fluid" style="padding: 1%;background: yellow;margin-top: -21px;">
         <div class="container">
             <div class="row">
@@ -50,6 +56,13 @@ if (!$_SESSION) {
         
              <div class="row">
 
+              <div class="col-md-3">
+                <div class="miniatura-galeria">
+                  <a href="#">
+                    <img src="img/img-muestra.jpg" style="width:100%;">
+                  </a>
+                </div>
+              </div>
               <div class="col-md-3">
                 <div class="miniatura-galeria">
                   <a href="#">
