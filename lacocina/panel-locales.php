@@ -69,19 +69,26 @@ if (!$_SESSION) {
             </div>
         </div>
         <div class="row text-center" style="padding-top: 5%;">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <a onclick="editarCubiertos()"><div style="font-size: 1.5em;">
                     <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-cutlery" aria-hidden="true"></span><br>
                     CUBIERTOS POR DÍA
                 </div></a>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <a onclick="editarHorarios()"><div style="font-size: 1.5em;">
                     <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-time" aria-hidden="true"></span><br>
                     HORARIOS DE ATENCIÓN
                 </div></a>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
+                <a onclick="editarHorarios()"><div style="font-size: 1.5em;">
+                    <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-picture" aria-hidden="true"></span><br>
+                    CARGAR IMÁGENES
+                </div></a>
+            </div>
+
+            <div class="col-md-3">
                 <a onclick="cargarLocales()"><div style="font-size: 1.5em;">
                     <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span><br>
                     VOLVER
