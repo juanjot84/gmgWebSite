@@ -20,7 +20,7 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
         dictRemoveFile: "Eliminar",
         maxFiles: 10,
         params: {
-            parametro1:'valor1',
+            parametro1: cont,
             parametro2:'valor2'
         },
         success: function (file, response) {
@@ -36,7 +36,6 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
       } // FIN myAwesomeDropzone
   var myDropzone = new Dropzone("#dZUpload", myAwesomeDropzone); 
     myDropzone.on("complete", function(file,response) {
-
 
   });
 });
