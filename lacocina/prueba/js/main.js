@@ -11,15 +11,7 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
         addRemoveLinks: true,
         paramName: "konostech",
         maxFilesize: 4, // MB
-        dictRemoveFile: "Eliminar",
-        maxFiles: 10,
-=======
-        dictRemoveFile: "Eliminar",
-        maxFiles: 2,
->>>>>>> Stashed changes
-        acceptedFiles: '.jpg',
-        resizeWidth: 750,
-        resizeHeight: 420,
+        dictRemoveFile: "Remover",
         params: {
             parametro1:'valor1',
             parametro2:'valor2'
@@ -32,8 +24,6 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
         error: function (file, response) {
           file.previewElement.classList.add("dz-error");
         }
-  }
-
       } // FIN myAwesomeDropzone
   var myDropzone = new Dropzone("#dZUpload", myAwesomeDropzone); 
     myDropzone.on("complete", function(file,response) {
