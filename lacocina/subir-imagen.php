@@ -56,7 +56,7 @@ if (!$_SESSION) {
 
             <div class="row">
 
-              <div class="col-md-12" style="display: -webkit-box; list-style: none; text-align: center; padding-top: 5%;">
+              <div class="col-md-12" style="display: -webkit-box; list-style: none; padding-top: 5%;">
                   <li class="miniaturas-orden">
                     <a href="#">
                       <img class="miniatura-galeria" src="img/img-muestra.jpg">
