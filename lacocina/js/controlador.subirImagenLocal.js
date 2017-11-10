@@ -43,17 +43,14 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
       } // FIN myAwesomeDropzone
   var myDropzone = new Dropzone("#dZUpload", myAwesomeDropzone); 
     
-
     myDropzone.on("complete", function(file) {
-       if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
-        console.log('todos subidos');
-        console.log(imagenesLocal)
+       if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {  
+        obtenerLocal(imagenesLocal);
+        console.log(imagenesLocal);
       } else {
         console.log('todavia hay archivos subiendose ')
       }
     });
-
-   
 
     
 });
@@ -71,4 +68,53 @@ function getArchivos() {
           $("#divMostrarArchivos").html("<br><p>Archivos:</p>"+data+"</br>");
         }
     });
+}
+
+function actualizarLocal(idLocal, valorAActualizar, campoAAcuatualizar){
+
+  var promise = new Promise(function(resolve, reject) {
+    var nuevoCampo = {};
+    nuevoCampo[campoAAcuatualizar] = valorAActualizar;
+
+    $.ajax({
+      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id=' + idLocal,
+      type: 'PUT',
+
+      dataType: "json",
+      crossDomain: true,
+      contentType: "application/json",
+      success: function (data) {
+        resolve(data);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        reject(errorThrown);
+      },
+      data: JSON.stringify(nuevoCampo)
+    });
+
+  });
+
+  return promise;
+}
+
+function obtenerLocal(vectorImagenes){
+  var idLocal = $("#idLocal").val();
+  return $.ajax({
+    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id='+ idLocal,
+    type: 'GET',
+            
+    dataType: "json",
+    crossDomain: true,
+    contentType:"application/json",
+      success: function (data) {        
+       var imagenesGuardadas = data.fotoLocal;
+        _.each(vectorImagenes, function (imagen){
+          imagenesGuardadas.push(imagen);
+        })
+        var idLocal = $("#idLocal").val();
+        var campo = 'fotoLocal';
+        actualizarLocal(idLocal,imagenesGuardadas,campo);
+      } 
+  });
+    
 }

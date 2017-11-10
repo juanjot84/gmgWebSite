@@ -59,8 +59,8 @@ $idLocal = $_GET['idLocal'];
 
             <div class="row">
 
-              <div class="col-md-12" style="display: -webkit-box; list-style: none; padding-top: 5%;">
-                  <li class="miniaturas-orden">
+              <div id="contenedorImagenes" class="col-md-12" style="display: -webkit-box; list-style: none; padding-top: 5%;">
+               <!--   <li class="miniaturas-orden">
                     <a href="#">
                       <img class="miniatura-galeria" src="img/img-muestra.jpg">
                     </a>
@@ -105,7 +105,7 @@ $idLocal = $_GET['idLocal'];
                     </a>
                     <br>
                     <i class="fa fa-trash" aria-hidden="true"></i>
-                  </li>
+                  </li>  -->
               </div>
 
             </div>
@@ -152,7 +152,7 @@ $idLocal = $_GET['idLocal'];
     <script src="js/controladores/especialidades.controlador.js"></script>
 
     <script src="js/dropzone.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/controladores/subirImagenLocal.controlador.js"></script>
 
     <!-- Theme JavaScript -->
     <script src="../js/agency.min.js"></script>
