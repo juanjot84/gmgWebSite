@@ -151,6 +151,7 @@ if (!$_SESSION) {
                             <tr> 
                                 <th >#</th>
                                     <th >Nombre</th>
+                                    <th style="text-align: center;">Destacado</th>
                                     <th style="text-align: center;">Acción</th>
                                 </tr>
                         </thead>
