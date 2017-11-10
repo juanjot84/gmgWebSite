@@ -179,3 +179,7 @@ function eliminarImagen(urlImagen){
       } 
   });
 }
+
+function seleccionarPrincipal(urlImagen){
+  
+}
