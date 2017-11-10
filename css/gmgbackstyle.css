@@ -492,75 +492,6 @@ h5.titulosalta {
     display: inline-block;
 }
 
-/*MEDIA  QUERIES*/
-
-
-@media only screen and (max-width : 425px) {
-
-    button.navbar-toggle {
-        padding-top: 2%;
-        margin-top: 5%;
-    }
-
-    button.navbar-toggle.collapsed {
-        padding-top: 2%;
-        margin-top: 5%;
-    }
-
-    ul.nav.navbar-nav.navbar-right {
-        background: #ffed00;
-    }
-
-    img.logoweb {
-        max-width: 50px;
-        padding-top: 35%;
-    }
-    .tituloback {
-        padding-top: 5%;
-    }
-    .navbar-custom {
-        height: 80px;
-    }
-
-    section h2.section-heading {
-        font-size: 2em !important;
-        margin-top: 0;
-        margin-bottom: 15px !important;
-    }
-
-    .intro-heading {
-        font-size: 55px !important;
-    }
-
-    .intro-heading {
-        font-size: 45px !important;
-        padding-bottom: 10%;
-    }
-    header .intro-text .intro-lead-in {
-        font-size: 22px !important;
-        line-height: 35px !important;
-    }
-    button.btn.btn-default.btnbuscar {
-        margin-top: 10%;
-    }
-    .filtros {
-        text-align: center;
-    }
-
-    .menufooter {
-            text-align: center;
-    }
-
-    .precioficha {
-        display: none;
-    }
-
-    .texto-ficha {
-        color: #111;
-        padding-top: 13%;
-    }
-
-}
 .panellocales {
         height: auto;
         padding-top: 20%;
@@ -618,4 +549,122 @@ button#botoncancelar {
     height: 645px;
     margin-top: -1.5%;
     background-size: cover;
+}
+
+.altoregistrorestaurant {
+    padding-top: 32%;
+    text-align: center;
+}
+
+
+/*MEDIA  QUERIES*/
+
+
+@media only screen and (max-width : 425px) {
+
+    button.navbar-toggle {
+        padding-top: 2%;
+        margin-top: 5%;
+    }
+
+    button.navbar-toggle.collapsed {
+        padding-top: 2%;
+        margin-top: 5%;
+    }
+
+    ul.nav.navbar-nav.navbar-right {
+        background: #ffff00;
+    }
+
+    img.logoweb {
+        max-width: 210px;
+        padding-top: 16%;
+    }
+    .tituloback {
+        padding-top: 5%;
+    }
+    .navbar-custom {
+        height: 80px;
+    }
+
+    section h2.section-heading {
+        font-size: 2em !important;
+        margin-top: 0;
+        margin-bottom: 15px !important;
+    }
+
+    .intro-heading {
+        font-size: 55px !important;
+    }
+
+    .intro-heading {
+        font-size: 45px !important;
+        padding-bottom: 10%;
+    }
+    header .intro-text .intro-lead-in {
+        font-size: 22px !important;
+        line-height: 35px !important;
+    }
+    button.btn.btn-default.btnbuscar {
+        margin-top: 10%;
+    }
+    .filtros {
+        text-align: center;
+    }
+
+    .menufooter {
+            text-align: center;
+    }
+
+    .precioficha {
+        display: none;
+    }
+
+    .texto-ficha {
+        color: #111;
+        padding-top: 13%;
+    }
+
+}
+
+
+@media only screen and (max-width : 768px) {
+
+    i.fa.fa-bars {
+        color: #000;
+    }
+
+    .navbar-custom .nav li a, .navbar-custom .navbar-toggle {
+        color: #000 !important;
+    }
+
+    .menufooter {
+        text-align: center;
+    }
+
+    .fondologincocina {
+        background: url(../lacocina/img/back-cocina.jpg) no-repeat;
+        height: auto;
+        margin-top: -5.5%;
+        background-size: cover;
+        padding-bottom: 5%;
+    }
+
+    .altoregistrorestaurant {
+        padding: 15% 0;
+        text-align: center;
+    }
+
+}
+
+
+
+@media only screen and (max-width : 1024px) {
+
+    .fondologincocina {
+        background: url(../lacocina/img/back-cocina.jpg) no-repeat;
+        height: auto;
+        margin-top: -2.5%;
+        background-size: cover;
+    }
 }
