@@ -128,8 +128,8 @@ function mostrarImagenes(){
     contentType:"application/json",
       success: function (data) {        
         var imagenesGuardadas = data.fotoLocal;
+        $('#contenedorImagenes').html('');
           _.each(imagenesGuardadas, function (imagen){
-              $('#contenedorImagenes').html('');
               $('#contenedorImagenes').append(  '' +
                   '<li class="miniaturas-orden">'+
                      '<a href="#">'+
