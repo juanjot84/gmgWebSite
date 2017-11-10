@@ -60,52 +60,7 @@ $idLocal = $_GET['idLocal'];
             <div class="row">
 
               <div id="contenedorImagenes" class="col-md-12" style="display: -webkit-box; list-style: none; padding-top: 5%;">
-               <!--   <li class="miniaturas-orden">
-                    <a href="#">
-                      <img class="miniatura-galeria" src="img/img-muestra.jpg">
-                    </a>
-                    <br>
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                  </li>
 
-                  <li class="miniaturas-orden">
-                    <a href="#">
-                      <img class="miniatura-galeria" src="img/img-muestra.jpg">
-                    </a>
-                    <br>
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                  </li>
-
-                  <li class="miniaturas-orden">
-                    <a href="#">
-                      <img class="miniatura-galeria" src="img/img-muestra.jpg">
-                    </a>
-                    <br>
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                  </li>
-
-                  <li class="miniaturas-orden">
-                    <a href="#">
-                      <img class="miniatura-galeria" src="img/img-muestra.jpg">
-                    </a>
-                    <br>
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                  </li>
-
-                  <li class="miniaturas-orden">
-                    <a href="#">
-                      <img class="miniatura-galeria" src="img/img-muestra.jpg">
-                    </a>
-                    <br>
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                  </li>
-                  <li class="miniaturas-orden">
-                    <a href="#">
-                      <img class="miniatura-galeria" src="img/img-muestra.jpg">
-                    </a>
-                    <br>
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                  </li>  -->
               </div>
 
             </div>
@@ -147,9 +102,6 @@ $idLocal = $_GET['idLocal'];
     <!-- Contact Form JavaScript -->
     <script src="../js/jqBootstrapValidation.js"></script>
     <script src="../js/contact_me.js"></script>
-
-    <!-- Funcione de Especialidades JavaScript -->
-    <script src="js/controladores/especialidades.controlador.js"></script>
 
     <script src="js/dropzone.js"></script>
     <script src="js/controladores/subirImagenLocal.controlador.js"></script>

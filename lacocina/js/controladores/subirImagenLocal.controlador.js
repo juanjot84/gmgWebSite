@@ -85,6 +85,7 @@ function actualizarLocal(idLocal, valorAActualizar, campoAAcuatualizar){
       contentType: "application/json",
       success: function (data) {
         resolve(data);
+        mostrarImagenes();
       },
       error: function (jqXHR, textStatus, errorThrown) {
         reject(errorThrown);
@@ -128,17 +129,53 @@ function mostrarImagenes(){
       success: function (data) {        
         var imagenesGuardadas = data.fotoLocal;
           _.each(imagenesGuardadas, function (imagen){
-
+              $('#contenedorImagenes').html('');
               $('#contenedorImagenes').append(  '' +
                   '<li class="miniaturas-orden">'+
                      '<a href="#">'+
                        '<img class="miniatura-galeria" src="'+imagen+'">'+
                      '</a>'+
                     '<br>'+
-                    '<i class="fa fa-trash" aria-hidden="true"></i>'+
+                    '<button title="Eliminar" onClick="eliminarImagen(\'' + imagen + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> '+
                   '</li>'+
               '');
           });
       } 
   });    
+}
+
+function eliminarImagen(urlImagen){
+
+  var idLocal = $("#idLocal").val();
+  return $.ajax({
+    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id='+ idLocal,
+    type: 'GET',
+            
+    dataType: "json",
+    crossDomain: true,
+    contentType:"application/json",
+      success: function (data) {        
+       var imagenesGuardadas = data.fotoLocal;
+
+        var largoString = urlImagen.length;
+        var nombreImagen = urlImagen.substr(42, largoString);
+        var index = imagenesGuardadas.indexOf(urlImagen);
+        var parametros = {
+                "nombreArchivo" : nombreImagen,
+        };
+        $.ajax({
+                data:  parametros, 
+                url:   'scripts/eliminarImagen.php', 
+                type:  'post', 
+                success:  function (response) {
+                  if(response.trim() == 'borrado'){
+                      var idLocal = $("#idLocal").val();
+                      var campo = 'fotoLocal';
+                      imagenesGuardadas.splice(index, 1);
+                      actualizarLocal(idLocal,imagenesGuardadas,campo); 
+                  }
+                }
+        });
+      } 
+  });
 }
