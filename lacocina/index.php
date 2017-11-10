@@ -72,7 +72,7 @@
                     <div class="panel panel-login panellacocina">
                         <div class="panel-heading">
                             <div class="row">
-                                <div class="col-xs-8">
+                                <div class="col-xs-12">
                                     <a href="#" class="active" id="login-form-link" style="color: #fff !important;">Acceda para administrar su restaurante</a>
                                 </div>
                             </div>
@@ -117,7 +117,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div style="padding-top: 32%;text-align: center;">
+                    <div class="altoregistrorestaurant">
                         <h2 style="color: #fff;">Quiero registrar mi restaurante</h2>
                         <div class="col-sm-6 col-sm-offset-3">
                             <input type="button" name="login-submit" id="" class="form-control btn btn-login" value="Registrar" onclick="" style="margin-top: 7%; background: #ffff00c2;">
