@@ -128,8 +128,18 @@ function mostrarImagenes(){
     contentType:"application/json",
       success: function (data) {        
         var imagenesGuardadas = data.fotoLocal;
+        var imgPrincipal = data.fotoPrincipalLocal;
+        var iconoEstrella = '';
         $('#contenedorImagenes').html('');
           _.each(imagenesGuardadas, function (imagen){
+
+            if(imgPrincipal == imagen){
+                iconoEstrella = 'fa fa-star';
+            }else{
+                iconoEstrella = 'fa fa-star-o';
+            }
+
+
               $('#contenedorImagenes').append(  '' +
                   '<li class="miniaturas-orden">'+
                      '<a href="#">'+
@@ -137,6 +147,7 @@ function mostrarImagenes(){
                      '</a>'+
                     '<br>'+
                     '<button title="Eliminar" onClick="eliminarImagen(\'' + imagen + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> '+
+                    '<button title="Imagen Principal" onClick="seleccionarPrincipal(\'' + imagen + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="'+iconoEstrella+'" aria-hidden="true"></i> </button> '+
                   '</li>'+
               '');
           });
@@ -181,5 +192,30 @@ function eliminarImagen(urlImagen){
 }
 
 function seleccionarPrincipal(urlImagen){
-  
+    var idLocal = $("#idLocal").val();
+    var campoAAcuatualizar = 'fotoPrincipalLocal';
+    var promise = new Promise(function(resolve, reject) {
+    var nuevoCampo = {};
+    nuevoCampo[campoAAcuatualizar] = urlImagen;
+
+    $.ajax({
+      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id=' + idLocal,
+      type: 'PUT',
+
+      dataType: "json",
+      crossDomain: true,
+      contentType: "application/json",
+      success: function (data) {
+        mostrarImagenes();
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        reject(errorThrown);
+      },
+      data: JSON.stringify(nuevoCampo)
+    });
+
+  });
+
+  return promise;
+
 }
