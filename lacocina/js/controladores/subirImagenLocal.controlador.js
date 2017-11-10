@@ -24,7 +24,7 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
         maxFilesize: 4, // MB
         resizeWidth: 750,
         resizeHeight: 420,
-        acceptedFiles: '.jpg',
+        acceptedFiles: '.jpg, .jpeg',
         dictRemoveFile: "Eliminar",
         maxFiles: 10,
         params: {
