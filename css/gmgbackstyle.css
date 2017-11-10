@@ -578,7 +578,7 @@ button#botoncancelar {
 
     img.logoweb {
         max-width: 210px;
-        padding-top: 16%;
+        padding-top: 10%;
     }
     .tituloback {
         padding-top: 5%;
@@ -624,6 +624,12 @@ button#botoncancelar {
         color: #111;
         padding-top: 13%;
     }
+    .fondococina {
+        background: url(../lacocina/img/back-cocina.jpg) no-repeat;
+        height: 30vh !important;
+        margin-top: -5.5% !important;
+        background-size: cover;
+    }
 
 }
 
@@ -665,6 +671,12 @@ button#botoncancelar {
         background: url(../lacocina/img/back-cocina.jpg) no-repeat;
         height: auto;
         margin-top: -2.5%;
+        background-size: cover;
+    }
+    .fondococina {
+        background: url(../lacocina/img/back-cocina.jpg) no-repeat;
+        height: 80vh;
+        margin-top: -4.5%;
         background-size: cover;
     }
 }
