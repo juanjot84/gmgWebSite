@@ -151,7 +151,9 @@ if (!$_SESSION) {
                             <tr> 
                                 <th >#</th>
                                     <th >Nombre</th>
+                                    <th style="text-align: center;">Precio</th>
                                     <th style="text-align: center;">Destacado</th>
+                                    <th style="text-align: center;">Premium</th>
                                     <th style="text-align: center;">Acción</th>
                                 </tr>
                         </thead>

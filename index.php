@@ -79,7 +79,7 @@
           <a href="#" class="page-scroll btn btn-xl">CÓMO FUNCIONA</a> -->
           <div class="form-group" style="padding-top: 5%;">
             <form action="resultados-busqueda.php" method="post">
-              <input type="text" class="form-control" placeholder="Qué buscas?" name="parametro">
+              <input type="text" class="form-control" placeholder="Buscá por nombre, zona o tipo de cocina" name="parametro">
 
               <!-- <div class="filtros">
                 <input type="radio" name="filtro" value="nombre" aria-label="..."> POR NOMBRE
