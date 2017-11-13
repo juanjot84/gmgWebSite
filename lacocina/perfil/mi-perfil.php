@@ -18,13 +18,7 @@ if (!$_SESSION) {
 
 <?php include("includes/head-perfil.php"); ?>
 
-<head>
-    <style type="text/css">
-        .text-primary, a {
-            color: #000000;
-        }
-    </style>
-</head>
+
 
 <body id="page-top" class="index">
 
@@ -37,36 +31,34 @@ if (!$_SESSION) {
 ?>
 
 
-    <div class="container-fluid" style="padding: 1%;background: yellow;margin-top: -21px;">
-        <div class="container">
-        </div>
-    </div>
-    <div class="container" style="height: 65vh; padding-top: 13%; min-height: 715px;">
+    <div class="container-fluid fondococina">
+        <div class="container" style="height: 65vh; padding-top: 13%; min-height: 715px;">
 
-    <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
-    <input type="text" name="tipoUs" id="tipoUs" value="<?php echo $tipoUsuario; ?>" class="hidden">
+        <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
+        <input type="text" name="tipoUs" id="tipoUs" value="<?php echo $tipoUsuario; ?>" class="hidden">
 
-        <div class="row text-center">
-            <div class="col-md-4">
-                <a onclick="cargarForm('negocio')"><div style="font-size: 2em;">
-                    <span style="font-size: 3em; padding: 5%;" class="glyphicon glyphicon-cog" aria-hidden="true"></span><br>
-                    DATOS GENERALES
-                </div></a>
-            </div>
-            <div class="col-md-4">
-                <a onclick="cargarForm('contacto')"><div style="font-size: 2em;">
-                    <span style="font-size: 3em; padding: 5%;" class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><br>
-                    DATOS DE ACCESO
-                </div></a>
-            </div>
-            <div class="col-md-4">
-                <a onclick="cargarForm('local')"><div style="font-size: 2em;">
-                    <span style="font-size: 3em; padding: 5%;" class="glyphicon glyphicon-th" aria-hidden="true"></span><br>
-                    LOCALES
-                </div></a>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <a class="botonpanelmiperfil" onclick="cargarForm('negocio')"><div>
+                        <span class="iconosmiperfil glyphicon glyphicon-cog" aria-hidden="true"></span><br>
+                        DATOS GENERALES
+                    </div></a>
+                </div>
+                <div class="col-md-4">
+                    <a class="botonpanelmiperfil" onclick="cargarForm('contacto')"><div>
+                        <span class="iconosmiperfil glyphicon glyphicon-list-alt" aria-hidden="true"></span><br>
+                        DATOS DE ACCESO
+                    </div></a>
+                </div>
+                <div class="col-md-4">
+                    <a class="botonpanelmiperfil" onclick="cargarForm('local')"><div>
+                        <span class="iconosmiperfil glyphicon glyphicon-th" aria-hidden="true"></span><br>
+                        LOCALES
+                    </div></a>
+                </div>
             </div>
         </div>
-    </div>
+    </div> 
 
     
     <?php include("includes/footer-perfil.php"); ?>

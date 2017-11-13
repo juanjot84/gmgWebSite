@@ -23,6 +23,14 @@ header {
 .navbar-default .navbar-nav>li>a {
     color: #000;
 }
+
+nav.navbar.navbar-default {
+    position: relative;
+    min-height: auto;
+    margin-bottom: 0;
+    border: 1px solid transparent;
+}
+
 .btn-xl {
     color: #111 !important;
     background-color: #FFED00 !important;
@@ -469,6 +477,34 @@ h5.titulosalta {
     -webkit-box-shadow: 0 0px 0px rgba(0,0,0,.05);
     box-shadow: 0 0px 0px rgba(0,0,0,.05);
 }
+
+.fondococina {
+    background: url(../../img/back-cocina.jpg) no-repeat;
+    height: 645px;
+    margin-top: -1.5%;
+    background-size: cover;
+}
+
+.iconosmiperfil {
+    font-size: 3em;
+    padding: 5%;
+    color: #fff;
+}
+
+.botonpanelmiperfil {
+    cursor: pointer;
+    font-size: 2em; 
+    color: #fff;
+    transition: all 0.5s;
+}
+.botonpanelmiperfil:hover {
+    cursor: pointer;
+    font-size: 2em;
+    color: #ffff00 !important;
+    transition: all 0.5s;
+
+}
+
 
 
 /*MEDIA QUERIES*/
