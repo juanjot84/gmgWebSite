@@ -81,6 +81,8 @@ if($tipoUsuario == 'usuarioNegocio'){
                                 <th >#</th>
                                     <th >Nombre Negocio</th>
                                     <th >Dirección</th>
+                                    <th style="text-align: center;">Precio</th>
+                                    <th style="text-align: center;">Premium</th>
                                     <th style="text-align: center;">Acción</th>
                                 </tr>
                         </thead>
