@@ -59,7 +59,8 @@
                      '<img class="img-responsive" src="http://guiamendozagourmet.com/gmg/img/bardotprincipal.jpg">'+
                       '<p><span style="font-size: 1.5em;"><strong>Nombre sucursal</strong></p>'+
                       '<p><i class="fa fa-map-marker" aria-hidden="true"></i><span class="polo"> Dirección sucursal</span></p>'+      
-                      '<p style="letter-spacing: 1px;"><strong>$$$</strong><span style="color: #cbcbcb">$$</span></p>'+
+                      '<p>Nivel de precio <strong style="letter-spacing: 1px;">$$$</strong><span style="color: #cbcbcb">$$</span></p>'+
+                      '<p>Ficha premium <i class="fa fa-check-circle" aria-hidden="true"></i></p>'+
                       '<p style="text-align: center;">'+
                        '<button onclick="editarLocal()" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>'+
                       '</p>'+
