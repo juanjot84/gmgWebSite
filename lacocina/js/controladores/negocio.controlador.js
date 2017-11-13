@@ -104,6 +104,7 @@
          $("#descripcionNegocio").val(negocio.descripcionNegocio);
          $("input[name=destacadoNegocio][value=" + negocio.destacadoNegocio + "]").prop("checked",true);
          $("#bajadaNegocio").val(negocio.bajadaNegocio);
+         $("#webNegocio").val(negocio.webNegocio);
          $("#urlIconoNegocio").val(negocio.urlIconoNegocio);
          $("#tagsNegocio").val(negocio.tagsNegocio);
          $("#tripadvisorNegocio").val(negocio.tripadvisorNegocio);
@@ -133,6 +134,7 @@
             "urlIconoNegocio": $("#urlIconoNegocio").val(),
             "idTipoNegocio": $("#tipoNegocio").val(),
             "bajadaNegocio": $("#bajadaNegocio").val(),
+            "webNegocio": $("#webNegocio").val(),
             "tagsNegocio":$("#tagsNegocio").val(),
             "tripadvisorNegocio":$("#tripadvisorNegocio").val(),
             "twitterNegocio":$("#twitterNegocio").val(),
@@ -178,6 +180,7 @@
        $("input[name=destacadoNegocio][value=" + negocio.destacadoNegocio + "]").prop("checked",true);
        $("#urlIconoNegocio").val(negocio.urlIconoNegocio);
        $("#bajadaNegocio").val(negocio.bajadaNegocio);
+       $("#webNegocio").val(negocio.webNegocio);
        $("#tagsNegocio").val(negocio.tagsNegocio);
        $("#tripadvisorNegocio").val(negocio.tripadvisorNegocio);
        $("#twitterNegocio").val(negocio.twitterNegocio);
@@ -292,6 +295,7 @@
             "urlIconoNegocio": $("#urlIconoNegocio").val(),
             "idTipoNegocio": $("#tipoNegocio").val(),
             "bajadaNegocio": $("#bajadaNegocio").val(),
+            "webNegocio": $("#webNegocio").val(),
             "tagsNegocio":$("#tagsNegocio").val(),
             "tripadvisorNegocio":$("#tripadvisorNegocio").val(),
             "twitterNegocio":$("#twitterNegocio").val(),

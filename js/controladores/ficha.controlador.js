@@ -79,6 +79,7 @@ function popularLocal(local) {
   $('#twitterNegocio').attr('href', local.idNegocio.twitterNegocio);
   $('#instagramNegocio').attr('href', local.idNegocio.instagramNegocio);
   $('#tripadvisorNegocio').attr('href', local.idNegocio.tripadvisorNegocio);
+  $('#paginaNegocio').attr('href', local.idNegocio.webNegocio);
   $('#direccionLocal').text(local.calleLocal + espacio + local.alturaLocal + coma + local.idLocalidad.nombreLocalidad);
   $('#telefonoLocal').text(local.telContacto);
   $('#mailLocal').text(local.mailContacto);
