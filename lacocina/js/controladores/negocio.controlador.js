@@ -48,7 +48,7 @@
 
                 $('#listadoNegocios').append(' <tr>' +
                     '<th scope="row" style="font-size: 1.5em;">'+cont+++'</th>' +
-                    '<td>' +negocio.nombreNegocio+ '  |  ' + negocio.bajadaNegocio+ '</td>'+
+                    '<td>' +negocio.nombreNegocio+ '</td>'+
                     '<td class="centrarbotdescado"><button title="Cambiar Destacado" onClick="actualizarDestacado(\'' + negocio._id + '\',\''+negocio.destacadoNegocio+'\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="'+negocioDestacado+'" aria-hidden="true"></i></button></td>'+
                     '<td class="centrarbotaccion">' +
                     '<button onClick="editar(\'' + negocio._id + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button> ' +
