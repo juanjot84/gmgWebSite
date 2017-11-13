@@ -45,7 +45,7 @@
                 $('#listadoTiposCocina').append(' <tr>' +
                     '<th scope="row" style="font-size: 1.5em;">' + parseInt(index+1) + '</th>' +
                     '<td>' +tipoCocina.nombreTipoCocina+ '</td>'+
-                    '<td class="centrarbotdescado"><button title="Cambiar Destacado" onClick="actualizarDestacado(\'' + tipoCocina._id + '\',\''+tipoCocina.destacadoTipoCocina+'\')" class="btn btn-default botaccion" type="button"><i class="'+cocinaDestacada+'" aria-hidden="true"></i></td></button>'+
+                    '<td class="centrarbotdescado"><button title="Cambiar Destacado" onClick="actualizarDestacado(\'' + tipoCocina._id + '\',\''+tipoCocina.destacadoTipoCocina+'\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="'+cocinaDestacada+'" aria-hidden="true"></i></td></button>'+
                     '<td class="centrarbotaccion">' +
                     '<button onClick="mostrar(\'' + tipoCocina._id + '\')" title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>' +
                     '<button onClick="editar(\'' + tipoCocina._id + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button> ' +
