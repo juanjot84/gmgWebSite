@@ -82,6 +82,7 @@ function popularLocal(local) {
   $('#direccionLocal').text(local.calleLocal + espacio + local.alturaLocal + coma + local.idLocalidad.nombreLocalidad);
   $('#telefonoLocal').text(local.telContacto);
   $('#mailLocal').text(local.mailContacto);
+  $('#tipoCocinaPrincipal').text(local.idTipoCocinaPrincipal.nombreTipoCocina);
   $('#reservar').attr('href', 'reserva.php?id=' + local._id);
   var mediosPago = '';
   _.each(local.idMedioPago, function(medioPago){
@@ -102,32 +103,32 @@ function dibujarServicios(servicios){
 }
 
 //Funcion principal inicio mapa
- initMap = function (latitudLocal, longitudLocal){
-            coords = {lng: latitudLocal, lat: longitudLocal};
-            // coords =  {lng: -68.839412, lat: -32.890667};
-            setMapa(coords);  //pasamos las coordenadas al metodo para crear el mapa
-}
+initMap = function (latitudLocal, longitudLocal){
+  coords = {lng: latitudLocal, lat: longitudLocal};
+  // coords =  {lng: -68.839412, lat: -32.890667};
+  setMapa(coords);  //pasamos las coordenadas al metodo para crear el mapa
+};
 
 function setMapa (coords){
-      //Se crea una nueva instancia del objeto mapa
-      var map = new google.maps.Map(document.getElementById('map'),
-      {
-        zoom: 13,
-        center:new google.maps.LatLng(coords.lat,coords.lng),
-      });
-      //Creamos el marcador en el mapa con sus propiedades
-      //para nuestro obetivo tenemos que poner el atributo draggable en true
-      //position pondremos las mismas coordenas que obtuvimos en la geolocalización
-      marker = new google.maps.Marker({
-        icon: iconBase + 'marcador.png',
-        map: map,
-        draggable: true,
-        animation: google.maps.Animation.DROP,
-        position: new google.maps.LatLng(coords.lat,coords.lng),
-      });
-      //agregamos un evento al marcador junto con la funcion callback al igual que el evento dragend que indica
-      //cuando el usuario a soltado el marcador
-      marker.addListener('click', toggleBounce);
+  //Se crea una nueva instancia del objeto mapa
+  var map = new google.maps.Map(document.getElementById('map'),
+  {
+    zoom: 13,
+    center:new google.maps.LatLng(coords.lat,coords.lng),
+  });
+  //Creamos el marcador en el mapa con sus propiedades
+  //para nuestro obetivo tenemos que poner el atributo draggable en true
+  //position pondremos las mismas coordenas que obtuvimos en la geolocalización
+  marker = new google.maps.Marker({
+    icon: iconBase + 'marcador.png',
+    map: map,
+    draggable: true,
+    animation: google.maps.Animation.DROP,
+    position: new google.maps.LatLng(coords.lat,coords.lng),
+  });
+  //agregamos un evento al marcador junto con la funcion callback al igual que el evento dragend que indica
+  //cuando el usuario a soltado el marcador
+  marker.addListener('click', toggleBounce);
 }
 
 //callback al hacer clic en el marcador lo que hace es quitar y poner la animacion BOUNCE

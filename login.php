@@ -1,6 +1,8 @@
 
 <?php
-$redirect = $_GET["redirect"];
+
+$redirect = isset($_GET['redirect']) ? $_GET['redirect'] : 'index.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="es">

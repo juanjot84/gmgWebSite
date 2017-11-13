@@ -25,13 +25,13 @@ function obtenerListado() {
 }
 
 function buscar(parametro, filtro) {
-  if( _.isEmpty(parametro) || _.isEmpty(filtro)  ){
+  if( _.isEmpty(parametro) && _.isEmpty(filtro)  ){
     obtenerListado()
   } else {
     $('.container.locales').html('');
     var obj={};
     var llamada;
-    if (filtro ==  "nombre"){
+    if (filtro ==  "" || filtro ==  "nombre"){
       llamada ="buscar";
       obj.parametro = parametro;
     } else {
@@ -73,12 +73,14 @@ function getDia(dia) {
     var n = dia || d.getDay();
     var dias = {
       0: "Domingo",
+      0: "Domingos",
       1: "Lunes",
       2: "Martes",
       3: "Miercoles",
       4: "Jueves",
       5: "Viernes",
-      6: "Sabado"
+      6: "Sabado",
+      6: "Sabados"
     };
     return dias[n];
   };
@@ -92,6 +94,10 @@ function renderLocal(local){
   }
 
   var descuentoDia = _.filter(local.idLocalDescuento, {'diaDescuento': getDia()});
+  var descuento = '';
+  if (!_.isEmpty(descuentoDia)){
+      descuento = ' <br><h2 class="etiquetadescuento">' + descuentoDia[0].idDescuento.nombreDescuento +'</h2>';
+  }
 
   $('.container.locales').append('' +
     '<a href="ficha.php?id=' + local._id +'"><div class="row" style="padding-top: 5%;color: #252525;border-bottom: 1px solid #e3e3e3;padding-bottom: 2%;">' +
@@ -114,9 +120,12 @@ function renderLocal(local){
     // '</ul> | ' +
     // '<span class="precio">' + local.idNivelPrecio.label +'</span> <br>' +
     '<p><span class="descripcion">' + local.idNegocio.descripcionNegocio.substr(0, 147) + '...</span></p>' +
+
     '</div>' +
     '<div class="col-md-3">' +
-    ' <br><h2 class="etiquetadescuento">'+ descuentoDia[0].idDescuento.nombreDescuento +'</h2>' +
+    descuento +
+    // '  <br><i class="fa fa-heart-o" style="color: #e02222 !important; font-size: 3em;" aria-hidden="true"></i>'+
     '</div>' +
     '</div></a>');
+
 }

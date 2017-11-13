@@ -39,35 +39,7 @@
     ?>
     <body id="page-top" class="index">
 
-        <!-- Navigation -->
-        <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header page-scroll">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span> <i class="fa fa-bars"></i>
-                    </button>
-                    <a class="navbar-brand page-scroll" href="#"><img class="logoweb" src="img/logo-gmg.png"></a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="hidden">
-                            <a href="#page-top"></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-user" aria-hidden="true"></i> ACCEDER</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> FAVORITOS</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container-fluid -->
-        </nav>
+        <?php include("includes/nav.php"); ?>
 
         <!-- Header -->
         <header class="fondoficha">
@@ -76,8 +48,9 @@
                     <div class="col-md-8 text-left texto-ficha">
                         <div class="row">
                             <div class="col-md-8">
-                                <h3 class="titulo"><span id="nombreNegocio"></span> | <span id="bajadaNegocio"></span></h3>
-                                <p id="rubro">RUBRO > TIPO DE COCINA</p>
+                                <h3 class="titulo"><span id="nombreNegocio"></span> | <span id="bajadaNegocio"></span><i class="fa fa-heart-o" style="color: #e02222 !important; font-size: 1em; padding-left: 6px;" aria-hidden="true"></i></h3>
+
+                                <p >RUBRO <span id="rubro"></span> > TIPO DE COCINA <span id="tipoCocinaPrincipal"></span></p>
                             </div>
                             <div class="col-md-4 text-center precioficha">
                                 <p id="nivelPrecio"></p>
@@ -261,7 +234,7 @@
             <div class="container-fluid fondopubli">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                    
+
                     </div>
                 </div>
             </div>

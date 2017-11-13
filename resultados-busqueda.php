@@ -36,8 +36,15 @@
 </head>
 
 <?php
+
+$parametro = '';
+$filtro = '';
+
 $parametro = $_POST["parametro"];
 $filtro = $_POST['filtro'];
+
+if (empty($parametro)) $parametro = '';
+if (empty($filtro)) $filtro = '';
 ?>
 
 
@@ -46,35 +53,7 @@ $filtro = $_POST['filtro'];
   <input type="text" name="parametro" id="parametro" value="<?php echo $parametro; ?>" class="hidden">
   <input type="text" name="filtro" id="filtro" value="<?php echo $filtro; ?>" class="hidden">
 
-  <!-- Navigation -->
-  <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header page-scroll">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span> <i class="fa fa-bars"></i>
-        </button>
-        <a class="navbar-brand page-scroll" href="#"><img class="logoweb" src="img/logo-gmg.png"></a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="hidden">
-            <a href="#page-top"></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-user" aria-hidden="true"></i> ACCEDER</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-heart" style="color: #e02222 !important;" aria-hidden="true"></i> FAVORITOS</a>
-          </li>
-        </ul>
-      </div>
-      <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-  </nav>
+  <?php include("includes/nav.php"); ?>
 
   <!-- Header -->
   <header>
@@ -90,15 +69,15 @@ $filtro = $_POST['filtro'];
             <form action="resultados-busqueda.php" method="post">
               <input type="text" class="form-control" placeholder="Qué buscas?" name="parametro">
 
-              <div class="filtros">
+              <!-- <div class="filtros">
                 <input type="radio" name="filtro" value="nombre" aria-label="..."> POR NOMBRE
                 <input type="radio" name="filtro" value="localidad" aria-label="..."> POR ZONA
                 <input type="radio" name="filtro" value="tipoCocina" aria-label="..."> TIPO DE COMIDA
-              </div>
+              </div> -->
               <div style="padding-top: 5%;">
-                <button type="button" class="btn btn-default">FECHA</button>
+                <!-- <button type="button" class="btn btn-default">FECHA</button>
                 <button type="button" class="btn btn-default">HORA</button>
-                <button type="button" class="btn btn-default">COMENSALES</button>
+                <button type="button" class="btn btn-default">COMENSALES</button> -->
                 <button type="submit" class="btn btn-default btnbuscar">BUSCAR</button>
               </div>
             </form>
@@ -124,7 +103,7 @@ $filtro = $_POST['filtro'];
   </div>
 
   <!-- Publicidad -->
-  <section style="padding: 2% 0 !important;">
+  <!-- <section style="padding: 2% 0 !important;">
     <div class="container-fluid fondopubli">
       <div class="row">
         <div class="col-lg-12 text-center">
@@ -133,9 +112,9 @@ $filtro = $_POST['filtro'];
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
- 
+
  <?php include("includes/footer.php"); ?>
 
   <!-- jQuery -->

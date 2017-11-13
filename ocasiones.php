@@ -35,55 +35,55 @@
         font-weight: 400;
         margin-bottom: 75px;
       }
-    </style>    
+    </style>
 
   </head>
   <body>
-      
+
       <div id="demo">
         <div class="container">
           <div class="row">
             <div class="span12">
 
               <div id="owl-demo" class="owl-carousel">
-                <div class="item"><img class="img-responsive fotosocasiones" style="max-width:280px; " src="img/ocasion01.png">  
+                <div class="item"><img class="img-responsive fotosocasiones" style="max-width:280px; " src="img/ocasion01.png">
                   <h2 class="section-heading">Cena romántica</h2>
-                  
+
 
                 </div>
-                <div class="item"><img class="img-responsive fotosocasiones" style="max-width:280px; " src="img/ocasion02.png">  
+                <div class="item"><img class="img-responsive fotosocasiones" style="max-width:280px; " src="img/ocasion02.png">
                   <h2 class="section-heading">Salida en familia</h2>
-                  
+
 
                 </div>
-                <div class="item"><img class="img-responsive fotosocasiones" style="max-width:280px; " src="img/ocasion03.png">  
+                <div class="item"><img class="img-responsive fotosocasiones" style="max-width:280px; " src="img/ocasion03.png">
                   <h2 class="section-heading">Juntada con amigos</h2>
-                  
+
 
                 </div>
-                <div class="item"><img class="img-responsive fotosocasiones" style="max-width:280px; " src="img/ocasion04.png">  
+                <div class="item"><img class="img-responsive fotosocasiones" style="max-width:280px; " src="img/ocasion04.png">
                   <h2 class="section-heading">Comer con niños</h2>
-                  
+
 
                 </div>
-                <div class="item"><img class="img-responsive fotosocasiones" style="max-width:280px; " src="img/ocasion05.png">  
+                <div class="item"><img class="img-responsive fotosocasiones" style="max-width:280px; " src="img/ocasion05.png">
                   <h2 class="section-heading">Reunión de negocios</h2>
-                  
+
 
                 </div>
-                <div class="item"><img class="img-responsive fotosocasiones" style="max-width:280px; " src="img/ocasion06.png">  
+                <div class="item"><img class="img-responsive fotosocasiones" style="max-width:280px; " src="img/ocasion06.png">
                   <h2 class="section-heading">Festejo</h2>
-                  
+
 
                 </div>
-                <div class="item"><img class="img-responsive fotosocasiones" style="max-width:280px; " src="img/ocasion07.png">  
+                <div class="item"><img class="img-responsive fotosocasiones" style="max-width:280px; " src="img/ocasion07.png">
                   <h2 class="section-heading">Pic nic</h2>
-                  
+
 
                 </div>
-                <div class="item"><img class="img-responsive fotosocasiones" style="max-width:280px; " src="img/ocasion08.png">  
+                <div class="item"><img class="img-responsive fotosocasiones" style="max-width:280px; " src="img/ocasion08.png">
                   <h2 class="section-heading">Fin de año</h2>
-                  
+
 
                 </div>
               </div>
@@ -92,10 +92,10 @@
           </div>
         </div>
       </div>
-      
 
 
-    <script src="assets/js/jquery-1.9.1.min.js"></script> 
+
+    <script src="assets/js/jquery-1.9.1.min.js"></script>
     <script src="owl-carousel/owl.carousel.js"></script>
 
 
@@ -151,10 +151,10 @@
       itemsDesktopSmall : [900,3], // 3 items betweem 900px and 601px
       itemsTablet: [600,2], //2 items between 600 and 0;
       itemsMobile : false // itemsMobile disabled - inherit from itemsTablet option
-      
+
       });
 
-      
+
 
 
     });

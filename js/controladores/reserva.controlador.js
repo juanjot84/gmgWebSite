@@ -227,8 +227,8 @@ function renderMisReservas(reservas){
       '     <strong>' + reserva.idLocal.idNivelPrecio.label + '</strong><span style="color: #cbcbcb">$$</span>' +
       '   </p>  ' +
       '   <p>' +
-      '     <span class="descripcion">' + reserva.idLocal.idNegocio.descripcionNegocio +
-      '     </span>' +
+      '     <span class="descripcion">' + reserva.idLocal.idNegocio.descripcionNegocio.substr(0, 147) +
+      '     ...</span>' +
       '   </p>  ' +
       '  </div>  ' +
       '  <div class="col-md-3">    ' +

@@ -33,39 +33,43 @@
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
   <![endif]-->
 
+
+
+      <!-- <link href="assets/css/bootstrapTheme.css" rel="stylesheet"> -->
+  <link href="assets/css/custom.css" rel="stylesheet">
+
+  <!-- Owl Carousel Assets -->
+  <link href="owl-carousel/owl.carousel.css" rel="stylesheet">
+  <link href="owl-carousel/owl.theme.css" rel="stylesheet">
+
+  <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+  <!-- Le fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+  <style type="text/css">
+    h2.section-heading {
+      color: #111;
+      font-family: "Roboto", sans-serif;
+    }
+    h3.section-subheading.text-muted {
+      color: #777;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+      text-transform: none;
+      font-weight: 400;
+      margin-bottom: 75px;
+    }
+  </style>
+
 </head>
 
 <body id="page-top" class="index">
 
-  <!-- Navigation -->
-  <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header page-scroll">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span> <i class="fa fa-bars"></i>
-        </button>
-        <a class="navbar-brand page-scroll" href="#"><img class="logoweb" src="img/logo-gmg.png"></a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="hidden">
-            <a href="#page-top"></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-user" aria-hidden="true"></i> ACCEDER</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-heart" style="color: #e02222 !important;" aria-hidden="true"></i> FAVORITOS</a>
-          </li>
-        </ul>
-      </div>
-      <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-  </nav>
+  <?php include("includes/nav.php"); ?>
 
   <!-- Header -->
   <header>
@@ -77,7 +81,7 @@
           <!-- <div class="intro-heading">RESERVÁ TU LUGAR</div>
           <div class="intro-lead-in">Buscá <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Elegí <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Reservá <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> ES GRATIS!!</div>
           <a href="#" class="page-scroll btn btn-xl">CÓMO FUNCIONA</a> -->
-          <div class="form-group" style="padding-top: 5%;">
+          <div class="form-group" style="padding-top: 7%;">
             <form action="resultados-busqueda.php" method="post">
               <input type="text" class="form-control" placeholder="Buscá por nombre, zona o tipo de cocina" name="parametro">
 
@@ -108,12 +112,24 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading">Ocasiones</h2>
-          
+
         </div>
       </div>
 
       <div class="row">
-        <iframe class="altoocasiones" width='101%' height='auto' frameBorder='0' scrolling='no' src="ocasiones.php"></iframe>
+        <div id="demo">
+          <div class="container">
+            <div class="row">
+              <div class="span12">
+
+                <div id="owl-demo" class="owl-carousel">
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -134,68 +150,7 @@
 
   <!-- About Section -->
   <section id="about">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading">POLOS GASTRONÓMICOS</h2>
-          
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <a class="linkpolo" href="#"><h3 class="section-heading"><i id="prueba" class="fa fa-chevron-right" aria-hidden="true"></i> Peatonal Sarmiento</h3></a>
-        </div>
-        <div class="col-md-4">
-          <a class="linkpolo" href="#"><h3 class="section-heading"><i class="fa fa-chevron-right" aria-hidden="true"></i> Calle Sarmiento</h3></a>
-        </div>
-        <div class="col-md-4">
-          <a class="linkpolo" href="#"><h3 class="section-heading"><i class="fa fa-chevron-right" aria-hidden="true"></i> Calle Belgrano</h3></a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <a class="linkpolo" href="#"><h3 class="section-heading"><i class="fa fa-chevron-right" aria-hidden="true"></i> Av. Arístides Villanueva</h3></a>
-        </div>
-        <div class="col-md-4">
-          <a class="linkpolo" href="#"><h3 class="section-heading"><i class="fa fa-chevron-right" aria-hidden="true"></i> Av. Juan B. Justo</h3></a>
-        </div>
-        <div class="col-md-4">
-          <a class="linkpolo" href="#"><h3 class="section-heading"><i class="fa fa-chevron-right" aria-hidden="true"></i> Alameda</h3></a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <a class="linkpolo" href="#"><h3 class="section-heading"><i class="fa fa-chevron-right" aria-hidden="true"></i> Barrio Bombal</h3></a>
-        </div>
-        <div class="col-md-4">
-          <a class="linkpolo" href="#"><h3 class="section-heading"><i class="fa fa-chevron-right" aria-hidden="true"></i> Av. San Martín Sur</h3></a>
-        </div>
-        <div class="col-md-4">
-          <a class="linkpolo" href="#"><h3 class="section-heading"><i class="fa fa-chevron-right" aria-hidden="true"></i> Panamericana</h3></a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <a class="linkpolo" href="#"><h3 class="section-heading"><i class="fa fa-chevron-right" aria-hidden="true"></i> Chacras de Coria</h3></a>
-        </div>
-        <div class="col-md-4">
-          <a class="linkpolo" href="#"><h3 class="section-heading"><i class="fa fa-chevron-right" aria-hidden="true"></i> Cacheuta</h3></a>
-        </div>
-        <div class="col-md-4">
-          <a class="linkpolo" href="#"><h3 class="section-heading"><i class="fa fa-chevron-right" aria-hidden="true"></i> Alta Montaña</h3></a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <a class="linkpolo" href="#"><h3 class="section-heading"><i class="fa fa-chevron-right" aria-hidden="true"></i> Potrerillos</h3></a>
-        </div>
-        <div class="col-md-4">
-          <a class="linkpolo" href="#"><h3 class="section-heading"><i class="fa fa-chevron-right" aria-hidden="true"></i> Valle de Uco</h3></a>
-        </div>
-        <div class="col-md-4">
-          <a class="linkpolo" href="#"><h3 class="section-heading"><i class="fa fa-chevron-right" aria-hidden="true"></i> Otro</h3></a>
-        </div>
-      </div>
+    <div class="container polos">
     </div>
   </section>
 
@@ -233,10 +188,70 @@
   <script  src=" https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"
   crossorigin="anonymous"></script>
 
+
+
+      <script src="assets/js/jquery-1.9.1.min.js"></script>
+      <script src="owl-carousel/owl.carousel.js"></script>
+
   <script>
     obtenerListadoCocinas();
 
   </script>
+  <style>
+  #owl-demo .item{
+      background: none;
+      padding: 5px 0px;
+      margin: 5px;
+      color: #FFF;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      text-align: center;
+  }
+  .customNavigation{
+    text-align: center;
+  }
+  .customNavigation a{
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  @media only screen and (max-width : 1024px) {
+      .fotosocasiones {
+        object-fit: cover;
+        object-position: center;
+        height: 260px;
+        width: 180px;
+    }
+  }
+
+  </style>
+
+  <!-- Funciones de Ocasiones JavaScript -->
+  <script src="js/controladores/ocasiones.controlador.js"></script>
+  <script>
+    obtenerListadoOcasiones();
+
+  </script>
+
+  <!-- Funciones de Ocasiones JavaScript -->
+  <script src="js/controladores/polos.controlador.js"></script>
+  <script>
+    obtenerListadoPolos();
+
+  </script>
+
+  <script src="assets/js/bootstrap-collapse.js"></script>
+  <script src="assets/js/bootstrap-transition.js"></script>
+  <script src="assets/js/bootstrap-tab.js"></script>
+
+  <script src="assets/js/google-code-prettify/prettify.js"></script>
+  <script src="assets/js/application.js"></script>
+
 
 </body>
 

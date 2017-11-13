@@ -1,3 +1,10 @@
+
+<?php session_start();
+$idLocal = $_GET["id"];
+
+    $jwt = $_SESSION['jwt'];
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -37,81 +44,34 @@
 
 <body id="page-top" class="index">
 
-  <!-- Navigation -->
-  <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header page-scroll">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span> <i class="fa fa-bars"></i>
-        </button>
-        <a class="navbar-brand page-scroll" href="#"><img class="logoweb" src="img/logo-gmg.png"></a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="hidden">
-            <a href="#page-top"></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-user" aria-hidden="true"></i> ACCEDER</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-heart" style="color: #e02222 !important;" aria-hidden="true"></i> FAVORITOS</a>
-          </li>
-        </ul>
-      </div>
-      <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-  </nav>
-
-
+  <?php include("includes/nav.php"); ?>
 
   <!-- Texto Politicas -->
   <section id="politicas" style="margin-top: 5%; min-height: 50vh;">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading">Mis favoritos</h2>
-        </div>
-      </div>
-      <div class="row" style="padding-top: 5%;color: #252525;border-bottom: 1px solid #e3e3e3;padding-bottom: 2%;">
-            <div class="col-md-3">
-                <img class="img-responsive" src="http://guiamendozagourmet.com/gmg/img/bardotprincipal.jpg">
-            </div>
-            <div class="col-md-6">
-                <p><span style="font-size: 1.5em;"><strong>Bardot</strong> | Comer &amp; Beber</span></p>
-                <i class="fa fa-map-marker" aria-hidden="true"></i><span class="polo">   Calle Belgrano</span> |  <i class="fa fa-cutlery" aria-hidden="true"></i><span class="tiponegocio">  De autor</span><br>
-                <p style="letter-spacing: 1px;"><strong>$$$</strong><span style="color: #cbcbcb">$$</span></p>
-                <p><span class="descripcion">Nuestra propuesta es ideal para todo momento del día. Te invitamos  desde temprano a disfrutar de nuestra cafetería y pastelería casera. Para el al...</span></p>
-            </div>
+    <div class="container mis-favoritos">
 
-            <div class="col-md-3"> 
-                <a href="#"><i class="fa fa-heart" style="color: #e02222 !important; font-size: 3em;" aria-hidden="true"></i></a>
-            </div>
-        </div>
-
-        <div class="row" style="padding-top: 5%;color: #252525;border-bottom: 1px solid #e3e3e3;padding-bottom: 2%;">
-            <div class="col-md-3">
-                <img class="img-responsive" src="http://guiamendozagourmet.com/gmg/img/bardotprincipal.jpg">
-            </div>
-            <div class="col-md-6">
-                <p><span style="font-size: 1.5em;"><strong>Bardot</strong> | Comer &amp; Beber</span></p>
-                <i class="fa fa-map-marker" aria-hidden="true"></i><span class="polo">   Calle Belgrano</span> |  <i class="fa fa-cutlery" aria-hidden="true"></i><span class="tiponegocio">  De autor</span><br>
-                <p style="letter-spacing: 1px;"><strong>$$$</strong><span style="color: #cbcbcb">$$</span></p>
-                <p><span class="descripcion">Nuestra propuesta es ideal para todo momento del día. Te invitamos  desde temprano a disfrutar de nuestra cafetería y pastelería casera. Para el al...</span></p>
-            </div>
-
-            <div class="col-md-3"> 
-                <a href="#"><i class="fa fa-heart" style="color: #e02222 !important; font-size: 3em;" aria-hidden="true"></i></a>
-            </div>
-        </div>
     </div>
   </section>
 
- 
+  <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h3>No has iniciado sesión</h3>
+        </div>
+        <div class="modal-body">
+          <h5>Por favor, inicie sesión para continuar</h5>
+
+        </div>
+        <div class="modal-footer">
+          <a href="login.php" data-confirm="modal" class="btn btn-info" id="botonLogin">Iniciar sesión</a>
+          <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
  <?php include("includes/footer.php"); ?>
 
 
@@ -135,13 +95,14 @@
   <!-- Theme JavaScript -->
   <script src="js/agency.min.js"></script>
 
-  <script  src=" https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"
-  crossorigin="anonymous"></script>
 
-  <script>
-    obtenerListadoCocinas();
-
-  </script>
+    <script  src=" https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"
+    crossorigin="anonymous"></script>
+    <!-- Funciones de Local JavaScript -->
+    <script src="js/controladores/favoritos.controlador.js"></script>
+    <script>
+      setJWT('<?php echo $jwt; ?>');
+    </script>
 
 </body>
 

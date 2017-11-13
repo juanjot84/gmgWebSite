@@ -34,10 +34,10 @@ function renderTipoCocina(cocina){
 }
 
 function buscarCocina(idCocina) {
-  redirect('resultados-busqueda.php', 'post', idCocina);
+  redirect('resultados-busqueda.php', 'post', 'tipoCocina',  idCocina);
 }
 
-var redirect = function(url, method, idCocina) {
+var redirect = function(url, method, filtro, idParam) {
   var form = $('<form>', {
     method: method,
     action: url
@@ -46,14 +46,13 @@ var redirect = function(url, method, idCocina) {
 
   $('<input />').attr('type', 'hidden')
     .attr('name', "parametro")
-    .attr('value', idCocina)
+    .attr('value', idParam)
     .appendTo(form);
 
   $('<input />').attr('type', 'hidden')
     .attr('name', "filtro")
-    .attr('value', 'tipoCocina')
+    .attr('value', filtro)
     .appendTo(form);
 
   form.submit();
 };
-
