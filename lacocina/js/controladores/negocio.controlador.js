@@ -37,16 +37,13 @@
                 negocios = data;
                 var cont = 1;
                 var negocioDestacado;
-
-              _.each(data, function(negocio){
-
-                if(negocio.destacadoNegocio == true){
-                   negocioDestacado = 'fa fa-star';
-                }else{
-                   negocioDestacado = 'fa fa-star-o';
-                }
-
-                $('#listadoNegocios').append(' <tr>' +
+                    _.each(data, function(negocio){
+                      if(negocio.destacadoNegocio == true){
+                         negocioDestacado = 'fa fa-star';
+                      }else{
+                         negocioDestacado = 'fa fa-star-o';
+                      }
+                   $('#listadoNegocios').append(' <tr>' +
                     '<th scope="row" style="font-size: 1.5em;">'+cont+++'</th>' +
                     '<td>' +negocio.nombreNegocio+ '</td>'+
                     '<td class="centrarbotdescado"><button title="Cambiar Destacado" onClick="actualizarDestacado(\'' + negocio._id + '\',\''+negocio.destacadoNegocio+'\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="'+negocioDestacado+'" aria-hidden="true"></i></button></td>'+
@@ -55,7 +52,8 @@
                     '<button title="Eliminar" onClick="mostrarModalEliminar(\'' + negocio._id + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +
                     '</td> ' +
                     '</tr>');             
-              });
+                   });
+          
               $('#loading').hide();
           },
           error:function(jqXHR,textStatus,errorThrown)

@@ -71,11 +71,11 @@ if($tipoUsuario == 'usuarioNegocio'){
     <div class="container" style="height: 65vh; padding-top: 13%; min-height: 715px;">
      <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
      <input type="text" name="tipoUs" id="tipoUs" value="<?php echo $tipoUsuario; ?>" class="hidden">
-        <div class="row text-center">
+        <div class="row text-center" id="disenioSuperAdmin">
                   <!-- Table -->
                   <div id="cabeceraTablaNegocios">
                    <div class="panel-heading tituloseccion" style="display: none">Negocios</div>
-                   <table class="table">
+                   <table class="table" >
                         <thead class="titulotabla">
                             <tr> 
                                 <th >#</th>
@@ -106,65 +106,8 @@ if($tipoUsuario == 'usuarioNegocio'){
 
     <!-- LISTA COMO RESULTADOS DE BUSQUEDA -->
 
-    <div class="container">
-      <div class="row" style="padding-top: 5%;color: #252525; padding-bottom: 2%;">
-        <div class="col-md-4">
-          <div class="row">
-            <div class="col-md-12">
-              <img class="img-responsive" src="http://guiamendozagourmet.com/gmg/img/bardotprincipal.jpg">
+    <div class="container" id="estiloUsuarioNegocio">
 
-              <p><span style="font-size: 1.5em;"><strong>Nombre sucursal</strong></p>
-
-              <p><i class="fa fa-map-marker" aria-hidden="true"></i><span class="polo"> Dirección sucursal</span></p>
-              
-              <p style="letter-spacing: 1px;"><strong>$$$</strong><span style="color: #cbcbcb">$$</span></p>
-
-              <p style="text-align: center;">
-                <button onclick="editarLocal('59e904b821b6e72100911cca')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                <button title="Eliminar" onclick="eliminar('59e904b821b6e72100911cca')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="row">
-            <div class="col-md-12">
-              <img class="img-responsive" src="http://guiamendozagourmet.com/gmg/img/bardotprincipal.jpg">
-
-              <p><span style="font-size: 1.5em;"><strong>Nombre sucursal</strong></p>
-
-              <p><i class="fa fa-map-marker" aria-hidden="true"></i><span class="polo"> Dirección sucursal</span></p>
-              
-              <p style="letter-spacing: 1px;"><strong>$$$</strong><span style="color: #cbcbcb">$$</span></p>
-
-              <p style="text-align: center;">
-                <button onclick="editarLocal('59e904b821b6e72100911cca')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                <button title="Eliminar" onclick="eliminar('59e904b821b6e72100911cca')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="row">
-            <div class="col-md-12">
-              <img class="img-responsive" src="http://guiamendozagourmet.com/gmg/img/bardotprincipal.jpg">
-
-              <p><span style="font-size: 1.5em;"><strong>Nombre sucursal</strong></p>
-
-              <p><i class="fa fa-map-marker" aria-hidden="true"></i><span class="polo"> Dirección sucursal</span></p>
-              
-              <p style="letter-spacing: 1px;"><strong>$$$</strong><span style="color: #cbcbcb">$$</span></p>
-
-              <p style="text-align: center;">
-                <button onclick="editarLocal('59e904b821b6e72100911cca')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                <button title="Eliminar" onclick="eliminar('59e904b821b6e72100911cca')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- FIN LISTA COMO RESULTADOS DE BUSQUEDA -->

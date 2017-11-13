@@ -33,11 +33,13 @@
             contentType:"application/json",
             success: function (data) {
                 locales = data;
-                var idNegocioRecibido = $('#idNegocio').val();        
+                var idNegocioRecibido = $('#idNegocio').val();
+                var tipoUsuario = $("#tipoUs").val();
+
+            if(tipoUsuario=='superAdmin'){
+              
               _.each(data, function(local){
-
              if(local.idNegocio._id == idNegocioRecibido){
-
                 $('#listadoLocal').append(' <tr>' + 
                     '<th scope="row" style="font-size: 1.5em;">1</th>' +
                     '<td>' +local.idNegocio.nombreNegocio+'</td><td>' + local.calleLocal+' ( '+local.alturaLocal+' )</td></td><td class="centrarbotdescado">$$$</td><td class="centrarbotdescado"><i class="fa fa-check-circle" aria-hidden="true"></i></td><td class="centrarbotaccion">' +
@@ -47,6 +49,27 @@
                     '</tr>');
                }            
               });
+            }else{
+
+             $('#estiloUsuarioNegocio').append(''+
+              '<div class="row" style="padding-top: 5%;color: #252525; padding-bottom: 2%;">'+
+                '<div class="col-md-4">'+
+                  '<div class="row">'+
+                    '<div class="col-md-12">'+
+                     '<img class="img-responsive" src="http://guiamendozagourmet.com/gmg/img/bardotprincipal.jpg">'+
+                      '<p><span style="font-size: 1.5em;"><strong>Nombre sucursal</strong></p>'+
+                      '<p><i class="fa fa-map-marker" aria-hidden="true"></i><span class="polo"> Dirección sucursal</span></p>'+      
+                      '<p style="letter-spacing: 1px;"><strong>$$$</strong><span style="color: #cbcbcb">$$</span></p>'+
+                      '<p style="text-align: center;">'+
+                       '<button onclick="editarLocal()" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>'+
+                      '</p>'+
+                    '</div>'+
+                  '</div>'+
+                '</div>'+ 
+              '</div>'+
+              '');
+            }
+
           },
           error:function(jqXHR,textStatus,errorThrown)
           {
