@@ -489,6 +489,16 @@ h5.titulosalta {
     font-size: 3em;
     padding: 5%;
     color: #fff;
+    top: 0px;
+    transition: all 0.2s;
+}
+
+.iconosmiperfil:hover {
+    font-size: 3em;
+    padding: 5%;
+    color: #fff;
+    top: 4px;
+    transition: all 0.2s;
 }
 
 .botonpanelmiperfil {
