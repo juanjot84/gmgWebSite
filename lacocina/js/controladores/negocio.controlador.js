@@ -35,11 +35,22 @@
             contentType:"application/json",
             success: function (data) {
                 negocios = data;
-                var cont = 1;          
+                var cont = 1;
+                var negocioDestacado;
+
               _.each(data, function(negocio){
+
+                if(negocio.destacadoNegocio == true){
+                   negocioDestacado = 'fa fa-star';
+                }else{
+                   negocioDestacado = 'fa fa-star-o';
+                }
+
                 $('#listadoNegocios').append(' <tr>' +
                     '<th scope="row" style="font-size: 1.5em;">'+cont+++'</th>' +
-                    '<td>' +negocio.nombreNegocio+ '  |  ' + negocio.bajadaNegocio+ '</td><td class="centrarbotdescado"><i class="fa fa-star" aria-hidden="true"></i></td><td class="centrarbotaccion">' +
+                    '<td>' +negocio.nombreNegocio+ '  |  ' + negocio.bajadaNegocio+ '</td>'+
+                    '<td class="centrarbotdescado"><button title="Cambiar Destacado" onClick="actualizarDestacado(\'' + negocio._id + '\',\''+negocio.destacadoNegocio+'\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="'+negocioDestacado+'" aria-hidden="true"></i></button></td>'+
+                    '<td class="centrarbotaccion">' +
                     '<button onClick="editar(\'' + negocio._id + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button> ' +
                     '<button title="Eliminar" onClick="mostrarModalEliminar(\'' + negocio._id + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +
                     '</td> ' +
@@ -376,3 +387,39 @@ function limpiar(campo){
    $("#botonGuardar").removeClass('disabled');
 }
 
+function actualizarDestacado(idNegocio, valorActual){
+   var valorAActualizar;
+
+    if(valorActual == 'true'){
+      valorAActualizar = false;
+    }else{
+      valorAActualizar = true;
+    }
+
+    var campoAAcuatualizar = 'destacadoNegocio';
+    
+    var promise = new Promise(function(resolve, reject) {
+    var nuevoCampo = {};
+    nuevoCampo[campoAAcuatualizar] = valorAActualizar;
+
+    $.ajax({
+      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/negocio?id=' + idNegocio,
+      type: 'PUT',
+
+      dataType: "json",
+      crossDomain: true,
+      contentType: "application/json",
+      success: function (data) {
+        obtenerListado();
+        resolve(data);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        reject(errorThrown);
+      },
+      data: JSON.stringify(nuevoCampo)
+    });
+
+  });
+
+  return promise;  
+}
