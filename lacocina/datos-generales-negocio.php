@@ -35,7 +35,7 @@ if (!$_SESSION) {
     }
 ?>
  
-    <div class="container-fluid" style="padding: 1%;background: yellow;margin-top: -21px;">
+    <!-- <div class="container-fluid" style="padding: 1%;background: yellow;margin-top: -21px;">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -53,7 +53,7 @@ if (!$_SESSION) {
 
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
         <div class="row">
             <div class="col-md-12">

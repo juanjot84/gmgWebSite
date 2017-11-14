@@ -28,7 +28,7 @@ nav.navbar.navbar-default {
     position: relative;
     min-height: auto;
     margin-bottom: 0;
-    border: 1px solid transparent;
+    border: 0px solid transparent;
 }
 
 .btn-xl {
@@ -515,7 +515,19 @@ h5.titulosalta {
 
 }
 
+.nombrenegocio {
+    float: left;
+    font-weight: bold;
+    padding-top: 4%;
+    padding-left: 0%;
+    color: #fff;
+    min-width: 205px;
+    font-size: 14px;
+}
 
+img.logoweb {
+    padding-top: 8%;
+}
 
 /*MEDIA QUERIES*/
 
@@ -536,9 +548,9 @@ h5.titulosalta {
         background: #ffed00;
     }
 
-     img.logoweb {
-        max-width: 50px;
-        padding-top: 35%;
+    img.logoweb {
+        max-width: 190px;
+        padding-top: 14%;
     }
     .tituloback {
         padding-top: 5%;
