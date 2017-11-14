@@ -98,7 +98,7 @@
       }
     }
 
-    function editarUsuarioNegocio(){
+    function editarUsuarioNegocio(accion, tipoUsuario){
         var usuarioNegocio = JSON.stringify({
             "email": $("#email").val(),
             "nombre":$("#nombre").val(),
@@ -119,12 +119,16 @@
             contentType:"application/json",
             success: function (data) {              
                 
-             var negocioCreado = $("#idNegocioSeleccionado").val();  
-
-             var url = "../lacocina/panel-negocio.php?idNegocio="+ negocioCreado+"";
-            $(location).attr('href',url);
-
-            $("#formularioAgregar :input").val('');
+             var negocioCreado = $("#idNegocioSeleccionado").val();
+             if(accion == 'editar' && tipoUsuario == 'usuarioNegocio'){
+                var url = "../lacocina/perfil/mi-perfil.php?idNegocio="+ negocioCreado+"";
+                $(location).attr('href',url);
+                $("#formularioAgregar :input").val(''); 
+              }else{
+                var url = "../lacocina/panel-negocio.php?idNegocio="+ negocioCreado+"";
+                $(location).attr('href',url);
+                $("#formularioAgregar :input").val('');
+              }  
 
             },
             error:function(jqXHR,textStatus,errorThrown)
@@ -204,7 +208,8 @@ function validar(accion){
   if(hayError==false){
 
     if(accion == "editar"){
-        editarUsuarioNegocio();
+       var tipoUsuario = $("#tipoUs").val();
+      editarUsuarioNegocio(accion, tipoUsuario);
 
     }else if(accion == "crear"){
         send();
