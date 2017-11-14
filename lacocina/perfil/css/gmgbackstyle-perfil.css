@@ -28,7 +28,7 @@ nav.navbar.navbar-default {
     position: relative;
     min-height: auto;
     margin-bottom: 0;
-    border: 1px solid transparent;
+    border: 0px solid transparent;
 }
 
 .btn-xl {
