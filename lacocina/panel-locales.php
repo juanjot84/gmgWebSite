@@ -33,7 +33,7 @@ if (!$_SESSION) {
 
 
 <!-- Navigation -->
-        <?php 
+<?php 
     if($tipoUsuario == 'usuarioNegocio'){
         $nav = 'perfil/'; 
         include("perfil/includes/nav-perfil-superior.php");   
