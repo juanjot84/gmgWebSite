@@ -1,12 +1,18 @@
+<?php
+$nombreUsuario = $_SESSION['nombreUsuario'];
+$apellidoUsuario = $_SESSION['apellidoUsuario'];
+$nombreNegocio = $_SESSION['nombreNegocio'];
+?>
+
 <div class="container-fluid" style="background: #000; min-height: 70px;">
       <div class="container">
         <div class="row">
             <div class="col-md-8" style="text-align: right;">
                 <a class="navbar-brand page-scroll" href="#"><img class="logoweb" src="../img/logo-lacocina.png"></a>
-                <span class="nombrenegocio hidden-sm hidden-xs">Nombre negocio</span>
+                <span class="nombrenegocio hidden-sm hidden-xs"><?php echo $nombreNegocio; ?></span>
             </div>
             <div class="col-md-4" style="text-align: right; padding: 1% 0;">
-                <p style="color: #fff">Hola Pepito Lopez</p><a class="botsalir" href="../scripts/cerrar_sesion.php"><i class="fa fa-user" aria-hidden="true"></i> SALIR</a>
+                <p style="color: #fff"><?php echo $nombreUsuario; ?> <?php echo $apellidoUsuario; ?></p><a class="botsalir" href="../scripts/cerrar_sesion.php"><i class="fa fa-user" aria-hidden="true"></i> SALIR</a>
             </div>
         </div>
       </div>
