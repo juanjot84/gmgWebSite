@@ -35,25 +35,6 @@ if (!$_SESSION) {
     }
 ?>
  
-    <!-- <div class="container-fluid" style="padding: 1%;background: yellow;margin-top: -21px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="input-group">
-                      <span class="input-group-btn">
-                      </span>
-                    </div>
-                </div>
-                <div class="col-md-6" style="text-align: right;">
-                    <div class="input-group">
-                      <span class="input-group-btn">
-                      </span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div> -->
     <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
         <div class="row">
             <div class="col-md-12">

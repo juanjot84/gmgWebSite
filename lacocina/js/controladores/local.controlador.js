@@ -172,7 +172,11 @@ function toggleBounce() {
                 servicios = data
             popularDropdownServicioEditar(ServiciosSeleccionados);
             });
-
+          var tipoUsuario = $("#tipoUs").val();
+          if(tipoUsuario == 'usuarioNegocio'){
+             $("#localPremium-true").attr("disabled", true);
+             $("#localPremium-false").attr("disabled", true);
+          }
 
           },
           error:function(jqXHR,textStatus,errorThrown)

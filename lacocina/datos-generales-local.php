@@ -34,25 +34,6 @@ if (!$_SESSION) {
 ?>
 
 
-
-    <!-- <div class="container-fluid" style="padding: 1%;background: yellow;margin-top: -21px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="input-group">
-                      <span class="input-group-btn">
-                      </span>
-                    </div>
-                </div>
-                <div class="col-md-6" style="text-align: right;">
-                    <div class="input-group">
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div> -->
     <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
         <div class="row">
             <div class="col-md-12">
@@ -61,6 +42,7 @@ if (!$_SESSION) {
             <!-- Formulario de alta de local -->
             <input type="text" name="idLocalRecibido" id="idLocalRecibido" value="<?php echo $idLocal; ?>" class="hidden">
             <input type="text" name="idNegocio" id="idNegocio" class="hidden">
+            <input type="text" name="tipoUs" id="tipoUs" value="<?php echo $tipoUsuario; ?>" class="hidden">
 
             <form action="" id="formularioLocal">
               <h2 class="tituloseccion">Alta De Local</h2>
