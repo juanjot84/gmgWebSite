@@ -27,13 +27,15 @@ function login() {
         var tokenDecoded=jwt_decode(token);
         var tipoUsuario = tokenDecoded.tipoUsuario;
         var idNegocio = tokenDecoded.idNegocio;
+        var nombreUsuario = tokenDecoded.nombre;
+        var apellidoUsuario = tokenDecoded.apellido;
 
         if(tipoUsuario == 'superAdmin'){
           idNegocio = '';
           crearSesion(tipoUsuario, idNegocio, token);
         }
         if(tipoUsuario == 'usuarioNegocio'){
-          crearSesion(tipoUsuario, idNegocio, token);
+          crearSesion(tipoUsuario, idNegocio, token, nombreUsuario, apellidoUsuario);
         }
       },
       error:function(jqXHR,textStatus,errorThrown){
@@ -45,13 +47,27 @@ function login() {
   });
 };
 
-function crearSesion(tipoUs, idNeg, token){
-        var parametros = {
+function crearSesion(tipoUs, idNeg, token, nombreUsuario, apellidoUsuario){
+     
+        $.ajax({
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/negocio?id='+idNeg+"",
+            type: 'GET',
+            
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+             var nombreNegocio = data.nombreNegocio ;
+
+              var parametros = {
                 "tipoUsuario" : tipoUs,
                 "idNegocio" : idNeg,
-                "jwt": token
-        };
-        $.ajax({
+                "jwt": token,
+                "nombreUsuario": nombreUsuario,
+                "apellidoUsuario": apellidoUsuario,
+                "nombreNegocio": nombreNegocio
+              };
+              $.ajax({
                 data:  parametros,
                 url:   'scripts/login.php',
                 type:  "POST",
@@ -66,7 +82,20 @@ function crearSesion(tipoUs, idNeg, token){
                     $(location).attr('href',url);
                   }
                 }
-        });
+              });
+
+
+          
+          },
+          error:function(jqXHR,textStatus,errorThrown)
+          {
+              $('#target').append("jqXHR: "+jqXHR);
+              $('#target').append("textStatus: "+textStatus);
+              $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+          },
+      });
+
+
 }
 
 function limpiar(campo) {

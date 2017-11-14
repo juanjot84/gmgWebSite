@@ -2,6 +2,9 @@
 
 $idNegocio = $_SESSION['idNegocio'];
 $tipoUsuario = $_SESSION['tipoUsuario'];
+$nombreUsuario = $_SESSION['nombreUsuario'];
+$apellidoUsuario = $_SESSION['apellidoUsuario'];
+$nombreNegocio = $_SESSION['nombreNegocio'];
 
 if (!$_SESSION) {
        header('Location: ../index.php');
@@ -39,7 +42,7 @@ if (!$_SESSION) {
 
             <div class="row text-center">
                 <div class="col-md-12" style="padding: 5% 0;">
-                    <span style="color: #fff; font-size: 2.5em; font-weight: 700;">Bienvenido a la cocina de Bardot</span>
+                    <span style="color: #fff; font-size: 2.5em; font-weight: 700;">Bienvenido a la cocina de <?php echo $nombreNegocio; ?></span>
                 </div>
             </div>
 
