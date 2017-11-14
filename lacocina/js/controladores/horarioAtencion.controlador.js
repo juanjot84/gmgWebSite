@@ -236,30 +236,50 @@ function sendHorarios(diaHorario, horaDesde, horaHasta, turno) {
 
 function validar(accion) {
   $("#botonGuardar").addClass('disabled');
-  var idHorariosDesde = [];
-  var idHorariosHasta = [];
+  var idHorariosDesdeManana = [];
+  var idHorariosDesdeTarde = [];
+  var idHorariosHastaManana = [];
+  var idHorariosHastaTarde = [];
   var hayError = false;
 
   _.each(dias, function (dia) {
-    idHorariosDesde.push($("#Hdesde" + dia).val());
-    idHorariosHasta.push($("#Hhasta" + dia).val());
+    idHorariosDesdeManana.push({'hora':$("#Hdesde" + dia + "Manana").val(), 'dia': dia});
+    idHorariosHastaManana.push({'hora':$("#Hhasta" + dia + "Manana").val(), 'dia': dia});
+    idHorariosDesdeTarde.push({'hora':$("#Hdesde" + dia + "Tarde").val(), 'dia': dia});
+    idHorariosHastaTarde.push({'hora': $("#Hhasta" + dia + "Tarde").val(), 'dia': dia});
   });
 
   var idLocalCreado = $("#idLocalCreado").val();
 
-  for (var i = 0; i < dias.length; i += 1) {
+  _.each(dias, function (dia) {
+    var horarioDesdeM = _.find(idHorariosDesdeManana, {'dia': dia});
+    var horarioHastaM = _.find(idHorariosHastaManana, {'dia': dia});
+    var horarioDesdeT = _.find(idHorariosDesdeTarde, {'dia': dia});
+    var horarioHastaT = _.find(idHorariosHastaTarde, {'dia': dia});
 
-    if (idHorariosDesde[i] != "" && idHorariosHasta[i] == "") {
-      $("#Hhasta" + dias[i]).parent().after('<span id="Hhasta' + dias[i] + 'Alert" style="color:red"> Debe ingresar un Horario hasta para el día</span>');
-      $("#Hhasta" + dias[i]).addClass('alert-danger');
+    if (horarioDesdeM.hora != "" && horarioHastaM.hora == "") {
+      $("#Hhasta" + dia + "Manana").parent().after('<span id="Hhasta' + dia + 'MananaAlert" style="color:red"> Debe ingresar un Horario hasta para el día</span>');
+      $("#Hhasta" + dia + "Manana").addClass('alert-danger');
       hayError = true;
     }
-    if (idHorariosDesde[i] == "" && idHorariosHasta[i] != "") {
-      $("#Hhasta" + dias[i]).parent().after('<span id="Hhasta' + dias[i] + 'Alert" style="color:red"> Debe ingresar un Horario desde para el día</span>');
-      $("#Hdesde" + dias[i]).addClass('alert-danger');
+    if (horarioDesdeM.hora == "" && horarioHastaM.hora != "") {
+      $("#Hdesde" + dia + "Manana").parent().after('<span id="Hdesde' + dia + 'MananaAlert" style="color:red"> Debe ingresar un Horario desde para el día</span>');
+      $("#Hdesde" + dia + "Manana").addClass('alert-danger');
       hayError = true;
     }
-  }
+
+    if (horarioDesdeT.hora != "" && horarioHastaT.hora == "") {
+      $("#Hhasta" + dia + "Tarde").parent().after('<span id="Hhasta' + dia + 'TardeAlert" style="color:red"> Debe ingresar un Horario hasta para el día</span>');
+      $("#Hhasta" + dia + "Tarde").addClass('alert-danger');
+      hayError = true;
+    }
+    if (horarioDesdeT.hora == "" && horarioHastaT.hora != "") {
+      $("#Hdesde" + dia + "Tarde").parent().after('<span id="Hdesde' + dia + 'TardeAlert" style="color:red"> Debe ingresar un Horario desde para el día</span>');
+      $("#Hdesde" + dia + "Tarde").addClass('alert-danger');
+      hayError = true;
+    }
+
+  });
 
   if (hayError == false) {
     SendHorarioAtencion(accion);
