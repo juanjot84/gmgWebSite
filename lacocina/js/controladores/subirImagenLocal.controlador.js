@@ -219,3 +219,10 @@ function seleccionarPrincipal(urlImagen){
   return promise;
 
 }
+
+function volverPanelLocal(){
+    var localEditado = $("#idLocal").val();
+    var idNegocio = $("#idNegocio").val(); 
+    var url = "../lacocina/panel-locales.php?idLocal="+ localEditado+"&idNegocio="+ idNegocio +"";
+    $(location).attr('href',url);
+}

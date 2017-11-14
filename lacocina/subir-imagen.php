@@ -54,6 +54,7 @@ $idLocal = $_GET['idLocal'];
     </div>
     <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
     <input type="text" name="idLocal" id="idLocal" value="<?php echo $idLocal; ?>" class="hidden">
+    <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
 
       <div class="panel-heading tituloseccion">Galería</div>
 
@@ -64,6 +65,12 @@ $idLocal = $_GET['idLocal'];
               </div>
 
             </div>
+
+        <div class="input-group">
+          <span class="input-group-btn">
+                 <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
+          </span>
+        </div>
     </div>
 
       <!-- Modal -->
