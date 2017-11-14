@@ -588,6 +588,10 @@ a.botsalir {
     color: #FFFF00;
 }
 
+#listadoNivelPrecio {
+    text-align: center;
+}
+
 /*MEDIA  QUERIES*/
 
 
