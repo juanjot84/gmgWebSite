@@ -490,6 +490,7 @@ h5.titulosalta {
     object-position: center;
     height: 135px;
     width: 220px;
+    padding: 0 2%;
 }
 
 .miniaturas-orden {
@@ -580,7 +581,11 @@ button#botoncancelar {
 }
 
 img.logoweb {
-    padding-top: 8%;
+    padding-top: 1%;
+}
+
+a.botsalir {
+    color: #FFFF00;
 }
 
 /*MEDIA  QUERIES*/
