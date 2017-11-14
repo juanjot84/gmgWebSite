@@ -42,7 +42,6 @@ function login() {
       crearSesion(data);
     },
     error:function(jqXHR,textStatus,errorThrown){
-      alert('error');
       $("#passwordUsuario").parent().after('<span id="passwordUsuarioAlert" style="color:red"> Usuario / contraseña incorrecto</span>');
       $("#emailUsuario").addClass('alert-danger');
       $("#passwordUsuario").addClass('alert-danger');
