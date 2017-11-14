@@ -560,6 +560,28 @@ button#botoncancelar {
     text-align: center;
 }
 
+.nombrenegocioresponsive {
+    float: left;
+    font-weight: bold;
+    padding-top: 6%;
+    padding-left: 9%;
+    color: #f8981d;
+    min-width: 205px;
+}
+
+.nombrenegocio {
+    float: left;
+    font-weight: bold;
+    padding-top: 4%;
+    padding-left: 0%;
+    color: #fff;
+    min-width: 205px;
+    font-size: 14px;
+}
+
+img.logoweb {
+    padding-top: 8%;
+}
 
 /*MEDIA  QUERIES*/
 
@@ -682,5 +704,8 @@ button#botoncancelar {
         height: 80vh;
         margin-top: -4.5%;
         background-size: cover;
+    }
+    img.logoweb {
+        padding-top: 7%;
     }
 }

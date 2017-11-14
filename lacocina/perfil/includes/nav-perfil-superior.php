@@ -1,8 +1,9 @@
 <div class="container-fluid" style="background: #000; min-height: 70px;">
       <div class="container">
         <div class="row">
-            <div class="col-md-8" style="text-align: right; padding: 2% 0;">
+            <div class="col-md-8" style="text-align: right;">
                 <a class="navbar-brand page-scroll" href="#"><img class="logoweb" src="img/logo-lacocina.png"></a>
+                 <span class="nombrenegocio hidden-sm hidden-xs">Nombre negocio</span>
             </div>
             <div class="col-md-4" style="text-align: right; padding: 1% 0;">
                 <p style="color: #fff">Hola Pepito Lopez</p><a class="botsalir" style="color: #FFFF00" href="scripts/cerrar_sesion.php"><i class="fa fa-user" aria-hidden="true"></i> SALIR</a>
@@ -16,6 +17,7 @@
           <div class="container" style="margin-top: -1px;">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
+              <p class="nombrenegocioresponsive hidden-md hidden-lg">Nombre negocio</p>
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Menu</span>
                 <span class="icon-bar"></span>
