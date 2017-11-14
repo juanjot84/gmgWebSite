@@ -490,6 +490,7 @@ h5.titulosalta {
     object-position: center;
     height: 135px;
     width: 220px;
+    padding: 0 2%;
 }
 
 .miniaturas-orden {
