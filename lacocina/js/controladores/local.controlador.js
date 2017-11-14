@@ -124,6 +124,8 @@ function toggleBounce() {
             success: function (data) {
                 var local = data;
             $('#idNegocio').val(local.idNegocio._id);
+            $('#nombreLocal').val(local.nombreLocal);
+            $("input[name=localPremium][value=" + local.localPremium + "]").prop("checked",true);
              $('#telContacto').val(local.telContacto);
              $('#mailContacto').val(local.mailContacto);
              $('#calleLocal').val(local.calleLocal);
@@ -536,7 +538,9 @@ function toggleBounce() {
             "alturaLocal":$("#alturaLocal").val(),
             "calleLocal":$("#calleLocal").val(),
             "idLocalidad":$("#idLocalidad").val(),
-            "aceptaReservaNegocio":$('input[name=aceptaReservaNegocio]:checked', '#formularioLocal').val()
+            "nombreLocal":$("#nombreLocal").val(),
+            "aceptaReservaNegocio":$('input[name=aceptaReservaNegocio]:checked', '#formularioLocal').val(),
+            "localPremium":$('input[name=localPremium]:checked', '#formularioLocal').val()
         });
         var idLocalActualizar = $("#idLocalRecibido").val();
         $('#target').html('sending..');
@@ -611,7 +615,9 @@ function toggleBounce() {
             "alturaLocal":$("#alturaLocal").val(),
             "calleLocal":$("#calleLocal").val(),
             "idLocalidad":$("#idLocalidad").val(),
-            "aceptaReservaNegocio":$('input[name=aceptaReservaNegocio]:checked', '#formularioLocal').val()
+            "nombreLocal":$("#nombreLocal").val(),
+            "aceptaReservaNegocio":$('input[name=aceptaReservaNegocio]:checked', '#formularioLocal').val(),
+            "localPremium":$('input[name=localPremium]:checked', '#formularioLocal').val()
         });
 
 

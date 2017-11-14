@@ -99,7 +99,7 @@ $('#cabeceraTablaNegocios').html('');
                   '<div class="row">'+
                     '<div class="col-md-12">'+
                      '<img class="img-responsive" src="'+local.fotoPrincipalLocal+'">'+
-                      '<p><span style="font-size: 1.5em;"><strong></strong></p>'+
+                      '<p><span style="font-size: 1.5em;"><strong>'+local.nombreLocal+'</strong></p>'+
                       '<p><i class="fa fa-map-marker" aria-hidden="true"></i><span class="polo">'+local.calleLocal+' ( '+local.alturaLocal+' )</span></p>'+      
                       '<p>Nivel de precio <strong style="letter-spacing: 1px;">'+local.idNivelPrecio.label+'</strong><span style="color: #cbcbcb">'+labelGrises+'</span></p>'+
                       '<p>Ficha premium <i class="'+premiumLocal+'" aria-hidden="true"></i></p>'+

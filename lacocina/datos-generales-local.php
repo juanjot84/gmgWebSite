@@ -65,6 +65,20 @@ if (!$_SESSION) {
             <form action="" id="formularioLocal">
               <h2 class="tituloseccion">Alta De Local</h2>
 
+                <h5 class="titulosalta"> Nombre del local</h5>
+
+                  <p><div class="input-group input-group-sm">
+                    <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                    <input id="nombreLocal" name="nombreLocal" type="text" class="form-control" placeholder="Nombre del local" aria-describedby="sizing-addon3">
+                  </div></p>
+
+                <h5 class="titulosalta"> Local Premium</h5>
+
+                 <p>
+                    <label class="radio-inline"><input type="radio" name="localPremium" id="localPremium-true" value="true">Si</label>
+                    <label class="radio-inline"><input type="radio" name="localPremium" id="localPremium-false" value="false">No</label>
+                  </p>
+
                 <h5 class="titulosalta"> Datos de contacto del local visibles para el cliente</h5>
 
                     <p>
