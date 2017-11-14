@@ -35,40 +35,85 @@
                 locales = data;
                 var idNegocioRecibido = $('#idNegocio').val();
                 var tipoUsuario = $("#tipoUs").val();
-
+$('#cabeceraTablaNegocios').html('');
             if(tipoUsuario=='superAdmin'){
-              
+              $('#cabeceraTablaNegocios').append(''+
+               '<div class="panel-heading tituloseccion" style="display: none">Negocios</div>'+
+                   '<table class="table" >'+
+                        '<thead class="titulotabla">'+
+                            '<tr>'+ 
+                                '<th >#</th>'+
+                                    '<th >Nombre Negocio</th>'+
+                                    '<th >Dirección</th>'+
+                                    '<th style="text-align: center;">Precio</th>'+
+                                    '<th style="text-align: center;">Premium</th>'+
+                                    '<th style="text-align: center;">Acción</th>'+
+                                '</tr>'+
+                        '</thead>'+
+                        '<tbody id="listadoLocal">'+
+               '');
+              var premiumLocal;
+
               _.each(data, function(local){
+              if(local.localPremium==true){
+                premiumLocal='fa fa-check-circle';
+              }else{
+                premiumLocal='fa fa-check-circle-o';
+              }
+
              if(local.idNegocio._id == idNegocioRecibido){
                 $('#listadoLocal').append(' <tr>' + 
                     '<th scope="row" style="font-size: 1.5em;">1</th>' +
-                    '<td>' +local.idNegocio.nombreNegocio+'</td><td>' + local.calleLocal+' ( '+local.alturaLocal+' )</td></td><td class="centrarbotdescado">$$$</td><td class="centrarbotdescado"><i class="fa fa-check-circle" aria-hidden="true"></i></td><td class="centrarbotaccion">' +
+                    '<td>' +local.idNegocio.nombreNegocio+'</td><td>' + local.calleLocal+' ( '+local.alturaLocal+' )</td></td><td class="centrarbotdescado">$$$</td>'+
+                    '<td class="centrarbotdescado"><button title="Cambiar Destacado" onClick="actualizarPremium(\'' + local._id + '\',\''+local.localPremium+'\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="'+premiumLocal+'" aria-hidden="true"></i></button></td><td class="centrarbotaccion">' +
                     '<button onClick="editarLocal(\'' + local._id + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button> ' +
                     '<button title="Eliminar" onClick="eliminar(\'' + local._id + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +
                     '</td> ' +
                     '</tr>');
                }            
               });
-            }else{
+          $('#cabeceraTablaNegocios').append(''+
+                  '</tbody>'+
+                '</table>'+
+              '<center><div id="loading"></div></center>'+
+            '');
 
+            }else{
+            _.each(data, function(local){
+              var longNivelPrecio = local.idNivelPrecio.label.length;
+              var nivelGris = 5 - longNivelPrecio;
+              var labelGrises = '';
+               for(i = 0; i < nivelGris; i++){
+                 labelGrises += '$'
+               }
+              if(local.localPremium==true){
+                premiumLocal='fa fa-check-circle';
+              }else{
+                premiumLocal='fa fa-check-circle-o';
+              }
+
+             if(local.idNegocio._id == idNegocioRecibido){
              $('#estiloUsuarioNegocio').append(''+
               '<div class="row" style="padding-top: 5%;color: #252525; padding-bottom: 2%;">'+
                 '<div class="col-md-4">'+
                   '<div class="row">'+
                     '<div class="col-md-12">'+
-                     '<img class="img-responsive" src="http://guiamendozagourmet.com/gmg/img/bardotprincipal.jpg">'+
-                      '<p><span style="font-size: 1.5em;"><strong>Nombre sucursal</strong></p>'+
-                      '<p><i class="fa fa-map-marker" aria-hidden="true"></i><span class="polo"> Dirección sucursal</span></p>'+      
-                      '<p>Nivel de precio <strong style="letter-spacing: 1px;">$$$</strong><span style="color: #cbcbcb">$$</span></p>'+
-                      '<p>Ficha premium <i class="fa fa-check-circle" aria-hidden="true"></i></p>'+
+                     '<img class="img-responsive" src="'+local.fotoPrincipalLocal+'">'+
+                      '<p><span style="font-size: 1.5em;"><strong></strong></p>'+
+                      '<p><i class="fa fa-map-marker" aria-hidden="true"></i><span class="polo">'+local.calleLocal+' ( '+local.alturaLocal+' )</span></p>'+      
+                      '<p>Nivel de precio <strong style="letter-spacing: 1px;">'+local.idNivelPrecio.label+'</strong><span style="color: #cbcbcb">'+labelGrises+'</span></p>'+
+                      '<p>Ficha premium <i class="'+premiumLocal+'" aria-hidden="true"></i></p>'+
                       '<p style="text-align: center;">'+
-                       '<button onclick="editarLocal()" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>'+
+                       '<button onClick="editarLocal(\'' + local._id + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>'+
                       '</p>'+
                     '</div>'+
                   '</div>'+
                 '</div>'+ 
               '</div>'+
               '');
+
+             }            
+              });
             }
 
           },
@@ -190,4 +235,41 @@
       var idLocal = $("#idLocal").val();
        var url = "../lacocina/subir-imagen.php?idLocal="+idLocal+"";
        $(location).attr('href',url);
+    }
+
+  function actualizarPremium(idLocal, valorActual){
+    var valorAActualizar;
+
+    if(valorActual == 'true'){
+      valorAActualizar = false;
+    }else{
+      valorAActualizar = true;
+    }
+
+    var campoAAcuatualizar = 'localPremium';
+    
+    var promise = new Promise(function(resolve, reject) {
+    var nuevoCampo = {};
+    nuevoCampo[campoAAcuatualizar] = valorAActualizar;
+
+    $.ajax({
+      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id=' + idLocal,
+      type: 'PUT',
+
+      dataType: "json",
+      crossDomain: true,
+      contentType: "application/json",
+      success: function (data) {
+        obtenerListado();
+        resolve(data);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        reject(errorThrown);
+      },
+      data: JSON.stringify(nuevoCampo)
+    });
+
+  });
+
+  return promise;  
     }

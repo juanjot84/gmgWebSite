@@ -68,29 +68,17 @@ if($tipoUsuario == 'usuarioNegocio'){
             <!-- /.navbar-collapse -->
 
 
-    <div class="container" style="height: 65vh; padding-top: 13%; min-height: 715px;">
+    <div class="container" style="height: 65vh; padding-top: 2%; min-height: 715px;">
      <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
      <input type="text" name="tipoUs" id="tipoUs" value="<?php echo $tipoUsuario; ?>" class="hidden">
+
+      <div class="container" id="estiloUsuarioNegocio"></div>
         <div class="row text-center" id="disenioSuperAdmin">
                   <!-- Table -->
                   <div id="cabeceraTablaNegocios">
-                   <div class="panel-heading tituloseccion" style="display: none">Negocios</div>
-                   <table class="table" >
-                        <thead class="titulotabla">
-                            <tr> 
-                                <th >#</th>
-                                    <th >Nombre Negocio</th>
-                                    <th >Dirección</th>
-                                    <th style="text-align: center;">Precio</th>
-                                    <th style="text-align: center;">Premium</th>
-                                    <th style="text-align: center;">Acción</th>
-                                </tr>
-                        </thead>
-                        <tbody id="listadoLocal">
 
-                        </tbody>
-                    </table>
-                    <center><div id="loading"></div></center>
+
+                        
                   </div> 
         </div>
         </br>
@@ -106,9 +94,6 @@ if($tipoUsuario == 'usuarioNegocio'){
 
     <!-- LISTA COMO RESULTADOS DE BUSQUEDA -->
 
-    <div class="container" id="estiloUsuarioNegocio">
-
-    </div>
 
     <!-- FIN LISTA COMO RESULTADOS DE BUSQUEDA -->
     
