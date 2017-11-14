@@ -32,10 +32,16 @@ if (!$_SESSION) {
 
 
     <div class="container-fluid fondococina">
-        <div class="container" style="height: 65vh; padding-top: 13%; min-height: 715px;">
+        <div class="container" style="height: 65vh; padding-top: 5%; min-height: 715px;">
 
         <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
         <input type="text" name="tipoUs" id="tipoUs" value="<?php echo $tipoUsuario; ?>" class="hidden">
+
+            <div class="row text-center">
+                <div class="col-md-12" style="padding: 5% 0;">
+                    <span style="color: #fff; font-size: 2.5em; font-weight: 700;">Bienvenido a la cocina de Bardot</span>
+                </div>
+            </div>
 
             <div class="row text-center">
                 <div class="col-md-4">
