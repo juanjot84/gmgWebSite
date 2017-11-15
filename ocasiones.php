@@ -35,6 +35,10 @@
         font-weight: 400;
         margin-bottom: 75px;
       }
+      .tituloocasiones {
+          font-size: 1.4em !important;
+          margin-top: 4% !important;
+      }
     </style>
 
   </head>
