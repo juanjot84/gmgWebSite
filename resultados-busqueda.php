@@ -36,7 +36,7 @@
 </head>
 
 <?php
-
+error_reporting(E_ERROR);
 $parametro = '';
 $filtro = '';
 
@@ -53,7 +53,10 @@ if (empty($filtro)) $filtro = '';
   <input type="text" name="parametro" id="parametro" value="<?php echo $parametro; ?>" class="hidden">
   <input type="text" name="filtro" id="filtro" value="<?php echo $filtro; ?>" class="hidden">
 
-  <?php include("includes/nav.php"); ?>
+  <?php 
+  error_reporting(E_ERROR);
+  include("includes/nav.php");
+   ?>
 
   <!-- Header -->
   <header>

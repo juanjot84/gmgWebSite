@@ -167,7 +167,10 @@
     </div>
   </section>
 
-<?php include("includes/footer.php"); ?>
+<?php 
+error_reporting(E_ERROR);
+include("includes/footer.php");
+ ?>
 
   <!-- jQuery -->
   <script src="vendor/jquery/jquery.min.js"></script>
