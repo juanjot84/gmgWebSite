@@ -26,8 +26,8 @@ function renderOcasiones(ocasiones){
   _.each(ocasiones, function(ocasion){
     $('#owl-demo').append('' +
       '<div class="item"  onClick="buscarOcasion(\'' + ocasion._id + '\')">' +
-        '<img class="img-responsive fotosocasiones" style="max-width:280px; " src="' + ocasion.urlImagenOcasion + '"' +
-        '<h2 class="section-heading">' + ocasion.nombreOcasion + '</h2>' +
+        '<img class="img-responsive fotosocasiones" style="max-width:280px; " src="' + ocasion.urlImagenOcasion + '">' +
+        '<h2 style="font-size: 1.4em; margin-top: 4%;" class="tituloocasiones section-heading">' + ocasion.nombreOcasion + '</h2>' +
       '</div>');
   });
 
