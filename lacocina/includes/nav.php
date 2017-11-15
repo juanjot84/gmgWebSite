@@ -53,7 +53,7 @@
                   <a href="especialidades.php" role="button" aria-haspopup="true" aria-expanded="false">Especialidades<span class="caret"></span></a>
                 </li>
                 <li>
-                  <a href="#" role="button" aria-haspopup="true" aria-expanded="false">Ocasiones<span class="caret"></span></a>
+                  <a href="ocasiones.php" role="button" aria-haspopup="true" aria-expanded="false">Ocasiones<span class="caret"></span></a>
                 </li>
                 <li>
                   <a href="servicios.php" role="button" aria-haspopup="true" aria-expanded="false">Servicios<span class="caret"></span></a>
