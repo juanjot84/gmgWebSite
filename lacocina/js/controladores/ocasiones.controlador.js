@@ -108,6 +108,8 @@ function agregarOcasion() {
 }
 
 function send() {
+    var isNew = $("#idOcasion").val() == "";
+    var operacion = isNew ? "POST": "PUT";
     
     var ocasion = JSON.stringify({
         "nombreOcasion": $("#nombreOcasion").val(),
@@ -117,9 +119,10 @@ function send() {
     });
 
     $('#target').html('sending..');
+    var queryParam = isNew  ? "": "?id=" + $("#idOcasion").val();
     $.ajax({
-        url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/ocasion',
-        type: "POST",
+        url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/ocasion'+ queryParam,
+        type: operacion,
 
         dataType: "json",
         crossDomain: true,
