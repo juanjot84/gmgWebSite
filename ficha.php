@@ -64,30 +64,12 @@
 
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
                           <!-- Indicators -->
-                          <ol class="carousel-indicators">
-                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#myCarousel" data-slide-to="1"></li>
-                            <li data-target="#myCarousel" data-slide-to="2"></li>
-                            <li data-target="#myCarousel" data-slide-to="3"></li>
+                          <ol class="carousel-indicators" id="indicadorSlide">
                           </ol>
 
                           <!-- Wrapper for slides -->
-                          <div class="carousel-inner">
-                            <div class="item active">
-                              <img src="img/resto00.jpg" alt="Novedades">
-                            </div>
+                          <div class="carousel-inner" id="imagenesSlide">
 
-                            <div class="item">
-                              <img src="img/resto01.jpg" alt="Novedades">
-                            </div>
-
-                            <div class="item">
-                              <img src="img/resto02.jpg" alt="Novedades">
-                            </div>
-
-                            <div class="item">
-                              <img src="img/resto03.jpg" alt="Novedades">
-                            </div>
                           </div>
 
                           <!-- Left and right controls -->

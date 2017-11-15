@@ -86,6 +86,27 @@ function popularLocal(local) {
   $('#tipoCocinaPrincipal').text(local.idTipoCocinaPrincipal.nombreTipoCocina);
   $('#reservar').attr('href', 'reserva.php?id=' + local._id);
   var mediosPago = '';
+
+    var cont=0;
+  _.each(local.fotoLocal, function(imagen){
+    if(cont == 0){
+      $('#indicadorSlide').append('<li data-target="#myCarousel" data-slide-to="'+cont+'" class="active"></li>');
+      $('#imagenesSlide').append('<div class="item active">'+
+        '<img src="'+imagen+'">'+
+        '</div>');
+    }else{
+      $('#indicadorSlide').append('<li data-target="#myCarousel" data-slide-to="'+cont+'"></li>');
+      $('#imagenesSlide').append('<div class="item">'+
+        '<img src="'+imagen+'">'+
+        '</div>');
+    }
+
+   cont++;
+  })
+
+  $('#myCarousel').carousel();
+
+
   _.each(local.idMedioPago, function(medioPago){
     mediosPago += medioPago.descripcionMedioPago + coma;
   })
