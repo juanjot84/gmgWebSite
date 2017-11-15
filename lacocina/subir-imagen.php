@@ -1,4 +1,6 @@
-<?php session_start();
+<?php 
+error_reporting(E_ERROR);
+session_start();
 
 
 $tipoUsuario = $_SESSION['tipoUsuario'];
@@ -17,12 +19,15 @@ if (!$_SESSION) {
 $idLocal = $_GET['idLocal'];
 
 ?>
-<?php include("includes/head-imagenes.php"); ?>
+<?php 
+error_reporting(E_ERROR);
+include("includes/head-imagenes.php"); ?>
 
 <body id="page-top" class="index">
 
 
 <?php
+error_reporting(E_ERROR);
      if($tipoUsuario == 'usuarioNegocio'){
         $nav = 'perfil/'; 
         include("perfil/includes/nav-perfil-superior.php");   
@@ -93,7 +98,9 @@ $idLocal = $_GET['idLocal'];
       </div><!-- /.modal -->
 
         
-    <?php include("includes/footer.php"); ?>
+    <?php 
+    error_reporting(E_ERROR);
+    include("includes/footer.php"); ?>
     
 
     <!-- jQuery -->

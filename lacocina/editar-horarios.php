@@ -1,4 +1,6 @@
-<?php session_start();
+<?php 
+error_reporting(E_ERROR);
+session_start();
 
 $idNegocio = $_SESSION['idNegocio'];
 $tipoUsuario = $_SESSION['tipoUsuario'];
@@ -16,15 +18,19 @@ if (!$_SESSION) {
 
 ?>
 <?php
+error_reporting(E_ERROR);
 $idLocal = $_GET['idLocal'];
 ?>
 
-<?php include("includes/head.php"); ?>
+<?php 
+error_reporting(E_ERROR);
+include("includes/head.php"); ?>
 
 <body id="page-top" class="index">
 
 
   <?php
+  error_reporting(E_ERROR);
   if($tipoUsuario == 'usuarioNegocio'){
     $nav = 'perfil/';
     include("perfil/includes/nav-perfil-superior.php");
@@ -55,7 +61,7 @@ $idLocal = $_GET['idLocal'];
           <h2 class="tituloseccion">Asignar Horarios de Atención</h2>
 
           <input type="text" name="idHorario" id="idHorario" class="hidden">
-          <input type="text" name="idLocalCreado" id="idLocalCreado" value="<?php echo $idLocal; ?>" class="hidden">
+          <input type="text" name="idLocalCreado" id="idLocalCreado" value="<?php  error_reporting(E_ERROR); echo $idLocal; ?>" class="hidden">
 
           <form action="" id="formularioAgregar">
           </form>
@@ -77,7 +83,9 @@ $idLocal = $_GET['idLocal'];
   </div>
 
 
-  <?php include("includes/footer.php"); ?>
+  <?php 
+  error_reporting(E_ERROR);
+  include("includes/footer.php"); ?>
 
 
   <!-- jQuery -->

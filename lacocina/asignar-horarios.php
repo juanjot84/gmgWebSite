@@ -1,4 +1,6 @@
-<?php session_start();
+<?php 
+error_reporting(E_ERROR);
+session_start();
 
 $idNegocio = $_SESSION['idNegocio'];
 $tipoUsuario = $_SESSION['tipoUsuario'];
@@ -16,15 +18,20 @@ if (!$_SESSION) {
 
 ?>
 <?php
+error_reporting(E_ERROR);
 $idLocal = $_GET['idLocal'];
 ?>
 
-<?php include("includes/head.php"); ?>
+<?php 
+
+error_reporting(E_ERROR);include("includes/head.php"); ?>
 
 <body id="page-top" class="index">
 
 
-  <?php include("includes/nav.php"); ?>
+  <?php 
+  error_reporting(E_ERROR);
+  include("includes/nav.php"); ?>
 
   <div class="container-fluid" style="padding: 1%;background: yellow;margin-top: -21px;">
     <div class="container">
@@ -71,7 +78,9 @@ $idLocal = $_GET['idLocal'];
   </div>
 
 
-  <?php include("includes/footer.php"); ?>
+  <?php 
+  error_reporting(E_ERROR);
+  include("includes/footer.php"); ?>
 
 
   <!-- jQuery -->

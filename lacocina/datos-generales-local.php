@@ -1,4 +1,6 @@
-<?php session_start();
+<?php 
+error_reporting(E_ERROR);
+session_start();
 
 $idNegocio = $_SESSION['idNegocio'];
 $tipoUsuario = $_SESSION['tipoUsuario'];
@@ -16,15 +18,19 @@ if (!$_SESSION) {
 
 ?>
 <?php
+error_reporting(E_ERROR);
    $idLocal = $_GET['idLocal'];
 ?>
 
-<?php include("includes/head.php"); ?>
+<?php 
+error_reporting(E_ERROR);
+include("includes/head.php"); ?>
 
 <body id="page-top" class="index">
 
 
 <?php
+error_reporting(E_ERROR);
      if($tipoUsuario == 'usuarioNegocio'){
         $nav = 'perfil/'; 
         include("perfil/includes/nav-perfil-superior.php");   
@@ -40,9 +46,9 @@ if (!$_SESSION) {
                 <div class="panel panel-default">
                  <!-- Table -->
             <!-- Formulario de alta de local -->
-            <input type="text" name="idLocalRecibido" id="idLocalRecibido" value="<?php echo $idLocal; ?>" class="hidden">
+            <input type="text" name="idLocalRecibido" id="idLocalRecibido" value="<?php  error_reporting(E_ERROR); echo $idLocal; ?>" class="hidden">
             <input type="text" name="idNegocio" id="idNegocio" class="hidden">
-            <input type="text" name="tipoUs" id="tipoUs" value="<?php echo $tipoUsuario; ?>" class="hidden">
+            <input type="text" name="tipoUs" id="tipoUs" value="<?php error_reporting(E_ERROR); echo $tipoUsuario; ?>" class="hidden">
 
             <form action="" id="formularioLocal">
               <h2 class="tituloseccion">Alta De Local</h2>
@@ -205,7 +211,9 @@ if (!$_SESSION) {
     </div>
 
 
-    <?php include("includes/footer.php"); ?>
+    <?php 
+    error_reporting(E_ERROR);
+    include("includes/footer.php"); ?>
 
 
     <!-- jQuery -->
