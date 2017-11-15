@@ -1,4 +1,6 @@
-<?php session_start();
+<?php 
+error_reporting(E_ERROR);
+session_start();
 
 $idNegocio = $_SESSION['idNegocio'];
 $tipoUsuario = $_SESSION['tipoUsuario'];
@@ -16,16 +18,20 @@ if (!$_SESSION) {
 
 ?>
 <?php
+error_reporting(E_ERROR);
    $idLocal = $_GET['idLocal'];
    $idContacto = $_GET['idContacto'];
 ?>
 
-<?php include("includes/head.php"); ?>
+<?php 
+error_reporting(E_ERROR);
+include("includes/head.php"); ?>
 
 <body id="page-top" class="index">
 
 
 <?php
+error_reporting(E_ERROR);
      if($tipoUsuario == 'usuarioNegocio'){
         $nav = 'perfil/'; 
         include("perfil/includes/nav-perfil-superior.php");   
@@ -57,8 +63,8 @@ if (!$_SESSION) {
 
             <form action="" id="formularioAgregar">
 
-              <input type="text" name="idContactoRecibido" id="idContactoRecibido" value="<?php echo $idContacto; ?>" class="hidden">
-              <input type="text" name="idLocalRecibido" id="idLocalRecibido" value="<?php echo $idLocal; ?>" class="hidden">
+              <input type="text" name="idContactoRecibido" id="idContactoRecibido" value="<?php  error_reporting(E_ERROR); echo $idContacto; ?>" class="hidden">
+              <input type="text" name="idLocalRecibido" id="idLocalRecibido" value="<?php  error_reporting(E_ERROR); echo $idLocal; ?>" class="hidden">
 
           <h5 class="titulosalta"> Nombre</h5>
             
@@ -111,7 +117,9 @@ if (!$_SESSION) {
     </div>
 
     
-    <?php include("includes/footer.php"); ?>
+    <?php 
+    error_reporting(E_ERROR);
+    include("includes/footer.php"); ?>
     
 
     <!-- jQuery -->

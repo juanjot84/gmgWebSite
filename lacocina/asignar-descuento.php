@@ -1,4 +1,6 @@
-<?php session_start();
+<?php 
+error_reporting(E_ERROR);
+session_start();
 
 $idNegocio = $_SESSION['idNegocio'];
 $tipoUsuario = $_SESSION['tipoUsuario'];
@@ -16,15 +18,20 @@ if (!$_SESSION) {
 
 ?>
 <?php
+error_reporting(E_ERROR);
    $idLocal = $_GET['idLocal'];
 ?>
 
-<?php include("includes/head.php"); ?>
+<?php 
+error_reporting(E_ERROR);
+include("includes/head.php"); ?>
 
 <body id="page-top" class="index">
 
 
-<?php include("includes/nav.php"); ?>
+<?php 
+error_reporting(E_ERROR);
+include("includes/nav.php"); ?>
 
     
 
@@ -52,7 +59,7 @@ if (!$_SESSION) {
             <form action="" id="formularioAgregar">
               
               <input type="text" name="idLocalDescuento" id="idLocalDescuento" class="hidden">
-              <input type="text" name="idLocalCreado" id="idLocalCreado" value="<?php echo $idLocal; ?>" class="hidden">
+              <input type="text" name="idLocalCreado" id="idLocalCreado" value="<?php  error_reporting(E_ERROR); echo $idLocal; ?>" class="hidden">
 
               <h5 class="titulosalta"> Descuento</h5>
 
@@ -175,7 +182,9 @@ if (!$_SESSION) {
     </div>
 
     
-    <?php include("includes/footer.php"); ?>
+    <?php 
+    error_reporting(E_ERROR);
+    include("includes/footer.php"); ?>
     
 
     <!-- jQuery -->

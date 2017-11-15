@@ -1,9 +1,13 @@
-<?php include("includes/head.php"); ?>
+<?php 
+error_reporting(E_ERROR);
+include("includes/head.php"); ?>
 
 <body id="page-top" class="index">
 
 
-    <?php include("includes/nav.php"); ?>
+    <?php 
+    error_reporting(E_ERROR);
+    include("includes/nav.php"); ?>
 
     
 
@@ -103,7 +107,9 @@
 <div class="container" style="padding-top: 2%; padding-bottom: 1%;">   
 </div>
 
-<?php include("includes/footer.php"); ?>
+<?php 
+error_reporting(E_ERROR);
+include("includes/footer.php"); ?>
 
 
 <!-- jQuery -->

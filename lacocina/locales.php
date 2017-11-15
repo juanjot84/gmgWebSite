@@ -1,4 +1,6 @@
-<?php session_start();
+<?php 
+error_reporting(E_ERROR);
+session_start();
 
 $idNegocio = $_SESSION['idNegocio'];
 $tipoUsuario = $_SESSION['tipoUsuario'];
@@ -21,7 +23,8 @@ if($tipoUsuario == 'usuarioNegocio'){
 
 
 ?>
-<?php    
+<?php 
+error_reporting(E_ERROR);   
    $idNegocio = $_GET['idNegocio'];
 ?>
 <?php include("includes/head.php"); ?>
@@ -39,6 +42,7 @@ if($tipoUsuario == 'usuarioNegocio'){
 
 <!-- Navigation -->
     <?php 
+    error_reporting(E_ERROR);
        if($tipoUsuario == 'usuarioNegocio'){
           $nav = 'perfil/'; 
           include("perfil/includes/nav-perfil-superior.php");   
@@ -47,7 +51,7 @@ if($tipoUsuario == 'usuarioNegocio'){
        }
     ?>
 
-        <div class="container-fluid" style="padding: 1%;background: yellow;margin-top: -21px; <?php echo $display; ?> ">
+        <div class="container-fluid" style="padding: 1%;background: yellow;margin-top: -21px; <?php  error_reporting(E_ERROR); echo $display; ?> ">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -69,8 +73,8 @@ if($tipoUsuario == 'usuarioNegocio'){
 
 
     <div class="container" style="height: 65vh; padding-top: 2%; min-height: 715px;">
-     <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
-     <input type="text" name="tipoUs" id="tipoUs" value="<?php echo $tipoUsuario; ?>" class="hidden">
+     <input type="text" name="idNegocio" id="idNegocio" value="<?php  error_reporting(E_ERROR); echo $idNegocio; ?>" class="hidden">
+     <input type="text" name="tipoUs" id="tipoUs" value="<?php  error_reporting(E_ERROR); echo $tipoUsuario; ?>" class="hidden">
 
       <div class="container" id="estiloUsuarioNegocio"></div>
         <div class="row text-center" id="disenioSuperAdmin">

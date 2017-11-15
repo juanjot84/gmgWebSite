@@ -1,4 +1,6 @@
-<?php session_start();
+<?php 
+error_reporting(E_ERROR);
+session_start();
 
 $idNegocio = $_SESSION['idNegocio'];
 $tipoUsuario = $_SESSION['tipoUsuario'];
@@ -17,16 +19,20 @@ if (!$_SESSION) {
 ?>
 
 
-<?php    
+<?php  
+error_reporting(E_ERROR);  
    $idNegocio = $_GET['idNegocio'];
 ?>
 
-<?php include("includes/head.php"); ?>
+<?php 
+error_reporting(E_ERROR);
+include("includes/head.php"); ?>
 
 <body id="page-top" class="index">
 
 
 <?php
+error_reporting(E_ERROR);
      if($tipoUsuario == 'usuarioNegocio'){
         $nav = 'perfil/'; 
         include("perfil/includes/nav-perfil-superior.php");   
@@ -58,12 +64,12 @@ if (!$_SESSION) {
             <div class="col-md-12">
                 <div class="panel panel-default">
 
-                <input type="text" name="idNegocioSeleccionado" id="idNegocioSeleccionado" value="<?php echo $idNegocio; ?>" class="hidden">
+                <input type="text" name="idNegocioSeleccionado" id="idNegocioSeleccionado" value="<?php  error_reporting(E_ERROR); echo $idNegocio; ?>" class="hidden">
 
             <form action="" id="formularioAgregar">
 
               <input type="text" name="idUsuarioNegocio" id="idUsuarioNegocio" class="hidden">
-              <input type="text" name="tipoUs" id="tipoUs" value="<?php echo $tipoUsuario; ?>" class="hidden">
+              <input type="text" name="tipoUs" id="tipoUs" value="<?php  error_reporting(E_ERROR); echo $tipoUsuario; ?>" class="hidden">
 
               <h5 class="titulosalta"> Datos de usuario administrador del negocio</h5>
 
@@ -142,7 +148,9 @@ if (!$_SESSION) {
     </div>
 
     
-    <?php include("includes/footer.php"); ?>
+    <?php 
+    error_reporting(E_ERROR);
+    include("includes/footer.php"); ?>
     
 
     <!-- jQuery -->

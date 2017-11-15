@@ -1,4 +1,6 @@
-<?php session_start();
+<?php 
+error_reporting(E_ERROR);
+session_start();
 
 $idNegocio = $_SESSION['idNegocio'];
 $tipoUsuario = $_SESSION['tipoUsuario'];
@@ -15,11 +17,14 @@ if (!$_SESSION) {
 }
 
 ?>
-<?php    
+<?php  
+error_reporting(E_ERROR);  
    $idNegocio = $_GET['idNegocio'];
 ?>
 
-<?php include("includes/head.php"); ?>
+<?php 
+error_reporting(E_ERROR);
+include("includes/head.php"); ?>
 
 <head>
     <style type="text/css">
@@ -34,6 +39,7 @@ if (!$_SESSION) {
 
 <!-- Navigation -->
 <?php 
+error_reporting(E_ERROR);
     if($tipoUsuario == 'usuarioNegocio'){
         $nav = 'perfil/'; 
         include("perfil/includes/nav-perfil-superior.php");   
@@ -46,7 +52,7 @@ if (!$_SESSION) {
 
     <div class="container" style="height: 65vh; padding-top: 13%; min-height: 715px;">
 
-    <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
+    <input type="text" name="idNegocio" id="idNegocio" value="<?php error_reporting(E_ERROR);  echo $idNegocio; ?>" class="hidden">
 
         <div class="row text-center">
             <div class="col-md-4">
@@ -78,7 +84,9 @@ if (!$_SESSION) {
         </div>
     </div>
 
-    <?php include("includes/footer.php"); ?>
+    <?php 
+    error_reporting(E_ERROR);
+    include("includes/footer.php"); ?>
     
 
     <!-- jQuery -->
