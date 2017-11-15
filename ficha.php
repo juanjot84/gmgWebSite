@@ -59,20 +59,7 @@
                             <div class="col-md-4 text-center precioficha">
                                 <p id="nivelPrecio"></p>
                             </div>
-                            <!-- <div class="col-md-3 text-right" style="height: 90px; bottom: -54px;">
-                                <ul style="display: inline-flex; list-style: none;">
 
-                                    <li id="calificacionLocal">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                    </li>
-
-                                </ul>
-
-                            </div> -->
                         </div>
 
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -151,36 +138,7 @@
             <section style="padding: 0 0 3% 0 !important;">
                 <div class="container">
                     <div class="row servicios">
-                        <!-- <div class="col-xs-3 col-md-1 col-md-offset-1">
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Abierto de día / Open at day!"><img class="img-responsive iconos" src="img/01-icon-abierto.svg"></a>
-                        </div>
-                        <div class="col-xs-3 col-md-1">
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Abierto de noche / Open at night"><img class="img-responsive iconos" src="img/02-icon-abierto-noche.svg"></a>
-                        </div>
-                        <div class="col-xs-3 col-md-1">
-                          <a href="#" data-toggle="tooltip" data-placement="bottom" title="Acceso a silla de ruedas / Wheelchair accessible"><img class="img-responsive iconos" src="img/03-icon-acceso.svg"></a>
-                        </div>
-                        <div class="col-xs-3 col-md-1">
-                            <img class="img-responsive iconos" src="img/04-icon-familia.svg">
-                        </div>
-                        <div class="col-xs-3 col-md-1">
-                            <img class="img-responsive iconos" src="img/05-icon-aa.svg">
-                        </div>
-                        <div class="col-xs-3 col-md-1 desact">
-                            <img class="img-responsive iconos" src="img/06-icon-desayuno.svg">
-                        </div>
-                        <div class="col-xs-3 col-md-1 desact">
-                            <img class="img-responsive iconos" src="img/07-icon-vinocopa.svg">
-                        </div>
-                        <div class="col-xs-3 col-md-1 desact">
-                            <img class="img-responsive iconos" src="img/08-icon-nogluten.svg">
-                        </div>
-                        <div class="col-xs-3 col-md-1 desact">
-                            <img class="img-responsive iconos" src="img/09-icon-vegetariana.svg">
-                        </div>
-                        <div class="col-xs-3 col-md-1 desact">
-                            <img class="img-responsive iconos" src="img/10-icon-tarjeta.svg">
-                        </div> -->
+
                     </div>
                 </div>
             </section>

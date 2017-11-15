@@ -153,6 +153,7 @@
     }
 
   function cancelar(){
+    $("#formularioAgregar :input").val('');
       $('#formularioAgregar').hide();
   }
   
