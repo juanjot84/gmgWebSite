@@ -1,6 +1,6 @@
 <?php session_start();
 
-$idNegocio = $_SESSION['idNegocio'];
+
 $tipoUsuario = $_SESSION['tipoUsuario'];
 
 
@@ -54,7 +54,6 @@ $idLocal = $_GET['idLocal'];
     </div>
     <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
     <input type="text" name="idLocal" id="idLocal" value="<?php echo $idLocal; ?>" class="hidden">
-    <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
 
       <div class="panel-heading tituloseccion">Galería</div>
 

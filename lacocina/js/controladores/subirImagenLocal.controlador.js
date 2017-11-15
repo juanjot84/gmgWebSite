@@ -222,7 +222,18 @@ function seleccionarPrincipal(urlImagen){
 
 function volverPanelLocal(){
     var localEditado = $("#idLocal").val();
-    var idNegocio = $("#idNegocio").val(); 
-    var url = "../lacocina/panel-locales.php?idLocal="+ localEditado+"&idNegocio="+ idNegocio +"";
-    $(location).attr('href',url);
+
+    $.ajax({
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id='+localEditado+"",
+            type: 'GET',
+            
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+               var idNegocio = data.idNegocio._id;
+               var url = "../lacocina/panel-locales.php?idLocal="+ localEditado+"&idNegocio="+ idNegocio +"";
+               $(location).attr('href',url);
+            } 
+    });
 }
