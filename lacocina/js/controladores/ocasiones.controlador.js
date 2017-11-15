@@ -63,6 +63,7 @@ function editar(idOcasion) {
     $("#nombreOcasion").val(ocasion.nombreOcasion);
     $("#descripcionOcasion").val(ocasion.descripcionOcasion);
     $("#urlImagenOcasion").val(ocasion.urlImagenOcasion);
+    $("input[name=destacadoOcasion][value=" + ocasion.destacadoOcasion + "]").prop("checked",true);
 }
 
 function mostrar(idOcasion) {
@@ -74,6 +75,7 @@ function mostrar(idOcasion) {
     $("#nombreOcasion").val(ocasion.nombreOcasion);
     $("#descripcionOcasion").val(ocasion.descripcionOcasion);
     $("#urlImagenOcasion").val(ocasion.urlImagenOcasion);
+    $("input[name=destacadoOcasion][value=" + ocasion.destacadoOcasion + "]").prop("checked",true);
     $("#idOcasion").val(ocasion._id);
 }
 
@@ -110,7 +112,8 @@ function send() {
     var ocasion = JSON.stringify({
         "nombreOcasion": $("#nombreOcasion").val(),
         "descripcionOcasion": $("#descripcionOcasion").val(),
-        "urlImagenOcasion": $("#urlImagenOcasion").val()
+        "urlImagenOcasion": $("#urlImagenOcasion").val(),
+        "destacadoOcasion": $('input[name=destacadoOcasion]:checked', '#formularioAgregar').val()
     });
 
     $('#target').html('sending..');

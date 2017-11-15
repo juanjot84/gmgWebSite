@@ -68,6 +68,14 @@ if (!$_SESSION) {
                 <input id="urlImagenOcasion" name="urlImagenOcasion" type="text" class="form-control" placeholder="url de imagen de ocasion" aria-describedby="sizing-addon3">
               </div></p>
 
+              <h5 class="titulosalta"> Ocasion Destacada</h5>
+              <p>
+                <label class="radio-inline"><input type="radio" name="destacadoOcasion" id="destacadoOcasion-true" value="true">Si</label>
+                <label class="radio-inline"><input type="radio" name="destacadoOcasion" id="destacadoOcasion-false" value="false" checked="checked">No</label>
+              </p>
+              </br>
+              </br>
+
               <div class="input-group">
                  <span class="input-group-btn">
                   <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="send()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
