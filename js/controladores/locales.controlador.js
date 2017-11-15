@@ -102,7 +102,7 @@ function renderLocal(local){
   $('.container.locales').append('' +
     '<a href="ficha.php?id=' + local._id +'"><div class="row" style="padding-top: 5%;color: #252525;border-bottom: 1px solid #e3e3e3;padding-bottom: 2%;">' +
     '<div class="col-md-3">' +
-    '<img class="img-responsive" src="' + local.idNegocio.urlIconoNegocio + '">' +
+    '<img class="img-responsive" src="' + local.fotoPrincipalLocal + '">' +
     '</div>' +
     '<div class="col-md-6">' +
     '<p><span style="font-size: 1.5em;"><strong>' + local.idNegocio.nombreNegocio + '</strong> | ' + local.idNegocio.bajadaNegocio + '</span></p>' +
