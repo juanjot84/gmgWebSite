@@ -69,7 +69,10 @@
 
 <body id="page-top" class="index">
 
-  <?php include("includes/nav.php"); ?>
+  <?php 
+  error_reporting(E_ERROR);
+  include("includes/nav.php"); 
+  ?>
 
   <!-- Header -->
   <header>
