@@ -1,5 +1,5 @@
 <?php 
-
+error_reporting(E_ERROR);
 session_start();
     $idNegocio = $_SESSION['idNegocio'];
     $tipoUsuario = $_SESSION['tipoUsuario'];
@@ -59,6 +59,7 @@ if (!$_SESSION) {
 <body id="page-top" class="index">
 
 <?php 
+error_reporting(E_ERROR);
     if($tipoUsuario == 'usuarioNegocio'){
         include("includes/nav-perfil.php"); 
     }else if($tipoUsuario == 'superAdmin'){
@@ -69,7 +70,7 @@ if (!$_SESSION) {
 
 
   <div class="container" style="padding-top: 2%;">
-  <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
+  <input type="text" name="idNegocio" id="idNegocio" value="<?php error_reporting(E_ERROR); echo $idNegocio; ?>" class="hidden">
     <div class="row">
       <div class="col-md-4">
         
@@ -262,7 +263,9 @@ if (!$_SESSION) {
 
     </div>
 
-  <?php include("includes/footer-perfil.php"); ?>
+  <?php 
+  error_reporting(E_ERROR);
+  include("includes/footer-perfil.php"); ?>
 
 
   <!-- jQuery -->

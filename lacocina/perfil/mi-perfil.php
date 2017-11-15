@@ -1,4 +1,6 @@
-<?php session_start();
+<?php 
+error_reporting(E_ERROR);
+session_start();
 
 $idNegocio = $_SESSION['idNegocio'];
 $tipoUsuario = $_SESSION['tipoUsuario'];
@@ -19,13 +21,16 @@ if (!$_SESSION) {
 ?>
 
 
-<?php include("includes/head-perfil.php"); ?>
+<?php 
+error_reporting(E_ERROR);
+include("includes/head-perfil.php"); ?>
 
 
 
 <body id="page-top" class="index">
 
 <?php 
+error_reporting(E_ERROR);
     if($tipoUsuario == 'usuarioNegocio'){
         include("includes/nav-perfil.php"); 
     }else if($tipoUsuario == 'superAdmin'){
@@ -37,12 +42,12 @@ if (!$_SESSION) {
     <div class="container-fluid fondococina">
         <div class="container" style="height: 65vh; padding-top: 5%; min-height: 715px;">
 
-        <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
-        <input type="text" name="tipoUs" id="tipoUs" value="<?php echo $tipoUsuario; ?>" class="hidden">
+        <input type="text" name="idNegocio" id="idNegocio" value="<?php  error_reporting(E_ERROR); echo $idNegocio; ?>" class="hidden">
+        <input type="text" name="tipoUs" id="tipoUs" value="<?php  error_reporting(E_ERROR); echo $tipoUsuario; ?>" class="hidden">
 
             <div class="row text-center">
                 <div class="col-md-12" style="padding: 5% 0;">
-                    <span style="color: #fff; font-size: 2.5em; font-weight: 700;">Bienvenido a la cocina de <?php echo $nombreNegocio; ?></span>
+                    <span style="color: #fff; font-size: 2.5em; font-weight: 700;">Bienvenido a la cocina de <?php  error_reporting(E_ERROR); echo $nombreNegocio; ?></span>
                 </div>
             </div>
 
@@ -70,7 +75,9 @@ if (!$_SESSION) {
     </div> 
 
     
-    <?php include("includes/footer-perfil.php"); ?>
+    <?php 
+    error_reporting(E_ERROR);
+    include("includes/footer-perfil.php"); ?>
     
 
     <!-- jQuery -->
