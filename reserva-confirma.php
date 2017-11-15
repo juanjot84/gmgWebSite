@@ -37,7 +37,10 @@
 
 <body id="page-top" class="index">
 
-  <?php include("includes/nav.php"); ?>
+  <?php 
+  error_reporting(E_ERROR);
+  include("includes/nav.php");
+   ?>
 
   <div class="container" style="padding-top: 7%;">
 
@@ -65,7 +68,10 @@
     <a href="#" class="page-scroll btn btn-xl" style="max-width: 300px; margin: 5% 0;">CONFIRMAR RESERVA</a>
   </div>
 
-  <?php include("includes/footer.php"); ?>
+  <?php
+  error_reporting(E_ERROR);
+  include("includes/footer.php"); 
+  ?>
 
 
 

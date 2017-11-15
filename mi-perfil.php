@@ -1,4 +1,5 @@
 <?php session_start();
+    error_reporting(E_ERROR);
     $jwt = $_SESSION['jwt'];
 ?>
 
@@ -42,7 +43,10 @@
 <body id="page-top" class="index">
 
 
-  <?php include("includes/nav.php"); ?>
+  <?php 
+  error_reporting(E_ERROR);
+  include("includes/nav.php"); 
+  ?>
 
 
   <!-- Header -->
@@ -161,7 +165,10 @@
     </div>
   </div>
 
-<?php include("includes/footer.php"); ?>
+<?php 
+error_reporting(E_ERROR);
+include("includes/footer.php"); 
+?>
 
   <!-- jQuery -->
   <script src="vendor/jquery/jquery.min.js"></script>
