@@ -237,7 +237,7 @@ function renderMisReservas(reservas){
   _.each(reservas, function(reserva){
     $('.container.mis-reservas').append(  '' +
       '<div class="row" style="padding-top: 5%;color: #252525;border-bottom: 1px solid #e3e3e3;padding-bottom: 2%;">' +
-      ' <div class="col-md-3"><img class="img-responsive" src="' + reserva.idLocal.idNegocio.urlIconoNegocio + '">' +
+      ' <div class="col-md-3"><img class="img-responsive" src="' + reserva.idLocal.fotoPrincipalLocal+ '">' +
       ' </div>' +
       '  <div class="col-md-6"> <p><span style="font-size: 1.5em;">' +
       '   <strong>' + reserva.idLocal.idNegocio.nombreNegocio + '</strong> | ' + reserva.idLocal.idNegocio.bajadaNegocio + '</span></p> ' +

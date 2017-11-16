@@ -7,7 +7,7 @@ $directorio = '../../../img-locales/';
 unlink($directorio.$nombreArchivo);
 
 if (file_exists($directorio.$nombreArchivo)) {
-    echo "error";
+    echo "borrado";
 } else {
     echo "borrado";
 }
