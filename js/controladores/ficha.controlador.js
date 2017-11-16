@@ -71,9 +71,17 @@ function getTituloBusqueda(parametro, filtro) {
 }
 
 function popularLocal(local) {
+  var longNivelPrecio = local.idNivelPrecio.label.length;
+  var nivelGris = 5 - longNivelPrecio;
+  var labelGrises = '';
+  for(i = 0; i < nivelGris; i++){
+    labelGrises += '$'
+  }
+
   $('#nombreNegocio').text(local.idNegocio.nombreNegocio);
   $('#bajadaNegocio').text(local.idNegocio.bajadaNegocio);
   $('#nivelPrecio').text(local.idNivelPrecio.label);
+  $('#nivelPrecio').append('<span style="color: #cbcbcb">'+labelGrises+'</span>');
   $('#descripcionNegocio').text(local.idNegocio.descripcionNegocio);
   $('#facebookNegocio').attr('href', local.idNegocio.facebookNegocio);
   $('#twitterNegocio').attr('href', local.idNegocio.twitterNegocio);
