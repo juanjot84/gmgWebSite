@@ -99,13 +99,13 @@ error_reporting(E_ERROR);
                 </div></a>
             </div>
             <div class="col-md-3">
-                <a onclick="cargarLocales()"><div style="font-size: 1.5em;">
+                <a href="perfil/reservas.php"><div style="font-size: 1.5em;">
                     <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-ok" aria-hidden="true"></span><br>
                     RESERVAS
                 </div></a>
             </div>
             <div class="col-md-3">
-                <a onclick="cargarLocales()"><div style="font-size: 1.5em;">
+                <a onclick=""><div style="font-size: 1.5em;">
                     <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-stats" aria-hidden="true"></span><br>
                     REMARKETING
                 </div></a>
