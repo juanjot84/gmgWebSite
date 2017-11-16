@@ -136,56 +136,76 @@ function mostrarHoras(horas) {
   $('#selecHoras').html('');
   _.each(horas, function (hora){
     var li = $('<li>').val(hora.valor).text(hora.key);
-    $('#selecHoras').append('<li class="selechora" value="' + hora.valor + '"  onClick="seleccionarHora(\'' + hora.key + '\')"><button class="botonhorareserva">' + hora.key + '</button></li>');
+    $('#selecHoras').append('<li class="selechora" value="' + hora.valor + '"  onClick="seleccionarHora(\'' + hora.key + '\')" ><button class="botonhorareserva">' + hora.key + '</button></li>');
   })
   $('.horas').show();
 }
 
 function seleccionarHora(hora){
+  limpiar('horarioReserva');
   horaSeleccionada = hora;
 }
 
 // TODO obtener horario de la reserva seleccionado
 function realizarReserva() {
+  
   if (isLoggedIn()) {
-    $("#realizarReserva").modal("show");
-    $("#cantidadReserva").html("Reserva para " + $('#selectAdulto').val() + " adultos y " + $('#selectNino').val() + " niño");
-    $("#horarioReserva").html(horaSeleccionada + " hs. | " + $('#selectDia').val());
+
+    //if (telefonoReserva.length >6 && /^(\+{1})?([0-9])*$/.test(telefonoReserva)) {
+      if (!_.isNil(horaSeleccionada)) {
+        $("#realizarReserva").modal("show");
+        $("#cantidadReserva").html("Reserva para " + $('#selectAdulto').val() + " adultos y " + $('#selectNino').val() + " niño");
+        $("#horarioReserva").html(horaSeleccionada + " hs. | " + $('#selectDia').val());
+      } else {
+        $("#selecHoras").parent().after('<span id="horarioReservaAlert" style="color:red"> Por favor seleccione un horario</span>');
+      }
+
+
+
   } else {
     mostrarModalLogin();
   }
 }
 
 function confirmarReserva() {
-  var data = {
-    'idLocal': idLocal,
-    'fechaReserva': $('#selectDia').val(),
-    'horaReserva': horaSeleccionada,
-    'cubiertosAdultosReservados': $('#selectAdulto').val(),
-    'cubiertosMenoresReservados': $('#selectNino').val()
-  };
-  $.ajax({
-    url: 'http://aqueous-woodland-46461.herokuapp.com/api/v1/admin/reserva',
-    type: 'POST',
-    dataType: "json",
-    crossDomain: true,
-    contentType:"application/json",
-    success: function (data) {
+  limpiar('telefonoReserva');
+  var telefonoReserva = $("#telefonoReserva").val();
+  if (telefonoReserva.length >6 && /^(\+{1})?([0-9])*$/.test(telefonoReserva)){
+    var data = {
+      'idLocal': idLocal,
+      'fechaReserva': $('#selectDia').val(),
+      'horaReserva': horaSeleccionada,
+      'cubiertosAdultosReservados': $('#selectAdulto').val(),
+      'cubiertosMenoresReservados': $('#selectNino').val(),
+      'telefonoUsuarioReserva': $('#telefonoReserva').val()
+    };
+    $.ajax({
+      url: 'http://aqueous-woodland-46461.herokuapp.com/api/v1/admin/reserva',
+      type: 'POST',
+      dataType: "json",
+      crossDomain: true,
+      contentType:"application/json",
+      success: function (data) {
+  
+        $("#realizarReserva").modal("hide");
+        $("#reservaConfirmada").modal("show");
+      },
+      error:function(jqXHR,textStatus,errorThrown)
+      {
+        $('#target').append("jqXHR: "+jqXHR);
+        $('#target').append("textStatus: "+textStatus);
+        $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+      },
+      headers: {
+          Authorization: 'JWT ' + jwt
+      },
+      data: JSON.stringify(data)
+    });   
+    } else {
+      $("#telefonoReserva").parent().after('<span id="telefonoReservaAlert" style="color:red"> Por favor ingrese un teléfono válido sin utilizar - ni ()</span>');
+      $("#telefonoReserva").addClass('alert-danger');
+    }
 
-      $("#realizarReserva").modal("hide");
-      $("#reservaConfirmada").modal("show");
-    },
-    error:function(jqXHR,textStatus,errorThrown)
-    {
-      $('#target').append("jqXHR: "+jqXHR);
-      $('#target').append("textStatus: "+textStatus);
-      $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
-    },
-    headers: {
-        Authorization: 'JWT ' + jwt
-    },
-    data: JSON.stringify(data)
-  });
 }
 
 function getMisReservas(){
@@ -238,4 +258,9 @@ function renderMisReservas(reservas){
   });
 
 
+}
+
+function limpiar(campo) {
+  $("#"+campo+"Alert").hide();
+  $("#"+campo).removeClass('alert-danger');
 }

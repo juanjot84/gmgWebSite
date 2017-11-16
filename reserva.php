@@ -131,7 +131,10 @@ $idLocal = $_GET["id"];
           </div>
         </p>
       </div>
+
+
     </div>
+
 
     <div id="noHorario" style="display: none">
       No existen horarios que cumplan con los datos ingresados.
@@ -139,7 +142,7 @@ $idLocal = $_GET["id"];
 
     <div class="horas row" style="display: none">
       <div class="col-md-12" style="display: inline-flex;">
-        <ul  id="selecHoras" style="flex-direction: row; flex-wrap: wrap; display: flex;">
+        <ul  id="selecHoras" style="flex-direction: row; flex-wrap: wrap; display: flex;" onclick="limpiar('selecHoras')">
         </ul>
       </div>
       <div style="text-align: center;">
@@ -189,8 +192,18 @@ $idLocal = $_GET["id"];
                 <p id="horarioReserva" ></p>
                 <p id="direccionLocal" ></p>
               </div>
+              <div class="col-md-12">
+                <p>
+                  <div class="form-group">
+                      <input type="text" name="telefonoReserva" id="telefonoReserva" tabindex="1" class="form-control" placeholder="Teléfono de contacto" value="" onfocus="limpiar('telefonoReserva')">
+                  </div>
+                </p>
+              </div>
             </div>
           </div>
+
+
+
           <div class="modal-footer">
             <a href="#" class="page-scroll btn btn-xl" data-dismiss="modal" style="max-width: 300px; margin: 5% 0;">MODIFICAR</a>
 
