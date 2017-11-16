@@ -333,8 +333,8 @@ a.forgot-password:hover {
 }
 
 .h2.tituloocasiones.section-heading {
-    font-size: 1.4em !important;
-    margin-top: 4% !important;
+    font-size: 1.4em;
+    margin-top: 4%;
 }
 
 /*MEDIA QUERIES*/
