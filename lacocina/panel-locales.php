@@ -50,7 +50,7 @@ error_reporting(E_ERROR);
 
 
 
-    <div class="container" style="height: 65vh; padding-top: 13%; min-height: 715px;">
+    <div class="container" style="padding: 7% 0;">
     <input type="text" name="idLocal" id="idLocal" value="<?php echo $idLocal; ?>" class="hidden">
     <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
 
