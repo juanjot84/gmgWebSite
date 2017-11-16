@@ -109,22 +109,11 @@ function renderLocal(local){
     '<i class="fa fa-map-marker" aria-hidden="true"></i><span class="polo">   ' + local.idPoloGastronomico.nombrePoloGastronomico +'</span> |  ' +
     '<i class="fa fa-cutlery" aria-hidden="true"></i><span class="tiponegocio">  ' +local.idTipoCocinaPrincipal.nombreTipoCocina +'</span></br>' +
     '<p style="letter-spacing: 1px;"><strong>'+ local.idNivelPrecio.label +'</strong><span style="color: #cbcbcb">'+ labelGrises +'</span></p>'+
-    // '<ul style="display: inline-flex; list-style: none;"">' +
-    // '<li>' +
-    // '<i class="fa fa-star" aria-hidden="true"></i>' +
-    // '<i class="fa fa-star" aria-hidden="true"></i>' +
-    // '<i class="fa fa-star" aria-hidden="true"></i>' +
-    // '<i class="fa fa-star" aria-hidden="true"></i>' +
-    // '<i class="fa fa-star-o" aria-hidden="true"></i>' +
-    // '</li>' +
-    // '</ul> | ' +
-    // '<span class="precio">' + local.idNivelPrecio.label +'</span> <br>' +
     '<p><span class="descripcion">' + local.idNegocio.descripcionNegocio.substr(0, 147) + '...</span></p>' +
 
     '</div>' +
     '<div class="col-md-3">' +
     descuento +
-    // '  <br><i class="fa fa-heart-o" style="color: #e02222 !important; font-size: 3em;" aria-hidden="true"></i>'+
     '</div>' +
     '</div></a>');
 

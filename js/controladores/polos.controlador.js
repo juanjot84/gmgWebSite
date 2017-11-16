@@ -36,8 +36,8 @@ function renderPolos(polos){
 
 }
 
-function buscarPolo(idOcasion) {
-  redirect('resultados-busqueda.php', 'post', 'polos', idOcasion);
+function buscarPolo(idPolo) {
+  redirect('resultados-busqueda.php', 'post', 'polos', idPolo);
 }
 
 function iniciarCarousel(){

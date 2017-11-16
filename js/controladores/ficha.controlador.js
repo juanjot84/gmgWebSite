@@ -71,9 +71,17 @@ function getTituloBusqueda(parametro, filtro) {
 }
 
 function popularLocal(local) {
+  var longNivelPrecio = local.idNivelPrecio.label.length;
+  var nivelGris = 5 - longNivelPrecio;
+  var labelGrises = '';
+  for(i = 0; i < nivelGris; i++){
+    labelGrises += '$'
+  }
+
   $('#nombreNegocio').text(local.idNegocio.nombreNegocio);
   $('#bajadaNegocio').text(local.idNegocio.bajadaNegocio);
   $('#nivelPrecio').text(local.idNivelPrecio.label);
+  $('#nivelPrecio').append('<span style="color: #cbcbcb">'+labelGrises+'</span>');
   $('#descripcionNegocio').text(local.idNegocio.descripcionNegocio);
   $('#facebookNegocio').attr('href', local.idNegocio.facebookNegocio);
   $('#twitterNegocio').attr('href', local.idNegocio.twitterNegocio);
@@ -86,6 +94,27 @@ function popularLocal(local) {
   $('#tipoCocinaPrincipal').text(local.idTipoCocinaPrincipal.nombreTipoCocina);
   $('#reservar').attr('href', 'reserva.php?id=' + local._id);
   var mediosPago = '';
+
+    var cont=0;
+  _.each(local.fotoLocal, function(imagen){
+    if(cont == 0){
+      $('#indicadorSlide').append('<li data-target="#myCarousel" data-slide-to="'+cont+'" class="active"></li>');
+      $('#imagenesSlide').append('<div class="item active">'+
+        '<img src="'+imagen+'">'+
+        '</div>');
+    }else{
+      $('#indicadorSlide').append('<li data-target="#myCarousel" data-slide-to="'+cont+'"></li>');
+      $('#imagenesSlide').append('<div class="item">'+
+        '<img src="'+imagen+'">'+
+        '</div>');
+    }
+
+   cont++;
+  })
+
+  $('#myCarousel').carousel();
+
+
   _.each(local.idMedioPago, function(medioPago){
     mediosPago += medioPago.descripcionMedioPago + coma;
   })
@@ -114,7 +143,7 @@ function setMapa (coords){
   //Se crea una nueva instancia del objeto mapa
   var map = new google.maps.Map(document.getElementById('map'),
   {
-    zoom: 13,
+    zoom: 17,
     center:new google.maps.LatLng(coords.lat,coords.lng),
   });
   //Creamos el marcador en el mapa con sus propiedades
@@ -123,7 +152,7 @@ function setMapa (coords){
   marker = new google.maps.Marker({
     icon: iconBase + 'marcador.png',
     map: map,
-    draggable: true,
+    draggable: false,
     animation: google.maps.Animation.DROP,
     position: new google.maps.LatLng(coords.lat,coords.lng),
   });
