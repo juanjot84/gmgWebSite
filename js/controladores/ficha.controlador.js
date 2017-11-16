@@ -135,7 +135,7 @@ function setMapa (coords){
   //Se crea una nueva instancia del objeto mapa
   var map = new google.maps.Map(document.getElementById('map'),
   {
-    zoom: 13,
+    zoom: 17,
     center:new google.maps.LatLng(coords.lat,coords.lng),
   });
   //Creamos el marcador en el mapa con sus propiedades
@@ -144,7 +144,7 @@ function setMapa (coords){
   marker = new google.maps.Marker({
     icon: iconBase + 'marcador.png',
     map: map,
-    draggable: true,
+    draggable: false,
     animation: google.maps.Animation.DROP,
     position: new google.maps.LatLng(coords.lat,coords.lng),
   });
