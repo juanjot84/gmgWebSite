@@ -35,14 +35,14 @@
 
     </head>
     <?php
-    error_reporting(E_ERROR);
-    $idLocal = $_GET["id"];
+      error_reporting(E_ERROR);
+      $idLocal = $_GET["id"];
     ?>
     <body id="page-top" class="index">
 
         <?php 
-        error_reporting(E_ERROR);
-        include("includes/nav.php");
+          error_reporting(E_ERROR);
+          include("includes/nav.php");
          ?>
 
         <!-- Header -->
@@ -135,39 +135,15 @@
 
         <!-- Novedades -->
         <section>
-            <div class="container">
+            <div class="container sugeridos">
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <!-- <h2 class="section-heading">Restaurantes Sugeregidos</h2> -->
                         <h2 class="titulosugerencia1">Restaurantes Sugeridos</h2>
                     </div>
                 </div>
+                <div class="row sugeridos">
 
-                <div class="row">
-                    <div class="col-md-2">
-                        <img class="sugeridos img-responsive" src="img/suger.jpg">
-                        <h2 class="titulosugerencia2">Azafrán</h2>
-                    </div>
-                    <div class="col-md-2">
-                        <img class="sugeridos img-responsive" src="img/suger.jpg">
-                        <h2 class="titulosugerencia2">El Mercadito</h2>
-                    </div>
-                    <div class="col-md-2">
-                        <img class="sugeridos img-responsive" src="img/suger.jpg">
-                        <h2 class="titulosugerencia2">Ceibo</h2>
-                    </div>
-                    <div class="col-md-2">
-                        <img class="sugeridos img-responsive" src="img/suger.jpg">
-                        <h2 class="titulosugerencia2">Orégano</h2>
-                    </div>
-                    <div class="col-md-2">
-                        <img class="sugeridos img-responsive" src="img/suger.jpg">
-                        <h2 class="titulosugerencia2">Praga</h2>
-                    </div>
-                    <div class="col-md-2">
-                        <img class="sugeridos img-responsive" src="img/suger.jpg">
-                        <h2 class="titulosugerencia2">M Bistró</h2>
-                    </div>
                 </div>
             </div>
         </section>
@@ -185,8 +161,8 @@
         </section>
 
        <?php 
-       error_reporting(E_ERROR);
-       include("includes/footer.php"); 
+         error_reporting(E_ERROR);
+         include("includes/footer.php");
        ?>
 
         <!-- jQuery -->
@@ -218,7 +194,8 @@
         <!-- Funciones de Local JavaScript -->
         <script src="js/controladores/ficha.controlador.js"></script>
         <script>
-        getDetalleLocal('<?php echo $idLocal; ?>');
+          getDetalleLocal('<?php echo $idLocal; ?>');
+          buscarSugeridos();
 
         </script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHhrWZLpRB2OO1JJEU3Ls9FpfZzbXaQ-A&callback=initMap"></script>

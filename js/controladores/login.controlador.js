@@ -1,21 +1,9 @@
-$(function () {
-  $('#aceptoTerminos')
+var disabled = false;
 
-  $('#login-form-link').click(function (e) {
-    $("#login-form").delay(100).fadeIn(100);
-    $("#register-form").fadeOut(100);
-    $('#register-form-link').removeClass('active');
-    $(this).addClass('active');
-    e.preventDefault();
-  });
-  $('#register-form-link').click(function (e) {
-    $("#register-form").delay(100).fadeIn(100);
-    $("#login-form").fadeOut(100);
-    $('#login-form-link').removeClass('active');
-    $(this).addClass('active');
-    e.preventDefault();
-  });
-
+$('#emailUsuario, #passwordUsuario').change( function (){
+  $("#passwordUsuarioAlert").remove();
+  $("#emailUsuario").removeClass('alert-danger');
+  $("#passwordUsuario").removeClass('alert-danger');
 });
 
 var redirect = 'mi-perfil.php';
@@ -26,29 +14,34 @@ function setRedirect(url){
 }
 
 function login() {
+  if (!disabled){
+    disabled = true;
+    $('#login-submit').attr('disabled','disabled');
+    var login = JSON.stringify({
+      "email": $("#emailUsuario").val(),
+      "password":$("#passwordUsuario").val()
+    });
+    $.ajax({
+      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/sign_in',
+      type: "POST",
 
-  var login = JSON.stringify({
-    "email": $("#emailUsuario").val(),
-    "password":$("#passwordUsuario").val()
-  });
-  $.ajax({
-    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/sign_in',
-    type: "POST",
-
-    dataType: "json",
-    crossDomain: true,
-    contentType:"application/json",
-    success: function (data) {
-      crearSesion(data);
-    },
-    error:function(jqXHR,textStatus,errorThrown){
-      $("#passwordUsuario").parent().after('<span id="passwordUsuarioAlert" style="color:red"> Usuario / contraseña incorrecto</span>');
-      $("#emailUsuario").addClass('alert-danger');
-      $("#passwordUsuario").addClass('alert-danger');
-    },
-    data: login
-  });
-};
+      dataType: "json",
+      crossDomain: true,
+      contentType:"application/json",
+      success: function (data) {
+        crearSesion(data);
+      },
+      error:function(jqXHR,textStatus,errorThrown){
+        $('#login-submit').removeAttr('disabled');
+        var disabled = false;
+        $("#passwordUsuario").parent().after('<span id="passwordUsuarioAlert" style="color:red"> Usuario / contraseña incorrecto</span>');
+        $("#emailUsuario").addClass('alert-danger');
+        $("#passwordUsuario").addClass('alert-danger');
+      },
+      data: login
+    });
+  }
+}
 
 function crearSesion(jwt){
   var parametros =  {

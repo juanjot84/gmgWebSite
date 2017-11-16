@@ -22,50 +22,49 @@ var horariosViejos = [];
 
 var dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabados", "Domingos", "Feriados"];
 
-function cargarHorariosSeteados(){
- dibujarHorarios();
- var idLocal = $("#idLocalCreado").val();
- $('#target').html('obteniendo...');
- $.ajax({
-  url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id='+ idLocal +"",
-  type: 'GET',
+function cargarHorariosSeteados() {
+  dibujarHorarios();
+  var idLocal = $("#idLocalCreado").val();
+  $('#target').html('obteniendo...');
+  $.ajax({
+    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id=' + idLocal + "",
+    type: 'GET',
 
-  dataType: "json",
-  crossDomain: true,
-  contentType:"application/json",
-  success: function (data) {
-    var horariosAtencion = data.idHorarioAtencion;
-    horariosViejos = data.idHorarioAtencion;
-    _.each(dias, function(diaSemana){
-      var horariosDia = _.filter(horariosAtencion, {'diaSemanaHorarioAtencion': diaSemana});
-      var horarioManana = _.find(horariosDia, {'turnoHorarioAtencion': 'manana'});
-      var horarioTarde = _.find(horariosDia, {'turnoHorarioAtencion': 'tarde'});
-      if (horarioManana){
-        $("#Hdesde" + horarioManana.diaSemanaHorarioAtencion + "Manana").val(horarioManana.horaInicioHorarioAtencion);
-        $("#Hhasta" + horarioManana.diaSemanaHorarioAtencion + "Manana").val(horarioManana.horaFinHorarioAtencion);
-      }
-      if (horarioTarde) {
-        $("#Hdesde" + horarioTarde.diaSemanaHorarioAtencion + "Tarde").val(horarioTarde.horaInicioHorarioAtencion);
-        $("#Hhasta" + horarioTarde.diaSemanaHorarioAtencion + "Tarde").val(horarioTarde.horaFinHorarioAtencion);
-      }
-    });
-  },
-  error:function(jqXHR,textStatus,errorThrown)
-  {
-    $('#target').append("jqXHR: "+jqXHR);
-    $('#target').append("textStatus: "+textStatus);
-    $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
-  },
-});
+    dataType: "json",
+    crossDomain: true,
+    contentType: "application/json",
+    success: function (data) {
+      var horariosAtencion = data.idHorarioAtencion;
+      horariosViejos = data.idHorarioAtencion;
+      _.each(dias, function (diaSemana) {
+        var horariosDia = _.filter(horariosAtencion, {'diaSemanaHorarioAtencion': diaSemana});
+        var horarioManana = _.find(horariosDia, {'turnoHorarioAtencion': 'manana'});
+        var horarioTarde = _.find(horariosDia, {'turnoHorarioAtencion': 'tarde'});
+        if (horarioManana) {
+          $("#Hdesde" + horarioManana.diaSemanaHorarioAtencion + "Manana").val(horarioManana.horaInicioHorarioAtencion);
+          $("#Hhasta" + horarioManana.diaSemanaHorarioAtencion + "Manana").val(horarioManana.horaFinHorarioAtencion);
+        }
+        if (horarioTarde) {
+          $("#Hdesde" + horarioTarde.diaSemanaHorarioAtencion + "Tarde").val(horarioTarde.horaInicioHorarioAtencion);
+          $("#Hhasta" + horarioTarde.diaSemanaHorarioAtencion + "Tarde").val(horarioTarde.horaFinHorarioAtencion);
+        }
+      });
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      $('#target').append("jqXHR: " + jqXHR);
+      $('#target').append("textStatus: " + textStatus);
+      $('#target').append("You can not send Cross Domain AJAX requests: " + errorThrown);
+    }
+  });
 }
 
-function dibujarHorarios(){
+function dibujarHorarios() {
   $('#formularioAgregar').html('');
   // $('#formularioAgregar').append('  <input type="text" name="idHorario" id="idHorario" class="hidden">    <input type="text" name="idLocalCreado" id="idLocalCreado" value="<?php echo $idLocal; ?>" class="hidden">        <h5 class="titulosalta"> Abierto</h5>    ');
-  _.each(dias, function(dia){
-    $('#formularioAgregar').append(''+
+  _.each(dias, function (dia) {
+    $('#formularioAgregar').append('' +
       '<p>' +
-      '  <strong>' + dia + ' </strong>'+
+      '  <strong>' + dia + ' </strong>' +
       '  <div class="row">' +
       '    <span class="row">Horario de atención de manana</span>' +
       '    <div class="col-md-6">' +
@@ -88,13 +87,13 @@ function dibujarHorarios(){
     );
   });
 
-  $('#formularioAgregar').append(''+
-  '<div class="input-group">' +
-  '  <span class="input-group-btn">' +
-  '    <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>' +
-  '    <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar(\'editar\')"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>' +
-  '  </span>' +
-  '</div>');
+  $('#formularioAgregar').append('' +
+    '<div class="input-group">' +
+    '  <span class="input-group-btn">' +
+    '    <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>' +
+    '    <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar(\'editar\')"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>' +
+    '  </span>' +
+    '</div>');
 
 }
 
@@ -106,9 +105,9 @@ function SendHorarioAtencion(accion) {
   var idHorariosHastaTarde = [];
 
   _.each(dias, function (dia) {
-    idHorariosDesdeManana.push({'hora':$("#Hdesde" + dia + "Manana").val(), 'dia': dia});
-    idHorariosHastaManana.push({'hora':$("#Hhasta" + dia + "Manana").val(), 'dia': dia});
-    idHorariosDesdeTarde.push({'hora':$("#Hdesde" + dia + "Tarde").val(), 'dia': dia});
+    idHorariosDesdeManana.push({'hora': $("#Hdesde" + dia + "Manana").val(), 'dia': dia});
+    idHorariosHastaManana.push({'hora': $("#Hhasta" + dia + "Manana").val(), 'dia': dia});
+    idHorariosDesdeTarde.push({'hora': $("#Hdesde" + dia + "Tarde").val(), 'dia': dia});
     idHorariosHastaTarde.push({'hora': $("#Hhasta" + dia + "Tarde").val(), 'dia': dia});
   });
 
@@ -141,22 +140,22 @@ function SendHorarioAtencion(accion) {
   Promise.all(guardarHorarios).then(function () {
     var campoAAcuatualizar = "idHorarioAtencion";
     console.log(localHorariosCreados);
-    actualizarLocal(idLocalCreado, _.without(localHorariosCreados,""), campoAAcuatualizar).then(function(data){
+    actualizarLocal(idLocalCreado, _.without(localHorariosCreados, ""), campoAAcuatualizar).then(function (data) {
       console.log(data);
 
-      if(accion == 'crear'){
+      if (accion == 'crear') {
         var url = "../lacocina/asignar-cubiertos.php?idLocal=" + idLocalCreado + "";
         $(location).attr('href', url);
-      }else if(accion == 'editar'){
+      } else if (accion == 'editar') {
 
-        eliminarViejos(horariosViejos).then(function(error, success){
+        eliminarViejos(horariosViejos).then(function (error, success) {
           volverPanelLocal();
         }).catch(function (err) {
-         console.log(err);
+          console.log(err);
         });
 
       }
-    }).catch(function (err){
+    }).catch(function (err) {
       console.log(err);
     });
 
@@ -166,31 +165,31 @@ function SendHorarioAtencion(accion) {
   });
 }
 
-function eliminarViejos(vectorHorarios){
-  var promise = new Promise(function(resolve, reject){
+function eliminarViejos(vectorHorarios) {
+  var promise = new Promise(function (resolve, reject) {
     var vecPromesas = [];
-    _.each(vectorHorarios, function(horario){
-     var promesa = eliminar(horario._id);
-     vecPromesas.push(promesa);
-   });
-    Promise.all(vecPromesas).then(function(){
+    _.each(vectorHorarios, function (horario) {
+      var promesa = eliminar(horario._id);
+      vecPromesas.push(promesa);
+    });
+    Promise.all(vecPromesas).then(function () {
       resolve(true)
     });
   });
   return promise;
 }
 
-function eliminar(idHorarioAtencion){
+function eliminar(idHorarioAtencion) {
   $.ajax({
     url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/horarioAtencion?id=' + idHorarioAtencion,
     type: 'DELETE',
     dataType: "json",
     crossDomain: true,
-    contentType:"application/json",
-    success: function(data){
+    contentType: "application/json",
+    success: function (data) {
       return true;
     },
-    error:function(jqXHR,textStatus,errorThrown){
+    error: function (jqXHR, textStatus, errorThrown) {
       return false;
     }
   });
@@ -206,7 +205,7 @@ function sendHorarios(diaHorario, horaDesde, horaHasta, turno) {
         "idLocal": $("#idLocalCreado").val(),
         "horaInicioHorarioAtencion": horaDesde,
         "horaFinHorarioAtencion": horaHasta,
-        "turnoHorarioAtencion" : turno
+        "turnoHorarioAtencion": turno
       });
 
       $('#target').html('sending..');
@@ -243,9 +242,9 @@ function validar(accion) {
   var hayError = false;
 
   _.each(dias, function (dia) {
-    idHorariosDesdeManana.push({'hora':$("#Hdesde" + dia + "Manana").val(), 'dia': dia});
-    idHorariosHastaManana.push({'hora':$("#Hhasta" + dia + "Manana").val(), 'dia': dia});
-    idHorariosDesdeTarde.push({'hora':$("#Hdesde" + dia + "Tarde").val(), 'dia': dia});
+    idHorariosDesdeManana.push({'hora': $("#Hdesde" + dia + "Manana").val(), 'dia': dia});
+    idHorariosHastaManana.push({'hora': $("#Hhasta" + dia + "Manana").val(), 'dia': dia});
+    idHorariosDesdeTarde.push({'hora': $("#Hdesde" + dia + "Tarde").val(), 'dia': dia});
     idHorariosHastaTarde.push({'hora': $("#Hhasta" + dia + "Tarde").val(), 'dia': dia});
   });
 
@@ -283,8 +282,8 @@ function validar(accion) {
 
   if (hayError == false) {
     SendHorarioAtencion(accion);
-  }else{
-    $(location).attr('href',"#formularioAgregar");
+  } else {
+    $(location).attr('href', "#formularioAgregar");
   }
 }
 
@@ -294,28 +293,27 @@ function limpiar(campo, campoBack) {
   $("#botonGuardar").removeClass('disabled');
 }
 
-function volverPanelLocal(){
+function volverPanelLocal() {
   var idLocal = $("#idLocalCreado").val();
   $('#target').html('obteniendo...');
   $.ajax({
-    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id='+ idLocal +"",
+    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id=' + idLocal + "",
     type: 'GET',
 
     dataType: "json",
     crossDomain: true,
-    contentType:"application/json",
+    contentType: "application/json",
     success: function (data) {
-     var local = data;
-     var idNegocio = local.idNegocio._id;
-     var url = "../lacocina/panel-locales.php?idLocal="+ idLocal+"&idNegocio="+idNegocio+"";
-     $(location).attr('href',url);
+      var local = data;
+      var idNegocio = local.idNegocio._id;
+      var url = "../lacocina/panel-locales.php?idLocal=" + idLocal + "&idNegocio=" + idNegocio + "";
+      $(location).attr('href', url);
 
-   },
-   error:function(jqXHR,textStatus,errorThrown)
-   {
-    $('#target').append("jqXHR: "+jqXHR);
-    $('#target').append("textStatus: "+textStatus);
-    $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
-  },
-});
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      $('#target').append("jqXHR: " + jqXHR);
+      $('#target').append("textStatus: " + textStatus);
+      $('#target').append("You can not send Cross Domain AJAX requests: " + errorThrown);
+    },
+  });
 }
