@@ -61,7 +61,7 @@ error_reporting(E_ERROR);
                 <div class="col-md-4">
                     <a class="botonpanelmiperfil" onclick="cargarForm('contacto')"><div>
                         <span class="iconosmiperfil glyphicon glyphicon-list-alt" aria-hidden="true"></span><br>
-                        DATOS DE ACCESO
+                        DATOS DE USUARIO
                     </div></a>
                 </div>
                 <div class="col-md-4">
