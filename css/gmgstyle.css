@@ -288,10 +288,22 @@ ul, menu, dir {
 
 a#login-form-link {
     color: #000 !important;
+    font-size: 1.5em;
+}
+
+a#login-form-link:focus {
+    color: #f8981d !important;
+    font-size: 1.5em;
 }
 
 a#register-form-link {
     color: #000 !important;
+    font-size: 1.5em;
+}
+
+a#register-form-link:focus {
+    color: #f8981d !important;
+    font-size: 1.5em;
 }
 
 a.forgot-password {
@@ -300,6 +312,20 @@ a.forgot-password {
 
 a.forgot-password:hover {
     color: #444 !important;
+}
+
+.botregistrarme {
+    border: 1px solid #d4d4d4;
+    padding: 3% !important;
+    color: #fff;
+    background: #000;
+}
+
+.botregistrarme:hover {
+    border: 1px solid #eaeaea;
+    padding: 3% !important;
+    color: #fff;
+    background: #f8981d;
 }
 
 .recordar {

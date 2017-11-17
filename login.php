@@ -53,7 +53,7 @@ $redirect = isset($_GET['redirect']) ? $_GET['redirect'] : 'index.php';
             <div class="col-md-6">
                 <div class="panel panel-login">
                     <div class="panel-heading">
-                        <div class="row">
+                        <div class="row text-center">
                             <div class="col-xs-6">
                                 <a href="#" class="active" id="login-form-link">Acceder</a>
                             </div>
@@ -90,7 +90,7 @@ $redirect = isset($_GET['redirect']) ? $_GET['redirect'] : 'index.php';
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="text-center">
-                                                    <a href="https://phpoll.com/recover" tabindex="5" class="forgot-password">Olvidaste tu contraseña?</a>
+                                                    <a href="#" tabindex="5" class="forgot-password">Olvidaste tu contraseña?</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -112,7 +112,7 @@ $redirect = isset($_GET['redirect']) ? $_GET['redirect'] : 'index.php';
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3">
-                                                <input type="button" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Registrarme ahora" onclick="validar()">
+                                                <input type="button" name="register-submit" id="register-submit" tabindex="4" class="botregistrarme form-control btn btn-register" value="Registrarme ahora" onclick="validar()">
                                             </div>
                                         </div>
                                     </div>
@@ -135,8 +135,8 @@ $redirect = isset($_GET['redirect']) ? $_GET['redirect'] : 'index.php';
         <div class="container-fluid fondopubli">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 style="color: #fff; padding-top: 8%;" class="section-heading">PUBLICIDAD</h2>
-                    <h3 style="color: #fff;" class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 style="color: #fff; padding-top: 8%;" class="section-heading"> </h2>
+                    <h3 style="color: #fff;" class="section-subheading text-muted"> </h3>
                 </div>
             </div>
         </div>
