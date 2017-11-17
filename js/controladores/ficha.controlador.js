@@ -124,7 +124,11 @@ function popularLocal(local) {
 
 function buscarFavoritos(idLocal){
 var idUsuarioReserva = $("#idUsuarioReserva").val();
-var iconoCorazon = 'favoritosfichrojo fa fa-heart';
+var iconoCorazon = 'favoritosficharojo fa fa-heart';
+
+$("#iconoFavorito").append('<h3 class="titulo"><span id="nombreNegocio"></span> | <span id="bajadaNegocio"></span>'+
+     '<i class="'+iconoCorazon+'" aria-hidden="true"></i></h3>'+
+     '<p >RUBRO <span id="rubro"></span> > TIPO DE COCINA <span id="tipoCocinaPrincipal"></span></p>');
 /*
 $.ajax({
   url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/favoritosUsuario?id=' + idLocal,

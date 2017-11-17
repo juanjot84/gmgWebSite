@@ -53,9 +53,7 @@
                     <div class="col-md-8 text-left texto-ficha">
                         <div class="row">
                             <div id="iconoFavorito" class="col-md-8">
-                                <h3 class="titulo"><span id="nombreNegocio"></span> | <span id="bajadaNegocio"></span><i class="favoritosficha fa fa-heart" aria-hidden="true"></i></h3>
 
-                                <p >RUBRO <span id="rubro"></span> > TIPO DE COCINA <span id="tipoCocinaPrincipal"></span></p>
                             </div>
                             <div class="col-md-4 text-center precioficha">
                                 <p id="nivelPrecio"></p>
