@@ -71,7 +71,7 @@
 
   <?php 
   error_reporting(E_ERROR);
-  include("includes/nav.php"); 
+  include("includes/nav-home.php"); 
   ?>
 
   <!-- Header -->

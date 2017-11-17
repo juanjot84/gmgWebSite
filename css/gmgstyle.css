@@ -27,6 +27,12 @@ header {
     color: #7F7600 !important;
     outline: 0;
 }
+
+.buscadorresultados {
+    display: inline-flex;
+    margin-top: 7px;
+}
+
 .btn-xl {
     color: #111 !important;
     background-color: #ffff00 !important;
@@ -139,6 +145,34 @@ button.btn.btn-default.btnbuscar:hover {
     border-color: #cecece;
     color: #000;
 }
+
+button.btn.btn-default.btnbuscarnav2 {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+button.btn.btn-default.btnbuscarnav2:hover {
+    background: #f8981d;
+    color: #fff;
+    border-color: #f8981d;
+}
+
+.form-control:focus {
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(216, 216, 216, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(202, 202, 202, 0.6);
+}
+
+.btnbuscarnav2{
+
+}
+input.form-control.buscadornav2 {
+    width: 285px;
+    background: #00000005;
+    border-color: #0000001a;
+}
+
 .texto-ficha {
     color: #111;
     padding-top: 0;
