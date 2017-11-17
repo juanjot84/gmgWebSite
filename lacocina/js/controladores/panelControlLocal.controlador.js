@@ -208,6 +208,30 @@ $('#cabeceraTablaNegocios').html('');
       });
     }
 
+    function nombreLocal(){
+      var idLocal = $("#idLocal").val();
+     
+        $('#target').html('obteniendo...');       
+        $.ajax({
+            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id='+idLocal,
+            type: 'GET',
+            
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+              var nombreLocal = data.nombreLocal;
+              $("#nombreLocalN").append('Sucursal: '+nombreLocal);
+          },
+          error:function(jqXHR,textStatus,errorThrown)
+          {
+              $('#target').append("jqXHR: "+jqXHR);
+              $('#target').append("textStatus: "+textStatus);
+              $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+          },
+      });
+    }
+
     function editarDescuentos(){
       var idLocal = $("#idLocal").val();
       var url = "../lacocina/editar-descuentos.php?idLocal="+idLocal+"";

@@ -56,7 +56,7 @@ error_reporting(E_ERROR);
 
         <div class="row text-center" style="padding-bottom: 3%;">
             <div class="col-md-3">
-                <h3>Nombre local</h3>
+                <h3 id="nombreLocalN"></h3>
             </div>
         </div>
         <div class="row text-center">
@@ -167,6 +167,10 @@ error_reporting(E_ERROR);
     });
 
     });
+
+    $(function() {
+    nombreLocal();
+    })
 
 </script>
 
