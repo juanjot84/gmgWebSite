@@ -148,6 +148,10 @@ $.ajax({
 }); */
 }
 
+function guardarFavorito(){
+  
+}
+
 
 
 function dibujarServicios(servicios) {
