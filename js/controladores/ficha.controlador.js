@@ -76,6 +76,7 @@ function popularLocal(local) {
     labelGrises += '$'
   }
 
+  buscarFavoritos(local._id);
   $('#nombreNegocio').text(local.idNegocio.nombreNegocio);
   $('#bajadaNegocio').text(local.idNegocio.bajadaNegocio);
   $('#nivelPrecio').text(local.idNivelPrecio.label);
@@ -120,6 +121,30 @@ function popularLocal(local) {
   var coordenadas = {lng: local.longitudLocal, lat: local.latitudLocal};
   setMapa(coordenadas);
 }
+
+function buscarFavoritos(idLocal){
+var idUsuarioReserva = $("#idUsuarioReserva").val();
+var iconoCorazon = 'favoritosfichrojo fa fa-heart';
+/*
+$.ajax({
+  url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/favoritosUsuario?id=' + idLocal,
+  type: 'GET',
+  dataType: "json",
+  crossDomain: true,
+  contentType: "application/json",
+  success: function (data) {  
+
+
+  },
+  error: function (jqXHR, textStatus, errorThrown) {
+    $('#target').append("jqXHR: " + jqXHR);
+    $('#target').append("textStatus: " + textStatus);
+    $('#target').append("You can not send Cross Domain AJAX requests: " + errorThrown);
+  }
+}); */
+}
+
+
 
 function dibujarServicios(servicios) {
   _.each(servicios, function (servicio) {
