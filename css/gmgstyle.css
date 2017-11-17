@@ -164,13 +164,19 @@ button.btn.btn-default.btnbuscarnav2:hover {
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(202, 202, 202, 0.6);
 }
 
-.btnbuscarnav2{
-
+input[type="text"].buscadornav2::-webkit-input-placeholder {
+  color: #555;
 }
+
+.buscadornav2::selection {
+  background: #ccc;
+}
+
 input.form-control.buscadornav2 {
     width: 285px;
     background: #00000005;
     border-color: #0000001a;
+    color: #000;
 }
 
 .texto-ficha {
