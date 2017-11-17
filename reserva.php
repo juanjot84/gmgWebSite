@@ -206,7 +206,7 @@ $idLocal = $_GET["id"];
 
 
           <div class="modal-footer">
-            <a href="#" class="page-scroll btn btn-xl" data-dismiss="modal" style="max-width: 300px; margin: 5% 0;">MODIFICAR</a>
+            <a href="#" class="page-scroll btn btn-xl" data-dismiss="modal" onclick="limpiar('telefonoReserva')" style="max-width: 300px; margin: 5% 0;">MODIFICAR</a>
 
             <a href="#" class="page-scroll btn btn-xl" onClick="confirmarReserva()" style="max-width: 300px; margin: 5% 0;">CONFIRMAR RESERVA</a>
           </div>
@@ -231,7 +231,7 @@ $idLocal = $_GET["id"];
             </div>
           </div>
           <div class="modal-footer">
-            <a href="#" class="page-scroll btn btn-xl"  data-dismiss="modal" style="max-width: 300px; margin: 5% 0;">ACEPTAR</a>
+            <a href="mis-reservas.php" class="page-scroll btn btn-xl" style="max-width: 300px; margin: 5% 0;">ACEPTAR</a>
           </div>
         </div>
       </div>

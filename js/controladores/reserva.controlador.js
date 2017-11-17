@@ -123,7 +123,7 @@ function popularOpcionesReserva(opciones) {
     var datosDia = '';
     // if (index == 0) datosDia += 'Hoy ' + espacio;
     // if (index == 1) datosDia += 'Mañana ' + espacio;
-    datosDia += opcion.dia + espacio + opcion.fecha.substr(0, 2);
+    datosDia += opcion.dia + espacio + opcion.fecha.substr(0, 5);
 
     if (!_.isNil(opcion.descuento))
       datosDia += espacio + opcion.descuento;
