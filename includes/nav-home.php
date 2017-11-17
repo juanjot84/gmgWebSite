@@ -46,15 +46,6 @@
           <span class="sr-only">Toggle navigation</span> <i class="fa fa-bars"></i>
         </button>
         <a class="navbar-brand page-scroll" href="index.php"><img class="logoweb" src="img/logo-gmg.png"></a>
-
-        <form class="buscadorresultados" action="resultados-busqueda.php" method="post" >
-            <div class="input-group">
-              <input type="text" class="form-control buscadornav2" placeholder="Buscá por nombre, zona o tipo de cocina" name="parametro">
-            </div>
-            <span class="input-group-btn">
-              <button type="submit" class="btn btn-default btnbuscarnav2"><i class="fa fa-search" aria-hidden="true"></i></button>
-            </span>
-          </form>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
