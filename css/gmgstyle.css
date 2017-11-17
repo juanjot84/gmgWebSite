@@ -217,13 +217,25 @@ i.fa.fa-globe.redesficha:hover {
     font-size: 13px;
 }
 
-.favoritosficha {
+.favoritosfichagris {
     color: #cacaca !important;
     font-size: 0.9em;
     padding-left: 4%;
 }
 
-.favoritosficha:hover {
+.favoritosfichagris:hover {
+    color: #e02222 !important;
+    font-size: 0.9em;
+    padding-left: 4%;
+}
+
+.favoritosficharojo {
+    color: #e02222 !important;
+    font-size: 0.9em;
+    padding-left: 4%;
+}
+
+.favoritosficharojo:hover {
     color: #e02222 !important;
     font-size: 0.9em;
     padding-left: 4%;
