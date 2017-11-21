@@ -151,6 +151,11 @@ input.form-control.perfil{
     margin: 7px;
 }
 
+input.form-control.perfil.perfilfront {
+    padding: 3% 2%;
+    margin: -2% 0 3%;
+}
+
 header .intro-text .intro-heading {
     margin-bottom: 0px !important;
     color: #000 !important;

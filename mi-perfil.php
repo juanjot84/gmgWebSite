@@ -68,31 +68,31 @@
         <div class="form-group">
           <label class="control-label col-sm-2" for="nombre">Nombre:</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control perfil" id="nombre" placeholder="Nombre y apellido">
+            <input type="text" class="form-control perfil perfilfront" id="nombre" placeholder="Nombre">
           </div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-2" for="apellido">Apellido:</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control perfil" id="apellido" placeholder="Nombre y apellido">
+            <input type="text" class="form-control perfil perfilfront" id="apellido" placeholder="Apellido">
           </div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-2" for="email">Email:</label>
           <div class="col-sm-10">
-            <input type="email" class="form-control perfil" disabled="disabled" id="email" placeholder="Enter email">
+            <input type="email" class="form-control perfil perfilfront" disabled="disabled" id="email" placeholder="Enter email">
           </div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-2" for="nroCelular">Celular:</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control perfil" id="nroCelular" placeholder="Celular">
+            <input type="text" class="form-control perfil perfilfront" id="nroCelular" placeholder="Celular">
           </div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-2" for="fechaNacimientoUsuario">Fecha de nacimiento:</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control perfil" id="fechaNacimientoUsuario" placeholder="Fecha de nacimiento">
+            <input type="text" class="form-control perfil perfilfront" id="fechaNacimientoUsuario" placeholder="Fecha de nacimiento">
           </div>
         </div>
         <div class="form-group">
