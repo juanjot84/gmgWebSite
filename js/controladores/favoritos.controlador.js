@@ -97,7 +97,7 @@ function renderMisFavoritos(favoritos){
 
     $('.container.mis-favoritos').append(  '' +
       '  <div class="row" style="padding-top: 5%;color: #252525;border-bottom: 1px solid #e3e3e3;padding-bottom: 2%;">' +
-      '    <div class="col-md-3">    <img class="img-responsive" src="' + favorito.idLocal.idNegocio.urlIconoNegocio + '">' +
+      '    <div class="col-md-3">    <img class="img-responsive" src="' + favorito.idLocal.fotoPrincipalLocal + '">' +
       '    </div>' +
       '    <div class="col-md-6">' +
       '      <p><span style="font-size: 1.5em;"><strong>' + favorito.idLocal.idNegocio.nombreNegocio + '</strong> | ' + favorito.idLocal.idNegocio.bajadaNegocio + '</span></p>  <i class="fa fa-map-marker" aria-hidden="true"></i>' +
@@ -107,11 +107,33 @@ function renderMisFavoritos(favoritos){
       '      <p><span class="descripcion">' + favorito.idLocal.idNegocio.descripcionNegocio.substr(0, 147) + '...</span></p>  ' +
       '    </div>' +
       '    <div class="col-md-3">' +
-      '      <a href="#"><i class="fa fa-heart" style="color: #e02222 !important; font-size: 3em;" aria-hidden="true"></i></a>' +
+      '      <i onClick="eliminarFavorito(\'' + favorito._id + '\')" class="fa fa-heart" style="color: #e02222 !important; font-size: 3em; cursor:pointer;" aria-hidden="true"></i>' +
       '    </div>' +
       '  </div>'
     )
   });
+}
 
-
+function eliminarFavorito(idFavorito){
+  jwt = $("#jwtU").val();
+  $.ajax({
+     url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/favoritosUsuario?id='+idFavorito+'',
+     type: 'DELETE',
+     dataType: "json",
+     crossDomain: true,
+     contentType:"application/json",
+     success: function (data) {
+      $(".container.mis-favoritos").html('');
+      getMisFavoritos();
+     },
+     error:function(jqXHR,textStatus,errorThrown)
+     {
+         $('#target').append("jqXHR: "+jqXHR);
+         $('#target').append("textStatus: "+textStatus);
+         $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+     },
+     headers: {
+         Authorization: 'JWT ' + jwt
+     }
+ });
 }

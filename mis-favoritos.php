@@ -52,6 +52,7 @@ $idLocal = $_GET["id"];
 
   <!-- Texto Politicas -->
   <section id="politicas" style="margin-top: 5%; min-height: 50vh;">
+  <input type="text" name="jwtU" id="jwtU" value="<?php  error_reporting(E_ERROR); echo $jwt; ?>" class="hidden">
     <div class="container mis-favoritos">
 
     </div>
