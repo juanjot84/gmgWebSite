@@ -12,6 +12,13 @@ header {
     color: #fff;
 }
 
+.carousel-inner>.item {
+    object-fit: cover;
+    object-position: center;
+    max-height: 408px;
+    max-width: 730px;
+}
+
 .navbar-custom {
     background-color: #ffff00 !important;
     height: auto;
