@@ -70,7 +70,7 @@ if (empty($filtro)) $filtro = '';
       </div>
     </div>
   </div>
-  <div class="container locales" style="margin-bottom: 5%;">
+  <div class="container locales" style="margin-bottom: 5%; min-height: 80vh;">
 
   </div>
 

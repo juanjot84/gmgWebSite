@@ -96,6 +96,7 @@ h3 {
 .linkpolo {
     text-decoration: none;
     color: #111;
+    cursor: pointer;
 }
 .linkpolo:hover {
     text-decoration: none;
