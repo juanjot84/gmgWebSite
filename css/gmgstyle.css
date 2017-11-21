@@ -43,6 +43,16 @@ header {
     font-weight: bold;
 }
 
+.botonsalirfront {
+    color: #000;
+    padding-left: 10px;
+}
+
+.botonsalirfront:hover {
+    color: #000;
+    padding-left: 10px;
+}
+
 .buscadorresultados {
     display: inline-flex;
     margin-top: 7px;
@@ -237,6 +247,10 @@ i.fa.fa-globe.redesficha:hover {
 }
 .textodatosficha {
     font-size: 13px;
+}
+
+div#iconoFavorito {
+    min-height: 90px;
 }
 
 .favoritosfichagris {
