@@ -175,15 +175,15 @@ button.btn.btn-default.btnbuscar:hover {
 }
 
 button.btn.btn-default.btnbuscarnav2 {
-    background: #000;
-    color: #fff;
-    border-color: #000;
-}
-
-button.btn.btn-default.btnbuscarnav2:hover {
     background: #f8981d;
     color: #fff;
     border-color: #f8981d;
+}
+
+button.btn.btn-default.btnbuscarnav2:hover {
+    background: #000;
+    color: #fff;
+    border-color: #000;
 }
 
 .form-control:focus {
@@ -202,7 +202,7 @@ input[type="text"].buscadornav2::-webkit-input-placeholder {
 
 input.form-control.buscadornav2 {
     width: 285px;
-    background: #00000005;
+    background: #fff;
     border-color: #0000001a;
     color: #000;
 }
