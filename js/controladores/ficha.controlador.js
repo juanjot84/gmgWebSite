@@ -1,11 +1,12 @@
 var espacio = ' ';
 var coma = ', ';
+var jwt;
+var localFavorito;
 var marker;          //variable del marcador
 var coords = {};    //coordenadas obtenidas con la geolocalización
 var iconBase = 'http://guiamendozagourmet.com/map/'; //direccion base del icono de marcador
 //Funcion principal
 function getDetalleLocal(idLocal) {
-  // $('.container.ficha').html('');
   $('#target').html('obteniendo...');
   $.ajax({
     url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id=' + idLocal,
@@ -76,7 +77,8 @@ function popularLocal(local) {
     labelGrises += '$'
   }
 
-  buscarFavoritos(local._id);
+  localFavorito = local;
+  buscarFavoritos(local);
   $('#nombreNegocio').text(local.idNegocio.nombreNegocio);
   $('#bajadaNegocio').text(local.idNegocio.bajadaNegocio);
   $('#nivelPrecio').text(local.idNivelPrecio.label);
@@ -122,36 +124,108 @@ function popularLocal(local) {
   setMapa(coordenadas);
 }
 
-function buscarFavoritos(idLocal){
-var idUsuarioReserva = $("#idUsuarioReserva").val();
-var iconoCorazon = 'favoritosficharojo fa fa-heart';
+function buscarFavoritos(local){
+  jwt = $("#jwtU").val();
+  $.ajax({
+     url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/favoritosUsuario',
+     type: 'GET',
+     dataType: "json",
+     crossDomain: true,
+     contentType:"application/json",
+     success: function (data) {
+      var iconoCorazon = 'favoritosfichagris fa fa-heart';
+      var idFavorito = '';
+      _.each(data, function (favorito) {
+        if(favorito.idLocal._id == local._id){
+          iconoCorazon = 'favoritosficharojo fa fa-heart';
+          idFavorito = favorito._id;
+        }
+      });
 
-$("#iconoFavorito").append('<h3 class="titulo"><span id="nombreNegocio"></span> | <span id="bajadaNegocio"></span>'+
-     '<i class="'+iconoCorazon+'" aria-hidden="true"></i></h3>'+
-     '<p >RUBRO <span id="rubro"></span> > TIPO DE COCINA <span id="tipoCocinaPrincipal"></span></p>');
-/*
-$.ajax({
-  url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/favoritosUsuario?id=' + idLocal,
-  type: 'GET',
-  dataType: "json",
-  crossDomain: true,
-  contentType: "application/json",
-  success: function (data) {  
+      $("#iconoFavorito").append('<h3 class="titulo"><span id="nombreNegocio">'+local.idNegocio.nombreNegocio+'</span> | <span id="bajadaNegocio">'+local.idNegocio.bajadaNegocio+'</span>'+
+      '<i id="corazon" style="cursor:pointer;" class="'+iconoCorazon+'" aria-hidden="true" onClick="editarFavorito(\'' + local._id + '\',\'' + idFavorito + '\')"></i></h3>'+
+      '<p >RUBRO <span id="rubro"></span> > TIPO DE COCINA <span id="tipoCocinaPrincipal"></span></p>');
+
+     },
+     error:function(jqXHR,textStatus,errorThrown)
+     {
+         $('#target').append("jqXHR: "+jqXHR);
+         $('#target').append("textStatus: "+textStatus);
+         $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+     },
+     headers: {
+         Authorization: 'JWT ' + jwt
+     }
+ });
+}
 
 
-  },
-  error: function (jqXHR, textStatus, errorThrown) {
-    $('#target').append("jqXHR: " + jqXHR);
-    $('#target').append("textStatus: " + textStatus);
-    $('#target').append("You can not send Cross Domain AJAX requests: " + errorThrown);
+function mostrarModalLogin(){
+  $("#botonLogin").attr("href", 'login.php?redirect=' + encodeURIComponent(window.location.href));
+  $("#mostrarmodal").modal("show");
+}
+
+
+function editarFavorito(idLocal,idFavorito){
+  var idUsuarioReserva = $("#idUsuarioReserva").val();
+  if(idFavorito == ''){
+     crearFavorito(idLocal,idUsuarioReserva);
+  }else{
+    eliminarFavorito(idLocal,idFavorito);
   }
-}); */
 }
 
-function guardarFavorito(){
-  
+function crearFavorito(idLocal,idUsuarioReserva){
+  jwt = $("#jwtU").val();
+  var favorito = JSON.stringify({
+    "idLocal": idLocal
+  });
+  $.ajax({
+     url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/favoritosUsuario',
+     type: 'POST',
+     dataType: "json",
+     crossDomain: true,
+     contentType:"application/json",
+     success: function (data) {
+      $("#iconoFavorito").html('');
+      buscarFavoritos(localFavorito);
+     },
+     error:function(jqXHR,textStatus,errorThrown)
+     {
+         $('#target').append("jqXHR: "+jqXHR);
+         $('#target').append("textStatus: "+textStatus);
+         $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+     },
+     headers: {
+         Authorization: 'JWT ' + jwt
+     },
+     data: favorito
+ });
 }
 
+function eliminarFavorito(idLocal,idFavorito){
+  jwt = $("#jwtU").val();
+  $.ajax({
+     url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/favoritosUsuario?id='+idFavorito+'',
+     type: 'DELETE',
+     dataType: "json",
+     crossDomain: true,
+     contentType:"application/json",
+     success: function (data) {
+      $("#iconoFavorito").html('');
+      buscarFavoritos(localFavorito);
+     },
+     error:function(jqXHR,textStatus,errorThrown)
+     {
+         $('#target').append("jqXHR: "+jqXHR);
+         $('#target').append("textStatus: "+textStatus);
+         $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+     },
+     headers: {
+         Authorization: 'JWT ' + jwt
+     }
+ });
+}
 
 
 function dibujarServicios(servicios) {

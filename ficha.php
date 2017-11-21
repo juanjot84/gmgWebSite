@@ -1,3 +1,12 @@
+<?php
+session_start();
+      error_reporting(E_ERROR);
+      $jwt = $_SESSION['jwt'];
+      $idUsuarioReserva = $_SESSION['idUsuarioReserva'];
+      $idLocal = $_GET["id"];
+      
+?>
+    
     <!DOCTYPE html>
     <html lang="es">
 
@@ -34,11 +43,7 @@
         <![endif]-->
 
     </head>
-    <?php
-      error_reporting(E_ERROR);
-      $idLocal = $_GET["id"];
-      $idUsuarioReserva = $_SESSION['idUsuarioReserva'];
-    ?>
+
     <body id="page-top" class="index">
 
         <?php 
@@ -82,7 +87,8 @@
                           </a>
                         </div>
                     </div>
-                    <input type="text" name="idUsuarioReserva" id="idUsuarioReserva" value="<?php  error_reporting(E_ERROR); echo $idUsuarioReserva; ?>" class="hidden">
+                    <input type="text" name="jwtU" id="jwtU" value="<?php  error_reporting(E_ERROR); echo $jwt; ?>" class="hidden">
+                    <input type="text" name="idUsuarioReserva" id="idUsuarioReserva" value="<?php  error_reporting(E_ERROR); echo $idUsuarioReserva; ?>">
                     <div class="col-md-4 text-justify texto-ficha">
                         <a href="#" class="page-scroll btn btn-xl" style="width: 100%; margin-top: 8%; margin-bottom: 4.9%;" id="reservar">RESERVAR</a>
                         <p class="textoreserva" id="descripcionNegocio"></p>
@@ -158,6 +164,25 @@
                 </div>
             </div>
         </section>
+
+    <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h3>No has iniciado sesión</h3>
+        </div>
+        <div class="modal-body">
+          <h5>Por favor, inicie sesión para continuar</h5>
+
+        </div>
+        <div class="modal-footer">
+          <a href="login.php" data-confirm="modal" class="btn btn-info" id="botonLogin">Iniciar sesión</a>
+          <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+        </div>
+      </div>
+    </div>
+   </div>
 
        <?php 
          error_reporting(E_ERROR);

@@ -48,7 +48,7 @@ function crearSesion(jwt){
   var idUsuarioReserva = tokenDecoded._id;
   var parametros =  {
     "jwt" : jwt.token,
-    "idUsuarioReserva" : idUsuarioReserva
+    "idUsuarioReserva": idUsuarioReserva
   };
   $.ajax({
     data:  parametros,
