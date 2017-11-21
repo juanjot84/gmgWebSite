@@ -96,13 +96,32 @@
           </div>
         </div>
         <div class="form-group">
+          <label class="control-label col-sm-2" for="fechaNacimientoUsuario">Sexo</label>
+          <div class="col-sm-10" style="display: inline-flex;">
+           <div><input type="checkbox" id="hombre"> Hombre</div>
+           <div style="padding: 0 5%;"><input type="checkbox" id="mujer"> Mujer</div>
+           <div><input type="checkbox" id="otro"> Otro</div>
+          </div>
+        </div>
+        <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
             <div class="checkbox">
-              <label><input type="checkbox" id="aceptoTerminos"> Acepto los términos y condiciones. <a target="_blank" style="color: #ababab;" href="#">Leer</a></label>
+              <label><input type="checkbox" id="deseorecibir">Deseo recibir ofertas y descuentos.</label>
             </div>
           </div>
         </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <div class="checkbox">
+              <label><input type="checkbox" id="aceptoTerminos"> Acepto los términos y condiciones.<a target="_blank" style="color: #ababab;" href="terminos-y-condiciones.php"> Ver.</a></label>
+            </div>
+          </div>
+        </div>   
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="col-md-12">
         <p>
           <a href="#"  onClick="actualizarPerfil()" class="page-scroll btn btn-xl" style="max-width: 300px; margin: 5% 0;">MODIFICAR</a>
         </p>
