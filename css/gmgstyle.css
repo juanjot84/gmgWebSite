@@ -35,6 +35,14 @@ header {
     outline: 0;
 }
 
+.nombreusuarionav {
+    margin-top: -18px;
+    margin-right: 15px;
+    text-align: right;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
 .buscadorresultados {
     display: inline-flex;
     margin-top: 7px;
@@ -590,6 +598,9 @@ li#calificacionLocal {
 @media only screen and (max-width : 768px) {
         .altoocasiones {
             width: 750px;
+        }
+        .buscadorresultados {
+            display: none;
         }
 }
 
