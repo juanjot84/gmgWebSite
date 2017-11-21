@@ -5,4 +5,6 @@ if (!isset($_SESSION)) {
 }
 $_SESSION['jwt'] = $_POST["jwt"];
 $_SESSION['idUsuarioReserva'] = $_POST["idUsuarioReserva"];
+$_SESSION['nombreUsuario'] = $_POST["nombreUsuario"];
+$_SESSION['apellidoUsuario'] = $_POST["apellidoUsuario"];
 ?>

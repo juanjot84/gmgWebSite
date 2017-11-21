@@ -7,9 +7,11 @@
   // $idLocal = $_GET["id"];
 
       // $jwt = $_SESSION['jwt'];
+  $nombreUsuario = $_SESSION['nombreUsuario'];
+  $apellidoUsuario = $_SESSION['apellidoUsuario'];
 
   $login = '<li><a href="login.php"><i class="fa fa-user" aria-hidden="true"></i> ACCEDER</a></li>';
-  $logout = '<div class="nombreusuarionav">Hola, Nombre Usuario</div><li><a href="cerrar_sesion.php"><i class="fa fa-user" aria-hidden="true"></i> Cerrar Sesion</a></li><li><a href="mis-favoritos.php"><i class="fa fa-heart" style="color: #e02222 !important;" aria-hidden="true"></i> FAVORITOS</a></li><li><a href="mis-reservas.php"><i class="fa fa-check" aria-hidden="true"></i> RESERVAS</a></li>';
+  $logout = '<div class="nombreusuarionav">Hola, '. $nombreUsuario.' '.$apellidoUsuario.'</div><li><a href="cerrar_sesion.php"><i class="fa fa-user" aria-hidden="true"></i> Cerrar Sesion</a></li><li><a href="mis-favoritos.php"><i class="fa fa-heart" style="color: #e02222 !important;" aria-hidden="true"></i> FAVORITOS</a></li><li><a href="mis-reservas.php"><i class="fa fa-check" aria-hidden="true"></i> RESERVAS</a></li>';
 
   $check_login = isset($_SESSION['jwt']) ? $logout : $login;
 

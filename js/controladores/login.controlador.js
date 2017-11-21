@@ -46,9 +46,13 @@ function login() {
 function crearSesion(jwt){
   var tokenDecoded =jwt_decode(jwt.token);
   var idUsuarioReserva = tokenDecoded._id;
+  var nombreUsuario = tokenDecoded.nombre;
+  var apellidoUsuario = tokenDecoded.apellido;
   var parametros =  {
     "jwt" : jwt.token,
-    "idUsuarioReserva": idUsuarioReserva
+    "idUsuarioReserva": idUsuarioReserva,
+    "nombreUsuario": nombreUsuario,
+    "apellidoUsuario": apellidoUsuario
   };
   $.ajax({
     data:  parametros,
