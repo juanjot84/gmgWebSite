@@ -88,7 +88,7 @@ session_start();
                         </div>
                     </div>
                     <input type="text" name="jwtU" id="jwtU" value="<?php  error_reporting(E_ERROR); echo $jwt; ?>" class="hidden">
-                    <input type="text" name="idUsuarioReserva" id="idUsuarioReserva" value="<?php  error_reporting(E_ERROR); echo $idUsuarioReserva; ?>">
+                    <input type="text" name="idUsuarioReserva" id="idUsuarioReserva" value="<?php  error_reporting(E_ERROR); echo $idUsuarioReserva; ?>" class="hidden">
                     <div class="col-md-4 text-justify texto-ficha">
                         <a href="#" class="page-scroll btn btn-xl" style="width: 100%; margin-top: 8%; margin-bottom: 4.9%;" id="reservar">RESERVAR</a>
                         <p class="textoreserva" id="descripcionNegocio"></p>
