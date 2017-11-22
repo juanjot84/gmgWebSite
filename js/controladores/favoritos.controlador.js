@@ -102,7 +102,7 @@ function renderMisFavoritos(favoritos){
       '    <div class="col-md-6">' +
       '      <p><span style="font-size: 1.5em;"><strong>' + favorito.idLocal.idNegocio.nombreNegocio + '</strong> | ' + favorito.idLocal.idNegocio.bajadaNegocio + '</span></p>  <i class="fa fa-map-marker" aria-hidden="true"></i>' +
       '      <span class="polo"> ' + favorito.idLocal.calleLocal + '</span> |  <i class="fa fa-cutlery" aria-hidden="true"></i>' +
-      '      <span class="tiponegocio">' + favorito.idLocal.idTipoCocinaPrincipal + '</span><br>' +
+      '      <span class="tiponegocio">' + favorito.idLocal.idTipoCocinaPrincipal.nombreTipoCocina + '</span><br>' +
       '      <p style="letter-spacing: 1px;"><strong>'+ favorito.idLocal.idNivelPrecio.label +'</strong><span style="color: #cbcbcb">'+ labelGrises +'</span></p>'+
       '      <p><span class="descripcion">' + favorito.idLocal.idNegocio.descripcionNegocio.substr(0, 147) + '...</span></p>  ' +
       '    </div>' +
