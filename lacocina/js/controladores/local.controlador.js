@@ -176,6 +176,7 @@ function toggleBounce() {
           if(tipoUsuario == 'usuarioNegocio'){
              $("#localPremium-true").attr("disabled", true);
              $("#localPremium-false").attr("disabled", true);
+             $("#nivelPrecio").attr("disabled", true);
           }
 
           },
