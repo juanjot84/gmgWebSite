@@ -26,6 +26,7 @@
     var especialidades;
     var servicios;
     var localidades;
+    var ocasiones;
 
 
     
@@ -166,6 +167,11 @@ function toggleBounce() {
             obtenerListadoEspecialidad().done(function(data){
                 especialidades = data
             popularDropdownEspecialidadEditar(especialidadesSeleccionadas);
+            });
+            var ocasionesSeleccionadas = local.idOcasion
+            obtenerListadoOcasiones().done(function(data){
+                ocasiones = data
+                popularDropdownOcasionEditar(ocasionesSeleccionadas)
             });
             var ServiciosSeleccionados = local.idServicio;
             obtenerListadoServicio().done(function(data){
@@ -349,7 +355,7 @@ function toggleBounce() {
       });
     }
 
-    // Traer Especialidad para lista desplegable
+    // Traer Especialidad para check box
     function obtenerListadoEspecialidad(){   
         return $.ajax({
             url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/especialidad',
@@ -380,6 +386,41 @@ function toggleBounce() {
         _.each(especialidadesSeleccionadas, function (especialidadSeleccionada){
             if(especialidadSeleccionada._id == especialidad._id){
                $("input[name=especialidadCheck][value=" + especialidad._id + "]").prop("checked",true); 
+            }
+        });
+      });
+    }
+    //Traer ocasiones para check box
+    function obtenerListadoOcasiones(){   
+      return $.ajax({
+          url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/ocasion',
+          type: 'GET',           
+          dataType: "json",
+          crossDomain: true,
+          contentType:"application/json",
+          success: function (data) {
+             return data;
+          } 
+      });
+    }
+
+    //Funcion para armar lista checkbox Ocasiones para alta de local
+    function popularDropdownOcasionAlta(){
+      $('#ocasionesCheckbox').html('');
+      _.each(ocasiones, function (ocasion){
+        $('#ocasionesCheckbox').append(
+          '<div class="checkbox col-md-4"><label><input type="checkbox" value="'+ocasion._id+'" id="ocasionCheck" name="ocasionCheck">'+ocasion.nombreOcasion+'</label></div>')              
+      });
+    }
+    //Funcion para armar lista checkbox Ocasiones para editar
+    function popularDropdownOcasionEditar(ocasionesSeleccionadas){
+      $('#ocasionesCheckbox').html('');
+      _.each(ocasiones, function (ocasion){
+        $('#ocasionesCheckbox').append(
+          '<div class="checkbox col-md-4"><label><input type="checkbox" value="'+ocasion._id+'" id="ocasionCheck" name="ocasionCheck">'+ocasion.nombreOcasion+'</label></div>')
+        _.each(ocasionesSeleccionadas, function (ocasionesSelec){
+            if(ocasionesSelec == ocasion._id){
+               $("input[name=ocasionCheck][value=" + ocasion._id + "]").prop("checked",true); 
             }
         });
       });
@@ -498,6 +539,11 @@ function toggleBounce() {
                 servicios = data
             popularDropdownServicioAlta();
             });
+
+            obtenerListadoOcasiones().done(function(data){
+               ocasiones = data
+               popularDropdownOcasionAlta();
+            });
     }
 
   function actualizarLocal(){
@@ -519,6 +565,12 @@ function toggleBounce() {
             especialidadSeleccionada.push(item.value);
         })
 
+      var ocasionSeleccionada = [];
+      var seleccionados = $('input[name=ocasionCheck]:checked', '#formularioLocal');
+        _.each(seleccionados, function(item){ 
+          ocasionSeleccionada.push(item.value);
+        })
+
       var tipoCocinaSeleccionado = [];
       var seleccionados = $('input[name=tipoCocinasCheck]:checked', '#formularioLocal');
         _.each(seleccionados, function(item){ 
@@ -535,6 +587,7 @@ function toggleBounce() {
             "idMedioPago": medioPagoSeleccionado,
             "idServicio": servicioSeleccionado,
             "idEspecialidad": especialidadSeleccionada,
+            "idOcasion": ocasionSeleccionada,
             "idTipoCocina": tipoCocinaSeleccionado,
             "longitudLocal":$("#long").val(),
             "latitudLocal":$("#lat").val(),
@@ -594,6 +647,12 @@ function toggleBounce() {
             especialidadSeleccionada.push(item.value);
         })
 
+      var ocasionSeleccionada = [];
+      var seleccionados = $('input[name=ocasionCheck]:checked', '#formularioLocal');
+        _.each(seleccionados, function(item){ 
+            ocasionSeleccionada.push(item.value);
+        })  
+
       var tipoCocinaSeleccionado = [];
       var seleccionados = $('input[name=tipoCocinasCheck]:checked', '#formularioLocal');
         _.each(seleccionados, function(item){ 
@@ -611,6 +670,7 @@ function toggleBounce() {
             "idTipoCocinaPrincipal": $("#TipoCocinaPpal").val(),
             "idMedioPago": medioPagoSeleccionado,
             "idServicio": servicioSeleccionado,
+            "idOcasion": ocasionSeleccionada,
             "idEspecialidad": especialidadSeleccionada,
             "idTipoCocina": tipoCocinaSeleccionado,
             "longitudLocal":$("#long").val(),

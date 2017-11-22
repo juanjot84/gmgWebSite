@@ -150,6 +150,14 @@ include("includes/nav.php"); ?>
                         </div>
                     </p>
 
+              <h5 class="titulosalta"> Seleccionar Ocaciones</h5>
+
+                    <p>
+                        <div class="form-group" id="ocasionesCheckbox">
+
+                        </div>
+                    </p>
+
               <h5 class="titulosalta"> Tipo de cocina principal - 1 sola opción</h5>
 
                   <p><div class="input-group input-group-sm">
