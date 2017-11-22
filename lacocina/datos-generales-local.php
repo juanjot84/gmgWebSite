@@ -97,6 +97,35 @@ error_reporting(E_ERROR);
                         </div>
                     </p>
                     <p>
+
+              <h5 class="titulosalta"> Página web del local</h5>
+
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-globe" aria-hidden="true"></i></span>
+                <input id="webLocal" name="webLocal" type="text" class="form-control" placeholder="http://..." aria-describedby="sizing-addon3">
+              </div></p>
+
+              <h5 class="titulosalta"> Datos de contacto de redes sociales</h5>
+
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-facebook-official" aria-hidden="true"></i></span>
+                <input id="facebookLocal" name="facebookLocal" type="text" class="form-control" placeholder="Facebook del Local" aria-describedby="sizing-addon3">
+              </div></p>
+
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-instagram" aria-hidden="true"></i></span>
+                <input id="instagramLocal" name="instagramLocal" type="text" class="form-control" placeholder="Instagram del Local" aria-describedby="sizing-addon3">
+              </div></p>
+
+             <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-twitter" aria-hidden="true"></i></span>
+                <input id="twitterLocal" name="twitterLocal" type="text" class="form-control" placeholder="Twitter del Local" aria-describedby="sizing-addon3">
+              </div></p>
+
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-tripadvisor" aria-hidden="true"></i></span>
+                <input id="tripadvisorLocal" name="tripadvisorLocal" type="text" class="form-control" placeholder="Tripadvisor del Local" aria-describedby="sizing-addon3">
+              </div></p>
                 <h5 class="titulosalta"> Localidad</h5>
 
                   <p><div class="input-group input-group-sm">

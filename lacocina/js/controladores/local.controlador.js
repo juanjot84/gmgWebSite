@@ -140,6 +140,11 @@ function toggleBounce() {
              setMapa (coordenadas);
              $('#long').val(local.longitudLocal);
              $('#lat').val(local.latitudLocal);
+             $("#webLocal").val(local.webLocal);
+             $("#facebookLocal").val(local.facebookLocal);
+             $("#instagramLocal").val(local.instagramLocal);
+             $("#twitterLocal").val(local.twitterLocal);
+             $("#tripadvisorLocal").val(local.tripadvisorLocal);
             var idPolo = local.idPoloGastronomico._id;
              obtenerListadoPolos().done(function(data){
                 polos = data
@@ -591,6 +596,11 @@ function toggleBounce() {
             "idTipoCocina": tipoCocinaSeleccionado,
             "longitudLocal":$("#long").val(),
             "latitudLocal":$("#lat").val(),
+            "webLocal": $("#webLocal").val(),
+            "facebookLocal": $("#facebookLocal").val(),
+            "instagramLocal": $("#instagramLocal").val(),
+            "twitterLocal": $("#twitterLocal").val(),
+            "tripadvisorLocal": $("#tripadvisorLocal").val(),
             "telContacto":$("#telContacto").val(),
             "mailContacto":$("#mailContacto").val(),
             "alturaLocal":$("#alturaLocal").val(),
@@ -675,6 +685,11 @@ function toggleBounce() {
             "idTipoCocina": tipoCocinaSeleccionado,
             "longitudLocal":$("#long").val(),
             "latitudLocal":$("#lat").val(),
+            "webLocal": $("#webLocal").val(),
+            "facebookLocal": $("#facebookLocal").val(),
+            "instagramLocal": $("#instagramLocal").val(),
+            "twitterLocal": $("#twitterLocal").val(),
+            "tripadvisorLocal": $("#tripadvisorLocal").val(),
             "telContacto":$("#telContacto").val(),
             "mailContacto":$("#mailContacto").val(),
             "alturaLocal":$("#alturaLocal").val(),
