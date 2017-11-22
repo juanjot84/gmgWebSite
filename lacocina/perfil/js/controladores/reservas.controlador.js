@@ -82,6 +82,7 @@ function renderReservas(reservasLocal){
           }
 
           var medioDeReserva = '';
+          var ocultarEliminar = '';
           var botonEditar = '';
           var nombreBoton = '';
           var tituloModal = '';
@@ -90,6 +91,7 @@ function renderReservas(reservasLocal){
 
           if (reserva.medioReserva == 'gmg'){
             medioDeReserva = 'fa fa-cutlery';
+            ocultarEliminar = 'style="display:none"';
          //   botonEditar = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
           }else{
               medioDeReserva = 'fa fa-globe';
@@ -116,7 +118,7 @@ function renderReservas(reservasLocal){
                             '<a data-toggle="collapse" data-parent="#accordion" href="#'+collapseReserva+'">'+
                               '<button title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button></a>'+
                               botonEditar +
-                              '<button title="Eliminar" class="btn btn-default botaccion" type="button" data-toggle="modal" onClick="mostrarModal(\''+ collapseReserva +'\',\''+cancelar+'\')"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>'+
+                              '<button title="Eliminar" '+ ocultarEliminar +' class="btn btn-default botaccion" type="button" data-toggle="modal" onClick="mostrarModal(\''+ collapseReserva +'\',\''+cancelar+'\')"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>'+
                             '</td>'+
                           '</tr>'+
                         '</tbody>'+
