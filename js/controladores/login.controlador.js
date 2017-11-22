@@ -48,11 +48,13 @@ function crearSesion(jwt){
   var idUsuarioReserva = tokenDecoded._id;
   var nombreUsuario = tokenDecoded.nombre;
   var apellidoUsuario = tokenDecoded.apellido;
+  var telefonoUsuario = tokenDecoded.nroCelular;
   var parametros =  {
     "jwt" : jwt.token,
     "idUsuarioReserva": idUsuarioReserva,
     "nombreUsuario": nombreUsuario,
-    "apellidoUsuario": apellidoUsuario
+    "apellidoUsuario": apellidoUsuario,
+    "telefonoUsuario": telefonoUsuario
   };
   $.ajax({
     data:  parametros,

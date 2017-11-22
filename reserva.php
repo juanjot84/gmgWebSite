@@ -5,6 +5,7 @@ $idLocal = $_GET["id"];
 
 
     $jwt = $_SESSION['jwt'];
+    $telefonoUsuario = $_SESSION['telefonoUsuario'];
 
 ?>
 
@@ -196,7 +197,7 @@ $idLocal = $_GET["id"];
               <div class="col-md-12">
                 <p>
                   <div class="form-group">
-                      <input type="text" name="telefonoReserva" id="telefonoReserva" tabindex="1" class="form-control" placeholder="Teléfono de contacto" value="" onfocus="limpiar('telefonoReserva')">
+                      <input type="text" name="telefonoReserva" id="telefonoReserva" tabindex="1" class="form-control" placeholder="Teléfono de contacto" value="<?php error_reporting(E_ERROR); echo $telefonoUsuario; ?>" onfocus="limpiar('telefonoReserva')">
                   </div>
                 </p>
               </div>
