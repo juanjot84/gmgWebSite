@@ -76,6 +76,36 @@ function popularLocal(local) {
   for(i = 0; i < nivelGris; i++){
     labelGrises += '$'
   }
+  var web;
+  if(local.webLocal.length == ''){
+    web = local.idNegocio.webNegocio;
+  }else {
+    web = local.webLocal;
+  }
+  var facebook;
+  if(local.facebookLocal == ''){
+    facebook = local.idNegocio.facebookNegocio;
+  }else{
+    facebook = local.facebookLocal;
+  }
+  var twitter;
+  if(local.twitterLocal == ''){
+    twitter = local.idNegocio.twitterNegocio;
+  }else {
+    twitter = local.twitterLocal;
+  }
+  var instagram;
+  if(local.instagramLocal == ''){
+    instagram = ocal.idNegocio.instagramNegocio;
+  }else {
+    instagram = local.instagramLocal;
+  }
+  var tripadvisor;
+  if(local.tripadvisorLocal == ''){
+    tripadvisor = local.idNegocio.tripadvisorNegocio
+  }else {
+    tripadvisor = local.tripadvisorLocal;
+  }
 
   localFavorito = local;
   buscarFavoritos(local);
@@ -84,11 +114,11 @@ function popularLocal(local) {
   $('#nivelPrecio').text(local.idNivelPrecio.label);
   $('#nivelPrecio').append('<span style="color: #cbcbcb">'+labelGrises+'</span>');
   $('#descripcionNegocio').text(local.idNegocio.descripcionNegocio);
-  $('#facebookNegocio').attr('href', local.idNegocio.facebookNegocio);
-  $('#twitterNegocio').attr('href', local.idNegocio.twitterNegocio);
-  $('#instagramNegocio').attr('href', local.idNegocio.instagramNegocio);
-  $('#tripadvisorNegocio').attr('href', local.idNegocio.tripadvisorNegocio);
-  $('#paginaNegocio').attr('href', local.idNegocio.webNegocio);
+  $('#facebookNegocio').attr('href', facebook);
+  $('#twitterNegocio').attr('href', twitter);
+  $('#instagramNegocio').attr('href', instagram);
+  $('#tripadvisorNegocio').attr('href', tripadvisor);
+  $('#paginaNegocio').attr('href', web);
   $('#direccionLocal').text(local.calleLocal + espacio + local.alturaLocal + coma + local.idLocalidad.nombreLocalidad);
   $('#telefonoLocal').text(local.telContacto);
   $('#mailLocal').text(local.mailContacto);
