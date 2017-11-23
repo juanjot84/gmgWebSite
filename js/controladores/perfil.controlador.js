@@ -1,12 +1,14 @@
 var jwt;
 
 function setJWT(jwtToken){
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
   if (_.isNil(jwtToken) || _.isEmpty(jwtToken) ) {
     mostrarModalLogin();
   } else {
     jwt = jwtToken;
     getOpcionesUsuario();
   }
+});
 };
 
 function mostrarModalLogin(){
@@ -24,6 +26,10 @@ function getOpcionesUsuario() {
 }
 
 function actualizarPerfil(){
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
  if ($('#aceptoTerminos').is(':checked')) {
    var inputs = $('input')
    var data = {};
@@ -32,7 +38,7 @@ function actualizarPerfil(){
      data[campo.id] = campo.value;
    })
    $.ajax({
-     url: 'http://aqueous-woodland-46461.herokuapp.com/api/v1/admin/actualizarUsuario',
+     url: server + '/api/v1/admin/actualizarUsuario',
      type: 'PUT',
      dataType: "json",
      crossDomain: true,

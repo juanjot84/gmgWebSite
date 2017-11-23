@@ -1,9 +1,10 @@
 
 function obtenerListadoCocinas() {
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     $('.container.locales').html('');
     $('#target').html('obteniendo...');
     $.ajax({
-        url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/tipoCocinaDestacados',
+        url: server + '/api/v1/admin/tipoCocinaDestacados',
         type: 'GET',
         dataType: "json",
         crossDomain: true,
@@ -13,6 +14,8 @@ function obtenerListadoCocinas() {
           _.each(data, function(cocinas){
             renderTipoCocina(cocinas);
           });
+          obtenerListadoOcasiones();
+          obtenerListadoPolos();
       },
       error:function(jqXHR,textStatus,errorThrown)
       {
@@ -21,6 +24,7 @@ function obtenerListadoCocinas() {
         console.log("You can not send Cross Domain AJAX requests: "+errorThrown);
       }
   });
+ }); 
 }
 
 function renderTipoCocina(cocina){

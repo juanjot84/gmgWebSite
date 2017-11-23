@@ -239,17 +239,11 @@ include("includes/footer.php");
 
   <!-- Funciones de Ocasiones JavaScript -->
   <script src="js/controladores/ocasiones.controlador.js"></script>
-  <script>
-    obtenerListadoOcasiones();
 
-  </script>
 
   <!-- Funciones de Ocasiones JavaScript -->
   <script src="js/controladores/polos.controlador.js"></script>
-  <script>
-    obtenerListadoPolos();
 
-  </script>
 
   <script src="assets/js/bootstrap-collapse.js"></script>
   <script src="assets/js/bootstrap-transition.js"></script>

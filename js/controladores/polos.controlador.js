@@ -1,9 +1,10 @@
 
 function obtenerListadoPolos() {
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     $('.container.polos').html('');
     $('#target').html('obteniendo...');
     $.ajax({
-        url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/polo',
+        url: server + '/api/v1/admin/polo',
         type: 'GET',
         dataType: "json",
         crossDomain: true,
@@ -19,6 +20,7 @@ function obtenerListadoPolos() {
         console.log("You can not send Cross Domain AJAX requests: "+errorThrown);
       }
   });
+});
 }
 
 function renderPolos(polos){

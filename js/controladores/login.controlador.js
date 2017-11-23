@@ -9,11 +9,17 @@ $('#emailUsuario, #passwordUsuario').change( function (){
 var redirect = 'mi-perfil.php';
 
 function setRedirect(url){
-  if(!_.isNil(url))
-  redirect = url;
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+   if(!_.isNil(url))
+   redirect = url;
+ }); 
 }
 
 function login() {
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
   if (!disabled){
     disabled = true;
     $('#login-submit').attr('disabled','disabled');
@@ -22,7 +28,7 @@ function login() {
       "password":$("#passwordUsuario").val()
     });
     $.ajax({
-      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/sign_in',
+      url: server + '/api/v1/admin/sign_in',
       type: "POST",
 
       dataType: "json",
@@ -115,6 +121,10 @@ function validar() {
 }
 
 function register() {
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
   var register = JSON.stringify({
     "nombre": $("#nombre").val(),
     "email": $("#email").val(),
@@ -122,7 +132,7 @@ function register() {
   });
 
   $.ajax({
-    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/register',
+    url: server + '/api/v1/admin/register',
     type: "POST",
 
     dataType: "json",

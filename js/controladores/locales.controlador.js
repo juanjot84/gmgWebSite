@@ -1,10 +1,14 @@
 
 
 function obtenerListado() {
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
     $('.container.locales').html('');
     $('#target').html('obteniendo...');
     $.ajax({
-        url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales',
+        url: server + '/api/v1/admin/locales',
         type: 'GET',
         dataType: "json",
         crossDomain: true,
@@ -25,6 +29,10 @@ function obtenerListado() {
 }
 
 function buscar(parametro, filtro) {
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
   if( _.isEmpty(parametro) && _.isEmpty(filtro)  ){
     obtenerListado()
   } else {
@@ -40,7 +48,7 @@ function buscar(parametro, filtro) {
     }
 
     $.ajax({
-      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/' + llamada,
+      url: server + '/api/v1/admin/' + llamada,
       type: 'POST',
 
       dataType: "json",
@@ -64,8 +72,10 @@ function buscar(parametro, filtro) {
 }
 
 function getTituloBusqueda(parametro, filtro) {
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
   var titulo = $("#labelRestaurantesBusquedas");
   titulo.text('Restaurantes para la búsqueda "' + parametro +'"' );
+ });
 }
 
 function getDia(dia) {

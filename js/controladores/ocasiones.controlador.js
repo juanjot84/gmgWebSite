@@ -1,9 +1,10 @@
 
 function obtenerListadoOcasiones() {
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     $('.container.ocasiones').html('');
     $('#target').html('obteniendo...');
     $.ajax({
-        url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/ocasionDestacadas',
+        url: server + '/api/v1/admin/ocasionDestacadas',
         type: 'GET',
         dataType: "json",
         crossDomain: true,
@@ -19,6 +20,7 @@ function obtenerListadoOcasiones() {
         console.log("You can not send Cross Domain AJAX requests: "+errorThrown);
       }
   });
+});
 }
 
 function renderOcasiones(ocasiones){
