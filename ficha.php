@@ -219,7 +219,6 @@ session_start();
         <script src="js/controladores/ficha.controlador.js"></script>
         <script>
           getDetalleLocal('<?php echo $idLocal; ?>');
-          buscarSugeridos();
 
         </script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHhrWZLpRB2OO1JJEU3Ls9FpfZzbXaQ-A&callback=initMap"></script>

@@ -124,7 +124,7 @@ function renderMisFavoritos(favoritos){
 function eliminarFavorito(idFavorito){
   jwt = $("#jwtU").val();
   $.ajax({
-     url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/favoritosUsuario?id='+idFavorito+'',
+     url: server + '/api/v1/admin/favoritosUsuario?id='+idFavorito+'',
      type: 'DELETE',
      dataType: "json",
      crossDomain: true,
