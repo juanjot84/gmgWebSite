@@ -6,13 +6,16 @@ var horaSeleccionada;
 var idLocal;
 
 function setJWT(jwtToken, local){
-  idLocal = local;
-  if (_.isNil(jwtToken) || _.isEmpty(jwtToken)) {
-    mostrarModalLogin();
-  } else {
-    jwt = jwtToken;
-    getMisFavoritos();
-  }
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    idLocal = local;
+    if (_.isNil(jwtToken) || _.isEmpty(jwtToken)) {
+      mostrarModalLogin();
+    } else {
+      jwt = jwtToken;
+      getMisFavoritos();
+    }
+  });
+
 }
 
 function mostrarModalLogin(){
@@ -29,6 +32,10 @@ function isLoggedIn(){
 }
 
 function buscarFavoritos() {
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
   $('.horas').hide();
   $('#noHorario').hide();
   var data = {
@@ -38,7 +45,7 @@ function buscarFavoritos() {
     'cubiertosMenoresReservados': $('#selectNino').val()
   };
   $.ajax({
-    url: 'http://aqueous-woodland-46461.herokuapp.com/api/v1/admin/favoritosUsuario',
+    url: server + '/api/v1/admin/favoritosUsuario',
     type: 'POST',
     dataType: "json",
     crossDomain: true,
@@ -62,7 +69,7 @@ function buscarFavoritos() {
 
 function getMisFavoritos(){
    $.ajax({
-      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/favoritosUsuario',
+      url: server + '/api/v1/admin/favoritosUsuario',
       type: 'GET',
       dataType: "json",
       crossDomain: true,

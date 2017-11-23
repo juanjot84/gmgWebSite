@@ -98,15 +98,15 @@
         <div class="form-group">
           <label class="control-label col-sm-2" for="fechaNacimientoUsuario">Sexo</label>
           <div class="col-sm-10" style="display: inline-flex;">
-           <div><input type="checkbox" id="hombre"> Hombre</div>
-           <div style="padding: 0 5%;"><input type="checkbox" id="mujer"> Mujer</div>
-           <div><input type="checkbox" id="otro"> Otro</div>
+           <div><input type="radio" name="sexo" value="Masculino" id="hombre"> Hombre</div>
+           <div style="padding: 0 5%;"><input type="radio" name="sexo" value="Femenino" id="mujer"> Mujer</div>
+           <div><input type="radio" name="sexo" value="Otro" id="otro"> Otro</div>
           </div>
         </div>
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
             <div class="checkbox">
-              <label><input type="checkbox" id="deseorecibir">Deseo recibir ofertas y descuentos.</label>
+              <label><input type="checkbox" valueid="recibeDescuentos">Deseo recibir ofertas y descuentos.</label>
             </div>
           </div>
         </div>
@@ -124,7 +124,7 @@
       <div class="col-md-12">
         <p>
           <a href="#"  onClick="actualizarPerfil()" class="page-scroll btn btn-xl" style="max-width: 300px; margin: 5% 0;">MODIFICAR</a>
-        </p>
+        </p>k
       </div>
     </div>
   </div>
@@ -184,10 +184,29 @@
     </div>
   </div>
 
-<?php 
-error_reporting(E_ERROR);
-include("includes/footer.php"); 
-?>
+  <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>No has iniciado sesión</h3>
+          </div>
+          <div class="modal-body">
+            <h5>Por favor, inicie sesión para continuar</h5>
+
+          </div>
+          <div class="modal-footer">
+            <a href="login.php" data-confirm="modal" class="btn btn-info" id="botonLogin">Iniciar sesión</a>
+            <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <?php
+  error_reporting(E_ERROR);
+  include("includes/footer.php");
+  ?>
 
   <!-- jQuery -->
   <script src="vendor/jquery/jquery.min.js"></script>

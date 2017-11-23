@@ -1,7 +1,7 @@
 var jwt;
 
 function setJWT(jwtToken){
-  if (_.isNil(jwtToken)) {
+  if (_.isNil(jwtToken) || _.isEmpty(jwtToken) ) {
     mostrarModalLogin();
   } else {
     jwt = jwtToken;
