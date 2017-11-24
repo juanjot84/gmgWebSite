@@ -5,11 +5,15 @@ var jwt;
 
 
 function obtenerListado() {
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
     var idNegocio = $('#idNegocio').val();
     $('.container.negocios').html('');
     $('#loading').html('<img class="img-responsive" src="/imgs/loading.gif">');
     $.ajax({
-        url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/reservasPendienteNegocio?id='+ idNegocio +"",
+        url: server + '/api/v1/admin/reservasPendienteNegocio?id='+ idNegocio +"",
         type: 'GET',
         dataType: "json",
         crossDomain: true,
@@ -211,6 +215,7 @@ function accion(idModal,accion){
 }
 
 function setJWT(jwtToken){
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
   if (_.isNil(jwtToken)) {
     //redireccionar al loguin
   } else {
@@ -218,17 +223,22 @@ function setJWT(jwtToken){
     jwt = jwtToken;
     obtenerListado(); 
     } 
+  });
 };
 
 
 function cancelarReserva(idReserva, idModal){
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
     $('.container.negocios').html('');
     $('#loading').html('<img class="img-responsive" src="/imgs/loading.gif">');
         var parametros = JSON.stringify({
             "comentarioLocal" : $("#comment"+idModal).val()
         });
     $.ajax({
-        url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/reservaCancelar?id='+ idReserva +"",
+        url: server + '/api/v1/admin/reservaCancelar?id='+ idReserva +"",
         type: 'POST',
         dataType: "json",
         crossDomain: true,
@@ -251,6 +261,10 @@ function cancelarReserva(idReserva, idModal){
 }
 
 function editarReserva(idReserva, idModal){
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
         var cubiertosTotales = $("#cantAdultos"+idModal).val() + $("#cantMenores"+idModal).val() ;
 
     $('#loading').html('<img class="img-responsive" src="/imgs/loading.gif">');
@@ -263,7 +277,7 @@ function editarReserva(idReserva, idModal){
             "cubiertosTotales" : cubiertosTotales
         });
     $.ajax({
-        url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/updateReservaEventual?id='+ idReserva +"",
+        url: server + '/api/v1/admin/updateReservaEventual?id='+ idReserva +"",
         type: 'POST',
         dataType: "json",
         crossDomain: true,

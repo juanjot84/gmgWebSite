@@ -17,7 +17,7 @@ $('#selectDia, #selectAdulto, #selectNino ').change( function (){
   }
 });
 
-obtenerListado();
+
 
 //Funcion principal
 //TODO: buscar datos del local
@@ -63,6 +63,7 @@ function getOpcionesReservaLocal(idLocal) {
 }
 
 function setJWT(jwtToken){
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
   idLocal = local;
   if (_.isNil(jwtToken) || _.isEmpty(jwtToken)) {
     mostrarModalLogin();
@@ -74,6 +75,8 @@ function setJWT(jwtToken){
       getMisReservas();
     }
   }
+  obtenerListado();
+});
 }
 
 function mostrarModalLogin(){
@@ -90,6 +93,10 @@ function isLoggedIn(){
 }
 
 function buscarHorarios() {
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
   $('.horas').hide();
   $('#noHorario').hide();
   var data = {
@@ -99,7 +106,7 @@ function buscarHorarios() {
     'cubiertosMenoresReservados': $('#selectNino').val()
   };
   $.ajax({
-    url: 'http://aqueous-woodland-46461.herokuapp.com/api/v1/admin/reservas',
+    url: server + '/api/v1/admin/reservas',
     type: 'POST',
     dataType: "json",
     crossDomain: true,
@@ -164,6 +171,10 @@ function realizarReserva() {
 }
 
 function confirmarReserva() {
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
   var data = {
     'idLocal': idLocal,
     'fechaReserva': $('#selectDia').val(),
@@ -176,7 +187,7 @@ function confirmarReserva() {
     'medioCreacionReserva': 'web'
   };
   $.ajax({
-    url: 'http://aqueous-woodland-46461.herokuapp.com/api/v1/admin/reservaEventual',
+    url: server + '/api/v1/admin/reservaEventual',
     type: 'POST',
     dataType: "json",
     crossDomain: true,
@@ -200,8 +211,12 @@ function confirmarReserva() {
 }
 
 function getMisReservas(){
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
    $.ajax({
-      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/reservaUsuario',
+      url: server + '/api/v1/admin/reservaUsuario',
       type: 'GET',
       dataType: "json",
       crossDomain: true,
@@ -252,10 +267,14 @@ function renderMisReservas(reservas){
 }
 
 function obtenerListado() {
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
         $('#selectLocal').html('');
         $('#target').html('obteniendo...');       
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales',
+            url: server + '/api/v1/admin/locales',
             type: 'GET',
             
             dataType: "json",
