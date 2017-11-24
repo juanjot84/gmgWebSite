@@ -1,13 +1,13 @@
 
 
 function actualizarLocal(idLocal, valorAActualizar, campoAAcuatualizar){
-
   var promise = new Promise(function(resolve, reject) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     var nuevoCampo = {};
     nuevoCampo[campoAAcuatualizar] = valorAActualizar;
 
     $.ajax({
-      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id=' + idLocal,
+      url: server + '/api/v1/admin/local?id=' + idLocal,
       type: 'PUT',
 
       dataType: "json",
@@ -21,8 +21,9 @@ function actualizarLocal(idLocal, valorAActualizar, campoAAcuatualizar){
       },
       data: JSON.stringify(nuevoCampo)
     });
-
+   });
   });
 
   return promise;
+
 }

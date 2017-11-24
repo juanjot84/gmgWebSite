@@ -177,19 +177,7 @@ include("includes/nav.php"); ?>
 
                   <!-- Table -->
                   <div class="panel-heading tituloseccion" style="display: none">Cubiertos por día</div>
-                   <!-- <table class="table">
-                        <thead class="titulotabla">
-                            <tr> 
-                                <th >#</th>
-                                    <th >Nombre</th>
-                                    <th >Mail</th>
-                                    <th style="text-align: center;">Acción</th>
-                                </tr>
-                        </thead>
-                        <tbody id="listadoContactos">
 
-                        </tbody>
-                    </table> -->
                 </div>
             </div>
         </div>
@@ -198,23 +186,7 @@ include("includes/nav.php"); ?>
     <div class="container">
         <div class="row">
             <nav aria-label="Page navigation">
-         <!--     <ul class="pagination">
-                <li>
-                  <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>
-                  <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </a>
-                </li>
-              </ul> -->
+
             </nav>
         </div>
     </div>

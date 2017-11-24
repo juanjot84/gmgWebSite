@@ -1,6 +1,6 @@
 
 $(function() {
-
+ 
   $('#login-form-link').click(function(e) {
     $("#login-form").delay(100).fadeIn(100);
     $("#register-form").fadeOut(100);
@@ -15,15 +15,15 @@ $(function() {
     $(this).addClass('active');
     e.preventDefault();
   });
-
-});
+ }); 
 var contactos;
 
 function cargarFormContacto(){
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
   var idLocal = $('#idLocalRecibido').val();
   var idContacto = $('#idContactoRecibido').val();
   $.ajax({
-    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/contactoLocal?id='+ idContacto +"",
+    url: server + '/api/v1/admin/contactoLocal?id='+ idContacto +"",
     type: 'GET',
     dataType: "json",
     crossDomain: true,
@@ -42,9 +42,14 @@ function cargarFormContacto(){
       $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
     },
   });
+});
 }
 
 function actualizarContacto(){
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
   var idContacto = $("#idContactoRecibido").val();
   var contacto = JSON.stringify({
     "nombreContacto": $("#nombreContacto").val(),
@@ -53,7 +58,7 @@ function actualizarContacto(){
     "celContacto":$("#celContacto").val()
   });
   $.ajax({
-    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/contacto?id=' + idContacto,
+    url: server + '/api/v1/admin/contacto?id=' + idContacto,
     type: "PUT",
     dataType: "json",
     crossDomain: true,
@@ -69,6 +74,10 @@ function actualizarContacto(){
 }
 
 function send() {
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
   var isNew = $("#idContacto").val() == "";
   var operacion = isNew ? "POST": "PUT";
   var contacto = JSON.stringify({
@@ -79,7 +88,7 @@ function send() {
   });
   var queryParam = isNew  ? "": "?id=" + $("#idContacto").val();
   $.ajax({
-    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/contacto' + queryParam,
+    url: server + '/api/v1/admin/contacto' + queryParam,
     type: operacion,
     dataType: "json",
     crossDomain: true,
@@ -165,10 +174,14 @@ function caracteresCorreoValido(email){
 }
 
 function volverPanelLocal(){
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
   var idLocal = $("#idLocalRecibido").val();
   $('#target').html('obteniendo...');
   $.ajax({
-    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id='+ idLocal +"",
+    url: server + '/api/v1/admin/locales?id='+ idLocal +"",
     type: 'GET',
 
     dataType: "json",

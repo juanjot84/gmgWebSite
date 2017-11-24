@@ -15,8 +15,13 @@ $(function() {
     e.preventDefault();
   });
 });
+cargarServer();
 
-
+function cargarServer(){
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    
+  });
+}
 var localCubiertosCreados = [];
 var cubiertosViejos = [];
 
@@ -24,10 +29,14 @@ var dias = ["Lunes","Martes","Miercoles","Jueves","Viernes","Sabados","Domingos"
 
 
 function cargarCubiertosSeteados(){
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
      var idLocal = $("#idLocalCreado").val();
     $('#target').html('obteniendo...');       
     $.ajax({
-      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id='+ idLocal +"",
+      url: server + '/api/v1/admin/locales?id='+ idLocal +"",
             type: 'GET',
             
             dataType: "json",
@@ -117,8 +126,12 @@ function eliminarViejos(vectorCubiertos){
 }
 
 function eliminar(idCubiertoDia){
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
   $.ajax({
-    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/cubiertosDia?id=' + idCubiertoDia,
+    url: server + '/api/v1/admin/cubiertosDia?id=' + idCubiertoDia,
     type: 'DELETE',      
     dataType: "json",
     crossDomain: true,
@@ -135,6 +148,10 @@ function eliminar(idCubiertoDia){
 function sendCubiertos(diaCubierto,cantCubiertos, duracionReserva) {
 
   var promise = new Promise(function(resolve, reject) {
+    if (_.isUndefined(server)) {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      });
+    }
 
     if(!_.isNil(diaCubierto) && !_.isNil(cantCubiertos)){
       var isNew = $("#idCubierto").val() == "";
@@ -148,7 +165,7 @@ function sendCubiertos(diaCubierto,cantCubiertos, duracionReserva) {
       $('#target').html('sending..');
       var queryParam = isNew  ? "": "?id=" + $("#idCubierto").val();
       $.ajax({
-        url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/cubiertosDia' + queryParam,
+        url: server + '/api/v1/admin/cubiertosDia' + queryParam,
         type: operacion,
 
         dataType: "json",
@@ -213,10 +230,14 @@ function limpiar(campo,campoBack){
 }
 
 function volverPanelLocal(){
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
   var idLocal = $("#idLocalCreado").val();
     $('#target').html('obteniendo...');       
     $.ajax({
-      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id='+ idLocal +"",
+      url: server + '/api/v1/admin/locales?id='+ idLocal +"",
             type: 'GET',
             
             dataType: "json",
