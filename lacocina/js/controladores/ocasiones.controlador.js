@@ -26,7 +26,7 @@ function obtenerListado() {
     $('#listadoOcasiones').html('');
     $('#loading').html('<img class="img-responsive" src="img/loading.gif">');
     $.ajax({
-        url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/ocasion',
+        url: server + '/api/v1/admin/ocasion',
         type: 'GET',
 
         dataType: "json",

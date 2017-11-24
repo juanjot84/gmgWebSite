@@ -29,10 +29,10 @@ function obtenerListado() {
 }
 
 function buscar(parametro, filtro) {
-  if (_.isUndefined(server)) {
+  
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
-    });
-  }
+    
+  
   if( _.isEmpty(parametro) && _.isEmpty(filtro)  ){
     obtenerListado()
   } else {
@@ -69,6 +69,7 @@ function buscar(parametro, filtro) {
       data:JSON.stringify( obj)
     });
   }
+});
 }
 
 function getTituloBusqueda(parametro, filtro) {
