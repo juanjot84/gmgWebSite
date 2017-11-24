@@ -146,6 +146,11 @@ error_reporting(E_ERROR);
 
     });
 
+    $(function() {
+      var accion = 'locales';
+      iniciar(accion);
+    });
+
 </script>
 
 </body>

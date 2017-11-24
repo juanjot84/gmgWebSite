@@ -22,10 +22,11 @@
     obtenerListado();
 
     function obtenerListado() {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
         $('#listadoRegiones').html('');
         $('#loading').html('<img class="img-responsive" src="img/loading.gif">');       
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/region',
+            url: server + '/api/v1/admin/region',
             type: 'GET',
             
             dataType: "json",
@@ -52,6 +53,7 @@
               $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
           },
       });
+    });
     }
 
     function editar(idRegion){
@@ -77,8 +79,12 @@
     }
 
     function eliminar(idRegion){
+        if (_.isUndefined(server)) {
+            $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+            });
+          }
        $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/region?id=' + idRegion,
+            url: server + '/api/v1/admin/region?id=' + idRegion,
             type: 'DELETE',
             
             dataType: "json",
@@ -106,6 +112,10 @@
     }
 
     function send() {
+        if (_.isUndefined(server)) {
+            $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+            });
+          }
         var isNew = $("#idRegion").val() == "";
         var operacion = isNew ? "POST": "PUT";
         var region = JSON.stringify({
@@ -116,7 +126,7 @@
         $('#target').html('sending..');
         var queryParam = isNew  ? "": "?id=" + $("#idRegion").val();
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/region' + queryParam,
+            url: server + '/api/v1/admin/region' + queryParam,
             type: operacion,
             
             dataType: "json",

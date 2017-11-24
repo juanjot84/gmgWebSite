@@ -74,11 +74,15 @@ function getArchivos() {
 function actualizarLocal(idLocal, valorAActualizar, campoAAcuatualizar){
 
   var promise = new Promise(function(resolve, reject) {
+    if (_.isUndefined(server)) {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      });
+    }
     var nuevoCampo = {};
     nuevoCampo[campoAAcuatualizar] = valorAActualizar;
 
     $.ajax({
-      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id=' + idLocal,
+      url: server + '/api/v1/admin/local?id=' + idLocal,
       type: 'PUT',
       dataType: "json",
       crossDomain: true,
@@ -97,9 +101,13 @@ function actualizarLocal(idLocal, valorAActualizar, campoAAcuatualizar){
 }
 
 function obtenerLocal(vectorImagenes){
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
   var idLocal = $("#idLocal").val();
   return $.ajax({
-    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id='+ idLocal,
+    url: server + '/api/v1/admin/local?id='+ idLocal,
     type: 'GET',
             
     dataType: "json",
@@ -118,9 +126,10 @@ function obtenerLocal(vectorImagenes){
 }
 
 function mostrarImagenes(){
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     var idLocal = $("#idLocal").val();
   return $.ajax({
-    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id='+ idLocal,
+    url: server + '/api/v1/admin/local?id='+ idLocal,
     type: 'GET',
             
     dataType: "json",
@@ -152,14 +161,19 @@ function mostrarImagenes(){
               '');
           });
       } 
-  });    
+  }); 
+});
 }
 
 function eliminarImagen(urlImagen){
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
 
   var idLocal = $("#idLocal").val();
   return $.ajax({
-    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id='+ idLocal,
+    url: server + '/api/v1/admin/local?id='+ idLocal,
     type: 'GET',
             
     dataType: "json",
@@ -192,6 +206,10 @@ function eliminarImagen(urlImagen){
 }
 
 function seleccionarPrincipal(urlImagen){
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
     var idLocal = $("#idLocal").val();
     var campoAAcuatualizar = 'fotoPrincipalLocal';
     var promise = new Promise(function(resolve, reject) {
@@ -199,7 +217,7 @@ function seleccionarPrincipal(urlImagen){
     nuevoCampo[campoAAcuatualizar] = urlImagen;
 
     $.ajax({
-      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id=' + idLocal,
+      url: server + '/api/v1/admin/local?id=' + idLocal,
       type: 'PUT',
 
       dataType: "json",
@@ -221,10 +239,14 @@ function seleccionarPrincipal(urlImagen){
 }
 
 function volverPanelLocal(){
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
     var localEditado = $("#idLocal").val();
 
     $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id='+localEditado+"",
+            url: server + '/api/v1/admin/local?id='+localEditado+"",
             type: 'GET',
             
             dataType: "json",

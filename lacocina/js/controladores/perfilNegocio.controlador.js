@@ -24,10 +24,11 @@
     obtenerListado();
 
     function obtenerListado() {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
         $('#listadoNegocios').html('');
         $('#target').html('obteniendo...');       
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/negocio',
+            url: server + '/api/v1/admin/negocio',
             type: 'GET',
             
             dataType: "json",
@@ -54,6 +55,7 @@
               $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
           },
       });
+    });
     }
 
     function editar(idNegocio){    
@@ -79,10 +81,14 @@
     }
 
   function cargarFormEditar(idNegocio){
+    if (_.isUndefined(server)) {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      });
+    }
      
      var listadoNegocios;
           $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/negocio',
+            url: server + '/api/v1/admin/negocio',
             type: 'GET',
             
             dataType: "json",
@@ -117,6 +123,10 @@
   }
 
   function actualizarNegocio(){
+    if (_.isUndefined(server)) {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      });
+    }
          var idNegocio = $("#idNegocio").val();
          var negocio = JSON.stringify({
             "nombreNegocio": $("#nombreNegocio").val(),
@@ -133,7 +143,7 @@
         });
         $('#target').html('sending..');
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/negocio?id=' + idNegocio,
+            url: server + '/api/v1/admin/negocio?id=' + idNegocio,
             type: "PUT",            
             dataType: "json",
             crossDomain: true,
@@ -180,8 +190,12 @@
     }
 
     function eliminar(idNegocio){
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }
        $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/negocio?id=' + idNegocio,
+            url: server + '/api/v1/admin/negocio?id=' + idNegocio,
             type: 'DELETE',
             
             dataType: "json",
@@ -208,9 +222,13 @@
     }
 
   // Traer tipos de negocio para lista desplegable
-    function obtenerListadoTipoNegocios() {   
+    function obtenerListadoTipoNegocios() {  
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      } 
         return $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/tipoNegocio',
+            url: server + '/api/v1/admin/tipoNegocio',
             type: 'GET',
             
             dataType: "json",
@@ -261,6 +279,10 @@
     }
 
     function send() {
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }
         var isNew = $("#idNegocio").val() == "";
         var operacion = isNew ? "POST": "PUT";
         var negocio = JSON.stringify({
@@ -280,7 +302,7 @@
         $('#target').html('sending..');
         var queryParam = isNew  ? "": "?id=" + $("#idNegocio").val();
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/negocio' + queryParam,
+            url: server + '/api/v1/admin/negocio' + queryParam,
             type: operacion,            
             dataType: "json",
             crossDomain: true,

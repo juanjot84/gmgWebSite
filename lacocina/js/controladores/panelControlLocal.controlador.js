@@ -17,15 +17,29 @@
         });
     });
 
+    function iniciar(accion){
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        if(accion == 'locales'){
+          obtenerListado();
+        }else if(accion == 'panel'){
+          nombreLocal();
+        }
+      });
+    }
+
 
     var idContacto;
-    obtenerListado();
+    
 
     function obtenerListado() {
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }
         $('#listadoLocal').html('');
         $('#target').html('obteniendo...');       
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales',
+            url: server + '/api/v1/admin/locales',
             type: 'GET',
             
             dataType: "json",
@@ -126,10 +140,14 @@ $('#cabeceraTablaNegocios').html('');
       });
     }
 
-    function eliminar(idLocal){     
+    function eliminar(idLocal){ 
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }    
 
       $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id=' + idLocal,
+            url: server + '/api/v1/admin/locales?id=' + idLocal,
             type: 'DELETE',            
             dataType: "json",
             crossDomain: true,
@@ -182,12 +200,16 @@ $('#cabeceraTablaNegocios').html('');
     }
 
     function editarContacto(){
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }
       var idLocal = $("#idLocal").val();
       var idContacto
 
         $('#target').html('obteniendo...');       
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id='+idLocal,
+            url: server + '/api/v1/admin/locales?id='+idLocal,
             type: 'GET',
             
             dataType: "json",
@@ -209,11 +231,15 @@ $('#cabeceraTablaNegocios').html('');
     }
 
     function nombreLocal(){
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }
       var idLocal = $("#idLocal").val();
      
         $('#target').html('obteniendo...');       
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id='+idLocal,
+            url: server + '/api/v1/admin/locales?id='+idLocal,
             type: 'GET',
             
             dataType: "json",
@@ -262,6 +288,10 @@ $('#cabeceraTablaNegocios').html('');
     }
 
   function actualizarPremium(idLocal, valorActual){
+    if (_.isUndefined(server)) {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      });
+    }
     var valorAActualizar;
 
     if(valorActual == 'true'){
@@ -277,7 +307,7 @@ $('#cabeceraTablaNegocios').html('');
     nuevoCampo[campoAAcuatualizar] = valorAActualizar;
 
     $.ajax({
-      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id=' + idLocal,
+      url: server + '/api/v1/admin/local?id=' + idLocal,
       type: 'PUT',
 
       dataType: "json",

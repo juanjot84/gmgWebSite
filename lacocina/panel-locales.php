@@ -169,8 +169,9 @@ error_reporting(E_ERROR);
     });
 
     $(function() {
-    nombreLocal();
-    })
+      var accion = 'panel';
+      iniciar(accion);
+    });
 
 </script>
 

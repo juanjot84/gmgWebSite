@@ -19,16 +19,22 @@
     });
 
     $(function() {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
       var idNegocio = $("#idNegocioSeleccionado").val();
       cargarFormEditar(idNegocio);
     });
+    });
 
     function cargarFormEditar(idNegocio){
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }
       var idNegocioEditar = idNegocio;
       var usuariosNegocios;
 
       $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/usuarioNegocio',
+            url: server + '/api/v1/admin/usuarioNegocio',
             type: 'GET',           
             dataType: "json",
             crossDomain: true,
@@ -70,8 +76,12 @@
     }
 
     function eliminar(idUsuarioNegocio){
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }
        $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/usuarioNegocio?id=' + idUsuarioNegocio,
+            url: server + '/api/v1/admin/usuarioNegocio?id=' + idUsuarioNegocio,
             type: 'DELETE',
             
             dataType: "json",
@@ -99,6 +109,10 @@
     }
 
     function editarUsuarioNegocio(accion, tipoUsuario){
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }
         var usuarioNegocio = JSON.stringify({
             "email": $("#email").val(),
             "nombre":$("#nombre").val(),
@@ -111,7 +125,7 @@
         $('#target').html('sending..');
         var queryParam = $("#idUsuarioNegocio").val();
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/usuarioNegocio?id=' + queryParam,
+            url: server + '/api/v1/admin/usuarioNegocio?id=' + queryParam,
             type: "PUT",
             
             dataType: "json",
@@ -139,6 +153,10 @@
     }
 
     function send() {
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }
         var isNew = $("#idUsuarioNegocio").val() == "";
         var operacion = isNew ? "POST": "PUT";
         var usuarioNegocio = JSON.stringify({
@@ -154,7 +172,7 @@
         $('#target').html('sending..');
         var queryParam = isNew  ? "": "?id=" + $("#idUsuarioNegocio").val();
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/registerUsuarioNegocio' + queryParam,
+            url: server + '/api/v1/admin/registerUsuarioNegocio' + queryParam,
             type: operacion,
             
             dataType: "json",

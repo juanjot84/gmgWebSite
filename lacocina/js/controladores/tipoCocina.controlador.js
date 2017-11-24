@@ -22,10 +22,11 @@
     obtenerListado();
 
     function obtenerListado() {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
         $('#listadoTiposCocina').html('');
         $('#loading').html('<img class="img-responsive" src="img/loading.gif">');
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/tipoCocina',
+            url: server + '/api/v1/admin/tipoCocina',
             type: 'GET',
             dataType: "json",
             crossDomain: true,
@@ -62,6 +63,7 @@
               $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
           },
       });
+    });
     }
 
     function editar(idTipoCocina){
@@ -97,8 +99,12 @@
     }
 
     function eliminar(idTipoCocina){
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }
        $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/tipoCocina?id=' + idTipoCocina,
+            url: server + '/api/v1/admin/tipoCocina?id=' + idTipoCocina,
             type: 'DELETE',
             dataType: "json",
             crossDomain: true,
@@ -125,6 +131,10 @@
     }
 
     function send() {
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }
         var isNew = $("#idTipoCocina").val() == "";
         var operacion = isNew ? "POST": "PUT";
         var tipoCocina = JSON.stringify({
@@ -135,7 +145,7 @@
         });
         var queryParam = isNew  ? "": "?id=" + $("#idTipoCocina").val();
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/tipoCocina' + queryParam,
+            url: server + '/api/v1/admin/tipoCocina' + queryParam,
             type: operacion,
             dataType: "json",
             crossDomain: true,
@@ -158,6 +168,10 @@
   }
   
   function actualizarDestacado(idTipoCocina, valorActual){
+    if (_.isUndefined(server)) {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      });
+    }
    var valorAActualizar;
 
     if(valorActual == 'true'){
@@ -173,7 +187,7 @@
     nuevoCampo[campoAAcuatualizar] = valorAActualizar;
 
     $.ajax({
-      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/tipoCocina?id=' + idTipoCocina,
+      url: server + '/api/v1/admin/tipoCocina?id=' + idTipoCocina,
       type: 'PUT',
 
       dataType: "json",

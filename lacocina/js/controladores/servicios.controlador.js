@@ -22,10 +22,11 @@
     obtenerListado();
 
     function obtenerListado() {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
         $('#listadoServicios').html('');
         $('#loading').html('<img class="img-responsive" src="img/loading.gif">');       
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/servicio',
+            url: server + '/api/v1/admin/servicio',
             type: 'GET',
             
             dataType: "json",
@@ -52,6 +53,7 @@
               $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
           },
       });
+    });
     }
 
     function editar(idServicio){
@@ -79,8 +81,12 @@
     }
 
     function eliminar(idServicio){
+        if (_.isUndefined(server)) {
+            $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+            });
+          }
        $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/servicio?id=' + idServicio,
+            url: server + '/api/v1/admin/servicio?id=' + idServicio,
             type: 'DELETE',
             
             dataType: "json",
@@ -108,6 +114,10 @@
     }
 
     function send() {
+        if (_.isUndefined(server)) {
+            $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+            });
+          }
         var isNew = $("#idServicio").val() == "";
         var operacion = isNew ? "POST": "PUT";
         var servicio = JSON.stringify({
@@ -119,7 +129,7 @@
         $('#target').html('sending..');
         var queryParam = isNew  ? "": "?id=" + $("#idServicio").val();
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/servicio' + queryParam,
+            url: server + '/api/v1/admin/servicio' + queryParam,
             type: operacion,
             
             dataType: "json",
