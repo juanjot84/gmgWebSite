@@ -15,11 +15,13 @@ $(function() {
     e.preventDefault();
   });
 });
-cargarServer();
 
-function cargarServer(){
+
+function iniciar(accion){
   $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
-    
+    if(accion == 'editar'){
+      cargarCubiertosSeteados();
+    }
   });
 }
 var localCubiertosCreados = [];

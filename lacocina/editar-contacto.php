@@ -167,7 +167,8 @@ error_reporting(E_ERROR);
     });
 
     $(function() {
-      cargarFormContacto();
+      var accion = 'editar';
+      iniciar(accion);
     });
 
 </script>

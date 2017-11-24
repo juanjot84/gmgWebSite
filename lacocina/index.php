@@ -184,6 +184,11 @@
 
     });
 
+    $(function() {
+      var accion = 'iniciar';
+      iniciar(accion);
+    });
+
 </script>
 
 </body>

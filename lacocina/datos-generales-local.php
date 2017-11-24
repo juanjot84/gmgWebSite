@@ -298,7 +298,8 @@ error_reporting(E_ERROR);
     });
 
     $(function() {
-      editarLocal();
+        var accion = 'editar';
+        iniciar(accion);
     });
 
 </script>

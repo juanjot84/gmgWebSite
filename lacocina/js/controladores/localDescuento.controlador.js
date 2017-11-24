@@ -18,15 +18,29 @@ $(function() {
 
 });
 
+function iniciar(accion){
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    if(accion == 'editar'){
+      cargarDescuentosSeleccionados();
+    }else if(accion == 'crear'){
+      mostrarAltaLocalDescuento();
+    }
+  });
+}
+
 var descuentos;
 
 var localDescuentoCreados = [];
 
 var dias = ["Lunes","Martes","Miercoles","Jueves","Viernes","Sabados","Domingos","Feriados"];
 
-mostrarAltaLocalDescuento();
+
 
 function agregarContacto(){
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+}
 
   $('#formularioAgregar').show();
   $("#formularioAgregar :input").attr("disabled", false);
@@ -36,7 +50,7 @@ function agregarContacto(){
 // Traer Descuentos para lista desplegable
 function obtenerListadoDescuento(){
   return $.ajax({
-    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/descuento',
+    url: server + '/api/v1/admin/descuento',
     type: 'GET',
     dataType: "json",
     crossDomain: true,
@@ -86,10 +100,14 @@ function mostrarAltaLocalDescuento(){
 }
 
 function cargarDescuentosSeleccionados(){
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+}
   var idLocal = $("#idLocalCreado").val();
   $('#target').html('obteniendo...');
     $.ajax({
-      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id='+ idLocal +"",
+      url: server + '/api/v1/admin/locales?id='+ idLocal +"",
             type: 'GET',
 
             dataType: "json",
@@ -165,6 +183,10 @@ function SendLocalDescuento(accion){
 function sendLocalDescuento(diaDescuento,idDescuento) {
 
   var promise = new Promise(function(resolve, reject) {
+    if (_.isUndefined(server)) {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      });
+  }
 
     if(!_.isNil(diaDescuento) && !_.isNil(idDescuento)){
       var isNew = $("#idLocalDescuento").val() == "";
@@ -178,7 +200,7 @@ function sendLocalDescuento(diaDescuento,idDescuento) {
       $('#target').html('sending..');
       var queryParam = isNew  ? "": "?id=" + $("#idLocalDescuento").val();
       $.ajax({
-        url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/localDescuento' + queryParam,
+        url: server + '/api/v1/admin/localDescuento' + queryParam,
         type: operacion,
 
         dataType: "json",
@@ -202,10 +224,14 @@ function sendLocalDescuento(diaDescuento,idDescuento) {
 }
 
 function volverPanelLocal(){
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+}
   var idLocal = $("#idLocalCreado").val();
     $('#target').html('obteniendo...');
     $.ajax({
-      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id='+ idLocal +"",
+      url: server + '/api/v1/admin/locales?id='+ idLocal +"",
             type: 'GET',
 
             dataType: "json",

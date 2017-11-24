@@ -247,7 +247,8 @@ error_reporting(E_ERROR);
     });
 
     $(function() {
-      cargarCubiertosSeteados();
+        var accion = 'editar';
+        iniciar(accion);
     });
 
 </script>

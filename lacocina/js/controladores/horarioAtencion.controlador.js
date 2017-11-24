@@ -17,17 +17,29 @@ $(function () {
 
 });
 
+function iniciar(accion){
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    if(accion == 'editar'){
+      cargarHorariosSeteados();
+    }
+  });
+}
+
 var localHorariosCreados = [];
 var horariosViejos = [];
 
 var dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabados", "Domingos", "Feriados"];
 
 function cargarHorariosSeteados() {
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
   dibujarHorarios();
   var idLocal = $("#idLocalCreado").val();
   $('#target').html('obteniendo...');
   $.ajax({
-    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id=' + idLocal + "",
+    url: server + '/api/v1/admin/locales?id=' + idLocal + "",
     type: 'GET',
 
     dataType: "json",
@@ -180,8 +192,12 @@ function eliminarViejos(vectorHorarios) {
 }
 
 function eliminar(idHorarioAtencion) {
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
   $.ajax({
-    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/horarioAtencion?id=' + idHorarioAtencion,
+    url: server + '/api/v1/admin/horarioAtencion?id=' + idHorarioAtencion,
     type: 'DELETE',
     dataType: "json",
     crossDomain: true,
@@ -197,6 +213,10 @@ function eliminar(idHorarioAtencion) {
 
 function sendHorarios(diaHorario, horaDesde, horaHasta, turno) {
   var promise = new Promise(function (resolve, reject) {
+    if (_.isUndefined(server)) {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      });
+    }
     if (!_.isNil(diaHorario) && !_.isNil(horaDesde)) {
       var isNew = $("#idHorario").val() == "";
       var operacion = isNew ? "POST" : "PUT";
@@ -211,7 +231,7 @@ function sendHorarios(diaHorario, horaDesde, horaHasta, turno) {
       $('#target').html('sending..');
       var queryParam = isNew ? "" : "?id=" + $("#idHorario").val();
       $.ajax({
-        url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/horarioAtencion' + queryParam,
+        url: server + '/api/v1/admin/horarioAtencion' + queryParam,
         type: operacion,
 
         dataType: "json",
@@ -294,10 +314,14 @@ function limpiar(campo, campoBack) {
 }
 
 function volverPanelLocal() {
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
   var idLocal = $("#idLocalCreado").val();
   $('#target').html('obteniendo...');
   $.ajax({
-    url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id=' + idLocal + "",
+    url: server + '/api/v1/admin/locales?id=' + idLocal + "",
     type: 'GET',
 
     dataType: "json",

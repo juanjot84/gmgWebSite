@@ -78,13 +78,28 @@ function toggleBounce() {
   }
 }
 
-  mostrarAltaLocal();
+function iniciar(accion){
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    if(accion == 'editar'){
+      editarLocal();
+    }else if(accion == 'crear'){
+      mostrarAltaLocal();
+    }
+  });
+}
+
+
+  
 
     function obtenerListado() {
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }
         $('#listadoLocal').html('');
         $('#loading').html('<img class="img-responsive" src="img/loading.gif">');       
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales',
+            url: server + '/api/v1/admin/locales',
             type: 'GET',
             
             dataType: "json",
@@ -113,10 +128,14 @@ function toggleBounce() {
     }
 
     function editarLocal(){
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }
        var idLocal = $('#idLocalRecibido').val();
         $('#target').html('obteniendo...');       
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id='+ idLocal +"",
+            url: server + '/api/v1/admin/locales?id='+ idLocal +"",
             type: 'GET',
             
             dataType: "json",
@@ -204,9 +223,13 @@ function toggleBounce() {
 
 
   // Traer polos para lista desplegable
-    function obtenerListadoPolos() {   
+    function obtenerListadoPolos() {
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }   
         return $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/polo',
+            url: server + '/api/v1/admin/polo',
             type: 'GET',
             
             dataType: "json",
@@ -236,9 +259,13 @@ function toggleBounce() {
       });
     }
   // Traer nivel de precio para lista desplegable
-    function obtenerListadoNivelPrecio() {   
+    function obtenerListadoNivelPrecio() {
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }   
         return $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/nivelPrecio',
+            url: server + '/api/v1/admin/nivelPrecio',
             type: 'GET',
             
             dataType: "json",
@@ -269,9 +296,13 @@ function toggleBounce() {
     }
 
   // Traer medio de pago para checkbox
-    function obtenerListadoMedioPago() {   
+    function obtenerListadoMedioPago() {
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }   
         return $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/medioPago',
+            url: server + '/api/v1/admin/medioPago',
             type: 'GET',
             
             dataType: "json",
@@ -306,9 +337,13 @@ function toggleBounce() {
     }
 
     // Traer tipo Cocina para lista desplegable
-    function obtenerListadoTipoCocina() {   
+    function obtenerListadoTipoCocina() {
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }   
         return $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/tipoCocina',
+            url: server + '/api/v1/admin/tipoCocina',
             type: 'GET',           
             dataType: "json",
             crossDomain: true,
@@ -361,9 +396,13 @@ function toggleBounce() {
     }
 
     // Traer Especialidad para check box
-    function obtenerListadoEspecialidad(){   
+    function obtenerListadoEspecialidad(){
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }   
         return $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/especialidad',
+            url: server + '/api/v1/admin/especialidad',
             type: 'GET',           
             dataType: "json",
             crossDomain: true,
@@ -396,9 +435,13 @@ function toggleBounce() {
       });
     }
     //Traer ocasiones para check box
-    function obtenerListadoOcasiones(){   
+    function obtenerListadoOcasiones(){
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }   
       return $.ajax({
-          url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/ocasion',
+          url: server + '/api/v1/admin/ocasion',
           type: 'GET',           
           dataType: "json",
           crossDomain: true,
@@ -432,9 +475,13 @@ function toggleBounce() {
     }
 
     // Traer Servicios para lista desplegable
-    function obtenerListadoServicio(){   
+    function obtenerListadoServicio(){
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }   
         return $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/servicio',
+            url: server + '/api/v1/admin/servicio',
             type: 'GET',           
             dataType: "json",
             crossDomain: true,
@@ -468,9 +515,13 @@ function toggleBounce() {
     }
 
   // Traer localidades para lista desplegable
-    function obtenerListadoLocalidades() {   
+    function obtenerListadoLocalidades() {
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }   
         return $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/localidad',
+            url: server + '/api/v1/admin/localidad',
             type: 'GET',
             
             dataType: "json",
@@ -552,6 +603,10 @@ function toggleBounce() {
     }
 
   function actualizarLocal(){
+    if (_.isUndefined(server)) {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      });
+    }
       var medioPagoSeleccionado = [];
       var seleccionados = $('input[name=medioPagoCheck]:checked', '#formularioLocal');
         _.each(seleccionados, function(item){ 
@@ -613,7 +668,7 @@ function toggleBounce() {
         var idLocalActualizar = $("#idLocalRecibido").val();
         $('#target').html('sending..');
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local?id=' + idLocalActualizar,
+            url: server + '/api/v1/admin/local?id=' + idLocalActualizar,
             type: "PUT",          
             dataType: "json",
             crossDomain: true,
@@ -638,6 +693,10 @@ function toggleBounce() {
 
 
     function send(){
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }
 
       var medioPagoSeleccionado = [];
       var seleccionados = $('input[name=medioPagoCheck]:checked', '#formularioLocal');
@@ -704,7 +763,7 @@ function toggleBounce() {
         $('#target').html('sending..');
         var queryParam = isNew  ? "": "?id=" + $("#idLocal").val();
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/local' + queryParam,
+            url: server + '/api/v1/admin/local' + queryParam,
             type: operacion,          
             dataType: "json",
             crossDomain: true,

@@ -127,6 +127,11 @@ error_reporting(E_ERROR);include("includes/head.php"); ?>
 
   });
 
+  $(function() {
+    var accion = 'crear';
+    iniciar(accion);
+  });
+
   </script>
 
 </body>

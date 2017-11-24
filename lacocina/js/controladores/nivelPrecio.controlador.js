@@ -22,10 +22,11 @@
     obtenerListado();
 
     function obtenerListado() {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
         $('#listadoNivelPrecio').html('');
         $('#loading').html('<img class="img-responsive" src="img/loading.gif">');       
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/nivelPrecio',
+            url: server + '/api/v1/admin/nivelPrecio',
             type: 'GET',
             
             dataType: "json",
@@ -52,6 +53,7 @@
               $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
           },
       });
+    });
     }
 
     function editar(idNivelPrecio){
@@ -79,8 +81,12 @@
     }
 
     function eliminar(idNivelPrecio){
+        if (_.isUndefined(server)) {
+            $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+            });
+          }
        $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/nivelPrecio?id=' + idNivelPrecio,
+            url: server + '/api/v1/admin/nivelPrecio?id=' + idNivelPrecio,
             type: 'DELETE',
             
             dataType: "json",
@@ -108,6 +114,10 @@
     }
 
     function send() {
+        if (_.isUndefined(server)) {
+            $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+            });
+          }
         var isNew = $("#idNivelPrecio").val() == "";
         var operacion = isNew ? "POST": "PUT";
         var nivelPrecio = JSON.stringify({
@@ -120,7 +130,7 @@
         $('#target').html('sending..');
         var queryParam = isNew  ? "": "?id=" + $("#idNivelPrecio").val();
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/nivelPrecio' + queryParam,
+            url: server + '/api/v1/admin/nivelPrecio' + queryParam,
             type: operacion,
             
             dataType: "json",

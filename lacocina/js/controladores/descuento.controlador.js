@@ -19,13 +19,20 @@
     });
     var descuentos;
 
-    obtenerListado();
 
+
+    obtenerListado();
+    
     function obtenerListado() {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        if (_.isUndefined(server)) {
+            $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+            });
+        }
         $('#listadoDescuentos').html('');
         $('#loading').html('<img class="img-responsive" src="img/loading.gif">');       
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/descuento',
+            url: server + '/api/v1/admin/descuento',
             type: 'GET',
             
             dataType: "json",
@@ -52,6 +59,7 @@
               $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
           },
       });
+    });
     }
 
     function editar(idDescuento){
@@ -81,8 +89,12 @@
     }
 
     function eliminar(idDescuento){
+        if (_.isUndefined(server)) {
+            $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+            });
+        }
        $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/descuento?id=' + idDescuento,
+            url: server + '/api/v1/admin/descuento?id=' + idDescuento,
             type: 'DELETE',
             
             dataType: "json",
@@ -110,6 +122,10 @@
     }
 
     function send() {
+        if (_.isUndefined(server)) {
+            $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+            });
+        }
         var isNew = $("#idDescuento").val() == "";
         var operacion = isNew ? "POST": "PUT";
         var descuento = JSON.stringify({
@@ -122,7 +138,7 @@
         $('#target').html('sending..');
         var queryParam = isNew  ? "": "?id=" + $("#idDescuento").val();
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/descuento' + queryParam,
+            url: server + '/api/v1/admin/descuento' + queryParam,
             type: operacion,
             
             dataType: "json",

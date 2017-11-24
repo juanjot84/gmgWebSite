@@ -8,7 +8,17 @@ $(function () {
 
 });
 
+function iniciar(accion){
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+
+  });
+}
+
 function login() {
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
 
   var login = JSON.stringify({
     "email": $("#emailUsuario").val(),
@@ -16,7 +26,7 @@ function login() {
   });
   //$('#target').html('obteniendo...');
   $.ajax({
-      url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/webLogin',
+      url: server + '/api/v1/admin/webLogin',
       type: "POST",
       
       dataType: "json",
@@ -48,9 +58,12 @@ function login() {
 };
 
 function crearSesion(tipoUs, idNeg, token, nombreUsuario, apellidoUsuario){
-     
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/negocio?id='+idNeg+"",
+            url: server + '/api/v1/admin/negocio?id='+idNeg+"",
             type: 'GET',
             
             dataType: "json",

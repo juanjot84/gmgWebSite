@@ -133,7 +133,8 @@ include("includes/head.php"); ?>
   });
 
   $(function() {
-    cargarHorariosSeteados();
+    var accion = 'editar';
+    iniciar(accion);
   });
 
   </script>

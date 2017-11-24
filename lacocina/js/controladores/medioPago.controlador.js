@@ -22,10 +22,11 @@
     obtenerListado();
 
     function obtenerListado() {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
         $('#listadoMedioPago').html('');
         $('#loading').html('<img class="img-responsive" src="img/loading.gif">');       
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/medioPago',
+            url: server + '/api/v1/admin/medioPago',
             type: 'GET',
             
             dataType: "json",
@@ -52,6 +53,7 @@
               $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
           },
       });
+    });
     }
 
     function editar(idMedioPago){
@@ -79,8 +81,12 @@
     }
 
     function eliminar(idMedioPago){
+        if (_.isUndefined(server)) {
+            $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+            });
+        }
        $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/medioPago?id=' + idMedioPago,
+            url: server + '/api/v1/admin/medioPago?id=' + idMedioPago,
             type: 'DELETE',
             
             dataType: "json",
@@ -108,6 +114,10 @@
     }
 
     function send() {
+        if (_.isUndefined(server)) {
+            $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+            });
+        }
         var isNew = $("#idMedioPago").val() == "";
         var operacion = isNew ? "POST": "PUT";
         var medioPago = JSON.stringify({
@@ -119,7 +129,7 @@
         $('#target').html('sending..');
         var queryParam = isNew  ? "": "?id=" + $("#idMedioPago").val();
         $.ajax({
-            url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/medioPago' + queryParam,
+            url: server + '/api/v1/admin/medioPago' + queryParam,
             type: operacion,
             
             dataType: "json",

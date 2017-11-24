@@ -209,7 +209,8 @@ error_reporting(E_ERROR);
     });
 
     $(function() {
-      cargarDescuentosSeleccionados();
+        var accion = 'editar';
+        iniciar(accion);
     });
 
 </script>

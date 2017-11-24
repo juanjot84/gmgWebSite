@@ -22,6 +22,7 @@ var ocasiones;
 obtenerListado();
 
 function obtenerListado() {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     $('#listadoOcasiones').html('');
     $('#loading').html('<img class="img-responsive" src="img/loading.gif">');
     $.ajax({
@@ -51,6 +52,7 @@ function obtenerListado() {
             $('#target').append("You can not send Cross Domain AJAX requests: " + errorThrown);
         },
     });
+});
 }
 
 function editar(idOcasion) {
@@ -80,8 +82,12 @@ function mostrar(idOcasion) {
 }
 
 function eliminar(idOcasion) {
+    if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }
     $.ajax({
-        url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/ocasion?id=' + idOcasion,
+        url: server + '/api/v1/admin/ocasion?id=' + idOcasion,
         type: 'DELETE',
 
         dataType: "json",
@@ -108,6 +114,10 @@ function agregarOcasion() {
 }
 
 function send() {
+    if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }
     var isNew = $("#idOcasion").val() == "";
     var operacion = isNew ? "POST": "PUT";
     
@@ -121,7 +131,7 @@ function send() {
     $('#target').html('sending..');
     var queryParam = isNew  ? "": "?id=" + $("#idOcasion").val();
     $.ajax({
-        url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/ocasion'+ queryParam,
+        url: server + '/api/v1/admin/ocasion'+ queryParam,
         type: operacion,
 
         dataType: "json",

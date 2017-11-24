@@ -210,8 +210,8 @@ error_reporting(E_ERROR);
     });
 
     $(function() {
-      var idNegocio = $("#idNegocioEditar").val()
-      cargarFormEditar(idNegocio);
+      var idNegocio = $("#idNegocioEditar").val();
+      iniciar(idNegocio);
     });
 
 </script>

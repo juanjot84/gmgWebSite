@@ -231,6 +231,11 @@ include("includes/nav.php"); ?>
 
     });
 
+    $(function() {
+        var accion = 'crear';
+        iniciar(accion);
+    });
+
 </script>
 
 </body>

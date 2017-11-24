@@ -18,8 +18,19 @@ $(function() {
  }); 
 var contactos;
 
-function cargarFormContacto(){
+function iniciar(accion){
   $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    if(accion == 'editar'){
+      cargarFormContacto();
+    }
+  });
+}
+
+function cargarFormContacto(){
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
   var idLocal = $('#idLocalRecibido').val();
   var idContacto = $('#idContactoRecibido').val();
   $.ajax({
@@ -42,7 +53,6 @@ function cargarFormContacto(){
       $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
     },
   });
-});
 }
 
 function actualizarContacto(){
