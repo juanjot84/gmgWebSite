@@ -182,7 +182,7 @@ function buscarFavoritos(local){
       _.each(data, function (favorito) {
         if(favorito.idLocal._id == local._id){
           iconoCorazon = 'favoritosficharojo fa fa-heart';
-          idFavorito = favorito._id;
+          idFavorito = favorito._id;    
         }
       });
 
@@ -193,6 +193,11 @@ function buscarFavoritos(local){
      },
      error:function(jqXHR,textStatus,errorThrown)
      {
+      var iconoCorazon = 'favoritosfichagris fa fa-heart';
+      $("#iconoFavorito").append('<h3 class="titulo"><span id="nombreNegocio">'+local.idNegocio.nombreNegocio+'</span> | <span id="bajadaNegocio">'+local.idNegocio.bajadaNegocio+'</span>'+
+      '<i id="corazon" style="cursor:pointer;" class="'+iconoCorazon+'" aria-hidden="true" ></i></h3>'+
+      '<p >RUBRO <span id="rubro"></span> > TIPO DE COCINA <span id="tipoCocinaPrincipal"></span></p>');
+         
          $('#target').append("jqXHR: "+jqXHR);
          $('#target').append("textStatus: "+textStatus);
          $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
