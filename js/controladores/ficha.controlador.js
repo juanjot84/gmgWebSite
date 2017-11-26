@@ -106,7 +106,7 @@ function popularLocal(local) {
   }
   var instagram;
   if(local.instagramLocal == ''){
-    instagram = ocal.idNegocio.instagramNegocio;
+    instagram = local.idNegocio.instagramNegocio;
   }else {
     instagram = local.instagramLocal;
   }
