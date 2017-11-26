@@ -132,6 +132,7 @@ error_reporting(E_ERROR);
           <div class="form-group">
             <label for="selectNino">¿Para cuántos niños?</label>
             <select class="form-control" id="selectNino">
+             <option value="0">0 niño</option>
               <option value="1">1 niño</option>
               <option value="2">2 niños</option>
               <option value="3">3 niños</option>
