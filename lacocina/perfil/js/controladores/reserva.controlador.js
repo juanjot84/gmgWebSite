@@ -22,9 +22,13 @@ $('#selectDia, #selectAdulto, #selectNino ').change( function (){
 //Funcion principal
 //TODO: buscar datos del local
 function getOpcionesReservaLocal(idLocal) {
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
 
     var localData = $.ajax({
-        url: 'https://aqueous-woodland-46461.herokuapp.com/api/v1/admin/locales?id=' + idLocal,
+        url: server + '/api/v1/admin/locales?id=' + idLocal,
         type: 'GET',
         dataType: "json",
         crossDomain: true,
@@ -43,7 +47,7 @@ function getOpcionesReservaLocal(idLocal) {
     // $('.container.ficha').html('');
     $('#target').html('obteniendo...');
     var horarios = $.ajax({
-      url: 'http://aqueous-woodland-46461.herokuapp.com/api/v1/admin/reservaDias?id=' + idLocal,
+      url: server + '/api/v1/admin/reservaDias?id=' + idLocal,
       type: 'GET',
       dataType: "json",
       crossDomain: true,
