@@ -17,9 +17,9 @@ $(function () {
 
 });
 
-function iniciar(accion){
-  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
-    if(accion == 'editar'){
+function iniciar(accion) {
+  $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
+    if (accion == 'editar') {
       cargarHorariosSeteados();
     }
   });
@@ -32,7 +32,7 @@ var dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabados", "Dom
 
 function cargarHorariosSeteados() {
   if (_.isUndefined(server)) {
-    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
     });
   }
   dibujarHorarios();
@@ -72,13 +72,13 @@ function cargarHorariosSeteados() {
 
 function dibujarHorarios() {
   $('#formularioAgregar').html('');
-  // $('#formularioAgregar').append('  <input type="text" name="idHorario" id="idHorario" class="hidden">    <input type="text" name="idLocalCreado" id="idLocalCreado" value="<?php echo $idLocal; ?>" class="hidden">        <h5 class="titulosalta"> Abierto</h5>    ');
+  $('#formularioAgregar').append('<h5 class="titulosalta"> Abierto</h5>');
   _.each(dias, function (dia) {
     $('#formularioAgregar').append('' +
       '<p>' +
       '  <strong>' + dia + ' </strong>' +
       '  <div class="row">' +
-      '    <span class="row">Horario de atención de manana</span>' +
+      '    <span class="row">Horario de atención de mañana</span>' +
       '    <div class="col-md-6">' +
       '      <input id="Hdesde' + dia + 'Manana" name="Hdesde' + dia + 'Manana" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3" onfocus="limpiar(\'Hhasta' + dia + 'Manana\',\'Hhasta' + dia + 'Manana\')">' +
       '    </div>' +
@@ -193,7 +193,7 @@ function eliminarViejos(vectorHorarios) {
 
 function eliminar(idHorarioAtencion) {
   if (_.isUndefined(server)) {
-    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
     });
   }
   $.ajax({
@@ -214,7 +214,7 @@ function eliminar(idHorarioAtencion) {
 function sendHorarios(diaHorario, horaDesde, horaHasta, turno) {
   var promise = new Promise(function (resolve, reject) {
     if (_.isUndefined(server)) {
-      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
       });
     }
     if (!_.isNil(diaHorario) && !_.isNil(horaDesde)) {
@@ -297,7 +297,6 @@ function validar(accion) {
       $("#Hdesde" + dia + "Tarde").addClass('alert-danger');
       hayError = true;
     }
-
   });
 
   if (hayError == false) {
@@ -315,7 +314,7 @@ function limpiar(campo, campoBack) {
 
 function volverPanelLocal() {
   if (_.isUndefined(server)) {
-    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
     });
   }
   var idLocal = $("#idLocalCreado").val();
