@@ -188,7 +188,7 @@ function buscarFavoritos(local){
 
       $("#iconoFavorito").append('<h3 class="titulo"><span id="nombreNegocio">'+local.idNegocio.nombreNegocio+'</span> | <span id="bajadaNegocio">'+local.idNegocio.bajadaNegocio+'</span>'+
       '<i id="corazon" style="cursor:pointer;" class="'+iconoCorazon+'" aria-hidden="true" onClick="editarFavorito(\'' + local._id + '\',\'' + idFavorito + '\')"></i></h3>'+
-      '<p >RUBRO <span id="rubro"></span> > TIPO DE COCINA <span id="tipoCocinaPrincipal"></span></p>');
+      '<p ><i class="fa fa-map-marker" aria-hidden="true"></i><span id="polo">' + local.idPoloGastronomico.nombrePoloGastronomico + '<i class="fa fa-cutlery" aria-hidden="true"></i><span class="tiponegocio">  ' +local.idTipoCocinaPrincipal.nombreTipoCocina +'</span></p>');
 
      },
      error:function(jqXHR,textStatus,errorThrown)
@@ -196,7 +196,7 @@ function buscarFavoritos(local){
       var iconoCorazon = 'favoritosfichagris fa fa-heart';
       $("#iconoFavorito").append('<h3 class="titulo"><span id="nombreNegocio">'+local.idNegocio.nombreNegocio+'</span> | <span id="bajadaNegocio">'+local.idNegocio.bajadaNegocio+'</span>'+
       '<i id="corazon" style="cursor:pointer;" class="'+iconoCorazon+'" aria-hidden="true" ></i></h3>'+
-      '<p >RUBRO <span id="rubro"></span> > TIPO DE COCINA <span id="tipoCocinaPrincipal"></span></p>');
+      '<p ><i class="fa fa-map-marker" aria-hidden="true"></i> <span id="polo">' + local.idPoloGastronomico.nombrePoloGastronomico + ' |  <i class="fa fa-cutlery" aria-hidden="true"></i><span class="tiponegocio">  ' +local.idTipoCocinaPrincipal.nombreTipoCocina +'</span></p>');
          
          $('#target').append("jqXHR: "+jqXHR);
          $('#target').append("textStatus: "+textStatus);

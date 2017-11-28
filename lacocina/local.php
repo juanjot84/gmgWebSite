@@ -78,7 +78,7 @@ include("includes/nav.php"); ?>
                     <label class="radio-inline"><input type="radio" name="localPremium" id="localPremium-false" value="false">No</label>
                   </p>
 
-                <h5 class="titulosalta"> Datos de contacto del local visibles para el clinte</h5>
+                <h5 class="titulosalta"> Datos de contacto del local visibles para el cliente</h5>
 
                     <p>
                         <div class="input-group input-group-sm">
@@ -93,7 +93,7 @@ include("includes/nav.php"); ?>
                         </div>
                     </p>
 
-                <h5 class="titulosalta"> Dirección fiscal</h5>
+                <h5 class="titulosalta"> Dirección </h5>
 
                     <p>
                         <div class="input-group input-group-sm">

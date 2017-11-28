@@ -82,7 +82,7 @@ error_reporting(E_ERROR);
                         </div>
                     </p>
 
-                <h5 class="titulosalta"> Dirección fiscal</h5>
+                <h5 class="titulosalta"> Dirección </h5>
 
                     <p>
                         <div class="input-group input-group-sm">
