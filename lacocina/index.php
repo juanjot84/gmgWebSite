@@ -118,7 +118,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="altoregistrorestaurant">
-                        <h2 style="color: #fff;">Quiero registrar mi restaurante</h2>
+                        <h2 style="color: #fff;">Quiero registrar mi negocio</h2>
                         <div class="col-sm-6 col-sm-offset-3">
                             <input type="button" name="login-submit" id="" class="form-control btn btn-login" value="Registrar" onclick="" style="margin-top: 7%; background: #ffff00c2;">
                         </div>
