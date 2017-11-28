@@ -21,6 +21,8 @@ function iniciar(accion) {
   $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
     if (accion == 'editar') {
       cargarHorariosSeteados();
+    } else if(accion == 'crear'){
+      dibujarHorarios();
     }
   });
 }
