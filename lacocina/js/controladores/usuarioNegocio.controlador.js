@@ -50,7 +50,6 @@
                 $("#email").val(usuario.email);
                 $("#apellido").val(usuario.apellido);
                 $("#sexoUsuario").val(usuario.sexoUsuario);
-                $("#fechaNacimientoUsuario").val(usuario.fechaNacimientoUsuario);
                 $("#idUsuarioNegocio").val(usuario._id);
                 $("#password").val(''); 
 
@@ -118,7 +117,6 @@
             "nombre":$("#nombre").val(),
             "apellido":$("#apellido").val(),
             "sexoUsuario":$("#sexoUsuario").val(),
-            "fechaNacimientoUsuario":$("#fechaNacimientoUsuario").val(),
             "idNegocio":$("#idNegocio").val()
         });
 
@@ -164,7 +162,6 @@
             "nombre":$("#nombre").val(),
             "apellido":$("#apellido").val(),
             "sexoUsuario":$("#sexoUsuario").val(),
-            "fechaNacimientoUsuario":$("#fechaNacimientoUsuario").val(),
             "password":$("#password").val(),
             "idNegocio":$("#idNegocio").val()
         });

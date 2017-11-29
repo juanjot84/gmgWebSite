@@ -101,12 +101,6 @@ error_reporting(E_ERROR);
                         </div>
                     </p>
 
-                    <label for="comment">Fecha de nacimiento</label>
-                    <p><div class="input-group input-group-sm">
-                      <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                      <input id="fechaNacimientoUsuario" name="fechaNacimientoUsuario" type="date" class="form-control" placeholder="Apellido" aria-describedby="sizing-addon3">
-                    </div></p>
-
 
               <div class="input-group">
                  <span class="input-group-btn">
