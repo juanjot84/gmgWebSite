@@ -100,6 +100,11 @@ function renderLocal(local){
   var longNivelPrecio = local.idNivelPrecio.label.length;
   var nivelGris = 5 - longNivelPrecio;
   var labelGrises = '';
+  var bajadaNegocio = '';
+  var raya = ' | ';
+  if(local.idNegocio.bajadaNegocio.length > 2){
+    bajadaNegocio = raya + local.idNegocio.bajadaNegocio;
+  }
   for(i = 0; i < nivelGris; i++){
     labelGrises += '$'
   }
@@ -116,7 +121,7 @@ function renderLocal(local){
     '<img class="img-responsive" src="' + local.fotoPrincipalLocal + '">' +
     '</div>' +
     '<div class="col-md-6">' +
-    '<p><span style="font-size: 1.5em;"><strong>' + local.idNegocio.nombreNegocio + '</strong> | ' + local.idNegocio.bajadaNegocio + '</span></p>' +
+    '<p><span style="font-size: 1.5em;"><strong>' + local.idNegocio.nombreNegocio + '</strong> ' + bajadaNegocio + '</span></p>' +
     '<i class="fa fa-map-marker" aria-hidden="true"></i><span class="polo">   ' + local.idPoloGastronomico.nombrePoloGastronomico +'</span> |  ' +
     '<i class="fa fa-cutlery" aria-hidden="true"></i><span class="tiponegocio">  ' +local.idTipoCocinaPrincipal.nombreTipoCocina +'</span></br>' +
     '<p style="letter-spacing: 1px;"><strong>'+ local.idNivelPrecio.label +'</strong><span style="color: #cbcbcb">'+ labelGrises +'</span></p>'+
