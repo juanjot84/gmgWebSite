@@ -25,7 +25,7 @@
     var tipoCocinas;
     var especialidades;
     var servicios;
-    var localidades;
+ //   var localidades;
     var ocasiones;
 
 
@@ -150,11 +150,11 @@ function iniciar(accion){
              $('#mailContacto').val(local.mailContacto);
              $('#calleLocal').val(local.calleLocal);
              $('#alturaLocal').val(local.alturaLocal);
-             var idLocalidad = local.idLocalidad._id;
+        /*     var idLocalidad = local.idLocalidad._id;
               obtenerListadoLocalidades().done(function(data){
                 localidades = data
               popularDropdownLocalidadesEditar(idLocalidad);
-              });
+              }); */
              var coordenadas = {lng: local.longitudLocal, lat: local.latitudLocal};
              setMapa (coordenadas);
              $('#long').val(local.longitudLocal);
@@ -513,7 +513,7 @@ function iniciar(accion){
             });          
       });
     }
-
+/*
   // Traer localidades para lista desplegable
     function obtenerListadoLocalidades() {
       if (_.isUndefined(server)) {
@@ -549,7 +549,7 @@ function iniciar(accion){
         option.attr('selected', 'selected');
         option.appendTo('#idLocalidad');
       });
-    }
+      } */
 
   // Mostrar form de alta de local y ocultar el de negocio
 
@@ -564,11 +564,11 @@ function iniciar(accion){
                 polos = data
             popularDropdownPolosAlta();
             });
-
+/*
             obtenerListadoLocalidades().done(function(data){
                 localidades = data
             popularDropdownLocalidadesAlta();
-            });
+            }); */
 
             obtenerListadoNivelPrecio().done(function(data){
                 nivelPrecios = data
@@ -660,7 +660,7 @@ function iniciar(accion){
             "mailContacto":$("#mailContacto").val(),
             "alturaLocal":$("#alturaLocal").val(),
             "calleLocal":$("#calleLocal").val(),
-            "idLocalidad":$("#idLocalidad").val(),
+         //   "idLocalidad":$("#idLocalidad").val(),
             "nombreLocal":$("#nombreLocal").val(),
             "aceptaReservaNegocio":$('input[name=aceptaReservaNegocio]:checked', '#formularioLocal').val(),
             "localPremium":$('input[name=localPremium]:checked', '#formularioLocal').val()
@@ -753,7 +753,7 @@ function iniciar(accion){
             "mailContacto":$("#mailContacto").val(),
             "alturaLocal":$("#alturaLocal").val(),
             "calleLocal":$("#calleLocal").val(),
-            "idLocalidad":$("#idLocalidad").val(),
+          //  "idLocalidad":$("#idLocalidad").val(),
             "nombreLocal":$("#nombreLocal").val(),
             "aceptaReservaNegocio":$('input[name=aceptaReservaNegocio]:checked', '#formularioLocal').val(),
             "localPremium":$('input[name=localPremium]:checked', '#formularioLocal').val()
@@ -791,7 +791,7 @@ function validar(accion){
   var mailContacto = $("#mailContacto").val();
   var calleLocal = $("#calleLocal").val();
   var alturaLocal = $("#alturaLocal").val();
-  var idLocalidad = $("#idLocalidad").val();
+ // var idLocalidad = $("#idLocalidad").val();
   var poloNegocio = $("#poloNegocio").val();
   var nivelPrecio = $("#nivelPrecio").val();
   var TipoCocinaPpal = $("#TipoCocinaPpal").val();
@@ -822,12 +822,12 @@ function validar(accion){
       $("#alturaLocal").addClass('alert-danger');
       hayError = true;
    }
-
+/*
    if(idLocalidad == null){
       $("#idLocalidad").parent().after('<span id="idLocalidadAlert" style="color:red"> Debe seleccionar una Localidad para el Local</span>');
       $("#idLocalidad").addClass('alert-danger');
       hayError = true;
-   }
+   } */
 
    if(poloNegocio == null){
       $("#poloNegocio").parent().after('<span id="poloNegocioAlert" style="color:red"> Debe seleccionar un Polo Gastronómico para el Local</span>');
@@ -853,8 +853,6 @@ function validar(accion){
     }else if(accion == 'editar'){
        actualizarLocal();
     }
-  
-
      
   }else{
     $(location).attr('href',"#formularioLocal");
