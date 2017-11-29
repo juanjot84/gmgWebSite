@@ -16,7 +16,7 @@ function getDetalleLocal(idLocal) {
     crossDomain: true,
     contentType: "application/json",
     success: function (data) {
-      buscarSugeridos()
+      buscarSugeridos();
       locales = data;
       popularLocal(data);
 
@@ -168,6 +168,8 @@ function popularLocal(local) {
   dibujarServicios(local.idServicio);
   var coordenadas = {lng: local.longitudLocal, lat: local.latitudLocal};
   setMapa(coordenadas);
+  $('.container.ficha').show();
+  $('#loading').hide();
 }
 
 function buscarFavoritos(local){

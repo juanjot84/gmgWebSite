@@ -70,6 +70,7 @@ if (empty($filtro)) $filtro = '';
       </div>
     </div>
   </div>
+  <center><div id="loading"><img class="img-responsive" src="img/loading.gif"></div></center>
   <div class="container locales" style="margin-bottom: 5%; min-height: 80vh;">
 
   </div>

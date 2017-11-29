@@ -6,7 +6,6 @@ function obtenerListado() {
     });
   }
     $('.container.locales').html('');
-    $('#target').html('obteniendo...');
     $.ajax({
         url: server + '/api/v1/admin/locales',
         type: 'GET',
@@ -18,12 +17,14 @@ function obtenerListado() {
           _.each(data, function(local){
               renderLocal(local);
           });
+          $('#loading').hide();
       },
       error:function(jqXHR,textStatus,errorThrown)
       {
           $('#target').append("jqXHR: "+jqXHR);
           $('#target').append("textStatus: "+textStatus);
           $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+          $('#loading').hide();
       }
   });
 }

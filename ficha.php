@@ -53,7 +53,8 @@ session_start();
 
         <!-- Header -->
         <header class="fondoficha">
-            <div class="container ficha">
+            <center><div id="loading"><img class="img-responsive" src="img/loading.gif"></div></center>
+            <div class="container ficha" style="display:none">
                 <div class="row" style="margin: 10% 0 5% 0;">
                     <div class="col-md-8 text-left texto-ficha">
                         <div class="row">
