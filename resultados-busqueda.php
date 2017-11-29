@@ -66,7 +66,7 @@ if (empty($filtro)) $filtro = '';
   <div class="container" style="padding-top: 6%;>
     <div class="row">
       <div class="col-md-12">
-        <h3 id="labelRestaurantesBusquedas">Restaurantes para la búsqueda ""</h3>
+        <h3 id="labelRestaurantesBusquedas"></h3>
       </div>
     </div>
   </div>

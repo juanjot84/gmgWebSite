@@ -122,11 +122,12 @@ error_reporting(E_ERROR);
  
                <h5 class="titulosalta"> Descripción</h5>
 
-                        <p>Texto con un máxio de 500 caracteres incluyendo espacios</p>
+                        <p>Texto con un máximo de 500 caracteres incluyendo espacios</p>
 
                             <div class="form-group">
                               <label for="comment">Descripción:</label>
-                              <textarea class="form-control" rows="5" id="descripcionNegocio" name="descripcionNegocio"></textarea>
+                              <textarea class="form-control" rows="5" onKeyDown="validarCantidadCaracteres('descripcionNegocio','descripcionNegociolength',500);" id="descripcionNegocio" name="descripcionNegocio"></textarea>
+                               <input style="border:none; color:red;font-size:12pt;font-style:italic;" readonly="readonly" type="text" id='descripcionNegociolength' name="descripcionNegociolength" size="3" maxlength="3" value="500" /> caracteres restantes</i>
                             </div>
 
               <h5 class="titulosalta"> Palabras de búsqueda</h5>
