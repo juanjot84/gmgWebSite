@@ -394,11 +394,6 @@ function validar(accion){
       $("#tipoNegocio").addClass('alert-danger');
       hayError = true;
    }
-   if(urlImagenNegocio.length < 2){
-      $("#urlIconoNegocio").parent().after('<span id="urlIconoNegocioAlert" style="color:red"> Debe ingresar la url de la imagen del Negocio</span>');
-      $("#urlIconoNegocio").addClass('alert-danger');
-      hayError = true;
-   }
    if(descripcionNegocio.length < 2){
       $("#descripcionNegocio").parent().after('<span id="descripcionNegocioAlert" style="color:red"> Debe ingresar una descripción para el Negocio</span>');
       $("#descripcionNegocio").addClass('alert-danger');
