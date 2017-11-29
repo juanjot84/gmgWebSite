@@ -82,22 +82,6 @@ error_reporting(E_ERROR);
                         </div>
                     </p>
 
-                <h5 class="titulosalta"> Dirección </h5>
-
-                    <p>
-                        <div class="input-group input-group-sm">
-                          <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-road" aria-hidden="true"></i></span>
-                          <input id="calleLocal" name="calleLocal" type="text" class="form-control" placeholder="Calle" aria-describedby="sizing-addon3" onfocus="limpiar('calleLocal')" required>
-                        </div>
-                    </p>
-                    <p>
-                        <div class="input-group input-group-sm">
-                          <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-road" aria-hidden="true"></i></span>
-                          <input id="alturaLocal" name="alturaLocal" type="number" class="form-control" placeholder="Altura" aria-describedby="sizing-addon3" onfocus="limpiar('alturaLocal')" required>
-                        </div>
-                    </p>
-                    <p>
-
               <h5 class="titulosalta"> Página web del local</h5>
 
               <p><div class="input-group input-group-sm">
@@ -126,13 +110,23 @@ error_reporting(E_ERROR);
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-tripadvisor" aria-hidden="true"></i></span>
                 <input id="tripadvisorLocal" name="tripadvisorLocal" type="text" class="form-control" placeholder="Tripadvisor del Local" aria-describedby="sizing-addon3">
               </div></p>
-    <!--            <h5 class="titulosalta"> Localidad</h5>
 
-                  <p><div class="input-group input-group-sm">
-                    <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                    <select id="idLocalidad" name="idLocalidad" class="form-control" onfocus="limpiar('idLocalidad')" required></select>
-                  </div></p>
-                  -->
+              <h5 class="titulosalta"> Dirección </h5>
+
+                    <p>
+                        <div class="input-group input-group-sm">
+                          <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-road" aria-hidden="true"></i></span>
+                          <input id="calleLocal" name="calleLocal" type="text" class="form-control" placeholder="Calle" aria-describedby="sizing-addon3" onfocus="limpiar('calleLocal')" required>
+                        </div>
+                    </p>
+                    <p>
+                        <div class="input-group input-group-sm">
+                          <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-road" aria-hidden="true"></i></span>
+                          <input id="alturaLocal" name="alturaLocal" type="number" class="form-control" placeholder="Altura" aria-describedby="sizing-addon3" onfocus="limpiar('alturaLocal')" required>
+                        </div>
+                    </p>
+                    <p>
+
                 <h5 class="titulosalta"> Marcar en Google Maps</h5>
                         <div id="map"></div>
                         <input type="text" id="lat"  class="hidden" />
