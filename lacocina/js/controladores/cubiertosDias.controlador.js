@@ -1,7 +1,9 @@
 function iniciar(accion) {
   $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
     if (accion == 'editar') {
-      cargarCubiertosSeteados();
+      cargarCubiertosSeteados(accion);
+    }else if(accion == 'crear'){
+      dibujarCubiertos(accion);
     }
   });
 }
@@ -11,12 +13,12 @@ var cubiertosViejos = [];
 var dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabados", "Domingos", "Feriados"];
 
 
-function cargarCubiertosSeteados() {
+function cargarCubiertosSeteados(accion) {
   if (_.isUndefined(server)) {
     $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
     });
   }
-  dibujarCubiertos();
+  dibujarCubiertos(accion);
   var idLocal = $("#idLocalCreado").val();
   $('#target').html('obteniendo...');
   $.ajax({
@@ -52,7 +54,7 @@ function cargarCubiertosSeteados() {
   });
 }
 
-function dibujarCubiertos() {
+function dibujarCubiertos(accion) {
   $('#formularioAgregar').html('');
    $('#formularioAgregar').append(' <h5 class="titulosalta"> Abierto</h5> ');
   _.each(dias, function (dia) {
@@ -87,7 +89,7 @@ function dibujarCubiertos() {
     '<div class="input-group">' +
     '  <span class="input-group-btn">' +
     '    <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>' +
-    '    <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar(\'editar\')"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>' +
+    '    <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar(\'' + accion + '\')"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>' +
     '  </span>' +
     '</div>');
 
@@ -141,17 +143,14 @@ function SendCubiertos(accion) {
       console.log(localCubiertosCreados);
 
       if (accion == 'crear') {
-        var url = "../lacocina/negocios.php";
-        $(location).attr('href', url);
+        cargarImagenes();
       } else if (accion == 'editar') {
         eliminarViejos(cubiertosViejos).then(function (error, success) {
           volverPanelLocal();
         }).catch(function (err) {
           console.log(err);
         });
-        //   volverPanelLocal()
       }
-
     }).catch(function (err) {
       console.log(err);
     });
@@ -315,6 +314,34 @@ function volverPanelLocal() {
       var local = data;
       var idNegocio = local.idNegocio._id;
       var url = "../lacocina/panel-locales.php?idLocal=" + idLocal + "&idNegocio=" + idNegocio + "";
+      $(location).attr('href', url);
+
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      $('#target').append("jqXHR: " + jqXHR);
+      $('#target').append("textStatus: " + textStatus);
+      $('#target').append("You can not send Cross Domain AJAX requests: " + errorThrown);
+    },
+  });
+}
+
+function cargarImagenes(){
+  if (_.isUndefined(server)) {
+    $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
+    });
+  }
+  var idLocal = $("#idLocalCreado").val();
+  $('#target').html('obteniendo...');
+  $.ajax({
+    url: server + '/api/v1/admin/locales?id=' + idLocal + "",
+    type: 'GET',
+
+    dataType: "json",
+    crossDomain: true,
+    contentType: "application/json",
+    success: function (data) {
+      var local = data;
+      var url = "../lacocina/subir-imagen.php?idLocal=" + idLocal +"";
       $(location).attr('href', url);
 
     },

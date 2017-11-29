@@ -56,7 +56,7 @@ include("includes/nav.php"); ?>
 
              <h2 class="tituloseccion">Asignar Cubiertos por día</h2>
             <input type="text" name="idCubierto" id="idCubierto" class="hidden">
-            <input type="text" name="idLocalCreado" id="idLocalCreado" value="<?php echo $idLocal; ?>" >
+            <input type="text" name="idLocalCreado" id="idLocalCreado" value="<?php echo $idLocal; ?>" class="hidden">
 
             <form action="" id="formularioAgregar">
             </form>

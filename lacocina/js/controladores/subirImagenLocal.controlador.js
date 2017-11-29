@@ -120,6 +120,7 @@ function obtenerLocal(vectorImagenes){
         })
         var idLocal = $("#idLocal").val();
         var campo = 'fotoLocal';
+        imagenesLocal=[];
         actualizarLocal(idLocal,imagenesGuardadas,campo);
       } 
   });    

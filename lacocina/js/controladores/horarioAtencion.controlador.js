@@ -20,9 +20,9 @@ $(function () {
 function iniciar(accion) {
   $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
     if (accion == 'editar') {
-      cargarHorariosSeteados();
+      cargarHorariosSeteados(accion);
     } else if(accion == 'crear'){
-      dibujarHorarios();
+      dibujarHorarios(accion);
     }
   });
 }
@@ -32,12 +32,12 @@ var horariosViejos = [];
 
 var dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabados", "Domingos", "Feriados"];
 
-function cargarHorariosSeteados() {
+function cargarHorariosSeteados(accion) {
   if (_.isUndefined(server)) {
     $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
     });
   }
-  dibujarHorarios();
+  dibujarHorarios(accion);
   var idLocal = $("#idLocalCreado").val();
   $('#target').html('obteniendo...');
   $.ajax({
@@ -72,7 +72,7 @@ function cargarHorariosSeteados() {
   });
 }
 
-function dibujarHorarios() {
+function dibujarHorarios(accion) {
   $('#formularioAgregar').html('');
   $('#formularioAgregar').append('<h5 class="titulosalta"> Abierto</h5>');
   _.each(dias, function (dia) {
@@ -105,7 +105,7 @@ function dibujarHorarios() {
     '<div class="input-group">' +
     '  <span class="input-group-btn">' +
     '    <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>' +
-    '    <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar(\'editar\')"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>' +
+    '    <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar(\'' + accion + '\')"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>' +
     '  </span>' +
     '</div>');
 
