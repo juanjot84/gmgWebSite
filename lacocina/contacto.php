@@ -2,8 +2,9 @@
 error_reporting(E_ERROR);
 session_start();
 
-$idNegocio = $_SESSION['idNegocio'];
+$idNegocio = $_GET['idNegocio'];
 $tipoUsuario = $_SESSION['tipoUsuario'];
+
 
 
 if (!$_SESSION) {
@@ -59,6 +60,7 @@ include("includes/nav.php"); ?>
 
               <input type="text" name="idContacto" id="idContacto" class="hidden">
               <input type="text" name="idLocalCreado" id="idLocalCreado" value="<?php echo $idLocal; ?>" class="hidden">
+              <input type="text" name="idNegocioCreado" id="idNegocioCreado" value="<?php echo $idNegocio; ?>" class="hidden">
 
           <h5 class="titulosalta"> Nombre</h5>
             

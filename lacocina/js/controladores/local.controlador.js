@@ -721,7 +721,7 @@ function iniciar(accion){
               var resultado = data;
               var localCreado =  resultado._id;
 
-              var url = "../lacocina/contacto.php?idLocal="+ localCreado+""; 
+              var url = "../lacocina/contacto.php?idLocal="+ localCreado+"&idNegocio="+idNeg+""; 
               $(location).attr('href',url);
 
                 $("#formularioLocal :input").val('');         
