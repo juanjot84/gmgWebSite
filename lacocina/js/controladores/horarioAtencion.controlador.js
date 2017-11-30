@@ -82,7 +82,7 @@ function dibujarHorarios(accion) {
       '  <div class="row">' +
       '    <span class="row">Horario de atención de mañana</span>' +
       '    <div class="col-md-6">' +
-      '      <input id="Hdesde' + dia + 'Manana" name="Hdesde' + dia + 'Manana" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3" onfocus="limpiar(\'Hhasta' + dia + 'Manana\',\'Hhasta' + dia + 'Manana\')">' +
+      '      <input id="Hdesde' + dia + 'Manana" name="Hdesde' + dia + 'Manana" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3" onfocus="limpiar(\'Hdesde' + dia + 'Manana\',\'Hdesde' + dia + 'Manana\')">' +
       '    </div>' +
       '    <div class="col-md-6">' +
       '      <input id="Hhasta' + dia + 'Manana" name="Hhasta' + dia + 'Manana" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3" onfocus="limpiar(\'Hhasta' + dia + 'Manana\',\'Hhasta' + dia + 'Manana\')">' +
@@ -91,7 +91,7 @@ function dibujarHorarios(accion) {
       '  <div class="row">' +
       '    <span class="row">Horario de atención de tarde</span>' +
       '    <div class="col-md-6">' +
-      '      <input id="Hdesde' + dia + 'Tarde" name="Hdesde' + dia + 'Tarde" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3" onfocus="limpiar(\'Hhasta' + dia + 'Manana\',\'Hhasta' + dia + 'Manana\')">' +
+      '      <input id="Hdesde' + dia + 'Tarde" name="Hdesde' + dia + 'Tarde" type="text" class="form-control" placeholder="Hora desde HH:MM" aria-describedby="sizing-addon3" onfocus="limpiar(\'Hdesde' + dia + 'Manana\',\'Hdesde' + dia + 'Manana\')">' +
       '    </div>' +
       '    <div class="col-md-6">' +
       '      <input id="Hhasta' + dia + 'Tarde" name="Hhasta' + dia + 'Tarde" type="text" class="form-control" placeholder="Hora hasta HH:MM" aria-describedby="sizing-addon3" onfocus="limpiar(\'Hhasta' + dia + 'Tarde\',\'Hhasta' + dia + 'Tarde\')">' +
@@ -283,6 +283,44 @@ function validar(accion) {
       $("#Hhasta" + dia + "Manana").addClass('alert-danger');
       hayError = true;
     }
+    
+    if(horarioHastaM.hora != ""){
+     var result = controlarFormatoHora(horarioHastaM.hora);
+     if(result == true){
+      $("#Hhasta" + dia + "Manana").parent().after('<span id="Hhasta' + dia + 'MananaAlert" style="color:red"> Debe ingresar un Horario correcto (HH:mm) para el día</span>');
+      $("#Hhasta" + dia + "Manana").addClass('alert-danger');
+      hayError = true;
+     }
+    }
+
+    if(horarioHastaT.hora != ""){
+      var result = controlarFormatoHora(horarioHastaT.hora);
+      if(result == true){
+        $("#Hhasta" + dia + "Tarde").parent().after('<span id="Hhasta' + dia + 'TardeAlert" style="color:red"> Debe ingresar un Horario correcto (HH:mm) para el día</span>');
+        $("#Hhasta" + dia + "Tarde").addClass('alert-danger');
+       hayError = true;
+      }
+     }
+
+     if(horarioDesdeM.hora != ""){
+      var result = controlarFormatoHora(horarioDesdeM.hora);
+      if(result == true){
+        $("#Hdesde" + dia + "Manana").parent().after('<span id="Hdesde' + dia + 'MananaAlert" style="color:red"> Debe ingresar un Horario correcto (HH:mm) para el día</span>');
+        $("#Hdesde" + dia + "Manana").addClass('alert-danger');
+       hayError = true;
+      }
+     }
+
+     if(horarioDesdeT.hora != ""){
+      var result = controlarFormatoHora(horarioDesdeT.hora);
+      if(result == true){
+        $("#Hdesde" + dia + "Tarde").parent().after('<span id="Hdesde' + dia + 'TardeAlert" style="color:red"> Debe ingresar un Horario correcto (HH:mm) para el día</span>');
+        $("#Hdesde" + dia + "Tarde").addClass('alert-danger');
+       hayError = true;
+      }
+     }
+
+
     if (horarioDesdeM.hora == "" && horarioHastaM.hora != "") {
       $("#Hdesde" + dia + "Manana").parent().after('<span id="Hdesde' + dia + 'MananaAlert" style="color:red"> Debe ingresar un Horario desde para el día</span>');
       $("#Hdesde" + dia + "Manana").addClass('alert-danger');
@@ -306,6 +344,15 @@ function validar(accion) {
   } else {
     $(location).attr('href', "#formularioAgregar");
   }
+}
+
+function controlarFormatoHora(hora){
+
+  var caract = new RegExp(/^([0-9]|0[0-9]|1[0-9]|2[0-4]):[0-5][0-9]$/);  
+    if (! caract.test(hora)){
+      return true
+  } 
+
 }
 
 function limpiar(campo, campoBack) {
