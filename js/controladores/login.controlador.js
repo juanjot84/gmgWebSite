@@ -16,6 +16,8 @@ function setRedirect(url){
 }
 
 function login() {
+  var overlay = jQuery('<div id="overlay"><center><div id="loading"><img class="img-responsive" src="img/loading.gif"></div></center> </div>');
+  overlay.appendTo(document.body);
   if (_.isUndefined(server)) {
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     });
@@ -35,11 +37,14 @@ function login() {
       crossDomain: true,
       contentType:"application/json",
       success: function (data) {
+        $('#overlay').remove();
         crearSesion(data);
       },
       error:function(jqXHR,textStatus,errorThrown){
+        $('#overlay').remove();
         $('#login-submit').removeAttr('disabled');
-        var disabled = false;
+        disabled = false;
+        $('#passwordUsuarioAlert').remove();
         $("#passwordUsuario").parent().after('<span id="passwordUsuarioAlert" style="color:red"> Usuario / contraseña incorrecto</span>');
         $("#emailUsuario").addClass('alert-danger');
         $("#passwordUsuario").addClass('alert-danger');

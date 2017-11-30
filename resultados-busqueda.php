@@ -53,7 +53,7 @@ if (empty($filtro)) $filtro = '';
   <input type="text" name="parametro" id="parametro" value="<?php echo $parametro; ?>" class="hidden">
   <input type="text" name="filtro" id="filtro" value="<?php echo $filtro; ?>" class="hidden">
 
-  <?php 
+  <?php
   error_reporting(E_ERROR);
   include("includes/nav.php");
    ?>
@@ -76,7 +76,7 @@ if (empty($filtro)) $filtro = '';
   </div>
 
 
- <?php 
+ <?php
  error_reporting(E_ERROR);
  include("includes/footer.php");
   ?>
@@ -96,10 +96,7 @@ if (empty($filtro)) $filtro = '';
 
   <!-- Funciones de Locales JavaScript -->
   <script src="js/controladores/locales.controlador.js"></script>
-  <script>
-  getTituloBusqueda('<?php echo $parametro; ?>', '<?php echo $filtro; ?>');
 
-  </script>
   <!-- Theme JavaScript -->
   <script src="js/agency.min.js"></script>
 
@@ -107,7 +104,7 @@ if (empty($filtro)) $filtro = '';
   crossorigin="anonymous"></script>
 
   <script>
-  buscar('<?php echo $parametro; ?>', '<?php echo $filtro; ?>');
+    buscar('<?php echo $parametro; ?>', '<?php echo $filtro; ?>');
 
   </script>
 

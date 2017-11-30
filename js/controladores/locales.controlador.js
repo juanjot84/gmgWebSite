@@ -32,7 +32,8 @@ function buscar(parametro, filtro) {
 
 
     if (_.isEmpty(parametro) && _.isEmpty(filtro)) {
-      obtenerListado()
+      obtenerListado();
+      getTituloBusqueda(parametro, filtro);
     } else {
       $('.container.locales').html('');
       var obj = {};
@@ -67,6 +68,7 @@ function buscar(parametro, filtro) {
         },
         data: JSON.stringify(obj)
       });
+      getTituloBusqueda('');
     }
   });
 }
