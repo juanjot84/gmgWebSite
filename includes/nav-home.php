@@ -7,6 +7,13 @@
   // $idLocal = $_GET["id"];
 
       // $jwt = $_SESSION['jwt'];
+
+ $tipoUsuario = $_SESSION['tipoUsuario'];
+ if ($tipoUsuario == 'usuarioNegocio'  or $tipoUsuario == 'superAdmin') {
+  header('Location: cerrar_sesion.php');
+ }
+
+
  $nombreUsuario = $_SESSION['nombreUsuario'];
  $apellidoUsuario = $_SESSION['apellidoUsuario'];
 

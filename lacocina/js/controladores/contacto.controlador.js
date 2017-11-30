@@ -22,7 +22,40 @@ function iniciar(accion){
   $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     if(accion == 'editar'){
       cargarFormContacto();
+    }else if(accion == 'crear'){
+      cargarFormCrear();
     }
+  });
+}
+
+function cargarFormCrear(){
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
+  var idLocal = $('#idLocalRecibido').val();
+  var idContacto = $('#idContactoRecibido').val();
+  $.ajax({
+    url: server + '/api/v1/admin/usuarioNegocio',
+    type: 'GET',
+    dataType: "json",
+    crossDomain: true,
+    contentType:"application/json",
+    success: function (data) {
+      var idNegocio = $('#idNegocioCreado').val();
+      _.each(data, function(usuario){
+         if(idNegocio == usuario.idNegocio){
+          $('#nombreContacto').val(usuario.nombre +' '+usuario.apellido);
+          $('#mailContacto').val(usuario.email);
+         }
+      });
+    },
+    error:function(jqXHR,textStatus,errorThrown)
+    {
+      $('#target').append("jqXHR: "+jqXHR);
+      $('#target').append("textStatus: "+textStatus);
+      $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+    },
   });
 }
 
