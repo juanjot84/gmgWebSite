@@ -21,7 +21,7 @@ if (!$_SESSION) {
 
 <?php 
 error_reporting(E_ERROR);
-include("includes/head-perfil.php"); ?>
+include("includes/head-remarketing.php"); ?>
 
 <head>
     <style type="text/css">
@@ -86,20 +86,12 @@ error_reporting(E_ERROR);
                 <div class="col-md-8">
                   
                 </div>
-                <div class="col-md-4 text-right">
 
-                  <div class="form-group">
-                    <label for="sel1">Ordenar por fecha:</label>
-                    <select class="form-control" id="sel1">
-                      <option>Este mes</option>
-                      <option>El mes pasado</option>
-                      <option>Últimos 30 días</option>
-                      <option>Últimos 7 días</option>
-                      <option>Ayer</option>
-                    </select>
-                  </div>
+                <div class="col-md-4 text-right">
+                <input type="text" name="daterange" value="01/01/2015 - 01/31/2015" />
 
                 </div>
+
               </div>
 
               <div class="row modulografico">
@@ -163,7 +155,7 @@ error_reporting(E_ERROR);
     <script src="js/contact_me.js"></script>
 
     <!-- Funcione de Local JavaScript -->
-    <script src="js/controladores/reservas.controlador.js"></script>
+    <script src="js/controladores/remarketing.controlador.js"></script>
 
     <!-- Theme JavaScript -->
     <script src="js/agency.min.js"></script>
