@@ -135,7 +135,6 @@ function popularLocal(local) {
   $('#instagramNegocio').attr('href', instagram);
   $('#tripadvisorNegocio').attr('href', tripadvisor);
   $('#paginaNegocio').attr('href', web);
-  $('#direccionLocal').text(local.calleLocal + espacio + local.alturaLocal + coma + local.idLocalidad.nombreLocalidad);
   $('#telefonoLocal').text(local.telContacto);
   $('#mailLocal').text(local.mailContacto);
   $('#tipoCocinaPrincipal').text(local.idTipoCocinaPrincipal.nombreTipoCocina);

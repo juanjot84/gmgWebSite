@@ -65,7 +65,6 @@ function obtenerListadoDescuento(){
 function popularDropdownDescEditar(dia,idLocaldescuentos){
       $('#descuento' +  dia).html('');
       $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#descuento' +  dia);
-
       _.each(descuentos, function (descuento){;
        var option = $('<option>').val(descuento._id).text(descuento.porcentajeDescuento+ '  |  ' + descuento.descripcionDescuento);
        option.appendTo('#descuento' +  dia);
@@ -73,8 +72,8 @@ function popularDropdownDescEditar(dia,idLocaldescuentos){
        if(!_.isUndefined(descDia) && descDia.idDescuento == descuento._id){
           option.attr('selected', 'selected');
         }
-
       });
+      $('#descuento'+dia).append('<option value="">Sin descuento</option>');
 }
 
 function popularDropdownDescAlta(dia){
@@ -153,7 +152,7 @@ function SendLocalDescuento(accion){
   for (var i = 0; i < dias.length; i+=1) {
     console.log(dias[i],idDescuentos[i]);
 
-    if(idDescuentos[i] != null){
+    if(idDescuentos[i] != null && idDescuentos[i] != ''){
       var guardar =  sendLocalDescuento(dias[i],idDescuentos[i]).then(function(id){
         localDescuentoCreados.push(id);
       });
