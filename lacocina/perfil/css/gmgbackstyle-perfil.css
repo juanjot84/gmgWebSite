@@ -533,6 +533,27 @@ img.logowebperfil {
     padding-top: 8%;
 }
 
+.remarketingpestanas {
+    min-height: 50vh;
+}
+
+.titulosremarketing {
+    font-size: 1.2em;    
+    color: #f8981d;
+    line-height: 3em;
+    text-transform: uppercase;
+}
+
+.textosremkt {
+    color: grey;
+    font-size: 1em;
+}
+
+.modulografico {
+    border-top: 1px solid #e6e6e6;
+    margin-top: 3%;
+}
+
 /*MEDIA QUERIES*/
 
 
