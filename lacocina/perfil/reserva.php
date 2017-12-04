@@ -288,7 +288,7 @@ error_reporting(E_ERROR);
   <script  src=" https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"
   crossorigin="anonymous"></script>
   <!-- Funciones de Local JavaScript -->
-  <script src="js/controladores/reserva.controlador.js"></script>
+  <script src="js/controladores/reservaPerfil.controlador.js"></script>
   <script>
     setJWT('<?php echo $jwt; ?>');
   </script>

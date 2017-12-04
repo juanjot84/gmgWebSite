@@ -13,7 +13,7 @@ $('#selectDia, #selectAdulto, #selectNino ').change( function (){
   $('#noHorario').hide();
   if ($('#selectDia').val()){
     idLocal = $('#selectLocal').val();
-    buscarHorarios()
+    buscarHorarios();
   }
 });
 

@@ -6,7 +6,16 @@
                 <a class="navbar-brand page-scroll" href="#"><img class="logoweb" src="img/logo-lacocina.png"></a>
             </div>
             <div class="col-md-4" style="text-align: right; padding: 2% 0;">
-                <a class="botsalir" href="scripts/cerrar_sesion.php"><i class="fa fa-user" aria-hidden="true"></i> SALIR</a>
+
+            <?php 
+            error_reporting(E_ERROR);
+            $path = '';
+              if($tipoUsuario == 'superAdmin'){
+                  $path = '../'; 
+              }
+            ?>
+
+                <a class="botsalir" href="<?php error_reporting(E_ERROR); echo $path; ?>scripts/cerrar_sesion.php"><i class="fa fa-user" aria-hidden="true"></i> SALIR</a>
             </div>
         </div>
       </div>
