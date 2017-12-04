@@ -20,7 +20,7 @@ if (!$_SESSION) {
  
 <?php 
 error_reporting(E_ERROR); 
-include("includes/head-perfil.php"); 
+include("includes/head-remarketing.php"); 
 ?>
  
 <head>
@@ -67,6 +67,7 @@ error_reporting(E_ERROR);
     </div>
  
     <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
+    <input type="text" name="idLocal" id="idLocal" value="<?php echo $_SESSION['idLocal']; ?>" class="hidden">
       <div class="tituloseccion">Remarketing</div>
         <div class="remarketingpestanas">
           <ul class="nav nav-tabs nav-justified" style="margin-bottom: 3%;">
@@ -100,8 +101,8 @@ error_reporting(E_ERROR);
  
               <div class="row modulografico">
                 <div class="col-md-6">
-                  <span class="titulosremarketing">Resultados por sexo</span>
-                  <img class="img-responsive" src="imgs/grafico01.jpg">
+                <span class="titulosremarketing">Resultados por Sexo</span>
+                <div id="chartSexo" class="img-responsive"></div>
                 </div>
  
                 <div class="col-md-6">
@@ -165,8 +166,8 @@ error_reporting(E_ERROR);
     <!-- Funcione de Local JavaScript -->
     <script src="js/controladores/remarketing.controlador.js"></script>
  
-    <!-- Theme JavaScript -->
- 
+
+ <!-- Theme JavaScript -->
     <script src="js/agency.min.js"></script>
     <script type="text/javascript">
  
