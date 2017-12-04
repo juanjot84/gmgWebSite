@@ -1,28 +1,28 @@
 <?php 
+ 
 error_reporting(E_ERROR);
 session_start();
-
+ 
 $idNegocio = $_SESSION['idNegocio'];
 $tipoUsuario = $_SESSION['tipoUsuario'];
 $jwt = $_SESSION['jwt'];
 
+ 
 if (!$_SESSION) {
        header('Location: ../index.php');
 } else {
     if ($tipoUsuario == 'usuarioNegocio'  or $tipoUsuario == 'superAdmin') {
-        
     } else {
         header('Location: ../index.php');
     }
-}
-
+} 
 ?>
-
-
+ 
 <?php 
-error_reporting(E_ERROR);
-include("includes/head-remarketing.php"); ?>
-
+error_reporting(E_ERROR); 
+include("includes/head-perfil.php"); 
+?>
+ 
 <head>
     <style type="text/css">
         .text-primary, a {
@@ -30,10 +30,10 @@ include("includes/head-remarketing.php"); ?>
         }
     </style>
 </head>
-
+  
 <body id="page-top" class="index">
-
-<?php 
+ 
+<?php  
 error_reporting(E_ERROR);
     if($tipoUsuario == 'usuarioNegocio'){
         include("includes/nav-perfil.php"); 
@@ -41,18 +41,20 @@ error_reporting(E_ERROR);
         include("../includes/nav.php"); 
     }
 ?>
-
+ 
     <div class="container-fluid" style="padding: 1%;background: yellow;margin-top: -21px;">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
                     <div class="input-group">
                       <input type="text" class="form-control" placeholder="BUSCAR..." style="padding: 25.6px;">
-                      <span class="input-group-btn">
+                      <span class="input-group-btn"> 
                        <button  class="btn btn-default botonbuscar" style="color: #333; background-color: #fff; border: 1px solid #ccc; padding: 15px; border-radius: 0;" type="button"><i style="font-size: 1.5em;" class="fa fa-search" aria-hidden="true"></i></button>
                       </span>
                     </div>
+ 
                 </div>
+ 
                 <div class="col-md-6" style="text-align: right;">
                     <div class="input-group">
                       <span class="input-group-btn">
@@ -60,133 +62,157 @@ error_reporting(E_ERROR);
                       </span>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
-
-    <input type="text" name="idNegocio" id="idNegocio" value="<?php error_reporting(E_ERROR); echo $idNegocio; ?>" class="hidden">
-
+ 
     <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
-
       <div class="tituloseccion">Remarketing</div>
-        
         <div class="remarketingpestanas">
           <ul class="nav nav-tabs nav-justified" style="margin-bottom: 3%;">
             <li class="active"><a data-toggle="tab" href="#graficos">Gráficos</a></li>
             <li><a data-toggle="tab" href="#listas">Listas</a></li>
             <li><a data-toggle="tab" href="#mailing">Mailing</a></li>
           </ul>
-
+ 
           <div class="tab-content">
-
+ 
             <div id="graficos" class="tab-pane fade in active">
-
+ 
               <div class="row">
                 <div class="col-md-8">
-                  
                 </div>
-
+ 
                 <div class="col-md-4 text-right">
-                <input type="text" name="daterange" value="01/01/2015 - 01/31/2015" />
-
+ 
+                  <div class="form-group">
+                    <label for="sel1">Ordenar por fecha:</label>
+                    <select class="form-control" id="sel1" onchange="generarCharts(this.value)">
+                      <option value="esteMes">Este mes</option>
+                      <option value="mesPasado">El mes pasado</option>
+                      <option value="ultimos30">Últimos 30 días</option>
+                      <option value="ultimos7">Últimos 7 días</option>
+                      <option value="ayer">Ayer</option>
+                    </select>
+                  </div>
                 </div>
-
               </div>
-
+ 
               <div class="row modulografico">
                 <div class="col-md-6">
                   <span class="titulosremarketing">Resultados por sexo</span>
                   <img class="img-responsive" src="imgs/grafico01.jpg">
                 </div>
+ 
                 <div class="col-md-6">
                   <span class="titulosremarketing">Resultados por edad</span>
                   <img class="img-responsive" src="imgs/grafico02.jpg">
                 </div>
+ 
               </div>
+ 
 
+ 
               <div class="row modulografico">
                 <div class="col-md-6">
                   <span class="titulosremarketing">Resultados por días de la semana</span>
                   <img class="img-responsive" src="imgs/grafico03.jpg">
                 </div>
+ 
                 <div class="col-md-6">
                   <span class="titulosremarketing">Resultados por días del mes</span>
+ 
                   <img class="img-responsive" src="imgs/grafico03.jpg">
+ 
                 </div>
               </div>              
-
             </div>
 
             <div id="listas" class="tab-pane fade">
-
               <p>Listado de reservas</p>
-
+ 
             </div>
-
             <div id="mailing" class="tab-pane fade">
-
               <h3>Próximamente</h3>
+ 
 
+ 
             </div>
           </div>
         </div>
-
       </div>
-
-
-    
+ 
     <?php 
     error_reporting(E_ERROR);
     include("includes/footer-perfil.php"); ?>
-    
-
+ 
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
+ 
 
     <!-- Bootstrap Core JavaScript -->
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+ 
 
+ 
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>
-
+ 
     <!-- Contact Form JavaScript -->
     <script src="js/jqBootstrapValidation.js"></script>
     <script src="js/contact_me.js"></script>
 
     <!-- Funcione de Local JavaScript -->
     <script src="js/controladores/remarketing.controlador.js"></script>
-
+ 
     <!-- Theme JavaScript -->
+ 
     <script src="js/agency.min.js"></script>
-
     <script type="text/javascript">
-        
-
+ 
     $(function() {
-
+ 
     $('#login-form-link').click(function(e) {
+ 
         $("#login-form").delay(100).fadeIn(100);
+ 
         $("#register-form").fadeOut(100);
+ 
         $('#register-form-link').removeClass('active');
+ 
         $(this).addClass('active');
+ 
         e.preventDefault();
+ 
     });
+ 
     $('#register-form-link').click(function(e) {
+ 
         $("#register-form").delay(100).fadeIn(100);
+ 
         $("#login-form").fadeOut(100);
+ 
         $('#login-form-link').removeClass('active');
+ 
         $(this).addClass('active');
+ 
         e.preventDefault();
+ 
     });
-
+ 
+ 
     });
+ 
 
+ 
 </script>
+ 
 <script>
     setJWT('<?php echo $jwt; ?>');
+ 
 </script>
-
+ 
 </body>
-
+ 
 </html>
+ 
