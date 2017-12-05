@@ -115,18 +115,19 @@ error_reporting(E_ERROR);
 
  
               <div class="row modulografico">
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <span class="titulosremarketing">Resultados por días de la semana</span>
                   <div id="chartDiasSemana" style="width: 100%; height: 500px;"></div>
                 </div>
+              </div>
  
-                <div class="col-md-6">
+              <div class="row modulografico">
+                <div class="col-md-12">
                   <span class="titulosremarketing">Resultados por días del mes</span>
- 
                   <img class="img-responsive" src="imgs/grafico03.jpg">
- 
                 </div>
-              </div>              
+              </div>    
+
             </div>
 
             <div id="listas" class="tab-pane fade">
