@@ -41,9 +41,9 @@ $nombreNegocio = $_SESSION['nombreNegocio'];
                 <li class="dropdown">
                   <a href="perfil/mi-perfil.php" role="button" aria-haspopup="true" aria-expanded="false">Mi perfil <span class="caret"></span></a>
                 </li>
-                <li>
+             <!--   <li>
                   <a href="perfil/remarketing.php" role="button" aria-haspopup="true" aria-expanded="false">Remarketing<span class="caret"></span></a>
-                </li>
+                </li> -->
                 <li>
                   <a href="#" role="button" aria-haspopup="true" aria-expanded="false">Ver mi negocio<span class="caret"></span></a>
                 </li>
