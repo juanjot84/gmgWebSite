@@ -1,6 +1,7 @@
 
 var contHombres = 0; var contMujeres = 0; var contOtrosSexo = 0;
 var rang1824 = 0; var rang2534 = 0; var rang3544 = 0; var rang4554 = 0; var rang5564 = 0; var rang65 = 0; var rang18 = 0;
+var lunes = 0; var martes = 0; var miercoles = 0; var jueves = 0; var viernes = 0; var sabado = 0; var domingo = 0; var feriado = 0;
 
 /*
 function setJWT(jwtToken){
@@ -69,6 +70,7 @@ $.ajax({
     success: function (data) {
       contHombres = 0; contMujeres = 0; contOtrosSexo = 0;
       rang1824 = 0; rang2534 = 0; rang3544 = 0; rang4554 = 0; rang5564 = 0; rang65 = 0; rang18 = 0;
+      lunes = 0; martes = 0; miercoles = 0; jueves = 0; viernes = 0; sabado = 0; domingo = 0; feriado = 0;
       _.each(data, function(reservas){ 
         _.each(reservas, function(reserva){ 
           if(reserva.sexoReserva == 'male' || reserva.sexoReserva == 'masculino' || reserva.sexoReserva == 'Hombre'){
@@ -94,6 +96,24 @@ $.ajax({
           }else if(reserva.edadReserva < 18){
             rang18++;
           }
+
+          if(reserva.diaReserva == 'Lunes'){
+             lunes++;
+          }else if(reserva.diaReserva == 'Martes'){
+             martes++;
+          }else if(reserva.diaReserva == 'Miercoles'){
+             miercoles++;
+          }else if(reserva.diaReserva == 'Jueves'){
+             jueves++;
+          }else if(reserva.diaReserva == 'Viernes'){
+             viernes++;
+          }else if(reserva.diaReserva == 'Sabado'){
+             sabado++;
+          }else if(reserva.diaReserva == 'Domingo'){
+             domingo++;
+          }else if(reserva.diaReserva == 'Feriado'){
+             feriado++;
+          }
       });
     });    
     google.charts.load('current', {'packages':['corechart']});
@@ -112,16 +132,21 @@ $.ajax({
 }
 
 function drawChartDiasSemana() {
+var titulo = '';
+if(lunes == 0 && martes == 0 && miercoles == 0 && jueves == 0 && viernes == 0 && sabado == 0 && domingo == 0 && feriado == 0){
+  titulo = 'No hay datos para los dias seleccionados';
+}
+
   var data = google.visualization.arrayToDataTable([
     ['Dias', 'Personas'],
-    ['Lunes',  1000],
-    ['Martes',  1170],
-    ['Miércoles',  660],
-    ['Jueves',  1030],
-    ['Viernes',  1030],
-    ['Sábado',  1030],
-    ['Domingo',  1030],
-    ['Feriado',  1030]
+    ['Lunes',  lunes],
+    ['Martes',  martes],
+    ['Miércoles',  miercoles],
+    ['Jueves',  jueves],
+    ['Viernes',  viernes],
+    ['Sábado',  sabado],
+    ['Domingo',  domingo],
+    ['Feriado',  feriado]
   ]);
 
   var options = {
@@ -137,7 +162,7 @@ function drawChartDiasSemana() {
 function drawChartEdad() {
   var titulo = '';
   if(rang1824 == 0 && rang2534 == 0 && rang3544 == 0 && rang4554 == 0 && rang5564 == 0 && rang65 == 0){
-    titulo = 'No hay datos para los dias seleccionados'
+    titulo = 'No hay datos para los dias seleccionados';
   }
   var data = google.visualization.arrayToDataTable([
       ['Rango de edades', 'Personas', { role: 'style' }],
@@ -147,7 +172,7 @@ function drawChartEdad() {
       ['45 - 54', rang4554, 'color: #e5e4e2' ],
       ['55 - 64', rang5564, '#b87333'],
       ['Mas de 65', rang65, '#b87333'],
-      ['Otros', rang18, '#b87333'],
+      ['Otros', rang18, '#b87333']
    ]);
    
    var options = {
