@@ -108,6 +108,8 @@ $.ajax({
     google.charts.setOnLoadCallback(drawChartDiasSemana);
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChartDiasMes);
+    google.charts.load('current', {'packages':['table']});
+    google.charts.setOnLoadCallback(drawTable);
     },
     error:function(jqXHR,textStatus,errorThrown)
     {
@@ -115,6 +117,25 @@ $.ajax({
   data: rango
 });
 
+}
+
+function drawTable() {
+  var data = new google.visualization.DataTable();
+  data.addColumn('string', 'Estado');
+  data.addColumn('string', 'Fecha');
+  data.addColumn('string', 'Nombre');
+  data.addColumn('number', 'Cantidad de personas');
+  
+  data.addRows([
+    ['Cumplida','03/12/2017', 'Federico', 3],
+    ['Cancelada', '01/10/2017', 'Emmanuel', 2],
+    ['Pendiente','25/12/2017','Juan José', 4],
+    ['Pendiente', '11/12/2017', 'Maximiliano', 8]
+  ]);
+
+  var table = new google.visualization.Table(document.getElementById('tablaReservas'));
+
+  table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
 }
 
 function drawChartDiasMes() {
@@ -142,15 +163,8 @@ if(lunes == 0 && martes == 0 && miercoles == 0 && jueves == 0 && viernes == 0 &&
   titulo = 'No hay datos para los dias seleccionados';
 }
   var data = google.visualization.arrayToDataTable([
-    ['Dias', 'Personas'],
-    ['Lunes',  lunes],
-    ['Martes',  martes],
-    ['Miércoles',  miercoles],
-    ['Jueves',  jueves],
-    ['Viernes',  viernes],
-    ['Sábado',  sabado],
-    ['Domingo',  domingo],
-    ['Feriado',  feriado]
+    ['Dias', 'Personas'],['Lunes',  lunes],['Martes',  martes],['Miércoles',  miercoles],['Jueves',  jueves],['Viernes',  viernes],
+    ['Sábado',  sabado],['Domingo',  domingo],['Feriado',  feriado]
   ]);
 
   var options = {
@@ -169,14 +183,9 @@ function drawChartEdad() {
     titulo = 'No hay datos para los dias seleccionados';
   }
   var data = google.visualization.arrayToDataTable([
-      ['Rango de edades', 'Personas', { role: 'style' }],
-      ['18 - 24', rang1824, '#b87333'],
-      ['25 - 34', rang2534, 'silver'],          
-      ['35 - 44', rang3544, 'gold'],
-      ['45 - 54', rang4554, 'color: #e5e4e2' ],
-      ['55 - 64', rang5564, '#b87333'],
-      ['Mas de 65', rang65, '#b87333'],
-      ['Otros', rang18, '#b87333']
+      ['Rango de edades', 'Personas', { role: 'style' }],['18 - 24', rang1824, '#b87333'],['25 - 34', rang2534, 'silver'],          
+      ['35 - 44', rang3544, 'gold'],['45 - 54', rang4554, 'color: #e5e4e2' ],['55 - 64', rang5564, '#b87333'],
+      ['Mas de 65', rang65, '#b87333'],['Otros', rang18, '#b87333']
    ]);
    
    var options = {
@@ -197,10 +206,7 @@ function drawChartSexo() {
      titulo = 'No hay datos para los dias seleccionados'
   }
   var dataSexo = google.visualization.arrayToDataTable([
-    ['Sexo', 'Cantidad'],
-    ['Masculino', contHombres],
-    ['Femenino', contMujeres],
-    ['Otros',contOtrosSexo]
+    ['Sexo', 'Cantidad'],['Masculino', contHombres],['Femenino', contMujeres],['Otros',contOtrosSexo]
    ]);
   var options = {
     width: 600,

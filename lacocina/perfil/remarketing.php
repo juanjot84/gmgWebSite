@@ -134,6 +134,7 @@ error_reporting(E_ERROR);
               <div class="row">
                 <div class="col-md-12">
                   <p>Listado de reservas</p>
+                  <div id="tablaReservas"></div>
                 </div>
               </div>
               
