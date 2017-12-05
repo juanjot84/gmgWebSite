@@ -1,14 +1,6 @@
 
-var contHombres = 0;
-var contMujeres = 0;
-var contOtrosSexo = 0;
-var rang1824 = 0;
-var rang2534 = 0;
-var rang3544 = 0;
-var rang4554 = 0;
-var rang5564 = 0;
-var rang65 = 0;
-var rang18 = 0;
+var contHombres = 0; var contMujeres = 0; var contOtrosSexo = 0;
+var rang1824 = 0; var rang2534 = 0; var rang3544 = 0; var rang4554 = 0; var rang5564 = 0; var rang65 = 0; var rang18 = 0;
 
 /*
 function setJWT(jwtToken){
@@ -108,6 +100,8 @@ $.ajax({
     google.charts.setOnLoadCallback(drawChartSexo);
     google.charts.load('current', {packages: ['corechart', 'bar']});
     google.charts.setOnLoadCallback(drawChartEdad);
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChartDiasSemana);
     },
     error:function(jqXHR,textStatus,errorThrown)
     {
@@ -115,6 +109,29 @@ $.ajax({
   data: rango
 });
 
+}
+
+function drawChartDiasSemana() {
+  var data = google.visualization.arrayToDataTable([
+    ['Dias', 'Personas'],
+    ['Lunes',  1000],
+    ['Martes',  1170],
+    ['Miércoles',  660],
+    ['Jueves',  1030],
+    ['Viernes',  1030],
+    ['Sábado',  1030],
+    ['Domingo',  1030],
+    ['Feriado',  1030]
+  ]);
+
+  var options = {
+    title: '',
+    hAxis: {title: 'Dias',  titleTextStyle: {color: '#333'}},
+    vAxis: {minValue: 0}
+  };
+
+  var chart = new google.visualization.AreaChart(document.getElementById('chartDiasSemana'));
+  chart.draw(data, options);
 }
 
 function drawChartEdad() {
