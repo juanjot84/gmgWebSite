@@ -107,7 +107,7 @@ error_reporting(E_ERROR);
  
                 <div class="col-md-6">
                   <span class="titulosremarketing">Resultados por edad</span>
-                  <img class="img-responsive" src="imgs/grafico02.jpg">
+                  <div id="chartEdad" class="img-responsive"></div>
                 </div>
  
               </div>
@@ -209,7 +209,7 @@ error_reporting(E_ERROR);
 </script>
  
 <script>
-    setJWT('<?php echo $jwt; ?>');
+  //  setJWT('<?php // echo $jwt; ?>');
  
 </script>
  

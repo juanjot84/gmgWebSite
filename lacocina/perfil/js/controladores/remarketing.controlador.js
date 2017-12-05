@@ -2,13 +2,20 @@
 var contHombres = 0;
 var contMujeres = 0;
 var contOtrosSexo = 0;
+var rang1824 = 0;
+var rang2534 = 0;
+var rang3544 = 0;
+var rang4554 = 0;
+var rang5564 = 0;
+var rang65 = 0;
+var rang18 = 0;
 
+/*
 function setJWT(jwtToken){
-   
        if (_.isNil(jwtToken) || _.isEmpty(jwtToken)) {    
-       } 
-   
+       }  
   }
+  */
 
 generarCharts('esteMes');
 
@@ -68,9 +75,8 @@ $.ajax({
     crossDomain: true,
     contentType:"application/json",
     success: function (data) {
-      contHombres = 0;
-      contMujeres = 0;
-      contOtrosSexo = 0;
+      contHombres = 0; contMujeres = 0; contOtrosSexo = 0;
+      rang1824 = 0; rang2534 = 0; rang3544 = 0; rang4554 = 0; rang5564 = 0; rang65 = 0; rang18 = 0;
       _.each(data, function(reservas){ 
         _.each(reservas, function(reserva){ 
           if(reserva.sexoReserva == 'male' || reserva.sexoReserva == 'masculino' || reserva.sexoReserva == 'Hombre'){
@@ -80,10 +86,28 @@ $.ajax({
           }else if(reserva.sexoReserva != 'male' && reserva.sexoReserva != 'masculino' && reserva.sexoReserva != 'Hombre' && reserva.sexoReserva != 'female' && reserva.sexoReserva != 'femenino' && reserva.sexoReserva != 'Mujer'){
             contOtrosSexo++;
           }
+
+          if(reserva.edadReserva > 17 && reserva.edadReserva < 25){
+             rang1824++;
+          }else if(reserva.edadReserva > 24 && reserva.edadReserva < 35){
+             rang2534++;
+          }else if(reserva.edadReserva > 34 && reserva.edadReserva < 45){
+             rang3544++;
+          }else if(reserva.edadReserva > 44 && reserva.edadReserva < 55){
+             rang4554++;
+          }else if(reserva.edadReserva > 54 && reserva.edadReserva < 65){
+            rang5564++;
+          }else if(reserva.edadReserva > 64){
+            rang65++;
+          }else if(reserva.edadReserva < 18){
+            rang18++;
+          }
       });
     });    
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChartSexo);
+    google.charts.load('current', {packages: ['corechart', 'bar']});
+    google.charts.setOnLoadCallback(drawChartEdad);
     },
     error:function(jqXHR,textStatus,errorThrown)
     {
@@ -92,6 +116,34 @@ $.ajax({
 });
 
 }
+
+function drawChartEdad() {
+  var titulo = '';
+  if(rang1824 == 0 && rang2534 == 0 && rang3544 == 0 && rang4554 == 0 && rang5564 == 0 && rang65 == 0){
+    titulo = 'No hay datos para los dias seleccionados'
+  }
+  var data = google.visualization.arrayToDataTable([
+      ['Rango de edades', 'Personas', { role: 'style' }],
+      ['18 - 24', rang1824, '#b87333'],
+      ['25 - 34', rang2534, 'silver'],          
+      ['35 - 44', rang3544, 'gold'],
+      ['45 - 54', rang4554, 'color: #e5e4e2' ],
+      ['55 - 64', rang5564, '#b87333'],
+      ['Mas de 65', rang65, '#b87333'],
+      ['Otros', rang18, '#b87333'],
+   ]);
+   
+   var options = {
+     width: 600,
+     height: 400,
+     chart: {
+       title: titulo
+     },
+   };
+
+   var materialChart = new google.charts.Bar(document.getElementById('chartEdad'));
+   materialChart.draw(data, options);
+ }
 
 function drawChartSexo() {
   var titulo = '';
@@ -105,7 +157,10 @@ function drawChartSexo() {
     ['Otros',contOtrosSexo]
    ]);
   var options = {
-    title: titulo
+    width: 600,
+    height: 400,
+    title: titulo,
+    is3D: true
   };
   var chart = new google.visualization.PieChart(document.getElementById('chartSexo'));
   chart.draw(dataSexo, options);
