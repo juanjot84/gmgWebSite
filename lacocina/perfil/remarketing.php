@@ -131,14 +131,20 @@ error_reporting(E_ERROR);
             </div>
 
             <div id="listas" class="tab-pane fade">
-              <p>Listado de reservas</p>
+              <div class="row">
+                <div class="col-md-12">
+                  <p>Listado de reservas</p>
+                </div>
+              </div>
+              
  
             </div>
             <div id="mailing" class="tab-pane fade">
-              <h3>Próximamente</h3>
- 
-
- 
+              <div class="row">
+                <div class="col-md-12">
+                  <h3>Próximamente</h3>
+                </div>
+              </div>
             </div>
           </div>
         </div>
