@@ -115,6 +115,10 @@ $.ajax({
             estadoReserva = 'Pendiente';
           }else if(reserva.estadoReserva == 'cancelada' || reserva.estadoReserva == 'Cancelada'){
             estadoReserva = 'Cancelada';
+          }else if(reserva.estadoReserva == 'vencida' || reserva.estadoReserva == 'Vencida'){
+            estadoReserva = 'Vencida';
+          }else if(reserva.estadoReserva == 'confirmada' || reserva.estadoReserva == 'Confirmada'){
+            estadoReserva = 'Confirmada';
           }
 
           var registro = [estadoReserva, reserva.fechaReserva, reserva.nombreUsuarioReserva, reserva.cubiertosTotales];
