@@ -34,7 +34,7 @@ error_reporting(E_ERROR);
     if($tipoUsuario == 'usuarioNegocio'){
         include("includes/nav-perfil.php"); 
     }else if($tipoUsuario == 'superAdmin'){
-        include("../includes/nav.php"); 
+        include("../includes/nav-superior.php"); 
     }
 ?>
 
