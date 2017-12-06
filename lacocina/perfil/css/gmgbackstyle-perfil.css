@@ -537,6 +537,17 @@ img.logowebperfil {
     min-height: 50vh;
 }
 
+.alertagraficos {
+    line-height: 1.5em;
+    padding: 2%;
+    color: #7d7d7d;
+}
+
+.iconoalertarmkt {
+    font-size: 6em;
+    color: #f8981d;
+}
+
 .titulosremarketing {
     font-size: 1.2em;    
     color: #f8981d;
