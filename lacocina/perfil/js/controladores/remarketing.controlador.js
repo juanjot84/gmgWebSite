@@ -111,8 +111,17 @@ $.ajax({
     google.charts.load('current', {'packages':['table']});
     google.charts.setOnLoadCallback(drawTable);
     },
-    error:function(jqXHR,textStatus,errorThrown)
-    {
+    error:function(jqXHR,textStatus,errorThrown){
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChartSexo);
+      google.charts.load('current', {packages: ['corechart', 'bar']});
+      google.charts.setOnLoadCallback(drawChartEdad);
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChartDiasSemana);
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChartDiasMes);
+      google.charts.load('current', {'packages':['table']});
+      google.charts.setOnLoadCallback(drawTable);
   },
   data: rango
 });
@@ -158,17 +167,14 @@ function drawChartDiasMes() {
 
 
 function drawChartDiasSemana() {
-var titulo = '';
-if(lunes == 0 && martes == 0 && miercoles == 0 && jueves == 0 && viernes == 0 && sabado == 0 && domingo == 0 && feriado == 0){
-  titulo = 'No hay datos para los dias seleccionados';
-}
+
   var data = google.visualization.arrayToDataTable([
     ['Dias', 'Personas'],['Lunes',  lunes],['Martes',  martes],['Miércoles',  miercoles],['Jueves',  jueves],['Viernes',  viernes],
     ['Sábado',  sabado],['Domingo',  domingo],['Feriado',  feriado]
   ]);
 
   var options = {
-    title: titulo,
+    title: '',
     hAxis: {title: 'Dias',  titleTextStyle: {color: '#333'}},
     vAxis: {minValue: 0}
   };
@@ -178,10 +184,7 @@ if(lunes == 0 && martes == 0 && miercoles == 0 && jueves == 0 && viernes == 0 &&
 }
 
 function drawChartEdad() {
-  var titulo = '';
-  if(rang1824 == 0 && rang2534 == 0 && rang3544 == 0 && rang4554 == 0 && rang5564 == 0 && rang65 == 0){
-    titulo = 'No hay datos para los dias seleccionados';
-  }
+
   var data = google.visualization.arrayToDataTable([
       ['Rango de edades', 'Personas', { role: 'style' }],['18 - 24', rang1824, '#b87333'],['25 - 34', rang2534, 'silver'],          
       ['35 - 44', rang3544, 'gold'],['45 - 54', rang4554, 'color: #e5e4e2' ],['55 - 64', rang5564, '#b87333'],
@@ -192,7 +195,7 @@ function drawChartEdad() {
      width: 600,
      height: 400,
      chart: {
-       title: titulo
+       title: ''
      },
    };
 
@@ -201,17 +204,14 @@ function drawChartEdad() {
  }
 
 function drawChartSexo() {
-  var titulo = '';
-  if(contHombres == 0 && contMujeres == 0 && contOtrosSexo == 0){
-     titulo = 'No hay datos para los dias seleccionados'
-  }
+
   var dataSexo = google.visualization.arrayToDataTable([
     ['Sexo', 'Cantidad'],['Masculino', contHombres],['Femenino', contMujeres],['Otros',contOtrosSexo]
    ]);
   var options = {
     width: 600,
     height: 400,
-    title: titulo,
+    title: '',
     is3D: true
   };
   var chart = new google.visualization.PieChart(document.getElementById('chartSexo'));
