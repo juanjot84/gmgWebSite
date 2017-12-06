@@ -143,7 +143,72 @@ error_reporting(E_ERROR);
                   <div id="tablaReservas"></div>
                 </div>
               </div>
-              
+
+
+
+<table id="table" style="display: none;">
+    <thead>
+    <tr>
+        <th title="Field #1">ID</th>
+        <th title="Field #2">First name</th>
+        <th title="Field #3">Last name</th>
+        <th title="Field #4">Email</th>
+        <th title="Field #5">Country</th>
+        <th title="Field #6">IP-address</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td align="right">1</td>
+        <td>Donna</td>
+        <td>Moore</td>
+        <td>dmoore0@furl.net</td>
+        <td>China</td>
+        <td>211.56.242.221</td>
+    </tr>
+    <tr>
+        <td align="right">2</td>
+        <td>Janice Janice Janice Janice Janice Janice Janice Janice Janice Janice Janice Janice Janice Janice Janice</td>
+        <td>Henry</td>
+        <td>jhenry1@theatlantic.com</td>
+        <td>Ukraine</td>
+        <td>38.36.7.199</td>
+    </tr>
+    <tr>
+        <td align="right">3</td>
+        <td>Ruth</td>
+        <td>Wells</td>
+        <td>rwells2@constantcontact.com</td>
+        <td>Trinidad</td>
+        <td>19.162.133.184</td>
+    </tr>
+    <tr>
+        <td align="right">4</td>
+        <td>Jason</td>
+        <td>Ray</td>
+        <td>jray3@psu.edu</td>
+        <td>Brazil</td>
+        <td>10.68.11.42</td>
+    </tr>
+    <tr>
+        <td align="right">5</td>
+        <td>Jane</td>
+        <td>Stephens</td>
+        <td>jstephens4@go.com</td>
+        <td>United States</td>
+        <td>47.32.129.71</td>
+    </tr>
+    <tr>
+        <td align="right">6</td>
+        <td>Adam</td>
+        <td>Nichols</td>
+        <td>anichols5@com.com</td>
+        <td>Canada</td>
+        <td>18.186.38.37</td>
+    </tr>
+    </tbody>
+</table>
+
  
             </div>
             <div id="mailing" class="tab-pane fade">
