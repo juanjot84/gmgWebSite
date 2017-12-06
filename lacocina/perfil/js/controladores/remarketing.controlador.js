@@ -5,6 +5,9 @@ var lunes=0; var martes=0; var miercoles=0; var jueves=0; var viernes=0; var sab
 var dm1=0; var dm2=0; var dm3=0; var dm4=0; var dm5=0; var dm6=0; var dm7=0; var dm8=0; var dm9=0; var dm10=0; var dm11=0;
 var dm12=0; var dm13=0; var dm14=0; var dm15=0; var dm16=0; var dm17=0; var dm18=0; var dm19=0; var dm20=0; var dm21=0; var dm22=0;
 var dm23=0; var dm24=0; var dm25=0; var dm26=0; var dm27=0; var dm28=0; var dm29=0; var dm30=0; var dm31=0;
+var lista = [];
+var tituloInicio = '';
+var tituloFin = '';
 /*
 function setJWT(jwtToken){
        if (_.isNil(jwtToken) || _.isEmpty(jwtToken)) {    
@@ -22,26 +25,30 @@ function generarCharts(accion){
     var dayOfMonth = ult30.getDate();
     ult30.setDate(dayOfMonth - 30);
     var ultimos30 = ult30.getDate() + "/" + (ult30.getMonth() +1) + "/" + ult30.getFullYear();
- //   alert(ultimos30);
+    tituloInicio = ultimos30;
+    tituloFin = fechaHoy;
     graficarCharts(ultimos30, fechaHoy);
   }else if(accion == 'ultimos7'){
     var ult7 = new Date();
     var dayOfMonth = ult7.getDate();
     ult7.setDate(dayOfMonth - 7);
     var ultimos7 = ult7.getDate() + "/" + (ult7.getMonth() +1) + "/" + ult7.getFullYear();
-  //  alert(ultimos7);
+    tituloInicio = ultimos7;
+    tituloFin = fechaHoy;
     graficarCharts(ultimos7, fechaHoy);
   }else if(accion == 'ayer'){
     var ult1 = new Date();
     var dayOfMonth = ult1.getDate();
     ult1.setDate(dayOfMonth - 1);
     var ayer = ult1.getDate() + "/" + (ult1.getMonth() +1) + "/" + ult1.getFullYear();
-  //  alert(ayer);
+    tituloInicio = ayer;
+    tituloFin = fechaHoy;
     graficarCharts(ayer, fechaHoy);
   }else if(accion == 'esteMes'){
     var ini = new Date();
     var inicioMes = 01 + "/" + (ini.getMonth() +1) + "/" + ini.getFullYear();
-  //  alert(inicioMes);
+    tituloInicio = inicioMes;
+    tituloFin = fechaHoy;
     graficarCharts(inicioMes, fechaHoy);
   }else if(accion == 'mesPasado'){
     var ini = new Date();
@@ -50,7 +57,8 @@ function generarCharts(accion){
     ini.setDate(dayOfMonth - 1);
     var finMesAnt = ini.getDate() + "/" + (ini.getMonth() +1) + "/" + ini.getFullYear();
     var inicioMesAnt = 01 + "/" + (ini.getMonth() +1) + "/" + ini.getFullYear();
- //   alert(inicioMesAnt +'-'+finMesAnt);
+    tituloInicio = inicioMesAnt;
+    tituloFin = finMesAnt;
     graficarCharts(inicioMesAnt, finMesAnt);
   }
 });
@@ -75,6 +83,7 @@ $.ajax({
       dm1=0; dm2=0; dm3=0; dm4=0; dm5=0; dm6=0; dm7=0; dm8=0; dm9=0; dm10=0; dm11=0;
       dm12=0; dm13=0; dm14=0; dm15=0; dm16=0; dm17=0; dm18=0; dm19=0; dm20=0; dm21=0; dm22=0;
       dm23=0; dm24=0; dm25=0; dm26=0; dm27=0; dm28=0; dm29=0; dm30=0; dm31=0;
+      lista = [];
       _.each(data, function(reservas){ 
         _.each(reservas, function(reserva){ 
           if(reserva.sexoReserva == 'male' || reserva.sexoReserva == 'masculino' || reserva.sexoReserva == 'Hombre'){contHombres++;}
@@ -98,9 +107,22 @@ $.ajax({
           else if(dia=='19'){dm19++;}else if(dia=='20'){dm20++;}else if(dia=='21'){dm21++;}else if(dia=='22'){dm22++;}else if(dia=='23'){dm23++;}else if(dia=='24'){dm24++;}
           else if(dia=='25'){dm25++;}else if(dia=='26'){dm26++;}else if(dia=='27'){dm27++;}else if(dia=='28'){dm28++;}else if(dia=='29'){dm29++;}else if(dia=='30'){dm30++;}
           else if(dia=='31'){dm31++;}
+          
+          var estadoReserva = '';
+          if(reserva.estadoReserva == 'cumplida' || reserva.estadoReserva == 'Cumplida'){
+            estadoReserva = 'Cumplida';
+          }else if(reserva.estadoReserva == 'pendiente' || reserva.estadoReserva == 'Pendiente'){
+            estadoReserva = 'Pendiente';
+          }else if(reserva.estadoReserva == 'cancelada' || reserva.estadoReserva == 'Cancelada'){
+            estadoReserva = 'Cancelada';
+          }
+
+          var registro = [estadoReserva, reserva.fechaReserva, reserva.nombreUsuarioReserva, reserva.cubiertosTotales];
+          lista.push(registro);
       });
     });
     $("#mensajeSinReservas").html('');
+    $("#tituloLista").html('');
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChartSexo);
     google.charts.load('current', {packages: ['corechart', 'bar']});
@@ -109,6 +131,7 @@ $.ajax({
     google.charts.setOnLoadCallback(drawChartDiasSemana);
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChartDiasMes);
+    $("#tituloLista").append('<p>Listado de reservas entre el: '+tituloInicio+' y el: '+tituloFin+'</p>');
     google.charts.load('current', {'packages':['table']});
     google.charts.setOnLoadCallback(drawTable);
     },
@@ -118,6 +141,9 @@ $.ajax({
       '<i class="fa fa-exclamation-circle iconoalertarmkt" aria-hidden="true"></i>'+
       '<h4 class="alertagraficos">OOPS! No se encontraron datos <br>para el rango de fechas seleccionado.</h4>'+
       '');
+      tituloInicio = '';
+      tituloFin = '';
+      $("#tituloLista").html('');
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChartSexo);
       google.charts.load('current', {packages: ['corechart', 'bar']});
@@ -126,6 +152,7 @@ $.ajax({
       google.charts.setOnLoadCallback(drawChartDiasSemana);
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChartDiasMes);
+      $("#tituloLista").append('<p>Listado de reservas entre el: '+tituloInicio+' y el: '+tituloFin+'</p>');
       google.charts.load('current', {'packages':['table']});
       google.charts.setOnLoadCallback(drawTable);
   },
@@ -141,12 +168,7 @@ function drawTable() {
   data.addColumn('string', 'Nombre');
   data.addColumn('number', 'Cantidad de personas');
   
-  data.addRows([
-    ['Cumplida','03/12/2017', 'Federico', 3],
-    ['Cancelada', '01/10/2017', 'Emmanuel', 2],
-    ['Pendiente','25/12/2017','Juan José', 4],
-    ['Pendiente', '11/12/2017', 'Maximiliano', 8]
-  ]);
+  data.addRows(lista);
 
   var table = new google.visualization.Table(document.getElementById('tablaReservas'));
 
@@ -175,7 +197,7 @@ function drawChartDiasMes() {
 function drawChartDiasSemana() {
 
   var data = google.visualization.arrayToDataTable([
-    ['Dias', 'Personas'],['Lunes',  lunes],['Martes',  martes],['Miércoles',  miercoles],['Jueves',  jueves],['Viernes',  viernes],
+    ['Dias', 'Reservas'],['Lunes',  lunes],['Martes',  martes],['Miércoles',  miercoles],['Jueves',  jueves],['Viernes',  viernes],
     ['Sábado',  sabado],['Domingo',  domingo],['Feriado',  feriado]
   ]);
 
