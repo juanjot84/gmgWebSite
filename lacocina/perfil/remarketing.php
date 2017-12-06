@@ -100,9 +100,8 @@ error_reporting(E_ERROR);
               </div>
 
               <div class="row">
-                <div class="col-md-12 text-center">
-                  <i class="fa fa-exclamation-circle iconoalertarmkt" aria-hidden="true"></i>
-                  <h4 class="alertagraficos">OOPS! No se encontraron datos <br>para el rango de fechas seleccionado.</h4>
+                <div class="col-md-12 text-center" id="mensajeSinReservas">
+
                 </div>
               </div>
  

@@ -99,7 +99,8 @@ $.ajax({
           else if(dia=='25'){dm25++;}else if(dia=='26'){dm26++;}else if(dia=='27'){dm27++;}else if(dia=='28'){dm28++;}else if(dia=='29'){dm29++;}else if(dia=='30'){dm30++;}
           else if(dia=='31'){dm31++;}
       });
-    });    
+    });
+    $("#mensajeSinReservas").html('');
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChartSexo);
     google.charts.load('current', {packages: ['corechart', 'bar']});
@@ -112,6 +113,11 @@ $.ajax({
     google.charts.setOnLoadCallback(drawTable);
     },
     error:function(jqXHR,textStatus,errorThrown){
+      $("#mensajeSinReservas").html('');
+      $("#mensajeSinReservas").append(''+
+      '<i class="fa fa-exclamation-circle iconoalertarmkt" aria-hidden="true"></i>'+
+      '<h4 class="alertagraficos">OOPS! No se encontraron datos <br>para el rango de fechas seleccionado.</h4>'+
+      '');
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChartSexo);
       google.charts.load('current', {packages: ['corechart', 'bar']});
