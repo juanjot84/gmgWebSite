@@ -34,6 +34,7 @@ session_start();
         <!-- Theme CSS -->
         <link href="css/gmgstyle.css" rel="stylesheet">
         <link href="css/agency.min.css" rel="stylesheet">
+        <link href="css/simple-sidebar.css" rel="stylesheet">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -47,155 +48,199 @@ session_start();
 
     <body id="page-top" class="index">
 
-        <?php 
-          error_reporting(E_ERROR);
-          include("includes/nav.php");
-         ?>
+        <div id="wrapper">
 
-        <!-- Header -->
-        <header class="fondoficha">
-            <center><div id="loading"><img class="img-responsive" src="img/loading.gif"></div></center>
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#">
+                            Categorías
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">Food Truck</a>
+                    </li>
+                    <li>
+                        <a href="#">Capacitación</a>
+                    </li>
+                    <li>
+                        <a href="#">Chef a domicilio</a>
+                    </li>
+                    <li>
+                        <a href="#">Bazar</a>
+                    </li>
+                    <li>
+                        <a href="#">Librería</a>
+                    </li>
+                    <li>
+                        <a href="#">Almacén Gourmet</a>
+                    </li>
+                    <li>
+                        <a href="#">Vinería</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /#sidebar-wrapper -->
 
-            <a id="myP" class="reservarfijo" href="#" class="page-scroll btn btn-xl" id="reservar">
-                
-                <p>RESERVAR</p>
-            </a>
+            <div id="page-content-wrapper">
+                 
+                 <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
 
-            <div class="container ficha" style="display:none">
-                <div class="row" style="margin: 10% 0 5% 0;">
-                    <div class="col-md-8 text-left texto-ficha">
+                <?php 
+                  error_reporting(E_ERROR);
+                  include("includes/nav.php");
+                 ?>
+
+                <!-- Header -->
+                <header class="fondoficha">
+                    <center><div id="loading"><img class="img-responsive" src="img/loading.gif"></div></center>
+
+                    <a id="myP" class="reservarfijo" href="#" class="page-scroll btn btn-xl" id="reservar">
+                        
+                        <p>RESERVAR</p>
+                    </a>
+
+                    <div class="container ficha" style="display:none">
+                        <div class="row" style="margin: 10% 0 5% 0;">
+                            <div class="col-md-8 text-left texto-ficha">
+                                <div class="row">
+                                    <div id="iconoFavorito" class="col-md-8">
+
+                                    </div>
+                                    <div class="col-md-4 text-center precioficha">
+                                        <p id="nivelPrecio"></p>
+                                    </div>
+
+                                </div>
+
+                            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                  <!-- Indicators -->
+                                  <ol class="carousel-indicators" id="indicadorSlide">
+                                  </ol>
+
+                                  <!-- Wrapper for slides -->
+                                  <div class="carousel-inner" id="imagenesSlide">
+
+                                  </div>
+
+                                  <!-- Left and right controls -->
+                                  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                    <span class="sr-only">Previous</span>
+                                  </a>
+                                  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                    <span class="sr-only">Next</span>
+                                  </a>
+                                </div>
+                            </div>
+                            <input type="text" name="jwtU" id="jwtU" value="<?php  error_reporting(E_ERROR); echo $jwt; ?>" class="hidden">
+                            <input type="text" name="idUsuarioReserva" id="idUsuarioReserva" value="<?php  error_reporting(E_ERROR); echo $idUsuarioReserva; ?>" class="hidden">
+                            <div class="col-md-4 text-justify texto-ficha">
+                                <a href="#" class="page-scroll btn btn-xl" style="width: 100%; margin-top: 8%; margin-bottom: 4.9%;" id="reservar">RESERVAR</a>
+                                <p class="textoreserva" id="descripcionNegocio"></p>
+
+                                <ul style="list-style: none;">
+                                    <li>
+                                        <p style="text-align: center;">
+                                        <a id="facebookNegocio" href="#"><i class="fa fa-facebook redesficha" aria-hidden="true"></i></a>
+                                        <a id="twitterNegocio" href="#"><i class="fa fa-twitter redesficha" aria-hidden="true"></i></a>
+                                        <a id="instagramNegocio" href="#"><i class="fa fa-instagram redesficha" aria-hidden="true"></i></a>
+                                        <a id="tripadvisorNegocio" href="#"><i class="fa fa-tripadvisor redesficha" aria-hidden="true"></i></a>
+                                        <a id="paginaNegocio" href="#"><i class="fa fa-globe redesficha" aria-hidden="true"></i></a>
+                                        </p>
+                                    </li>
+                                    <li style="padding-top: 5%;">
+                                        <p class="textodatosficha"><i class="fa fa-map-marker datosficha" aria-hidden="true"></i> <span id="direccionLocal"></span></p>
+                                    </li>
+                                    <li>
+                                        <p class="textodatosficha"><i class="fa fa-phone datosficha" aria-hidden="true"></i><span id="telefonoLocal"></span> </p>
+                                    </li>
+                                    <li>
+                                        <p class="textodatosficha"><i class="fa fa-envelope-o datosficha" aria-hidden="true"></i><span id="mailLocal"></span> </p>
+                                    </li>
+                                    <li>
+                                        <p class="textodatosficha"><i class="fa fa-usd datosficha" aria-hidden="true"></i> <span id="medioPago"></span></p>
+                                    </li>
+                                    <li>
+                                        <p class="textodatosficha"><a style="color: #777;" href="#"><i class="fa fa-file-text-o datosficha" aria-hidden="true"></i> <span id="vercarta">Ver carta</span></a></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
+
+                    <section style="padding: 0 0 3% 0 !important;">
+                        <div class="container text-center">
+                            <div class="row servicios">
+
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- MAPA -->
+                    <div class="container">
                         <div class="row">
-                            <div id="iconoFavorito" class="col-md-8">
-
-                            </div>
-                            <div class="col-md-4 text-center precioficha">
-                                <p id="nivelPrecio"></p>
-                            </div>
-
-                        </div>
-
-                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                          <!-- Indicators -->
-                          <ol class="carousel-indicators" id="indicadorSlide">
-                          </ol>
-
-                          <!-- Wrapper for slides -->
-                          <div class="carousel-inner" id="imagenesSlide">
-
-                          </div>
-
-                          <!-- Left and right controls -->
-                          <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                            <span class="glyphicon glyphicon-chevron-left"></span>
-                            <span class="sr-only">Previous</span>
-                          </a>
-                          <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                            <span class="glyphicon glyphicon-chevron-right"></span>
-                            <span class="sr-only">Next</span>
-                          </a>
+                            <div id="map"></div>
                         </div>
                     </div>
-                    <input type="text" name="jwtU" id="jwtU" value="<?php  error_reporting(E_ERROR); echo $jwt; ?>" class="hidden">
-                    <input type="text" name="idUsuarioReserva" id="idUsuarioReserva" value="<?php  error_reporting(E_ERROR); echo $idUsuarioReserva; ?>" class="hidden">
-                    <div class="col-md-4 text-justify texto-ficha">
-                        <a href="#" class="page-scroll btn btn-xl" style="width: 100%; margin-top: 8%; margin-bottom: 4.9%;" id="reservar">RESERVAR</a>
-                        <p class="textoreserva" id="descripcionNegocio"></p>
+                </header>
 
-                        <ul style="list-style: none;">
-                            <li>
-                                <p style="text-align: center;">
-                                <a id="facebookNegocio" href="#"><i class="fa fa-facebook redesficha" aria-hidden="true"></i></a>
-                                <a id="twitterNegocio" href="#"><i class="fa fa-twitter redesficha" aria-hidden="true"></i></a>
-                                <a id="instagramNegocio" href="#"><i class="fa fa-instagram redesficha" aria-hidden="true"></i></a>
-                                <a id="tripadvisorNegocio" href="#"><i class="fa fa-tripadvisor redesficha" aria-hidden="true"></i></a>
-                                <a id="paginaNegocio" href="#"><i class="fa fa-globe redesficha" aria-hidden="true"></i></a>
-                                </p>
-                            </li>
-                            <li style="padding-top: 5%;">
-                                <p class="textodatosficha"><i class="fa fa-map-marker datosficha" aria-hidden="true"></i> <span id="direccionLocal"></span></p>
-                            </li>
-                            <li>
-                                <p class="textodatosficha"><i class="fa fa-phone datosficha" aria-hidden="true"></i><span id="telefonoLocal"></span> </p>
-                            </li>
-                            <li>
-                                <p class="textodatosficha"><i class="fa fa-envelope-o datosficha" aria-hidden="true"></i><span id="mailLocal"></span> </p>
-                            </li>
-                            <li>
-                                <p class="textodatosficha"><i class="fa fa-usd datosficha" aria-hidden="true"></i> <span id="medioPago"></span></p>
-                            </li>
-                        </ul>
+                <!-- Novedades -->
+                <section>
+                    <div class="container sugeridos">
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <!-- <h2 class="section-heading">Restaurantes Sugeregidos</h2> -->
+                                <h2 class="titulosugerencia1">Restaurantes Sugeridos</h2>
+                            </div>
+                        </div>
+                        <div class="row sugeridos">
+
+                        </div>
                     </div>
-                </div>
+                </section>
 
-                </div>
-            </div>
 
-            <section style="padding: 0 0 3% 0 !important;">
-                <div class="container">
-                    <div class="row servicios">
+                <!-- Publicidad -->
+                <section style="padding: 0px 0 !important;">
+                    <div class="container-fluid fondopubli">
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
 
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- MAPA -->
-            <div class="container">
-                <div class="row">
-                    <div id="map"></div>
-                </div>
-            </div>
-        </header>
-
-        <!-- Novedades -->
-        <section>
-            <div class="container sugeridos">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <!-- <h2 class="section-heading">Restaurantes Sugeregidos</h2> -->
-                        <h2 class="titulosugerencia1">Restaurantes Sugeridos</h2>
+                <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h3>No has iniciado sesión</h3>
                     </div>
-                </div>
-                <div class="row sugeridos">
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Publicidad -->
-        <section style="padding: 0px 0 !important;">
-            <div class="container-fluid fondopubli">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
+                    <div class="modal-body">
+                      <h5>Por favor, inicie sesión para continuar</h5>
 
                     </div>
+                    <div class="modal-footer">
+                      <a href="login.php" data-confirm="modal" class="btn btn-info" id="botonLogin">Iniciar sesión</a>
+                      <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+                    </div>
+                  </div>
                 </div>
-            </div>
-        </section>
+               </div>
 
-    <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h3>No has iniciado sesión</h3>
+               <?php 
+                 error_reporting(E_ERROR);
+                 include("includes/footer.php");
+               ?>
+            </div>
         </div>
-        <div class="modal-body">
-          <h5>Por favor, inicie sesión para continuar</h5>
-
-        </div>
-        <div class="modal-footer">
-          <a href="login.php" data-confirm="modal" class="btn btn-info" id="botonLogin">Iniciar sesión</a>
-          <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
-        </div>
-      </div>
-    </div>
-   </div>
-
-       <?php 
-         error_reporting(E_ERROR);
-         include("includes/footer.php");
-       ?>
 
         <!-- jQuery -->
         <script src="vendor/jquery/jquery.min.js"></script>
@@ -241,6 +286,18 @@ session_start();
                 document.getElementById("myP").className = "";
             }
         }
+        </script>
+
+        <!-- Menu lateral -->
+
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Menu Toggle Script -->
+        <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
         </script>
 
     </body>

@@ -260,10 +260,10 @@ i.fa.fa-globe.redesficha:hover {
     position: fixed;
     width: 100%;
     margin-top: 2%;
-    background: yellow;
+    background: #2cbdbe;
     z-index: 0;
     height: 40px;
-    color: #000;
+    color: #fff;
     font-size: 16px !important;
     padding: 8px 15px !important;
     font-weight: 700;
@@ -274,7 +274,7 @@ i.fa.fa-globe.redesficha:hover {
 .verreservar {
     display: block !important;
     margin-top: 70px;
-    border-top: 2px solid #f5f500;
+    border-top: 2px solid #2cbdbe ;
     z-index: 20;
     transition: all .6s ease-in-out;
 }
