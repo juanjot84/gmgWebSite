@@ -27,8 +27,9 @@
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <!-- PDF -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
-    <script src="https://rawgit.com/someatoms/jsPDF-AutoTable/master/dist/jspdf.plugin.autotable.js"></script>
+ 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.2/jspdf.plugin.autotable.js" integrity="sha256-C1erbW3pZ+XIO8dDwH7ajCyj1K8xpJyTDee1YcTNF4s=" crossorigin="anonymous"></script>
 
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
