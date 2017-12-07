@@ -42,6 +42,7 @@ session_start();
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
         <![endif]-->
 
+
     </head>
 
     <body id="page-top" class="index">
@@ -54,6 +55,12 @@ session_start();
         <!-- Header -->
         <header class="fondoficha">
             <center><div id="loading"><img class="img-responsive" src="img/loading.gif"></div></center>
+
+            <a id="myP" class="reservarfijo" href="#" class="page-scroll btn btn-xl" id="reservar">
+                
+                <p>RESERVAR</p>
+            </a>
+
             <div class="container ficha" style="display:none">
                 <div class="row" style="margin: 10% 0 5% 0;">
                     <div class="col-md-8 text-left texto-ficha">
@@ -224,6 +231,17 @@ session_start();
         </script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHhrWZLpRB2OO1JJEU3Ls9FpfZzbXaQ-A&callback=initMap"></script>
 
+        <script>
+        window.onscroll = function() {myFunction()};
+
+        function myFunction() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                document.getElementById("myP").className = "reservarfijo verreservar";
+            } else {
+                document.getElementById("myP").className = "";
+            }
+        }
+        </script>
 
     </body>
 
