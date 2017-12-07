@@ -565,6 +565,16 @@ img.logowebperfil {
     margin-top: 3%;
 }
 
+.botongenerarpdf {
+    font-size: 1.1em;
+    cursor: pointer;
+    max-width: 130px;
+    padding: 1%;
+    background: #efefef;
+    float: right;
+    margin-bottom: 2%;
+}
+
 /*MEDIA QUERIES*/
 
 

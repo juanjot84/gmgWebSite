@@ -139,6 +139,12 @@ error_reporting(E_ERROR);
             <div id="listas" class="tab-pane fade">
               <div class="row">
                 <div class="col-md-12">
+                  <div>
+                    <a onclick="">
+                      <div class="botongenerarpdf">
+                        <span style="color: #f8981d;" class="glyphicon glyphicon-save-file" aria-hidden="true"></span> Generar PDF
+                    </div></a>
+                  </div>
                  <div id="tituloLista"></div>
                   <div id="tablaReservas"></div>
                 </div>
