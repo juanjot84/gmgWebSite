@@ -371,16 +371,18 @@ function renderSugeridos(locales){
   $('.container.sugeridos').html('');
   contSugeridos = 1;
   
-if(contSugeridos < 7){
+
 _.each(locales, function(local){
+  if(contSugeridos < 7){
   $('.container.sugeridos').append('' +
     '<div class="col-md-2">' +
     '    <a href="ficha.php?id=' + local._id + '"><img  class="sugeridos img-responsive" src="' +  local.fotoPrincipalLocal + '"> </a>' +
     '    <h2 class="titulosugerencia2">' + local.idNegocio.nombreNegocio + '</h2>' +
     '</div>');
     contSugeridos++;
+  }
 });
-}
+
 
 
 
