@@ -479,6 +479,13 @@ a.forgot-password:hover {
     margin: 0 auto;
 }
 
+.centraimagensugeridos {
+    object-fit: cover;
+    object-position: center;
+    height: 90px;
+    width: 190px;
+}
+
 .selechora {
     padding: 0;
     flex-direction: column;
