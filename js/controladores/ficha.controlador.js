@@ -1,5 +1,6 @@
 var espacio = ' ';
 var coma = ', ';
+var contSugeridos = 1;
 var jwt;
 var localFavorito;
 var marker;          //variable del marcador
@@ -368,14 +369,21 @@ function buscarSugeridos() {
 
 function renderSugeridos(locales){
   $('.container.sugeridos').html('');
+  contSugeridos = 1;
+  
+if(contSugeridos < 7){
+_.each(locales, function(local){
+  $('.container.sugeridos').append('' +
+    '<div class="col-md-2">' +
+    '    <a href="ficha.php?id=' + local._id + '"><img  class="sugeridos img-responsive" src="' +  local.fotoPrincipalLocal + '"> </a>' +
+    '    <h2 class="titulosugerencia2">' + local.idNegocio.nombreNegocio + '</h2>' +
+    '</div>');
+    contSugeridos++;
+});
+}
 
-  _.each(locales, function(local){
-    $('.container.sugeridos').append('' +
-      '<div class="col-md-2">' +
-      '    <a href="ficha.php?id=' + local._id + '"><img  class="sugeridos img-responsive" src="' +  local.fotoPrincipalLocal + '"> </a>' +
-      '    <h2 class="titulosugerencia2">' + local.idNegocio.nombreNegocio + '</h2>' +
-      '</div>');
-  });
+
+
 }
 
 
