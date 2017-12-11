@@ -191,13 +191,13 @@ session_start();
 
                 <!-- Novedades -->
                 <section>
-                    <div class="container sugeridos">
                         <div class="row">
                             <div class="col-lg-12 text-center">
                                 <!-- <h2 class="section-heading">Restaurantes Sugeregidos</h2> -->
-                                <h2 class="titulosugerencia1">Restaurantes Sugeridos</h2>
+                                <h2 class="titulosugerencia1">También te puede interesar...</h2>
                             </div>
                         </div>
+                    <div class="container sugeridos">
                         <div class="row sugeridos">
 
                         </div>
