@@ -482,6 +482,7 @@ a.forgot-password:hover {
 .centraimagensugeridos {
     object-fit: cover;
     object-position: center;
+    overflow: hidden;
     height: 90px;
     width: 190px;
 }
