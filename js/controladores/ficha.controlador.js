@@ -375,8 +375,8 @@ function renderSugeridos(locales){
 _.each(locales, function(local){
   if(contSugeridos < 7){
   $('.container.sugeridos').append('' +
-    '<div class="col-md-2 centraimagensugeridos">' +
-    '    <a href="ficha.php?id=' + local._id + '"><img  class="sugeridos img-responsive" src="' +  local.fotoPrincipalLocal + '"> </a>' +
+    '<div class="col-md-2 ">' +
+    '    <div class="centraimagensugeridos"><a href="ficha.php?id=' + local._id + '"><img  class="sugeridos img-responsive" src="' +  local.fotoPrincipalLocal + '"> </a></div>' +
     '    <h2 class="titulosugerencia2">' + local.idNegocio.nombreNegocio + '</h2>' +
     '</div>');
     contSugeridos++;
