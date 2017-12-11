@@ -371,7 +371,7 @@ function renderSugeridos(locales){
 
   _.each(locales, function(local){
     $('.container.sugeridos').append('' +
-      '<div class="col-md-2">' +
+      '<div class="col-md-2 centraimagensugeridos">' +
       '    <a href="ficha.php?id=' + local._id + '"><img  class="sugeridos img-responsive" src="' +  local.fotoPrincipalLocal + '"> </a>' +
       '    <h2 class="titulosugerencia2">' + local.idNegocio.nombreNegocio + '</h2>' +
       '</div>');
