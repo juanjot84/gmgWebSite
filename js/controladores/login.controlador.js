@@ -7,13 +7,27 @@ $('#emailUsuario, #passwordUsuario').change( function (){
 });
 
 var redirect = 'mi-perfil.php';
+var resetPasswordToken = '';
 
 function setRedirect(url){
   $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
    if(!_.isNil(url))
    redirect = url;
- }); 
+ });
 }
+
+function setToken(tokenFromURL){
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    resetPasswordToken = tokenFromURL;
+  });
+
+}
+
+$(".forgot-password").click(function(){
+  $("#login-form").hide();
+  $("#olvido-contrasena").show();
+
+});
 
 function login() {
   var overlay = jQuery('<div id="overlay"><center><div id="loading"><img class="img-responsive" src="img/loading.gif"></div></center> </div>');
@@ -52,6 +66,97 @@ function login() {
       data: login
     });
   }
+}
+
+function recuperar() {
+  var overlay = jQuery('<div id="overlay"><center><div id="loading"><img class="img-responsive" src="img/loading.gif"></div></center> </div>');
+  overlay.appendTo(document.body);
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
+  if (!disabled){
+    disabled = true;
+    $('#login-submit').attr('disabled','disabled');
+    var login = JSON.stringify({
+      "email": $("#recuperarEmailUsuario").val()
+    });
+    $.ajax({
+      url: server + '/api/v1/admin/olvide_pass',
+      type: "POST",
+
+      dataType: "json",
+      crossDomain: true,
+      contentType:"application/json",
+      success: function (data) {
+        $('#overlay').remove();
+        $('#mensaje').html(data);
+
+      },
+      error:function(jqXHR,textStatus,errorThrown){
+        $('#overlay').remove();
+        $('#login-submit').removeAttr('disabled');
+        disabled = false;
+        $('#passwordUsuarioAlert').remove();
+        $("#passwordUsuario").parent().after('<span id="passwordUsuarioAlert" style="color:red"> Usuario / contraseña incorrecto</span>');
+        $("#emailUsuario").addClass('alert-danger');
+        $("#passwordUsuario").addClass('alert-danger');
+      },
+      data: login
+    });
+  }
+}
+
+function resetPass() {
+  $('#mensaje').html('');
+  var pass = $('#passwordUsuario').val();
+  var validarPass = $('#verificarPassword').val();
+  if ( pass === validarPass) {
+    var overlay = jQuery('<div id="overlay"><center><div id="loading"><img class="img-responsive" src="img/loading.gif"></div></center> </div>');
+    overlay.appendTo(document.body);
+    if (_.isUndefined(server)) {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      });
+    }
+    if (!disabled){
+      disabled = true;
+      $('#login-submit').attr('disabled','disabled');
+      var reset = JSON.stringify({
+        "email": $("#emailUsuario").val(),
+        "password":$("#passwordUsuario").val(),
+        "resetPasswordToken":resetPasswordToken
+      });
+      $.ajax({
+        url: server + '/api/v1/admin/reset_pass',
+        type: "POST",
+
+        dataType: "json",
+        crossDomain: true,
+        contentType:"application/json",
+        success: function (data) {
+          $('#overlay').remove();
+          $('#mensaje').html(data + '. Aguarde un instante y sera redirigido').delay(800);
+
+          $(location).attr('href','login.php');
+
+        },
+        error:function(jqXHR,textStatus,errorThrown){
+          $('#overlay').remove();
+          $('#login-submit').removeAttr('disabled');
+          disabled = false;
+          $('#passwordUsuarioAlert').remove();
+          $("#passwordUsuario").parent().after('<span id="passwordUsuarioAlert" style="color:red"> Usuario / contraseña incorrecto</span>');
+          $("#emailUsuario").addClass('alert-danger');
+          $("#passwordUsuario").addClass('alert-danger');
+        },
+        data: reset
+      });
+    } else {
+      $('#mensaje').html('Las contraseñas deben coincidir');
+    }
+  }
+
+
 }
 
 function crearSesion(jwt){

@@ -96,6 +96,23 @@ $redirect = isset($_GET['redirect']) ? $_GET['redirect'] : 'index.php';
                                         </div>
                                     </div>
                                 </form>
+                                <form id="olvido-contrasena" method="post" role="form" style="display: none;">
+                                    <div class="form-group">
+                                        <input type="text" name="emailUsuario" id="recuperarEmailUsuario" tabindex="1" class="form-control" placeholder="Email de Usuario" value=""  onfocus="limpiar('recuperarEmailUsuario')" onclick="limpiar('recuperarEmailUsuario')">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-sm-offset-3">
+                                                <input type="button" name="login-submit" id="recuperar-submit" tabindex="4" class="form-control btn btn-login botregistrarme" value="Recuperar contraseña" onclick="recuperar()">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                             <div class="col-sm-6 col-sm-offset-3" id="mensaje">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form id="register-form" >
                                 <form id="register-form" method="post" role="form" style="display: none;">
                                     <div class="form-group">
                                         <input type="text" name="nombre" id="nombre" tabindex="1" class="form-control" placeholder="Nombre de usuario" onfocus="limpiar('nombre')">
@@ -179,20 +196,22 @@ $redirect = isset($_GET['redirect']) ? $_GET['redirect'] : 'index.php';
 
     $(function() {
 
-    $('#login-form-link').click(function(e) {
-        $("#login-form").delay(100).fadeIn(100);
-        $("#register-form").fadeOut(100);
-        $('#register-form-link').removeClass('active');
-        $(this).addClass('active');
-        e.preventDefault();
-    });
-    $('#register-form-link').click(function(e) {
-        $("#register-form").delay(100).fadeIn(100);
-        $("#login-form").fadeOut(100);
-        $('#login-form-link').removeClass('active');
-        $(this).addClass('active');
-        e.preventDefault();
-    });
+        $('#login-form-link').click(function(e) {
+            $("#login-form").delay(100).fadeIn(100);
+            $("#register-form").fadeOut(100);
+            $("#olvido-contrasena").hide();
+            $('#register-form-link').removeClass('active');
+            $(this).addClass('active');
+            e.preventDefault();
+        });
+        $('#register-form-link').click(function(e) {
+            $("#register-form").delay(100).fadeIn(100);
+            $("#login-form").fadeOut(100);
+            $("#olvido-contrasena").hide();
+            $('#login-form-link').removeClass('active');
+            $(this).addClass('active');
+            e.preventDefault();
+        });
 
     });
 
