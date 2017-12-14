@@ -587,6 +587,14 @@ error_reporting(E_ERROR);
                 </tbody>
               </table>
               </div>
+
+              <div class="input-group">
+                <span class="input-group-btn">
+                 <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
+                 <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+                </span> 
+              </div>
+
           </div>  
 
           <!-- FIN NUEVO FORMATO -->
