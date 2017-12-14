@@ -55,19 +55,19 @@ error_reporting(E_ERROR);
     <input type="text" name="idNegocio" id="idNegocio" value="<?php error_reporting(E_ERROR);  echo $idNegocio; ?>" class="hidden">
 
         <div class="row text-center">
-            <div class="col-md-4">
+            <div class="col-md-4 botonmanito">
                 <a onclick="cargarForm('negocio')"><div style="font-size: 2em;">
                     <span style="font-size: 3em; padding: 5%;" class="glyphicon glyphicon-cog" aria-hidden="true"></span><br>
                     DATOS GENERALES
                 </div></a>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 botonmanito">
                 <a onclick="cargarForm('contacto')"><div style="font-size: 2em;">
                     <span style="font-size: 3em; padding: 5%;" class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><br>
                     DATOS DE ACCESO
                 </div></a>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 botonmanito">
                 <a onclick="cargarForm('local')"><div style="font-size: 2em;">
                     <span style="font-size: 3em; padding: 5%;" class="glyphicon glyphicon-th" aria-hidden="true"></span><br>
                     LOCALES
@@ -75,7 +75,7 @@ error_reporting(E_ERROR);
             </div>
         </div>
         <div class="row text-center">
-        <div class="col-md-12">
+        <div class="col-md-12 botonmanito">
                 <a href="../lacocina/negocios.php"><div style="font-size: 1.5em;">
                     <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span><br>
                     VOLVER

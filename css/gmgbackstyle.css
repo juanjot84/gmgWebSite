@@ -596,6 +596,10 @@ a.botsalir {
     text-align: center;
 }
 
+.botonmanito {
+    cursor: pointer;
+}
+
 /*MEDIA  QUERIES*/
 
 
