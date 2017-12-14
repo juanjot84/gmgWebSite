@@ -596,6 +596,151 @@ a.botsalir {
     text-align: center;
 }
 
+ul.selecdiashorario {
+    display: inline-flex;
+    list-style: none;
+}
+
+.checkbox-inline.diashorario label {
+    padding-left: 45px;
+    font-weight: 400;
+    color: #676767;
+    cursor: pointer;
+}
+
+.cuadrohorarios {
+    text-align: center;
+    border: 1px solid #f1efef;
+    padding: 3% 4%;
+    background: #f9f9f9;
+    margin: 3% 0 1% 0;
+}
+
+.cuadrohorariosresumen {
+    border: 1px solid #f1efef;
+    padding: 3% 5%;
+    margin: 3% 0 1% 0;
+}
+
+.titulohorarioatencion {
+    text-transform: uppercase;
+    line-height: 4em;
+    color: #616161;
+    font-weight: 700;
+}
+
+.titulohorarioatencion i.fa {
+    color: #f8981d;
+}
+
+.titulohorarioatencion2 {
+    line-height: 4em;
+    color: #616161;
+    padding-top: 15px;
+}
+
+.titulohorarioatencion2 i.fa {
+    color: #f8981d;
+}
+
+.titulostablahorarios i.fa {
+    color: #f8981d;
+}
+
+.agregarquitar {
+    float: right;
+}
+
+.tituloreservaatencion {
+    text-transform: uppercase;
+    line-height: 4em;
+    color: #616161;
+    font-weight: 700;
+    font-size: 1.5em;
+}
+
+.botonagregarhorario {
+    background: #ccc;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+.botonremoverhorario {
+    background: #ccc;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+
+.botonagregarhorario:hover {
+    background: #5cb85c;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+.botonremoverhorario:hover {
+    background: #b85c5c;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+
+.titulostablahorarios {
+    text-align: center;
+}
+
+.diassemanaresumen {
+
+}
+
+.columnahorarios {
+    
+}
+
+.iconoslista {
+    display: inline-flex;
+}
+
+.iconoslista i {
+    color: #f8981d;
+    border-left: 1px solid;
+    padding-left: 10px;
+    padding-right: 5px;
+    margin-left: 10px;
+}
+
+.horariolista {
+    min-width: 125px;
+    text-align: left;
+}
+
+.horariocubiertos {
+    min-width: 80px;
+    text-align: left;
+}
+
+.horarioduracionreserva {
+    min-width: 80px;
+    text-align: left;
+}
+
+
 /*MEDIA  QUERIES*/
 
 
