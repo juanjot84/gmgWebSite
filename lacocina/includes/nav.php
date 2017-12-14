@@ -15,7 +15,7 @@
               }
             ?>
 
-                <a class="botsalir" href="<?php error_reporting(E_ERROR); echo $path; ?>scripts/cerrar_sesion.php"><i class="fa fa-user" aria-hidden="true"></i> SALIR</a>
+                <a class="botsalir" href="scripts/cerrar_sesion.php"><i class="fa fa-user" aria-hidden="true"></i> SALIR</a>
             </div>
         </div>
       </div>
