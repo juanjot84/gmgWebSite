@@ -2,7 +2,7 @@
 <?php
 $nombreArchivo = $_POST['nombreArchivo'];
 
-$directorio = '../../../img-locales/';
+$directorio = '../../img-locales/';
 
 unlink($directorio.$nombreArchivo);
 
