@@ -522,6 +522,11 @@ a.forgot-password:hover {
     margin-top: 4%;
 }
 
+
+.botonmanito {
+    cursor: pointer;
+}
+
 /*MEDIA QUERIES*/
 
 input#login-submit {
