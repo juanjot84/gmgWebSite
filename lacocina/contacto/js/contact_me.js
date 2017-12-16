@@ -12,6 +12,8 @@ $(function() {
             
             // get values from FORM
             var name = $("input#name").val();
+            var negocio = $("input#negocio").val();
+            var tiponegocio = $("input#tiponegocio").val();
             var email = $("input#email").val();
             var phone = $("input#phone").val();
             var message = $("textarea#message").val();
@@ -25,6 +27,8 @@ $(function() {
                 type: "POST",
                 data: {
                     name: name,
+                    negocio: negocio,
+                    tiponegocio: tiponegocio,
                     phone: phone,
                     email: email,
                     message: message
