@@ -600,6 +600,98 @@ a.botsalir {
     cursor: pointer;
 }
 
+.ventajasbkg {
+
+}
+
+.fraseregistrar {
+    margin-top: -1.5%;
+    height: 575px;
+    background: url(../lacocina/img/back-registrar.jpg) no-repeat;
+    background-position: top right;
+    background-size: cover;
+}
+
+.frase1 {
+    font-size: 3em;
+    font-weight: 700;
+    text-align: left;
+    padding-top: 2%;
+    line-height: 1.4em;
+}
+
+.bajada1 {
+    text-align: left;
+    font-size: 1.7em;
+}
+
+a.botregistrarminegocio {
+    padding: 10px 3%;
+    background-color: #f8981d;
+    border-color: #3c2100;
+    margin: 15px 0;
+    color: white !important;
+    float: left;
+    transition: all 0.3s ease-in-out;
+}
+
+a.botregistrarminegocio:hover {
+    padding: 10px 3%;
+    background-color: #000000;
+    border-color: #000;
+    margin: 15px 0;
+    color: white;
+    float: left;
+    transition: all 0.3s ease-in-out;
+}
+
+.ventajas {
+
+}
+
+.ventajasbkg {
+    background: #f3f3f3;
+    background-size: cover;
+    background-position: left;
+}
+
+.listadoventajas {
+    list-style: none;
+}
+
+.listadoventajas i {
+    font-size: 2.3em;
+    margin: 2%;
+    color: #696969;
+    padding: 2%;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+}
+
+.textoventajas {
+    font-size: 1.3em;
+}
+
+.sumate {
+    margin: 5% 0;
+    text-align: center;
+}
+
+.quiero {
+    margin: 5% 0;
+    text-align: center;
+}
+
+.contactobkg {
+    height: 650px;
+    background: url(../lacocina/img/back-cocina.jpg) no-repeat;
+    background-position: top right;
+    background-size: cover;
+}
+
+
 /*MEDIA  QUERIES*/
 
 
