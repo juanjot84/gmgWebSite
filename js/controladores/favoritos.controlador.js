@@ -103,16 +103,17 @@ function renderMisFavoritos(favoritos){
 
 
     $('.container.mis-favoritos').append(  '' +
+    '<a href="ficha.php?id=' + favorito.idLocal._id + '">'+
       '  <div class="row" style="padding-top: 5%;color: #252525;border-bottom: 1px solid #e3e3e3;padding-bottom: 2%;">' +
       '    <div class="col-md-3">    <img class="img-responsive" src="' + favorito.idLocal.fotoPrincipalLocal + '">' +
-      '    </div>' +
-      '    <div class="col-md-6">' +
+      '    </div></a>' +
+      '    <a href="ficha.php?id=' + favorito.idLocal._id + '" style="color: #252525;"><div class="col-md-6">' +
       '      <p><span style="font-size: 1.5em;"><strong>' + favorito.idLocal.idNegocio.nombreNegocio + '</strong> | ' + favorito.idLocal.idNegocio.bajadaNegocio + '</span></p>  <i class="fa fa-map-marker" aria-hidden="true"></i>' +
       '      <span class="polo"> ' + favorito.idLocal.calleLocal + '</span> |  <i class="fa fa-cutlery" aria-hidden="true"></i>' +
       '      <span class="tiponegocio">' + favorito.idLocal.idTipoCocinaPrincipal.nombreTipoCocina + '</span><br>' +
       '      <p style="letter-spacing: 1px;"><strong>'+ favorito.idLocal.idNivelPrecio.label +'</strong><span style="color: #cbcbcb">'+ labelGrises +'</span></p>'+
       '      <p><span class="descripcion">' + favorito.idLocal.idNegocio.descripcionNegocio.substr(0, 147) + '...</span></p>  ' +
-      '    </div>' +
+      '    </div></a>' +
       '    <div class="col-md-3">' +
       '      <i onClick="eliminarFavorito(\'' + favorito._id + '\')" class="fa fa-heart" style="color: #e02222 !important; font-size: 3em; cursor:pointer;" aria-hidden="true"></i>' +
       '    </div>' +
