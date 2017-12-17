@@ -18,6 +18,7 @@ function cargarCubiertosSeteados(accion) {
     $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
     });
   }
+  
   dibujarCubiertos(accion);
   var idLocal = $("#idLocalCreado").val();
   $('#target').html('obteniendo...');
