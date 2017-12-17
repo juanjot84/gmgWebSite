@@ -154,7 +154,7 @@ function popularLocal(local) {
   if(web.length < 2){
     $('#paginaNegocio').hide();
   }else{
-    $('#paginaNegocio').attr('href', web);
+$('#paginaNegocio').attr('href', web);
   }
   
   $('#telefonoLocal').text(local.telContacto);
@@ -222,7 +222,7 @@ function buscarFavoritos(local){
 
       $("#iconoFavorito").append('<h3 class="titulo"><span id="nombreNegocio">'+local.idNegocio.nombreNegocio+'</span>  <span id="bajadaNegocio">'+bajadaNegocio+'</span>'+
       '<i id="corazon" style="cursor:pointer;" class="'+iconoCorazon+'" aria-hidden="true" onClick="editarFavorito(\'' + local._id + '\',\'' + idFavorito + '\')"></i></h3>'+
-      '<p ><i class="fa fa-map-marker" aria-hidden="true"></i><span id="polo">' + local.idPoloGastronomico.nombrePoloGastronomico + '<i class="fa fa-cutlery" aria-hidden="true"></i><span class="tiponegocio">  ' +local.idTipoCocinaPrincipal.nombreTipoCocina +'</span></p>');
+      '<p ><i class="fa fa-map-marker" aria-hidden="true"></i><span id="polo">' + local.idPoloGastronomico.nombrePoloGastronomico + ' |  <i class="fa fa-cutlery" aria-hidden="true"></i><span class="tiponegocio">  ' +local.idTipoCocinaPrincipal.nombreTipoCocina +'</span></p>');
 
      },
      error:function(jqXHR,textStatus,errorThrown)
