@@ -124,7 +124,7 @@
       <div class="col-md-12">
         <p>
           <a href="#"  onClick="actualizarPerfil()" class="page-scroll btn btn-xl" style="max-width: 300px; margin: 5% 0;">MODIFICAR</a>
-        </p>k
+        </p>
       </div>
     </div>
   </div>

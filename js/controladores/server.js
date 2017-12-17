@@ -1,1 +1,1 @@
-var server = document.location.href.includes("localhost") ? "https://aqueous-woodland-46461.herokuapp.com" : "http://gmg-server.tk";
+var server = document.location.href.includes("localhost") ? "https://aqueous-woodland-46461.herokuapp.com" : "gmg-server/tk";
