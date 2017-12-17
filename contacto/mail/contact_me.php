@@ -22,10 +22,10 @@ $ciudad = strip_tags(htmlspecialchars($_POST['message']));
 $provincia = strip_tags(htmlspecialchars($_POST['message']));
    
 // Create the email and send the message
-$to = 'info@artedigitalmza.com'; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
-$email_subject = "Mensaje desde web Mobil Sanduri";
-$email_body = "Has recibido un email desde la web Mobil Sanduri.\n\n"."Información del contacto:\n\nName: $name\n\nEmail: $email_address\n\nPhone: $phone\n\nEmpresa: $empresa\n\nCiudad: $ciudad\n\nProvincia: $provincia\n\nMessage:\n$message";
-$headers = "From: info@artedigitalmza.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
+$to = 'emmanuel@estudiopronet.com'; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
+$email_subject = "Quiero registrar mi negocio";
+$email_body = "Alguien quiere registrar su negocio.\n\n"."Información del contacto:\n\nName: $name\n\nEmail: $email_address\n\nPhone: $phone\n\nEmpresa: $empresa\n\nCiudad: $ciudad\n\nProvincia: $provincia\n\nMessage:\n$message";
+$headers = "From: altas@guiamendozagourmet.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
 $headers .= "Reply-To: $email_address";   
 mail($to,$email_subject,$email_body,$headers);
 return true;         
