@@ -144,11 +144,11 @@ session_start();
                                 <ul style="list-style: none;">
                                     <li>
                                         <p style="text-align: center;">
-                                        <a id="facebookNegocio" href="#"><i class="fa fa-facebook redesficha" aria-hidden="true"></i></a>
-                                        <a id="twitterNegocio" href="#"><i class="fa fa-twitter redesficha" aria-hidden="true"></i></a>
-                                        <a id="instagramNegocio" href="#"><i class="fa fa-instagram redesficha" aria-hidden="true"></i></a>
-                                        <a id="tripadvisorNegocio" href="#"><i class="fa fa-tripadvisor redesficha" aria-hidden="true"></i></a>
-                                        <a id="paginaNegocio" href="#"><i class="fa fa-globe redesficha" aria-hidden="true"></i></a>
+                                        <a id="facebookNegocio" href="#" target="_blank"><i class="fa fa-facebook redesficha" aria-hidden="true"></i></a>
+                                        <a id="twitterNegocio" href="#" target="_blank"><i class="fa fa-twitter redesficha" aria-hidden="true"></i></a>
+                                        <a id="instagramNegocio" href="#" target="_blank"><i class="fa fa-instagram redesficha" aria-hidden="true"></i></a>
+                                        <a id="tripadvisorNegocio" href="#" target="_blank"><i class="fa fa-tripadvisor redesficha" aria-hidden="true"></i></a>
+                                        <a id="paginaNegocio" href="#" target="_blank"><i class="fa fa-globe redesficha" aria-hidden="true"></i></a>
                                         </p>
                                     </li>
                                     <li style="padding-top: 5%;">

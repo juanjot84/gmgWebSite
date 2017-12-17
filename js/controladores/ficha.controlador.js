@@ -131,11 +131,32 @@ function popularLocal(local) {
   $('#nivelPrecio').text(local.idNivelPrecio.label);
   $('#nivelPrecio').append('<span style="color: #cbcbcb">'+labelGrises+'</span>');
   $('#descripcionNegocio').text(local.idNegocio.descripcionNegocio);
-  $('#facebookNegocio').attr('href', facebook);
-  $('#twitterNegocio').attr('href', twitter);
-  $('#instagramNegocio').attr('href', instagram);
-  $('#tripadvisorNegocio').attr('href', tripadvisor);
-  $('#paginaNegocio').attr('href', web);
+  if(facebook.length < 2){
+    $('#facebookNegocio').hide();
+  }else{
+    $('#facebookNegocio').attr('href', facebook);
+  }
+  if(twitter.length < 2){
+    $('#twitterNegocio').hide();
+  }else{
+    $('#twitterNegocio').attr('href', twitter);
+  }
+  if(instagram.length < 2){
+    $('#instagramNegocio').hide();
+  }else{
+    $('#instagramNegocio').attr('href', instagram);
+  }
+  if(tripadvisor.length < 2){
+    $('#tripadvisorNegocio').hide();
+  }else{
+    $('#tripadvisorNegocio').attr('href', tripadvisor);
+  }
+  if(web.length < 2){
+    $('#paginaNegocio').hide();
+  }else{
+    $('#paginaNegocio').attr('href', web);
+  }
+  
   $('#telefonoLocal').text(local.telContacto);
   $('#mailLocal').text(local.mailContacto);
   $('#tipoCocinaPrincipal').text(local.idTipoCocinaPrincipal.nombreTipoCocina);
