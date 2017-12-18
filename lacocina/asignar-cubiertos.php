@@ -637,7 +637,7 @@ include("includes/nav.php"); ?>
     <!-- Funciones de Cubiertos JavaScript -->
     <script src="js/controladores/cubiertosHorarios.controlador.js"></script>
     <script src="js/controladores/cubiertosDias.controlador.js"></script>
-    <script src="js/controladores/horarioAtencion.controlador.js"></script>
+    <script src="js/controladores/horarioReserva.controlador.js"></script>
 
     <!-- Funciones de Actualizar Local JavaScript -->
     <script src="js/controladores/actualizarLocal.controlador.js"></script>

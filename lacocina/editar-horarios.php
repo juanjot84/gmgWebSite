@@ -1,4 +1,4 @@
-<?php 
+<?php
 error_reporting(E_ERROR);
 session_start();
 
@@ -22,7 +22,7 @@ error_reporting(E_ERROR);
 $idLocal = $_GET['idLocal'];
 ?>
 
-<?php 
+<?php
 error_reporting(E_ERROR);
 include("includes/head.php"); ?>
 
@@ -76,56 +76,7 @@ include("includes/head.php"); ?>
                     <!-- Elegir horario -->
                     <div class="form-group">
                       <label for="sel1">Inicio:</label>
-                      <select class="form-control" id="sel1">
-                        <option>00:00</option>
-                        <option>00:30</option>
-                        <option>01:00</option>
-                        <option>01:30</option>
-                        <option>02:00</option>
-                        <option>02:30</option>
-                        <option>03:00</option>
-                        <option>03:30</option>
-                        <option>04:00</option>
-                        <option>04:30</option>
-                        <option>05:00</option>
-                        <option>05:30</option>
-                        <option>06:00</option>
-                        <option>06:30</option>
-                        <option>07:00</option>
-                        <option>07:30</option>
-                        <option>08:00</option>
-                        <option>08:30</option>
-                        <option>09:00</option>
-                        <option>09:30</option>
-                        <option>10:00</option>
-                        <option>10:30</option>
-                        <option>11:00</option>
-                        <option>11:30</option>
-                        <option>12:00</option>
-                        <option>12:30</option>
-                        <option>13:00</option>
-                        <option>13:30</option>
-                        <option>14:00</option>
-                        <option>14:30</option>
-                        <option>19:00</option>
-                        <option>15:30</option>
-                        <option>16:00</option>
-                        <option>16:30</option>
-                        <option>17:00</option>
-                        <option>17:30</option>
-                        <option>18:00</option>
-                        <option>18:30</option>
-                        <option>19:00</option>
-                        <option>19:30</option>
-                        <option>20:00</option>
-                        <option>20:30</option>
-                        <option>21:00</option>
-                        <option>21:30</option>
-                        <option>22:00</option>
-                        <option>22:30</option>
-                        <option>23:00</option>
-                        <option>23:30</option>
-
+                      <select class="form-control select-horario" id="horaInicioManana">
                       </select>
                     </div>
                     <!-- Fin Elegir horario -->
@@ -134,56 +85,7 @@ include("includes/head.php"); ?>
                     <!-- Elegir horario -->
                     <div class="form-group">
                       <label for="sel1">Fin:</label>
-                      <select class="form-control" id="sel1">
-                        <option>00:00</option>
-                        <option>00:30</option>
-                        <option>01:00</option>
-                        <option>01:30</option>
-                        <option>02:00</option>
-                        <option>02:30</option>
-                        <option>03:00</option>
-                        <option>03:30</option>
-                        <option>04:00</option>
-                        <option>04:30</option>
-                        <option>05:00</option>
-                        <option>05:30</option>
-                        <option>06:00</option>
-                        <option>06:30</option>
-                        <option>07:00</option>
-                        <option>07:30</option>
-                        <option>08:00</option>
-                        <option>08:30</option>
-                        <option>09:00</option>
-                        <option>09:30</option>
-                        <option>10:00</option>
-                        <option>10:30</option>
-                        <option>11:00</option>
-                        <option>11:30</option>
-                        <option>12:00</option>
-                        <option>12:30</option>
-                        <option>13:00</option>
-                        <option>13:30</option>
-                        <option>14:00</option>
-                        <option>14:30</option>
-                        <option>19:00</option>
-                        <option>15:30</option>
-                        <option>16:00</option>
-                        <option>16:30</option>
-                        <option>17:00</option>
-                        <option>17:30</option>
-                        <option>18:00</option>
-                        <option>18:30</option>
-                        <option>19:00</option>
-                        <option>19:30</option>
-                        <option>20:00</option>
-                        <option>20:30</option>
-                        <option>21:00</option>
-                        <option>21:30</option>
-                        <option>22:00</option>
-                        <option>22:30</option>
-                        <option>23:00</option>
-                        <option>23:30</option>
-
+                      <select class="form-control select-horario" id="horaFinManana">
                       </select>
                     </div>
                     <!-- Fin Elegir horario -->
@@ -198,56 +100,7 @@ include("includes/head.php"); ?>
                     <!-- Elegir horario -->
                     <div class="form-group">
                       <label for="sel1">Inicio:</label>
-                      <select class="form-control" id="sel1">
-                        <option>00:00</option>
-                        <option>00:30</option>
-                        <option>01:00</option>
-                        <option>01:30</option>
-                        <option>02:00</option>
-                        <option>02:30</option>
-                        <option>03:00</option>
-                        <option>03:30</option>
-                        <option>04:00</option>
-                        <option>04:30</option>
-                        <option>05:00</option>
-                        <option>05:30</option>
-                        <option>06:00</option>
-                        <option>06:30</option>
-                        <option>07:00</option>
-                        <option>07:30</option>
-                        <option>08:00</option>
-                        <option>08:30</option>
-                        <option>09:00</option>
-                        <option>09:30</option>
-                        <option>10:00</option>
-                        <option>10:30</option>
-                        <option>11:00</option>
-                        <option>11:30</option>
-                        <option>12:00</option>
-                        <option>12:30</option>
-                        <option>13:00</option>
-                        <option>13:30</option>
-                        <option>14:00</option>
-                        <option>14:30</option>
-                        <option>19:00</option>
-                        <option>15:30</option>
-                        <option>16:00</option>
-                        <option>16:30</option>
-                        <option>17:00</option>
-                        <option>17:30</option>
-                        <option>18:00</option>
-                        <option>18:30</option>
-                        <option>19:00</option>
-                        <option>19:30</option>
-                        <option>20:00</option>
-                        <option>20:30</option>
-                        <option>21:00</option>
-                        <option>21:30</option>
-                        <option>22:00</option>
-                        <option>22:30</option>
-                        <option>23:00</option>
-                        <option>23:30</option>
-
+                      <select class="form-control select-horario" id="horaInicioTarde">
                       </select>
                     </div>
                     <!-- Fin Elegir horario -->
@@ -256,56 +109,7 @@ include("includes/head.php"); ?>
                     <!-- Elegir horario -->
                     <div class="form-group">
                       <label for="sel1">Fin:</label>
-                      <select class="form-control" id="sel1">
-                        <option>00:00</option>
-                        <option>00:30</option>
-                        <option>01:00</option>
-                        <option>01:30</option>
-                        <option>02:00</option>
-                        <option>02:30</option>
-                        <option>03:00</option>
-                        <option>03:30</option>
-                        <option>04:00</option>
-                        <option>04:30</option>
-                        <option>05:00</option>
-                        <option>05:30</option>
-                        <option>06:00</option>
-                        <option>06:30</option>
-                        <option>07:00</option>
-                        <option>07:30</option>
-                        <option>08:00</option>
-                        <option>08:30</option>
-                        <option>09:00</option>
-                        <option>09:30</option>
-                        <option>10:00</option>
-                        <option>10:30</option>
-                        <option>11:00</option>
-                        <option>11:30</option>
-                        <option>12:00</option>
-                        <option>12:30</option>
-                        <option>13:00</option>
-                        <option>13:30</option>
-                        <option>14:00</option>
-                        <option>14:30</option>
-                        <option>19:00</option>
-                        <option>15:30</option>
-                        <option>16:00</option>
-                        <option>16:30</option>
-                        <option>17:00</option>
-                        <option>17:30</option>
-                        <option>18:00</option>
-                        <option>18:30</option>
-                        <option>19:00</option>
-                        <option>19:30</option>
-                        <option>20:00</option>
-                        <option>20:30</option>
-                        <option>21:00</option>
-                        <option>21:30</option>
-                        <option>22:00</option>
-                        <option>22:30</option>
-                        <option>23:00</option>
-                        <option>23:30</option>
-
+                      <select class="form-control select-horario" id="horaFinTarde">
                       </select>
                     </div>
                     <!-- Fin Elegir horario -->
@@ -320,60 +124,60 @@ include("includes/head.php"); ?>
             <ul class="selecdiashorario">
               <li>
                 <div class="checkbox-inline diashorario">
-                  <label><input type="checkbox" value="">Todos</label>
+                  <label><input type="checkbox" value="Todos" id="todos">Todos</label>
                 </div>
               </li>
               <li>
                 <div class="checkbox-inline diashorario">
-                  <label><input type="checkbox" value="">Lunes</label>
+                  <label><input type="checkbox" value="Lunes">Lunes</label>
                 </div>
               </li>
               <li>
                 <div class="checkbox-inline diashorario">
-                  <label><input type="checkbox" value="">Martes</label>
+                  <label><input type="checkbox" value="Martes">Martes</label>
                 </div>
               </li>
               <li>
                 <div class="checkbox-inline diashorario">
-                  <label><input type="checkbox" value="">Miércoles</label>
+                  <label><input type="checkbox" value="Miercoles">Miércoles</label>
                 </div>
               </li>
               <li>
                 <div class="checkbox-inline diashorario">
-                  <label><input type="checkbox" value="">Jueves</label>
+                  <label><input type="checkbox" value="Jueves">Jueves</label>
                 </div>
               </li>
               <li>
                 <div class="checkbox-inline diashorario">
-                  <label><input type="checkbox" value="">Viernes</label>
+                  <label><input type="checkbox" value="Viernes">Viernes</label>
                 </div>
               </li>
               <li>
                 <div class="checkbox-inline diashorario">
-                  <label><input type="checkbox" value="">Sábado</label>
+                  <label><input type="checkbox" value="Sabados">Sábado</label>
                 </div>
               </li>
               <li>
                 <div class="checkbox-inline diashorario">
-                  <label><input type="checkbox" value="">Domingo</label>
+                  <label><input type="checkbox" value="Domingos">Domingo</label>
                 </div>
               </li>
               <li>
                 <div class="checkbox-inline diashorario">
-                  <label><input type="checkbox" value="">Feriados</label>
+                  <label><input type="checkbox" value="Feriados">Feriados</label>
                 </div>
               </li>
             </ul>
           </div>
           <div class="agregarquitar">
-            <button class="botonagregarhorario"><i class="fa fa-plus" aria-hidden="true"></i> Agregar a lista</button> 
+            <button class="botonagregarhorario"><i class="fa fa-plus" aria-hidden="true"></i> Agregar a lista</button>
             <!-- <button class="botonremoverhorario"><i class="fa fa-times" aria-hidden="true"></i> Remover</button> -->
           </div>
 
           <h5 class="titulosalta">Lista de horarios</h5>
 
           <div class="cuadrohorariosresumen">
-            <div class="table-responsive">          
+            <div class="table-responsive">
               <table class="table text-center">
                 <thead>
                   <tr>
@@ -382,93 +186,93 @@ include("includes/head.php"); ?>
                     <th class="titulostablahorarios"><i class="fa fa-clock-o" aria-hidden="true"></i> Turno 2...</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>
+                <tbody >
+                   <tr id='Lunes'>
+                    <td >
                       <span class="diassemanaresumen">Lunes</span>
                     </td>
-                    <td>
-                      11:30 - 15:30
+                    <td style="    color: #f8981d;">
+                      Sin horario de atencion
                     </td>
-                    <td>
-                      19:00 - 23:00
+                    <td style="    color: #f8981d;">
+                      Sin horario de atencion
                     </td>
                   </tr>
-                  <tr>
+                  <tr id='Martes'>
                     <td>
                       <span class="diassemanaresumen">Martes</span>
                     </td>
-                    <td>
-                      11:30 - 15:30
+                    <td style="    color: #f8981d;">
+                      Sin horario de atencion
                     </td>
-                    <td>
-                      19:00 - 23:00
+                    <td style="    color: #f8981d;">
+                      Sin horario de atencion
                     </td>
                   </tr>
-                  <tr>
+                  <tr  id='Miercoles'>
                     <td>
                       <span class="diassemanaresumen">Miércoles</span>
                     </td>
-                    <td>
-                      11:30 - 15:30
+                    <td style="    color: #f8981d;">
+                      Sin horario de atencion
                     </td>
-                    <td>
-                      19:00 - 23:00
+                    <td style="    color: #f8981d;">
+                      Sin horario de atencion
                     </td>
                   </tr>
-                  <tr>
+                  <tr  id='Jueves'>
                     <td>
                       <span class="diassemanaresumen">Jueves</span>
                     </td>
-                    <td>
-                      11:30 - 15:30
+                    <td style="    color: #f8981d;">
+                      Sin horario de atencion
                     </td>
-                    <td>
-                      19:00 - 23:00
+                    <td style="    color: #f8981d;">
+                      Sin horario de atencion
                     </td>
                   </tr>
-                  <tr>
+                  <tr  id='Viernes'>
                     <td>
                       <span class="diassemanaresumen">Viernes</span>
                     </td>
-                    <td>
-                      11:30 - 15:30
+                    <td style="    color: #f8981d;">
+                      Sin horario de atencion
                     </td>
-                    <td>
-                      19:00 - 23:00
+                    <td style="    color: #f8981d;">
+                      Sin horario de atencion
                     </td>
                   </tr>
-                  <tr>
+                  <tr  id='Sabados'>
                     <td>
                       <span class="diassemanaresumen">Sábado</span>
                     </td>
-                    <td>
-                      11:30 - 15:30
+                    <td style="    color: #f8981d;">
+                      Sin horario de atencion
                     </td>
-                    <td>
-                      19:00 - 23:00
+                    <td style="    color: #f8981d;">
+                      Sin horario de atencion
                     </td>
                   </tr>
-                  <tr>
+                  <tr  id='Domingos'>
                     <td>
                       <span class="diassemanaresumen">Domingo</span>
                     </td>
-                    <td>
-                      11:30 - 15:30
+                    <td style="    color: #f8981d;">
+                      Sin horario de atencion
                     </td>
-                    <td>
-                      19:00 - 23:00
+                    <td style="    color: #f8981d;">
+                      Sin horario de atencion
                     </td>
                   </tr>
-                  <tr>
+                  <tr  id='Feriados'>
                     <td>
                       <span class="diassemanaresumen">Feriados</span>
                     </td>
-                    <td>
-                      11:30 - 15:30
+                    <td style="    color: #f8981d;">
+                      Sin horario de atencion
                     </td>
-                    <td>
-                      19:00 - 23:00
+                    <td style="    color: #f8981d;">
+                      Sin horario de atencion
                     </td>
                   </tr>
                 </tbody>
@@ -478,11 +282,11 @@ include("includes/head.php"); ?>
               <div class="input-group">
                 <span class="input-group-btn">
                  <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
-                 <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
-                </span> 
+                 <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="sendHorarioAtencion()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+                </span>
               </div>
 
-          </div>  
+          </div>
 
           <!-- FIN NUEVO FORMATO -->
 
@@ -506,7 +310,7 @@ include("includes/head.php"); ?>
   </div>
 
 
-  <?php 
+  <?php
   error_reporting(E_ERROR);
   include("includes/footer.php"); ?>
 
