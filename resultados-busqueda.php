@@ -83,7 +83,7 @@ if (empty($filtro)) $filtro = '';
 
   </header>
 
-  <div class="container" style="padding-top: 6%;>
+  <div class="container resultadosbusqueda">
     <div class="row">
       <div class="col-md-12">
         <h3 id="labelRestaurantesBusquedas"></h3>
@@ -91,7 +91,7 @@ if (empty($filtro)) $filtro = '';
     </div>
   </div>
   <center><div id="loading"><img class="img-responsive" src="img/loading.gif"></div></center>
-  <div class="container locales" style="margin-bottom: 5%; min-height: 80vh;">
+  <div class="container locales">
 
   </div>
 

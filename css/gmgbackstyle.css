@@ -582,6 +582,7 @@ button#botoncancelar {
 
 img.logoweb {
     padding-top: 1%;
+    width: auto;
 }
 
 img.logowebperfil {
@@ -839,5 +840,10 @@ a.botregistrarminegocio:hover {
     }
     img.logoweb {
         padding-top: 7%;
+        width: 200px;
+    }
+
+    .nav>li>a {
+        font-size: 0.9em !important;
     }
 }

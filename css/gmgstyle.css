@@ -394,6 +394,11 @@ ul, menu, dir {
     margin: 0 auto;
 }
 
+h4.titulotipococina {
+    font-size: 1.2em;
+    margin-bottom: 8%;
+}
+
 #overlay{
     position: fixed;
     top:0 ;
@@ -527,6 +532,30 @@ a.forgot-password:hover {
     cursor: pointer;
 }
 
+h3.elegimapa {
+    font-size: 1.3em;
+    text-align: center;
+}
+
+.descarga-mapa {
+    max-width: 250px;
+    margin: 3% 0;
+    box-shadow: 1px 1px 8px #ccc;
+}
+
+h3.botdescarmapa {
+    font-size: 1.3em;
+    text-align: center;
+}
+
+.resultadosbusqueda {
+    padding-top: 6%;
+}
+
+.locales {
+    margin-bottom: 5%;
+    min-height: 80vh;
+}
 
 /*MEDIA QUERIES*/
 
@@ -618,6 +647,10 @@ input#login-submit:hover {
         padding-top: 13%;
     }
 
+    .resultadosbusqueda {
+        padding-top: 15%;
+    }
+
 }
 
 p#nivelPrecio {
@@ -676,6 +709,9 @@ li#calificacionLocal {
 @media only screen and (max-width : 1024px) {
         .altoocasiones {
             width: 960px;
+        }
+        .resultadosbusqueda {
+            padding-top: 10%;
         }
 }
 @media only screen and (max-width : 768px) {
