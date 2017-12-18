@@ -3,7 +3,14 @@ var accion;
 function iniciar(action) {
   $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
     popularDropdownHorarios();
-    accion = action;
+    var accionCrear = $("#accion").val();
+    
+    if(accionCrear == 'cre'){
+      accion = 'crear';
+    }else{
+      accion = action;
+    }
+
     if (accion == 'editar') {
       cargarHorariosSeteados(accion);
     }
@@ -47,8 +54,6 @@ $('#todos').click(function (e) {
     })
   }
 });
-
-
 
 function aplicarHorarios(dia){
   $('#' + dia).html('');
@@ -255,7 +260,7 @@ function sendHorarioAtencion() {
     console.log(localCubiertosCreados);
 
     if (accion == 'crear') {
-      cargarImagenes();
+      cargarHorarioAtencion();
     } else if (accion == 'editar') {
       // eliminarViejos(horariosViejos)
       eliminarViejos(cubiertosViejos).then(function (error, success) {
@@ -266,7 +271,34 @@ function sendHorarioAtencion() {
     }
   })
 
+}
 
+function cargarHorarioAtencion(){
+  if (_.isUndefined(server)) {
+    $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
+    });
+  }
+  var idLocal = $("#idLocalCreado").val();
+  $('#target').html('obteniendo...');
+  $.ajax({
+    url: server + '/api/v1/admin/locales?id=' + idLocal + "",
+    type: 'GET',
+
+    dataType: "json",
+    crossDomain: true,
+    contentType: "application/json",
+    success: function (data) {
+      var local = data;
+      var url = "../lacocina/editar-horarios.php?idLocal=" + idLocal +"&acc=cre";
+      $(location).attr('href', url);
+
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      $('#target').append("jqXHR: " + jqXHR);
+      $('#target').append("textStatus: " + textStatus);
+      $('#target').append("You can not send Cross Domain AJAX requests: " + errorThrown);
+    },
+  });
 }
 
 function cargarImagenes(){

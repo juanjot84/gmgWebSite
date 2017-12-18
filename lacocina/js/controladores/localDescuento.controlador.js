@@ -164,7 +164,7 @@ function SendLocalDescuento(accion){
     actualizarLocal(idLocalCreado, localDescuentoCreados, campoAAcuatualizar).then( function(data){
       console.log(localDescuentoCreados);
         if(accion == 'crear'){
-           var url = "../lacocina/asignar-horarios.php?idLocal="+ idLocalCreado+"";
+           var url = "../lacocina/editar-cubiertos.php?idLocal="+ idLocalCreado+"&acc=cre";
            $(location).attr('href',url);
         }
         if(accion == 'editar'){

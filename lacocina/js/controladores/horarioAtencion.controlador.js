@@ -3,7 +3,14 @@ var accion;
 function iniciar(action) {
   $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
     popularDropdownHorarios();
-    accion = action;
+    var accionCrear = $("#accion").val();
+    
+    if(accionCrear == 'cre'){
+      accion = 'crear';
+    }else{
+      accion = action;
+    }
+
     if (action == 'editar') {
       cargarHorariosSeteados(action);
     }
@@ -187,7 +194,7 @@ function sendHorarioAtencion() {
     actualizarLocal(idLocalCreado, _.without(localHorariosCreados, ""), campoAAcuatualizar).then(function (data) {
       console.log(data);
       if (accion == 'crear') {
-        var url = "../lacocina/asignar-cubiertos.php?idLocal=" + idLocalCreado + "";
+        cargarImagenes();
         $(location).attr('href', url);
       } else if (accion == 'editar') {
 
@@ -196,6 +203,7 @@ function sendHorarioAtencion() {
             volverPanelLocal();
           }).catch(function (err) {
             console.log(err);
+            volverPanelLocal();
           });
         } else {
           volverPanelLocal();
@@ -209,6 +217,34 @@ function sendHorarioAtencion() {
 
   }).catch(function (err) {
     console.log(err);
+  });
+}
+
+function cargarImagenes(){
+  if (_.isUndefined(server)) {
+    $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
+    });
+  }
+  var idLocal = $("#idLocalCreado").val();
+  $('#target').html('obteniendo...');
+  $.ajax({
+    url: server + '/api/v1/admin/locales?id=' + idLocal + "",
+    type: 'GET',
+
+    dataType: "json",
+    crossDomain: true,
+    contentType: "application/json",
+    success: function (data) {
+      var local = data;
+      var url = "../lacocina/subir-imagen.php?idLocal=" + idLocal +"";
+      $(location).attr('href', url);
+
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      $('#target').append("jqXHR: " + jqXHR);
+      $('#target').append("textStatus: " + textStatus);
+      $('#target').append("You can not send Cross Domain AJAX requests: " + errorThrown);
+    },
   });
 }
 

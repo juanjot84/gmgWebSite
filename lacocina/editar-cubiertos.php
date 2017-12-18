@@ -20,6 +20,7 @@ if (!$_SESSION) {
 <?php
 error_reporting(E_ERROR);
    $idLocal = $_GET['idLocal'];
+   $accion = $_GET['acc'];
 ?>
 
 <?php
@@ -59,6 +60,7 @@ error_reporting(E_ERROR);
         <h2 class="tituloseccion">Asignar Cubiertos por día</h2>
           <input type="text" name="idCubierto" id="idCubierto" class="hidden">
           <input type="text" name="idLocalCreado" id="idLocalCreado" value="<?php  error_reporting(E_ERROR); echo $idLocal; ?>" class="hidden">
+          <input type="text" name="accion" id="accion" value="<?php  error_reporting(E_ERROR); echo $accion; ?>" class="hidden">
 
           <!-- NUEVO FORMATO -->
 
@@ -239,10 +241,10 @@ error_reporting(E_ERROR);
                       <span class="diassemanaresumen"   >Lunes</span>
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de reserva
+                      Sin datos de reserva
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de reserva
+                      Sin datos de reserva
                     </td>
                   </tr>
                   <tr id='Martes'>
@@ -250,10 +252,10 @@ error_reporting(E_ERROR);
                       <span class="diassemanaresumen">Martes</span>
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de reserva
+                      Sin datos de reserva
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de reserva
+                      Sin datos de reserva
                     </td>
                   </tr>
                   <tr id='Miercoles'>
@@ -261,10 +263,10 @@ error_reporting(E_ERROR);
                       <span class="diassemanaresumen">Miércoles</span>
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de reserva
+                      Sin datos de reserva
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de reserva
+                      Sin datos de reserva
                     </td>
                   </tr>
                   <tr id='Jueves'>
@@ -272,10 +274,10 @@ error_reporting(E_ERROR);
                       <span class="diassemanaresumen">Jueves</span>
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de reserva
+                      Sin datos de reserva
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de reserva
+                      Sin datos de reserva
                     </td>
                   </tr>
                   <tr id='Viernes'>
@@ -283,10 +285,10 @@ error_reporting(E_ERROR);
                       <span class="diassemanaresumen">Viernes</span>
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de reserva
+                      Sin datos de reserva
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de reserva
+                      Sin datos de reserva
                     </td>
                   </tr>
                   <tr id='Sabados'>
@@ -294,10 +296,10 @@ error_reporting(E_ERROR);
                       <span class="diassemanaresumen">Sábado</span>
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de reserva
+                      Sin datos de reserva
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de reserva
+                      Sin datos de reserva
                     </td>
                   </tr>
                   <tr id='Domingos'>
@@ -305,10 +307,10 @@ error_reporting(E_ERROR);
                       <span class="diassemanaresumen">Domingo</span>
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de reserva
+                      Sin datos de reserva
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de reserva
+                      Sin datos de reserva
                     </td>
                   </tr>
                   <tr id='Feriados'>
@@ -316,10 +318,10 @@ error_reporting(E_ERROR);
                       <span class="diassemanaresumen">Feriados</span>
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de reserva
+                      Sin datos de reserva
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de reserva
+                      Sin datos de reserva
                     </td>
                   </tr>
                 </tbody>
