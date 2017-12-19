@@ -93,30 +93,45 @@ function popularLocal(local) {
   }else {
     web = local.webLocal;
   }
+  if (typeof(web) == "undefined"){
+     web = '-';
+  }
   var facebook;
   if(local.facebookLocal == ''){
     facebook = local.idNegocio.facebookNegocio;
   }else{
     facebook = local.facebookLocal;
   }
+  if (typeof(facebook) == "undefined"){
+    facebook = '-';
+ }
   var twitter;
   if(local.twitterLocal == ''){
     twitter = local.idNegocio.twitterNegocio;
   }else {
     twitter = local.twitterLocal;
   }
+  if (typeof(twitter) == "undefined"){
+    twitter = '-';
+ }
   var instagram;
   if(local.instagramLocal == ''){
     instagram = local.idNegocio.instagramNegocio;
   }else {
     instagram = local.instagramLocal;
   }
+  if (typeof(instagram) == "undefined"){
+    instagram = '-';
+ }
   var tripadvisor;
   if(local.tripadvisorLocal == ''){
     tripadvisor = local.idNegocio.tripadvisorNegocio
   }else {
     tripadvisor = local.tripadvisorLocal;
   }
+  if (typeof(tripadvisor) == "undefined"){
+    tripadvisor = '-';
+ }
 
   var bajadaNegocio = '';
   var raya = ' | ';
