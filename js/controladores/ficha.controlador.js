@@ -144,6 +144,7 @@ function popularLocal(local) {
   $('#nombreNegocio').text(local.idNegocio.nombreNegocio);
   $('#bajadaNegocio').text(bajadaNegocio);
   $('#nivelPrecio').text(local.idNivelPrecio.label);
+  $('#direccionLocal').text(local.calleLocal +' '+local.alturaLocal);
   $('#nivelPrecio').append('<span style="color: #cbcbcb">'+labelGrises+'</span>');
   $('#descripcionNegocio').text(local.idNegocio.descripcionNegocio);
   if(facebook.length < 2){
