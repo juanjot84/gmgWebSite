@@ -131,19 +131,33 @@ function cargarHorariosSeteados() {
     contentType: "application/json",
     success: function (data) {
       var horariosAtencion = data.idHorarioAtencion;
-      horariosViejos = data.idHorarioAtencion;
+      var cubiertos = data.idCubiertosDia;
+      horariosViejos = horariosViejos;
+      cubiertosViejos = cubiertos;
       _.each(dias, function (diaSemana) {
         var horariosDia = _.filter(horariosAtencion, {'diaSemanaHorarioAtencion': diaSemana});
         var horarioManana = _.find(horariosDia, {'turnoHorarioAtencion': 'manana'});
         var horarioTarde = _.find(horariosDia, {'turnoHorarioAtencion': 'tarde'});
-        if (horarioManana) {
-          $("#Hdesde" + horarioManana.diaSemanaHorarioAtencion + "Manana").val(horarioManana.horaInicioHorarioAtencion);
-          $("#Hhasta" + horarioManana.diaSemanaHorarioAtencion + "Manana").val(horarioManana.horaFinHorarioAtencion);
+        var cubiertosDia = _.filter(cubiertos, {'diaSemanaCubiertoDia': diaSemana});
+        var cubiertosManana = _.find(cubiertosDia, {'turnoCubiertoDia': 'manana'});
+        var cubiertosTarde = _.find(cubiertosDia, {'turnoCubiertoDia': 'tarde'});
+
+        if ( (horarioManana  && cubiertosManana) || (horarioTarde && cubiertosTarde) ) {
+          aplicarHorarios(diaSemana);
+          if (horarioManana && cubiertosManana) {
+            $("#Hdesde" + horarioManana.diaSemanaHorarioAtencion + "Manana").html(horarioManana.horaInicioHorarioAtencion);
+            $("#Hhasta" + horarioManana.diaSemanaHorarioAtencion + "Manana").html(horarioManana.horaFinHorarioAtencion);
+            $("#Cubiertos" + horarioManana.diaSemanaHorarioAtencion + "Manana").html(cubiertosManana.cantidadCubiertoDia);
+            $("#Duracion" + horarioManana.diaSemanaHorarioAtencion + "Manana").html(cubiertosManana.duracionReserva);
+          }
+          if (horarioTarde  && cubiertosTarde) {
+            $("#Hdesde" + horarioTarde.diaSemanaHorarioAtencion + "Tarde").html(horarioTarde.horaInicioHorarioAtencion);
+            $("#Hhasta" + horarioTarde.diaSemanaHorarioAtencion + "Tarde").html(horarioTarde.horaFinHorarioAtencion);
+            $("#Cubiertos" + horarioManana.diaSemanaHorarioAtencion + "Tarde").html(cubiertosTarde.cantidadCubiertoDia);
+            $("#Duracion" + horarioManana.diaSemanaHorarioAtencion + "Tarde").html(cubiertosTarde.duracionReserva);
+          }
         }
-        if (horarioTarde) {
-          $("#Hdesde" + horarioTarde.diaSemanaHorarioAtencion + "Tarde").val(horarioTarde.horaInicioHorarioAtencion);
-          $("#Hhasta" + horarioTarde.diaSemanaHorarioAtencion + "Tarde").val(horarioTarde.horaFinHorarioAtencion);
-        }
+
       });
     },
     error: function (jqXHR, textStatus, errorThrown) {
@@ -230,9 +244,6 @@ function sendHorarioAtencion() {
     }
   });
 
-  var actualizarHorarioAtencion;
-  var actualizarCubiertos;
-
   Promise.all(guardarHorarios, guardarCubiertos).then(function () {
     var campoAAcuatualizar = "idHorarioAtencion";
     console.log(localHorariosCreados);
@@ -241,11 +252,11 @@ function sendHorarioAtencion() {
     }).catch(function (err) {
       console.log(err);
     });
-    actualizarHorarioAtencion.push(guardarHT)
+    actualizarHorarioAtencion.push(guardarHT);
 
 
     var campoAAcuatualizar = "idCubiertosDia";
-    var guardarCD = actualizarLocal(idLocalCreado, localCubiertosCreados, campoAAcuatualizar).then(function (data) {
+    var guardarCD = actualizarLocal(idLocalCreado, _.without(localCubiertosCreados, ""), campoAAcuatualizar).then(function (data) {
       resolve(true);
     }).catch(function (err) {
       console.log(err);
@@ -254,7 +265,6 @@ function sendHorarioAtencion() {
   }).catch(function (err) {
     console.log(err);
   });
-  actualizarCubiertos
 
   Promise.all(actualizarHorarioAtencion, actualizarCubiertos).then(function(){
     console.log(localCubiertosCreados);
@@ -370,7 +380,7 @@ function sendHorarios(diaHorario, horaDesde, horaHasta, turno) {
       });
     }
     if (!_.isNil(diaHorario) && !_.isNil(horaDesde)) {
-      var isNew = $("#idHorario").val() == "";
+      var isNew = $("#idCubierto").val() == "";
       var operacion = isNew ? "POST" : "PUT";
       var horario = JSON.stringify({
         "diaSemanaHorarioAtencion": diaHorario,

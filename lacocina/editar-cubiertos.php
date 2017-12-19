@@ -111,7 +111,7 @@ error_reporting(E_ERROR);
                     <!-- Elegir horario -->
                     <div class="form-group">
                       <label for="sel1">Duración en minutos:</label>
-                      <input id="duracionReservaManana" name="" type="number" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3">
+                      <input id="duracionReservaManana" name="" type="number" step="30" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3">
                     </div>
                     <!-- Fin Elegir horario -->
                   </div>
@@ -160,7 +160,7 @@ error_reporting(E_ERROR);
                     <!-- Elegir horario -->
                     <div class="form-group">
                       <label for="sel1">Duración en minutos:</label>
-                      <input id="duracionReservaTarde" name="" type="number" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3"">
+                      <input id="duracionReservaTarde" name="" type="number" step="30" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3"">
                     </div>
                     <!-- Fin Elegir horario -->
                   </div>

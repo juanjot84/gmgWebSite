@@ -126,17 +126,19 @@ function cargarHorariosSeteados(accion) {
       var horariosAtencion = data.idHorarioApertura;
       horariosViejos = data.idHorarioApertura;
       _.each(dias, function (diaSemana) {
-        aplicarHorarios(diaSemana);
         var horariosDia = _.filter(horariosAtencion, {'diaSemanaHorarioApertura': diaSemana});
         var horarioManana = _.find(horariosDia, {'turnoHorarioApertura': 'manana'});
         var horarioTarde = _.find(horariosDia, {'turnoHorarioApertura': 'tarde'});
-        if (horarioManana) {
-          $("#Hdesde" + horarioManana.diaSemanaHorarioApertura + "Manana").html(horarioManana.horaInicioHorarioApertura);
-          $("#Hhasta" + horarioManana.diaSemanaHorarioApertura + "Manana").html(horarioManana.horaFinHorarioApertura);
-        }
-        if (horarioTarde) {
-          $("#Hdesde" + horarioTarde.diaSemanaHorarioApertura + "Tarde").html(horarioTarde.horaInicioHorarioApertura);
-          $("#Hhasta" + horarioTarde.diaSemanaHorarioApertura + "Tarde").html(horarioTarde.horaFinHorarioApertura);
+        if (horarioManana || horarioTarde) {
+          aplicarHorarios(diaSemana);
+          if (horarioManana) {
+            $("#Hdesde" + horarioManana.diaSemanaHorarioApertura + "Manana").html(horarioManana.horaInicioHorarioApertura);
+            $("#Hhasta" + horarioManana.diaSemanaHorarioApertura + "Manana").html(horarioManana.horaFinHorarioApertura);
+          }
+          if (horarioTarde) {
+            $("#Hdesde" + horarioTarde.diaSemanaHorarioApertura + "Tarde").html(horarioTarde.horaInicioHorarioApertura);
+            $("#Hhasta" + horarioTarde.diaSemanaHorarioApertura + "Tarde").html(horarioTarde.horaFinHorarioApertura);
+          }
         }
       });
     },
