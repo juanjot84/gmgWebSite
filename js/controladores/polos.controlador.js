@@ -30,7 +30,7 @@ function renderPolos(polos){
 
   _.each(polos, function(polo){
     $('.container.polos').append('' +
-      '<div class="col-md-4" onClick="buscarPolo(\'' + polo._id + '\')">' +
+      '<div class="col-xs-12 col-sm-6 col-md-4" onClick="buscarPolo(\'' + polo._id + '\')">' +
         '<a class="linkpolo"><h3 class="section-heading"><i id="prueba" class="fa fa-chevron-right" aria-hidden="true"></i> ' + polo.nombrePoloGastronomico + '</h3></a>' +
       '</div>'
     )

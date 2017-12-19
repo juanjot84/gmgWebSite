@@ -54,7 +54,7 @@
 
   </header>
 
-  <div class="container" style="padding: 7% 0 2% 0;">
+  <div class="container miperfilusuario">
     <div class="row">
       <div class="col-md-12">
         <h3>Mi perfil</h3>

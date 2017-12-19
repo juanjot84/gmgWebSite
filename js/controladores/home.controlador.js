@@ -30,7 +30,7 @@ function obtenerListadoCocinas() {
 function renderTipoCocina(cocina){
   $('.container.tipoCocinas').append('' +
     '<a style="text-decoration: none; color: #111;">' +
-      '<div class="col-md-3 text-center botonmanito" onClick="buscarCocina(\'' + cocina._id + '\')">' +
+      '<div class="col-xs-12 col-sm-6 col-md-3 text-center botonmanito" onClick="buscarCocina(\'' + cocina._id + '\')">' +
         '<img src="' + cocina.urlImagenTipoCocina + '" class="img-responsive fotoscocina" alt="">' +
         '<h4 class="titulotipococina" style="text-transform: none;">' + cocina.nombreTipoCocina+ '</h4> ' +
       '</div>' +

@@ -66,7 +66,7 @@ $idLocal = $_GET["id"];
   include("includes/nav.php");
    ?>
 
-  <div class="container" style="padding-top: 7%;">
+  <div class="container reservafront">
     <div class="row">
       <div class="col-md-12">
         <h3 class="titulo">ZAMPA | Cocina + Barra</h3>

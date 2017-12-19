@@ -33,12 +33,49 @@
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
   <![endif]-->
   <style type="text/css">
+
     .imgslocalesbusqueda {
         object-fit: cover;
         object-position: center;
         height: 150px;
         width: 260px;
+        margin: 0;
     }
+
+    @media only screen and (max-width : 768px) {
+      .descripcion {
+          font-size: 13px;
+      }
+      p {
+          line-height: 1.45;
+      }
+    }
+
+    @media only screen and (max-width : 425px) {
+        .resultadosbusqueda {
+            padding-top: 20%;
+        }
+        .imgslocalesbusqueda {
+            object-fit: cover;
+            object-position: center;
+            height: 150px;
+            width: 260px;
+            margin: 0 auto 5%;
+        }
+
+        .etiquetadescuento {
+            text-align: center;
+            background: #f8981d;
+            font-size: 1.4em;
+            padding: 3% 0;
+            font-weight: 400;
+            color: #fff;
+            border-radius: 5px;
+            width: 45%;
+            margin: 0 auto;
+        }
+     }
+
   </style>
 
   <!-- ANALYTICS -->
