@@ -114,14 +114,11 @@
 
         </div>
 
-        <div>
-
 
           <div class="row">
             <div class="col-md-6">
-              <img src="img/quienes-somos-gmg-larga.jpg">
+              <img class="img-responsive" src="img/quienes-somos-gmg-larga.jpg">
             </div>
-
             <div class="col-md-6">
 
               <h3>Sobre Guía Mendoza Gourmet</h3>
@@ -133,9 +130,6 @@
             </div>
           </div>
 
-          
-
-        </div>
 
       </div>
 
