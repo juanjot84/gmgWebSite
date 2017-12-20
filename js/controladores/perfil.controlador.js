@@ -9,7 +9,7 @@ function setJWT(jwtToken){
     getOpcionesUsuario();
   }
 });
-};
+}
 
 function mostrarModalLogin(){
   $("#botonLogin").attr("href", 'login.php?redirect=' + encodeURIComponent(window.location.href));
@@ -21,8 +21,9 @@ function getOpcionesUsuario() {
   var decoded = jwt_decode(jwt);
   _.each(decoded, function(opcion, key){
     $('#' + key).val(opcion);
-  })
-  console.log(decoded);
+  });
+  $('#'+decoded.sexoUsuario.toLowerCase()).attr("checked","checked" );
+  $('#recibeDescuentos').attr("checked", decoded.recibeDescuentos === "true");
 }
 
 function actualizarPerfil(){
@@ -36,7 +37,15 @@ function actualizarPerfil(){
    _.each(inputs, function(campo){
      if (campo.id !== 'email')
      data[campo.id] = campo.value;
-   })
+   });
+   if ($('#hombre').is(':checked')) {
+     data.sexoUsuario = 'Hombre';
+   } else if ($('#mujer').is(':checked')) {
+     data.sexoUsuario = 'Mujer';
+   } else {
+     data.sexoUsuario = 'Otro';
+   }
+   //data.recibeDescuentos = $('#recibeDescuentos').is(':checked');
    $.ajax({
      url: server + '/api/v1/admin/actualizarUsuario',
      type: 'PUT',
@@ -62,8 +71,6 @@ function actualizarPerfil(){
  } else {
    $("#aceptarCondiciones").modal("show");
  }
-
-
 }
 
 function crearSesion(jwt){

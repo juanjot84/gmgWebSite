@@ -97,16 +97,16 @@
         </div>
         <div class="form-group">
           <label class="control-label col-sm-2" for="fechaNacimientoUsuario">Sexo</label>
-          <div class="col-sm-10" style="display: inline-flex;">
-           <div><input type="radio" name="sexo" value="Masculino" id="hombre"> Hombre</div>
-           <div style="padding: 0 5%;"><input type="radio" name="sexo" value="Femenino" id="mujer"> Mujer</div>
-           <div><input type="radio" name="sexo" value="Otro" id="otro"> Otro</div>
+          <div class="col-sm-10" style="display: inline-flex;" >
+           <div><input type="radio" name="sexoUsuario" value="Hombre" id="hombre"> Hombre</div>
+           <div style="padding: 0 5%;"><input type="radio" name="sexoUsuario" value="Mujer" id="mujer"> Mujer</div>
+           <div><input type="radio" name="sexoUsuario" value="Otro" id="otro"> Otro</div>
           </div>
         </div>
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
             <div class="checkbox">
-              <label><input type="checkbox" valueid="recibeDescuentos">Deseo recibir ofertas y descuentos.</label>
+              <label><input type="checkbox" value=true id="recibeDescuentos">Deseo recibir ofertas y descuentos.</label>
             </div>
           </div>
         </div>
