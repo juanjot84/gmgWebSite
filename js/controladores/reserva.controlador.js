@@ -262,7 +262,7 @@ function renderMisReservas(reservas){
       ' </div>' +
       '  <div class="col-md-6"> <p><span style="font-size: 1.5em;">' +
       '   <strong>' + reserva.idLocal.idNegocio.nombreNegocio + '</strong> | ' + reserva.idLocal.idNegocio.bajadaNegocio + '</span></p> ' +
-      '   <i class="fa fa-map-marker" aria-hidden="true"></i><span class="polo">' + reserva.idLocal.calleLocal + '</span> |  <i class="fa fa-cutlery" aria-hidden="true"></i>' +
+      '   <i class="fa fa-map-marker iconoficha" aria-hidden="true"></i><span class="polo">' + reserva.idLocal.calleLocal + '</span> |  <i class="fa fa-cutlery iconoficha" aria-hidden="true"></i>' +
       '   <span class="tiponegocio">' + reserva.idLocal.idTipoCocinaPrincipal.descripcionTipoCocina + '</span><br>  ' +
       '   <p style="letter-spacing: 1px;">' +
       '     <strong>' + reserva.idLocal.idNivelPrecio.label + '</strong><span style="color: #cbcbcb">$$</span>' +
@@ -273,7 +273,7 @@ function renderMisReservas(reservas){
       '   </p>  ' +
       '  </div>  ' +
       '  <div class="col-md-3">    ' +
-      '    <a href="#"><h2 class="etiquetadescuento">Ver reserva</h2></a>' +
+      '    <a href="#"><h2 class="etiquetadescuento verreserva">Ver reserva</h2></a>' +
       '  </div>' +
       '  </div>')
   });

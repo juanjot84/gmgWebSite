@@ -142,6 +142,10 @@ h3.section-heading {
     font-size: 30px !important;
     color: #000 !important;
 }
+
+.miperfilusuario {
+    padding: 7% 0 2% 0;
+}
 input.form-control {
     padding: 5% 2%;
 }
@@ -212,6 +216,10 @@ input.form-control.buscadornav2 {
     color: #000;
 }
 
+h3.titulo {
+    font-size: 24px;
+}
+
 .texto-ficha {
     color: #111;
     padding-top: 0;
@@ -219,7 +227,9 @@ input.form-control.buscadornav2 {
 
 .textoreserva {
     font-size: 13px;
-    height: 220px;
+    height: 182px;
+    overflow: hidden;
+    line-height: 1.6em;
 }
 .redesficha {
     font-size: 1.7em;
@@ -254,6 +264,12 @@ i.fa.fa-globe.redesficha:hover {
 }
 .textodatosficha {
     font-size: 13px;
+}
+
+.iconoficha {
+    color: #f8981d;
+    margin-left: 1%;
+    margin-right: 1%;
 }
 
 .reservarfijo {
@@ -394,6 +410,11 @@ ul, menu, dir {
     margin: 0 auto;
 }
 
+h4.titulotipococina {
+    font-size: 1.2em;
+    margin-bottom: 8%;
+}
+
 #overlay{
     position: fixed;
     top:0 ;
@@ -522,6 +543,36 @@ a.forgot-password:hover {
     margin-top: 4%;
 }
 
+
+.botonmanito {
+    cursor: pointer;
+}
+
+h3.elegimapa {
+    font-size: 1.3em;
+    text-align: center;
+}
+
+.descarga-mapa {
+    max-width: 250px;
+    margin: 3% 0;
+    box-shadow: 1px 1px 8px #ccc;
+}
+
+h3.botdescarmapa {
+    font-size: 1.3em;
+    text-align: center;
+}
+
+.resultadosbusqueda {
+    padding-top: 6%;
+}
+
+.locales {
+    margin-bottom: 5%;
+    min-height: 80vh;
+}
+
 /*MEDIA QUERIES*/
 
 input#login-submit {
@@ -612,6 +663,10 @@ input#login-submit:hover {
         padding-top: 13%;
     }
 
+    .resultadosbusqueda {
+        padding-top: 15%;
+    }
+
 }
 
 p#nivelPrecio {
@@ -662,27 +717,142 @@ li#calificacionLocal {
     text-transform: inherit;
 }
 
+.reservafront {
+    padding-top: 7%;
+    min-height: 85vh;
+}
+
 .appstore {
     max-width: 115px;
     display: inline-flex;
     padding: 3% 0;
 }
 @media only screen and (max-width : 1024px) {
-        .altoocasiones {
-            width: 960px;
-        }
+    .altoocasiones {
+        width: 960px;
+    }
+    .resultadosbusqueda {
+        padding-top: 14%;
+    }
+    .centraimagensugeridos {
+        object-fit: cover;
+        object-position: center;
+        overflow: hidden;
+        height: 75px;
+        width: 135px;
+        padding: 0 0%;
+    }
+    .titulosugerencia2 {
+        font-size: 14px;
+        text-align: center;
+    }
+    h3.titulo {
+        font-size: 22px;
+    }
+    .textodatosficha {
+        font-size: 12px;
+    }
+    .miperfilusuario {
+        padding: 12% 0 2% 0;
+    }
+    img.logoweb {
+        max-width: 230px;
+    }
 }
 @media only screen and (max-width : 768px) {
-        .altoocasiones {
-            width: 750px;
-        }
-        .buscadorresultados {
-            display: none;
-        }
+
+    nav#mainNav {
+        margin-bottom: 0px;
+    }
+    .altoocasiones {
+        width: 750px;
+    }
+    .buscadorresultados {
+        display: none;
+    }
+    .menufooter {
+        text-align: center;
+    }
+    .bajateapp {
+        max-width: 370px;
+        margin: 0 auto;
+    }
+    section h2.section-heading {
+        font-size: 30px;
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+    .etiquetadescuento {
+        text-align: center;
+        background: #f8981d;
+        font-size: 1.4em;
+        padding: 8% 0;
+        font-weight: 400;
+        color: #fff;
+        border-radius: 5px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .etiquetadescuento.verreserva {
+        text-align: center;
+        background: #f8981d;
+        font-size: 1.4em;
+        padding: 3% 0;
+        font-weight: 400;
+        color: #fff;
+        border-radius: 5px;
+        width: 40%;
+        margin: 0 auto;
+        box-shadow: 1px 1px 1px #ccc;
+    }
+
+    section h2.section-heading {
+        font-size: 30px !important;
+        margin-top: 20px !important;
+        margin-bottom: 15px !important;
+    }
 }
 
 @media only screen and (max-width : 425px) {
-        .altoocasiones {
-            width: 420px;
-        }
+    .altoocasiones {
+        width: 420px;
+    }
+    .resultadosbusqueda {
+        padding-top: 20%;
+    }
+    .imgslocalesbusqueda {
+        object-fit: cover;
+        object-position: center;
+        height: 150px;
+        width: 260px;
+        margin: 0 auto 5%;
+    }
+    h3.titulo {
+        font-size: 18px;
+    }
+    .titulosugerencia1 {
+        font-size: 18px;
+        text-align: center;
+        padding-bottom: 6%;
+    }
+    .centraimagensugeridos {
+        object-fit: cover;
+        object-position: center;
+        overflow: hidden;
+        height: 75px;
+        width: 135px;
+        padding: 0 0%;
+        margin: 0 auto;
+    }
+    div#iconoFavorito {
+        min-height: 55px;
+    }
+    .miperfilusuario {
+        padding: 20% 0 5% 0;
+        margin-left: 7%;
+    }
+    .navbar-nav {
+        margin: 15.5px -15px;
+    }
  }

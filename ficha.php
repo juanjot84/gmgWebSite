@@ -43,6 +43,18 @@ session_start();
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
         <![endif]-->
 
+        <!-- ANALYTICS -->
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111410422-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-111410422-1');
+        </script>
+
 
     </head>
 
@@ -103,12 +115,12 @@ session_start();
 
                     <div class="container ficha" style="display:none">
                         <div class="row" style="margin: 10% 0 5% 0;">
-                            <div class="col-md-8 text-left texto-ficha">
+                            <div class="col-sm-12 col-md-8 text-left texto-ficha">
                                 <div class="row">
-                                    <div id="iconoFavorito" class="col-md-8">
+                                    <div id="iconoFavorito" class="col-sm-10 col-md-8">
 
                                     </div>
-                                    <div class="col-md-4 text-center precioficha">
+                                    <div class="col-sm-2 col-md-4 text-center precioficha">
                                         <p id="nivelPrecio"></p>
                                     </div>
 
@@ -137,18 +149,18 @@ session_start();
                             </div>
                             <input type="text" name="jwtU" id="jwtU" value="<?php  error_reporting(E_ERROR); echo $jwt; ?>" class="hidden">
                             <input type="text" name="idUsuarioReserva" id="idUsuarioReserva" value="<?php  error_reporting(E_ERROR); echo $idUsuarioReserva; ?>" class="hidden">
-                            <div class="col-md-4 text-justify texto-ficha">
+                            <div class="col-sm-12 col-md-4 text-justify texto-ficha">
                                 <a href="#" class="page-scroll btn btn-xl" style="width: 100%; margin-top: 8%; margin-bottom: 4.9%;" id="reservar">RESERVAR</a>
                                 <p class="textoreserva" id="descripcionNegocio"></p>
 
                                 <ul style="list-style: none;">
                                     <li>
                                         <p style="text-align: center;">
-                                        <a id="facebookNegocio" href="#"><i class="fa fa-facebook redesficha" aria-hidden="true"></i></a>
-                                        <a id="twitterNegocio" href="#"><i class="fa fa-twitter redesficha" aria-hidden="true"></i></a>
-                                        <a id="instagramNegocio" href="#"><i class="fa fa-instagram redesficha" aria-hidden="true"></i></a>
-                                        <a id="tripadvisorNegocio" href="#"><i class="fa fa-tripadvisor redesficha" aria-hidden="true"></i></a>
-                                        <a id="paginaNegocio" href="#"><i class="fa fa-globe redesficha" aria-hidden="true"></i></a>
+                                        <a id="facebookNegocio" href="#" target="_blank"><i class="fa fa-facebook redesficha" aria-hidden="true"></i></a>
+                                        <a id="twitterNegocio" href="#" target="_blank"><i class="fa fa-twitter redesficha" aria-hidden="true"></i></a>
+                                        <a id="instagramNegocio" href="#" target="_blank"><i class="fa fa-instagram redesficha" aria-hidden="true"></i></a>
+                                        <a id="tripadvisorNegocio" href="#" target="_blank"><i class="fa fa-tripadvisor redesficha" aria-hidden="true"></i></a>
+                                        <a id="paginaNegocio" href="#" target="_blank"><i class="fa fa-globe redesficha" aria-hidden="true"></i></a>
                                         </p>
                                     </li>
                                     <li style="padding-top: 5%;">
@@ -161,7 +173,7 @@ session_start();
                                         <p class="textodatosficha"><i class="fa fa-envelope-o datosficha" aria-hidden="true"></i><span id="mailLocal"></span> </p>
                                     </li>
                                     <li>
-                                        <p class="textodatosficha"><i class="fa fa-usd datosficha" aria-hidden="true"></i> <span id="medioPago"></span></p>
+                                        <p class="textodatosficha"><i class="fa fa-usd datosficha" aria-hidden="true"></i><span id="medioPago"></span></p>
                                     </li>
                                     <li>
                                         <p class="textodatosficha"><a style="color: #777;" href="#"><i class="fa fa-file-text-o datosficha" aria-hidden="true"></i> <span id="vercarta">Ver carta</span></a></p>

@@ -33,13 +33,62 @@
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
   <![endif]-->
   <style type="text/css">
+
     .imgslocalesbusqueda {
         object-fit: cover;
         object-position: center;
         height: 150px;
         width: 260px;
+        margin: 0;
     }
+
+    @media only screen and (max-width : 768px) {
+      .descripcion {
+          font-size: 13px;
+      }
+      p {
+          line-height: 1.45;
+      }
+    }
+
+    @media only screen and (max-width : 425px) {
+        .resultadosbusqueda {
+            padding-top: 20%;
+        }
+        .imgslocalesbusqueda {
+            object-fit: cover;
+            object-position: center;
+            height: 150px;
+            width: 260px;
+            margin: 0 auto 5%;
+        }
+
+        .etiquetadescuento {
+            text-align: center;
+            background: #f8981d;
+            font-size: 1.4em;
+            padding: 3% 0;
+            font-weight: 400;
+            color: #fff;
+            border-radius: 5px;
+            width: 45%;
+            margin: 0 auto;
+        }
+     }
+
   </style>
+
+  <!-- ANALYTICS -->
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111410422-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-111410422-1');
+  </script>
 
 </head>
 
@@ -71,7 +120,7 @@ if (empty($filtro)) $filtro = '';
 
   </header>
 
-  <div class="container" style="padding-top: 6%;>
+  <div class="container resultadosbusqueda">
     <div class="row">
       <div class="col-md-12">
         <h3 id="labelRestaurantesBusquedas"></h3>
@@ -79,7 +128,7 @@ if (empty($filtro)) $filtro = '';
     </div>
   </div>
   <center><div id="loading"><img class="img-responsive" src="img/loading.gif"></div></center>
-  <div class="container locales" style="margin-bottom: 5%; min-height: 80vh;">
+  <div class="container locales">
 
   </div>
 

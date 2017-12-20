@@ -44,6 +44,18 @@ $idLocal = $_GET["id"];
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
   <![endif]-->
 
+  <!-- ANALYTICS -->
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111410422-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-111410422-1');
+  </script>
+
 </head>
 
 
@@ -54,7 +66,7 @@ $idLocal = $_GET["id"];
   include("includes/nav.php");
    ?>
 
-  <div class="container" style="padding-top: 7%;">
+  <div class="container reservafront">
     <div class="row">
       <div class="col-md-12">
         <h3 class="titulo">ZAMPA | Cocina + Barra</h3>

@@ -8,7 +8,7 @@ $nombreNegocio = $_SESSION['nombreNegocio'];
       <div class="container">
         <div class="row">
             <div class="col-md-8" style="text-align: right;">
-                <a class="navbar-brand page-scroll" href="#"><img class="logowebperfil" src="../img/logo-lacocina.png"></a>
+                <a class="navbar-brand page-scroll" href="http://guiamendozagourmet.com/lacocina/perfil/mi-perfil.php"><img class="logowebperfil" src="../img/logo-lacocina.png"></a>
                 <span class="nombrenegocio hidden-sm hidden-xs"><?php echo $nombreNegocio; ?></span>
             </div>
             <div class="col-md-4" style="text-align: right; padding: 1% 0;">

@@ -93,30 +93,45 @@ function popularLocal(local) {
   }else {
     web = local.webLocal;
   }
+  if (typeof(web) == "undefined"){
+     web = '-';
+  }
   var facebook;
   if(local.facebookLocal == ''){
     facebook = local.idNegocio.facebookNegocio;
   }else{
     facebook = local.facebookLocal;
   }
+  if (typeof(facebook) == "undefined"){
+    facebook = '-';
+ }
   var twitter;
   if(local.twitterLocal == ''){
     twitter = local.idNegocio.twitterNegocio;
   }else {
     twitter = local.twitterLocal;
   }
+  if (typeof(twitter) == "undefined"){
+    twitter = '-';
+ }
   var instagram;
   if(local.instagramLocal == ''){
     instagram = local.idNegocio.instagramNegocio;
   }else {
     instagram = local.instagramLocal;
   }
+  if (typeof(instagram) == "undefined"){
+    instagram = '-';
+ }
   var tripadvisor;
   if(local.tripadvisorLocal == ''){
     tripadvisor = local.idNegocio.tripadvisorNegocio
   }else {
     tripadvisor = local.tripadvisorLocal;
   }
+  if (typeof(tripadvisor) == "undefined"){
+    tripadvisor = '-';
+ }
 
   var bajadaNegocio = '';
   var raya = ' | ';
@@ -129,13 +144,35 @@ function popularLocal(local) {
   $('#nombreNegocio').text(local.idNegocio.nombreNegocio);
   $('#bajadaNegocio').text(bajadaNegocio);
   $('#nivelPrecio').text(local.idNivelPrecio.label);
+  $('#direccionLocal').text(local.calleLocal +' '+local.alturaLocal);
   $('#nivelPrecio').append('<span style="color: #cbcbcb">'+labelGrises+'</span>');
   $('#descripcionNegocio').text(local.idNegocio.descripcionNegocio);
-  $('#facebookNegocio').attr('href', facebook);
-  $('#twitterNegocio').attr('href', twitter);
-  $('#instagramNegocio').attr('href', instagram);
-  $('#tripadvisorNegocio').attr('href', tripadvisor);
-  $('#paginaNegocio').attr('href', web);
+  if(facebook.length < 2){
+    $('#facebookNegocio').hide();
+  }else{
+    $('#facebookNegocio').attr('href', facebook);
+  }
+  if(twitter.length < 2){
+    $('#twitterNegocio').hide();
+  }else{
+    $('#twitterNegocio').attr('href', twitter);
+  }
+  if(instagram.length < 2){
+    $('#instagramNegocio').hide();
+  }else{
+    $('#instagramNegocio').attr('href', instagram);
+  }
+  if(tripadvisor.length < 2){
+    $('#tripadvisorNegocio').hide();
+  }else{
+    $('#tripadvisorNegocio').attr('href', tripadvisor);
+  }
+  if(web.length < 2){
+    $('#paginaNegocio').hide();
+  }else{
+$('#paginaNegocio').attr('href', web);
+  }
+  
   $('#telefonoLocal').text(local.telContacto);
   $('#mailLocal').text(local.mailContacto);
   $('#tipoCocinaPrincipal').text(local.idTipoCocinaPrincipal.nombreTipoCocina);
@@ -201,7 +238,7 @@ function buscarFavoritos(local){
 
       $("#iconoFavorito").append('<h3 class="titulo"><span id="nombreNegocio">'+local.idNegocio.nombreNegocio+'</span>  <span id="bajadaNegocio">'+bajadaNegocio+'</span>'+
       '<i id="corazon" style="cursor:pointer;" class="'+iconoCorazon+'" aria-hidden="true" onClick="editarFavorito(\'' + local._id + '\',\'' + idFavorito + '\')"></i></h3>'+
-      '<p ><i class="fa fa-map-marker" aria-hidden="true"></i><span id="polo">' + local.idPoloGastronomico.nombrePoloGastronomico + '<i class="fa fa-cutlery" aria-hidden="true"></i><span class="tiponegocio">  ' +local.idTipoCocinaPrincipal.nombreTipoCocina +'</span></p>');
+      '<p ><i class="fa fa-map-marker iconoficha" aria-hidden="true"></i> <span id="polo">' + local.idPoloGastronomico.nombrePoloGastronomico + ' |  <i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' +local.idTipoCocinaPrincipal.nombreTipoCocina +'</span></p>');
 
      },
      error:function(jqXHR,textStatus,errorThrown)

@@ -54,7 +54,7 @@
 
   </header>
 
-  <div class="container" style="padding: 7% 0 2% 0;">
+  <div class="container miperfilusuario">
     <div class="row">
       <div class="col-md-12">
         <h3>Mi perfil</h3>
@@ -124,7 +124,7 @@
       <div class="col-md-12">
         <p>
           <a href="#"  onClick="actualizarPerfil()" class="page-scroll btn btn-xl" style="max-width: 300px; margin: 5% 0;">MODIFICAR</a>
-        </p>k
+        </p>
       </div>
     </div>
   </div>
