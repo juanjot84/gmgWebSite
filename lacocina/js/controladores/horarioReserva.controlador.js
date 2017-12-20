@@ -77,44 +77,6 @@ function aplicarHorarios(dia){
   '  </td>');
 }
 
-var toInt = function(time){
-   var tiempo = time.split(':').map(parseFloat);
-   return (tiempo[0]*2 + tiempo[1]/30);
- };
-
-
- var toTime = function(int){
-   var hora = Math.floor(int/2);
-   if ( hora >= 24 )
-     hora -= 24;
-
-   hora = hora.toString().length === 1 ? "0" + hora : hora;
-
-
-   return [hora, int % 2 ? '30' : '00'].join(':');
-  };
-
- var range = function(from, to){
-   var rango = Array(to-from+1).fill();
-
-   for (var i = 0; i < rango.length; i++) {
-     rango[i] = from + i;
-   }
-   return rango;
- };
-
- //funcion que convierte una hora a int, luego crea un rango entre esas horas y despues lo completa convirtiendo cada int a hora nuevamente
- //viene de: https://codereview.stackexchange.com/questions/128260/populating-an-array-with-times-with-half-hour-interval-between-them
- var cadaMediaHora = function(t1,t2){
-   var rangoNums = range(toInt(t1), toInt(t2));
-   var rangoHoras = [];
-   _.each(rangoNums, function(hora){
-     rangoHoras.push(toTime(hora));
-   });
-   return rangoHoras;
- };
-
-
 function cargarHorariosSeteados() {
   if (_.isUndefined(server)) {
     $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
@@ -254,32 +216,30 @@ function sendHorarioAtencion() {
     });
     actualizarHorarioAtencion.push(guardarHT);
 
-
-    var campoAAcuatualizar = "idCubiertosDia";
+    campoAAcuatualizar = "idCubiertosDia";
     var guardarCD = actualizarLocal(idLocalCreado, _.without(localCubiertosCreados, ""), campoAAcuatualizar).then(function (data) {
       resolve(true);
     }).catch(function (err) {
       console.log(err);
     });
-    actualizarCubiertos.push(guardarCD)
+    actualizarCubiertos.push(guardarCD);
+
+    Promise.all(actualizarHorarioAtencion, actualizarCubiertos).then(function(){
+      console.log(localCubiertosCreados);
+
+      if (accion == 'crear') {
+        cargarHorarioAtencion();
+      } else if (accion == 'editar') {
+        eliminarViejos(cubiertosViejos).then(function (error, success) {
+          volverPanelLocal();
+        }).catch(function (err) {
+          console.log(err);
+        });
+      }
+    })
   }).catch(function (err) {
     console.log(err);
   });
-
-  Promise.all(actualizarHorarioAtencion, actualizarCubiertos).then(function(){
-    console.log(localCubiertosCreados);
-
-    if (accion == 'crear') {
-      cargarHorarioAtencion();
-    } else if (accion == 'editar') {
-      // eliminarViejos(horariosViejos)
-      eliminarViejos(cubiertosViejos).then(function (error, success) {
-        volverPanelLocal();
-      }).catch(function (err) {
-        console.log(err);
-      });
-    }
-  })
 
 }
 
@@ -300,34 +260,6 @@ function cargarHorarioAtencion(){
     success: function (data) {
       var local = data;
       var url = "../lacocina/editar-horarios.php?idLocal=" + idLocal +"&acc=cre";
-      $(location).attr('href', url);
-
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-      $('#target').append("jqXHR: " + jqXHR);
-      $('#target').append("textStatus: " + textStatus);
-      $('#target').append("You can not send Cross Domain AJAX requests: " + errorThrown);
-    },
-  });
-}
-
-function cargarImagenes(){
-  if (_.isUndefined(server)) {
-    $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
-    });
-  }
-  var idLocal = $("#idLocalCreado").val();
-  $('#target').html('obteniendo...');
-  $.ajax({
-    url: server + '/api/v1/admin/locales?id=' + idLocal + "",
-    type: 'GET',
-
-    dataType: "json",
-    crossDomain: true,
-    contentType: "application/json",
-    success: function (data) {
-      var local = data;
-      var url = "../lacocina/subir-imagen.php?idLocal=" + idLocal +"";
       $(location).attr('href', url);
 
     },
@@ -458,107 +390,6 @@ function sendCubiertos(diaCubierto, cantCubiertos, duracionReserva, turno) {
   return promise
 }
 
-
-function validar() {
-  $("#botonGuardar").addClass('disabled');
-  var idHorariosDesdeManana = [];
-  var idHorariosDesdeTarde = [];
-  var idHorariosHastaManana = [];
-  var idHorariosHastaTarde = [];
-  var hayError = false;
-
-  _.each(dias, function (dia) {
-    idHorariosDesdeManana.push({'hora': $("#Hdesde" + dia + "Manana").val(), 'dia': dia});
-    idHorariosHastaManana.push({'hora': $("#Hhasta" + dia + "Manana").val(), 'dia': dia});
-    idHorariosDesdeTarde.push({'hora': $("#Hdesde" + dia + "Tarde").val(), 'dia': dia});
-    idHorariosHastaTarde.push({'hora': $("#Hhasta" + dia + "Tarde").val(), 'dia': dia});
-  });
-
-  var idLocalCreado = $("#idLocalCreado").val();
-
-  _.each(dias, function (dia) {
-    var horarioDesdeM = _.find(idHorariosDesdeManana, {'dia': dia});
-    var horarioHastaM = _.find(idHorariosHastaManana, {'dia': dia});
-    var horarioDesdeT = _.find(idHorariosDesdeTarde, {'dia': dia});
-    var horarioHastaT = _.find(idHorariosHastaTarde, {'dia': dia});
-
-    if (horarioDesdeM.hora != "" && horarioHastaM.hora == "") {
-      $("#Hhasta" + dia + "Manana").parent().after('<span id="Hhasta' + dia + 'MananaAlert" style="color:red"> Debe ingresar un Horario hasta para el día</span>');
-      $("#Hhasta" + dia + "Manana").addClass('alert-danger');
-      hayError = true;
-    }
-
-    if(horarioHastaM.hora != ""){
-      var result = controlarFormatoHora(horarioHastaM.hora);
-      if(result == true){
-        $("#Hhasta" + dia + "Manana").parent().after('<span id="Hhasta' + dia + 'MananaAlert" style="color:red"> Debe ingresar un Horario correcto (HH:mm) para el día</span>');
-        $("#Hhasta" + dia + "Manana").addClass('alert-danger');
-        hayError = true;
-      }
-    }
-
-    if(horarioHastaT.hora != ""){
-      var result = controlarFormatoHora(horarioHastaT.hora);
-      if(result == true){
-        $("#Hhasta" + dia + "Tarde").parent().after('<span id="Hhasta' + dia + 'TardeAlert" style="color:red"> Debe ingresar un Horario correcto (HH:mm) para el día</span>');
-        $("#Hhasta" + dia + "Tarde").addClass('alert-danger');
-        hayError = true;
-      }
-    }
-
-    if(horarioDesdeM.hora != ""){
-      var result = controlarFormatoHora(horarioDesdeM.hora);
-      if(result == true){
-        $("#Hdesde" + dia + "Manana").parent().after('<span id="Hdesde' + dia + 'MananaAlert" style="color:red"> Debe ingresar un Horario correcto (HH:mm) para el día</span>');
-        $("#Hdesde" + dia + "Manana").addClass('alert-danger');
-        hayError = true;
-      }
-    }
-
-    if(horarioDesdeT.hora != ""){
-      var result = controlarFormatoHora(horarioDesdeT.hora);
-      if(result == true){
-        $("#Hdesde" + dia + "Tarde").parent().after('<span id="Hdesde' + dia + 'TardeAlert" style="color:red"> Debe ingresar un Horario correcto (HH:mm) para el día</span>');
-        $("#Hdesde" + dia + "Tarde").addClass('alert-danger');
-        hayError = true;
-      }
-    }
-
-
-    if (horarioDesdeM.hora == "" && horarioHastaM.hora != "") {
-      $("#Hdesde" + dia + "Manana").parent().after('<span id="Hdesde' + dia + 'MananaAlert" style="color:red"> Debe ingresar un Horario desde para el día</span>');
-      $("#Hdesde" + dia + "Manana").addClass('alert-danger');
-      hayError = true;
-    }
-
-    if (horarioDesdeT.hora != "" && horarioHastaT.hora == "") {
-      $("#Hhasta" + dia + "Tarde").parent().after('<span id="Hhasta' + dia + 'TardeAlert" style="color:red"> Debe ingresar un Horario hasta para el día</span>');
-      $("#Hhasta" + dia + "Tarde").addClass('alert-danger');
-      hayError = true;
-    }
-    if (horarioDesdeT.hora == "" && horarioHastaT.hora != "") {
-      $("#Hdesde" + dia + "Tarde").parent().after('<span id="Hdesde' + dia + 'TardeAlert" style="color:red"> Debe ingresar un Horario desde para el día</span>');
-      $("#Hdesde" + dia + "Tarde").addClass('alert-danger');
-      hayError = true;
-    }
-  });
-
-  if (hayError == false) {
-    sendHorarioAtencion();
-  } else {
-    $(location).attr('href', "#formularioAgregar");
-  }
-}
-
-function controlarFormatoHora(hora){
-
-  var caract = new RegExp(/^([0-9]|0[0-9]|1[0-9]|2[0-4]):[0-5][0-9]$/);
-  if (! caract.test(hora)){
-    return true
-  }
-
-}
-
 function limpiar(campo, campoBack) {
   $("#" + campo + "Alert").hide();
   $("#" + campoBack).removeClass('alert-danger');
@@ -593,3 +424,39 @@ function volverPanelLocal() {
     },
   });
 }
+
+var toInt = function(time){
+  var tiempo = time.split(':').map(parseFloat);
+  return (tiempo[0]*2 + tiempo[1]/30);
+};
+
+var toTime = function(int){
+  var hora = Math.floor(int/2);
+  if ( hora >= 24 )
+    hora -= 24;
+
+  hora = hora.toString().length === 1 ? "0" + hora : hora;
+
+  return [hora, int % 2 ? '30' : '00'].join(':');
+};
+
+var range = function(from, to){
+  var rango = Array(to-from+1).fill();
+
+  for (var i = 0; i < rango.length; i++) {
+    rango[i] = from + i;
+  }
+  return rango;
+};
+
+//funcion que convierte una hora a int, luego crea un rango entre esas horas y despues lo completa convirtiendo cada int a hora nuevamente
+//viene de: https://codereview.stackexchange.com/questions/128260/populating-an-array-with-times-with-half-hour-interval-between-them
+var cadaMediaHora = function(t1,t2){
+  var rangoNums = range(toInt(t1), toInt(t2));
+  var rangoHoras = [];
+  _.each(rangoNums, function(hora){
+    rangoHoras.push(toTime(hora));
+  });
+  return rangoHoras;
+};
+
