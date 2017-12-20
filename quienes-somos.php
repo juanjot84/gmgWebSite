@@ -20,7 +20,7 @@
 
 
 
-  <title>Guía Mendoza Gourmet - Políticas de Privacidad</title>
+  <title>Guía Mendoza Gourmet - Quiénes somos</title>
 
 
 

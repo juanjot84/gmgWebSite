@@ -57,7 +57,7 @@ error_reporting(E_ERROR);
             <div class="col-md-12">
                 <div class="panel panel-default">
 
-        <h2 class="tituloseccion">Asignar Cubiertos por día</h2>
+        <h2 class="tituloseccion">Asignar Cubiertos disponibles para reservar</h2>
           <input type="text" name="idCubierto" id="idCubierto" class="hidden">
           <input type="text" name="idLocalCreado" id="idLocalCreado" value="<?php  error_reporting(E_ERROR); echo $idLocal; ?>" class="hidden">
           <input type="text" name="accion" id="accion" value="<?php  error_reporting(E_ERROR); echo $accion; ?>" class="hidden">

@@ -18,10 +18,10 @@ $nombreNegocio = $_SESSION['nombreNegocio'];
       </div>
     </div>
 
-    <div class="container-fluid" style="margin-top: 0px; padding: 0;">
+    <!-- <div class="container-fluid" style="margin-top: 0px; padding: 0;">
         <nav class="navbar navbar-default">
           <div class="container" style="margin-top: -1px;">
-            <!-- Brand and toggle get grouped for better mobile display -->
+            
             <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Menu</span>
@@ -31,7 +31,7 @@ $nombreNegocio = $_SESSION['nombreNegocio'];
               </button>
             </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
+            
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
                 <li>
@@ -40,15 +40,15 @@ $nombreNegocio = $_SESSION['nombreNegocio'];
                 <li class="dropdown">
                   <a href="mi-perfil.php" role="button" aria-haspopup="true" aria-expanded="false">Mi perfil <span class="caret"></span></a>
                 </li>
-              <!--  <li>
+                <li>
                   <a href="remarketing.php" role="button" aria-haspopup="true" aria-expanded="false">Remarketing<span class="caret"></span></a> 
-                </li> -->
+                </li> 
                 <li>
                   <a href="#" role="button" aria-haspopup="true" aria-expanded="false">Ver mi negocio<span class="caret"></span></a>
                 </li>
               </ul>
              
-            </div><!-- /.navbar-collapse -->
-          </div><!-- /.container-fluid -->
+            </div>
+          </div>
         </nav>
-    </div>
+    </div> -->

@@ -60,7 +60,33 @@ error_reporting(E_ERROR);
                 <h3 id="nombreLocalN"></h3>
             </div>
         </div>
-        <div class="row text-center ">
+        <div class="row text-center">
+            <div class="col-md-3 botonmanito">
+                <a href="perfil/reservas.php"><div style="font-size: 1.5em;">
+                    <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-ok" aria-hidden="true"></span><br>
+                    VER RESERVAS REALIZADAS
+                </div></a>
+            </div>
+            <div class="col-md-3 botonmanito">
+                <a onclick="editarCubiertos()"><div style="font-size: 1.5em;">
+                    <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-cutlery" aria-hidden="true"></span><br>
+                    CONFIGURAR RESERVAS
+            </div></a>
+            </div>
+            <div class="col-md-3 botonmanito">
+                <a onclick="editarDescuentos()"><div style="font-size: 1.5em;">
+                    <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-usd" aria-hidden="true"></span><br>
+                    DESCUENTOS
+                </div></a>
+            </div>
+            <div class="col-md-3 botonmanito">
+                <a onclick="editarHorarios()"><div style="font-size: 1.5em;">
+                    <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-time" aria-hidden="true"></span><br>
+                    HORARIOS DE ATENCIÓN
+                </div></a>
+            </div>
+        </div>
+        <div class="row text-center" style="padding-top: 5%;">
             <div class="col-md-3 botonmanito">
                 <a onclick="cargarForm('local')"><div style="font-size: 1.5em;">
                     <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-cog" aria-hidden="true"></span><br>
@@ -77,32 +103,6 @@ error_reporting(E_ERROR);
                 <a onclick="cargarImagenes()"><div style="font-size: 1.5em;">
                     <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-picture" aria-hidden="true"></span><br>
                     CARGAR IMÁGENES
-                </div></a>
-            </div>
-            <div class="col-md-3 botonmanito">
-                <a onclick="editarHorarios()"><div style="font-size: 1.5em;">
-                    <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-time" aria-hidden="true"></span><br>
-                    HORARIOS DE ATENCIÓN
-                </div></a>
-            </div>
-        </div>
-        <div class="row text-center" style="padding-top: 5%;">
-            <div class="col-md-3 botonmanito">
-                <a onclick="editarCubiertos()"><div style="font-size: 1.5em;">
-                    <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-cutlery" aria-hidden="true"></span><br>
-                    CUBIERTOS POR DÍA
-                </div></a>
-            </div>
-            <div class="col-md-3 botonmanito">
-                <a onclick="editarDescuentos()"><div style="font-size: 1.5em;">
-                    <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-usd" aria-hidden="true"></span><br>
-                    DESCUENTOS
-                </div></a>
-            </div>
-            <div class="col-md-3 botonmanito">
-                <a href="perfil/reservas.php"><div style="font-size: 1.5em;">
-                    <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-ok" aria-hidden="true"></span><br>
-                    RESERVAS
                 </div></a>
             </div>
             <div class="col-md-3 botonmanito">
@@ -178,4 +178,5 @@ error_reporting(E_ERROR);
 
 </body>
 
+                </div></a>
 </html>

@@ -55,7 +55,7 @@ error_reporting(E_ERROR);
                 <div class="col-md-4">
                     <a class="botonpanelmiperfil" onclick="cargarForm('negocio')"><div>
                         <span class="iconosmiperfil glyphicon glyphicon-cog" aria-hidden="true"></span><br>
-                        DATOS GENERALES
+                        DATOS DEL NEGOCIO
                     </div></a>
                 </div>
                 <div class="col-md-4">
@@ -67,7 +67,7 @@ error_reporting(E_ERROR);
                 <div class="col-md-4">
                     <a class="botonpanelmiperfil" onclick="cargarForm('local')"><div>
                         <span class="iconosmiperfil glyphicon glyphicon-th" aria-hidden="true"></span><br>
-                        LOCALES
+                        ADMINISTRAR SUCURSALES
                     </div></a>
                 </div>
             </div>
