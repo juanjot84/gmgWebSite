@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Guía Mendoza Gourmet - Quiénes Somos</title>
+  <title>Guía Mendoza Gourmet - Términos y condiciones</title>
 
   <link rel="shortcut icon" type="image/png" href="favicon.png"/>
 

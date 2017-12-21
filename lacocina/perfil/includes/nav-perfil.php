@@ -4,7 +4,7 @@ $apellidoUsuario = $_SESSION['apellidoUsuario'];
 $nombreNegocio = $_SESSION['nombreNegocio'];
 ?>
 
-<div class="container-fluid" style="background: #000; min-height: 70px;">
+<div class="container-fluid" style="background: #000; min-height: 95px;">
       <div class="container">
         <div class="row">
             <div class="col-md-8" style="text-align: right;">

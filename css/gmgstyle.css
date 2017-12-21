@@ -210,10 +210,11 @@ input[type="text"].buscadornav2::-webkit-input-placeholder {
 }
 
 input.form-control.buscadornav2 {
-    width: 285px;
+    width: 270px;
     background: #fff;
     border-color: #0000001a;
     color: #000;
+    float: left;
 }
 
 h3.titulo {
@@ -757,6 +758,7 @@ li#calificacionLocal {
     }
     img.logoweb {
         max-width: 230px;
+        float: left;
     }
 }
 @media only screen and (max-width : 768px) {

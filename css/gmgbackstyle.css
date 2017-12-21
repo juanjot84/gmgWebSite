@@ -837,6 +837,15 @@ ul.selecdiashorario {
     text-align: left;
 }
 
+.fondopanel {
+    background: url(../lacocina/img/back-cocina.jpg) no-repeat;
+    background-size: cover;
+}
+
+.sombrabotonpanel {
+    color: #fff;
+    text-shadow: 2px 2px 5px #000;
+}
 
 /*MEDIA  QUERIES*/
 
