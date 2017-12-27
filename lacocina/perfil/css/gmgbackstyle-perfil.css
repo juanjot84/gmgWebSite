@@ -485,6 +485,26 @@ h5.titulosalta {
     background-size: cover;
 }
 
+.calificastars {
+    display: inline-flex;
+    list-style: none;
+    letter-spacing: 3px;
+    font-size: 1.7em;
+    margin: 2px 5px;
+    color: #f8981d;
+}
+
+.ratingstyle {
+    padding: 15px;
+    color: #585858;
+}
+
+.fotoperfilcalif {
+    border-radius: 50%;
+    width: 85px;
+    margin-bottom: 5px;
+}
+
 .iconosmiperfil {
     font-size: 3em;
     padding: 5%;

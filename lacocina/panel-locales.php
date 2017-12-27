@@ -61,51 +61,59 @@ error_reporting(E_ERROR);
                 </div>
             </div>
             <div class="row text-center">
-                <div class="col-md-3 botonmanito">
+                <div class="col-md-4 botonmanito">
                     <a class="sombrabotonpanel" href="perfil/reservas.php"><div style="font-size: 1.5em;">
                         <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-ok" aria-hidden="true"></span><br>
                         VER RESERVAS REALIZADAS
                     </div></a>
                 </div>
-                <div class="col-md-3 botonmanito">
+                <div class="col-md-4 botonmanito">
                     <a class="sombrabotonpanel" onclick="editarCubiertos()"><div style="font-size: 1.5em;">
                         <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-cutlery" aria-hidden="true"></span><br>
                         CONFIGURAR RESERVAS
                 </div></a>
                 </div>
-                <div class="col-md-3 botonmanito">
+                <div class="col-md-4 botonmanito">
                     <a class="sombrabotonpanel" onclick="editarDescuentos()"><div style="font-size: 1.5em;">
                         <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-usd" aria-hidden="true"></span><br>
                         DESCUENTOS
                     </div></a>
                 </div>
-                <div class="col-md-3 botonmanito">
+            </div>
+            <div class="row text-center" style="padding-top: 5%;">
+                <div class="col-md-4 botonmanito">
                     <a class="sombrabotonpanel" onclick="editarHorarios()"><div style="font-size: 1.5em;">
                         <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-time" aria-hidden="true"></span><br>
                         HORARIOS DE ATENCIÓN
                     </div></a>
                 </div>
-            </div>
-            <div class="row text-center" style="padding-top: 5%;">
-                <div class="col-md-3 botonmanito">
+                <div class="col-md-4 botonmanito">
+                    <a class="sombrabotonpanel" href="perfil/calificaciones.php"><div style="font-size: 1.5em;">
+                        <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-star" aria-hidden="true"></span><br>
+                        VER CALIFICACIONES
+                    </div></a>
+                </div>
+                <div class="col-md-4 botonmanito">
                     <a class="sombrabotonpanel" onclick="cargarForm('local')"><div style="font-size: 1.5em;">
                         <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-cog" aria-hidden="true"></span><br>
                         DATOS GENERALES
                     </div></a>
                 </div>
-                <div class="col-md-3 botonmanito">
+            </div>
+            <div class="row text-center" style="padding-top: 5%;">                
+                <div class="col-md-4 botonmanito">
                     <a class="sombrabotonpanel" onclick="editarContacto()"><div style="font-size: 1.5em;">
                         <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span><br>
                         CONTACTO ADMINISTRATIVO
                     </div></a>
                 </div>
-                <div class="col-md-3 botonmanito">
+                <div class="col-md-4 botonmanito">
                     <a class="sombrabotonpanel" onclick="cargarImagenes()"><div style="font-size: 1.5em;">
                         <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-picture" aria-hidden="true"></span><br>
                         CARGAR IMÁGENES
                     </div></a>
                 </div>
-                <div class="col-md-3 botonmanito">
+                <div class="col-md-4 botonmanito">
                     <a class="sombrabotonpanel" href="perfil/remarketing.php"><div style="font-size: 1.5em;">
                         <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-stats" aria-hidden="true"></span><br>
                         REMARKETING
