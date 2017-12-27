@@ -143,6 +143,14 @@ h3.section-heading {
     color: #000 !important;
 }
 
+.calificastars {
+    display: inline-flex;
+    list-style: none;
+    letter-spacing: 3px;
+    font-size: 1.7em;
+    margin: 2px 5px;
+}
+
 .miperfilusuario {
     padding: 7% 0 2% 0;
 }
