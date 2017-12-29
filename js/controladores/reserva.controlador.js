@@ -272,7 +272,7 @@ function renderMisReservas(reservas){
       '     ...</span>' +
       '   </p>  ' +
       '  </div>  ' +
-      '  <div class="col-md-3">    ' +
+      '  <div class="col-md-3">' +
       '    <a href="#"><h2 class="etiquetadescuento verreserva">Ver reserva</h2></a>' +
       '  </div>' +
       '  </div>')
