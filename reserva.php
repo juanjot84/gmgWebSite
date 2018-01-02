@@ -159,6 +159,7 @@ $idLocal = $_GET["id"];
         </p>
       </div>
 
+    <div id="sinHorarios"></div>
 
     </div>
 

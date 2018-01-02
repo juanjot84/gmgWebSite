@@ -122,6 +122,7 @@ function buscarHorarios() {
     },
     error:function(jqXHR,textStatus,errorThrown)
     {
+      $('#sinHorarios').append('<p>No se encuentran horarios para el día seleccionado</p>');
       $('#target').append("jqXHR: "+jqXHR);
       $('#target').append("textStatus: "+textStatus);
       $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
