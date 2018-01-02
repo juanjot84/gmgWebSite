@@ -53,6 +53,7 @@ error_reporting(E_ERROR);
         </div>
     </div>
     <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
+      <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px; float: right;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
