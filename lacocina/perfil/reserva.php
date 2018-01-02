@@ -69,7 +69,7 @@ error_reporting(E_ERROR);
 
 
 
-  <div class="container" style="padding-top: 2%;">
+  <div class="container" style="padding-top: 2%; min-height: 60vh;">
   <input type="text" name="idNegocio" id="idNegocio" value="<?php error_reporting(E_ERROR); echo $idNegocio; ?>" class="hidden">
     <div class="row">
       <div class="col-md-4">

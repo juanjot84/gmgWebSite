@@ -707,6 +707,11 @@ input#login-submit:hover {
         padding-top: 15%;
     }
 
+    .reservafront {
+        padding-top: 18%;
+        min-height: 85vh;
+    }
+
 }
 
 p#nivelPrecio {
