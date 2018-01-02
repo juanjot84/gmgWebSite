@@ -115,13 +115,16 @@ function buscarHorarios() {
     contentType:"application/json",
     success: function (data) {
       if (!data.length){
+        $('#sinHorarios').html('');
         $('#noHorario').show();
       } else {
+        $('#sinHorarios').html('');
         mostrarHoras(data);
       }
     },
     error:function(jqXHR,textStatus,errorThrown)
     {
+      $('#sinHorarios').html('');
       $('#sinHorarios').append('<p>No se encuentran horarios para el día seleccionado</p>');
       $('#target').append("jqXHR: "+jqXHR);
       $('#target').append("textStatus: "+textStatus);
