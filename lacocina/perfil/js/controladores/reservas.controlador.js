@@ -114,16 +114,17 @@ function renderReservas(reservasLocal){
                             '<td style="width: 230px;">'+
                               reserva.nombreUsuarioReserva+
                             '</td>'+
-                            '<td class="centrarbotaccion"><img src="imgs/adultos.png">'+reserva.cubiertosAdultos+'</td>'+
-                            '<td class="centrarbotaccion"><img src="imgs/ninos.png">'+reserva.cubiertosMenores+'</td>'+
+                            '<td class="centrarbotaccion"><img title="Cantidad de adultos" src="imgs/adultos.png">'+reserva.cubiertosAdultos+'</td>'+
+                            '<td class="centrarbotaccion"><img title="Cantidad de niños" src="imgs/ninos.png">'+reserva.cubiertosMenores+'</td>'+
                             '<td class="centrarbotaccion" style="min-width: 97px;">'+reserva.horaSola+' hs</td>'+
-                            '<td class="centrarbotaccion"><i class="'+medioDeReserva+'" aria-hidden="true"></i></td>'+
+                            '<td class="centrarbotaccion"><i title="Medio de reserva" class="'+medioDeReserva+'" aria-hidden="true"></i></td>'+
                             '<td class="centrarbotaccion">'+
                             '<a data-toggle="collapse" data-parent="#accordion" href="#'+collapseReserva+'">'+
                               '<button title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button></a>'+
                               botonEditar +
                               '<button title="Eliminar" '+ ocultarEliminar +' class="btn btn-default botaccion" type="button" data-toggle="modal" onClick="mostrarModal(\''+ collapseReserva +'\',\''+cancelar+'\')"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>'+
                             '</td>'+
+                            '<td class="centrarbotaccion"><button title="No vino" class="btn btn-default botaccion"><i class="fa fa-user-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></button></td>'+
                           '</tr>'+
                         '</tbody>'+
                       '</table>'+

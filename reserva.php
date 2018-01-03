@@ -82,8 +82,8 @@ $idLocal = $_GET["id"];
   <div class="container reservafront">
     <div class="row">
       <div class="col-md-12">
-        <h3 class="titulo">ZAMPA | Cocina + Barra</h3>
-        <p>Hacé tu reserva online GRATIS!</p>
+        <h3 class="titulo"></h3>
+        <p></p>
       </div>
     </div>
 
@@ -159,6 +159,7 @@ $idLocal = $_GET["id"];
         </p>
       </div>
 
+    <div id="sinHorarios"></div>
 
     </div>
 

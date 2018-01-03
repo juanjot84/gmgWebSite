@@ -540,7 +540,38 @@ a.forgot-password:hover {
     border-radius: 4px;
     font-size: 1.1em;
     text-decoration: initial;
+    font-weight: normal;
 }
+
+.botonhorareserva:hover {
+    background: #fdfda4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 40px;
+    border-radius: 4px;
+    font-size: 1.1em;
+    text-decoration: initial;
+    font-weight: normal;
+}
+
+.botonhorareserva:focus {
+    background: yellow;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 40px;
+    border-radius: 4px;
+    font-size: 1.1em;
+    text-decoration: initial;
+    outline: #f8981d;
+    font-weight: bold;
+}
+
 
 #map {
     width: 100%;
@@ -676,6 +707,11 @@ input#login-submit:hover {
         padding-top: 15%;
     }
 
+    .reservafront {
+        padding-top: 18%;
+        min-height: 85vh;
+    }
+
 }
 
 p#nivelPrecio {
@@ -736,6 +772,19 @@ li#calificacionLocal {
     display: inline-flex;
     padding: 3% 0;
 }
+
+.etiquetadescuento {
+    text-align: center;
+    background: #f8981d;
+    font-size: 1.2em;
+    padding: 5% 1%;
+    font-weight: 400;
+    color: #fff;
+    border-radius: 5px;
+    width: 60%;
+    margin: 11% auto;
+}
+
 @media only screen and (max-width : 1024px) {
     .altoocasiones {
         width: 960px;

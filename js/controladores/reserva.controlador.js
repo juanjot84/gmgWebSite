@@ -115,13 +115,17 @@ function buscarHorarios() {
     contentType:"application/json",
     success: function (data) {
       if (!data.length){
+        $('#sinHorarios').html('');
         $('#noHorario').show();
       } else {
+        $('#sinHorarios').html('');
         mostrarHoras(data);
       }
     },
     error:function(jqXHR,textStatus,errorThrown)
     {
+      $('#sinHorarios').html('');
+      $('#sinHorarios').append('<p>No hay disponibilidad de reserva para el día seleccionado</p>');
       $('#target').append("jqXHR: "+jqXHR);
       $('#target').append("textStatus: "+textStatus);
       $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
@@ -272,7 +276,7 @@ function renderMisReservas(reservas){
       '     ...</span>' +
       '   </p>  ' +
       '  </div>  ' +
-      '  <div class="col-md-3">    ' +
+      '  <div class="col-md-3">' +
       '    <a href="#"><h2 class="etiquetadescuento verreserva">Ver reserva</h2></a>' +
       '  </div>' +
       '  </div>')
