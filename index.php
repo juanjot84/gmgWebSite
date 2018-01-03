@@ -6,12 +6,14 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Guía Mendoza Gourmet">
-  <meta name="author" content="">
+  <meta name="description" content="Reservá tu mesa!">
+  <meta property="og:image" content="https://guiamendozagourmet.com/guiamendozagourmet.jpg" />
+  <meta name="author" content="Guía Mendoza Gourmet">
+  <meta name="keywords" content="HTML, CSS, XML, XHTML, JavaScript">
 
   <title>Guía Mendoza Gourmet</title>
 
-  <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+  <link rel="shortcut icon" type="image/png" href="https://guiamendozagourmet.com/favicon.png"/>
 
   <!-- Bootstrap Core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
