@@ -124,8 +124,8 @@ function renderLocal(local) {
     '</div>' +
     '<div class="col-sm-6 col-md-6">' +
     '<p><span style="font-size: 1.5em;"><strong>' + local.idNegocio.nombreNegocio + '</strong> ' + bajadaNegocio + '</span></p>' +
-    '<i class="fa fa-map-marker" aria-hidden="true"></i><span class="polo">   ' + local.idPoloGastronomico.nombrePoloGastronomico + '</span> |  ' +
-    '<i class="fa fa-cutlery" aria-hidden="true"></i><span class="tiponegocio">  ' + local.idTipoCocinaPrincipal.nombreTipoCocina + '</span></br>' +
+    '<i class="fa fa-map-marker iconoficha" aria-hidden="true"></i><span class="polo">   ' + local.idPoloGastronomico.nombrePoloGastronomico + '</span> |  ' +
+    '<i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' + local.idTipoCocinaPrincipal.nombreTipoCocina + '</span></br>' +
     '<p style="letter-spacing: 1px;"><strong>' + local.idNivelPrecio.label + '</strong><span style="color: #cbcbcb">' + labelGrises + '</span></p>' +
     '<p><span class="descripcion">' + local.idNegocio.descripcionNegocio.substr(0, 147) + '...</span></p>' +
 
