@@ -11,7 +11,7 @@ function obtenerListado() {
   }
     var idNegocio = $('#idNegocio').val();
     $('.container.negocios').html('');
-    $('#loading').html('<img class="img-responsive" src="/imgs/loading.gif">');
+    $('#loading').html('<img class="img-responsive" src="imgs/loading.gif">');
     $.ajax({
         url: server + '/api/v1/admin/reservasPendienteNegocio?id='+ idNegocio +"",
         type: 'GET',
