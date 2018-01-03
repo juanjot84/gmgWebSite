@@ -6,10 +6,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Reservá tu mesa!">
+  <meta name="description" content="Reservá tu mesa! Buscá y reservá en tu restaurante favorito, totalmente GRATIS!">
   <meta property="og:image" content="https://guiamendozagourmet.com/guiamendozagourmet.jpg" />
   <meta name="author" content="Guía Mendoza Gourmet">
-  <meta name="keywords" content="HTML, CSS, XML, XHTML, JavaScript">
+  <meta name="keywords" content="guia mendoza gourmet, reserva, online, restaurantes, restorant, comer afuera, peatonal sarmiento, calle sarmiento, av. belgrano, av. arístides villanueva, av. juan b. justo, alameda, barrio bombal, av. san martín sur, panamericana, chacras de coria, cacheuta, alta montaña, potrerillos, valle de uco, palmares, centro, vistalba, maipú, gourmet, alta cocina, casera, regional, italiana, peruana, nikkei, peruano, japonesa, argentina, sin gluten, sushi, parrilla, cosas dulces, cenar afuera, almuerzos, reservas">
+
+
+    
 
   <title>Guía Mendoza Gourmet</title>
 
@@ -45,12 +48,6 @@
   <link href="owl-carousel/owl.theme.css" rel="stylesheet">
 
   <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
-
-  <!-- Le fav and touch icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 
   <style type="text/css">
     h2.section-heading {
