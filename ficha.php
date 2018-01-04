@@ -33,19 +33,12 @@ session_start();
 
         <!-- Theme CSS -->
         <link href="css/gmgstyle.css" rel="stylesheet">
+        <link href="css/burguerbutton.css" rel="stylesheet">
         <link href="css/agency.min.css" rel="stylesheet">
         <link href="css/simple-sidebar.css" rel="stylesheet">
 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" integrity="sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY" crossorigin="anonymous"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
-        <![endif]-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-        <!-- ANALYTICS -->
-
-        <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111410422-1"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
@@ -79,9 +72,7 @@ session_start();
             <div id="sidebar-wrapper">
                 <ul class="sidebar-nav">
                     <li class="sidebar-brand">
-                        <a href="#">
-                            Categorías
-                        </a>
+                        Categorías
                     </li>
                     <li>
                         <a href="#">Food Truck</a>
@@ -110,7 +101,14 @@ session_start();
 
             <div id="page-content-wrapper">
                  
-                 <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">
+                    <div id="nav-icon3">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                </a>
 
                 <?php 
                   error_reporting(E_ERROR);
@@ -323,6 +321,15 @@ session_start();
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         });
+        </script>
+
+
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $('#nav-icon3').click(function(){
+              $(this).toggleClass('open');
+            });
+          });
         </script>
 
     </body>
