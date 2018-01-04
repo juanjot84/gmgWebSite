@@ -96,7 +96,7 @@ error_reporting(E_ERROR);
                 <div class="col-md-4 botonmanito">
                     <a class="sombrabotonpanel" onclick="cargarForm('local')"><div style="font-size: 1.5em;">
                         <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-cog" aria-hidden="true"></span><br>
-                        DATOS GENERALES
+                        DATOS DE SUCURSAL
                     </div></a>
                 </div>
             </div>
@@ -104,7 +104,7 @@ error_reporting(E_ERROR);
                 <div class="col-md-4 botonmanito">
                     <a class="sombrabotonpanel" onclick="editarContacto()"><div style="font-size: 1.5em;">
                         <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span><br>
-                        CONTACTO ADMINISTRATIVO
+                        CONTACTO DEL LOCAL
                     </div></a>
                 </div>
                 <div class="col-md-4 botonmanito">
