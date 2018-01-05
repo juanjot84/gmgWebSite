@@ -25,6 +25,8 @@
   <!-- Theme CSS -->
   <link href="css/gmgstyle.css" rel="stylesheet">
   <link href="css/agency.min.css" rel="stylesheet">
+  <link href="css/simple-sidebar.css" rel="stylesheet">
+  <link href="css/burguerbutton.css" rel="stylesheet">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -103,6 +105,8 @@
 
   <!-- FIN SMARTLOOK -->
 
+  <?php include("includes/soportezen.php"); ?>
+
 </head>
 
 <?php
@@ -120,36 +124,57 @@ if (empty($filtro)) $filtro = '';
 
 <body id="page-top" class="index">
 
-  <input type="text" name="parametro" id="parametro" value="<?php echo $parametro; ?>" class="hidden">
-  <input type="text" name="filtro" id="filtro" value="<?php echo $filtro; ?>" class="hidden">
+  <div id="wrapper">
 
-  <?php
-  error_reporting(E_ERROR);
-  include("includes/nav.php");
-   ?>
+    <?php 
+        
+        include("includes/menulateral.php");
+    ?>
 
-  <!-- Header -->
-  <header>
+    <div id="page-content-wrapper">
+         
+        <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">
+            <div id="nav-icon3">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+        </a>
 
-  </header>
+          <input type="text" name="parametro" id="parametro" value="<?php echo $parametro; ?>" class="hidden">
+          <input type="text" name="filtro" id="filtro" value="<?php echo $filtro; ?>" class="hidden">
 
-  <div class="container resultadosbusqueda">
-    <div class="row">
-      <div class="col-md-12">
-        <h3 id="labelRestaurantesBusquedas"></h3>
+          <?php
+          error_reporting(E_ERROR);
+          include("includes/nav.php");
+           ?>
+
+          <!-- Header -->
+          <header>
+
+          </header>
+
+          <div class="container resultadosbusqueda">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 id="labelRestaurantesBusquedas"></h3>
+              </div>
+            </div>
+          </div>
+          <center><div id="loading"><img class="img-responsive" src="img/loading.gif"></div></center>
+          <div class="container locales">
+
+          </div>
+
+
+         <?php
+         error_reporting(E_ERROR);
+         include("includes/footer.php");
+          ?>
+
       </div>
     </div>
-  </div>
-  <center><div id="loading"><img class="img-responsive" src="img/loading.gif"></div></center>
-  <div class="container locales">
-
-  </div>
-
-
- <?php
- error_reporting(E_ERROR);
- include("includes/footer.php");
-  ?>
 
   <!-- jQuery -->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -177,6 +202,27 @@ if (empty($filtro)) $filtro = '';
     buscar('<?php echo $parametro; ?>', '<?php echo $filtro; ?>');
 
   </script>
+
+  <!-- Menu lateral -->
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Animacion boton cerrar menú lateral -->
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('#nav-icon3').click(function(){
+        $(this).toggleClass('open');
+      });
+    });
+  </script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+  $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+  });
+  </script>
+
 
 </body>
 

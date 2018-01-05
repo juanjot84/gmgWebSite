@@ -30,15 +30,8 @@
   <!-- Theme CSS -->
   <link href="css/gmgstyle.css" rel="stylesheet">
   <link href="css/agency.min.css" rel="stylesheet">
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" integrity="sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY" crossorigin="anonymous"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
-  <![endif]-->
-
-
+  <link href="css/simple-sidebar.css" rel="stylesheet">
+  <link href="css/burguerbutton.css" rel="stylesheet">
 
       <!-- <link href="assets/css/bootstrapTheme.css" rel="stylesheet"> -->
   <link href="assets/css/custom.css" rel="stylesheet">
@@ -107,117 +100,134 @@
   /></noscript>
   <!-- End Facebook Pixel Code -->
 
-  <!-- Start of guiamendozagourmet Zendesk Widget script -->
-  <script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(e){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var e=this.createElement("script");n&&(this.domain=n),e.id="js-iframe-async",e.src="https://assets.zendesk.com/embeddable_framework/main.js",this.t=+new Date,this.zendeskHost="guiamendozagourmet.zendesk.com",this.zEQueue=a,this.body.appendChild(e)},o.write('<body onload="document._l();">'),o.close()}();
-  /*]]>*/</script>
-  <!-- End of guiamendozagourmet Zendesk Widget script -->
+  <?php include("includes/soportezen.php"); ?>
 
 </head>
 
 <body id="page-top" class="index">
 
-  <?php 
-  error_reporting(E_ERROR);
-  include("includes/nav-home.php"); 
-  ?>
+  <div id="wrapper">
 
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 intro-text" style="margin-top: 5%;">
+      <?php 
+          
+          include("includes/menulateral.php");
+      ?>
 
-          <img class="img-responsive" style="margin: 0 auto;" src="img/reserva.png">
-          <!-- <div class="intro-heading">RESERVÁ TU LUGAR</div>
-          <div class="intro-lead-in">Buscá <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Elegí <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Reservá <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> ES GRATIS!!</div>
-          <a href="#" class="page-scroll btn btn-xl">CÓMO FUNCIONA</a> -->
-          <div class="form-group" style="padding-top: 7%;">
-            <form action="resultados-busqueda.php" method="post">
-              <input type="text" class="form-control" placeholder="Buscá por nombre, zona o tipo de cocina" name="parametro">
-
-              <!-- <div class="filtros">
-                <input type="radio" name="filtro" value="nombre" aria-label="..."> POR NOMBRE
-                <input type="radio" name="filtro" value="localidad" aria-label="..."> POR ZONA
-                <input type="radio" name="filtro" value="tipoCocina" aria-label="..."> TIPO DE COMIDA
-              </div> -->
-              <div style="padding-top: 5%;">
-                <!-- <button type="button" class="btn btn-default">FECHA</button>
-                <button type="button" class="btn btn-default">HORA</button>
-                <button type="button" class="btn btn-default">COMENSALES</button> -->
-                <button type="submit" class="btn btn-default btnbuscar">BUSCAR</button>
+      <div id="page-content-wrapper">
+           
+          <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">
+              <div id="nav-icon3">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
               </div>
-            </form>
-          </div>
-        </div>
-        <div class="col-md-6 intro-text">
-          <img style="margin: 0 auto;" class="img-responsive" src="img/cortes.png">
-        </div>
-      </div>
-    </div>
-  </header>
+          </a>
 
-  <!-- Ocasiones -->
-  <section id="portfolio" class="bg-light-gray">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading">Ocasiones</h2>
+          <?php 
+          error_reporting(E_ERROR);
+          include("includes/nav-home.php"); 
+          ?>
 
-        </div>
-      </div>
+          <!-- Header -->
+          <header>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6 intro-text" style="margin-top: 5%;">
 
-      <div class="row">
-        <div id="demo">
-          <div class="container">
-            <div class="row">
-              <div class="span12">
+                  <img class="img-responsive" style="margin: 0 auto;" src="img/reserva.png">
+                  <!-- <div class="intro-heading">RESERVÁ TU LUGAR</div>
+                  <div class="intro-lead-in">Buscá <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Elegí <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Reservá <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> ES GRATIS!!</div>
+                  <a href="#" class="page-scroll btn btn-xl">CÓMO FUNCIONA</a> -->
+                  <div class="form-group" style="padding-top: 7%;">
+                    <form action="resultados-busqueda.php" method="post">
+                      <input type="text" class="form-control" placeholder="Buscá por nombre, zona o tipo de cocina" name="parametro">
 
-                <div id="owl-demo" class="owl-carousel">
-
+                      <!-- <div class="filtros">
+                        <input type="radio" name="filtro" value="nombre" aria-label="..."> POR NOMBRE
+                        <input type="radio" name="filtro" value="localidad" aria-label="..."> POR ZONA
+                        <input type="radio" name="filtro" value="tipoCocina" aria-label="..."> TIPO DE COMIDA
+                      </div> -->
+                      <div style="padding-top: 5%;">
+                        <!-- <button type="button" class="btn btn-default">FECHA</button>
+                        <button type="button" class="btn btn-default">HORA</button>
+                        <button type="button" class="btn btn-default">COMENSALES</button> -->
+                        <button type="submit" class="btn btn-default btnbuscar">BUSCAR</button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
-
+                <div class="col-md-6 intro-text">
+                  <img style="margin: 0 auto;" class="img-responsive" src="img/cortes.png">
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+          </header>
+
+          <!-- Ocasiones -->
+          <section id="portfolio" class="bg-light-gray">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12 text-center">
+                  <h2 class="section-heading">Ocasiones</h2>
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div id="demo">
+                  <div class="container">
+                    <div class="row">
+                      <div class="span12">
+
+                        <div id="owl-demo" class="owl-carousel">
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- Publicidad -->
+          <section style="padding: 0px 0 !important;">
+            <div class="container-fluid fondopubli">
+              <div class="row">
+                <div class="col-lg-12 text-center">
+                  <!-- <h2 style="color: #fff; padding-top: 8%;" class="section-heading">PUBLICIDAD</h2>
+                  <h3 style="color: #fff;" class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+          <!-- About Section -->
+          <section id="about">
+            <div class="container polos">
+            </div>
+          </section>
+
+          <!-- ELEGÍ TU COCINA -->
+          <section id="team" class="bg-light-gray">
+
+            <h2 style="text-align: center; margin-bottom: 2%;" class="section-heading">Elegí tu cocina</h2>
+
+            <div class="container tipoCocinas">
+
+            </div>
+          </section>
+
+        <?php 
+        error_reporting(E_ERROR);
+        include("includes/footer.php");
+        ?>
       </div>
-
     </div>
-  </section>
-
-  <!-- Publicidad -->
-  <section style="padding: 0px 0 !important;">
-    <div class="container-fluid fondopubli">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <!-- <h2 style="color: #fff; padding-top: 8%;" class="section-heading">PUBLICIDAD</h2>
-          <h3 style="color: #fff;" class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- About Section -->
-  <section id="about">
-    <div class="container polos">
-    </div>
-  </section>
-
-  <!-- ELEGÍ TU COCINA -->
-  <section id="team" class="bg-light-gray">
-
-    <h2 style="text-align: center; margin-bottom: 2%;" class="section-heading">Elegí tu cocina</h2>
-
-    <div class="container tipoCocinas">
-
-    </div>
-  </section>
-
-<?php 
-error_reporting(E_ERROR);
-include("includes/footer.php");
- ?>
 
   <!-- jQuery -->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -241,10 +251,30 @@ include("includes/footer.php");
   <script  src=" https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"
   crossorigin="anonymous"></script>
 
+  <script src="assets/js/jquery-1.9.1.min.js"></script>
+  <script src="owl-carousel/owl.carousel.js"></script>
+
+  <!-- Menu lateral -->
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Animacion boton cerrar menú lateral -->
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('#nav-icon3').click(function(){
+        $(this).toggleClass('open');
+      });
+    });
+  </script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+  $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+  });
+  </script>
 
 
-      <script src="assets/js/jquery-1.9.1.min.js"></script>
-      <script src="owl-carousel/owl.carousel.js"></script>
 
   <script>
     obtenerListadoCocinas();
