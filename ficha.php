@@ -37,7 +37,7 @@ session_start();
         <link href="css/agency.min.css" rel="stylesheet">
         <link href="css/simple-sidebar.css" rel="stylesheet">
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
 
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111410422-1"></script>
         <script>
@@ -61,43 +61,18 @@ session_start();
 
         <!-- FIN SMARTLOOK -->
 
-
+        <?php include("includes/soportezen.php"); ?>
+        
     </head>
 
     <body id="page-top" class="index">
 
         <div id="wrapper">
 
-            <!-- Sidebar -->
-            <div id="sidebar-wrapper">
-                <ul class="sidebar-nav">
-                    <li class="sidebar-brand">
-                        Categorías
-                    </li>
-                    <li>
-                        <a href="#">Food Truck</a>
-                    </li>
-                    <li>
-                        <a href="#">Capacitación</a>
-                    </li>
-                    <li>
-                        <a href="#">Chef a domicilio</a>
-                    </li>
-                    <li>
-                        <a href="#">Bazar</a>
-                    </li>
-                    <li>
-                        <a href="#">Librería</a>
-                    </li>
-                    <li>
-                        <a href="#">Almacén Gourmet</a>
-                    </li>
-                    <li>
-                        <a href="#">Vinería</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /#sidebar-wrapper -->
+            <?php 
+                
+                include("includes/menulateral.php");
+            ?>
 
             <div id="page-content-wrapper">
                  
@@ -312,8 +287,16 @@ session_start();
         </script>
 
         <!-- Menu lateral -->
-
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Animacion boton cerrar menú lateral -->
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $('#nav-icon3').click(function(){
+              $(this).toggleClass('open');
+            });
+          });
+        </script>
 
         <!-- Menu Toggle Script -->
         <script>
@@ -323,14 +306,6 @@ session_start();
         });
         </script>
 
-
-        <script type="text/javascript">
-          $(document).ready(function(){
-            $('#nav-icon3').click(function(){
-              $(this).toggleClass('open');
-            });
-          });
-        </script>
 
     </body>
 
