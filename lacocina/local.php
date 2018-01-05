@@ -145,28 +145,28 @@ include("includes/nav.php"); ?>
                         <input type="text" id="long"  class="hidden" value="-68.839412" />
                     </p>
 
-              <h5 class="titulosalta"> Polo gastronómico</h5>
+              <h5 class="titulosalta" id="tituloPolo"> Polo gastronómico</h5>
 
-                  <p><div class="input-group input-group-sm">
+                  <p><div class="input-group input-group-sm" id="listaPolo">
                     <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
                     <select id="poloNegocio" name="poloNegocio" class="form-control" onfocus="limpiar('poloNegocio')" required></select>
                   </div></p>
 
-              <h5 class="titulosalta"> Acepta reserva</h5>
+              <h5 class="titulosalta" id="tituloReserva"> Acepta reserva</h5>
 
-                 <p>
+                 <p id="aceptaReserva">
                     <label class="radio-inline"><input type="radio" name="aceptaReservaNegocio" id="aceptaReservaNegocio-true" value="true" checked="checked">Si</label>
                     <label class="radio-inline"><input type="radio" name="aceptaReservaNegocio" id="aceptaReservaNegocio-false" value="false">No</label>
                   </p>
 
-              <h5 class="titulosalta"> Nivel de precio</h5>
+              <h5 class="titulosalta" id="tituloNivel"> Nivel de precio</h5>
 
-                  <p><div class="input-group input-group-sm">
-                    <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                  <p id="nivel"><div class="input-group input-group-sm">
+                   <div id="iconoNivel"><span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span></div>
                     <select id="nivelPrecio" name="nivelPrecio" class="form-control" onfocus="limpiar('nivelPrecio')" required></select>
                   </div></p>
 
-              <h5 class="titulosalta"> Indicar medio de pago</h5>
+              <h5 class="titulosalta" id="tituloPago"> Indicar medio de pago</h5>
 
                     <p>
                         <div class="form-group" id="mediosPagoCheckbox">
@@ -174,7 +174,7 @@ include("includes/nav.php"); ?>
                         </div>
                     </p>
 
-              <h5 class="titulosalta"> Seleccionar Ocaciones</h5>
+              <h5 class="titulosalta" id="tituloOcaciones"> Seleccionar Ocaciones</h5>
 
                     <p>
                         <div class="form-group" id="ocasionesCheckbox">
@@ -182,13 +182,13 @@ include("includes/nav.php"); ?>
                         </div>
                     </p>
 
-              <h5 class="titulosalta"> Tipo de cocina principal - 1 sola opción</h5>
+              <h5 class="titulosalta" id="titTpoCocPrin"> Tipo de cocina principal - 1 sola opción</h5>
 
-                  <p><div class="input-group input-group-sm">
+                  <div id="TpoCocPrin"><p><div class="input-group input-group-sm">
                     <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
                     <select id="TipoCocinaPpal" name="TipoCocinaPpal" class="form-control" onfocus="limpiar('TipoCocinaPpal')" required></select>
-                  </div></p>
-
+                  </div></p></div>
+            <div id="datosNoResto">
               <h5 class="titulosalta"> Otros tipos de cocina</h5>
 
                   <p>
@@ -227,7 +227,7 @@ include("includes/nav.php"); ?>
                             </div>
                         </div>
                   </p>
-
+               </div>
               <div class="input-group">
                   <span class="input-group-btn">
                   <button id="botonAtras" class="btn btn-default" type="button" style="padding: 17px;" onClick=" volverPanelNegocio()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>

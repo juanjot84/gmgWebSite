@@ -80,16 +80,57 @@ function toggleBounce() {
 function iniciar(accion){
   $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     if(accion == 'editar'){
+      buscarTipoNegocio(accion);
       editarLocal();
-    }else if(accion == 'crear'){
+    }else if(accion == 'crear'){      
+      buscarTipoNegocio(accion);
       mostrarAltaLocal();
     }
   });
 }
 
+function buscarTipoNegocio(accion){
+   var idNegocio = $("#idNegocio").val();
+   $.ajax({
+    url: server + '/api/v1/admin/negocio?id='+ idNegocio +"",
+    type: 'GET',
+
+    dataType: "json",
+    crossDomain: true,
+    contentType:"application/json",
+    success: function (data) {
+      var negocio = data;
+      var tipoNegocio = negocio.idTipoNegocio.nombreTipoNegocio;
+      if(tipoNegocio != 'Restaurante'){
+        $("#tituloPolo").hide();
+        $("#listaPolo").hide();
+        $("#tituloReserva").hide();
+        $("#aceptaReserva").hide();
+        $("#tituloNivel").hide();
+        $("#nivel").hide();
+        $("#iconoNivel").hide();
+        $("#nivelPrecio").hide();
+        $("#tituloPago").hide();
+        $("#mediosPagoCheckbox").hide();
+        $("#tituloOcaciones").hide();
+        $("#ocasionesCheckbox").hide();
+        $("#titTpoCocPrin").hide();
+        $("#TpoCocPrin").hide();
+        $("#datosNoResto").hide();
+      }
+
+    },
+    error:function(jqXHR,textStatus,errorThrown)
+    {
+      $('#target').append("jqXHR: "+jqXHR);
+      $('#target').append("textStatus: "+textStatus);
+      $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+    },
+  });
+
+}
 
   
-
     function obtenerListado() {
       if (_.isUndefined(server)) {
         $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
@@ -757,7 +798,7 @@ function validar(accion){
    }else {
       caracteresCorreoValido(mailContacto);
     }
-
+/*
    if(calleLocal.length < 2){
       $("#calleLocal").parent().after('<span id="calleLocalAlert" style="color:red"> Debe ingresar una Calle para el Local</span>');
       $("#calleLocal").addClass('alert-danger');
@@ -786,7 +827,7 @@ function validar(accion){
       $("#TipoCocinaPpal").parent().after('<span id="TipoCocinaPpalAlert" style="color:red"> Debe seleccionar un Tipo de Cocina Principal para el Local</span>');
       $("#TipoCocinaPpal").addClass('alert-danger');
       hayError = true;
-   }
+   } */
 
   if(hayError==false){
     if(accion == 'crear'){

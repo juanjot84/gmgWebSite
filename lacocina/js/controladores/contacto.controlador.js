@@ -142,9 +142,38 @@ function send() {
       var contactoCreado =  resultado._id;
       var campo = "idContacto";
       actualizarLocal(idLocalCreado, contactoCreado, campo).then( function(data){
-        var url = "../lacocina/asignar-descuento.php?idLocal="+ idLocalCreado+"";
-        $(location).attr('href',url);
-        $("#formularioAgregar :input").val('');
+
+        var idNegocio = $("#idNegocioCreado").val();
+        $.ajax({
+         url: server + '/api/v1/admin/negocio?id='+ idNegocio +"",
+         type: 'GET',
+     
+         dataType: "json",
+         crossDomain: true,
+         contentType:"application/json",
+         success: function (data) {
+           var negocio = data;
+           var tipoNegocio = negocio.idTipoNegocio.nombreTipoNegocio;
+           if(tipoNegocio != 'Restaurante'){
+            var url = "../lacocina/editar-horarios.php?idLocal="+ idLocalCreado+"&acc=cre";
+            $(location).attr('href',url);
+            $("#formularioAgregar :input").val('');
+           }else{
+            var url = "../lacocina/asignar-descuento.php?idLocal="+ idLocalCreado+"";
+            $(location).attr('href',url);
+            $("#formularioAgregar :input").val('');
+           }
+     
+         },
+         error:function(jqXHR,textStatus,errorThrown)
+         {
+           $('#target').append("jqXHR: "+jqXHR);
+           $('#target').append("textStatus: "+textStatus);
+           $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+         },
+       });
+
+        
       }).catch(function(err){
         console.log(err);
       });

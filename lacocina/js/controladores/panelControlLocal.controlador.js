@@ -22,15 +22,49 @@
         if(accion == 'locales'){
           obtenerListado();
         }else if(accion == 'panel'){
+          $("#menuGeneral").hide();
+          buscarTipoNegocio();
           nombreLocal();
         }
       });
     }
 
+    function buscarTipoNegocio(){
+      var idNegocio = $("#idNegocio").val();
+      $.ajax({
+       url: server + '/api/v1/admin/negocio?id='+ idNegocio +"",
+       type: 'GET',
+   
+       dataType: "json",
+       crossDomain: true,
+       contentType:"application/json",
+       success: function (data) {
+         var negocio = data;
+         var tipoNegocio = negocio.idTipoNegocio.nombreTipoNegocio;
+         if(tipoNegocio != 'Restaurante'){
+          $("#reservasRealizadas").hide();
+          $("#configReservas").hide();
+          $("#descuentos").hide();
+          $("#remarketing").hide();
+          $("#calificaciones").hide();
+          $("#columna1").addClass('col-md-offset-2');
+          $("#columna2").addClass('col-md-offset-2');
+          $("#menuGeneral").show();
+         }
+   
+       },
+       error:function(jqXHR,textStatus,errorThrown)
+       {
+         $('#target').append("jqXHR: "+jqXHR);
+         $('#target').append("textStatus: "+textStatus);
+         $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+       },
+     });
+   
+   }
 
     var idContacto;
     
-
     function obtenerListado() {
       if (_.isUndefined(server)) {
         $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
@@ -170,7 +204,8 @@ $('#cabeceraTablaNegocios').html('');
     function cargarForm(formulario){
       if(formulario == "local"){
        var idLocal = $("#idLocal").val();
-       var url = "../lacocina/datos-generales-local.php?idLocal="+ idLocal+"";
+       var idNegocio = $("#idNegocio").val();
+       var url = "../lacocina/datos-generales-local.php?idLocal="+ idLocal+"&idNegocio="+idNegocio+"";
        $(location).attr('href',url);
       }
     }
