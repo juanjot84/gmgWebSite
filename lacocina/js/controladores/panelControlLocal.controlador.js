@@ -22,7 +22,6 @@
         if(accion == 'locales'){
           obtenerListado();
         }else if(accion == 'panel'){
-          $("#menuGeneral").hide();
           buscarTipoNegocio();
           nombreLocal();
         }
@@ -42,6 +41,7 @@
          var negocio = data;
          var tipoNegocio = negocio.idTipoNegocio.nombreTipoNegocio;
          if(tipoNegocio != 'Restaurante'){
+          $("#menuGeneral").hide();
           $("#reservasRealizadas").hide();
           $("#configReservas").hide();
           $("#descuentos").hide();
