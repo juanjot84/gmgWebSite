@@ -73,7 +73,7 @@
         $('#listadoLocal').html('');
         $('#target').html('obteniendo...');       
         $.ajax({
-            url: server + '/api/v1/admin/locales',
+            url: server + '/api/v1/admin/todosLocales',
             type: 'GET',
             
             dataType: "json",
@@ -128,7 +128,15 @@ $('#cabeceraTablaNegocios').html('');
 
             }else{
             _.each(data, function(local){
-              var longNivelPrecio = local.idNivelPrecio.label.length;
+              var longNivelPrecio = 0;
+              var label = '';
+              if(local.idNivelPrecio == null){
+                longNivelPrecio = 0;
+              }else{
+                longNivelPrecio = local.idNivelPrecio.label.length;
+                label = local.idNivelPrecio.label;
+              }
+              
               var nivelGris = 5 - longNivelPrecio;
               var labelGrises = '';
                for(i = 0; i < nivelGris; i++){
@@ -149,7 +157,7 @@ $('#cabeceraTablaNegocios').html('');
                      '<img class="img-responsive" src="'+local.fotoPrincipalLocal+'">'+
                       '<p><span style="font-size: 1.5em;"><strong>'+local.nombreLocal+'</strong></p>'+
                       '<p><i class="fa fa-map-marker" aria-hidden="true"></i><span class="polo">'+local.calleLocal+' ( '+local.alturaLocal+' )</span></p>'+      
-                      '<p>Nivel de precio <strong style="letter-spacing: 1px;">'+local.idNivelPrecio.label+'</strong><span style="color: #cbcbcb">'+labelGrises+'</span></p>'+
+                      '<p>Nivel de precio <strong style="letter-spacing: 1px;">'+label+'</strong><span style="color: #cbcbcb">'+labelGrises+'</span></p>'+
                       '<p>Ficha premium <i class="'+premiumLocal+'" aria-hidden="true"></i></p>'+
                       '<p style="text-align: center;">'+
                        '<button onClick="editarLocal(\'' + local._id + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>'+
