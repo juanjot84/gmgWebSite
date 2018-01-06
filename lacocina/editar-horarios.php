@@ -57,7 +57,8 @@ include("includes/head.php"); ?>
   <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
     <div class="row">
       <div class="col-md-12">
-        <div class="panel panel-default">
+        <center><div id="loading"><img class="img-responsive" src="img/loading.gif"></div></center>
+        <div class="panel panel-default datos-horarios hidden">
 
           <h2 class="tituloseccion">Asignar Horarios de Atención</h2>
 
@@ -283,7 +284,7 @@ include("includes/head.php"); ?>
 
               <div class="input-group">
                 <span class="input-group-btn">
-                 <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
+                 <button id="botonVolverFondo" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
                  <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="sendHorarioAtencion()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
                 </span>
               </div>

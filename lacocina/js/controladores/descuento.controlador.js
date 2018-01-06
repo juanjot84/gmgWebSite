@@ -49,7 +49,7 @@
                     '<button title="Eliminar" onClick="eliminar(\'' + descuento._id + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +
                     '</td> ' +
                     '</tr>');
-            }) 
+            });
               $('#loading').hide();
           },
           error:function(jqXHR,textStatus,errorThrown)
