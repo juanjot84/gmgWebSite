@@ -7,6 +7,7 @@ function iniciar(action) {
     
     if(accionCrear == 'cre'){
       accion = 'crear';
+      $('.datos-horarios').removeClass('hidden');
     }else{
       accion = action;
     }
@@ -141,6 +142,8 @@ function cargarHorariosSeteados(accion) {
           }
         }
       });
+      $('#loading').hide();
+      $('.datos-horarios').removeClass('hidden');
     },
     error: function (jqXHR, textStatus, errorThrown) {
       $('#target').append("jqXHR: " + jqXHR);
@@ -151,7 +154,11 @@ function cargarHorariosSeteados(accion) {
 }
 
 function sendHorarioAtencion() {
-  $("#botonGuardar").addClass('disabled');
+  $('#loading').show();
+  $('#botonVolver').attr('disabled','disabled');
+  $('#botonVolverFondo').attr('disabled','disabled');
+  $('#botonGuardar').attr('disabled','disabled');
+
   var idHorariosDesdeManana = [];
   var idHorariosDesdeTarde = [];
   var idHorariosHastaManana = [];
@@ -333,6 +340,9 @@ function limpiar(campo, campoBack) {
 }
 
 function volverPanelLocal() {
+  $('#botonVolver').attr('disabled','disabled');
+  $('#botonVolverFondo').attr('disabled','disabled');
+  $('#botonGuardar').attr('disabled','disabled');
   if (_.isUndefined(server)) {
     $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
     });

@@ -7,6 +7,7 @@ function iniciar(action) {
     
     if(accionCrear == 'cre'){
       accion = 'crear';
+      $('.datos-horarios').removeClass('hidden');
     }else{
       accion = action;
     }
@@ -107,7 +108,7 @@ function cargarHorariosSeteados() {
         if ( (horarioManana  && cubiertosManana) || (horarioTarde && cubiertosTarde) ) {
           aplicarHorarios(diaSemana);
           if (horarioManana && cubiertosManana) {
-            $("#Hdesde" + horarioManana.diaSemanaHorarioAtencion + "Manana").html(horarioManana.horaInicioHorarioAtencion);
+            $("#Hdesde" + horarioManana.odiaSemanaHorarioAtencion + "Manana").html(horarioManana.horaInicioHorarioAtencion);
             $("#Hhasta" + horarioManana.diaSemanaHorarioAtencion + "Manana").html(horarioManana.horaFinHorarioAtencion);
             $("#Cubiertos" + horarioManana.diaSemanaHorarioAtencion + "Manana").html(cubiertosManana.cantidadCubiertoDia);
             $("#Duracion" + horarioManana.diaSemanaHorarioAtencion + "Manana").html(cubiertosManana.duracionReserva);
@@ -121,6 +122,8 @@ function cargarHorariosSeteados() {
         }
 
       });
+      $('#loading').hide();
+      $('.datos-cubiertos').removeClass('hidden');
     },
     error: function (jqXHR, textStatus, errorThrown) {
       $('#target').append("jqXHR: " + jqXHR);
@@ -131,6 +134,10 @@ function cargarHorariosSeteados() {
 }
 
 function sendHorarioAtencion() {
+  $('#loading').show();
+  $('#botonVolver').attr('disabled','disabled');
+  $('#botonVolverFondo').attr('disabled','disabled');
+  $('#botonGuardar').attr('disabled','disabled');
 
   var idHorariosDesdeManana = [];
   var idHorariosDesdeTarde = [];
@@ -229,10 +236,12 @@ function sendHorarioAtencion() {
 
       if (accion == 'crear') {
         cargarHorarioAtencion();
+        $('#loading').hide();
       } else if (accion == 'editar') {
         eliminarViejos(cubiertosViejos).then(function (error, success) {
           volverPanelLocal();
         }).catch(function (err) {
+          $('#loading').hide();
           console.log(err);
         });
       }
@@ -397,6 +406,9 @@ function limpiar(campo, campoBack) {
 }
 
 function volverPanelLocal() {
+  $('#botonVolver').attr('disabled','disabled');
+  $('#botonVolverFondo').attr('disabled','disabled');
+  $('#botonGuardar').attr('disabled','disabled');
   if (_.isUndefined(server)) {
     $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
     });
