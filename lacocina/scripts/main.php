@@ -18,6 +18,4 @@ if (move_uploaded_file($_FILES['konostech']['tmp_name'], $fichero_subido)) {
     echo "¡Posible ataque de subida de ficheros!\n";
 }
 
-
-
 ?>
