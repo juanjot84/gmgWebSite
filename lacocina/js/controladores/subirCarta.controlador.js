@@ -6,6 +6,8 @@ $(document).ready(function(){
   
   }); */
   
+var nombreCarta = '';
+
   $('#mdlArchivos').on('show.bs.modal', function (event) {
    $("#formDropZone").append("<form id='dZUpload' class='dropzone borde-dropzone' style='cursor: pointer;'>"+
                              "<div class='dz-default dz-message text-center'>"+
@@ -22,8 +24,10 @@ $(document).ready(function(){
           maxFiles: 1,
           success: function (file, response) {           
               var cartaName = response;
-              var nombreCarta = cartaName.trim();
-              $("#cartaLocal").val() = nombreCarta;
+              nombreCarta = cartaName.trim();
+            //  actualizarInput(nombreCarta);
+              $("#cartaLocal1").val(nombreCarta);
+              $('#cartaLocal').attr('href', nombreCarta);
               file.previewElement.classList.add("dz-success");
               console.log("Successfully uploaded :" + cartaName);
           },
@@ -49,6 +53,12 @@ $(document).ready(function(){
     $("#formDropZone").empty();
     //  getArchivos();
   });
+
+function actualizarInput(dirCarta){
+    
+}
+
+
  /* 
   function getArchivos() {
       $.ajax({

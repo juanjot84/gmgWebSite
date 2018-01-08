@@ -26,7 +26,7 @@
     var especialidades;
     var servicios;
     var ocasiones;
-
+    var tipoNegocio = '';
 
     
 var marker;          //variable del marcador
@@ -100,7 +100,7 @@ function buscarTipoNegocio(accion){
     contentType:"application/json",
     success: function (data) {
       var negocio = data;
-      var tipoNegocio = negocio.idTipoNegocio.nombreTipoNegocio;
+      tipoNegocio = negocio.idTipoNegocio.nombreTipoNegocio;
       if(tipoNegocio != 'Restaurante'){
         $("#tituloPolo").hide();
         $("#listaPolo").hide();
@@ -117,6 +117,7 @@ function buscarTipoNegocio(accion){
         $("#titTpoCocPrin").hide();
         $("#TpoCocPrin").hide();
         $("#datosNoResto").hide();
+
       }
 
     },
@@ -192,6 +193,8 @@ function buscarTipoNegocio(accion){
              $('#alturaLocal').val(local.alturaLocal);
              var coordenadas = {lng: local.longitudLocal, lat: local.latitudLocal};
              setMapa (coordenadas);
+             $('#cartaLocal1').val(local.menuLocal);
+             $('#cartaLocal').attr('href', local.menuLocal);
              $('#long').val(local.longitudLocal);
              $('#lat').val(local.latitudLocal);
              $("#webLocal").val(local.webLocal);
@@ -199,44 +202,47 @@ function buscarTipoNegocio(accion){
              $("#instagramLocal").val(local.instagramLocal);
              $("#twitterLocal").val(local.twitterLocal);
              $("#tripadvisorLocal").val(local.tripadvisorLocal);
-            var idPolo = local.idPoloGastronomico._id;
-             obtenerListadoPolos().done(function(data){
-                polos = data
-             popularDropdownPolosEditar(idPolo);
+             if(tipoNegocio == 'Restaurante'){
+              var idPolo = local.idPoloGastronomico._id;
+              obtenerListadoPolos().done(function(data){
+                 polos = data
+              popularDropdownPolosEditar(idPolo);
+              });
+              $("input[name=aceptaReservaNegocio][value=" + local.aceptaReservaNegocio + "]").prop("checked",true);
+             var idNivelPrecio = local.idNivelPrecio._id ;
+             obtenerListadoNivelPrecio().done(function(data){
+                 nivelPrecios = data
+             popularDropdownNivelPrecioEditar(idNivelPrecio);
              });
-             $("input[name=aceptaReservaNegocio][value=" + local.aceptaReservaNegocio + "]").prop("checked",true);
-            var idNivelPrecio = local.idNivelPrecio._id ;
-            obtenerListadoNivelPrecio().done(function(data){
-                nivelPrecios = data
-            popularDropdownNivelPrecioEditar(idNivelPrecio);
-            });
-            var idTipoCocinaPrincipal = local.idTipoCocinaPrincipal;
-            var tipoCocinaSeleccionados = local.idTipoCocina;
-            obtenerListadoTipoCocina().done(function(data){
-                tipoCocinas = data
-            popularDropdownTipoCocinaPpalEditar(idTipoCocinaPrincipal);
-            popularDropdownOtrosTipoEditar(tipoCocinaSeleccionados);
-            });
-            var mediosSeleccionados = local.idMedioPago;
-            obtenerListadoMedioPago().done(function(data){
-                medioPagos = data
-            popularDropdownMedioPagoEditar(mediosSeleccionados);
-            });
-            var especialidadesSeleccionadas = local.idEspecialidad;
-            obtenerListadoEspecialidad().done(function(data){
-                especialidades = data
-            popularDropdownEspecialidadEditar(especialidadesSeleccionadas);
-            });
-            var ocasionesSeleccionadas = local.idOcasion
-            obtenerListadoOcasiones().done(function(data){
-                ocasiones = data
-                popularDropdownOcasionEditar(ocasionesSeleccionadas)
-            });
-            var ServiciosSeleccionados = local.idServicio;
-            obtenerListadoServicio().done(function(data){
-                servicios = data
-            popularDropdownServicioEditar(ServiciosSeleccionados);
-            });
+             var idTipoCocinaPrincipal = local.idTipoCocinaPrincipal;
+             var tipoCocinaSeleccionados = local.idTipoCocina;
+             obtenerListadoTipoCocina().done(function(data){
+                 tipoCocinas = data
+             popularDropdownTipoCocinaPpalEditar(idTipoCocinaPrincipal);
+             popularDropdownOtrosTipoEditar(tipoCocinaSeleccionados);
+             });
+             var mediosSeleccionados = local.idMedioPago;
+             obtenerListadoMedioPago().done(function(data){
+                 medioPagos = data
+             popularDropdownMedioPagoEditar(mediosSeleccionados);
+             });
+             var especialidadesSeleccionadas = local.idEspecialidad;
+             obtenerListadoEspecialidad().done(function(data){
+                 especialidades = data
+             popularDropdownEspecialidadEditar(especialidadesSeleccionadas);
+             });
+             var ocasionesSeleccionadas = local.idOcasion
+             obtenerListadoOcasiones().done(function(data){
+                 ocasiones = data
+                 popularDropdownOcasionEditar(ocasionesSeleccionadas)
+             });
+             var ServiciosSeleccionados = local.idServicio;
+             obtenerListadoServicio().done(function(data){
+                 servicios = data
+             popularDropdownServicioEditar(ServiciosSeleccionados);
+             });
+             }
+            
           var tipoUsuario = $("#tipoUs").val();
           if(tipoUsuario == 'usuarioNegocio'){
              $("#localPremium-true").attr("disabled", true);
@@ -640,6 +646,7 @@ function buscarTipoNegocio(accion){
             "idEspecialidad": especialidadSeleccionada,
             "idOcasion": ocasionSeleccionada,
             "idTipoCocina": tipoCocinaSeleccionado,
+            "menuLocal": $("#cartaLocal1").val(),
             "longitudLocal":$("#long").val(),
             "latitudLocal":$("#lat").val(),
             "webLocal": $("#webLocal").val(),
@@ -732,6 +739,7 @@ function buscarTipoNegocio(accion){
             "idOcasion": ocasionSeleccionada,
             "idEspecialidad": especialidadSeleccionada,
             "idTipoCocina": tipoCocinaSeleccionado,
+            "menuLocal": $("#cartaLocal1").val(),
             "longitudLocal":$("#long").val(),
             "latitudLocal":$("#lat").val(),
             "webLocal": $("#webLocal").val(),

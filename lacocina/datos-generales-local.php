@@ -135,7 +135,8 @@ error_reporting(E_ERROR);
                         <button class="btn btn-default" type="button" style="padding: 17px;" data-toggle="modal"  data-target="#mdlArchivos"><i class="fa fa-plus-square-o" aria-hidden="true"></i> CARGAR CARTA</button>
                       </span>
               </div>
-              <input type="text" id="cartaLocal" /> 
+              <p class="textodatosficha"><a id="cartaLocal" style="color: #777;" href="" target="_blank"><i class="fa fa-file-text-o datosficha" aria-hidden="true"></i> <span id="vercarta">Ver carta</span></a></p>
+              <input type="text" id="cartaLocal1" class="hidden"/> 
 
               <h5 class="titulosalta"> Marcar en Google Maps</h5>
                         <div id="map"></div>

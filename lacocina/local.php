@@ -139,6 +139,16 @@ include("includes/nav.php"); ?>
                     </p>
                     <p>
 
+              <h5 class="titulosalta"> Carta</h5>
+
+              <div class="input-group">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" style="padding: 17px;" data-toggle="modal"  data-target="#mdlArchivos"><i class="fa fa-plus-square-o" aria-hidden="true"></i> CARGAR CARTA</button>
+                      </span>
+              </div>
+              <p class="textodatosficha"><a id="cartaLocal" style="color: #777;" href="" target="_blank"><i class="fa fa-file-text-o datosficha" aria-hidden="true"></i> <span id="vercarta">Ver carta</span></a></p>
+              <input type="text" id="cartaLocal1" class="hidden"/> 
+
                 <h5 class="titulosalta"> Marcar en Google Maps</h5>
                         <div id="map"></div>
                         <input type="text" id="lat"  class="hidden" value="-32.890667" />
@@ -236,6 +246,26 @@ include("includes/nav.php"); ?>
               </div>
 
             </form>
+            
+    <!-- Modal -->
+    <div id="mdlArchivos" class="modal fade">
+        <div class="modal-dialog" style="width: 65%;">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Subir Carta</h4>
+            </div>
+            <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12" id="formDropZone"></div>
+            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
 
                   <!-- Table -->
                   <div id="cabeceraTablaNegocios">
@@ -269,6 +299,12 @@ include("includes/nav.php"); ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>
 
     <!-- Contact Form JavaScript -->
+    <script src="js/dropzone.js"></script>
+    <script src="js/controladores/subirCarta.controlador.js"></script>
+
+    <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+    <link rel="stylesheet" href="css/dropzone.css"> 
+
     <script src="../js/jqBootstrapValidation.js"></script>
     <script src="../js/contact_me.js"></script>
 
