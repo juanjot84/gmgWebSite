@@ -143,3 +143,7 @@ var redirect = function (url, method, idCocina) {
 
   form.submit();
 };
+
+function irPerfil() {
+  $(location).attr('href', 'mi-perfil.php');
+}

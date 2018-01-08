@@ -209,7 +209,7 @@
 
         </div>
         <div class="modal-footer">
-          <a href="#" data-dismiss="modal" class="btn btn btn-xl">Aceptar</a>
+          <a href="#" data-dismiss="modal" class="btn btn btn-xl" onclick="irPerfil()">Aceptar</a>
         </div>
       </div>
     </div>
@@ -227,7 +227,7 @@
 
         </div>
         <div class="modal-footer">
-          <a href="mi-perfil.php" data-dismiss="modal" class="btn btn btn-xl">Aceptar</a>
+          <a href="#" data-dismiss="modal" class="btn btn btn-xl" onclick="irPerfil()">Aceptar</a>
         </div>
       </div>
     </div>
