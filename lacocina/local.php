@@ -172,7 +172,7 @@ include("includes/nav.php"); ?>
               <h5 class="titulosalta" id="tituloNivel"> Nivel de precio</h5>
 
                   <p id="nivel"><div class="input-group input-group-sm">
-                   <div id="iconoNivel"><span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span></div>
+                   <span class="input-group-addon" id="sizing-addon3"><div id="iconoNivel"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></div></span>
                     <select id="nivelPrecio" name="nivelPrecio" class="form-control" onfocus="limpiar('nivelPrecio')" required></select>
                   </div></p>
 
