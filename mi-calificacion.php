@@ -1,6 +1,7 @@
 <?php session_start();
     error_reporting(E_ERROR);
     $jwt = $_SESSION['jwt'];
+    $idReserva = $_GET["id"];
 ?>
 
 <!DOCTYPE html>
@@ -107,8 +108,9 @@
   <header>
 
   </header>
+  <center><div id="loading"><img class="img-responsive" src="img/loading.gif"></div></center>
 
-  <div class="container miperfilusuario">
+  <div class="container miperfilusuario datosEvaluar" style="display:none">
     <div class="row">
       <div class="col-md-12 text-center">
         <h2>Calificar mi experiencia</h2>
@@ -116,45 +118,45 @@
     </div>
     <div class="row">
       <div class="col-md-12 text-center">
-        <p>Hola <strong>Martín</strong>, contanos cómo te fue con tu reserva</p>
+        <p>Hola <strong><span id="nombre"></span></strong>, contanos cómo te fue con tu reserva</p>
       </div>
     </div>
   </div>
 
-  <div class="container">
+  <div class="container datosEvaluar" style="display:none">
     <div class="row">
       <div class="col-md-12">
         <h3>Califica el ambiente</h3>
-        <ul class="calificastars">
-          <li><button class="btn-link"><i class="fa fa-star" aria-hidden="true"></i></button></li>
-          <li><button class="btn-link"><i class="fa fa-star" aria-hidden="true"></i></button></li>
-          <li><button class="btn-link"><i class="fa fa-star" aria-hidden="true"></i></button></li>
-          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true"></i></button></li>
-          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true"></i></button></li>
+        <ul class="calificastars" id="ambiente">
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('ambiente', 1)"></i></button></li>
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('ambiente', 2)"></i></button></li>
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('ambiente', 3)"></i></button></li>
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('ambiente', 4)"></i></button></li>
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('ambiente', 5)"></i></button></li>
         </ul>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
         <h3>Califica la comida</h3>
-        <ul class="calificastars">
-          <li><button class="btn-link"><i class="fa fa-star" aria-hidden="true"></i></button></li>
-          <li><button class="btn-link"><i class="fa fa-star" aria-hidden="true"></i></button></li>
-          <li><button class="btn-link"><i class="fa fa-star" aria-hidden="true"></i></button></li>
-          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true"></i></button></li>
-          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true"></i></button></li>
+        <ul class="calificastars" id="comida">
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('comida', 1)"></i></button></li>
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('comida', 2)"></i></button></li>
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('comida', 3)"></i></button></li>
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('comida', 4)"></i></button></li>
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('comida', 5)"></i></button></li>
         </ul>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
         <h3>Califica la atención</h3>
-        <ul class="calificastars">
-          <li><button class="btn-link"><i class="fa fa-star" aria-hidden="true"></i></button></li>
-          <li><button class="btn-link"><i class="fa fa-star" aria-hidden="true"></i></button></li>
-          <li><button class="btn-link"><i class="fa fa-star" aria-hidden="true"></i></button></li>
-          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true"></i></button></li>
-          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true"></i></button></li>
+        <ul class="calificastars" id="atencion">
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('atencion', 1)"></i></button></li>
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('atencion', 2)"></i></button></li>
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('atencion', 3)"></i></button></li>
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('atencion', 4)"></i></button></li>
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('atencion', 5)"></i></button></li>
         </ul>
       </div>
     </div>
@@ -169,7 +171,7 @@
     <div class="row">
       <div class="col-md-12">
         <p>
-          <a href="#"  onClick="actualizarPerfil()" class="page-scroll btn btn-xl" style="max-width: 300px; margin: 5% 0;">ENVIAR</a>
+          <a href="#"  onClick="enviarCalificacion()" class="page-scroll btn btn-xl" style="max-width: 300px; margin: 5% 0;">ENVIAR</a>
         </p>
       </div>
     </div>
@@ -195,15 +197,15 @@
     </div>
   </div>
 
-  <div class="modal fade" id="aceptarCondiciones" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <div class="modal fade" id="noReserva" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h3>No has aceptados los términos y condiciones.</h3>
+          <h3>No Existe la Reserva a calificar.</h3>
         </div>
         <div class="modal-body">
-          <h5>Por favor, acepte los términos y condiciones. para continuar</h5>
+          <h5>La reserva solicitada no exise o no esta disponible para ser calificada</h5>
 
         </div>
         <div class="modal-footer">
@@ -213,42 +215,23 @@
     </div>
   </div>
 
-  <div class="modal fade" id="datosActualizados" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <div class="modal fade" id="calificacionEnviada" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h3>Datos actualizados correctamente.</h3>
+          <h3>Calificación enviada.</h3>
         </div>
         <div class="modal-body">
-          <h5>Sus datos han sido actualizados correctamente</h5>
+          <h5>Su calificación han sido enviada correctamente</h5>
 
         </div>
         <div class="modal-footer">
-          <a href="#" data-dismiss="modal" class="btn btn btn-xl">Aceptar</a>
+          <a href="mi-perfil.php" data-dismiss="modal" class="btn btn btn-xl">Aceptar</a>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h3>No has iniciado sesión</h3>
-          </div>
-          <div class="modal-body">
-            <h5>Por favor, inicie sesión para continuar</h5>
-
-          </div>
-          <div class="modal-footer">
-            <a href="login.php" data-confirm="modal" class="btn btn-info" id="botonLogin">Iniciar sesión</a>
-            <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
-          </div>
-        </div>
-      </div>
-    </div>
 
   <?php
   error_reporting(E_ERROR);
@@ -276,9 +259,9 @@
 
   <script src="js/utils/jwt-decode.min.js"></script>
   <!-- Funciones de perfil JavaScript -->
-  <script src="js/controladores/perfil.controlador.js"></script>
+  <script src="js/controladores/calificacion.controlador.js"></script>
   <script>
-    setJWT('<?php echo $jwt; ?>');
+    setJWT('<?php echo $jwt; ?>', '<?php echo $idReserva; ?>');
   </script>
 
 

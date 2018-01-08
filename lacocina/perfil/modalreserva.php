@@ -137,7 +137,7 @@
 
                     <ul class="list-inline quicklinks">
                         <li>
-                            <span class="copyright">Copyright &copy; GMG 2017</span>
+                            <span class="copyright">Copyright &copy; GMG 2018</span>
                         </li>
                         <li>
                             Desarrollado por <a style="text-decoration: none;" href="#">Estudio Pronet</a>
