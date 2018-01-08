@@ -123,6 +123,12 @@ function popularLocal(local) {
   if (typeof(instagram) == "undefined"){
     instagram = '-';
  }
+ var carta;
+ if(typeof(local.menuLocal) == "undefined"){
+    carta = '';
+ }else{
+   carta = local.menuLocal;
+ }
   var tripadvisor;
   if(local.tripadvisorLocal == ''){
     tripadvisor = local.idNegocio.tripadvisorNegocio
@@ -147,6 +153,7 @@ function popularLocal(local) {
   $('#direccionLocal').text(local.calleLocal +' '+local.alturaLocal);
   $('#nivelPrecio').append('<span style="color: #cbcbcb">'+labelGrises+'</span>');
   $('#descripcionNegocio').text(local.idNegocio.descripcionNegocio);
+  $("#cartaLocal").attr('href', carta);
   if(facebook.length < 2){
     $('#facebookNegocio').hide();
   }else{

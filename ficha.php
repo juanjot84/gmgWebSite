@@ -162,7 +162,7 @@ session_start();
                                         <p class="textodatosficha"><i class="fa fa-usd datosficha" aria-hidden="true"></i><span id="medioPago"></span></p>
                                     </li>
                                     <li>
-                                        <p class="textodatosficha"><a style="color: #777;" href="#"><i class="fa fa-file-text-o datosficha" aria-hidden="true"></i> <span id="vercarta">Ver carta</span></a></p>
+                                        <p class="textodatosficha"><a id="cartaLocal" style="color: #777;" href="" target="_blank"><i class="fa fa-file-text-o datosficha" aria-hidden="true"></i> <span id="vercarta">Ver carta</span></a></p>
                                     </li>
                                 </ul>
                             </div>
