@@ -25,7 +25,10 @@ var nombreCarta = '';
           success: function (file, response) {           
               var cartaName = response;
               nombreCarta = cartaName.trim();
-            //  actualizarInput(nombreCarta);
+              var cartaVieja = $("#cartaLocal1").val();
+         /*     if(cartaVieja != ''){
+                eliminarCartaVieja(cartaVieja);
+              } */
               $("#cartaLocal1").val(nombreCarta);
               $('#cartaLocal').attr('href', nombreCarta);
               file.previewElement.classList.add("dz-success");
@@ -54,23 +57,28 @@ var nombreCarta = '';
     //  getArchivos();
   });
 
-function actualizarInput(dirCarta){
-    
-}
-
-
- /* 
-  function getArchivos() {
-      $.ajax({
-          type: 'GET',
-          url: 'scripts/getArchivos.php',
-          success: function(data){
-            $("#divMostrarArchivos br").remove();
-            $("#divMostrarArchivos").html("<br><p>Archivos:</p>"+data+"</br>");
-          }
-      });
+function eliminarCartaVieja(cartaVieja){
+     if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
   }
-  */
+  var largoString = cartaVieja.length;
+  var nombreCarta = cartaVieja.substr(45, largoString);
+  var parametros =  {
+    "carta" : nombreCarta
+  };
+
+  $.ajax({
+    data:  parametros,
+    url:   'eliminarCarta.php',
+    type:  "POST",
+    error: function(){
+    },
+    success:  function(response) {
+      
+    }
+  });
+}
   
   function mostrarImagenes(){
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
@@ -111,44 +119,5 @@ function actualizarInput(dirCarta){
     }); 
   });
   }
-  
-  function eliminarImagen(urlImagen){
-    if (_.isUndefined(server)) {
-      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
-      });
-    }
-  
-    var idLocal = $("#idLocal").val();
-    return $.ajax({
-      url: server + '/api/v1/admin/local?id='+ idLocal,
-      type: 'GET',
-              
-      dataType: "json",
-      crossDomain: true,
-      contentType:"application/json",
-        success: function (data) {        
-         var imagenesGuardadas = data.fotoLocal;
-  
-          var largoString = urlImagen.length;
-          var nombreImagen = urlImagen.substr(42, largoString);
-          var index = imagenesGuardadas.indexOf(urlImagen);
-          var parametros = {
-                  "nombreArchivo" : nombreImagen,
-          };
-          $.ajax({
-                  data:  parametros, 
-                  url:   'scripts/eliminarImagen.php', 
-                  type:  'post', 
-                  success:  function (response) {
-                    if(response.trim() == 'borrado'){
-                        var idLocal = $("#idLocal").val();
-                        var campo = 'fotoLocal';
-                        imagenesGuardadas.splice(index, 1);
-                        actualizarLocal(idLocal,imagenesGuardadas,campo); 
-                    }
-                  }
-          });
-        } 
-    });
-  }
+
   
