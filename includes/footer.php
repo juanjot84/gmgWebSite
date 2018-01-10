@@ -39,7 +39,7 @@
             </li>
             <li><a target="_blank" href="https://www.facebook.com/guiamendozagourmet"><i class="fa fa-facebook"></i></a>
             </li>
-            <li><a target="_blank" href="https://www.instagram.com/guiamendozagourmet"><i class="fa fa-linkedin"></i></a>
+            <li><a target="_blank" href="https://www.instagram.com/guiamendozagourmet"><i class="fa fa-instagram"></i></a>
             </li>
           </ul>
 
