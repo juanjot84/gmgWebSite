@@ -266,9 +266,13 @@ session_start();
         });
         </script>
 
+        <!-- Funciones de Barra JavaScript -->
+        <script src="js/controladores/barraLateral.controlador.js"></script>
+
         <!-- Funciones de Local JavaScript -->
         <script src="js/controladores/ficha.controlador.js"></script>
         <script>
+          obtenerListadoTiposNegocio();
           getDetalleLocal('<?php echo $idLocal; ?>');
 
         </script>

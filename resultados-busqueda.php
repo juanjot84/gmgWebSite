@@ -189,6 +189,9 @@ if (empty($filtro)) $filtro = '';
   <script src="js/jqBootstrapValidation.js"></script>
   <script src="js/contact_me.js"></script>
 
+  <!-- Funciones de Barra JavaScript -->
+  <script src="js/controladores/barraLateral.controlador.js"></script>
+
   <!-- Funciones de Locales JavaScript -->
   <script src="js/controladores/locales.controlador.js"></script>
 
@@ -199,8 +202,8 @@ if (empty($filtro)) $filtro = '';
   crossorigin="anonymous"></script>
 
   <script>
+    obtenerListadoTiposNegocio();
     buscar('<?php echo $parametro; ?>', '<?php echo $filtro; ?>');
-
   </script>
 
   <!-- Menu lateral -->

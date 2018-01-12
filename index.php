@@ -242,6 +242,9 @@
   <script src="js/jqBootstrapValidation.js"></script>
   <script src="js/contact_me.js"></script>
 
+  <!-- Funciones de Barra JavaScript -->
+  <script src="js/controladores/barraLateral.controlador.js"></script>
+
   <!-- Funciones de Home JavaScript -->
   <script src="js/controladores/home.controlador.js"></script>
 
@@ -278,7 +281,7 @@
 
   <script>
     obtenerListadoCocinas();
-
+    obtenerListadoTiposNegocio();
   </script>
   <style>
   #owl-demo .item{
@@ -317,9 +320,9 @@
   <!-- Funciones de Ocasiones JavaScript -->
   <script src="js/controladores/ocasiones.controlador.js"></script>
 
-
-  <!-- Funciones de Ocasiones JavaScript -->
+  <!-- Funciones de Polos JavaScript -->
   <script src="js/controladores/polos.controlador.js"></script>
+
 
 
   <script src="assets/js/bootstrap-collapse.js"></script>
