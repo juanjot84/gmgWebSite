@@ -310,6 +310,9 @@ $idLocal = $_GET["id"];
   <script src="js/jqBootstrapValidation.js"></script>
   <script src="js/contact_me.js"></script>
 
+  <!-- Funciones de Barra JavaScript -->
+  <script src="js/controladores/barraLateral.controlador.js"></script>
+
   <!-- Funciones de Home JavaScript -->
   <script src="js/controladores/home.controlador.js"></script>
 
@@ -321,6 +324,7 @@ $idLocal = $_GET["id"];
   <!-- Funciones de Local JavaScript -->
   <script src="js/controladores/reserva.controlador.js"></script>
   <script>
+    obtenerListadoTiposNegocio();
     setJWT('<?php echo $jwt; ?>', '<?php echo $idLocal; ?>');
   </script>
 
