@@ -68,17 +68,37 @@ error_reporting(E_ERROR);
     <input type="text" name="idNegocio" id="idNegocio" value="<?php error_reporting(E_ERROR); echo $idNegocio; ?>" class="hidden">
 
     <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
-
-        <div class="panel-heading tituloseccion">Reservas</div>
-        
-             <div class="container locales">
-                 
-
-<center><div id="loading"></div></center> 
+ 
+    <div class="reservaspestanas"> 
+        <ul class="nav nav-tabs nav-justified" style="margin-bottom: 3%;">
+            <li class="active"><a data-toggle="tab" href="#proximasreservas" onclick="ocultarPestaña('proximasreservas','cumplidas','confirmadas')">Próximas Reservas</a></li>
+            <li><a data-toggle="tab" href="#cumplidas" onclick="ocultarPestaña('cumplidas','proximasreservas','confirmadas')">Reservas Cumplidas</a></li>
+            <li><a data-toggle="tab" href="#confirmadas" onclick="ocultarPestaña('confirmadas','proximasreservas','cumplidas')">Reservas Confirmadas</a></li>
+        </ul>
+        <div class="tab-content">
+          <div id="proximasreservas" class="tab-pane fade in active">
+             <div class="panel-heading tituloseccion">Próximas Reservas</div>
+                 <div class="container locales">
+                    <center><div id="loading"></div></center> 
+                 </div>
              </div>
-
+          </div>
+          <div id="cumplidas" class="tab-pane fade">
+             <div class="panel-heading tituloseccion">Reservas Cumplidas</div>
+                 <div class="container cumplidas">
+                    <center><div id="loading"></div></center> 
+                 </div>
+             </div>
+          </div>
+          <div id="confirmadas" class="tab-pane fade">
+            <div class="panel-heading tituloseccion">Reservas Confirmadas</div>
+                 <div class="container confirmadas">
+                    <center><div id="loading"></div></center> 
+                 </div>
+            </div>
+          </div>
+        </div>
     </div>
-
 <div class="container" style="height: 90vh; margin-top: 10%;">
   
   <!-- Trigger the modal with a button -->
