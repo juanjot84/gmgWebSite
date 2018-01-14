@@ -282,3 +282,26 @@ function drawChartSexo() {
   var chart = new google.visualization.PieChart(document.getElementById('chartSexo'));
   chart.draw(dataSexo, options);
 }
+
+function volverPanelLocal(){
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
+    var localEditado = $("#idLocal").val();
+    var idNegocio = $("#idNegocio").val();
+
+    $.ajax({
+            url: server + '/api/v1/admin/local?id='+localEditado+"",
+            type: 'GET',
+            
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+               var idNegocio = data.idNegocio._id;
+               var url = "../panel-locales.php?idLocal="+ localEditado+"&idNegocio="+ idNegocio +"";
+               $(location).attr('href',url);
+            } 
+    });
+}

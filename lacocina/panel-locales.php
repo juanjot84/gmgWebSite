@@ -21,7 +21,8 @@ if (!$_SESSION) {
 error_reporting(E_ERROR); 
    $idLocal = $_GET['idLocal'];
    $idNegocio = $_GET['idNegocio'];
-   $_SESSION['idLocal'] = $idLocal ; 
+   $_SESSION['idLocal'] = $idLocal ;
+   $_SESSION['idNegocio'] = $idNegocio;
 ?>
 <?php 
 error_reporting(E_ERROR);

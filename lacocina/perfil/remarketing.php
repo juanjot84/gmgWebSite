@@ -68,6 +68,7 @@ error_reporting(E_ERROR);
  
     <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
     <input type="text" name="idLocal" id="idLocal" value="<?php error_reporting(E_ERROR); echo $_SESSION['idLocal']; ?>" class="hidden">
+      
       <div class="tituloseccion">Remarketing</div>
         <div class="remarketingpestanas">
           <ul class="nav nav-tabs nav-justified" style="margin-bottom: 3%;">
@@ -161,6 +162,12 @@ error_reporting(E_ERROR);
             </div>
           </div>
         </div>
+
+        <div class="input-group">
+        <span class="input-group-btn">
+            <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
+        </span>
+    </div>
       </div>
  
     <?php 

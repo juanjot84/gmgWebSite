@@ -4,6 +4,7 @@ session_start();
 
 $idNegocio = $_SESSION['idNegocio'];
 $tipoUsuario = $_SESSION['tipoUsuario'];
+$idLocal  = $_SESSION['idLocal'];
 $jwt = $_SESSION['jwt'];
 
 if (!$_SESSION) {
@@ -66,8 +67,15 @@ error_reporting(E_ERROR);
     </div>
 
     <input type="text" name="idNegocio" id="idNegocio" value="<?php error_reporting(E_ERROR); echo $idNegocio; ?>" class="hidden">
+    <input type="text" name="idLocal" id="idLocal" value="<?php error_reporting(E_ERROR); echo $idLocal; ?>" class="hidden">
 
     <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
+
+    <div class="input-group">
+        <span class="input-group-btn">
+            <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
+        </span>
+    </div>
  
     <div class="reservaspestanas"> 
         <ul class="nav nav-tabs nav-justified" style="margin-bottom: 3%;">
@@ -82,6 +90,7 @@ error_reporting(E_ERROR);
                     <center><div id="loading"></div></center> 
                  </div>
              </div>
+
           </div>
           <div id="cumplidas" class="tab-pane fade">
              <div class="panel-heading tituloseccion">Reservas Cumplidas</div>
@@ -97,6 +106,8 @@ error_reporting(E_ERROR);
                  </div>
             </div>
           </div>
+
+
         </div>
     </div>
 <div class="container" style="height: 90vh; margin-top: 10%;">
