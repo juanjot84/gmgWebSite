@@ -195,7 +195,15 @@
 
           <!-- Publicidad -->
           <section style="padding: 0px 0 !important;">
-            <div class="container-fluid fondopubli">
+            <div class="container-fluid fondopubli-web">
+              <div class="row">
+                <div class="col-lg-12 text-center">
+                  <!-- <h2 style="color: #fff; padding-top: 8%;" class="section-heading">PUBLICIDAD</h2>
+                  <h3 style="color: #fff;" class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
+                </div>
+              </div>
+            </div>
+            <div class="container-fluid fondopubli-mobile">
               <div class="row">
                 <div class="col-lg-12 text-center">
                   <!-- <h2 style="color: #fff; padding-top: 8%;" class="section-heading">PUBLICIDAD</h2>

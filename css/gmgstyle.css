@@ -74,13 +74,24 @@ header {
     border-color: #f6bf01;
 }
 
-.fondopubli {
-    background: url(../img/banner-publicidad.jpg) no-repeat;
-    background-size: contain;
+.fondopubli-web {
+    background: url(../img/banner-publicidad-horizontal.jpg) no-repeat;
+    background-size: auto;
     min-height: 400px;
     background-position: center;
-    background-color: #fbfbfb;
+    background-color: #fff001;
+    display: block;
 }
+
+.fondopubli-mobile {
+    background: url(../img/banner-publicidad-vertical.jpg) no-repeat;
+    background-size: contain;
+    min-height: 600px;
+    background-position: center;
+    background-color: #FFEF00;
+    display: none;
+}
+
 section {
     padding: 60px 0 !important;
 }
@@ -613,6 +624,14 @@ h3.botdescarmapa {
     min-height: 80vh;
 }
 
+.modal {
+    z-index: 99999999 !important;
+    background: rgba(255, 255, 255, 0.8); 
+}
+.modal-backdrop {
+    display: none;
+}
+
 /*MEDIA QUERIES*/
 
 input#login-submit {
@@ -866,14 +885,36 @@ li#calificacionLocal {
         box-shadow: 1px 1px 1px #ccc;
     }
 
+    h2.tituloocasiones.section-heading {
+        font-size: 0.9em !important;
+    }
+
     section h2.section-heading {
         font-size: 30px !important;
         margin-top: 20px !important;
         margin-bottom: 15px !important;
     }
+
+    .fondopubli-web {
+        background: url(../img/banner-publicidad-horizontal.jpg) no-repeat;
+        background-size: contain;
+        min-height: 300px;
+        background-position: center;
+        background-color: #fff001;
+        display: block;
+    }
+
 }
 
 @media only screen and (max-width : 425px) {
+
+    .fondopubli-web {
+        display: none;
+    }
+    .fondopubli-mobile {
+        display: block;
+    }
+
     .altoocasiones {
         width: 420px;
     }
