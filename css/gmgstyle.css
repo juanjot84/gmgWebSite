@@ -632,6 +632,11 @@ h3.botdescarmapa {
     display: none;
 }
 
+.fade {
+    opacity: 1;
+    padding-top: 8%;
+}
+
 /*MEDIA QUERIES*/
 
 input#login-submit {

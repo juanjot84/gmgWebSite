@@ -847,6 +847,13 @@ ul.selecdiashorario {
     text-shadow: 2px 2px 5px #000;
 }
 
+.modal {
+    background: rgba(255, 255, 255, 0.8); 
+}
+.modal-backdrop {
+    display: none;
+}
+
 /*MEDIA  QUERIES*/
 
 

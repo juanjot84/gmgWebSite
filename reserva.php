@@ -275,7 +275,7 @@ $idLocal = $_GET["id"];
                     <div class="row">
                       <div class="col-md-12">
                         <h3 class="titulo">La reserva se ha realizado correctamente</h3>
-                        <p > Un email con los datos sera enviado a su casilla de contacto.</p>
+                        <p > Un email con los datos será enviado a su casilla de contacto.</p>
                       </div>
                     </div>
                   </div>
