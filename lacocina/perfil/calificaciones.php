@@ -68,7 +68,7 @@ error_reporting(E_ERROR);
       </div>
         <!-- FIN CALIFICACION -->
 
-      <!-- BOTON VOLVER -->
+      <!-- BOTON VOLVER 
       <div class="container">
         <div class="input-group" style="padding: 3% 0;">
           <span class="input-group-btn">
@@ -77,7 +77,7 @@ error_reporting(E_ERROR);
         </div>
       </div>
     </div>
-
+-->
     
     <?php 
     error_reporting(E_ERROR);
