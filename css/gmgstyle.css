@@ -637,6 +637,26 @@ h3.botdescarmapa {
     padding-top: 8%;
 }
 
+
+.imgnoresultado-web {
+    display: block;
+}
+
+.imgnoresultado-mobile {
+    display: none;
+}
+
+@media (min-width: 768px) {}
+  .imgnoresultado-web {
+    display: none;
+  }
+
+  .imgnoresultado-mobile {
+    display: block;
+  }
+}
+
+
 /*MEDIA QUERIES*/
 
 input#login-submit {
