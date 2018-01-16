@@ -66,6 +66,33 @@ function mostrarCalificaciones(data){
   $('.calificaciones').html('');
 
   _.each(data, function(reserva){
+    var puntAmbiente = '';
+    var puntAmbienteSin = '';
+    for(i = 0; i < reserva.puntajeAmbienteEvaluacion; i++){
+      puntAmbiente = puntAmbiente + '<li><i class="fa fa-star" aria-hidden="true"></i></li>';      
+    }
+    for(i = 0; i < (5 - reserva.puntajeAmbienteEvaluacion); i++){
+      puntAmbienteSin = puntAmbienteSin + '<li><i class="fa fa-star-o" aria-hidden="true"></i></li>';      
+    }
+
+    var puntAtencion = '';
+    var puntAtencionSin = '';
+    for(i = 0; i < reserva.puntajeAtencionEvaluacion; i++){
+      puntAtencion = puntAtencion + '<li><i class="fa fa-star" aria-hidden="true"></i></li>';      
+    }
+    for(i = 0; i < (5 - reserva.puntajeAtencionEvaluacion); i++){
+      puntAtencionSin = puntAtencionSin + '<li><i class="fa fa-star-o" aria-hidden="true"></i></li>';      
+    }
+
+    var puntComida = '';
+    var puntComidaSin = '';
+    for(i = 0; i < reserva.puntajeComidaEvaluacion; i++){
+      puntComida = puntComida + '<li><i class="fa fa-star" aria-hidden="true"></i></li>';      
+    }
+    for(i = 0; i < (5 - reserva.puntajeComidaEvaluacion); i++){
+      puntComidaSin = puntComidaSin + '<li><i class="fa fa-star-o" aria-hidden="true"></i></li>';      
+    }
+
     $('.calificaciones').append('' +
       '<div class="row" ><div class="container" style="padding-top: 2%; border-bottom: 1px solid #e0e0e0;">' +
       '  <div class="row">' +
@@ -100,31 +127,19 @@ function mostrarCalificaciones(data){
       '    <div class="col-md-2 text-center">' +
       '      <p><strong>Ambiente</strong></p>' +
       '      <ul class="calificastars">' +
-      '        <li><i class="fa fa-star" aria-hidden="true"></i></li>' +
-      '        <li><i class="fa fa-star" aria-hidden="true"></i></li>' +
-      '        <li><i class="fa fa-star" aria-hidden="true"></i></li>' +
-      '        <li><i class="fa fa-star-o" aria-hidden="true"></i></li>' +
-      '        <li><i class="fa fa-star-o" aria-hidden="true"></i></li>' +
+             puntAmbiente + puntAmbienteSin +
       '       </ul>' +
       '     </div>' +
       '     <div class="col-md-2 text-center">' +
       '       <p><strong>Comida</strong></p>' +
       '       <ul class="calificastars">' +
-      '         <li><i class="fa fa-star" aria-hidden="true"></i></li> ' +
-      '         <li><i class="fa fa-star" aria-hidden="true"></i></li>' +
-      '         <li><i class="fa fa-star" aria-hidden="true"></i></li> ' +
-      '         <li><i class="fa fa-star-o" aria-hidden="true"></i></li>' +
-      '         <li><i class="fa fa-star-o" aria-hidden="true"></i></li>' +
+              puntComida + puntComidaSin +
       '       </ul>' +
       '     </div>' +
       '   <div class="col-md-2 text-center">' +
       '     <p><strong>Atención</strong></p>' +
       '     <ul class="calificastars">' +
-      '       <li><i class="fa fa-star" aria-hidden="true"></i></li>' +
-      '       <li><i class="fa fa-star" aria-hidden="true"></i></li>' +
-      '       <li><i class="fa fa-star" aria-hidden="true"></i></li>' +
-      '       <li><i class="fa fa-star-o" aria-hidden="true"></i></li>' +
-      '       <li><i class="fa fa-star-o" aria-hidden="true"></i></li>' +
+               puntAtencion + puntAtencionSin +
       '     </ul>' +
       '   </div>' +
       '   <div class="col-md-6">' +
