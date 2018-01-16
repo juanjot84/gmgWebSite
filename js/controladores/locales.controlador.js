@@ -62,7 +62,7 @@ function buscar(parametro, filtro) {
             '<img class="img-responsive" src="http://guiamendozagourmet.com/img/fondo-sin-resultados.jpg">'+
             '</div>'+
             '<div class="imgnoresultado-mobile">'+
-            '<img class="img-responsive" src="http://guiamendozagourmet.com/img/fondo-sin-resultados.jpg">'+
+            '<img class="img-responsive" src="http://guiamendozagourmet.com/img/fondo-sin-resultados-vertical.jpg">'+
             '</div>');
           }else{
             _.each(data, function (local) {
