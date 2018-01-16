@@ -73,14 +73,69 @@
     }
 
     .fade {
-        opacity: 1;
         padding-top: 10%;
     }
+    .tamimg {
+      width: auto;
+      height: 80vh;
+    }
 
-    @media (min-width: 768px) {}
+    @media (max-width: 1440px) {
       .modal-dialog {
-          width: 526px;
-          margin: 30px auto;
+        width: 526px;
+        margin: 30px auto;
+      }
+      .fade {
+        padding-top: 12%;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .modal-dialog {
+        width: 526px;
+        margin: 30px auto;
+      }
+      .fade {
+        padding-top: 20%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .modal-dialog {
+        width: 526px;
+        margin: 30px auto;
+      }
+      .fade {
+        padding-top: 25%;
+      }
+    }
+
+    @media (max-width: 425px) {
+      .modal-dialog {
+          width: 360px;
+          margin: 155px auto;
+      }
+      .tamimg {
+        width: auto;
+        height: 60vh;
+      }
+      .fade {
+        padding-top: 10%;
+      }
+    }
+
+    @media (max-width: 320px) {
+      .modal-dialog {
+        width: 280px;
+        margin: 100px auto;
+      }
+      .tamimg {
+        width: auto;
+        height: 48vh;
+      }
+      .fade {
+        opacity: 1;
+        padding-top: 10%;
       }
     }
   </style>
@@ -155,7 +210,7 @@
     text-shadow: none;">Cerrar</a>
               </div>
               <div class="modal-body">
-                  <img src="http://guiamendozagourmet.com/banner-publicidad-vertical.jpg" alt="Guía Mendoza Gourmet" style="width: auto; height: 80vh;">
+                  <img class="tamimg" src="http://guiamendozagourmet.com/banner-publicidad-vertical.jpg" alt="Guía Mendoza Gourmet">
               </div>
           </div>
       </div>
