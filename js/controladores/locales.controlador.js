@@ -77,7 +77,7 @@ function getTituloBusqueda(parametro, filtro) {
   $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
     var titulo = $("#labelRestaurantesBusquedas");
     var busqueda = parametro !== '' ? '"' + parametro + '"' : '';
-    titulo.text('Restaurantes para la búsqueda ' + busqueda);
+    titulo.text('Resultado la búsqueda ' + busqueda);
   });
 }
 
