@@ -1,5 +1,7 @@
 var jwt;
 var idReserva;
+var idLocal;
+var idUsuarioReserva;
 var calificacion = {
   "ambiente": null,
   "comida": null,
@@ -50,6 +52,8 @@ function validarReserva() {
       if (_.isEmpty(data)){
         mostrarModalNoReserva();
       } else {
+        idLocal = data[0].idLocal;
+        idUsuarioReserva = data[0].idUsuarioReserva;
         $('#loading').hide();
         $('.datosEvaluar').show();
       }
@@ -79,6 +83,8 @@ function enviarCalificacion() {
     data.puntajeComidaEvaluacion = calificacion.comida;
     data.comentarioEvaluacion = $('#comment').val();
     data.idReserva = idReserva;
+    data.idLocal = idLocal;
+    data.idUsuarioReserva = idUsuarioReserva;
     $.ajax({
       url: server + '/api/v1/admin/usuarioEvaluacion',
       type: 'POST',

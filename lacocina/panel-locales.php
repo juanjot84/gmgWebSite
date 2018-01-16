@@ -90,7 +90,7 @@ error_reporting(E_ERROR);
                     </div></a>
                 </div>
                 <div class="col-md-4 botonmanito" id="calificaciones">
-                    <a class="sombrabotonpanel" href="perfil/calificaciones.php"><div style="font-size: 1.5em;">
+                    <a class="sombrabotonpanel" onclick="verCalificaciones()"><div style="font-size: 1.5em;">
                         <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-star" aria-hidden="true"></span><br>
                         VER CALIFICACIONES
                     </div></a>

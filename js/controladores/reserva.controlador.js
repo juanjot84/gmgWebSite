@@ -112,12 +112,12 @@ function buscarHorarios() {
     crossDomain: true,
     contentType: "application/json",
     success: function (data) {
-      if (!data.length) {
-        $('#sinHorarios').html('');
-        $('#noHorario').show();
-      } else {
+      if (data.length && Array.isArray(data)) {
         $('#sinHorarios').html('');
         mostrarHoras(data);
+      } else {
+        $('#sinHorarios').html('');
+        $('#noHorario').show();
       }
     },
     error: function (jqXHR, textStatus, errorThrown) {

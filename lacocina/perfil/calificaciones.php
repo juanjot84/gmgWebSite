@@ -2,6 +2,8 @@
 error_reporting(E_ERROR);
 session_start();
 
+$idLocal = $_GET["idLocal"];
+$jwt = $_SESSION['jwt'];
 $idNegocio = $_SESSION['idNegocio'];
 $tipoUsuario = $_SESSION['tipoUsuario'];
 $nombreUsuario = $_SESSION['nombreUsuario'];
@@ -60,8 +62,8 @@ error_reporting(E_ERROR);
 
       <!-- INICIO CALIFICACION -->
 
-      <div class="container-fluid">
-        <div class="row">
+      <div class="container-fluid calificaciones">
+        <div class="row" >
           <div class="container" style="padding-top: 2%; border-bottom: 1px solid #e0e0e0;">
             <div class="row">
               <div class="col-md-2 text-center">
@@ -268,33 +270,15 @@ error_reporting(E_ERROR);
     <script src="js/contact_me.js"></script>
 
         <!-- Funciones de Negocio JavaScript -->
-    <script src="../js/controladores/perfilNegocio.controlador.js"></script>
+    <script src="js/controladores/calificaciones.controlador.js"></script>
+    <script>
+      setJWT('<?php echo $jwt; ?>', '<?php echo $idLocal; ?>');
+    </script>
 
     <!-- Theme JavaScript -->
     <script src="js/agency.min.js"></script>
 
     <script type="text/javascript">
-        
-
-    $(function() {
-
-    $('#login-form-link').click(function(e) {
-        $("#login-form").delay(100).fadeIn(100);
-        $("#register-form").fadeOut(100);
-        $('#register-form-link').removeClass('active');
-        $(this).addClass('active');
-        e.preventDefault();
-    });
-    $('#register-form-link').click(function(e) {
-        $("#register-form").delay(100).fadeIn(100);
-        $("#login-form").fadeOut(100);
-        $('#login-form-link').removeClass('active');
-        $(this).addClass('active');
-        e.preventDefault();
-    });
-
-    });
-
 </script>
 
 </body>

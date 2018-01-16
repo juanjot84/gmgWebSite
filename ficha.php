@@ -94,7 +94,7 @@ session_start();
                 <header class="fondoficha">
                     <center><div id="loading"><img class="img-responsive" src="img/loading.gif"></div></center>
 
-                    <a id="myP" class="reservarfijo" href="#" class="page-scroll btn btn-xl" id="reservar">
+                    <a id="myP" class="reservarfijo" href="#" class="page-scroll btn btn-xl" >
                         
                         <p>RESERVAR</p>
                     </a>

@@ -184,6 +184,7 @@ $('#paginaNegocio').attr('href', web);
   $('#mailLocal').text(local.mailContacto);
   $('#tipoCocinaPrincipal').text(local.idTipoCocinaPrincipal.nombreTipoCocina);
   $('#reservar').attr('href', 'reserva.php?id=' + local._id);
+  $('#myP').attr('href', 'reserva.php?id=' + local._id);
   var mediosPago = '';
 
   var cont = 0;

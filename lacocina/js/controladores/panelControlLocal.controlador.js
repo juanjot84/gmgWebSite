@@ -329,6 +329,11 @@ $('#cabeceraTablaNegocios').html('');
        var url = "../lacocina/subir-imagen.php?idLocal="+idLocal+"";
        $(location).attr('href',url);
     }
+    function verCalificaciones(){
+      var idLocal = $("#idLocal").val();
+       var url = "../lacocina/perfil/calificaciones.php?idLocal="+idLocal+"";
+       $(location).attr('href',url);
+    }
 
   function actualizarPremium(idLocal, valorActual){
     if (_.isUndefined(server)) {
