@@ -76,11 +76,37 @@
         opacity: 1;
         padding-top: 10%;
     }
+    .tamimg {
+      width: auto;
+      height: 80vh;
+    }
 
-    @media (min-width: 768px) {}
+    @media (min-width: 768px) {
       .modal-dialog {
           width: 526px;
           margin: 30px auto;
+      }
+    }
+
+    @media (min-width: 425px) {
+      .modal-dialog {
+          width: 360px;
+          margin: 155px auto;
+      }
+      .tamimg {
+        width: auto;
+        height: 60vh;
+      }
+    }
+
+    @media (min-width: 320px) {
+      .modal-dialog {
+          width: 280px;
+          margin: 100px auto;
+      }
+      .tamimg {
+        width: auto;
+        height: 48vh;
       }
     }
   </style>
@@ -155,7 +181,7 @@
     text-shadow: none;">Cerrar</a>
               </div>
               <div class="modal-body">
-                  <img src="http://guiamendozagourmet.com/banner-publicidad-vertical.jpg" alt="Guía Mendoza Gourmet" style="width: auto; height: 80vh;">
+                  <img class="tamimg" src="http://guiamendozagourmet.com/banner-publicidad-vertical.jpg" alt="Guía Mendoza Gourmet">
               </div>
           </div>
       </div>
