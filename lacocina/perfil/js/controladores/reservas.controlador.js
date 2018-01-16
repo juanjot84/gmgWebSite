@@ -22,6 +22,9 @@ function obtenerListado() {
       },
       error:function(jqXHR,textStatus,errorThrown)
       {
+        $('.container.locales').append('<br> No se encuentran próximas reservas');
+        listadoCumplidas();
+        listadoConfirmadas();
           $('#target').append("jqXHR: "+jqXHR);
           $('#target').append("textStatus: "+textStatus);
           $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
@@ -89,6 +92,21 @@ function renderReservas(reservasLocal){
    var conteinReservas = 999;
 
     _.each(reservasLocal, function(local,index){
+      
+      var calle;
+      var altura;
+      if(typeof(local[0].calleLocal) == "undefined"){
+        calle = '';
+      }else {
+        calle = local[0].calleLocal;
+      }
+
+      if(typeof(local[0].alturaLocal) == "undefined"){
+        altura = '';
+      }else {
+        altura = local[0].alturaLocal;
+      }
+
 
       $('.container.locales').append(''+
           '<div class="panel panel-default">'+
@@ -99,7 +117,7 @@ function renderReservas(reservasLocal){
                         '<tbody>'+
                           '<tr>'+
                             '<td>'+
-                            '  Local calle  ' + local[0].calleLocal + ' ('+ local[0].alturaLocal + ')'+
+                            '  Local calle  ' + calle + ' ('+ altura + ')'+
                             '</td>'+
                           '</tr>'+
                         '</tbody>'+
