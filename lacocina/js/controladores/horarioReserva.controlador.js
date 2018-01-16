@@ -108,11 +108,11 @@ function cargarHorariosSeteados() {
         if ( (horarioManana  && cubiertosManana) || (horarioTarde && cubiertosTarde) ) {
           aplicarHorarios(diaSemana);
           if (horarioManana && cubiertosManana) {
-            $("#Hdesde" + horarioManana.odiaSemanaHorarioAtencion + "Manana").html(horarioManana.horaInicioHorarioAtencion);
+            $("#Hdesde" + horarioManana.diaSemanaHorarioAtencion + "Manana").html(horarioManana.horaInicioHorarioAtencion);
             $("#Hhasta" + horarioManana.diaSemanaHorarioAtencion + "Manana").html(horarioManana.horaFinHorarioAtencion);
             $("#Cubiertos" + horarioManana.diaSemanaHorarioAtencion + "Manana").html(cubiertosManana.cantidadCubiertoDia);
             $("#Duracion" + horarioManana.diaSemanaHorarioAtencion + "Manana").html(cubiertosManana.duracionReserva);
-          }
+          }a
           if (horarioTarde  && cubiertosTarde) {
             $("#Hdesde" + horarioTarde.diaSemanaHorarioAtencion + "Tarde").html(horarioTarde.horaInicioHorarioAtencion);
             $("#Hhasta" + horarioTarde.diaSemanaHorarioAtencion + "Tarde").html(horarioTarde.horaFinHorarioAtencion);
