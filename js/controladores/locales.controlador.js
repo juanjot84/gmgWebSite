@@ -55,9 +55,23 @@ function buscar(parametro, filtro) {
         contentType: "application/json",
         success: function (data) {
           locales = data;
-          _.each(data, function (local) {
-            renderLocal(local);
-          });
+          
+          if(data.length == 0){
+            $('.container.locales').append('' +
+            '<div class="imgnoresultado-web">'+
+            '<img class="img-responsive" src="http://guiamendozagourmet.com/img/fondo-sin-resultados.jpg">'+
+            '</div>'+
+            '<div class="imgnoresultado-mobile">'+
+            '<img class="img-responsive" src="http://guiamendozagourmet.com/img/fondo-sin-resultados.jpg">'+
+            '</div>');
+          }else{
+            _.each(data, function (local) {
+              renderLocal(local);
+            });
+            
+
+          }
+
           $('#loading').hide();
         },
         error: function (jqXHR, textStatus, errorThrown) {
