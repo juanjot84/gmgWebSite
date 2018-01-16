@@ -57,6 +57,47 @@
     }
   </style>
 
+  <!-- Popup -->
+
+  <style type="text/css">
+    .modal-content {
+        background-color: #fff001;
+    }
+      .modal-dialog {
+        z-index: 999999;
+        text-align: center;
+    }
+    .modal-header {
+        padding: 15px;
+        border-bottom: 0px solid #e5e5e5; 
+    }
+
+    .fade {
+        opacity: 1;
+        padding-top: 10%;
+    }
+
+    @media (min-width: 768px) {}
+      .modal-dialog {
+          width: 526px;
+          margin: 30px auto;
+      }
+    }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#myModal").modal('show');
+    });
+  </script>
+
+  <!-- Fin popup -->
+
+
+
   <!-- ANALYTICS -->
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -105,6 +146,20 @@
 </head>
 
 <body id="page-top" class="index">
+
+  <div id="myModal" class="modal fade">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <a href="#" class="close" data-dismiss="modal" aria-hidden="true" style="cursor: pointer; color: #000; text-decoration: none; font-size: 14px; font-weight: bold; opacity: 1;
+    text-shadow: none;">Cerrar</a>
+              </div>
+              <div class="modal-body">
+                  <img src="http://guiamendozagourmet.com/banner-publicidad-vertical.jpg" alt="Guía Mendoza Gourmet" style="width: auto; height: 80vh;">
+              </div>
+          </div>
+      </div>
+  </div>
 
   <div id="wrapper">
 
