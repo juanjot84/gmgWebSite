@@ -386,6 +386,7 @@ function informarAsistencia(idReserva, asistencia){
     success: function (data) {
       $('#loading').hide();
       listadoCumplidas();
+      listadoConfirmadas();
     },
     error:function(jqXHR,textStatus,errorThrown)
     {
