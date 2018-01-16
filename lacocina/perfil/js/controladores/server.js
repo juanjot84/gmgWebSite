@@ -1,1 +1,1 @@
-var server = document.location.href.includes("localhost") ? "http://localhost:3000" : "https://gmg-server.tk"
+var server = document.location.href.includes("localhost") ? "https://aqueous-woodland-46461.herokuapp.com" : "https://gmg-server.tk"
