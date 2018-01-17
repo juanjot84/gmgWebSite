@@ -116,8 +116,8 @@ function cargarHorariosSeteados() {
           if (horarioTarde  && cubiertosTarde) {
             $("#Hdesde" + horarioTarde.diaSemanaHorarioAtencion + "Tarde").html(horarioTarde.horaInicioHorarioAtencion);
             $("#Hhasta" + horarioTarde.diaSemanaHorarioAtencion + "Tarde").html(horarioTarde.horaFinHorarioAtencion);
-            $("#Cubiertos" + horarioManana.diaSemanaHorarioAtencion + "Tarde").html(cubiertosTarde.cantidadCubiertoDia);
-            $("#Duracion" + horarioManana.diaSemanaHorarioAtencion + "Tarde").html(cubiertosTarde.duracionReserva);
+            $("#Cubiertos" + horarioTarde.diaSemanaHorarioAtencion + "Tarde").html(cubiertosTarde.cantidadCubiertoDia);
+            $("#Duracion" + horarioTarde.diaSemanaHorarioAtencion + "Tarde").html(cubiertosTarde.duracionReserva);
           }
         }
 
