@@ -646,7 +646,8 @@ h3.botdescarmapa {
     display: none;
 }
 
-@media (min-width: 768px) {}
+@media only screen and (max-width: 768px) {
+    
   .imgnoresultado-web {
     display: none;
   }
@@ -678,7 +679,7 @@ input#login-submit:hover {
 }
 
 
-@media only screen and (max-width : 425px) {
+@media only screen and (max-width: 425px) {
 
     .servicios {
     display: block !important;

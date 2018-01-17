@@ -65,24 +65,38 @@
     }
       .modal-dialog {
         z-index: 999999;
+        width: 500px;
         text-align: center;
     }
     .modal-header {
-        padding: 15px;
+        padding: 15px 15px 0 0;
         border-bottom: 0px solid #e5e5e5; 
     }
 
     .fade {
         padding-top: 10%;
     }
+
+    .modaltexto1 {
+      font-weight: bold;
+      font-size: 2em;
+      line-height: 1.5em;
+    }
+
+    .modaltexto2{
+      font-size: 1.4em;
+      line-height: 1.3em;
+    }
+
     .tamimg {
-      width: auto;
-      height: 80vh;
+      width: 100%;
+      max-width: 450px;
+      height: auto;
     }
 
     @media (max-width: 1440px) {
       .modal-dialog {
-        width: 526px;
+        width: 850px;
         margin: 30px auto;
       }
       .fade {
@@ -92,8 +106,8 @@
 
     @media (max-width: 1024px) {
       .modal-dialog {
-        width: 526px;
-        margin: 30px auto;
+        width: 850px;
+        margin: 10px auto;
       }
       .fade {
         padding-top: 20%;
@@ -102,8 +116,8 @@
 
     @media (max-width: 768px) {
       .modal-dialog {
-        width: 526px;
-        margin: 30px auto;
+        width: 610px;
+        margin: 15px auto;
       }
       .fade {
         padding-top: 25%;
@@ -116,26 +130,67 @@
           margin: 155px auto;
       }
       .tamimg {
-        width: auto;
-        height: 60vh;
+        width: 100%;
+        height: auto;
       }
       .fade {
         padding-top: 10%;
       }
+      .modaltexto1 {
+          font-weight: bold;
+          font-size: 1.4em;
+          line-height: 1.5em;
+      }
+      .modaltexto2 {
+          font-size: 1.4em;
+          line-height: 1.3em;
+      }
     }
+
+    @media (max-width: 375px) {
+          .modal-dialog {
+              width: 360px;
+              margin: 120px auto;
+          }
+          .tamimg {
+            width: 80%;
+            height: auto;
+          }
+          .fade {
+            padding-top: 10%;
+          }
+          .modaltexto1 {
+              font-weight: bold;
+              font-size: 1.4em;
+              line-height: 1.5em;
+          }
+          .modaltexto2 {
+              font-size: 1.2em;
+              line-height: 1.3em;
+          }
+        }
 
     @media (max-width: 320px) {
       .modal-dialog {
         width: 280px;
-        margin: 100px auto;
+        margin: 90px auto;
       }
       .tamimg {
-        width: auto;
-        height: 48vh;
+        width: 70%;
+        height: auto;
       }
       .fade {
         opacity: 1;
         padding-top: 10%;
+      }
+      .modaltexto1 {
+          font-weight: bold;
+          font-size: 1em;
+          line-height: 1.5em;
+      }
+      .modaltexto2 {
+          font-size: 1em;
+          line-height: 1.3em;
       }
     }
   </style>
@@ -210,7 +265,9 @@
     text-shadow: none;">Cerrar</a>
               </div>
               <div class="modal-body">
-                  <img class="tamimg" src="http://guiamendozagourmet.com/banner-publicidad-vertical.jpg" alt="Guía Mendoza Gourmet">
+                  <img class="tamimg" src="http://guiamendozagourmet.com/banner-publicidad-vertical2.jpg" alt="Guía Mendoza Gourmet">
+                  <p class="modaltexto1">NUESTRA APP ESTÁ CRECIENDO, RÁPIDO Y CON CARIÑO.</p>
+                  <p class="modaltexto2">Cada día se suman restaurantes para que muy pronto puedas reservar online en cientos de locales de Mendoza.</p>
               </div>
           </div>
       </div>
