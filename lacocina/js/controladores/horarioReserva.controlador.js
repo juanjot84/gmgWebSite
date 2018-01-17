@@ -21,6 +21,9 @@ function iniciar(action) {
 var localHorariosCreados = [];
 var horariosViejos = [];
 
+var localCubiertosCreados = [];
+var cubiertosViejos = [];
+
 var dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabados", "Domingos", "Feriados"];
 
 function popularDropdownHorarios(){
@@ -175,17 +178,17 @@ function sendHorarioAtencion() {
 
     if (horarioDesdeM != "" && horarioHastaM != "") {
       var guardarManana = sendHorarios(dia, horarioDesdeM.hora, horarioHastaM.hora, 'manana').then(function (id) {
-        localHorariosCreados.push(id);
+        return true;
       }).catch(function (err) {
-        console.log(err);
+        return false;
       });
       guardarHorarios.push(guardarManana);
     }
     if (horarioDesdeT != "" && horarioHastaT != "") {
       var guardarTarde = sendHorarios(dia, horarioDesdeT.hora, horarioHastaT.hora, 'tarde').then(function (id) {
-        localHorariosCreados.push(id);
+        return true;
       }).catch(function (err) {
-        console.log(err);
+        return false;
       });
       guardarHorarios.push(guardarTarde);
     }
@@ -197,17 +200,17 @@ function sendHorarioAtencion() {
 
     if (cantCubiertoM != "" && duracionReservaM != "") {
       var guardarManana = sendCubiertos(dia, cantCubiertoM.hora, duracionReservaM.hora, 'manana').then(function (id) {
-        localCubiertosCreados.push(id);
+        return true
       }).catch(function (err) {
-        console.log(err);
+        return false;
       });
       guardarCubiertos.push(guardarManana);
     }
     if (cantCubiertoT != "" && duracionReservaT != "") {
       var guardarTarde = sendCubiertos(dia, cantCubiertoT.hora, duracionReservaT.hora, 'tarde').then(function (id) {
-        localCubiertosCreados.push(id);
+        return true;
       }).catch(function (err) {
-        console.log(err);
+        return false
       });
       guardarCubiertos.push(guardarTarde);
     }
@@ -341,7 +344,8 @@ function sendHorarios(diaHorario, horaDesde, horaHasta, turno) {
         crossDomain: true,
         contentType: "application/json",
         success: function (data) {
-          resolve(data._id);
+          localHorariosCreados.push(data._id)
+          resolve(true);
         },
         error: function (jqXHR, textStatus, errorThrown) {
           reject(Error("It broke"));
@@ -384,7 +388,8 @@ function sendCubiertos(diaCubierto, cantCubiertos, duracionReserva, turno) {
         crossDomain: true,
         contentType: "application/json",
         success: function (data) {
-          resolve(data._id);
+          localCubiertosCreados.push(data._id)
+          resolve(true);
         },
         error: function (jqXHR, textStatus, errorThrown) {
           reject(Error("It broke"));

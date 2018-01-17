@@ -12,7 +12,7 @@ var nombreCarta = '';
    $("#formDropZone").append("<form id='dZUpload' class='dropzone borde-dropzone' style='cursor: pointer;'>"+
                              "<div class='dz-default dz-message text-center'>"+
                                "<span><h2>Arrastra el archivo pdf aquí</h2></span><br>"+
-                             "<p>(o Clic para seleccionar)</p>"+
+                             "<p>(o Click para seleccionar)</p>"+
                              "</div></form>");
         myAwesomeDropzone = {
           url: "scripts/mainCarta.php",
