@@ -2,7 +2,10 @@
 error_reporting(E_ERROR);
 session_start();
 
-$idNegocio = $_SESSION['idNegocio'];
+$idLocal = $_GET['idLocal'];
+$_SESSION['idLocal'] = $idLocal ;
+$idNegocio = $_GET['idNegocio'];
+$_SESSION['idNegocio'] = $idNegocio;
 $tipoUsuario = $_SESSION['tipoUsuario'];
 
 
@@ -17,13 +20,7 @@ if (!$_SESSION) {
 }
 
 ?>
-<?php   
-error_reporting(E_ERROR); 
-   $idLocal = $_GET['idLocal'];
-   $idNegocio = $_GET['idNegocio'];
-   $_SESSION['idLocal'] = $idLocal ;
-   $_SESSION['idNegocio'] = $idNegocio;
-?>
+
 <?php 
 error_reporting(E_ERROR);
 include("includes/head.php"); ?>

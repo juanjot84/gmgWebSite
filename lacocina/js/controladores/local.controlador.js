@@ -81,7 +81,7 @@ function iniciar(accion){
   $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     if(accion == 'editar'){
       buscarTipoNegocio(accion);
-      editarLocal();
+     // editarLocal();
     }else if(accion == 'crear'){      
       buscarTipoNegocio(accion);
       mostrarAltaLocal();
@@ -117,8 +117,9 @@ function buscarTipoNegocio(accion){
         $("#titTpoCocPrin").hide();
         $("#TpoCocPrin").hide();
         $("#datosNoResto").hide();
-
       }
+
+      editarLocal();
 
     },
     error:function(jqXHR,textStatus,errorThrown)
@@ -674,8 +675,9 @@ function buscarTipoNegocio(accion){
 
               var resultado = data;
               var localCreado =  resultado._id;
+              var idNegocio = $("#idNegocio").val();
 
-              var url = "../lacocina/panel-locales.php?idLocal="+ localCreado+""; 
+              var url = "../lacocina/panel-locales.php?idLocal="+ localCreado+"&idNegocio="+idNegocio+""; 
               $(location).attr('href',url);
 
                 $("#formularioLocal :input").val('');         
