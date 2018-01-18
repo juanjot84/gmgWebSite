@@ -73,8 +73,8 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h2 class="section-heading">Quiénes somos</h2>
-        <h3 class="section-subheading text-muted">Acerca de...</h3>
+        <h2 class="section-heading">Mendoza</h2>
+        <h3 class="section-subheading text-muted">El destino enogastronómico más importante de Argentina.</h3>
       </div>
     </div>
 
@@ -84,11 +84,13 @@
 ">
       </div>
       <div class="col-md-6">
-        <h3>Sobre Guía Mendoza Gourmet</h3>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>La oferta de restaurantes en Mendoza ha crecido en cantidad y calidad en los últimos años, impulsada en gran medida por la exigencia del consumidor que pide una cocina a la altura de los grandes vinos locales.</p>
+        <p>Esta provincia es el principal destino enogastronómico de Argentina, produce más del 70% de los vinos de todo el país y posee más de 60 restaurantes ubicados en bodegas.</p>
+        <p>Te invito a descubrir Mendoza, probando nuevos lugares, platos y vinos.</p>
+
+        <h4>¡Animate a conocer más sabores!</h4>
+
         <a target="_blank" href="http://aliciasistero.com/"><img style="float: right; width: 200px; margin-right: 3%; margin-top: 3%;" src="img/firmaalicia.svg"></a>
       </div>
     </div>
