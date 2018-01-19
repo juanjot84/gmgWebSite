@@ -63,7 +63,7 @@ function getOpcionesReservaLocal(idLocal) {
 
 }
 
-function setJWT(jwtToken, local) {
+function setJWT(jwtToken, local, idReserva) {
   $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
     idLocal = local;
     if (_.isNil(jwtToken) || _.isEmpty(jwtToken)) {
@@ -74,6 +74,9 @@ function setJWT(jwtToken, local) {
         getOpcionesReservaLocal(idLocal);
       } else {
         getMisReservas();
+        if (!_.isNil(idReserva) && !_.isEmpty(idReserva)) {
+          mostrarDetalleReserva(idReserva);
+        }
       }
     }
   });
@@ -271,11 +274,39 @@ function renderMisReservas(reservas) {
       '   </p>  ' +
       '  </div>  ' +
       '  <div class="col-md-3">' +
-      '    <a href="#"><h2 class="etiquetadescuento verreserva">Ver reserva</h2></a>' +
+      '    <a href="#" onclick="mostrarDetalleReserva(\'' +  reserva._id + '\')"><h2 class="etiquetadescuento verreserva">Ver reserva</h2></a>' +
       '  </div>' +
       '  </div>')
   });
+}
 
+function mostrarDetalleReserva(idReserva){
+  if (_.isUndefined(server)) {
+    $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
+    });
+  }
+  $.ajax({
+    url: server + '/api/v1/admin/reservaUsuario?id=' + idReserva,
+    type: 'GET',
+    dataType: "json",
+    crossDomain: true,
+    contentType: "application/json",
+    success: function (data) {
+      reserva = data[0];
+      $("#detallesReserva").modal("show");
+      $("#cantidadReserva").html('').html("Reserva para " + reserva.cubiertosAdultosReservados + " adultos y "  + reserva.cubiertosMenoresReservados +  " niño/s");
+      $("#horarioReserva").html('').html(reserva.horaReserva + " hs. | " + reserva.fechaReserva);
+      $("#direccionLocal").html('').html(reserva.idLocal.calleLocal + " " + reserva.idLocal.alturaLocal);
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      $('#target').append("jqXHR: " + jqXHR);
+      $('#target').append("textStatus: " + textStatus);
+      $('#target').append("You can not send Cross Domain AJAX requests: " + errorThrown);
+    },
+    headers: {
+      Authorization: 'JWT ' + jwt
+    }
+  });
 
 }
 

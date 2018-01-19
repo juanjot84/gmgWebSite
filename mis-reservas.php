@@ -1,7 +1,8 @@
-<?php 
+<?php
 error_reporting(E_ERROR);
 session_start();
 $idLocal = $_GET["id"];
+$idReserva = $_GET["idReserva"];
 
     $jwt = $_SESSION['jwt'];
 
@@ -103,6 +104,29 @@ $idLocal = $_GET["id"];
     </div>
   </div>
 
+  <div class="modal fade" id="detallesReserva" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h3>Detalles de la Reserva</h3>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="titulo"></h3>
+              <p id="cantidadReserva"></p>
+              <p id="horarioReserva" ></p>
+              <p id="direccionLocal" ></p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="page-scroll btn btn-xl" data-dismiss="modal" onclick="limpiar('telefonoReserva')" style="max-width: 300px; margin: 5% 0;">Cerrar</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
  <?php 
  error_reporting(E_ERROR);
@@ -133,7 +157,7 @@ $idLocal = $_GET["id"];
   <!-- Funciones de Local JavaScript -->
   <script src="js/controladores/reserva.controlador.js"></script>
   <script>
-    setJWT('<?php echo $jwt; ?>');
+    setJWT('<?php echo $jwt; ?>', null, '<?php echo $idReserva; ?>');
   </script>
 
 </body>
