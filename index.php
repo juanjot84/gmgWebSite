@@ -365,16 +365,14 @@
             <div class="container-fluid fondopubli-web">
               <div class="row">
                 <div class="col-lg-12 text-center">
-                  <!-- <h2 style="color: #fff; padding-top: 8%;" class="section-heading">PUBLICIDAD</h2>
-                  <h3 style="color: #fff;" class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
+                  <img style="margin: 5% auto;" class="img-responsive" src="img/publicidad.png">
                 </div>
               </div>
             </div>
             <div class="container-fluid fondopubli-mobile">
               <div class="row">
                 <div class="col-lg-12 text-center">
-                  <!-- <h2 style="color: #fff; padding-top: 8%;" class="section-heading">PUBLICIDAD</h2>
-                  <h3 style="color: #fff;" class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
+                  <img class="img-responsive" src="img/publicidad-mobile.png">
                 </div>
               </div>
             </div>
