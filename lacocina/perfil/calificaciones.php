@@ -44,7 +44,7 @@ error_reporting(E_ERROR);
     <input type="text" name="idLocal" id="idLocal" value="<?php error_reporting(E_ERROR); echo $idLocal; ?>" class="hidden">
     <div class="container-fluid" style="min-height: 65vh; padding-top: 3%;">
       <div class="row">
-        <div class="container">
+        <div class="container" style="min-height: 65vh;">
             <div class="row">
               <div class="col-md-10 text-center" style="padding-bottom: 3%;">
                 <h2>Mis calificaciones recibidas</h2>
