@@ -83,7 +83,7 @@ function getTituloBusqueda(parametro, filtro) {
 function popularLocal(local) {
 
   if(local.aceptaReservaNegocio == false){
-    $("#reservar").hide();
+    $("#reservar").css('visibility', 'hidden');
   }
   var longNivelPrecio = local.idNivelPrecio.label.length;
   var nivelGris = 5 - longNivelPrecio;
