@@ -81,12 +81,17 @@ function getTituloBusqueda(parametro, filtro) {
 }
 
 function popularLocal(local) {
+
+  if(local.aceptaReservaNegocio == false){
+    $("#reservar").hide();
+  }
   var longNivelPrecio = local.idNivelPrecio.label.length;
   var nivelGris = 5 - longNivelPrecio;
   var labelGrises = '';
   for(i = 0; i < nivelGris; i++){
     labelGrises += '$'
   }
+
   var web;
   if(local.webLocal.length == ''){
     web = local.idNegocio.webNegocio;
