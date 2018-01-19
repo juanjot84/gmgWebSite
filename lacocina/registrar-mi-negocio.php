@@ -19,7 +19,7 @@
   <link href="../css/agency.min.css" rel="stylesheet">
 </head>
 
-<body id="page-top" class="index" style="background-color: yellow;">
+<body id="page-top" class="index" style="background-color: #e3e3e3;">
 
   <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">

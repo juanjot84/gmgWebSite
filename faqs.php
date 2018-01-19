@@ -26,13 +26,6 @@
   <link href="css/gmgstyle.css" rel="stylesheet">
   <link href="css/agency.min.css" rel="stylesheet">
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" integrity="sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY" crossorigin="anonymous"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
-  <![endif]-->
-
   <!-- ANALYTICS -->
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -62,35 +55,13 @@
 
 <body id="page-top" class="index">
 
-  <!-- Navigation -->
-  <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header page-scroll">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span> <i class="fa fa-bars"></i>
-        </button>
-        <a class="navbar-brand page-scroll" href="#"><img class="logoweb" src="img/logo-gmg.png"></a>
-      </div>
+  <?php 
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="hidden">
-            <a href="#page-top"></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-user" aria-hidden="true"></i> ACCEDER</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-heart" style="color: #e02222 !important;" aria-hidden="true"></i> FAVORITOS</a>
-          </li>
-        </ul>
-      </div>
-      <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-  </nav>
+  error_reporting(E_ERROR);
+
+  include("includes/nav.php"); 
+
+  ?>
 
 
 
@@ -104,36 +75,141 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-8">
-          <h3>Pregunta 1</h3>
-
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </p>
-        </div>
-        <div class="col-lg-4">
-          <img style="padding-top: 5%;" src="http://guiamendozagourmet.com/gmg/img/cocina01.jpg">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-8">
-          <h3>Pregunta 2</h3>
-
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </p>
-        </div>
-        <div class="col-lg-4">
-          <img style="padding-top: 5%;" src="http://guiamendozagourmet.com/gmg/img/cocina01.jpg">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-8">
-          <h3>Pregunta 3</h3>
-
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </p>
-        </div>
-        <div class="col-lg-4">
-          <img style="padding-top: 5%;" src="http://guiamendozagourmet.com/gmg/img/cocina01.jpg">
+        <div class="col-lg-12">
+          <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                  ¿Tiene algún costo utilizar el sistema de reserva?</a>
+                </h4>
+              </div>
+              <div id="collapse1" class="panel-collapse collapse in">
+                <div class="panel-body">No tiene costo utilizar el sistema de reservas. Podés reservar en todos los restaurantes que quieras, las veces que quieras sin ningún tipo de cargo.</div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                  ¿Cómo creo mi cuenta?</a>
+                </h4>
+              </div>
+              <div id="collapse2" class="panel-collapse collapse">
+                <div class="panel-body">Tenés dos formas de crear tu cuenta, una es utilizando un mail y cargando tus datos personales, la otra es iniciando sesión con tu cuenta de Facebook.</div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                  ¿Tengo que llamar al restaurante para confirmar mi reserva?</a>
+                </h4>
+              </div>
+              <div id="collapse3" class="panel-collapse collapse">
+                <div class="panel-body">No. En el momento en que reservas en nuestro sistema tu reserva queda confirmada. Nosotros le avisamos al restaurante por vos y le enviamos a ambos un mail con los detalles de la reserva realizada.</div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                  ¿Puedo hacer pedidos especiales?</a>
+                </h4>
+              </div>
+              <div id="collapse4" class="panel-collapse collapse">
+                <div class="panel-body">Si. Antes de confirmar tu reserva te damos la opción que le comuniques al restaurante requisitos que puedas tener, ya sean dietarios, de ubicación o algún otro que consideres pertinente. Esto no garantiza que el restaurante pueda cumplirlo, solo que se le informará de tu requerimiento.</div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+                  ¿Tengo que presentar algún comprobante al llegar al restaurante?</a>
+                </h4>
+              </div>
+              <div id="collapse5" class="panel-collapse collapse">
+                <div class="panel-body">No es necesario que presentes un comprobante, solo al anunciarte con tu nombre e indicar que has hecho la reservar por medio de Guía Mendoza Gourmet basta. Aunque te recomendamos que tengas a mano el mail que te enviamos con los datos de la reserva realizada y las condiciones de la misma.</div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+                  ¿Puedo dejar un comentario?</a>
+                </h4>
+              </div>
+              <div id="collapse6" class="panel-collapse collapse">
+                <div class="panel-body">Si. Podés dejar un comentario público, pero es necesario que previamente hayas reservado y concurrido al restaurante. El restaurante puede contestarte en forma privada o pública. </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse7">
+                  ¿Tengo beneficios por reservar por GMG?</a>
+                </h4>
+              </div>
+              <div id="collapse7" class="panel-collapse collapse">
+                <div class="panel-body">Si. Tenés muchos beneficios al utilizar nuestro sistema de reserva. Ahorras tiempo, ya que no tenés que esperar que te contesten en el teléfono, es más fácil y práctico, además podés elegir entre una gran variedad de opciones con filtros para facilitar tu búsqueda. ¿Y lo mejor de todo? ¡Accedés a descuentos especiales para los usuarios de nuestra plataforma!</div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse8">
+                  ¿Los descuentos son acumulables?</a>
+                </h4>
+              </div>
+              <div id="collapse8" class="panel-collapse collapse">
+                <div class="panel-body">No. Los descuentos no son acumulables con otras promociones, pero son tan buenos que no hace falta. ¡Aprovechalos!</div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse9">
+                  ¿Puedo cancelar una reserva?</a>
+                </h4>
+              </div>
+              <div id="collapse9" class="panel-collapse collapse">
+                <div class="panel-body">Sí. Podés cancelar una reserva hasta 6 horas antes de la misma. Te pedimos que si no vas a poder asistir canceles la reservar, ya sea mediante el link provisto en el mail de reserva o mediante el uso de nuestra app o web, previo logueo en tu cuenta.</div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse10">
+                  ¿Puedo modificar mi reserva?</a>
+                </h4>
+              </div>
+              <div id="collapse10" class="panel-collapse collapse">
+                <div class="panel-body">No es posible modificar los datos internos de la reserva. Tenés que cancelarla y efectuar una nueva.</div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse11">
+                  ¿Qué pasa si llego tarde?</a>
+                </h4>
+              </div>
+              <div id="collapse11" class="panel-collapse collapse">
+                <div class="panel-body">Sí llegás luego de los 15 minutos de tolerancia el restaurante tiene libertad para anular tu reserva y disponer de la mesa. Y tu usuario es pasible de las sanciones establecidas por las faltas sin aviso.</div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse12">
+                  ¿Qué pasa si reservo y no voy?</a>
+                </h4>
+              </div>
+              <div id="collapse12" class="panel-collapse collapse">
+                <div class="panel-body">Faltar a una reserva es sancionado con la suspensión de la cuenta por 30 días si acumulás 2 faltas en los últimos 12 meses, y la suspensión definitiva si sumás 3 faltas.</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
