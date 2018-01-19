@@ -47,6 +47,15 @@
 
   <?php include("includes/soportezen.php"); ?>
 
+  <style type="text/css">
+    h4 {
+      margin-top: 50px;
+    }
+    ul {
+        margin-left: 45px;
+    }
+  </style>
+
 </head>
 
 <body id="page-top" class="index">
@@ -56,81 +65,85 @@
   include("includes/nav.php");
    ?>
 
-
-
   <!-- Texto Politicas -->
   <section id="politicas" class="bg-light-gray" style="margin-top: 5%;">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading">Políticas de Privacidad</h2>
-          <h3 class="section-subheading text-muted">Recolección y uso de la información</h3>
+          <h3 class="section-subheading text-muted" style="line-height: 1.7em;">Esta Aplicación recoge algunos Datos Personales de sus Usuarios.<br>
+          Responsable de Tratamiento de los Datos y Titular</h3>
+          
         </div>
         <div>
-          <h3 id="informaci-n-personal">Información Personal</h3>
+          <h4>Clases de Datos recogidos</h4>
 
-          <p>Nosotros recolectamos información directamente a través del usuario; cuando el usuario se registra como miembro o cuando efectúa una reserva en nuestra página web o en la página web de algún afiliado o de un restaurante adherido, cuando nos llama o nos escribe un e-mail. Esto suele incluir su nombre y todos sus detalles de contacto, con el propósito de realizar una reserva.</p>
+          <p>Entre las clases de Datos Personales que esta Aplicación recoge, ya sea directamente o a través de terceros, se encuentran: Cookie, Datos de Uso, dirección de correo electrónico, nombre, apellido(s), número de teléfono, sexo, fecha de nacimiento, ciudad y posición geográfica.</p>
+          <p>La información completa referente a cada categoría de Datos personales que se recogen se proporciona en las secciones de la presente Política de Privacidad dedicadas a tal fin o mediante textos explicativos específicos que se muestran antes de la recogida de dichos Datos.</p>
+          <p>Los Datos Personales podrán ser proporcionados libremente por el Usuario o, en caso de los Datos de Uso, serán recogidos automáticamente cuando usted emplee esta Aplicación.</p>
+          <p>Todos los Datos solicitados por esta Aplicación son obligatorios y la negativa a proporcionarlos podrá hacer que esta Aplicación se vea en la imposibilidad de prestar sus servicios. En los casos en los que esta Aplicación indique específicamente que ciertos Datos no son obligatorios, los Usuarios serán libres de no comunicar tales Datos sin que esto tenga consecuencia alguna sobre la disponibilidad o el funcionamiento del servicio.</p>
+          <p>Los Usuarios que tengan dudas sobre qué Datos son obligatorios pueden contactar con el Titular.</p>
+          <p>El uso de Cookies - o de otras herramientas de seguimiento - por parte de esta Aplicación o por los titulares de servicios de terceros utilizados por esta Aplicación tiene como finalidad la prestación del servicio solicitado por el Usuario, además de cualesquiera otras finalidades que se describan en el presente documento y en la Política de Cookies, en caso de estar disponible.</p>
+          <p>El Usuario asume la responsabilidad respecto de los Datos Personales de terceros que se obtengan, publiquen o compartan a través de esta Aplicación y declara por la presente que tiene el consentimiento de dichos terceros para proporcionar dichos </p>
 
-          <p>Podemos usar cookies y otras tecnologías para tener seguimiento de sus interacciones con nuestra página web y servicios para ofrecerle una experiencia personalizada.</p>
 
-          <h3 id="uso-de-la-informaci-n">Uso de la información</h3>
+          <h4>Modalidad y lugar del Tratamiento de los Datos recogidos</h4>
 
-          <p>Nosotros usamos información del usuario para poder responder y cumplir sus requerimientos en nuestros productos y servicios. Esto incluye enviarle mensajes automáticos relacionados con sus futuras o recientes reservas en restaurantes, como confirmaciones, recordatorios, invitaciones para completar comentarios y puntuaciones. El usuario no podrá desuscribirse de todo el servicio de mensajes. Solo podrá desuscribirse de aquellos relacionados a publicidades y ofertas,pero no a los inherentes a una reserva realizada.</p>
-          <p>Eventualmente podemos enviarle noticias y/o ofertas. Sólo le enviaremos estos contenidos si el usuario no deshabilitó la opción para recibir los mismos. Estos tipos de envíos podrá recibirlos como máximo 3 veces por semana.</p>
-          <p>Si el usuario estuvo de acuerdo en recibir comunicaciones de marketing de Guía Mendoza Gourmet, eventualmente recibirá comunicaciones relacionadas con ofertas especiales y/o promociones.</p>
+          <h3 class="section-subheading text-muted" style="margin-bottom: 20px !important;">Modalidades de Tratamiento</h3>
 
-          <p>Nosotros utilizamos información sobre el usuario para ayudarnos a identificar otros servicios que pueden ser beneficiosos para el mismo, y para informarle los mismos y otros temas de interés.</p>
+          <p>El Responsable de Tratamiento tratará los Datos de los Usuarios de manera adecuada y adoptará las medidas de seguridad apropiadas para impedir el acceso, la revelación, alteración o destrucción no autorizados de los Datos.</p>
+          <p>El tratamiento de Datos se realiza mediante ordenadores y/o herramientas informáticas, siguiendo procedimientos y modalidades organizativas estrictamente relacionadas con las finalidades señaladas. Además del Responsable de Tratamiento, en algunos casos podrán acceder a los Datos ciertas categorías de personas encargadas relacionadas con el funcionamiento de la página (administración, ventas, marketing, departamento jurídico y de administración de sistemas) o contratistas externos que presten servicios al Responsable de Tratamiento (tales como proveedores externos de servicios técnicos, empresas de mensajería, “hosting providers”, empresas de informática, agencias de comunicación) que serán nombrados por el Titular como Encargados del Tratamiento, si fuera necesario. Se podrá solicitar al Responsable de Tratamiento en cualquier momento una lista actualizada de dichas personas.</p>
 
-          <p>Nosotros utilizamos información sobre el usuario para ayudarnos con nuestra administración interna y para protegerlo a él y a nosotros de fraudes.</p>
+          <h4>Lugar</h4>
 
-          <p>Nosotros no compartimos ninguna información sobre el usuario con nadie, más que la declarada en este acuerdo, la requerida por la ley, o la necesaria para nosotros para poder gestionar nuestra relación con el usuario.</p>
+          <p>Los Datos serán tratados en la sede operativa del Responsable de Tratamiento, así como en otros lugares en los que se encuentren situadas las partes que también estén involucradas en dicho tratamiento. Para más información, por favor póngase en contacto con el Responsable de Tratamiento.</p>
 
-          <p>Si bien tomamos todos los recaudos a nuestro alcance y hacemos un uso responsable de la información que nos proveen nuestros usuarios, la seguridad de los datos personales es un desafío constante en un medio como Internet.</p>
+          <h4>Período de conservación</h4>
 
-          <h2 id="otra-informaci-n-que-recolectamos">Otra información que recolectamos</h2>
+          <p>Los Datos serán tratados durante el plazo necesario para prestar el servicio solicitado por el Usuario, o el que se requiera en función de las finalidades descritas en este documento, y el Usuario tendrá en todo momento la facultad de solicitar la interrupción de su Tratamiento o la cancelación de los Datos.</p>
 
-          <h3 id="informaci-n-estad-stica">Información Estadística</h3>
+          <h4>Finalidad del Tratamiento de los Datos recogidos</h4>
 
-          <p>Cuando el usuario visita nuestro sitio web, nosotros recopilamos información general sobre su visita con fines estadísticos.</p>
+          <p>Los Datos relativos al Usuario son recogidos para permitir al Titular la prestación de sus servicios, así como para las siguientes finalidades: Estadísticas, Contactar con el Usuario, Interacciones basadas en la localización y Registro y autenticación.</p>
 
-          <h3 id="cookies">Cookies</h3>
+          <p>Los Datos Personales utilizados para cada finalidad son descritos en los apartados </p>
 
-          <p>Eventualmente nosotros usamos "cookies" para almacenar preferencias de los usuarios, y recolectar información sobre cómo el usuario visita y accede a nuestras páginas web. Nosotros recolectamos información de las páginas web visitadas por nuestros clientes para ayudarnos a seguir mejorando nuestros servicios.</p>
+          <h4>Información detallada del tratamiento de los Datos Personales</h4>
 
-          <p>Las cookies son porciones de información que nuestra página web transfiere al disco rígido de su computadora con propósitos de seguimiento. Las cookies pueden hacer la página más útil gracias a que almacenan información sobre las preferencias del usuario en un sitio particular. El uso de cookies es un estándar en la industria y muchos sitios web las utilizan para proveer herramientas útiles para los usuarios.</p>
+          <p>Se recogen Datos Personales para las siguientes finalidades y utilizando los siguientes servicios:</p>
 
-          <p>El usuario puede borrar las cookies de su computadora en cualquier momento (mire la sección de ayuda de su navegador de internet para mayor información); sin embargo, esto borrará todas las cookies y no únicamente las asociadas con el sitio de restorando.com. El usuario puede borrar individualmente una cookie clickeando la opción de borrar cuando la propiedad aparezca en su lista.</p>
+          <ul>
+            <li>Interacciones basadas en la localización</li>
+            <li>Contactar con el Usuario</li>
+            <li>Estadísticas</li>
+            <li>Registro y autenticación</li>
+            <li>Información adicional sobre la recogida de Datos y su tratamiento</li>
+            <li>Defensa jurídica</li>
+          </ul>
 
-          <h3 id="decisiones-del-usuario">Decisiones del usuario</h3>
+          <h4>Información adicional acerca de los Datos Personales del Usuario</h4>
 
-          <p>El usuario puede deshabilitar la opción de recibir material promocional de nosotros. Si el usuario no lo hace, automáticamente habrá aceptado. El usuario deberá acceder la información personal que nosotros tenemos de él, y pedirnos que corrijamos cualquier error.</p>
+          <p>Además de las informaciones contenidas en esta política de privacidad, esta Aplicación podrá proporcionar al Usuario información contextual relativa a servicios específicos o a la recogida y tratamiento de los Datos Personales.</p>
 
-          <p>Otra forma de dejar de recibir material promocional es a través de un link que podrá encontrar en la parte inferior de los newsletters que le enviamos. Haciendo click en el mismo podrá acceder a un formulario para desuscribirse de nuestros envíos de forma sencilla.</p>
+          <h4>Log del sistema y mantenimiento</h4>
 
-          <h3 id="con-qui-n-compartimos-su-informaci-n">Con quién compartimos su información</h3>
+          <p>Por motivos relativos al funcionamiento y el mantenimiento, esta Aplicación y cualesquiera otros servicios de terceros que se utilicen podrán recoger un Log del sistema, esto es, archivos que registren las interacciones y que pueden contener Datos Personales, tales como la dirección IP del Usuario.</p>
 
-          <p>Nosotros no compartimos ninguna información acerca de las reservas de nuestros clientes excepto en las siguientes circunstancias:</p>
+          <h4>Información no contenida en esta política de privacidad</h4>
 
-          <h4 id="restaurantes">Restaurantes</h4>
+          <p>Se podrá solicitar en cualquier momento información adicional sobre la recogida y el tratamiento de los Datos Personales al Responsable de Tratamiento.</p>
 
-          <p>Le proveemos la información necesaria sobre los usuarios: nombre, número de teléfono, dirección de e-mail de cada reserva; al restaurante en el que está reservando. Los restaurantes requieren esta información para aceptar la reserva y poder hacer uso de la misma si necesitan contactarlo por la reserva. Hemos puesto limitaciones a los restaurantes para usar y/o compartir información de los usuarios sin su permiso. A pesar de esto, le recomendamos a los usuarios que revisen las políticas de privacidad de cualquier restaurante u otro proveedor de servicios que utilicen vía nuestra página web. El usuario debe tener presente que a menos que él mismo haya deshabilitado la opción en la hoja de reserva, está de acuerdo expresamente en recibir información de marketing y otros materiales del restaurante en el que el usuario está efectuando la reserva. Guía Mendoza Gourmet no participa en el contenido, frecuencia, horario o proceso de desuscripción de comunicaciones de marketing de cualquier restaurante. Si el usuario desea desuscribirse de la comunicación de marketing de un restaurante, debe ponerse en contacto directamente con el restaurante indicado.</p>
+          <h4>Ejercicio de los derechos por los Titulares de los Datos</h4>
 
-          <h4 id="afiliados">Afiliados</h4>
+          <p>Los titulares a los que se refieren los Datos Personales tienen derecho a obtener en cualquier momento la confirmación de que estos han sido almacenados por el Responsable de Tratamiento, a conocer su contenido y origen, a verificar su exactitud o solicitar que sean completados, cancelados, actualizados o rectificados, a que sean anonimizados o a que se bloqueen aquellos Datos Personales que están siendo tratados en contravención de las leyes, así como a oponerse a su tratamiento por cualquier motivo legítimo. Las solicitudes deberán remitirse al Responsable de Tratamiento utilizando los datos de contacto indicados anteriormente.</p>
+          <p>Esta Aplicación no permite solicitudes “Do Not Track”.</p>
+          <p>Para determinar si cualquiera de los servicios de terceros que utiliza acepta solicitudes “Do Not Track”, por favor lea sus políticas de privacidad.</p>
 
-          <p>Si el usuario ha efectuado la reserva a través de un afiliado, de la misma manera, a menos que haya deshabilitado la opción en la hoja de reserva, el usuario está de acuerdo expresamente con que ese afiliado (y el restaurante en el que está reservando) le puedan enviar comunicaciones de marketing y otros materiales. Hemos puesto limitaciones a los afiliados para usar y/o compartir su información sin su permiso. A pesar de esto, le recomendamos que revise las políticas de privacidad del afiliado en cuestión. Guía Mendoza Gourmet no participa en el contenido, frecuencia, horario o proceso de desuscripción de comunicaciones de marketing de cualquier afiliado. Si el usuario desea desuscribirse de la comunicación de marketing de un afiliado,debe ponerse en contacto directamente con el afiliado indicado.</p>
+          
+          <h4>Modificación de esta política de privacidad</h4>
 
-          <h3 id="obligaciones-legales">Obligaciones Legales</h3>
+          <p>El Responsable de Tratamiento se reserva el derecho de modificar esta política de privacidad en cualquier momento notificándolo a los Usuarios a través de esta página. Se recomienda encarecidamente que revisen esta página con frecuencia, tomando como referencia la fecha de la última modificación indicada al final. En el caso de que un Usuario esté en desacuerdo con alguna de las modificaciones realizadas a esta Política, el Usuario deberá cesar en el uso de esta Aplicación y podrá solicitar al Responsable de Tratamiento que elimine sus Datos Personales. Salvo que se indique lo contrario, la política de privacidad vigente en cada momento será de aplicación a todos los Datos Personales que el Responsable de Tratamiento haya recogido hasta entonces.</p>
 
-          <p>Nos pueden solicitar por ley que compartamos la información que lo usuarios nos proveyeron con el propósito de obtener servicios. También podemos compartir información de alguien que cause una amenaza a nuestros intereses (como un fraude a un cliente) o que su actividad pueda causar daños a terceros.</p>
-          <h3 id="general">General</h3>
-
-          <p>Si en algún momento el usuario desea preguntarnos algo acerca de su información personal que almacenamos, debe ponerse en contacto con nuestro servicio de atención al cliente por e-mail a <a style="color: orange;" href="mailto:hola@guiamendozagourmet.com">hola@guiamendozagourmet.com</a>.</p>
-
-          <h3 id="c-mo-protegemos-la-informaci-n-de-nuestros-usuarios">Cómo protegemos la información de nuestros usuarios</h3>
-
-          <p>Para asegurar la confidencialidad de la información personal de nuestros usuarios, usamos tecnologías líderes en seguridad y procesos que son regularmente revisados y actualizados.</p>
-
-          <p>Le damos al usuario la posibilidad de ejercitar los derechos de acceso, rectificación, oposición y cancelación de los datos personales recogidos por nosotros. Dichos derechos podrán ser ejercitados por el usuario, y en su caso quien lo represente, mediante solicitud escrita y firmada dirigida a Guía Mendoza Gourmet S.A. (Vuelta de Obligado 1947 5º Piso, CP 1428, Ciudad Autónoma de Buenos Aires) conteniendo los siguientes datos: nombre y apellido del usuario, domicilio a efectos de notificaciones, fotocopia del DNI o Pasaporte, y petición en que se concreta la solicitud. En el caso de representación, deberá probarse la misma mediante documento fehaciente.</p>
         </div>
 
       </div>
