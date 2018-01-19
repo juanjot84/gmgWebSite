@@ -84,6 +84,7 @@ function popularLocal(local) {
 
   if(local.aceptaReservaNegocio == false){
     $("#reservar").css('visibility', 'hidden');
+    $("#myP").css('visibility', 'hidden');
   }
   var longNivelPrecio = local.idNivelPrecio.label.length;
   var nivelGris = 5 - longNivelPrecio;
