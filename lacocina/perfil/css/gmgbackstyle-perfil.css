@@ -595,6 +595,50 @@ img.logowebperfil {
     margin-bottom: 2%;
 }
 
+.botonhorareserva {
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 40px;
+    border-radius: 4px;
+    font-size: 1.1em;
+    text-decoration: initial;
+    font-weight: normal;
+}
+
+.botonhorareserva:hover {
+    background: #fdfda4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 40px;
+    border-radius: 4px;
+    font-size: 1.1em;
+    text-decoration: initial;
+    font-weight: normal;
+}
+
+.botonhorareserva:focus {
+    background: yellow;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 40px;
+    border-radius: 4px;
+    font-size: 1.1em;
+    text-decoration: initial;
+    outline: #f8981d;
+    font-weight: bold;
+}
+
+
 /*MEDIA QUERIES*/
 
 

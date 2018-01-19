@@ -175,7 +175,7 @@ error_reporting(E_ERROR);
 
     <div class="horas row" style="display: none">
       <div class="col-md-12" style="display: inline-flex;">
-        <ul  id="selecHoras" style="flex-direction: row; flex-wrap: wrap; display: flex;">
+        <ul  id="selecHoras" style="flex-direction: row; flex-wrap: wrap; display: flex; list-style: none;">
         </ul>
       </div>
       <div style="text-align: center;">
