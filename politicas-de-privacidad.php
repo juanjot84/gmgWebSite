@@ -76,7 +76,7 @@
           
         </div>
         <div>
-          <h4>Clases de Datos recogidos</h4>
+          <h3>Clases de Datos recogidos</h3>
 
           <p>Entre las clases de Datos Personales que esta Aplicación recoge, ya sea directamente o a través de terceros, se encuentran: Cookie, Datos de Uso, dirección de correo electrónico, nombre, apellido(s), número de teléfono, sexo, fecha de nacimiento, ciudad y posición geográfica.</p>
           <p>La información completa referente a cada categoría de Datos personales que se recogen se proporciona en las secciones de la presente Política de Privacidad dedicadas a tal fin o mediante textos explicativos específicos que se muestran antes de la recogida de dichos Datos.</p>
@@ -87,28 +87,28 @@
           <p>El Usuario asume la responsabilidad respecto de los Datos Personales de terceros que se obtengan, publiquen o compartan a través de esta Aplicación y declara por la presente que tiene el consentimiento de dichos terceros para proporcionar dichos </p>
 
 
-          <h4>Modalidad y lugar del Tratamiento de los Datos recogidos</h4>
+          <h3>Modalidad y lugar del Tratamiento de los Datos recogidos</h3>
 
           <h3 class="section-subheading text-muted" style="margin-bottom: 20px !important;">Modalidades de Tratamiento</h3>
 
           <p>El Responsable de Tratamiento tratará los Datos de los Usuarios de manera adecuada y adoptará las medidas de seguridad apropiadas para impedir el acceso, la revelación, alteración o destrucción no autorizados de los Datos.</p>
           <p>El tratamiento de Datos se realiza mediante ordenadores y/o herramientas informáticas, siguiendo procedimientos y modalidades organizativas estrictamente relacionadas con las finalidades señaladas. Además del Responsable de Tratamiento, en algunos casos podrán acceder a los Datos ciertas categorías de personas encargadas relacionadas con el funcionamiento de la página (administración, ventas, marketing, departamento jurídico y de administración de sistemas) o contratistas externos que presten servicios al Responsable de Tratamiento (tales como proveedores externos de servicios técnicos, empresas de mensajería, “hosting providers”, empresas de informática, agencias de comunicación) que serán nombrados por el Titular como Encargados del Tratamiento, si fuera necesario. Se podrá solicitar al Responsable de Tratamiento en cualquier momento una lista actualizada de dichas personas.</p>
 
-          <h4>Lugar</h4>
+          <h3>Lugar</h3>
 
           <p>Los Datos serán tratados en la sede operativa del Responsable de Tratamiento, así como en otros lugares en los que se encuentren situadas las partes que también estén involucradas en dicho tratamiento. Para más información, por favor póngase en contacto con el Responsable de Tratamiento.</p>
 
-          <h4>Período de conservación</h4>
+          <h3>Período de conservación</h3>
 
           <p>Los Datos serán tratados durante el plazo necesario para prestar el servicio solicitado por el Usuario, o el que se requiera en función de las finalidades descritas en este documento, y el Usuario tendrá en todo momento la facultad de solicitar la interrupción de su Tratamiento o la cancelación de los Datos.</p>
 
-          <h4>Finalidad del Tratamiento de los Datos recogidos</h4>
+          <h3>Finalidad del Tratamiento de los Datos recogidos</h3>
 
           <p>Los Datos relativos al Usuario son recogidos para permitir al Titular la prestación de sus servicios, así como para las siguientes finalidades: Estadísticas, Contactar con el Usuario, Interacciones basadas en la localización y Registro y autenticación.</p>
 
           <p>Los Datos Personales utilizados para cada finalidad son descritos en los apartados </p>
 
-          <h4>Información detallada del tratamiento de los Datos Personales</h4>
+          <h3>Información detallada del tratamiento de los Datos Personales</h3>
 
           <p>Se recogen Datos Personales para las siguientes finalidades y utilizando los siguientes servicios:</p>
 
@@ -121,26 +121,26 @@
             <li>Defensa jurídica</li>
           </ul>
 
-          <h4>Información adicional acerca de los Datos Personales del Usuario</h4>
+          <h3>Información adicional acerca de los Datos Personales del Usuario</h3>
 
           <p>Además de las informaciones contenidas en esta política de privacidad, esta Aplicación podrá proporcionar al Usuario información contextual relativa a servicios específicos o a la recogida y tratamiento de los Datos Personales.</p>
 
-          <h4>Log del sistema y mantenimiento</h4>
+          <h3>Log del sistema y mantenimiento</h3>
 
           <p>Por motivos relativos al funcionamiento y el mantenimiento, esta Aplicación y cualesquiera otros servicios de terceros que se utilicen podrán recoger un Log del sistema, esto es, archivos que registren las interacciones y que pueden contener Datos Personales, tales como la dirección IP del Usuario.</p>
 
-          <h4>Información no contenida en esta política de privacidad</h4>
+          <h3>Información no contenida en esta política de privacidad</h3>
 
           <p>Se podrá solicitar en cualquier momento información adicional sobre la recogida y el tratamiento de los Datos Personales al Responsable de Tratamiento.</p>
 
-          <h4>Ejercicio de los derechos por los Titulares de los Datos</h4>
+          <h3>Ejercicio de los derechos por los Titulares de los Datos</h3>
 
           <p>Los titulares a los que se refieren los Datos Personales tienen derecho a obtener en cualquier momento la confirmación de que estos han sido almacenados por el Responsable de Tratamiento, a conocer su contenido y origen, a verificar su exactitud o solicitar que sean completados, cancelados, actualizados o rectificados, a que sean anonimizados o a que se bloqueen aquellos Datos Personales que están siendo tratados en contravención de las leyes, así como a oponerse a su tratamiento por cualquier motivo legítimo. Las solicitudes deberán remitirse al Responsable de Tratamiento utilizando los datos de contacto indicados anteriormente.</p>
           <p>Esta Aplicación no permite solicitudes “Do Not Track”.</p>
           <p>Para determinar si cualquiera de los servicios de terceros que utiliza acepta solicitudes “Do Not Track”, por favor lea sus políticas de privacidad.</p>
 
           
-          <h4>Modificación de esta política de privacidad</h4>
+          <h3>Modificación de esta política de privacidad</h3>
 
           <p>El Responsable de Tratamiento se reserva el derecho de modificar esta política de privacidad en cualquier momento notificándolo a los Usuarios a través de esta página. Se recomienda encarecidamente que revisen esta página con frecuencia, tomando como referencia la fecha de la última modificación indicada al final. En el caso de que un Usuario esté en desacuerdo con alguna de las modificaciones realizadas a esta Política, el Usuario deberá cesar en el uso de esta Aplicación y podrá solicitar al Responsable de Tratamiento que elimine sus Datos Personales. Salvo que se indique lo contrario, la política de privacidad vigente en cada momento será de aplicación a todos los Datos Personales que el Responsable de Tratamiento haya recogido hasta entonces.</p>
 

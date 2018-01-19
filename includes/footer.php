@@ -16,8 +16,8 @@
             <div class="col-md-8 col-lg-6">
               <p><a style="color: #000;" target="_blank" href="lacocina/registrar-mi-negocio.php">Registrar mi negocio</a></p>
               <p><a style="color: #000;" target="_blank" href="lacocina/index.php">Acceso Restaurantes</a></p>
-              <p><a style="color: #000;" href="politicas-de-privacidad.php">Políticas de privacidad</a></p>
-              <p><a style="color: #000;" href="terminos-y-condiciones.php">Términos y condiciones</a></p>
+              <p><a style="color: #000;" href="politicas-de-privacidad.php">Políticas de Privacidad</a></p>
+              <p><a style="color: #000;" href="condiciones-de-uso.php">Condiciones de Uso</a></p>
               <p><a style="color: #000;" href="faqs.php">Preguntas Frecuentes</a></p>
             </div>
           </div>

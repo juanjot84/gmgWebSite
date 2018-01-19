@@ -82,13 +82,15 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading">Términos y condiciones</h2>
-          <h3 class="section-subheading text-muted">Condiciones de uso de Guía Mendoza Gourmet</h3>
+          <h2 class="section-heading">Condiciones de Uso</h2>
+          <h3 class="section-subheading text-muted">Guía Mendoza Gourmet</h3>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-12">
           
+          <h3>Nuestro servicio</h3>
+
           <p>Guía Mendoza Gourmet es un sistema de información y reservas de restaurantes. Mediante nuestra plataforma podrás hacer reservas en los restaurantes adheridos al comunicarles tu reserva solicitada. Al realizar una reserva, la misma queda confirmada en ese momento. Las reservas las podés hacer a través de nuestra página web o de nuestra aplicación. Una vez que la realices Guía Mendoza Gourmet te enviará un mail con los datos de tu reserva y el código de seguimiento. Usando Guía Mendoza Gourmet, aceptás recibir confirmación de las reservas efectuadas a tu casilla de mail. Asimismo, Guía Mendoza Gourmet no asume responsabilidad en el cumplimiento del servicio por parte del restaurante, así como tampoco asegura el nivel de satisfacción esperado por el cliente, deslindándose de cualquier accionar que pueda provocarle alguna suerte de daño o perjuicio. Guía Mendoza Gourmet actúa solamente como intermediario entre vos y el restaurante al informarle de tu reserva.</p>
 
           <h3>Mail de reserva</h3>
@@ -102,12 +104,12 @@
           <p>Guía Mendoza Gourmet no te cobra ningún cargo por la reserva. Simplemente pagás en el restaurante por lo consumido. Guía Mendoza Gourmet no asume responsabilidad alguna por cualquier recargo que el restaurante al que asistas decida cobrarte, sobre todo si se intenta imputar a nuestro nombre. Recuerda que no se te cobra cargo alguno por el uso de nuestra plataforma.</p>
 
           <h3>Avisales que reservaste con Guía Mendoza Gourmet</h3>
-          <p>Cuando llegues al restaurante asegurate de informar a la persona que te reciba que has realizado la reserva con Guía Mendoza Gourmet. Para ello podés mostrarles el mail con los datos de tu reserva. Si no te identificás, el restaurante podría indicar una “Falta sin aviso” y podrás ser subsecuentemente penado para usar el servicio nuevamente.</p>
+          <p>Cuando llegues al restaurante asegurate de informar a la persona que te reciba que has realizado la reserva con Guía Mendoza Gourmet. Para ello podés mostrarles el mail con los datos de tu reserva. Si no te identificás, el restaurante podría indicar una “Falta sin aviso” y subsecuentemente podrías ser penado para usar el servicio nuevamente.</p>
 
           <h3>Cancelar una reserva</h3>
           <p>Las reservas sólo pueden ser canceladas hasta 6 horas antes del comienzo de las mismas. Para cancelar una reserva podés utilizar el link provisto en el mail enviado con los datos de tu reserva, o mediante nuestro sistema, accediendo con usuario y contraseña.</p>
 
-          <h3>Cambiar una reserva.</h3>
+          <h3>Cambiar una reserva</h3>
           <p>No se pueden realizar cambios en la reserva, debés cancelarla y realizar una nueva.</p>
 
           <h3>Faltas sin aviso</h3>
