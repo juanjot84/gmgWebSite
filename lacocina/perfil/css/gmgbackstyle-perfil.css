@@ -397,6 +397,10 @@ td {
     border: 0;
 }
 
+td.centrarbotaccion {
+    max-width: 55px;
+}
+
 .centrarbotaccion {
     text-align: center;
 }
