@@ -104,7 +104,8 @@
           </div>
           <div class="col-lg-6 text-center">
             <img src="img/ayuda-black.png" style="width: 100%; max-width: 500px; margin: 15% 0 0 0;">
-            <h2 style="font-size: 1.8em; color: #000; line-height: 1.5em;"><a href="mailto:soporte@guiamendozagourmet.com">soporte@guiamendozagourmet.com</p></h2>
+            <h2 style="font-size: 1.2em; color: #000; line-height: 1.5em;"><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:soporte@guiamendozagourmet.com">soporte@guiamendozagourmet.com</p></h2>
+            <h2 style="font-size: 1.2em; color: #000; line-height: 1.5em;"><i class="fa fa-globe" aria-hidden="true"></i> <a href="preguntas-frecuentes.php">Preguntas Frecuentes</p></h2>
           </div>
         </div>
       </div>
