@@ -78,8 +78,7 @@ header {
     background: url(../img/fondopubli.jpg) no-repeat;
     background-size: cover;
     min-height: 400px;
-    background-position: center;
-    background-color: #fff001;
+    background-position: top;
     display: block;
 }
 
@@ -88,7 +87,6 @@ header {
     background-size: auto;
     min-height: 600px;
     background-position: center;
-    background-color: #FFEF00;
     display: none;
 }
 
@@ -925,8 +923,7 @@ li#calificacionLocal {
         background: url(../img/fondopubli.jpg) no-repeat;
         background-size: cover;
         min-height: 300px;
-        background-position: center;
-        background-color: #fff001;
+        background-position: top;
         display: block;
     }
 
