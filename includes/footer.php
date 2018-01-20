@@ -10,7 +10,7 @@
               <p><a style="color: #000;" href="mis-reservas.php">Ver Mis Reservas</a></p>
               <p><a style="color: #000;" href="quienes-somos.php">Quiénes somos</a></p>
               <p><a style="color: #000;" target="_blank" href="http://aliciasistero.com">Blog</a></p>
-              <p><a style="color: #000;" target="_blank" href="#">Soporte</a></p>
+              <p><a style="color: #000;" target="_blank" href="soporte.php">Soporte</a></p>
 
             </div>
             <div class="col-md-8 col-lg-6">
@@ -18,7 +18,7 @@
               <p><a style="color: #000;" target="_blank" href="lacocina/index.php">Acceso Restaurantes</a></p>
               <p><a style="color: #000;" href="politicas-de-privacidad.php">Políticas de Privacidad</a></p>
               <p><a style="color: #000;" href="condiciones-de-uso.php">Condiciones de Uso</a></p>
-              <p><a style="color: #000;" href="faqs.php">Preguntas Frecuentes</a></p>
+              <p><a style="color: #000;" href="preguntas-frecuentes.php">Preguntas Frecuentes</a></p>
             </div>
           </div>
           
