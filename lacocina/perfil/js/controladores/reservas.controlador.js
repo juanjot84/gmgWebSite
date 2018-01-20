@@ -22,7 +22,8 @@ function obtenerListado() {
       },
       error:function(jqXHR,textStatus,errorThrown)
       {
-        $('.container.locales').append('<br> No se encuentran próximas reservas');
+        $('#loading').hide();
+        $('.container.locales').append('<br>No se encuentran reservas para el día de hoy por el momento');
         listadoProximas();
         listadoHistorico();
           $('#target').append("jqXHR: "+jqXHR);
