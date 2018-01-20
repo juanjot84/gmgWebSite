@@ -56,7 +56,7 @@ include("includes/head.php"); ?>
     <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px; float: right;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
     <div class="row">
       <div class="col-md-12">
-        <center><div id="loading"><img class="img-responsive" src="img/loading.gif"></div></center>
+        <center><div id="loading"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span></div></center>
         <div class="panel panel-default datos-cubiertos hidden">
 
           <h2 class="tituloseccion">Asignar Cubiertos disponibles para reservar</h2>

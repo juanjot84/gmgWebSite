@@ -162,7 +162,7 @@ if (empty($filtro)) $filtro = '';
               </div>
             </div>
           </div>
-          <center><div id="loading"><img class="img-responsive" src="img/loading.gif"></div></center>
+          <center><div id="loading"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span></div></center>
           <div class="container locales">
 
           </div>
