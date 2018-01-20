@@ -79,29 +79,29 @@ error_reporting(E_ERROR);
  
     <div class="reservaspestanas"> 
         <ul class="nav nav-tabs nav-justified" style="margin-bottom: 3%;">
-            <li class="active"><a data-toggle="tab" href="#proximasreservas" onclick="ocultarPestaña('proximasreservas','cumplidas','confirmadas')">Próximas Reservas</a></li>
-            <li><a data-toggle="tab" href="#cumplidas" onclick="ocultarPestaña('cumplidas','proximasreservas','confirmadas')">Reservas Cumplidas</a></li>
-            <li><a data-toggle="tab" href="#confirmadas" onclick="ocultarPestaña('confirmadas','proximasreservas','cumplidas')">Reservas Confirmadas</a></li>
+            <li class="active"><a data-toggle="tab" href="#reservasHoy" onclick="ocultarPestaña('reservasHoy','proximas','historial')">Reservas para hoy</a></li>
+            <li><a data-toggle="tab" href="#proximas" onclick="ocultarPestaña('proximas','reservasHoy','historial')">Próximas Reservas</a></li>
+            <li><a data-toggle="tab" href="#historial" onclick="ocultarPestaña('historial','reservasHoy','proximas')">Historial de reservas</a></li>
         </ul>
         <div class="tab-content">
-          <div id="proximasreservas" class="tab-pane fade in active">
-             <div class="panel-heading tituloseccion">Próximas Reservas</div>
+          <div id="reservasHoy" class="tab-pane fade in active">
+             <div class="panel-heading tituloseccion">Reservas para hoy</div>
                  <div class="container locales">
                     <center><div id="loading"></div></center> 
                  </div>
              </div>
 
           </div>
-          <div id="cumplidas" class="tab-pane fade">
-             <div class="panel-heading tituloseccion">Reservas Cumplidas</div>
-                 <div class="container cumplidas">
+          <div id="proximas" class="tab-pane fade">
+             <div class="panel-heading tituloseccion">Próximas Reservas</div>
+                 <div class="container proximas">
                     <center><div id="loading"></div></center> 
                  </div>
              </div>
           </div>
-          <div id="confirmadas" class="tab-pane fade">
-            <div class="panel-heading tituloseccion">Reservas Confirmadas</div>
-                 <div class="container confirmadas">
+          <div id="historial" class="tab-pane fade">
+            <div class="panel-heading tituloseccion">Historial de reservas</div>
+                 <div class="container historial">
                     <center><div id="loading"></div></center> 
                  </div>
             </div>

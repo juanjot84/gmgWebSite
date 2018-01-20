@@ -10,21 +10,21 @@ function obtenerListado() {
     $('.container.negocios').html('');
     $('#loading').html('<img class="img-responsive" src="imgs/loading.gif">');
     $.ajax({
-        url: server + '/api/v1/admin/reservasPendienteNegocio?id='+ idNegocio +"",
+        url: server + '/api/v1/admin/ReservasHoyNegocio?id='+ idNegocio +"",
         type: 'GET',
         dataType: "json",
         crossDomain: true,
         contentType:"application/json",
         success: function (data) {
              renderReservas(data);
-             listadoCumplidas();
-             listadoConfirmadas();      
+             listadoProximas();
+             listadoHistorico();      
       },
       error:function(jqXHR,textStatus,errorThrown)
       {
         $('.container.locales').append('<br> No se encuentran próximas reservas');
-        listadoCumplidas();
-        listadoConfirmadas();
+        listadoProximas();
+        listadoHistorico();
           $('#target').append("jqXHR: "+jqXHR);
           $('#target').append("textStatus: "+textStatus);
           $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
@@ -32,7 +32,7 @@ function obtenerListado() {
   });
 }
 
-function listadoCumplidas(){
+function listadoProximas(){
   if (_.isUndefined(server)) {
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     });
@@ -41,13 +41,13 @@ function listadoCumplidas(){
     $('.container.negocios').html('');
     $('#loading').html('<img class="img-responsive" src="imgs/loading.gif">');
     $.ajax({
-        url: server + '/api/v1/admin/reservasCumplidasNegocio?id='+ idNegocio +"",
+        url: server + '/api/v1/admin/reservasPendienteNegocio?id='+ idNegocio +"",
         type: 'GET',
         dataType: "json",
         crossDomain: true,
         contentType:"application/json",
         success: function (data) {
-             renderReservasCumplidas(data);          
+             renderReservasProximas(data);          
       },
       error:function(jqXHR,textStatus,errorThrown)
       {
@@ -58,7 +58,7 @@ function listadoCumplidas(){
   });
 }
 
-function listadoConfirmadas(){
+function listadoHistorico(){
   if (_.isUndefined(server)) {
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     });
@@ -67,13 +67,13 @@ function listadoConfirmadas(){
     $('.container.negocios').html('');
     $('#loading').html('<img class="img-responsive" src="imgs/loading.gif">');
     $.ajax({
-        url: server + '/api/v1/admin/reservasConfirmadasNegocio?id='+ idNegocio +"",
+        url: server + '/api/v1/admin/reservasPasadasNegocio?id='+ idNegocio +"",
         type: 'GET',
         dataType: "json",
         crossDomain: true,
         contentType:"application/json",
         success: function (data) {
-             renderReservasConfirmadas(data);          
+             renderReservasHistorico(data);          
       },
       error:function(jqXHR,textStatus,errorThrown)
       {
@@ -158,14 +158,27 @@ function renderReservas(reservasLocal){
           var tituloModal = '';
           var cancelar = 'cancelar';
           var editar = 'editar';
+          var clasificar = '';
 
           if (reserva.medioReserva == 'gmg'){
             medioDeReserva = 'fa fa-cutlery';
             ocultarEliminar = 'style="display:none"';
-         //   botonEditar = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
           }else{
               medioDeReserva = 'fa fa-globe';
-          //    botonEditar = '<button title="Editar" onClick="mostrarModal(\''+ collapseReserva +'\',\''+editar+'\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>';
+          }
+
+          if(reserva.estadoReserva =="pendiente"){
+            clasificar = '<td class="centrarbotaccion"><ul style="list-style: none; display: inline-flex;"><li><button title="Marcar como NO vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', false)"><i class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></button></li><li><button title="Marcar como SI vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', true)"><i class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></button></li></ul></td>';
+          }else if(reserva.estadoReserva =="cumplida"){
+            clasificar = '<td class="centrarbotaccion"><ul style="list-style: none; display: inline-flex;"><li><button title="Marcar como NO vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', false)"><i class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></button></li><li><button title="Marcar como SI vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', true)"><i class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></button></li></ul></td>';
+          }else if(reserva.estadoReserva =="vencida"){
+            clasificar = '<td class="centrarbotaccion"><i title="No Vino" class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></td>';
+          }else if(reserva.estadoReserva =="confirmada"){
+            clasificar = '<td class="centrarbotaccion"><i title="Vino" class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
+          }else if(reserva.estadoReserva =="Cancelada"){
+            clasificar = '<td class="centrarbotaccion"><i title="Cancelada" class="fa fa-ban" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></td>';
+          }else if(reserva.estadoReserva =="Calificada"){
+            clasificar = '<td class="centrarbotaccion"><i title="Vino" class="fa fa-check-square-o" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
           }
 
           $('.container.'+conteinReservas).append(''+
@@ -189,6 +202,10 @@ function renderReservas(reservasLocal){
                               botonEditar +
                               '<button title="Eliminar" '+ ocultarEliminar +' class="btn btn-default botaccion" type="button" data-toggle="modal" onClick="mostrarModal(\''+ collapseReserva +'\',\''+cancelar+'\')"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>'+
                             '</td>'+
+
+                            clasificar+
+                            
+
                           '</tr>'+
                         '</tbody>'+
                       '</table>'+
@@ -242,8 +259,8 @@ function renderReservas(reservasLocal){
     $('#loading').hide();
 }
 
-function renderReservasCumplidas(reservasLocal){
-  $('.container.cumplidas').html('');
+function renderReservasProximas(reservasLocal){
+  $('.container.proximas').html('');
   var cantLocales = _.size(reservasLocal);
   var contLocales = 1;
   var collapseReserva = 9999998;
@@ -251,7 +268,7 @@ function renderReservasCumplidas(reservasLocal){
   var ad = 357;
    _.each(reservasLocal, function(local,index){
 
-     $('.container.cumplidas').append(''+
+     $('.container.proximas').append(''+
          '<div class="panel panel-default">'+
              '<div class="panel-heading">'+
                  '<p class="panel-title">'+
@@ -331,7 +348,6 @@ function renderReservasCumplidas(reservasLocal){
                              botonEditar +
                              '<button title="Eliminar" '+ ocultarEliminar +' class="btn btn-default botaccion" type="button" data-toggle="modal" onClick="mostrarModal(\''+ collapseReserva +'\',\''+cancelar+'\')"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>'+
                            '</td>'+
-                           '<td class="centrarbotaccion"><ul style="list-style: none; display: inline-flex;"><li><button title="Marcar como NO vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', false)"><i class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></button></li><li><button title="Marcar como SI vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', true)"><i class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></button></li></ul></td>'+
                            
                          '</tr>'+
                        '</tbody>'+
@@ -403,8 +419,9 @@ function informarAsistencia(idReserva, asistencia){
     contentType:"application/json",
     success: function (data) {
       $('#loading').hide();
-      listadoCumplidas();
-      listadoConfirmadas();
+      obtenerListado()
+      listadoProximas();
+      listadoHistorico();
     },
     error:function(jqXHR,textStatus,errorThrown)
     {
@@ -419,8 +436,8 @@ function informarAsistencia(idReserva, asistencia){
   });
 }
 
-function renderReservasConfirmadas(reservasLocal){
-  $('.container.confirmadas').html('');
+function renderReservasHistorico(reservasLocal){
+  $('.container.historial').html('');
   var cantLocales = _.size(reservasLocal);
   var contLocales = 1;
   var collapseReserva = 9799998;
@@ -428,7 +445,7 @@ function renderReservasConfirmadas(reservasLocal){
   var ad = 951;
    _.each(reservasLocal, function(local,index){
 
-     $('.container.confirmadas').append(''+
+     $('.container.historial').append(''+
          '<div class="panel panel-default">'+
              '<div class="panel-heading">'+
                  '<p class="panel-title">'+
@@ -476,16 +493,27 @@ function renderReservasConfirmadas(reservasLocal){
          var tituloModal = '';
          var cancelar = 'cancelar';
          var editar = 'editar';
+         var clasificar = '';
 
          if (reserva.medioReserva == 'gmg'){
            medioDeReserva = 'fa fa-cutlery';
            ocultarEliminar = 'style="display:none"';
-        //   botonEditar = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
          }else{
              medioDeReserva = 'fa fa-globe';
-         //    botonEditar = '<button title="Editar" onClick="mostrarModal(\''+ collapseReserva +'\',\''+editar+'\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>';
-
+             ocultarEliminar = 'style="display:none"';
          }
+
+        if(reserva.estadoReserva =="cumplida"){
+          clasificar = '<td class="centrarbotaccion"><ul style="list-style: none; display: inline-flex;"><li><button title="Marcar como NO vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', false)"><i class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></button></li><li><button title="Marcar como SI vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', true)"><i class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></button></li></ul></td>';
+        }else if(reserva.estadoReserva =="vencida"){
+          clasificar = '<td class="centrarbotaccion"><i title="No Vino" class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></td>';
+        }else if(reserva.estadoReserva =="confirmada"){
+          clasificar = '<td class="centrarbotaccion"><i title="Vino" class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
+        }else if(reserva.estadoReserva =="Cancelada"){
+          clasificar = '<td class="centrarbotaccion"><i title="Cancelada" class="fa fa-ban" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></td>';
+        }else if(reserva.estadoReserva =="Calificada"){
+          clasificar = '<td class="centrarbotaccion"><i title="Vino" class="fa fa-check-square-o" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
+        }
 
          $('.container.'+conteinReservas).append(''+
              '<div class="panel panel-default">'+
@@ -508,6 +536,7 @@ function renderReservasConfirmadas(reservasLocal){
                              botonEditar +
                              '<button title="Eliminar" '+ ocultarEliminar +' class="btn btn-default botaccion" type="button" data-toggle="modal" onClick="mostrarModal(\''+ collapseReserva +'\',\''+cancelar+'\')"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>'+
                            '</td>'+
+                           clasificar+
                          '</tr>'+
                        '</tbody>'+
                      '</table>'+
