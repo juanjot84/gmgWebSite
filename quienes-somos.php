@@ -30,18 +30,6 @@
   <link href="css/agency.min.css" rel="stylesheet">
 
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-
-  <!--[if lt IE 9]>
-
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" integrity="sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY" crossorigin="anonymous"></script>
-
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
-
-  <![endif]-->
-
   <!-- ANALYTICS -->
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -53,6 +41,37 @@
 
     gtag('config', 'UA-111410422-1');
   </script>
+
+  <!-- SMARTLOOK -->
+
+  <script type="text/javascript">
+      window.smartlook||(function(d) {
+      var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
+      var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
+      c.charset='utf-8';c.src='https://rec.smartlook.com/recorder.js';h.appendChild(c);
+      })(document);
+      smartlook('init', '0f96f4e577145df7b76f73ea418d1f88a242f08b');
+  </script>
+
+  <!-- FIN SMARTLOOK -->
+
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '510992362591893');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=510992362591893&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Facebook Pixel Code -->
 
   <?php include("includes/soportezen.php"); ?>
 
@@ -85,13 +104,21 @@
       </div>
       <div class="col-md-6">
 
-        <p>La oferta de restaurantes en Mendoza ha crecido en cantidad y calidad en los últimos años, impulsada en gran medida por la exigencia del consumidor que pide una cocina a la altura de los grandes vinos locales.</p>
-        <p>Esta provincia es el principal destino enogastronómico de Argentina, produce más del 70% de los vinos de todo el país y posee más de 60 restaurantes ubicados en bodegas.</p>
+        <p>Creé Guía Mendoza Gourmet con el objetivo de comunicar la oferta gastronómica de Mendoza, la cual creció mucho en los últimos años. A Mendoza le hacía falta una guía gastronómica completa y ordenada, en la que puedas encontrar no solo el restaurante perfecto para salir a comer con tu pareja o amigos, sino también, en dónde podés encontrar tiendas de productos gourmet, un chef a domicilio que venga a cocinar a tu casa o seguirle el paso a los food trucks.</p>
+
+        <p>Muchas veces recibo consultas de gente que no sabe a dónde salir a comer y termina yendo siempre a los mismos lugares, para ellos #LaGuía es ideal, porque además de poder acceder a toda la oferta gastronómica de Mendoza, podrán reservar en los restaurantes que tengan habilitada esta función.</p>
+
+        <p>De esta manera la Guía Mendoza Gourmet realiza un fuerte aporte a la industria enogastronómica local, posicionando a Mendoza a la altura de los más importantes destinos turísticos del mundo, donde los sistemas de reserva online son de uso corriente. Creo que los mendocinos ya están listos para comenzar a realizar sus reservas con este tipo de tecnología muy fácil de usar.</p>
+
         <p>Te invito a descubrir Mendoza, probando nuevos lugares, platos y vinos.</p>
 
         <h4>¡Animate a conocer más sabores!</h4>
 
-        <a target="_blank" href="http://aliciasistero.com/"><img style="float: right; width: 200px; margin-right: 3%; margin-top: 3%;" src="img/firmaalicia.svg"></a>
+        <div style="float: right;">
+          <a target="_blank" href="http://aliciasistero.com/"><img style="float: right; width: 200px; margin-bottom: 7%; margin-top: 3%;" src="img/firmaalicia.svg"></a>
+          <h3 style="text-align: right;" class="section-subheading text-muted">Directora Guía Mendoza Gourmet</h3>
+        </div>
+
       </div>
     </div>
   </div>

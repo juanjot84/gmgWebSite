@@ -77,7 +77,7 @@ $token = isset($_GET['token']) ? $_GET['token'] : '';
                             <div class="col-lg-12">
                                 <form id="login-form" method="post" role="form" style="display: block;">
                                     <div class="form-group">
-                                        <input type="text" name="emailUsuario" id="emailUsuario" tabindex="1" class="form-control" placeholder="Nombre de usuario" value=""       onfocus="limpiar('emailUsuario')" onclick="limpiar('passwordUsuario')">
+                                        <input type="text" name="emailUsuario" id="emailUsuario" tabindex="1" class="form-control" placeholder="Ingrese su mail" value=""       onfocus="limpiar('emailUsuario')" onclick="limpiar('passwordUsuario')">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" name="passwordUsuario" id="passwordUsuario" tabindex="2" class="form-control" placeholder="Ingrese Contraseña" onfocus="limpiar('passwordUsuario')">

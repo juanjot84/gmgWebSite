@@ -51,6 +51,56 @@
 
   <!-- FIN SMARTLOOK -->
 
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '510992362591893');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=510992362591893&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Facebook Pixel Code -->
+
+  <?php include("includes/soportezen.php"); ?>
+
+  <style type="text/css">
+
+    h4.panel-title {
+      font-weight: 400;
+      font-size: 18px;
+    }
+
+    .panel.panel-default {
+      background: #eee;
+    }
+
+    .panel-body {
+        font-size: 17px;
+    }
+
+    .panel {
+        margin-bottom: 20px;
+        background-color: #fff;
+        border: 0px solid transparent;
+        border-radius: 4px;
+        -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+        box-shadow: 0 0px 0px rgba(0,0,0,.05);
+    }
+    .panel-heading {
+        padding: 15px 15px;
+        margin: 11px 0;
+        border-bottom: 0px solid transparent;
+    }
+  </style>
+
 </head>
 
 <body id="page-top" class="index">

@@ -30,7 +30,7 @@ $(".forgot-password").click(function(){
 });
 
 function login() {
-  var overlay = jQuery('<div id="overlay"><center><div id="loading"><img class="img-responsive" src="img/loading.gif"></div></center> </div>');
+  var overlay = jQuery('<div id="overlay"><center><div id="loading"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span></div></center> </div>');
   overlay.appendTo(document.body);
   if (_.isUndefined(server)) {
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
@@ -69,7 +69,7 @@ function login() {
 }
 
 function recuperar() {
-  var overlay = jQuery('<div id="overlay"><center><div id="loading"><img class="img-responsive" src="img/loading.gif"></div></center> </div>');
+  var overlay = jQuery('<div id="overlay"><center><div id="loading"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span></div></center> </div>');
   overlay.appendTo(document.body);
   if (_.isUndefined(server)) {
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
@@ -112,7 +112,7 @@ function resetPass() {
   var pass = $('#passwordUsuario').val();
   var validarPass = $('#verificarPassword').val();
   if ( pass === validarPass) {
-    var overlay = jQuery('<div id="overlay"><center><div id="loading"><img class="img-responsive" src="img/loading.gif"></div></center> </div>');
+    var overlay = jQuery('<div id="overlay"><center><div id="loading"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span></div></center> </div>');
     overlay.appendTo(document.body);
     if (_.isUndefined(server)) {
       $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {

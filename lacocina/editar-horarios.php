@@ -57,7 +57,7 @@ include("includes/head.php"); ?>
   <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
     <div class="row">
       <div class="col-md-12">
-        <center><div id="loading"><img class="img-responsive" src="img/loading.gif"></div></center>
+        <center><div id="loading"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span></div></center>
         <div class="panel panel-default datos-horarios hidden">
 
           <h2 class="tituloseccion">Asignar Horarios de Atención</h2>

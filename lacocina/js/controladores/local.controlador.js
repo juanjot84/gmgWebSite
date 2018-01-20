@@ -139,7 +139,7 @@ function buscarTipoNegocio(accion){
         });
       }
         $('#listadoLocal').html('');
-        $('#loading').html('<img class="img-responsive" src="img/loading.gif">');       
+        $('#loading').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span>');       
         $.ajax({
             url: server + '/api/v1/admin/locales',
             type: 'GET',
