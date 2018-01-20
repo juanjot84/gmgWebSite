@@ -71,6 +71,36 @@
 
   <?php include("includes/soportezen.php"); ?>
 
+  <style type="text/css">
+
+    h4.panel-title {
+      font-weight: 400;
+      font-size: 18px;
+    }
+
+    .panel.panel-default {
+      background: #eee;
+    }
+
+    .panel-body {
+        font-size: 17px;
+    }
+
+    .panel {
+        margin-bottom: 20px;
+        background-color: #fff;
+        border: 0px solid transparent;
+        border-radius: 4px;
+        -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+        box-shadow: 0 0px 0px rgba(0,0,0,.05);
+    }
+    .panel-heading {
+        padding: 15px 15px;
+        margin: 11px 0;
+        border-bottom: 0px solid transparent;
+    }
+  </style>
+
 </head>
 
 <body id="page-top" class="index">
