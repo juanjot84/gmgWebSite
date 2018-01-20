@@ -178,7 +178,7 @@ function renderReservas(reservasLocal){
           }else if(reserva.estadoReserva =="Cancelada"){
             clasificar = '<td class="centrarbotaccion"><i title="Cancelada" class="fa fa-ban" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></td>';
           }else if(reserva.estadoReserva =="Calificada"){
-            clasificar = '<td class="centrarbotaccion"><i title="Vino" class="fa fa-check-square-o" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
+            clasificar = '<td class="centrarbotaccion"><i title="Vino y Calificó" class="fa fa-check-square-o" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
           }
 
           $('.container.'+conteinReservas).append(''+
@@ -512,7 +512,7 @@ function renderReservasHistorico(reservasLocal){
         }else if(reserva.estadoReserva =="Cancelada"){
           clasificar = '<td class="centrarbotaccion"><i title="Cancelada" class="fa fa-ban" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></td>';
         }else if(reserva.estadoReserva =="Calificada"){
-          clasificar = '<td class="centrarbotaccion"><i title="Vino" class="fa fa-check-square-o" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
+          clasificar = '<td class="centrarbotaccion"><i title="Vino y Calificó" class="fa fa-check-square-o" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
         }
 
          $('.container.'+conteinReservas).append(''+
