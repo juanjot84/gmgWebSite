@@ -227,10 +227,18 @@ $idLocal = $_GET["id"];
                     <h3>Confirmar Reserva</h3>
                   </div>
                   <div class="modal-body">
-                    <div class="row">
+                    <div class="row" id="noDescuento">
                       <div class="col-md-12">
                         <div class="alert alert-info" style="text-align: center; font-size: 1.5em;">
                           <strong>Atención!</strong> Esta reserva no posee ningún descuento.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row" id="conDescuento">
+                      <div class="col-md-12">
+                        <div class="alert alert-info" style="text-align: center; font-size: 1.5em;">
+                          <strong>Atención!</strong> Esta reserva posee un descuento del <span id="porcentajeDescuento"></span>>.
                         </div>
                       </div>
                     </div>

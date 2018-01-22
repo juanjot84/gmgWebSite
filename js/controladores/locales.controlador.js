@@ -41,6 +41,9 @@ function buscar(parametro, filtro) {
       if (filtro == "" || filtro == "nombre") {
         llamada = "buscar";
         obj.parametro = parametro;
+      } else if (filtro == "tipoNegocio") {
+        llamada = "buscarPorTipoNegocio";
+        obj.parametro = parametro;
       } else {
         llamada = "filtro";
         obj[filtro] = parametro
@@ -110,7 +113,7 @@ function getDia(dia) {
     6: "Sabados"
   };
   return dias[n];
-};
+}
 
 function renderLocal(local) {
 
