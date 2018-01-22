@@ -1,4 +1,6 @@
 var espacio = ' ';
+var porcentaje = '%';
+var descuento = '- Descuento ';
 var coma = ', ';
 var marker;          //variable del marcador
 var coords = {};    //coordenadas obtenidas con la geolocalización
@@ -142,8 +144,8 @@ function popularOpcionesReserva(opciones) {
     // if (index == 1) datosDia += 'Mañana ' + espacio;
     datosDia += opcion.dia + espacio + opcion.fecha.substr(0, 5);
 
-    if (!_.isNil(opcion.descuento))
-      datosDia += espacio + opcion.descuento;
+    if (!_.isNil(opcion.descuento) && !_.isEmpty(opcion.descuento))
+      datosDia += espacio + descuento + opcion.descuento + porcentaje;
     var option = $('<option>').val(opcion.fecha).attr('descuento', opcion.descuento).text(datosDia);
     option.appendTo('#selectDia')
   })
