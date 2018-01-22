@@ -86,7 +86,31 @@ function popularLocal(local) {
     $("#reservar").css('visibility', 'hidden');
     $("#myP").css('visibility', 'hidden');
   }
-  var longNivelPrecio = local.idNivelPrecio.label.length;
+
+
+  var nivelPrecio = 0;
+  var longNivelPrecio = 0;
+  var nombrePolo = '';
+  var tipoCocina = '';
+  if(local.idNivelPrecio == null){
+    longNivelPrecio = 0;
+    labelOscuras = '';
+  }else{
+    longNivelPrecio = local.idNivelPrecio.label.length;
+    labelOscuras = local.idNivelPrecio.label;
+  }
+  if(local.idPoloGastronomico == null){
+    nombrePolo = '';
+  }else {
+    nombrePolo = local.idPoloGastronomico.nombrePoloGastronomico;
+  }
+
+  if(local.idTipoCocinaPrincipal == null){
+    tipoCocina = '';
+  }else{
+    tipoCocina = local.idTipoCocinaPrincipal.nombreTipoCocina;
+  }
+
   var nivelGris = 5 - longNivelPrecio;
   var labelGrises = '';
   for(i = 0; i < nivelGris; i++){
@@ -155,7 +179,7 @@ function popularLocal(local) {
   buscarFavoritos(local);
   $('#nombreNegocio').text(local.idNegocio.nombreNegocio);
   $('#bajadaNegocio').text(bajadaNegocio);
-  $('#nivelPrecio').text(local.idNivelPrecio.label);
+  $('#nivelPrecio').text(labelOscuras);
   $('#direccionLocal').text(local.calleLocal +' '+local.alturaLocal);
   $('#nivelPrecio').append('<span style="color: #cbcbcb">'+labelGrises+'</span>');
   $('#descripcionNegocio').text(local.idNegocio.descripcionNegocio);
@@ -188,7 +212,7 @@ $('#paginaNegocio').attr('href', web);
   
   $('#telefonoLocal').text(local.telContacto);
   $('#mailLocal').text(local.mailContacto);
-  $('#tipoCocinaPrincipal').text(local.idTipoCocinaPrincipal.nombreTipoCocina);
+  $('#tipoCocinaPrincipal').text(tipoCocina);
   $('#reservar').attr('href', 'reserva.php?id=' + local._id);
   $('#myP').attr('href', 'reserva.php?id=' + local._id);
   var mediosPago = '';
@@ -252,7 +276,7 @@ function buscarFavoritos(local){
 
       $("#iconoFavorito").append('<h3 class="titulo"><span id="nombreNegocio">'+local.idNegocio.nombreNegocio+'</span>  <span id="bajadaNegocio">'+bajadaNegocio+'</span>'+
       '<i id="corazon" style="cursor:pointer;" class="'+iconoCorazon+'" aria-hidden="true" onClick="editarFavorito(\'' + local._id + '\',\'' + idFavorito + '\')"></i></h3>'+
-      '<p ><i class="fa fa-map-marker iconoficha" aria-hidden="true"></i> <span id="polo">' + local.idPoloGastronomico.nombrePoloGastronomico + ' |  <i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' +local.idTipoCocinaPrincipal.nombreTipoCocina +'</span></p>');
+      '<p ><i class="fa fa-map-marker iconoficha" aria-hidden="true"></i> <span id="polo">' + nombrePolo + ' |  <i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' +local.idTipoCocinaPrincipal.nombreTipoCocina +'</span></p>');
 
      },
      error:function(jqXHR,textStatus,errorThrown)
@@ -260,7 +284,7 @@ function buscarFavoritos(local){
       var iconoCorazon = 'favoritosfichagris fa fa-heart';
       $("#iconoFavorito").append('<h3 class="titulo"><span id="nombreNegocio">'+local.idNegocio.nombreNegocio+'</span>  <span id="bajadaNegocio">'+bajadaNegocio+'</span>'+
       '<i id="corazon" style="cursor:pointer;" class="'+iconoCorazon+'" aria-hidden="true" ></i></h3>'+
-      '<p ><i class="fa fa-map-marker iconoficha" aria-hidden="true"></i> <span id="polo">' + local.idPoloGastronomico.nombrePoloGastronomico + ' |  <i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' +local.idTipoCocinaPrincipal.nombreTipoCocina +'</span></p>');
+      '<p ><i class="fa fa-map-marker iconoficha" aria-hidden="true"></i> <span id="polo">' + nombrePolo + ' |  <i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' +local.idTipoCocinaPrincipal.nombreTipoCocina +'</span></p>');
          
          $('#target').append("jqXHR: "+jqXHR);
          $('#target').append("textStatus: "+textStatus);
