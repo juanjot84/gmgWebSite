@@ -113,7 +113,7 @@
 
         <p>Debido a mi trabajo como periodista gastronómica recibo cada vez más consultas de mis conocidos y lectores. La pregunta más frecuente es <strong>“¿a dónde salgo a comer?”</strong>. También desde el sector turístico percibí esta necesidad. Agencias de turismo, conserjes de hoteles y empresas de otros servicios del rubro me expresaron la necesidad de contar con una herramienta  para poder guiar mejor a sus pasajeros. Esta situación, sumado a que soy una foodie apasionada, una emprendedora empedernida y siento un gran amor por mi provincia, dieron como resultado la nueva <strong>Guía Mendoza Gourmet</strong>.</p>
 
-        <p>Esta herramienta ha sido desarrollada en varios formatos: pocket maps en papel de distribución gratuita, el sitio web y la App para reservas, y videos con reseñas de diferentes locales y circuitos  dirigidos a público local y turista. A Mendoza le hacía falta una guía gastronómica, y con Guía Mendoza Gourmet se cubre la necesidad de información sobre diferentes productos y servicios de la industria, y además cuenta con un <strong>práctico sistema de reservas</strong>. El público puede encontrar no solo el lugar más adecuado según su gusto personal, sino también  tiendas de productos gourmet, chef a domicilio, cursos de cocina, o los lugares a dónde paran los food trucks.</p>
+        <p>Esta herramienta ha sido desarrollada en varios formatos: pocket maps en papel de distribución gratuita, el sitio web y la app para reservas, y videos con reseñas de diferentes locales y circuitos  dirigidos a público local y turista. A Mendoza le hacía falta una guía gastronómica, y con Guía Mendoza Gourmet se cubre la necesidad de información sobre diferentes productos y servicios de la industria, y además cuenta con un <strong>práctico sistema de reservas</strong>. El público puede encontrar no solo el lugar más adecuado según su gusto personal, sino también  tiendas de productos gourmet, chef a domicilio, cursos de cocina, o los lugares a dónde paran los food trucks.</p>
 
         <p>De esta manera la Guía Mendoza Gourmet realiza un fuerte aporte a la industria enogastronómica local, posicionando a Mendoza a la altura de los más importantes destinos turísticos del mundo, donde los sistemas de reserva online son de uso corriente. Los mendocinos ya pueden realizar sus reservas con este tipo de tecnología muy fácil de usar.</p>
         
@@ -124,7 +124,7 @@
       <div class="col-md-12">
         <div style="text-align: right;">
             <p>Te invito a descubrir Mendoza, probando nuevos lugares, platos y vinos.</p>
-            <h4>¡Animate a conocer más sabores!</h4>
+            <h4 style="text-transform: none;">¡Animate a conocer más sabores!</h4>
           </div>
       </div>
     </div>
