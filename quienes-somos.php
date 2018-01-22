@@ -75,6 +75,12 @@
 
   <?php include("includes/soportezen.php"); ?>
 
+  <style type="text/css">
+    strong  {
+      color: #000;
+    }
+  </style>
+
 </head>
 
 <body id="page-top" class="index">
@@ -99,27 +105,39 @@
 
     <div class="row">
       <div class="col-md-6">
-        <img class="img-responsive" src="img/quienes-somos-gmg-larga.jpg" style="margin:  0 auto;
-">
+        <img class="img-responsive" src="img/quienes-somos-gmg-larga.jpg" style="margin: 0 auto 5%;">
       </div>
       <div class="col-md-6">
 
-        <p>Creé Guía Mendoza Gourmet con el objetivo de comunicar la oferta gastronómica de Mendoza, la cual creció mucho en los últimos años. A Mendoza le hacía falta una guía gastronómica completa y ordenada, en la que puedas encontrar no solo el restaurante perfecto para salir a comer con tu pareja o amigos, sino también, en dónde podés encontrar tiendas de productos gourmet, un chef a domicilio que venga a cocinar a tu casa o seguirle el paso a los food trucks.</p>
+        <p>La  oferta enogastronómica de Mendoza ha crecido mucho en los últimos años, en calidad y cantidad. La gente sale cada vez más, pero muchas veces no sabe a dónde <strong>encontrar información clara y certera</strong> para armar un programa, y finalmente termina visitando siempre los mismos lugares.</p>
 
-        <p>Muchas veces recibo consultas de gente que no sabe a dónde salir a comer y termina yendo siempre a los mismos lugares, para ellos #LaGuía es ideal, porque además de poder acceder a toda la oferta gastronómica de Mendoza, podrán reservar en los restaurantes que tengan habilitada esta función.</p>
+        <p>Debido a mi trabajo como periodista gastronómica recibo cada vez más consultas de mis conocidos y lectores. La pregunta más frecuente es <strong>“¿a dónde salgo a comer?”</strong>. También desde el sector turístico percibí esta necesidad. Agencias de turismo, conserjes de hoteles y empresas de otros servicios del rubro me expresaron la necesidad de contar con una herramienta  para poder guiar mejor a sus pasajeros. Esta situación, sumado a que soy una foodie apasionada, una emprendedora empedernida y siento un gran amor por mi provincia, dieron como resultado la nueva <strong>Guía Mendoza Gourmet</strong>.</p>
 
-        <p>De esta manera la Guía Mendoza Gourmet realiza un fuerte aporte a la industria enogastronómica local, posicionando a Mendoza a la altura de los más importantes destinos turísticos del mundo, donde los sistemas de reserva online son de uso corriente. Creo que los mendocinos ya están listos para comenzar a realizar sus reservas con este tipo de tecnología muy fácil de usar.</p>
+        <p>Esta herramienta ha sido desarrollada en varios formatos: pocket maps en papel de distribución gratuita, el sitio web y la App para reservas, y videos con reseñas de diferentes locales y circuitos  dirigidos a público local y turista. A Mendoza le hacía falta una guía gastronómica, y con Guía Mendoza Gourmet se cubre la necesidad de información sobre diferentes productos y servicios de la industria, y además cuenta con un <strong>práctico sistema de reservas</strong>. El público puede encontrar no solo el lugar más adecuado según su gusto personal, sino también  tiendas de productos gourmet, chef a domicilio, cursos de cocina, o los lugares a dónde paran los food trucks.</p>
 
-        <p>Te invito a descubrir Mendoza, probando nuevos lugares, platos y vinos.</p>
+        <p>De esta manera la Guía Mendoza Gourmet realiza un fuerte aporte a la industria enogastronómica local, posicionando a Mendoza a la altura de los más importantes destinos turísticos del mundo, donde los sistemas de reserva online son de uso corriente. Los mendocinos ya pueden realizar sus reservas con este tipo de tecnología muy fácil de usar.</p>
+        
 
-        <h4>¡Animate a conocer más sabores!</h4>
+      </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div style="text-align: right;">
+            <p>Te invito a descubrir Mendoza, probando nuevos lugares, platos y vinos.</p>
+            <h4>¡Animate a conocer más sabores!</h4>
+          </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
 
         <div style="float: right;">
           <a target="_blank" href="http://aliciasistero.com/"><img style="float: right; width: 200px; margin-bottom: 7%; margin-top: 3%;" src="img/firmaalicia.svg"></a>
-          <h3 style="text-align: right;" class="section-subheading text-muted">Directora Guía Mendoza Gourmet</h3>
+          <h3 style="text-align: right;" class="section-subheading text-muted">Directora de Guía Mendoza Gourmet</h3>
         </div>
-
       </div>
+    </div>
     </div>
   </div>
 </section>
@@ -172,4 +190,3 @@
 </body>
 
 </html>
-
