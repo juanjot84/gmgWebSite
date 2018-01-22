@@ -26,11 +26,34 @@ function obtenerListadoTiposNegocio() {
       if(tipoNegocio.nombreTipoNegocio != 'Restaurante'){
         $('#menuLateral').append(' ' +
            '<li>'+
-             '<a href="#">'+tipoNegocio.nombreTipoNegocio+'</a>'+
+             '<a><div onclick="buscarTipoNegocio(\'' +tipoNegocio._id+ '\',\'' + tipoNegocio.nombreTipoNegocio + '\')">'+tipoNegocio.nombreTipoNegocio+'</div></a>'+
            '</li>'+
         '');
       }
     }) 
-
-
   }
+
+  function buscarTipoNegocio(idTipoNegocio, nombreTipo) {
+    redirect('resultados-busqueda.php', 'post', nombreTipo,  idTipoNegocio);
+  }
+  
+
+  var redirect = function(url, method, filtro, idParam) {
+    var form = $('<form>', {
+      method: method,
+      action: url
+    });
+    $(document.body).append(form);
+  
+    $('<input />').attr('type', 'hidden')
+      .attr('name', "parametro")
+      .attr('value', idParam)
+      .appendTo(form);
+  
+    $('<input />').attr('type', 'hidden')
+      .attr('name', "filtro")
+      .attr('value', filtro)
+      .appendTo(form);
+  
+    form.submit();
+  }; 

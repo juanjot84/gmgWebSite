@@ -113,7 +113,31 @@ function getDia(dia) {
 };
 
 function renderLocal(local) {
-  var longNivelPrecio = local.idNivelPrecio.label.length;
+
+  var nivelPrecio = 0;
+  var longNivelPrecio = 0;
+  var nombrePolo = '';
+  var tipoCocina = '';
+  var labelOscuras = '';
+  if(local.idNivelPrecio == null){
+    longNivelPrecio = 0;
+    labelOscuras = '';
+  }else{
+    longNivelPrecio = local.idNivelPrecio.label.length;
+    labelOscuras = local.idNivelPrecio.label;
+  }
+  if(local.idPoloGastronomico == null){
+    nombrePolo = '';
+  }else {
+    nombrePolo = local.idPoloGastronomico.nombrePoloGastronomico;
+  }
+
+  if(local.idTipoCocinaPrincipal == null){
+    tipoCocina = '';
+  }else{
+    tipoCocina = local.idTipoCocinaPrincipal.nombreTipoCocina;
+  }
+
   var nivelGris = 5 - longNivelPrecio;
   var labelGrises = '';
   var bajadaNegocio = '';
@@ -138,9 +162,9 @@ function renderLocal(local) {
     '</div>' +
     '<div class="col-sm-6 col-md-6">' +
     '<p><span style="font-size: 1.5em;"><strong>' + local.idNegocio.nombreNegocio + '</strong> ' + bajadaNegocio + '</span></p>' +
-    '<i class="fa fa-map-marker iconoficha" aria-hidden="true"></i><span class="polo">   ' + local.idPoloGastronomico.nombrePoloGastronomico + '</span> |  ' +
-    '<i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' + local.idTipoCocinaPrincipal.nombreTipoCocina + '</span></br>' +
-    '<p style="letter-spacing: 1px;"><strong>' + local.idNivelPrecio.label + '</strong><span style="color: #cbcbcb">' + labelGrises + '</span></p>' +
+    '<i class="fa fa-map-marker iconoficha" aria-hidden="true"></i><span class="polo">   ' + nombrePolo + '</span> |  ' +
+    '<i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' + tipoCocina + '</span></br>' +
+    '<p style="letter-spacing: 1px;"><strong>' + labelOscuras + '</strong><span style="color: #cbcbcb">' + labelGrises + '</span></p>' +
     '<p><span class="descripcion">' + local.idNegocio.descripcionNegocio.substr(0, 147) + '...</span></p>' +
 
     '</div>' +
