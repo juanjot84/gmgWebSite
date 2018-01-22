@@ -650,6 +650,12 @@ img.logowebperfil {
     font-weight: bold;
 }
 
+.tituloreservas {
+    font-size: 1.6em;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #525252;
+}
 
 /*MEDIA QUERIES*/
 
