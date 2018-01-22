@@ -56,3 +56,4 @@ $('<input />').attr('type', 'hidden')
 
 form.submit();
 };
+
