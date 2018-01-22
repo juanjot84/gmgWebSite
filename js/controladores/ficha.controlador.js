@@ -87,6 +87,8 @@ function popularLocal(local) {
     $("#myP").css('visibility', 'hidden');
   }
 
+  
+
 
   var nivelPrecio = 0;
   var longNivelPrecio = 0;

@@ -165,8 +165,8 @@ include("includes/nav.php"); ?>
               <h5 class="titulosalta" id="tituloReserva"> Acepta reserva</h5>
 
                  <p id="aceptaReserva">
-                    <label class="radio-inline"><input type="radio" name="aceptaReservaNegocio" id="aceptaReservaNegocio-true" value="true" checked="checked">Si</label>
-                    <label class="radio-inline"><input type="radio" name="aceptaReservaNegocio" id="aceptaReservaNegocio-false" value="false">No</label>
+                    <label class="radio-inline"><input type="radio" name="aceptaReservaNegocio" id="aceptaReservaNegocio-true" value="true">Si</label>
+                    <label class="radio-inline"><input type="radio" name="aceptaReservaNegocio" id="aceptaReservaNegocio-false" value="false" checked="checked">No</label>
                   </p>
 
               <h5 class="titulosalta" id="tituloNivel"> Nivel de precio</h5>
