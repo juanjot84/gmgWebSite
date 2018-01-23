@@ -80,13 +80,26 @@ function toggleBounce() {
 function iniciar(accion){
   $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     if(accion == 'editar'){
+      ocultarDatosUsuario();
       buscarTipoNegocio(accion);
      // editarLocal();
-    }else if(accion == 'crear'){      
+    }else if(accion == 'crear'){
+      ocultarDatosUsuario();      
       buscarTipoNegocio(accion);
       mostrarAltaLocal();
     }
   });
+}
+
+function ocultarDatosUsuario(){
+  var tipoUsuario = $("#tipoUs").val();
+  if(tipoUsuario == 'usuarioNegocio'){
+     $("#localPremium-true").hide();
+     $("#localPremium-false").hide();
+     $("#tituloPremium").hide();
+     $("#radioPremium").hide();
+     $("#nivelPrecio").attr("disabled", true);
+  }
 }
 
 function buscarTipoNegocio(accion){
@@ -243,13 +256,6 @@ function buscarTipoNegocio(accion){
              popularDropdownServicioEditar(ServiciosSeleccionados);
              });
              }
-            
-          var tipoUsuario = $("#tipoUs").val();
-          if(tipoUsuario == 'usuarioNegocio'){
-             $("#localPremium-true").attr("disabled", true);
-             $("#localPremium-false").attr("disabled", true);
-             $("#nivelPrecio").attr("disabled", true);
-          }
 
           },
           error:function(jqXHR,textStatus,errorThrown)
