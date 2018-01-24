@@ -3,6 +3,8 @@ var coma = ', ';
 var contSugeridos = 1;
 var jwt;
 var localFavorito;
+var nombrePolo = '';
+var tipoCocina = '';
 var marker;          //variable del marcador
 var coords = {};    //coordenadas obtenidas con la geolocalización
 var iconBase = 'http://guiamendozagourmet.com/map/'; //direccion base del icono de marcador
@@ -92,8 +94,7 @@ function popularLocal(local) {
 
   var nivelPrecio = 0;
   var longNivelPrecio = 0;
-  var nombrePolo = '';
-  var tipoCocina = '';
+
   if(local.idNivelPrecio == null){
     longNivelPrecio = 0;
     labelOscuras = '';
@@ -278,7 +279,7 @@ function buscarFavoritos(local){
 
       $("#iconoFavorito").append('<h3 class="titulo"><span id="nombreNegocio">'+local.idNegocio.nombreNegocio+'</span>  <span id="bajadaNegocio">'+bajadaNegocio+'</span>'+
       '<i id="corazon" style="cursor:pointer;" class="'+iconoCorazon+'" aria-hidden="true" onClick="editarFavorito(\'' + local._id + '\',\'' + idFavorito + '\')"></i></h3>'+
-      '<p ><i class="fa fa-map-marker iconoficha" aria-hidden="true"></i> <span id="polo">' + nombrePolo + ' |  <i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' +local.idTipoCocinaPrincipal.nombreTipoCocina +'</span></p>');
+      '<p ><i class="fa fa-map-marker iconoficha" aria-hidden="true"></i> <span id="polo">' + nombrePolo + ' |  <i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' +tipoCocina +'</span></p>');
 
      },
      error:function(jqXHR,textStatus,errorThrown)
@@ -286,7 +287,7 @@ function buscarFavoritos(local){
       var iconoCorazon = 'favoritosfichagris fa fa-heart';
       $("#iconoFavorito").append('<h3 class="titulo"><span id="nombreNegocio">'+local.idNegocio.nombreNegocio+'</span>  <span id="bajadaNegocio">'+bajadaNegocio+'</span>'+
       '<i id="corazon" style="cursor:pointer;" class="'+iconoCorazon+'" aria-hidden="true" ></i></h3>'+
-      '<p ><i class="fa fa-map-marker iconoficha" aria-hidden="true"></i> <span id="polo">' + nombrePolo + ' |  <i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' +local.idTipoCocinaPrincipal.nombreTipoCocina +'</span></p>');
+      '<p ><i class="fa fa-map-marker iconoficha" aria-hidden="true"></i> <span id="polo">' + nombrePolo + ' |  <i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' +tipoCocina +'</span></p>');
          
          $('#target').append("jqXHR: "+jqXHR);
          $('#target').append("textStatus: "+textStatus);
