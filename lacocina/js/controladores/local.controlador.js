@@ -228,11 +228,11 @@ function buscarTipoNegocio(accion){
                  nivelPrecios = data
              popularDropdownNivelPrecioEditar(idNivelPrecio);
              });
-             var idTipoCocinaPrincipal = local.idTipoCocinaPrincipal;
+             var idTipoCocinaPpal = local.idTipoCocinaPrincipal._id;
              var tipoCocinaSeleccionados = local.idTipoCocina;
              obtenerListadoTipoCocina().done(function(data){
                  tipoCocinas = data
-             popularDropdownTipoCocinaPpalEditar(idTipoCocinaPrincipal);
+             popularDropdownTipoCocinaPpalEditar(idTipoCocinaPpal);
              popularDropdownOtrosTipoEditar(tipoCocinaSeleccionados);
              });
              var mediosSeleccionados = local.idMedioPago;
@@ -647,7 +647,7 @@ function buscarTipoNegocio(accion){
             "idNegocio": $("#idNegocio").val(),
             "idPoloGastronomico": $("#poloNegocio").val(),
             "idNivelPrecio": $("#nivelPrecio").val(),
-            "idTipoCocinaPrincipal": $("#TipoCocinaPpal").val(),
+            "idTipoCocinaPrincipal": $("#TipoCocinaPpal").val(),             
             "idMedioPago": medioPagoSeleccionado,
             "idServicio": servicioSeleccionado,
             "idEspecialidad": especialidadSeleccionada,
