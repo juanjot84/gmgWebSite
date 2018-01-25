@@ -125,7 +125,7 @@ function buscarTipoNegocio(accion){
         $("#nivelPrecio").hide();
         $("#tituloPago").hide();
         $("#mediosPagoCheckbox").hide();
-        $("#tituloOcaciones").hide();
+        $("#tituloOcasiones").hide();
         $("#ocasionesCheckbox").hide();
         $("#titTpoCocPrin").hide();
         $("#TpoCocPrin").hide();

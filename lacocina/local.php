@@ -184,7 +184,7 @@ include("includes/nav.php"); ?>
                         </div>
                     </p>
 
-              <h5 class="titulosalta" id="tituloOcaciones"> Seleccionar Ocaciones</h5>
+              <h5 class="titulosalta" id="tituloOcasiones"> Seleccionar Ocasiones</h5>
 
                     <p>
                         <div class="form-group" id="ocasionesCheckbox">
