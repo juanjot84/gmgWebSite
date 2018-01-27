@@ -42,7 +42,7 @@
             success: function (data) {
                 usuariosNegocios = data;
                 var usuario =  _.find(usuariosNegocios, { 'idNegocio': idNegocioEditar});
-               
+                if (usuario){
                 $('#formularioAgregar').show();
                 $("#formularioAgregar :input").attr("disabled", false);
                 $("#formularioAgregar button").show();
@@ -52,7 +52,7 @@
                 $("#sexoUsuario").val(usuario.sexoUsuario);
                 $("#idUsuarioNegocio").val(usuario._id);
                 $("#password").val(''); 
-
+                }
                 var tipoUsuario = $("#tipoUs").val();
                 if(tipoUsuario == 'usuarioNegocio'){
                 $("#email").attr("disabled", true);
