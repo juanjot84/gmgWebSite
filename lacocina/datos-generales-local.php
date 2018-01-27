@@ -60,9 +60,8 @@ error_reporting(E_ERROR);
                     <input id="nombreLocal" name="nombreLocal" type="text" class="form-control" placeholder="Nombre del local" aria-describedby="sizing-addon3">
                   </div></p>
 
-                <h5 class="titulosalta"> Local Premium</h5>
-
-                 <p>
+                <h5 class="titulosalta" id="tituloPremium"> Local Premium</h5>
+                 <p id="radioPremium">
                     <label class="radio-inline"><input type="radio" name="localPremium" id="localPremium-true" value="true">Si</label>
                     <label class="radio-inline"><input type="radio" name="localPremium" id="localPremium-false" value="false">No</label>
                   </p>
@@ -173,7 +172,7 @@ error_reporting(E_ERROR);
                         </div>
                     </p>
 
-             <h5 class="titulosalta" id="tituloOcaciones"> Seleccionar Ocaciones</h5>
+             <h5 class="titulosalta" id="tituloOcasiones"> Seleccionar Ocasiones</h5>
 
                     <p>
                         <div class="form-group" id="ocasionesCheckbox">

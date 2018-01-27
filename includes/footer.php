@@ -29,8 +29,8 @@
         
           <img class="img-responsive bajateapp" src="img/bajate.svg">
           <p style="text-align: center;">
-            <a target="_blank" href="https://www.apple.com/la/ios/app-store/"><img class="img-responsive appstore" src="img/app-apple.svg"></a>
-            <a target="_blank" href="https://play.google.com/store/apps?hl=es"><img class="img-responsive appstore" src="img/app-google.svg"></a>
+            <a target="_blank" href="https://itunes.apple.com/us/app/gu%C3%ADa-mendoza-gourmet/id1300430301?l=es&ls=1&mt=8"><img class="img-responsive appstore" src="img/app-apple.svg"></a>
+            <a target="_blank" href="https://play.google.com/store/apps/details?id=pronet.apps.com.guiamendozagourmet&hl=es"><img class="img-responsive appstore" src="img/app-google.svg"></a>
           </p>
       
         </div>

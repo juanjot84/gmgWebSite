@@ -7,13 +7,14 @@ function iniciar(action) {
     
     if(accionCrear == 'cre'){
       accion = 'crear';
-      $('.datos-horarios').removeClass('hidden');
+      $('.datos-cubiertos').removeClass('hidden');
+      $('#loading').hide();
     }else{
       accion = action;
     }
 
     if (accion == 'editar') {
-      cargarHorariosSeteados(accion);
+      cargarHorariosSeteados();
     }
   });
 }

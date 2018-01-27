@@ -71,9 +71,9 @@ include("includes/nav.php"); ?>
                     <input id="nombreLocal" name="nombreLocal" type="text" class="form-control" placeholder="Nombre del local" aria-describedby="sizing-addon3">
                   </div></p>
 
-                <h5 class="titulosalta"> Local Premium</h5>
+                <h5 class="titulosalta" id="tituloPremium"> Local Premium</h5>
 
-                 <p>
+                 <p id="radioPremium">
                     <label class="radio-inline"><input type="radio" name="localPremium" id="localPremium-true" value="true">Si</label>
                     <label class="radio-inline"><input type="radio" name="localPremium" id="localPremium-false" value="false">No</label>
                   </p>
@@ -165,8 +165,8 @@ include("includes/nav.php"); ?>
               <h5 class="titulosalta" id="tituloReserva"> Acepta reserva</h5>
 
                  <p id="aceptaReserva">
-                    <label class="radio-inline"><input type="radio" name="aceptaReservaNegocio" id="aceptaReservaNegocio-true" value="true" checked="checked">Si</label>
-                    <label class="radio-inline"><input type="radio" name="aceptaReservaNegocio" id="aceptaReservaNegocio-false" value="false">No</label>
+                    <label class="radio-inline"><input type="radio" name="aceptaReservaNegocio" id="aceptaReservaNegocio-true" value="true">Si</label>
+                    <label class="radio-inline"><input type="radio" name="aceptaReservaNegocio" id="aceptaReservaNegocio-false" value="false" checked="checked">No</label>
                   </p>
 
               <h5 class="titulosalta" id="tituloNivel"> Nivel de precio</h5>
@@ -184,7 +184,7 @@ include("includes/nav.php"); ?>
                         </div>
                     </p>
 
-              <h5 class="titulosalta" id="tituloOcaciones"> Seleccionar Ocaciones</h5>
+              <h5 class="titulosalta" id="tituloOcasiones"> Seleccionar Ocasiones</h5>
 
                     <p>
                         <div class="form-group" id="ocasionesCheckbox">

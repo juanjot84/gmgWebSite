@@ -73,7 +73,7 @@ error_reporting(E_ERROR);
                 <input id="nombreContacto" name="nombreContacto" type="text" class="form-control" placeholder="Nombre del Contacto" aria-describedby="sizing-addon3" onfocus="limpiar('nombreContacto')" required>
               </div></p>
 
-          <h5 class="titulosalta"> Mail</h5>    
+          <h5 class="titulosalta"> Mail de contacto y reservas</h5>
             
               <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-envelope" aria-hidden="true"></i></span>

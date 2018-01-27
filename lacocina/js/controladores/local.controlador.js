@@ -80,13 +80,26 @@ function toggleBounce() {
 function iniciar(accion){
   $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     if(accion == 'editar'){
+      ocultarDatosUsuario();
       buscarTipoNegocio(accion);
      // editarLocal();
-    }else if(accion == 'crear'){      
+    }else if(accion == 'crear'){
+      ocultarDatosUsuario();      
       buscarTipoNegocio(accion);
       mostrarAltaLocal();
     }
   });
+}
+
+function ocultarDatosUsuario(){
+  var tipoUsuario = $("#tipoUs").val();
+  if(tipoUsuario == 'usuarioNegocio'){
+     $("#localPremium-true").hide();
+     $("#localPremium-false").hide();
+     $("#tituloPremium").hide();
+     $("#radioPremium").hide();
+     $("#nivelPrecio").attr("disabled", true);
+  }
 }
 
 function buscarTipoNegocio(accion){
@@ -112,7 +125,7 @@ function buscarTipoNegocio(accion){
         $("#nivelPrecio").hide();
         $("#tituloPago").hide();
         $("#mediosPagoCheckbox").hide();
-        $("#tituloOcaciones").hide();
+        $("#tituloOcasiones").hide();
         $("#ocasionesCheckbox").hide();
         $("#titTpoCocPrin").hide();
         $("#TpoCocPrin").hide();
@@ -215,11 +228,11 @@ function buscarTipoNegocio(accion){
                  nivelPrecios = data
              popularDropdownNivelPrecioEditar(idNivelPrecio);
              });
-             var idTipoCocinaPrincipal = local.idTipoCocinaPrincipal;
+             var idTipoCocinaPpal = local.idTipoCocinaPrincipal._id;
              var tipoCocinaSeleccionados = local.idTipoCocina;
              obtenerListadoTipoCocina().done(function(data){
                  tipoCocinas = data
-             popularDropdownTipoCocinaPpalEditar(idTipoCocinaPrincipal);
+             popularDropdownTipoCocinaPpalEditar(idTipoCocinaPpal);
              popularDropdownOtrosTipoEditar(tipoCocinaSeleccionados);
              });
              var mediosSeleccionados = local.idMedioPago;
@@ -243,13 +256,6 @@ function buscarTipoNegocio(accion){
              popularDropdownServicioEditar(ServiciosSeleccionados);
              });
              }
-            
-          var tipoUsuario = $("#tipoUs").val();
-          if(tipoUsuario == 'usuarioNegocio'){
-             $("#localPremium-true").attr("disabled", true);
-             $("#localPremium-false").attr("disabled", true);
-             $("#nivelPrecio").attr("disabled", true);
-          }
 
           },
           error:function(jqXHR,textStatus,errorThrown)
@@ -641,7 +647,7 @@ function buscarTipoNegocio(accion){
             "idNegocio": $("#idNegocio").val(),
             "idPoloGastronomico": $("#poloNegocio").val(),
             "idNivelPrecio": $("#nivelPrecio").val(),
-            "idTipoCocinaPrincipal": $("#TipoCocinaPpal").val(),
+            "idTipoCocinaPrincipal": $("#TipoCocinaPpal").val(),             
             "idMedioPago": medioPagoSeleccionado,
             "idServicio": servicioSeleccionado,
             "idEspecialidad": especialidadSeleccionada,

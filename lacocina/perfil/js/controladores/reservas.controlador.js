@@ -159,7 +159,7 @@ function renderReservas(reservasLocal){
           var tituloModal = '';
           var cancelar = 'cancelar';
           var editar = 'editar';
-          var clasificar = '';
+          var clasificar = '<td class="columsietepchon"></td>';
 
           if (reserva.medioReserva == 'gmg'){
             medioDeReserva = 'fa fa-cutlery';
@@ -169,17 +169,17 @@ function renderReservas(reservasLocal){
           }
 
           if(reserva.estadoReserva =="pendiente"){
-            clasificar = '<td class="centrarbotaccion"><ul style="list-style: none; display: inline-flex;"><li><button title="Marcar como NO vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', false)"><i class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></button></li><li><button title="Marcar como SI vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', true)"><i class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></button></li></ul></td>';
+            clasificar = '<td class="columsietepchon"><ul style="list-style: none; display: inline-flex;"><li><button title="Marcar como NO vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', false)"><i class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></button></li><li><button title="Marcar como SI vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', true)"><i class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></button></li></ul></td>';
           }else if(reserva.estadoReserva =="cumplida"){
-            clasificar = '<td class="centrarbotaccion"><ul style="list-style: none; display: inline-flex;"><li><button title="Marcar como NO vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', false)"><i class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></button></li><li><button title="Marcar como SI vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', true)"><i class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></button></li></ul></td>';
+            clasificar = '<td class="columsietepchon"><ul style="list-style: none; display: inline-flex;"><li><button title="Marcar como NO vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', false)"><i class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></button></li><li><button title="Marcar como SI vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', true)"><i class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></button></li></ul></td>';
           }else if(reserva.estadoReserva =="vencida"){
-            clasificar = '<td class="centrarbotaccion"><i title="No Vino" class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></td>';
+            clasificar = '<td class="columsietepchon"><i title="No Vino" class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></td>';
           }else if(reserva.estadoReserva =="confirmada"){
-            clasificar = '<td class="centrarbotaccion"><i title="Vino" class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
+            clasificar = '<td class="columsietepchon"><i title="Vino" class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
           }else if(reserva.estadoReserva =="Cancelada"){
-            clasificar = '<td class="centrarbotaccion"><i title="Cancelada" class="fa fa-ban" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></td>';
+            clasificar = '<td class="columsietepchon"><i title="Cancelada" class="fa fa-ban" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></td>';
           }else if(reserva.estadoReserva =="Calificada"){
-            clasificar = '<td class="centrarbotaccion"><i title="Vino y Calificó" class="fa fa-check-square-o" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
+            clasificar = '<td class="columsietepchon"><i title="Vino y Calificó" class="fa fa-check-square-o" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
           }
 
           $('.container.'+conteinReservas).append(''+
@@ -494,7 +494,7 @@ function renderReservasHistorico(reservasLocal){
          var tituloModal = '';
          var cancelar = 'cancelar';
          var editar = 'editar';
-         var clasificar = '';
+         var clasificar = '<td class="columsietepchon"></td>';
 
          if (reserva.medioReserva == 'gmg'){
            medioDeReserva = 'fa fa-cutlery';
@@ -505,15 +505,15 @@ function renderReservasHistorico(reservasLocal){
          }
 
         if(reserva.estadoReserva =="cumplida"){
-          clasificar = '<td class="centrarbotaccion"><ul style="list-style: none; display: inline-flex;"><li><button title="Marcar como NO vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', false)"><i class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></button></li><li><button title="Marcar como SI vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', true)"><i class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></button></li></ul></td>';
+          clasificar = '<td class="columsietepchon"><ul style="list-style: none; display: inline-flex;"><li><button title="Marcar como NO vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', false)"><i class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></button></li><li><button title="Marcar como SI vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', true)"><i class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></button></li></ul></td>';
         }else if(reserva.estadoReserva =="vencida"){
-          clasificar = '<td class="centrarbotaccion"><i title="No Vino" class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></td>';
+          clasificar = '<td class="columsietepchon"><i title="No Vino" class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></td>';
         }else if(reserva.estadoReserva =="confirmada"){
-          clasificar = '<td class="centrarbotaccion"><i title="Vino" class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
+          clasificar = '<td class="columsietepchon"><i title="Vino" class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
         }else if(reserva.estadoReserva =="Cancelada"){
-          clasificar = '<td class="centrarbotaccion"><i title="Cancelada" class="fa fa-ban" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></td>';
+          clasificar = '<td class="columsietepchon"><i title="Cancelada" class="fa fa-ban" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></td>';
         }else if(reserva.estadoReserva =="Calificada"){
-          clasificar = '<td class="centrarbotaccion"><i title="Vino y Calificó" class="fa fa-check-square-o" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
+          clasificar = '<td class="columsietepchon"><i title="Vino y Calificó" class="fa fa-check-square-o" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
         }
 
          $('.container.'+conteinReservas).append(''+

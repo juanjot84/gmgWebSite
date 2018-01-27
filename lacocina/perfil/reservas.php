@@ -79,9 +79,9 @@ error_reporting(E_ERROR);
  
     <div class="reservaspestanas"> 
         <ul class="nav nav-tabs nav-justified" style="margin-bottom: 3%;">
-            <li class="active"><a data-toggle="tab" href="#reservasHoy" onclick="ocultarPestaña('reservasHoy','proximas','historial')">Reservas para hoy</a></li>
-            <li><a data-toggle="tab" href="#proximas" onclick="ocultarPestaña('proximas','reservasHoy','historial')">Próximas Reservas</a></li>
-            <li><a data-toggle="tab" href="#historial" onclick="ocultarPestaña('historial','reservasHoy','proximas')">Historial de reservas</a></li>
+            <li class="active"><a data-toggle="tab" href="#reservasHoy" onclick="ocultarPestaña('reservasHoy','proximas','historial')"><span class="tituloreservas">Reservas para hoy</span></a></li>
+            <li><a data-toggle="tab" href="#proximas" onclick="ocultarPestaña('proximas','reservasHoy','historial')"><span class="tituloreservas">Próximas Reservas</span></a></li>
+            <li><a data-toggle="tab" href="#historial" onclick="ocultarPestaña('historial','reservasHoy','proximas')"><span class="tituloreservas">Historial de reservas</span></a></li>
         </ul>
         <div class="tab-content">
           <div id="reservasHoy" class="tab-pane fade in active">

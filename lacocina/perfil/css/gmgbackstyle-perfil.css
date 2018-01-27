@@ -398,7 +398,16 @@ td {
 }
 
 td.centrarbotaccion {
-    max-width: 55px;
+    width: auto;
+    max-width: 45px;
+    min-width: 50px;
+}
+
+.columsietepchon {
+    width: auto;
+    max-width: 45px;
+    min-width: 50px;
+    text-align: center;
 }
 
 .centrarbotaccion {
@@ -484,7 +493,6 @@ h5.titulosalta {
 
 .fondococina {
     background: url(../../img/back-cocina.jpg) no-repeat;
-    height: 645px;
     margin-top: -1.5%;
     background-size: cover;
 }
@@ -642,6 +650,28 @@ img.logowebperfil {
     font-weight: bold;
 }
 
+.tituloreservas {
+    font-size: 1.6em;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #525252;
+}
+
+.descargamanual a {
+    color: #fff;
+    font-size: 16px;
+    background: #f8981dd9;
+    padding: 2%;
+    transition: all 0.2s;
+}
+
+.descargamanual a:hover {
+    color: #000 !important;
+    font-size: 16px;
+    background: #ffffffd9;
+    padding: 2%;
+    transition: all 0.2s;
+}
 
 /*MEDIA QUERIES*/
 

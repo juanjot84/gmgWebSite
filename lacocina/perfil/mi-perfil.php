@@ -40,7 +40,7 @@ error_reporting(E_ERROR);
 
 
     <div class="container-fluid fondococina">
-        <div class="container" style="height: 65vh; padding-top: 5%; min-height: 715px;">
+        <div class="container" style="height: 65vh; padding-top: 5%; padding-bottom: 10%; min-height: 715px;">
 
         <input type="text" name="idNegocio" id="idNegocio" value="<?php  error_reporting(E_ERROR); echo $idNegocio; ?>" class="hidden">
         <input type="text" name="tipoUs" id="tipoUs" value="<?php  error_reporting(E_ERROR); echo $tipoUsuario; ?>" class="hidden">
@@ -69,6 +69,11 @@ error_reporting(E_ERROR);
                         <span class="iconosmiperfil glyphicon glyphicon-th" aria-hidden="true"></span><br>
                         ADMINISTRAR SUCURSALES
                     </div></a>
+                </div>
+            </div>
+            <div class="row text-center" style="margin-top: 10%;">
+                <div class="col-md-12">
+                    <div class="descargamanual"><a target="_blank" href="https://guiamendozagourmet.com/lacocina/Manual-de-uso-GMG-La-Cocina.pdf"><i class="fa fa-file-text-o" aria-hidden="true"></i> Descargar Manual de Uso</a></div>
                 </div>
             </div>
         </div>
