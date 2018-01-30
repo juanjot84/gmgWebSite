@@ -65,6 +65,8 @@ error_reporting(E_ERROR);
 
               <input type="text" name="idContactoRecibido" id="idContactoRecibido" value="<?php  error_reporting(E_ERROR); echo $idContacto; ?>" class="hidden">
               <input type="text" name="idLocalRecibido" id="idLocalRecibido" value="<?php  error_reporting(E_ERROR); echo $idLocal; ?>" class="hidden">
+              <input type="text" name="idContacto" id="idContacto" class="hidden">
+              <input type="text" name="idNegocioCreado" id="idNegocioCreado" value="<?php echo $idNegocio; ?>" class="hidden">
 
           <h5 class="titulosalta"> Nombre</h5>
             

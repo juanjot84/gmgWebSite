@@ -24,6 +24,8 @@ function iniciar(accion){
       cargarFormContacto();
     }else if(accion == 'crear'){
       cargarFormCrear();
+    }else if(accion == 'creEd'){
+      cargarFormContacto();
     }
   });
 }
@@ -138,6 +140,10 @@ function send() {
     contentType:"application/json",
     success: function (data) {
       var idLocalCreado = $("#idLocalCreado").val();
+      var localRecibido = $("#idLocalRecibido").val()
+      if(localRecibido != ''){
+        idLocalCreado = localRecibido;
+      }
       var resultado = data;
       var contactoCreado =  resultado._id;
       var campo = "idContacto";
@@ -154,14 +160,17 @@ function send() {
          success: function (data) {
            var negocio = data;
            var tipoNegocio = negocio.idTipoNegocio.nombreTipoNegocio;
-           if(tipoNegocio != 'Restaurante'){
+           var accion = $("#idContactoRecibido").val();
+           if(tipoNegocio != 'Restaurante' && accion != 'creEd'){
             var url = "../lacocina/editar-horarios.php?idLocal="+ idLocalCreado+"&acc=cre";
             $(location).attr('href',url);
             $("#formularioAgregar :input").val('');
-           }else{
+           }else if(tipoNegocio == 'Restaurante' && accion != 'creEd'){
             var url = "../lacocina/asignar-descuento.php?idLocal="+ idLocalCreado+"";
             $(location).attr('href',url);
             $("#formularioAgregar :input").val('');
+           }else{
+            volverPanelLocal();
            }
      
          },
@@ -222,7 +231,14 @@ function validar(accion){
     if(accion == 'crear'){
       send();
     }else if(accion == 'editar'){
-      actualizarContacto();
+      var contacto = $("#idContactoRecibido").val();
+      if(contacto == 'creEd'){
+        $("#idContacto").val("");
+        send();
+      }else{
+        actualizarContacto();
+      }
+      
     }
   }else{
     $(location).attr('href',"#formularioAgregar");

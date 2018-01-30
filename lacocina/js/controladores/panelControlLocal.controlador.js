@@ -260,7 +260,12 @@ $('#cabeceraTablaNegocios').html('');
             contentType:"application/json",
             success: function (data) {
                 locales = data;
+                
+                if (typeof(locales.idContacto) == "undefined"){
+                  idContacto = 'creEd';
+               }else{
                 idContacto = locales.idContacto._id;
+               }
                 var url = "../lacocina/editar-contacto.php?idLocal="+idLocal+"&idContacto="+idContacto+"";
                 $(location).attr('href',url);
           },
