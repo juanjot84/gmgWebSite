@@ -26,7 +26,6 @@ function getOpcionesReservaLocal(idLocal) {
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     });
   }
-
     var localData = $.ajax({
         url: server + '/api/v1/admin/locales?id=' + idLocal,
         type: 'GET',
