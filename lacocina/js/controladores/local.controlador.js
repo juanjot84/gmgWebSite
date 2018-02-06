@@ -228,7 +228,14 @@ function buscarTipoNegocio(accion){
                  nivelPrecios = data
              popularDropdownNivelPrecioEditar(idNivelPrecio);
              });
-             var idTipoCocinaPpal = local.idTipoCocinaPrincipal._id;
+
+             var idTipoCocinaPpal = '';
+             if(local.idTipoCocinaPrincipal == null){
+              idTipoCocinaPpal = '';
+             }else{
+              idTipoCocinaPpal = local.idTipoCocinaPrincipal._id;
+             }
+             
              var tipoCocinaSeleccionados = local.idTipoCocina;
              obtenerListadoTipoCocina().done(function(data){
                  tipoCocinas = data
