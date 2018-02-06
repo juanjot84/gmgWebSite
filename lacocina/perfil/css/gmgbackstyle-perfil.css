@@ -673,6 +673,21 @@ img.logowebperfil {
     transition: all 0.2s;
 }
 
+button#botonVolver {
+    background: #f8981d;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.naranja {
+    color: #f8981d;
+}
+
+.naranjabold {
+    color: #f8981d;
+    font-weight: bold;
+}
+
 /*MEDIA QUERIES*/
 
 

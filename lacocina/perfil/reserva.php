@@ -67,23 +67,43 @@ error_reporting(E_ERROR);
     }
 ?>
 
+<div class="container" style="padding-top: 2%; min-height: 60vh;">
 
-
-  <div class="container" style="padding-top: 2%; min-height: 60vh;">
   <input type="text" name="idNegocio" id="idNegocio" value="<?php error_reporting(E_ERROR); echo $idNegocio; ?>" class="hidden">
     <div class="row">
+      <div class="col-md-2">
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
+            </span>
+        </div>
+      </div>
       <div class="col-md-4">
-        
           <select class="form-control" id="selectLocal">
 
           </select>
       </div>
     </div></br>
+
+    <h4>Crear reserva manual</h4>
+
+    <div class="row">
+      <div class="col-md-12">
+        <label for="selectNino">Seleccionar medio de origen de la reserva</label>
+        <div style="margin: 15px 0;">
+          <label class="radio-inline"><input type="radio" name="optradio"><i class="naranjabold fa fa-facebook"></i>Facebook</label> | 
+          <label class="radio-inline"><input type="radio" name="optradio"><i class="naranjabold fa fa-instagram"></i>Instagram</label> | 
+          <label class="radio-inline"><input type="radio" name="optradio"><i class="naranjabold fa fa-phone"></i>Teléfono</label> | 
+          <label class="radio-inline"><input type="radio" name="optradio"><i class="naranjabold fa fa-whatsapp"></i>WhatsApp</label> |
+          <label class="radio-inline"><input type="radio" name="optradio"><i class="naranjabold fa fa-envelope-o"></i>Mail</label>
+        </div>
+      </div>
+    </div>
     
 
     <div class="row">
       <div class="col-md-4">
-      <label for="selectNino">Nombre y apellido </label>
+      <label for="selectNino">Nombre y apellido</label>
        <input id="nombrePersona" name="nombrePersona" type="text" class="form-control" placeholder="" aria-describedby="sizing-addon3" >  
       </div>
       <div class="col-md-4">
@@ -100,7 +120,7 @@ error_reporting(E_ERROR);
       <div class="col-md-4">
         <p>
           <div class="form-group">
-            <label for="selectAdulto">¿Para cuántos adultos?</label>
+            <label for="selectAdulto">¿Para cuántos adultos? </label>
             <select class="form-control" id="selectAdulto">
               <option value="1">1 adulto</option>
               <option value="2">2 adultos</option>
@@ -179,7 +199,7 @@ error_reporting(E_ERROR);
         </ul>
       </div>
       <div style="text-align: center;">
-        <a href="#" onClick="realizarReserva()" id="reservar" class="page-scroll btn btn-xl" style="max-width: 300px; margin: 5% 0;">RESERVAR</a>
+        <a href="#" onClick="realizarReserva()" id="reservar" class="page-scroll btn btn-xl" style="max-width: 300px; margin: 5% 0;">CREAR RESERVA</a>
       </div>
     </div>
 
