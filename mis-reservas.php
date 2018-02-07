@@ -122,7 +122,29 @@ $idReserva = $_GET["idReserva"];
           </div>
         </div>
         <div class="modal-footer">
+          <a href="#" class="btn btn-danger" id="botonCancelar" style="max-width: 300px; margin: 5% 0;">Cancelar Reserva</a>
           <a href="#" class="page-scroll btn btn-xl" data-dismiss="modal" onclick="limpiar('telefonoReserva')" style="max-width: 300px; margin: 5% 0;">Cerrar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="reservaCancelada" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h3>Reserva Cancelada</h3>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              Su reserva ha sido cancelada correctamente;
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="page-scroll btn btn-xl" data-dismiss="modal" style="max-width: 300px; margin: 5% 0;" onclick="cerrarModales()">Cerrar</a>
         </div>
       </div>
     </div>

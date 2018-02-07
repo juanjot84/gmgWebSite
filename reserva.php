@@ -227,7 +227,7 @@ $idLocal = $_GET["id"];
                     <h3>Confirmar Reserva</h3>
                   </div>
                   <div class="modal-body">
-                    <div class="row" id="noDescuento">
+                    <div class="row" id="noDescuento" style="display:none">
                       <div class="col-md-12">
                         <div class="alert alert-info" style="text-align: center; font-size: 1.5em;">
                           <strong>Atención!</strong> Esta reserva no posee ningún descuento.
@@ -235,10 +235,10 @@ $idLocal = $_GET["id"];
                       </div>
                     </div>
 
-                    <div class="row" id="conDescuento">
+                    <div class="row" id="conDescuento" style="display:none">
                       <div class="col-md-12">
                         <div class="alert alert-info" style="text-align: center; font-size: 1.5em;">
-                          <strong>Atención!</strong> Esta reserva posee un descuento del <span id="porcentajeDescuento"></span>>.
+                          <strong>Atención!</strong> Esta reserva posee un descuento del <span id="porcentajeDescuento"></span><span>&#37;</span>.
                         </div>
                       </div>
                     </div>

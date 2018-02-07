@@ -172,9 +172,18 @@ function realizarReserva() {
 
     //if (telefonoReserva.length >6 && /^(\+{1})?([0-9])*$/.test(telefonoReserva)) {
     if (!_.isNil(horaSeleccionada)) {
+      if ($('#selectDia').find(":selected").attr('descuento') && $('#selectDia').find(":selected").attr('descuento') != ''){
+        $('#noDescuento').hide();
+        $('#conDescuento').show();
+        $('#porcentajeDescuento').html($('#selectDia').find(":selected").attr('descuento'));
+      } else {
+        $('#conDescuento').hide();
+        $('#noDescuento').show();
+      }
       $("#realizarReserva").modal("show");
       $("#cantidadReserva").html("Reserva para " + $('#selectAdulto').val() + " adultos y " + $('#selectNino').val() + " niño");
       $("#horarioReserva").html(horaSeleccionada + " hs. | " + $('#selectDia').val());
+
     } else {
       $("#selecHoras").parent().after('<span id="horarioReservaAlert" style="color:red"> Por favor seleccione un horario</span>');
     }
@@ -296,6 +305,7 @@ function mostrarDetalleReserva(idReserva){
     success: function (data) {
       reserva = data[0];
       $("#detallesReserva").modal("show");
+      $("#botonCancelar").attr("onclick", "cancelarReserva('" + idReserva +"')");
       $("#cantidadReserva").html('').html("Reserva para " + reserva.cubiertosAdultosReservados + " adultos y "  + reserva.cubiertosMenoresReservados +  " niño/s");
       $("#horarioReserva").html('').html(reserva.horaReserva + " hs. | " + reserva.fechaReserva);
       $("#direccionLocal").html('').html(reserva.idLocal.calleLocal + " " + reserva.idLocal.alturaLocal);
@@ -310,6 +320,38 @@ function mostrarDetalleReserva(idReserva){
     }
   });
 
+}
+function cancelarReserva(idReserva){
+  if (_.isUndefined(server)) {
+    $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
+    });
+  }
+  $.ajax({
+    url: server + '/api/v1/admin/reservaCancelar?id=' + idReserva,
+    type: 'POST',
+    dataType: "json",
+    crossDomain: true,
+    contentType: "application/json",
+    success: function (data) {
+      reserva = data[0];
+      $("#reservaCancelada").modal("show");
+
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      $('#target').append("jqXHR: " + jqXHR);
+      $('#target').append("textStatus: " + textStatus);
+      $('#target').append("You can not send Cross Domain AJAX requests: " + errorThrown);
+    },
+    headers: {
+      Authorization: 'JWT ' + jwt
+    }
+  });
+}
+
+function cerrarModales() {
+  $("#reservaCancelada").modal("hide");
+  $("#detallesReserva").modal("hide");
+  getMisReservas();
 }
 
 function limpiar(campo) {

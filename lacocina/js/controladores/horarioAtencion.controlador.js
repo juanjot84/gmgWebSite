@@ -57,19 +57,19 @@ $('#todos').click(function (e) {
 });
 
 
-function aplicarHorarios(dia){
-  $('#' + dia).html('');
-  $('#' + dia).append('' +
-  '  <td>'+
-  '    <span class="diassemanaresumen">' + dia + ' </span>' +
-  '  </td>' +
-  '  <td>' +
-  '   <span id="Hdesde' + dia + 'Manana" >' + $('#horaInicioManana').val() + '</span> - <span id="Hhasta' + dia + 'Manana" >' + $('#horaFinManana').val() + '</span>' +
-  '  </td>' +
-  '  <td>' +
-  '   <span id="Hdesde' + dia + 'Tarde" >' + $('#horaInicioTarde').val() + '</span> - <span id="Hhasta' + dia + 'Tarde" >' + $('#horaFinTarde').val()  +
-  '  </td>');
-}
+function aplicarHorarios(dia, dibujar){
+  if($('#horaInicioManana').val() != $('#horaFinManana').val() || dibujar){
+    $('#' + dia + ' td:nth-child(2)').removeAttr('style').html('<span id="Hdesde' + dia + 'Manana" >' + $('#horaInicioManana').val() + '</span> - <span id="Hhasta' + dia + 'Manana" >' + $('#horaFinManana').val() + '</span>' );
+  } else {
+    $('#' + dia + ' td:nth-child(2)').attr('style', 'color: #f8981d;').html('Sin horario de atencion')
+  }
+
+  if($('#horaInicioTarde').val() != $('#horaFinTarde').val() || dibujar)  {
+    $('#' + dia + ' td:nth-child(3)').removeAttr('style').html('<span id="Hdesde' + dia + 'Tarde" >' + $('#horaInicioTarde').val() + '</span> - <span id="Hhasta' + dia + 'Tarde" >' + $('#horaFinTarde').val());
+  } else {
+    $('#' + dia + ' td:nth-child(3)').attr('style', 'color: #f8981d;').html('Sin horario de atencion')
+  }
+ }
 
 
 var toInt = function(time){
@@ -131,7 +131,7 @@ function cargarHorariosSeteados(accion) {
         var horarioManana = _.find(horariosDia, {'turnoHorarioApertura': 'manana'});
         var horarioTarde = _.find(horariosDia, {'turnoHorarioApertura': 'tarde'});
         if (horarioManana || horarioTarde) {
-          aplicarHorarios(diaSemana);
+          aplicarHorarios(diaSemana, true);
           if (horarioManana) {
             $("#Hdesde" + horarioManana.diaSemanaHorarioApertura + "Manana").html(horarioManana.horaInicioHorarioApertura);
             $("#Hhasta" + horarioManana.diaSemanaHorarioApertura + "Manana").html(horarioManana.horaFinHorarioApertura);

@@ -43,15 +43,15 @@
                 usuariosNegocios = data;
                 var usuario =  _.find(usuariosNegocios, { 'idNegocio': idNegocioEditar});
                 if (usuario){
-                $('#formularioAgregar').show();
-                $("#formularioAgregar :input").attr("disabled", false);
-                $("#formularioAgregar button").show();
-                $("#nombre").val(usuario.nombre);
-                $("#email").val(usuario.email);
-                $("#apellido").val(usuario.apellido);
-                $("#sexoUsuario").val(usuario.sexoUsuario);
-                $("#idUsuarioNegocio").val(usuario._id);
-                $("#password").val(''); 
+                  $('#formularioAgregar').show();
+                  $("#formularioAgregar :input").attr("disabled", false);
+                  $("#formularioAgregar button").show();
+                  $("#nombre").val(usuario.nombre);
+                  $("#email").val(usuario.email);
+                  $("#apellido").val(usuario.apellido);
+                  $("#sexoUsuario").val(usuario.sexoUsuario);
+                  $("#idUsuarioNegocio").val(usuario._id);
+                  $("#password").val('');
                 }
                 var tipoUsuario = $("#tipoUs").val();
                 if(tipoUsuario == 'usuarioNegocio'){
