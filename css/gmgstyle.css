@@ -290,6 +290,14 @@ i.fa.fa-globe.redesficha:hover {
     margin-right: 1%;
 }
 
+.iconofichamisreservas {
+    color: #f8981d;
+    margin-left: 1%;
+    margin-right: 1%;
+    min-width: 15px;
+    text-align: center;
+}
+
 .reservarfijo {
     position: fixed;
     width: 100%;
@@ -650,6 +658,28 @@ a.linkperfil {
     color: #383838;
 }
 
+.cancelarreservafront {
+    font-size: 16px !important;
+    padding: 8px !important;
+}
+
+.cancelarreservafront:hover {
+    color: #fff !important;
+    font-size: 16px !important;
+    padding: 8px !important;
+}
+
+
+.cancelarreserva {
+    font-size: 16px !important;
+    padding: 8px 15px !important;
+}
+
+.cancelarreserva:hover {
+    color: #fff !important;
+    font-size: 16px !important;
+    padding: 8px 15px !important;
+}
 
 .imgnoresultado-web {
     display: block;
@@ -841,6 +871,30 @@ li#calificacionLocal {
     border-radius: 5px;
     width: 60%;
     margin: 11% auto;
+}
+
+.verreserva {
+    text-align: center;
+    background: #f8981d;
+    font-size: 1.2em;
+    padding: 5% 1%;
+    font-weight: 400;
+    color: #fff;
+    border-radius: 5px;
+    width: 60%;
+    margin: 4% auto;
+}
+
+.verreserva:hover {
+    text-align: center;
+    background: #f48d08;
+    font-size: 1.2em;
+    padding: 5% 1%;
+    font-weight: 400;
+    color: #fff;
+    border-radius: 5px;
+    width: 60%;
+    margin: 4% auto;
 }
 
 @media only screen and (max-width : 1024px) {

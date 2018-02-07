@@ -109,20 +109,28 @@ $idReserva = $_GET["idReserva"];
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h3>Detalles de la Reserva</h3>
+          <h3>Reserva en "Nombre de Restaurant"</h3>
         </div>
         <div class="modal-body">
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6 text-center">
+              Foto restaurant
+            </div>
+            <div class="col-md-6">
               <h3 class="titulo"></h3>
-              <p id="cantidadReserva"></p>
-              <p id="horarioReserva" ></p>
-              <p id="direccionLocal" ></p>
+              <div><i class="iconofichamisreservas fa fa-check"></i><span id="cantidadReserva"></span></div>
+              <div><i class="iconofichamisreservas fa fa-clock-o"></i><span id="horarioReserva" ></span></div>
+              <div><i class="iconofichamisreservas fa fa-map-marker"></i><span id="direccionLocal" ></span></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <a href="#" class="btn btn-danger cancelarreserva" id="botonCancelar" style="max-width: 300px; margin: 5% 0;"><i class="fa fa-times"></i> Cancelar Reserva</a>
             </div>
           </div>
         </div>
         <div class="modal-footer">
-          <a href="#" class="btn btn-danger" id="botonCancelar" style="max-width: 300px; margin: 5% 0;">Cancelar Reserva</a>
+          
           <a href="#" class="page-scroll btn btn-xl" data-dismiss="modal" onclick="limpiar('telefonoReserva')" style="max-width: 300px; margin: 5% 0;">Cerrar</a>
         </div>
       </div>

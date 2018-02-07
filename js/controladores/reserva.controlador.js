@@ -284,8 +284,9 @@ function renderMisReservas(reservas) {
       '     ...</span>' +
       '   </p>  ' +
       '  </div>  ' +
-      '  <div class="col-md-3">' +
-      '    <a href="#" onclick="mostrarDetalleReserva(\'' +  reserva._id + '\')"><h2 class="etiquetadescuento verreserva">Ver reserva</h2></a>' +
+      '  <div class="col-md-3" style="display: grid;">' +
+      '   <a href="#" onclick="mostrarDetalleReserva(\'' +  reserva._id + '\')"><h2 class="verreserva">Ver reserva</h2></a>' +
+          '<a href="#" class="btn btn-danger cancelarreservafront" id="botonCancelar" style="max-width: 60%; margin: 5% auto;"><i class="fa fa-times"></i> Cancelar Reserva</a>' +
       '  </div>' +
       '  </div>')
   });
