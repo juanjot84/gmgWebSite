@@ -118,9 +118,9 @@ $idReserva = $_GET["idReserva"];
             </div>
             <div class="col-md-6">
               <h3 class="titulo"></h3>
-              <div><i class="iconoficha fa fa-check"></i><span id="cantidadReserva"></span></div>
-              <div><i class="iconoficha fa fa-clock-o"></i><span id="horarioReserva" ></span></div>
-              <div><i class="iconoficha fa fa-map-marker"></i><span id="direccionLocal" ></span></div>
+              <div><i class="iconofichamisreservas fa fa-check"></i><span id="cantidadReserva"></span></div>
+              <div><i class="iconofichamisreservas fa fa-clock-o"></i><span id="horarioReserva" ></span></div>
+              <div><i class="iconofichamisreservas fa fa-map-marker"></i><span id="direccionLocal" ></span></div>
             </div>
           </div>
           <div class="row">
