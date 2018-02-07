@@ -53,13 +53,40 @@ include("includes/head.php"); ?>
     </div>
   </div>
   <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
-    <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px; float: right;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
+    
     <div class="row">
       <div class="col-md-12">
+
         <center><div id="loading"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span></div></center>
+
         <div class="panel panel-default datos-cubiertos hidden">
 
-          <h2 class="tituloseccion">Asignar Cubiertos disponibles para reservar</h2>
+          <div class="row">
+            <div class="col-md-6">
+              <h2 class="tituloseccion">Configurar reservas</h2>
+              <h4 class="titulohorarioatencionbajada">Asignar cubiertos disponibles para reservar</h4>
+            </div>
+
+            <div class="col-md-3">
+              <ul class="activaronoreservas">
+                <li>NO </li>
+                <li>
+                  <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+                </li>
+                <li> SI</li>
+              </ul>
+              
+
+            </div>
+            
+            <div class="col-md-3 hidden-sm hidden-xs">
+              <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px; float: right;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
+            </div>
+          </div>
+          
           <input type="text" name="idCubierto" id="idCubierto" class="hidden">
           <input type="text" name="idLocalCreado" id="idLocalCreado" value="<?php  error_reporting(E_ERROR); echo $idLocal; ?>" class="hidden">
           <input type="text" name="accion" id="accion" value="<?php  error_reporting(E_ERROR); echo $accion; ?>" class="hidden">
