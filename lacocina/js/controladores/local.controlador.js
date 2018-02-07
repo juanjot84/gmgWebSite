@@ -198,9 +198,10 @@ function buscarTipoNegocio(accion){
             contentType:"application/json",
             success: function (data) {
                 var local = data;
-            $('#idNegocio').val(local.idNegocio._id);
-            $('#nombreLocal').val(local.nombreLocal);
-            $("input[name=localPremium][value=" + local.localPremium + "]").prop("checked",true);
+
+             $('#idNegocio').val(local.idNegocio._id);
+             $('#nombreLocal').val(local.nombreLocal);
+             $("input[name=localPremium][value=" + local.localPremium + "]").prop("checked",true);
              $('#telContacto').val(local.telContacto);
              $('#mailContacto').val(local.mailContacto);
              $('#calleLocal').val(local.calleLocal);

@@ -72,7 +72,7 @@ include("includes/head.php"); ?>
                 <li>NO </li>
                 <li>
                   <label class="switch">
-                    <input type="checkbox">
+                    <input type="checkbox" id="aceptaReservaCheck" name="aceptaReservaCheck" value="true" onClick="actualizarAceptaReserva()">
                     <span class="slider round"></span>
                   </label>
                 </li>

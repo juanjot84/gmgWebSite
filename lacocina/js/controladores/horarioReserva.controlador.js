@@ -25,6 +25,7 @@ var horariosViejos = [];
 var localCubiertosCreados = [];
 var cubiertosViejos = [];
 
+
 var dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabados", "Domingos", "Feriados"];
 
 function popularDropdownHorarios(){
@@ -101,6 +102,13 @@ function cargarHorariosSeteados() {
     crossDomain: true,
     contentType: "application/json",
     success: function (data) {
+      var aceptaReserva = data.aceptaReservaNegocio;
+      if(aceptaReserva == true){
+        $('input:checkbox[name=aceptaReservaCheck]').attr('checked',true);
+      }else{
+        $('input:checkbox[name=aceptaReservaCheck]').attr('checked',false);       
+      }
+     
       var horariosAtencion = data.idHorarioAtencion;
       var cubiertos = data.idCubiertosDia;
       horariosViejos = horariosViejos;
@@ -245,6 +253,8 @@ function sendHorarioAtencion() {
 
     Promise.all(actualizarHorarioAtencion, actualizarCubiertos).then(function(){
       console.log(localCubiertosCreados);
+       
+      actualizarAceptaReserva(idLocalCreado);
 
       if (accion == 'crear') {
         cargarHorarioAtencion();
@@ -261,7 +271,18 @@ function sendHorarioAtencion() {
   }).catch(function (err) {
     console.log(err);
   });
+}
 
+function actualizarAceptaReserva(){
+  var idLocalAceptaReserva = $("#idLocalCreado").val();
+  var aceptaReserva = $('input:checkbox[name=aceptaReservaCheck]:checked').val();
+  if (typeof(aceptaReserva) == "undefined"){
+    aceptaReserva = false;
+  }else{
+  aceptaReserva = true;
+ }
+ valorAActualizar = "aceptaReservaNegocio";
+ actualizarLocal(idLocalAceptaReserva, aceptaReserva , valorAActualizar)
 }
 
 function cargarHorarioAtencion(){
