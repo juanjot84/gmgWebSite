@@ -709,7 +709,7 @@ ul.selecdiashorario {
     text-align: center;
     border: 1px solid #f1efef;
     padding: 3% 4%;
-    background: #f9f9f9;
+    background: #f4f4f4;
     margin: 3% 0 1% 0;
 }
 
@@ -957,6 +957,69 @@ input:checked + .slider:before {
 .muestrapaneles {
     display: block;
 }
+
+.cuadroantipacion {
+    margin: 4% 0;
+}
+
+/*Slider range*/
+
+.slidecontainer {
+    width: 100%;
+    padding: 0 20%;
+}
+
+.slider1 {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #f4f4f4;
+    outline: none;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border-radius: 15px;
+    border: 1px solid #e6e6e6;
+}
+
+.slider1:hover {
+    background: #ebebeb;
+}
+
+.slider1::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #f8981d;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.slider1::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #f8981d;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.horasanticipacion {
+    text-align: center;
+    font-weight: bold;
+}
+
+.horasanticipacion span {
+    color: #f8981d;
+}
+
+.valorrecomendado {
+    font-size: 10px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/*Fin slider range*/
 
 
 /*MEDIA  QUERIES*/

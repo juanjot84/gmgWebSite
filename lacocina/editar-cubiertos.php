@@ -40,6 +40,8 @@ include("includes/head.php"); ?>
   }
   ?>
 
+<center><div id="loading"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span></div></center>
+
   <div class="container-fluid" style="padding: 1%;background: yellow;margin-top: -21px;">
     <div class="container">
       <div class="row">
@@ -57,7 +59,7 @@ include("includes/head.php"); ?>
     <div class="row">
       <div class="col-md-12">
 
-        <center><div id="loading"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span></div></center>
+        
 
         <div class="panel panel-default datos-cubiertos hidden">
 
@@ -95,16 +97,48 @@ include("includes/head.php"); ?>
 
           <!-- <h5 class="titulosalta"> Abierto</h5> -->
 
+          <div class="row cuadroantipacion text-center">
+            <div class="col-md-6">
+               
+              <label class="titulohorarioatencion">Anticipación para <strong class="naranja">hacer</strong> una reserva.</label>
+              <span class="valorrecomendado">Valor recomendado: 1</span>
+              <div class="slidecontainer">
+                <p class="horasanticipacion">Horas: <span id="demo"></span></p>
+                <input type="range" min="1" max="48" value="1" class="slider1" id="myRange">
+              </div>
+
+            </div>
+            <div class="col-md-6">
+
+
+              <label class="titulohorarioatencion">Anticipación para <strong class="naranja">cancelar</strong> una reserva.</label>
+              <span class="valorrecomendado">Valor recomendado: 2</span>
+              <div class="slidecontainer">
+                <p class="horasanticipacion">Horas: <span id="demo2"></span></p>
+                <input type="range" min="1" max="48" value="2" class="slider1" id="myRange2">
+              </div>
+
+            </div>
+          </div>
+
           <div class="cuadrohorarios">
 
+
             <div class="row">
+
+              <div class="col-md-12">
+                <div>
+                  <span class="tituloreservaatencion">HORARIOS DE RESERVAS</span>
+                </div>
+              </div>
+
               <div class="col-md-offset-1 col-md-4 columnahorarios">
 
-                <div>
+                <!-- <div>
                   <span class="tituloreservaatencion">TURNO 1</span>
-                </div>
+                </div> -->
 
-                <strong class="titulohorarioatencion"><i class="fa fa-clock-o" aria-hidden="true"></i> Horarios de Reservas</strong>
+                <strong class="titulohorarioatencion"><i class="fa fa-clock-o" aria-hidden="true"></i> Turno 1</strong>
                 <div class="row">
                   <div class="col-md-6">
                     <!-- Elegir horario -->
@@ -149,11 +183,11 @@ include("includes/head.php"); ?>
 
               <div class="col-md-offset-2 col-md-4 columnahorarios">
 
-                <div>
+                <!-- <div>
                   <span class="tituloreservaatencion">TURNO 2</span>
-                </div>
+                </div> -->
 
-                <strong class="titulohorarioatencion"><i class="fa fa-clock-o" aria-hidden="true"></i> Horarios de Reservas</strong>
+                <strong class="titulohorarioatencion"><i class="fa fa-clock-o" aria-hidden="true"></i> Turno 2</strong>
                 <div class="row">
                   <div class="col-md-6">
                     <!-- Elegir horario -->
@@ -445,6 +479,31 @@ include("includes/head.php"); ?>
     });
 
   </script>
+
+  <!-- Slider Range -->
+
+  <script>
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function() {
+      output.innerHTML = this.value;
+    }
+  </script>
+
+
+  <script>
+    var slider2 = document.getElementById("myRange2");
+    var output2 = document.getElementById("demo2");
+    output2.innerHTML = slider2.value;
+
+    slider2.oninput = function() {
+      output2.innerHTML = this.value;
+    }
+  </script>
+
+  <!-- End Slider Range -->
 
 </body>
 
