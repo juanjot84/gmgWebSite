@@ -5,7 +5,6 @@ session_start();
 $idNegocio = $_SESSION['idNegocio'];
 $tipoUsuario = $_SESSION['tipoUsuario'];
 
-
 if (!$_SESSION) {
        header('Location: index.php');
 } else {
@@ -17,7 +16,6 @@ if (!$_SESSION) {
 }
 
 ?>
-
 
 <?php  
 error_reporting(E_ERROR);  
@@ -100,8 +98,9 @@ error_reporting(E_ERROR);
                           </select>
                         </div>
                     </p>
-
-
+                    
+                    <button id="botonPass" class="btn btn-default" type="button" style="padding: 17px;" onClick="mostrarModal()">Password</button>
+                    
               <div class="input-group">
                  <span class="input-group-btn">
                   <button id="botonAtras" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelNegocio()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
@@ -109,6 +108,32 @@ error_reporting(E_ERROR);
                 </span>
               </div>
             </form>
+
+    <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+     <div class="modal-dialog">
+         <div class="modal-content">
+           <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>Cambiar contraseña de usuario</h3>
+          </div>
+         <div class="modal-body">
+         <p><div class="input-group input-group-sm">
+                      <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
+                      <input id="passEditar" name="passEditar" type="password" class="form-control" placeholder="Contraseña" aria-describedby="sizing-addon3" onfocus="limpiar('password')" required>
+                    </div></p> 
+
+
+         </div>
+           <div class="modal-footer">
+         <a onClick="actualizarUsuarioNegocio()" data-dismiss="modal" class="btn btn-danger">Guardar</a>
+         </div>
+         </div>
+        </div>
+          </div>
+        </div>
+         </div>
+           </div>
+    </div>
               <!-- Table -->
                   <div class="panel-heading tituloseccion" style="display: none">Usuarios Administradores de Restaurantes</div>
 

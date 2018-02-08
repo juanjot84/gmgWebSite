@@ -1,4 +1,6 @@
 
+var idUsNegocio;
+
     $(function() {
 
         $('#login-form-link').click(function(e) {
@@ -32,6 +34,7 @@
       }
       var idNegocioEditar = idNegocio;
       var usuariosNegocios;
+      
 
       $.ajax({
             url: server + '/api/v1/admin/usuarioNegocio',
@@ -43,6 +46,7 @@
                 usuariosNegocios = data;
                 var usuario =  _.find(usuariosNegocios, { 'idNegocio': idNegocioEditar});
                 if (usuario){
+                  idUsNegocio = usuario._id;
                   $('#formularioAgregar').show();
                   $("#formularioAgregar :input").attr("disabled", false);
                   $("#formularioAgregar button").show();
@@ -250,4 +254,39 @@ function caracteresCorreoValido(email){
     } else {
       return false;
     }
+}
+
+function mostrarModal(){
+  $("#mostrarmodal").modal("show");
+}
+
+
+function actualizarUsuarioNegocio(){
+  idUsNegocio;
+  var valorAActualizar = $("#passEditar").val();
+  var campoAAcuatualizar = "password";
+  var promise = new Promise(function(resolve, reject) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    var nuevoCampo = {};
+    nuevoCampo[campoAAcuatualizar] = valorAActualizar;
+
+    $.ajax({
+      url: server + '/api/v1/admin/usuarioNegocio?id' + idUsNegocio,
+      type: 'PUT',
+
+      dataType: "json",
+      crossDomain: true,
+      contentType: "application/json",
+      success: function (data) {
+        resolve(data);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        reject(errorThrown);
+      },
+      data: JSON.stringify(nuevoCampo)
+    });
+   });
+  });
+
+  return promise;
 }
