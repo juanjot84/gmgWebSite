@@ -84,6 +84,7 @@ error_reporting(E_ERROR);
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title">Subir Imagenes</h4>
+              <p style="color: orangered;">Importante: Las imágenes deben estar en formato <strong>.jpg</strong> y tener una resolución de <strong>750x420 píxeles</strong> en 72dpi.</p>
             </div>
             <div class="modal-body">
             <div class="row">
