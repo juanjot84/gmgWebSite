@@ -30,7 +30,7 @@ include("includes/head.php"); ?>
 error_reporting(E_ERROR);
 include("includes/nav.php"); ?>
 
-    
+<center><div id="loading"></div></center>
 
     <div class="container-fluid" style="padding: 1%;background: yellow;margin-top: -21px;">
         <div class="container">
@@ -172,7 +172,7 @@ include("includes/nav.php"); ?>
 
                         </tbody>
                     </table>
-                    <center><div id="loading"></div></center>
+                    
                   </div>
                 </div>
             </div>
