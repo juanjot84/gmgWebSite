@@ -4,6 +4,7 @@ session_start();
 
 $idNegocio = $_SESSION['idNegocio'];
 $tipoUsuario = $_SESSION['tipoUsuario'];
+$jwt = $_SESSION['jwt'];
 
 if (!$_SESSION) {
        header('Location: index.php');
@@ -68,6 +69,7 @@ error_reporting(E_ERROR);
 
               <input type="text" name="idUsuarioNegocio" id="idUsuarioNegocio" class="hidden">
               <input type="text" name="tipoUs" id="tipoUs" value="<?php  error_reporting(E_ERROR); echo $tipoUsuario; ?>" class="hidden">
+              <input type="text" name="jwt" id="jwt" value="<?php  error_reporting(E_ERROR); echo $jwt; ?>" class="hidden">
 
               <h5 class="titulosalta"> Datos de usuario administrador del negocio</h5>
 
@@ -98,9 +100,9 @@ error_reporting(E_ERROR);
                           </select>
                         </div>
                     </p>
-                    
-                    <button id="botonPass" class="btn btn-default" type="button" style="padding: 17px;" onClick="mostrarModal()">Password</button>
-                    
+              <div id="botonRecuperarPass" class="input-group"> 
+                
+              </div>
               <div class="input-group">
                  <span class="input-group-btn">
                   <button id="botonAtras" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelNegocio()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>

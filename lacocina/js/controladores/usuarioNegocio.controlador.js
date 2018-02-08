@@ -1,5 +1,6 @@
 
 var idUsNegocio;
+var mailUsuario;
 
     $(function() {
 
@@ -28,6 +29,10 @@ var idUsNegocio;
     });
 
     function cargarFormEditar(idNegocio){
+      var tipoUsuario = $("#tipoUs").val();
+      if(tipoUsuario == "superAdmin"){
+        $("#botonRecuperarPass").append('<button id="botonPass" class="btn btn-default" type="button" style="padding: 17px;" onClick="mostrarModal()">Password</button>');
+      }
       if (_.isUndefined(server)) {
         $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
         });
@@ -47,6 +52,7 @@ var idUsNegocio;
                 var usuario =  _.find(usuariosNegocios, { 'idNegocio': idNegocioEditar});
                 if (usuario){
                   idUsNegocio = usuario._id;
+                  mailUsuario = usuario.email;
                   $('#formularioAgregar').show();
                   $("#formularioAgregar :input").attr("disabled", false);
                   $("#formularioAgregar button").show();
@@ -262,16 +268,18 @@ function mostrarModal(){
 
 
 function actualizarUsuarioNegocio(){
-  idUsNegocio;
   var valorAActualizar = $("#passEditar").val();
-  var campoAAcuatualizar = "password";
+  var jwt = $("#jwt").val();
   var promise = new Promise(function(resolve, reject) {
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
-    var nuevoCampo = {};
-    nuevoCampo[campoAAcuatualizar] = valorAActualizar;
+
+    var data = {
+      'email': mailUsuario,
+      'password': valorAActualizar
+    };
 
     $.ajax({
-      url: server + '/api/v1/admin/usuarioNegocio?id' + idUsNegocio,
+      url: server + '/api/v1/admin/actualizarUsuarioNegocio',
       type: 'PUT',
 
       dataType: "json",
@@ -283,7 +291,10 @@ function actualizarUsuarioNegocio(){
       error: function (jqXHR, textStatus, errorThrown) {
         reject(errorThrown);
       },
-      data: JSON.stringify(nuevoCampo)
+      headers: {
+        Authorization: 'gmgAuth ' + jwt
+      },
+      data: JSON.stringify(data)
     });
    });
   });
