@@ -197,10 +197,19 @@ var mailUsuario;
             },
             error:function(jqXHR,textStatus,errorThrown)
             {
+               if(textStatus == 'error'){
+                $("#mostrarmodal1").modal("show");
+                
+               }
+
           },
           data: usuarioNegocio
       }); 
     }
+
+function habilitarBotonGuardar(){
+  $("#botonGuardar").removeClass('disabled');
+};
 
 function validar(accion){
   $("#botonGuardar").addClass('disabled');
