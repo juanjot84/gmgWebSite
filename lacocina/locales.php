@@ -34,6 +34,9 @@ error_reporting(E_ERROR);
         .text-primary, a {
             color: #000000;
         }
+        #loading {
+          display: none;
+        }
     </style>
 </head>
 
