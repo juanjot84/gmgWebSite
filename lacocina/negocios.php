@@ -133,7 +133,7 @@ include("includes/nav.php"); ?>
  
                <h5 class="titulosalta"> Descripción</h5>
 
-                        <p>Texto con un máxio de 500 caracteres incluyendo espacios</p>
+                        <p>Texto con un máximo de 500 caracteres incluyendo espacios</p>
 
                             <div class="form-group">
                               <label for="comment">Descripción:</label>
