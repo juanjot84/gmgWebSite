@@ -82,14 +82,16 @@ error_reporting(E_ERROR);
                 <input id="mailContacto" name="mailContacto" type="text" class="form-control" placeholder="Mail del Contacto" aria-describedby="sizing-addon3" onfocus="limpiar('mailContacto')" required>
               </div></p>
 
-          <h5 class="titulosalta"> Teléfono fijo</h5> 
+          <h5 class="titulosalta"> Teléfono fijo</h5>
+          <p>Ingresá el número sin espacios ni guiones.</p> 
 
              <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-mobile" aria-hidden="true"></i></span>
                 <input id="telefonoContacto" name="telefonoContacto" type="text" class="form-control" placeholder="Numero de telefono del Contacto" aria-describedby="sizing-addon3" onfocus="limpiar('telefonoContacto')" required>
               </div></p>
 
-          <h5 class="titulosalta"> Celular</h5>     
+          <h5 class="titulosalta"> Celular</h5>
+          <p>Ingresá el número sin espacios ni guiones.</p>     
 
               <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-mobile" aria-hidden="true"></i></span>
