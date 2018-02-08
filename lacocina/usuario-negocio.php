@@ -111,6 +111,28 @@ include("includes/nav.php");
     </div>
 
     
+    <div class="modal fade" id="mostrarmodal1" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+     <div class="modal-dialog">
+         <div class="modal-content">
+           <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>El correo ya se encuentra registrado</h3>
+          </div>
+         <div class="modal-body">
+
+            <h5>Por favor utilice otra cuenta de correo para el usuario</h5>
+         </div>
+           <div class="modal-footer">
+         <a onClick="habilitarBotonGuardar()" data-dismiss="modal" class="btn btn-danger">Aceptar</a>
+         </div>
+         </div>
+        </div>
+          </div>
+        </div>
+         </div>
+           </div>
+    </div>
+
     <?php 
     error_reporting(E_ERROR);
     include("includes/footer.php"); ?>
