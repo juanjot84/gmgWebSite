@@ -192,6 +192,13 @@ i.fa.fa-globe.redesficha:hover {
     margin-right: 1%;
 }
 
+.imgeditsurcusal {
+    min-height: 196px;
+    object-fit: cover;
+    height: 196px;
+    width: 100%;
+}
+
 .desact {
     opacity: 0.2;
 }

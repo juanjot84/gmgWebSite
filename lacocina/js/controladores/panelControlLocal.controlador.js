@@ -154,7 +154,7 @@ $('#cabeceraTablaNegocios').html('');
                 '<div class="col-md-4">'+
                   '<div class="row">'+
                     '<div class="col-md-12">'+
-                     '<img class="img-responsive" style="min-height: 196px;" src="'+local.fotoPrincipalLocal+'">'+
+                     '<img class="img-responsive imgeditsurcusal" src="'+local.fotoPrincipalLocal+'">'+
                       '<p><span style="font-size: 1.5em;"><strong>'+local.nombreLocal+'</strong></p>'+
                       '<p><i class="fa fa-map-marker iconoficha" aria-hidden="true"></i><span class="polo">'+local.calleLocal+' ( '+local.alturaLocal+' )</span></p>'+      
                       '<p>Nivel de precio: <strong style="letter-spacing: 1px;">'+label+'</strong><span style="color: #cbcbcb">'+labelGrises+'</span></p>'+
