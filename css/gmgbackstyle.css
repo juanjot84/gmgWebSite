@@ -1040,6 +1040,23 @@ input:checked + .slider:before {
 
 /*Fin slider range*/
 
+.separadortransp {
+    margin: 30px 0;
+}
+
+
+.cuadrocargamenupromo {
+    border: 1px solid #f1efef;
+    background: #f4f4f4;
+    padding: 3% 5%;
+    margin: 3% 0 1% 0;
+}
+
+.titulocargamenu {
+    font-family: "Roboto", sans-serif;
+    text-transform: none;
+    font-weight: 700;
+}
 
 /*MEDIA  QUERIES*/
 

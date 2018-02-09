@@ -47,10 +47,10 @@
                   </ul> -->
                 </li>
                 <li class="dropdown">
-                  <a href="tipo-de-negocio.php" role="button" aria-haspopup="true" aria-expanded="false">Tipo de negocio <span class="caret"></span></a>
+                  <a href="tipo-de-negocio.php" role="button" aria-haspopup="true" aria-expanded="false">Tipo de negocio<span class="caret"></span></a>
                 </li>
                 <li>
-                  <a href="regiones.php" role="button" aria-haspopup="true" aria-expanded="false">Regiones <span class="caret"></span></a>
+                  <a href="regiones.php" role="button" aria-haspopup="true" aria-expanded="false">Regiones<span class="caret"></span></a>
                 </li>
                 <li>
                   <a href="polos-gastronomicos.php" role="button" aria-haspopup="true" aria-expanded="false">Polos<span class="caret"></span></a>
@@ -68,13 +68,16 @@
                   <a href="servicios.php" role="button" aria-haspopup="true" aria-expanded="false">Servicios<span class="caret"></span></a>
                 </li>
                 <li>
-                  <a href="medio-de-pago.php" role="button" aria-haspopup="true" aria-expanded="false">Formas de pago <span class="caret"></span></a>
+                  <a href="medio-de-pago.php" role="button" aria-haspopup="true" aria-expanded="false">Formas de pago<span class="caret"></span></a>
                 </li>
                 <li>
-                  <a href="nivel-de-precio.php" role="button" aria-haspopup="true" aria-expanded="false">Precio <span class="caret"></span></a>
+                  <a href="nivel-de-precio.php" role="button" aria-haspopup="true" aria-expanded="false">Precio<span class="caret"></span></a>
                 </li>
                 <li>
-                  <a href="descuentos.php" role="button" aria-haspopup="true" aria-expanded="false">Descuentos <span class="caret"></span></a>
+                  <a href="descuentos.php" role="button" aria-haspopup="true" aria-expanded="false">Descuentos<span class="caret"></span></a>
+                </li>
+                <li>
+                  <a href="promociones.php" role="button" aria-haspopup="true" aria-expanded="false">Promociones<span class="caret"></span></a>
                 </li>
            <!--     <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Restaurants<span class="caret"></span></a>

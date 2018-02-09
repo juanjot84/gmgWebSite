@@ -120,7 +120,16 @@ error_reporting(E_ERROR);
                 </div>
             </div>
             <div class="row text-center" style="padding-top: 5%;">
-                <div class="col-md-12 botonmanito">
+                <div class="col-md-4 botonmanito" id="remarketing">
+                    <a class="sombrabotonpanel" href="perfil/remarketing.php"><div style="font-size: 1.5em;">
+                        <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-gift" aria-hidden="true"></span><br>
+                        PROMOCIONES
+                    </div></a>
+                </div>
+                <div class="col-md-4 botonmanito" id="remarketing">
+                    
+                </div>
+                <div class="col-md-4 botonmanito">
                     <a class="sombrabotonpanel" onclick="cargarLocales()"><div style="font-size: 1.5em;">
                         <span style="font-size: 2.5em; padding: 1%;" class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span><br>
                         VOLVER
