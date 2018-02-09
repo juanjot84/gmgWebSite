@@ -75,11 +75,16 @@ error_reporting(E_ERROR);
             <!-- /.navbar-collapse -->
 
 
-    <div class="container" style="height: 65vh; padding-top: 2%; min-height: 715px;">
+    <div class="container" style="padding-top: 2%; min-height: 715px;">
      <input type="text" name="idNegocio" id="idNegocio" value="<?php  error_reporting(E_ERROR); echo $idNegocio; ?>" class="hidden">
      <input type="text" name="tipoUs" id="tipoUs" value="<?php  error_reporting(E_ERROR); echo $tipoUsuario; ?>" class="hidden">
 
-      <div class="container" id="estiloUsuarioNegocio"></div>
+       <div class="row" style="padding-top: 5%;color: #252525; padding-bottom: 2%;">
+          <div class="container" id="estiloUsuarioNegocio">
+
+       </div>
+
+      </div>
         <div class="row text-center" id="disenioSuperAdmin">
                   <!-- Table -->
                   <div id="cabeceraTablaNegocios">
@@ -88,8 +93,6 @@ error_reporting(E_ERROR);
                         
                   </div> 
         </div>
-        </br>
-        </br>
         </br>
         </br>
               <div class="input-group">

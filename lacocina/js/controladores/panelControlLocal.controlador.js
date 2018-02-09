@@ -150,22 +150,22 @@ $('#cabeceraTablaNegocios').html('');
 
              if(local.idNegocio._id == idNegocioRecibido){
              $('#estiloUsuarioNegocio').append(''+
-              '<div class="row" style="padding-top: 5%;color: #252525; padding-bottom: 2%;">'+
+              
                 '<div class="col-md-4">'+
                   '<div class="row">'+
                     '<div class="col-md-12">'+
-                     '<img class="img-responsive" src="'+local.fotoPrincipalLocal+'">'+
+                     '<img class="img-responsive" style="min-height: 196px;" src="'+local.fotoPrincipalLocal+'">'+
                       '<p><span style="font-size: 1.5em;"><strong>'+local.nombreLocal+'</strong></p>'+
-                      '<p><i class="fa fa-map-marker" aria-hidden="true"></i><span class="polo">'+local.calleLocal+' ( '+local.alturaLocal+' )</span></p>'+      
-                      '<p>Nivel de precio <strong style="letter-spacing: 1px;">'+label+'</strong><span style="color: #cbcbcb">'+labelGrises+'</span></p>'+
-                      '<p>Ficha premium <i class="'+premiumLocal+'" aria-hidden="true"></i></p>'+
+                      '<p><i class="fa fa-map-marker iconoficha" aria-hidden="true"></i><span class="polo">'+local.calleLocal+' ( '+local.alturaLocal+' )</span></p>'+      
+                      '<p>Nivel de precio: <strong style="letter-spacing: 1px;">'+label+'</strong><span style="color: #cbcbcb">'+labelGrises+'</span></p>'+
+                      '<p>Ficha premium <i class="'+premiumLocal+' iconoficha" aria-hidden="true"></i></p>'+
                       '<p style="text-align: center;">'+
-                       '<button onClick="editarLocal(\'' + local._id + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>'+
+                       '<button onClick="editarLocal(\'' + local._id + '\')" title="Editar" class="btn btn-default botaccion" type="button" style="border: 1px solid #e9e9e9;"><i style="font-size: 1.5em; vertical-align: middle;" class="fa fa-pencil-square-o" aria-hidden="true"></i> <strong>Editar sucursal</strong></button>'+
                       '</p>'+
                     '</div>'+
                   '</div>'+
                 '</div>'+ 
-              '</div>'+
+              
               '');
 
              }            
