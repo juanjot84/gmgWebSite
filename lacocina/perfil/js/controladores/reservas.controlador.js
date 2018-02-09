@@ -1,6 +1,22 @@
 
 var jwt;
 
+function setJWT(jwtToken){
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+  if (_.isNil(jwtToken)) {
+    //redireccionar al loguin
+  } else {
+    
+    jwt = jwtToken;
+    var tipoUsuario = $("#tipoUsuario").val();
+    if(tipoUsuario == 'superAdmin'){
+      $("#botCrearReserva").hide();
+    }
+    obtenerListado(); 
+    } 
+  });
+};
+
 function obtenerListado() {
   if (_.isUndefined(server)) {
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
@@ -178,6 +194,7 @@ function renderReservas(reservasLocal){
             clasificar = '<td class="columsietepchon"><i title="Vino" class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
           }else if(reserva.estadoReserva =="Cancelada"){
             clasificar = '<td class="columsietepchon"><i title="Cancelada" class="fa fa-ban" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></td>';
+            ocultarEliminar = 'style="display:none"';
           }else if(reserva.estadoReserva =="Calificada"){
             clasificar = '<td class="columsietepchon"><i title="Vino y Calificó" class="fa fa-check-square-o" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
           }
@@ -512,6 +529,7 @@ function renderReservasHistorico(reservasLocal){
           clasificar = '<td class="columsietepchon"><i title="Vino" class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
         }else if(reserva.estadoReserva =="Cancelada"){
           clasificar = '<td class="columsietepchon"><i title="Cancelada" class="fa fa-ban" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></td>';
+          ocultarEliminar = 'style="display:none"';
         }else if(reserva.estadoReserva =="Calificada"){
           clasificar = '<td class="columsietepchon"><i title="Vino y Calificó" class="fa fa-check-square-o" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
         }
@@ -625,19 +643,6 @@ function accion(idModal,accion){
        editarReserva(idReserva, idModal);
     }
 }
-
-function setJWT(jwtToken){
-  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
-  if (_.isNil(jwtToken)) {
-    //redireccionar al loguin
-  } else {
-    
-    jwt = jwtToken;
-    obtenerListado(); 
-    } 
-  });
-};
-
 
 function cancelarReserva(idReserva, idModal){
   if (_.isUndefined(server)) {
