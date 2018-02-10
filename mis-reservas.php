@@ -109,7 +109,7 @@ $idReserva = $_GET["idReserva"];
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h3>Reserva en "Nombre de Restaurant"</h3>
+          <h3 id="h3NombreNegocio"></h3>
         </div>
         <div class="modal-body">
           <div class="row">

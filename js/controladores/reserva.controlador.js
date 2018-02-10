@@ -311,6 +311,7 @@ function mostrarDetalleReserva(idReserva){
       $("#cantidadReserva").html('').html("Reserva para " + reserva.cubiertosAdultosReservados + " adultos y "  + reserva.cubiertosMenoresReservados +  " niño/s");
       $("#horarioReserva").html('').html(reserva.horaReserva + " hs. | " + reserva.fechaReserva);
       $("#direccionLocal").html('').html(reserva.idLocal.calleLocal + " " + reserva.idLocal.alturaLocal);
+      document.getElementById("h3NombreNegocio").innerHTML = 'Reserva en "' + reserva.idLocal.idNegocio.nombreNegocio+'"';
     },
     error: function (jqXHR, textStatus, errorThrown) {
       $('#target').append("jqXHR: " + jqXHR);
