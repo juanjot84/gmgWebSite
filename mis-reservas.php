@@ -125,7 +125,7 @@ $idReserva = $_GET["idReserva"];
           </div>
           <div class="row">
             <div class="col-md-12 text-center">
-              <a href="#" class="btn btn-danger cancelarreserva" id="botonCancelar" style="max-width: 300px; margin: 5% 0;"><i class="fa fa-times"></i> Cancelar Reserva</a>
+              <a href="#" class="btn btn-danger cancelarreserva" id="detalleReservaBotonCancelar" style="max-width: 300px; margin: 5% 0;"><i class="fa fa-times"></i> Cancelar Reserva</a>
             </div>
           </div>
         </div>
@@ -147,7 +147,7 @@ $idReserva = $_GET["idReserva"];
         <div class="modal-body">
           <div class="row">
             <div class="col-md-12">
-              Su reserva ha sido cancelada correctamente;
+              Su reserva ha sido cancelada correctamente
             </div>
           </div>
         </div>

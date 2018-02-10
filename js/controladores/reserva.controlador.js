@@ -286,7 +286,7 @@ function renderMisReservas(reservas) {
       '  </div>  ' +
       '  <div class="col-md-3" style="display: grid;">' +
       '   <a href="#" onclick="mostrarDetalleReserva(\'' +  reserva._id + '\')"><h2 class="verreserva">Ver reserva</h2></a>' +
-          '<a href="#" class="btn btn-danger cancelarreservafront" id="botonCancelar" style="max-width: 60%; margin: 5% auto;"><i class="fa fa-times"></i> Cancelar Reserva</a>' +
+          '<a href="#" onclick="cancelarReserva(\'' +  reserva._id + '\')" class="btn btn-danger cancelarreservafront" id="botonCancelar" style="max-width: 60%; margin: 5% auto;"><i class="fa fa-times"></i> Cancelar Reserva</a>' +
       '  </div>' +
       '  </div>')
   });
@@ -307,6 +307,7 @@ function mostrarDetalleReserva(idReserva){
       reserva = data[0];
       $("#detallesReserva").modal("show");
       $("#botonCancelar").attr("onclick", "cancelarReserva('" + idReserva +"')");
+      $("#detalleReservaBotonCancelar").attr("onclick", "cancelarReserva('" + idReserva +"')");
       $("#cantidadReserva").html('').html("Reserva para " + reserva.cubiertosAdultosReservados + " adultos y "  + reserva.cubiertosMenoresReservados +  " niño/s");
       $("#horarioReserva").html('').html(reserva.horaReserva + " hs. | " + reserva.fechaReserva);
       $("#direccionLocal").html('').html(reserva.idLocal.calleLocal + " " + reserva.idLocal.alturaLocal);
