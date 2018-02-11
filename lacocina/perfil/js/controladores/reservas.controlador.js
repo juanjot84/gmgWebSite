@@ -180,6 +180,16 @@ function renderReservas(reservasLocal){
           if (reserva.medioReserva == 'gmg'){
             medioDeReserva = 'fa fa-cutlery';
             ocultarEliminar = 'style="display:none"';
+          }else if(reserva.medioReserva == 'facebook'){
+            medioDeReserva = 'fa fa-facebook';
+          }else if(reserva.medioReserva == 'instagram'){
+            medioDeReserva = 'fa fa-instagram';
+          }else if(reserva.medioReserva == 'phone'){
+            medioDeReserva = 'fa fa-phone';
+          }else if(reserva.medioReserva == 'whatsapp'){
+            medioDeReserva = 'fa fa-whatsapp';
+          }else if(reserva.medioReserva == 'mail'){
+            medioDeReserva = 'fa fa-envelope-o';
           }else{
               medioDeReserva = 'fa fa-globe';
           }
@@ -336,14 +346,21 @@ function renderReservasProximas(reservasLocal){
          var editar = 'editar';
 
          if (reserva.medioReserva == 'gmg'){
-           medioDeReserva = 'fa fa-cutlery';
-           ocultarEliminar = 'style="display:none"';
-        //   botonEditar = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-         }else{
-             medioDeReserva = 'fa fa-globe';
-         //    botonEditar = '<button title="Editar" onClick="mostrarModal(\''+ collapseReserva +'\',\''+editar+'\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>';
-
-         }
+          medioDeReserva = 'fa fa-cutlery';
+          ocultarEliminar = 'style="display:none"';
+        }else if(reserva.medioReserva == 'facebook'){
+          medioDeReserva = 'fa fa-facebook';
+        }else if(reserva.medioReserva == 'instagram'){
+          medioDeReserva = 'fa fa-instagram';
+        }else if(reserva.medioReserva == 'phone'){
+          medioDeReserva = 'fa fa-phone';
+        }else if(reserva.medioReserva == 'whatsapp'){
+          medioDeReserva = 'fa fa-whatsapp';
+        }else if(reserva.medioReserva == 'mail'){
+          medioDeReserva = 'fa fa-envelope-o';
+        }else{
+            medioDeReserva = 'fa fa-globe';
+        }
 
          $('.container.'+conteinReservas).append(''+
              '<div class="panel panel-default">'+
@@ -514,12 +531,29 @@ function renderReservasHistorico(reservasLocal){
          var clasificar = '<td class="columsietepchon"></td>';
 
          if (reserva.medioReserva == 'gmg'){
-           medioDeReserva = 'fa fa-cutlery';
-           ocultarEliminar = 'style="display:none"';
-         }else{
-             medioDeReserva = 'fa fa-globe';
-             ocultarEliminar = 'style="display:none"';
-         }
+          medioDeReserva = 'fa fa-cutlery';
+          ocultarEliminar = 'style="display:none"';
+        }else if(reserva.medioReserva == 'facebook'){
+          medioDeReserva = 'fa fa-facebook';
+          ocultarEliminar = 'style="display:none"';
+        }else if(reserva.medioReserva == 'instagram'){
+          medioDeReserva = 'fa fa-instagram';
+          ocultarEliminar = 'style="display:none"';
+        }else if(reserva.medioReserva == 'phone'){
+          medioDeReserva = 'fa fa-phone';
+          ocultarEliminar = 'style="display:none"';
+        }else if(reserva.medioReserva == 'whatsapp'){
+          medioDeReserva = 'fa fa-whatsapp';
+          ocultarEliminar = 'style="display:none"';
+        }else if(reserva.medioReserva == 'mail'){
+          medioDeReserva = 'fa fa-envelope-o';
+          ocultarEliminar = 'style="display:none"';
+        }else{
+            medioDeReserva = 'fa fa-globe';
+            ocultarEliminar = 'style="display:none"';
+        }
+
+
 
         if(reserva.estadoReserva =="cumplida"){
           clasificar = '<td class="columsietepchon"><ul style="list-style: none; display: inline-flex;"><li><button title="Marcar como NO vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', false)"><i class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></button></li><li><button title="Marcar como SI vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', true)"><i class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></button></li></ul></td>';

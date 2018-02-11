@@ -91,11 +91,11 @@ error_reporting(E_ERROR);
       <div class="col-md-12">
         <label for="selectNino">Seleccionar medio de origen de la reserva</label>
         <div style="margin: 15px 0;">
-          <label class="radio-inline"><input type="radio" name="optradio"><i class="naranjabold fa fa-facebook"></i>Facebook</label> | 
-          <label class="radio-inline"><input type="radio" name="optradio"><i class="naranjabold fa fa-instagram"></i>Instagram</label> | 
-          <label class="radio-inline"><input type="radio" name="optradio"><i class="naranjabold fa fa-phone"></i>Teléfono</label> | 
-          <label class="radio-inline"><input type="radio" name="optradio"><i class="naranjabold fa fa-whatsapp"></i>WhatsApp</label> |
-          <label class="radio-inline"><input type="radio" name="optradio"><i class="naranjabold fa fa-envelope-o"></i>Mail</label>
+          <label class="radio-inline"><input type="radio" name="opMedio" value="facebook"><i class="naranjabold fa fa-facebook"></i>Facebook</label> | 
+          <label class="radio-inline"><input type="radio" name="opMedio" value="instagram"><i class="naranjabold fa fa-instagram"></i>Instagram</label> | 
+          <label class="radio-inline"><input type="radio" name="opMedio" value="phone"><i class="naranjabold fa fa-phone"></i>Teléfono</label> | 
+          <label class="radio-inline"><input type="radio" name="opMedio" value="whatsapp"><i class="naranjabold fa fa-whatsapp"></i>WhatsApp</label> |
+          <label class="radio-inline"><input type="radio" name="opMedio" value="mail"><i class="naranjabold fa fa-envelope-o"></i>Mail</label>
         </div>
       </div>
     </div>
