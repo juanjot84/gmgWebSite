@@ -178,20 +178,20 @@ function renderReservas(reservasLocal){
           var clasificar = '<td class="columsietepchon"></td>';
 
           if (reserva.medioReserva == 'gmg'){
-            medioDeReserva = 'fa fa-cutlery';
+            medioDeReserva = '<img title="Medio de reserva" src="imgs/guia.png" aria-hidden="true">';
             ocultarEliminar = 'style="display:none"';
           }else if(reserva.medioReserva == 'facebook'){
-            medioDeReserva = 'fa fa-facebook';
+            medioDeReserva = '<i title="Medio de reserva" class="fa fa-facebook" aria-hidden="true"></i>';
           }else if(reserva.medioReserva == 'instagram'){
-            medioDeReserva = 'fa fa-instagram';
+            medioDeReserva = '<i title="Medio de reserva" class="fa fa-instagram" aria-hidden="true"></i>';
           }else if(reserva.medioReserva == 'phone'){
-            medioDeReserva = 'fa fa-phone';
+            medioDeReserva = '<i title="Medio de reserva" class="fa fa-phone" aria-hidden="true"></i>';
           }else if(reserva.medioReserva == 'whatsapp'){
-            medioDeReserva = 'fa fa-whatsapp';
+            medioDeReserva = '<i title="Medio de reserva" class="fa fa-whatsapp" aria-hidden="true"></i>';
           }else if(reserva.medioReserva == 'mail'){
-            medioDeReserva = 'fa fa-envelope-o';
+            medioDeReserva = '<i title="Medio de reserva" class="fa fa-envelope-o" aria-hidden="true"></i>'; 
           }else{
-              medioDeReserva = 'fa fa-globe';
+              medioDeReserva = '<i title="Medio de reserva" class="fa fa-globe" aria-hidden="true"></i>';
           }
 
           if(reserva.estadoReserva =="pendiente"){
@@ -223,7 +223,7 @@ function renderReservas(reservasLocal){
                             '<td class="centrarbotaccion"><img title="Cantidad de adultos" src="imgs/adultos.png">'+reserva.cubiertosAdultos+'</td>'+
                             '<td class="centrarbotaccion"><img title="Cantidad de niños" src="imgs/ninos.png">'+reserva.cubiertosMenores+'</td>'+
                             '<td class="centrarbotaccion" style="min-width: 97px;">'+reserva.horaSola+' hs</td>'+
-                            '<td class="centrarbotaccion"><i title="Medio de reserva" class="'+medioDeReserva+'" aria-hidden="true"></i></td>'+
+                            '<td class="centrarbotaccion">'+medioDeReserva+'</td>'+
                             '<td class="centrarbotaccion">'+
                             '<a data-toggle="collapse" data-parent="#accordion" href="#'+collapseReserva+'">'+
                               '<button title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button></a>'+
@@ -257,7 +257,7 @@ function renderReservas(reservasLocal){
                            '<h4 class="modal-title" id="titulo'+collapseReserva+'"></h4>'+
                           '</div>'+
                       '<div class="modal-body">'+
-                        '<p> '+reserva.nombreUsuarioReserva+' | <i class="'+medioDeReserva+'" aria-hidden="true"></i> </p>'+
+                        '<p> '+reserva.nombreUsuarioReserva+' | '+medioDeReserva+'</p>'+
                         '<p>Reserva para'+
                         '<input type="text" class="form-control" id="cantAdultos'+collapseReserva+'" value="'+reserva.cubiertosAdultos+'" aria-describedby="sizing-addon3"> adultos</p>'+
                         '<input type="text" class="form-control" id="cantMenores'+collapseReserva+'" value="'+reserva.cubiertosMenores+'" aria-describedby="sizing-addon3"> menores</p>'+
@@ -346,20 +346,20 @@ function renderReservasProximas(reservasLocal){
          var editar = 'editar';
 
          if (reserva.medioReserva == 'gmg'){
-          medioDeReserva = 'fa fa-cutlery';
+          medioDeReserva = '<img title="Medio de reserva" src="imgs/guia.png" aria-hidden="true">';
           ocultarEliminar = 'style="display:none"';
         }else if(reserva.medioReserva == 'facebook'){
-          medioDeReserva = 'fa fa-facebook';
+          medioDeReserva = '<i title="Medio de reserva" class="fa fa-facebook" aria-hidden="true"></i>';
         }else if(reserva.medioReserva == 'instagram'){
-          medioDeReserva = 'fa fa-instagram';
+          medioDeReserva = '<i title="Medio de reserva" class="fa fa-instagram" aria-hidden="true"></i>';
         }else if(reserva.medioReserva == 'phone'){
-          medioDeReserva = 'fa fa-phone';
+          medioDeReserva = '<i title="Medio de reserva" class="fa fa-phone" aria-hidden="true"></i>';
         }else if(reserva.medioReserva == 'whatsapp'){
-          medioDeReserva = 'fa fa-whatsapp';
+          medioDeReserva = '<i title="Medio de reserva" class="fa fa-whatsapp" aria-hidden="true"></i>';
         }else if(reserva.medioReserva == 'mail'){
-          medioDeReserva = 'fa fa-envelope-o';
+          medioDeReserva = '<i title="Medio de reserva" class="fa fa-envelope-o" aria-hidden="true"></i>'; 
         }else{
-            medioDeReserva = 'fa fa-globe';
+            medioDeReserva = '<i title="Medio de reserva" class="fa fa-globe" aria-hidden="true"></i>';
         }
 
          $('.container.'+conteinReservas).append(''+
@@ -376,7 +376,7 @@ function renderReservasProximas(reservasLocal){
                            '<td class="centrarbotaccion"><img title="Cantidad de adultos" src="imgs/adultos.png">'+reserva.cubiertosAdultos+'</td>'+
                            '<td class="centrarbotaccion"><img title="Cantidad de niños" src="imgs/ninos.png">'+reserva.cubiertosMenores+'</td>'+
                            '<td class="centrarbotaccion" style="min-width: 97px;">'+reserva.horaSola+' hs</td>'+
-                           '<td class="centrarbotaccion"><i title="Medio de reserva" class="'+medioDeReserva+'" aria-hidden="true"></i></td>'+
+                           '<td class="centrarbotaccion">'+medioDeReserva+'</td>'+
                            '<td class="centrarbotaccion">'+
                            '<a data-toggle="collapse" data-parent="#accordion" href="#'+collapseReserva+'">'+
                              '<button title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button></a>'+
@@ -407,7 +407,7 @@ function renderReservasProximas(reservasLocal){
                           '<h4 class="modal-title" id="titulo'+collapseReserva+'"></h4>'+
                          '</div>'+
                      '<div class="modal-body">'+
-                       '<p> '+reserva.nombreUsuarioReserva+' | <i class="'+medioDeReserva+'" aria-hidden="true"></i> </p>'+
+                       '<p> '+reserva.nombreUsuarioReserva+' | '+medioDeReserva+'</p>'+
                        '<p>Reserva para'+
                        '<input type="text" class="form-control" id="cantAdultos'+collapseReserva+'" value="'+reserva.cubiertosAdultos+'" aria-describedby="sizing-addon3"> adultos</p>'+
                        '<input type="text" class="form-control" id="cantMenores'+collapseReserva+'" value="'+reserva.cubiertosMenores+'" aria-describedby="sizing-addon3"> menores</p>'+
@@ -531,25 +531,25 @@ function renderReservasHistorico(reservasLocal){
          var clasificar = '<td class="columsietepchon"></td>';
 
          if (reserva.medioReserva == 'gmg'){
-          medioDeReserva = 'fa fa-cutlery';
+          medioDeReserva = '<img title="Medio de reserva" src="imgs/guia.png" aria-hidden="true">';
           ocultarEliminar = 'style="display:none"';
         }else if(reserva.medioReserva == 'facebook'){
-          medioDeReserva = 'fa fa-facebook';
+          medioDeReserva = '<i title="Medio de reserva" class="fa fa-facebook" aria-hidden="true"></i>';
           ocultarEliminar = 'style="display:none"';
         }else if(reserva.medioReserva == 'instagram'){
-          medioDeReserva = 'fa fa-instagram';
+          medioDeReserva = '<i title="Medio de reserva" class="fa fa-instagram" aria-hidden="true"></i>'; 
           ocultarEliminar = 'style="display:none"';
         }else if(reserva.medioReserva == 'phone'){
-          medioDeReserva = 'fa fa-phone';
+          medioDeReserva = '<i title="Medio de reserva" class="fa fa-phone" aria-hidden="true"></i>'; 
           ocultarEliminar = 'style="display:none"';
         }else if(reserva.medioReserva == 'whatsapp'){
-          medioDeReserva = 'fa fa-whatsapp';
+          medioDeReserva = '<i title="Medio de reserva" class="fa fa-whatsapp" aria-hidden="true"></i>'; 
           ocultarEliminar = 'style="display:none"';
         }else if(reserva.medioReserva == 'mail'){
-          medioDeReserva = 'fa fa-envelope-o';
+          medioDeReserva = '<i title="Medio de reserva" class="fa fa-envelope-o" aria-hidden="true"></i>'; 
           ocultarEliminar = 'style="display:none"';
         }else{
-            medioDeReserva = 'fa fa-globe';
+            medioDeReserva = '<i title="Medio de reserva" class="fa fa-globe" aria-hidden="true"></i>'; 
             ocultarEliminar = 'style="display:none"';
         }
 
@@ -582,7 +582,8 @@ function renderReservasHistorico(reservasLocal){
                            '<td class="centrarbotaccion"><img title="Cantidad de adultos" src="imgs/adultos.png">'+reserva.cubiertosAdultos+'</td>'+
                            '<td class="centrarbotaccion"><img title="Cantidad de niños" src="imgs/ninos.png">'+reserva.cubiertosMenores+'</td>'+
                            '<td class="centrarbotaccion" style="min-width: 97px;">'+reserva.horaSola+' hs</td>'+
-                           '<td class="centrarbotaccion"><i title="Medio de reserva" class="'+medioDeReserva+'" aria-hidden="true"></i></td>'+
+                           '<td class="centrarbotaccion"><i title="Medio de reserva" class="" aria-hidden="true"></i></td>'+
+                           '<td class="centrarbotaccion">'+medioDeReserva+'</td>'+
                            '<td class="centrarbotaccion">'+
                            '<a data-toggle="collapse" data-parent="#accordion" href="#'+collapseReserva+'">'+
                              '<button title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button></a>'+
@@ -613,7 +614,7 @@ function renderReservasHistorico(reservasLocal){
                           '<h4 class="modal-title" id="titulo'+collapseReserva+'"></h4>'+
                          '</div>'+
                      '<div class="modal-body">'+
-                       '<p> '+reserva.nombreUsuarioReserva+' | <i class="'+medioDeReserva+'" aria-hidden="true"></i> </p>'+
+                       '<p> '+reserva.nombreUsuarioReserva+' | '+medioDeReserva+'</p>'+
                        '<p>Reserva para'+
                        '<input type="text" class="form-control" id="cantAdultos'+collapseReserva+'" value="'+reserva.cubiertosAdultos+'" aria-describedby="sizing-addon3"> adultos</p>'+
                        '<input type="text" class="form-control" id="cantMenores'+collapseReserva+'" value="'+reserva.cubiertosMenores+'" aria-describedby="sizing-addon3"> menores</p>'+
