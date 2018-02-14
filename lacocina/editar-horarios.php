@@ -195,10 +195,10 @@ include("includes/head.php"); ?>
                       <span class="diassemanaresumen">Lunes</span>
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de atencion
+                      Sin horario de atención
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de atencion
+                      Sin horario de atención
                     </td>
                   </tr>
                   <tr id='Martes'>
@@ -206,10 +206,10 @@ include("includes/head.php"); ?>
                       <span class="diassemanaresumen">Martes</span>
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de atencion
+                      Sin horario de atención
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de atencion
+                      Sin horario de atención
                     </td>
                   </tr>
                   <tr  id='Miercoles'>
@@ -217,10 +217,10 @@ include("includes/head.php"); ?>
                       <span class="diassemanaresumen">Miércoles</span>
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de atencion
+                      Sin horario de atención
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de atencion
+                      Sin horario de atención
                     </td>
                   </tr>
                   <tr  id='Jueves'>
@@ -228,10 +228,10 @@ include("includes/head.php"); ?>
                       <span class="diassemanaresumen">Jueves</span>
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de atencion
+                      Sin horario de atención
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de atencion
+                      Sin horario de atención
                     </td>
                   </tr>
                   <tr  id='Viernes'>
@@ -239,10 +239,10 @@ include("includes/head.php"); ?>
                       <span class="diassemanaresumen">Viernes</span>
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de atencion
+                      Sin horario de atención
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de atencion
+                      Sin horario de atención
                     </td>
                   </tr>
                   <tr  id='Sabados'>
@@ -250,10 +250,10 @@ include("includes/head.php"); ?>
                       <span class="diassemanaresumen">Sábado</span>
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de atencion
+                      Sin horario de atención
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de atencion
+                      Sin horario de atención
                     </td>
                   </tr>
                   <tr  id='Domingos'>
@@ -261,10 +261,10 @@ include("includes/head.php"); ?>
                       <span class="diassemanaresumen">Domingo</span>
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de atencion
+                      Sin horario de atención
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de atencion
+                      Sin horario de atención
                     </td>
                   </tr>
                   <tr  id='Feriados'>
@@ -272,10 +272,10 @@ include("includes/head.php"); ?>
                       <span class="diassemanaresumen">Feriados</span>
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de atencion
+                      Sin horario de atención
                     </td>
                     <td style="    color: #f8981d;">
-                      Sin horario de atencion
+                      Sin horario de atención
                     </td>
                   </tr>
                 </tbody>
