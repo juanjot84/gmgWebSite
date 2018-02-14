@@ -88,10 +88,6 @@ function popularLocal(local) {
     $("#reservar").css('visibility', 'hidden');
     $("#myP").css('visibility', 'hidden');
   }
-
-  
-
-
   var nivelPrecio = 0;
   var longNivelPrecio = 0;
 
@@ -251,52 +247,54 @@ $('#paginaNegocio').attr('href', web);
 }
 
 function buscarFavoritos(local){
-  var bajadaNegocio = '';
-  var raya = ' | ';
-  if(local.idNegocio.bajadaNegocio.length > 2){
-    bajadaNegocio = raya + local.idNegocio.bajadaNegocio;
-  }
-  if (_.isUndefined(server)) {
-    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
-    });
-  }
   jwt = $("#jwtU").val();
-  $.ajax({
-     url: server + '/api/v1/admin/favoritosUsuario',
-     type: 'GET',
-     dataType: "json",
-     crossDomain: true,
-     contentType:"application/json",
-     success: function (data) {
-      var iconoCorazon = 'favoritosfichagris fa fa-heart';
-      var idFavorito = '';
-      _.each(data, function (favorito) {
-        if(favorito.idLocal._id == local._id){
-          iconoCorazon = 'favoritosficharojo fa fa-heart';
-          idFavorito = favorito._id;    
-        }
+  if (jwt) {
+    var bajadaNegocio = '';
+    var raya = ' | ';
+    if(local.idNegocio.bajadaNegocio.length > 2){
+      bajadaNegocio = raya + local.idNegocio.bajadaNegocio;
+    }
+    if (_.isUndefined(server)) {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
       });
+    }
+    $.ajax({
+       url: server + '/api/v1/admin/favoritosUsuario',
+       type: 'GET',
+       dataType: "json",
+       crossDomain: true,
+       contentType:"application/json",
+       success: function (data) {
+        var iconoCorazon = 'favoritosfichagris fa fa-heart';
+        var idFavorito = '';
+        _.each(data, function (favorito) {
+          if(favorito.idLocal._id == local._id){
+            iconoCorazon = 'favoritosficharojo fa fa-heart';
+            idFavorito = favorito._id;
+          }
+        });
 
-      $("#iconoFavorito").append('<h3 class="titulo"><span id="nombreNegocio">'+local.idNegocio.nombreNegocio+'</span>  <span id="bajadaNegocio">'+bajadaNegocio+'</span>'+
-      '<i id="corazon" style="cursor:pointer;" class="'+iconoCorazon+'" aria-hidden="true" onClick="editarFavorito(\'' + local._id + '\',\'' + idFavorito + '\')"></i></h3>'+
-      '<p ><i class="fa fa-map-marker iconoficha" aria-hidden="true"></i> <span id="polo">' + nombrePolo + ' |  <i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' +tipoCocina +'</span></p>');
+        $("#iconoFavorito").append('<h3 class="titulo"><span id="nombreNegocio">'+local.idNegocio.nombreNegocio+'</span>  <span id="bajadaNegocio">'+bajadaNegocio+'</span>'+
+        '<i id="corazon" style="cursor:pointer;" class="'+iconoCorazon+'" aria-hidden="true" onClick="editarFavorito(\'' + local._id + '\',\'' + idFavorito + '\')"></i></h3>'+
+        '<p ><i class="fa fa-map-marker iconoficha" aria-hidden="true"></i> <span id="polo">' + nombrePolo + ' |  <i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' +tipoCocina +'</span></p>');
 
-     },
-     error:function(jqXHR,textStatus,errorThrown)
-     {
-      var iconoCorazon = 'favoritosfichagris fa fa-heart';
-      $("#iconoFavorito").append('<h3 class="titulo"><span id="nombreNegocio">'+local.idNegocio.nombreNegocio+'</span>  <span id="bajadaNegocio">'+bajadaNegocio+'</span>'+
-      '<i id="corazon" style="cursor:pointer;" class="'+iconoCorazon+'" aria-hidden="true" ></i></h3>'+
-      '<p ><i class="fa fa-map-marker iconoficha" aria-hidden="true"></i> <span id="polo">' + nombrePolo + ' |  <i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' +tipoCocina +'</span></p>');
-         
-         $('#target').append("jqXHR: "+jqXHR);
-         $('#target').append("textStatus: "+textStatus);
-         $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
-     },
-     headers: {
-         Authorization: 'JWT ' + jwt
-     }
- });
+       },
+       error:function(jqXHR,textStatus,errorThrown)
+       {
+        var iconoCorazon = 'favoritosfichagris fa fa-heart';
+        $("#iconoFavorito").append('<h3 class="titulo"><span id="nombreNegocio">'+local.idNegocio.nombreNegocio+'</span>  <span id="bajadaNegocio">'+bajadaNegocio+'</span>'+
+        '<i id="corazon" style="cursor:pointer;" class="'+iconoCorazon+'" aria-hidden="true" ></i></h3>'+
+        '<p ><i class="fa fa-map-marker iconoficha" aria-hidden="true"></i> <span id="polo">' + nombrePolo + ' |  <i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' +tipoCocina +'</span></p>');
+
+           $('#target').append("jqXHR: "+jqXHR);
+           $('#target').append("textStatus: "+textStatus);
+           $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+       },
+       headers: {
+           Authorization: 'JWT ' + jwt
+       }
+   });
+  }
 }
 
 
@@ -383,14 +381,6 @@ function dibujarServicios(servicios) {
       '</div>');
   });
 }
-
-//Funcion principal inicio mapa
-initMap = function (latitudLocal, longitudLocal) {
-  coords = {lng: latitudLocal, lat: longitudLocal};
-  // coords =  {lng: -68.839412, lat: -32.890667};
-  setMapa(coords);  //pasamos las coordenadas al metodo para crear el mapa
-};
-
 function setMapa(coords) {
   //Se crea una nueva instancia del objeto mapa
   var map = new google.maps.Map(document.getElementById('map'),
