@@ -566,6 +566,8 @@ function renderReservasHistorico(reservasLocal){
           ocultarEliminar = 'style="display:none"';
         }else if(reserva.estadoReserva =="Calificada"){
           clasificar = '<td class="columsietepchon"><i title="Vino y Calificó" class="fa fa-check-square-o" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
+        }else if(reserva.estadoReserva =="pendiente"){
+          clasificar = '<td class="columsietepchon"><ul style="list-style: none; display: inline-flex;"><li><button title="Marcar como NO vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', false)"><i class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></button></li><li><button title="Marcar como SI vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', true)"><i class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></button></li></ul></td>';
         }
 
          $('.container.'+conteinReservas).append(''+

@@ -312,3 +312,8 @@ function obtenerListado() {
           },
       });
 }
+
+function volverReservas(){
+  var url = "reservas.php";
+  $(location).attr('href',url);
+}
