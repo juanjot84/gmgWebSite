@@ -74,7 +74,7 @@ error_reporting(E_ERROR);
       <div class="col-md-2">
         <div class="input-group">
             <span class="input-group-btn">
-                <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
+                <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverReservas()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
             </span>
         </div>
       </div>
@@ -91,11 +91,11 @@ error_reporting(E_ERROR);
       <div class="col-md-12">
         <label for="selectNino">Seleccionar medio de origen de la reserva</label>
         <div style="margin: 15px 0;">
-          <label class="radio-inline"><input type="radio" name="optradio"><i class="naranjabold fa fa-facebook"></i>Facebook</label> | 
-          <label class="radio-inline"><input type="radio" name="optradio"><i class="naranjabold fa fa-instagram"></i>Instagram</label> | 
-          <label class="radio-inline"><input type="radio" name="optradio"><i class="naranjabold fa fa-phone"></i>Teléfono</label> | 
-          <label class="radio-inline"><input type="radio" name="optradio"><i class="naranjabold fa fa-whatsapp"></i>WhatsApp</label> |
-          <label class="radio-inline"><input type="radio" name="optradio"><i class="naranjabold fa fa-envelope-o"></i>Mail</label>
+          <label class="radio-inline"><input type="radio" name="opMedio" value="facebook"><i class="naranjabold fa fa-facebook"></i>Facebook</label> | 
+          <label class="radio-inline"><input type="radio" name="opMedio" value="instagram"><i class="naranjabold fa fa-instagram"></i>Instagram</label> | 
+          <label class="radio-inline"><input type="radio" name="opMedio" value="phone"><i class="naranjabold fa fa-phone"></i>Teléfono</label> | 
+          <label class="radio-inline"><input type="radio" name="opMedio" value="whatsapp"><i class="naranjabold fa fa-whatsapp"></i>WhatsApp</label> |
+          <label class="radio-inline"><input type="radio" name="opMedio" value="mail"><i class="naranjabold fa fa-envelope-o"></i>Mail</label>
         </div>
       </div>
     </div>

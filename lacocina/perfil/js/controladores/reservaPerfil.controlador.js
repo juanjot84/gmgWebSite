@@ -103,7 +103,7 @@ function buscarHorarios() {
   $('.horas').hide();
   $('#noHorario').hide();
   var data = {
-    'idLocal': idLocal,
+    'idLocal': $('#selectLocal').val(),
     'fechaReserva': $('#selectDia').val(),
     'cubiertosAdultosReservados': $('#selectAdulto').val(),
     'cubiertosMenoresReservados': $('#selectNino').val()
@@ -187,7 +187,7 @@ function confirmarReserva() {
     'nombreReservaEventual': $('#nombrePersona').val(),
     'mailReservaEventual': $('#mailPersona').val(),
     'telefonoUsuarioReserva': $('#telPersona').val(),
-    'medioCreacionReserva': 'web'
+    'medioCreacionReserva': $('input:radio[name=opMedio]:checked').val()
   };
   $.ajax({
     url: server + '/api/v1/admin/reservaEventual',
@@ -311,4 +311,9 @@ function obtenerListado() {
               $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
           },
       });
+}
+
+function volverReservas(){
+  var url = "reservas.php";
+  $(location).attr('href',url);
 }
