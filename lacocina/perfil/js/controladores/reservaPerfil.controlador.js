@@ -2,7 +2,7 @@ var espacio = ' ';
 var coma = ', ';
 var marker;          //variable del marcador
 var coords = {};    //coordenadas obtenidas con la geolocalización
-var iconBase = 'http://guiamendozagourmet.com/map/'; //direccion base del icono de marcador
+var iconBase = 'https://guiamendozagourmet.com/map/'; //direccion base del icono de marcador
 var local = '';
 var jwt;
 var horaSeleccionada;
