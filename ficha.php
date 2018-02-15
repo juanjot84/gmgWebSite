@@ -276,7 +276,7 @@ session_start();
           getDetalleLocal('<?php echo $idLocal; ?>');
 
         </script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHhrWZLpRB2OO1JJEU3Ls9FpfZzbXaQ-A&callback=initMap"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHhrWZLpRB2OO1JJEU3Ls9FpfZzbXaQ-A"></script>
 
         <script>
         window.onscroll = function() {myFunction()};

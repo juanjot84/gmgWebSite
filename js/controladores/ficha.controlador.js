@@ -7,7 +7,7 @@ var nombrePolo = '';
 var tipoCocina = '';
 var marker;          //variable del marcador
 var coords = {};    //coordenadas obtenidas con la geolocalización
-var iconBase = 'http://guiamendozagourmet.com/map/'; //direccion base del icono de marcador
+var iconBase = 'https://guiamendozagourmet.com/map/'; //direccion base del icono de marcador
 //Funcion principal
 function getDetalleLocal(idLocal) {
  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
@@ -88,10 +88,6 @@ function popularLocal(local) {
     $("#reservar").css('visibility', 'hidden');
     $("#myP").css('visibility', 'hidden');
   }
-
-  
-
-
   var nivelPrecio = 0;
   var longNivelPrecio = 0;
 
@@ -251,7 +247,8 @@ $('#paginaNegocio').attr('href', web);
 }
 
 function buscarFavoritos(local){
-  var bajadaNegocio = '';
+  jwt = $("#jwtU").val();
+  {var bajadaNegocio = '';
   var raya = ' | ';
   if(local.idNegocio.bajadaNegocio.length > 2){
     bajadaNegocio = raya + local.idNegocio.bajadaNegocio;
@@ -273,7 +270,7 @@ function buscarFavoritos(local){
       _.each(data, function (favorito) {
         if(favorito.idLocal._id == local._id){
           iconoCorazon = 'favoritosficharojo fa fa-heart';
-          idFavorito = favorito._id;    
+          idFavorito = favorito._id;
         }
       });
 
@@ -288,7 +285,7 @@ function buscarFavoritos(local){
       $("#iconoFavorito").append('<h3 class="titulo"><span id="nombreNegocio">'+local.idNegocio.nombreNegocio+'</span>  <span id="bajadaNegocio">'+bajadaNegocio+'</span>'+
       '<i id="corazon" style="cursor:pointer;" class="'+iconoCorazon+'" aria-hidden="true" ></i></h3>'+
       '<p ><i class="fa fa-map-marker iconoficha" aria-hidden="true"></i> <span id="polo">' + nombrePolo + ' |  <i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' +tipoCocina +'</span></p>');
-         
+
          $('#target').append("jqXHR: "+jqXHR);
          $('#target').append("textStatus: "+textStatus);
          $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
@@ -296,7 +293,7 @@ function buscarFavoritos(local){
      headers: {
          Authorization: 'JWT ' + jwt
      }
- });
+ });}
 }
 
 
@@ -383,14 +380,6 @@ function dibujarServicios(servicios) {
       '</div>');
   });
 }
-
-//Funcion principal inicio mapa
-initMap = function (latitudLocal, longitudLocal) {
-  coords = {lng: latitudLocal, lat: longitudLocal};
-  // coords =  {lng: -68.839412, lat: -32.890667};
-  setMapa(coords);  //pasamos las coordenadas al metodo para crear el mapa
-};
-
 function setMapa(coords) {
   //Se crea una nueva instancia del objeto mapa
   var map = new google.maps.Map(document.getElementById('map'),
