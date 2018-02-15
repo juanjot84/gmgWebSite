@@ -145,7 +145,8 @@ include("includes/nav.php"); ?>
                     <thead class="">
                       <tr> 
                         <th>Seleccionar</th>
-                        <th>Nombre</th>
+                        <th>Negocio</th>
+                        <th style="text-align: center;">Sucursal</th>
                         <th style="text-align: center;">Destacado</th>
                         <th style="text-align: center;">Acción</th>
                       </tr>
@@ -158,6 +159,7 @@ include("includes/nav.php"); ?>
                           </div>
                         </td>
                         <td>Todos</td>
+                        <td class="text-center">-</td>
                         <td class="text-center">-</td>
                         <td class="text-center">-</td>
                       </tr>
