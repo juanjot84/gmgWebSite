@@ -36,7 +36,7 @@ function getOpcionesReservaLocal(idLocal) {
     contentType: "application/json",
     success: function (data) {
       $('.titulo').text(data.idNegocio.nombreNegocio + " | " + data.idNegocio.bajadaNegocio);
-      $('#direccionLocal').text(data.calleLocal + espacio + data.alturaLocal + coma + data.idLocalidad.nombreLocalidad);
+      $('#direccionLocal').text(data.calleLocal + espacio + data.alturaLocal);
     },
     error: function (jqXHR, textStatus, errorThrown) {
       $('#target').append("jqXHR: " + jqXHR);
