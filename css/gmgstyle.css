@@ -746,7 +746,7 @@ input#login-submit:hover {
 
     img.logoweb {
         width: 230px;
-        padding-top: 10%;
+        padding-top: 9%;
     }
 
     .navbar-custom {
@@ -928,6 +928,7 @@ li#calificacionLocal {
     img.logoweb {
         max-width: 230px;
         float: left;
+        margin-left: 20px;
     }
 }
 @media only screen and (max-width : 768px) {

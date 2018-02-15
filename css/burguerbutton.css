@@ -22,6 +22,7 @@
       -o-transition: .5s ease-in-out;
       transition: .5s ease-in-out;
       cursor: pointer;
+      margin-top: 12px;
     }
 
     #nav-icon3 span {
@@ -83,3 +84,26 @@
       width: 0%;
       left: 50%;
     }
+
+
+/*MEDIAS*/
+
+@media only screen and (max-width : 1440px) {
+
+  #nav-icon3 {
+    width: 20px;
+    height: 25px;
+    position: relative;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+    margin-top: 12px;
+  }
+
+}
