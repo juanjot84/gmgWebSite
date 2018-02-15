@@ -159,14 +159,15 @@ function send() {
          contentType:"application/json",
          success: function (data) {
            var negocio = data;
+           var idLocal = $("#idLocalCreado").val();
            var tipoNegocio = negocio.idTipoNegocio.nombreTipoNegocio;
            var accion = $("#idContactoRecibido").val();
            if(tipoNegocio != 'Restaurante' && accion != 'creEd'){
-            var url = "../lacocina/editar-horarios.php?idLocal="+ idLocalCreado+"&acc=cre";
+            var url = "../lacocina/editar-horarios.php?idLocal="+ idLocal+"&acc=cre";
             $(location).attr('href',url);
             $("#formularioAgregar :input").val('');
            }else if(tipoNegocio == 'Restaurante' && accion != 'creEd'){
-            var url = "../lacocina/asignar-descuento.php?idLocal="+ idLocalCreado+"";
+            var url = "../lacocina/asignar-descuento.php?idLocal="+ idLocal+"";
             $(location).attr('href',url);
             $("#formularioAgregar :input").val('');
            }else{
