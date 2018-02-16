@@ -108,7 +108,29 @@ function cargarHorariosSeteados() {
       }else{
         $('input:checkbox[name=aceptaReservaCheck]').attr('checked',false);       
       }
-     
+
+      var margenReservar
+      if (typeof(data.margenCreacionReserva) == "undefined"){
+        margenReservar = 1;
+      }else{
+        margenReservar = data.margenCreacionReserva;
+      }
+
+     var margenCancelar
+     if (typeof(data.margenCancelacionReserva) == "undefined"){
+      margenCancelar = 2;
+    }else{
+      margenCancelar = data.margenCancelacionReserva;
+    }
+    
+     $("#demo").html('');
+     $("#demo").append(margenReservar);
+     $("#demo2").html('');
+     $("#demo2").append(margenCancelar);
+      $("#myRange").val(margenReservar);
+      $("#myRange2").val(margenCancelar);
+
+
       var horariosAtencion = data.idHorarioAtencion;
       var cubiertos = data.idCubiertosDia;
       horariosViejos = horariosViejos;
@@ -507,3 +529,39 @@ var cadaMediaHora = function(t1,t2){
   return rangoHoras;
 };
 
+function actualizarMargen(campo){
+  var valorAActualizar = $('#'+campo).val();
+  var campoAActualizar = '';
+  if(campo == "myRange"){
+    campoAActualizar = 'margenCreacionReserva';
+  }else{
+    campoAActualizar = 'margenCancelacionReserva';
+  }
+  var idLocal = $("#idLocalCreado").val();
+
+
+  var promise = new Promise(function(resolve, reject) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    var nuevoCampo = {};
+    nuevoCampo[campoAActualizar] = valorAActualizar;
+
+    $.ajax({
+      url: server + '/api/v1/admin/local?id=' + idLocal,
+      type: 'PUT',
+
+      dataType: "json",
+      crossDomain: true,
+      contentType: "application/json",
+      success: function (data) {
+        resolve(data);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        reject(errorThrown);
+      },
+      data: JSON.stringify(nuevoCampo)
+    });
+   });
+  });
+
+  return promise;
+}
