@@ -43,6 +43,14 @@ header {
     font-weight: bold;
 }
 
+.acceder-mobile {
+    display: none;
+}
+
+.acceder-pc {
+    display: block;
+}
+
 .botonsalirfront {
     color: #000;
     padding-left: 10px;
@@ -930,6 +938,30 @@ li#calificacionLocal {
         float: left;
         margin-left: 20px;
     }
+
+    /*Menu lateral*/
+
+    .navbar.navbar-fixed-top {
+    position: sticky !important;
+}
+
+    .acceder-mobile {
+        display: block;
+    }
+
+    .acceder-pc {
+        display: none;
+    }
+
+    .nombreusuarionav {
+        margin-top: -18px;
+        margin-right: 15px;
+        text-align: left;
+        font-size: 0.9em;
+        font-weight: bold;
+    }
+
+    /*Fin Menu Lateral*/
 }
 @media only screen and (max-width : 768px) {
 
