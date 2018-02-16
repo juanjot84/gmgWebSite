@@ -108,8 +108,21 @@ function cargarHorariosSeteados() {
       }else{
         $('input:checkbox[name=aceptaReservaCheck]').attr('checked',false);       
       }
-      var margenReservar = data.margenCreacionReserva;
-      var margenCancelar = data.margenCancelacionReserva;
+
+      var margenReservar
+      if (typeof(data.margenCreacionReserva) == "undefined"){
+        margenReservar = 1;
+      }else{
+        margenReservar = data.margenCreacionReserva;
+      }
+
+     var margenCancelar
+     if (typeof(data.margenCancelacionReserva) == "undefined"){
+      margenCancelar = 2;
+    }else{
+      margenCancelar = data.margenCancelacionReserva;
+    }
+    
      $("#demo").html('');
      $("#demo").append(margenReservar);
      $("#demo2").html('');
