@@ -362,17 +362,28 @@
 
           <!-- Publicidad -->
           <section style="padding: 0px 0 !important;">
-            <div class="container-fluid fondopubli-web">
+            <div class="container-fluid fondopubli-web"> 
+              
               <div class="row">
                 <div class="col-lg-12 text-center">
-                  <img style="margin: 5% auto;" class="img-responsive" src="img/publicidad.png">
+                  <!-- <img style="margin: 5% auto;" class="img-responsive" src="img/publicidad.png"> -->
+
+                  <!-- Zuelo -->
+                  <iframe src="banners/banner_zuelo1920x400/index.php" width="100%" height="400" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                  <!-- Fin Zuelo -->
+
                 </div>
               </div>
             </div>
-            <div class="container-fluid fondopubli-mobile">
+             <div class="container-fluid fondopubli-mobile"> 
               <div class="row">
                 <div class="col-lg-12 text-center">
-                  <img class="img-responsive" src="img/publicidad-mobile.png">
+                  <!-- <img class="img-responsive" src="img/publicidad-mobile.png"> -->
+
+                  <!-- Zuelo -->
+                  <iframe src="banners/banner_zuelo500x500/index.php" width="100%" height="400" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                  <!-- Fin Zuelo -->
+
                 </div>
               </div>
             </div>
