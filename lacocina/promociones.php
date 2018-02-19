@@ -148,7 +148,7 @@ include("includes/nav.php"); ?>
                         <th>Negocio</th>
                         <th style="text-align: center;">Sucursal</th>
                         <th style="text-align: center;">Destacado</th>
-                        <th style="text-align: center;">Acción</th>
+                        
                       </tr>
                     </thead>
                     <tbody id="">
@@ -161,7 +161,7 @@ include("includes/nav.php"); ?>
                         <td>Todos</td>
                         <td class="text-center">-</td>
                         <td class="text-center">-</td>
-                        <td class="text-center">-</td>
+                        
                       </tr>
                     </tbody>
                   </table>
