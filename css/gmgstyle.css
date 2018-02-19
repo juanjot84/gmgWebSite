@@ -931,6 +931,17 @@ li#calificacionLocal {
         max-width: 230px;
         float: left;
     }
+    .fondopubli-web {
+        /*background: url(../img/fondopubli.jpg) no-repeat;*/
+        background-size: cover;
+        min-height: 300px;
+        background-position: top;
+        display: none;
+        max-width: 768px;
+    }
+    .fondopubli-mobile {
+        display: block;
+    }
 }
 @media only screen and (max-width : 768px) {
 
@@ -990,14 +1001,6 @@ li#calificacionLocal {
         margin-bottom: 15px !important;
     }
 
-    .fondopubli-web {
-        /*background: url(../img/fondopubli.jpg) no-repeat;*/
-        background-size: cover;
-        min-height: 300px;
-        background-position: top;
-        display: block;
-        max-width: 768px;
-    }
 
 }
 
