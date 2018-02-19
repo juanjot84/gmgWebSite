@@ -73,6 +73,17 @@ $idLocal = $_GET["id"];
 
   <?php include("includes/soportezen.php"); ?>
 
+  <style type="text/css">
+      @media only screen and (max-width : 425px) {
+          img.logoweb {
+              max-width: 230px;
+              float: left;
+              margin-left: 60px;
+              padding-top: 8px;
+          }
+      }
+  </style>
+
 </head>
 
 
