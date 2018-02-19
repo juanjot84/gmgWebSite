@@ -114,17 +114,10 @@ include("includes/nav.php"); ?>
               <p>Ver opción para colocar Date Picker</p>
 
               <div class="row">
-                <div class="col-md-6">
-                  <div class="input-group input-group-sm">
-                    <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                    <input id="" name="" type="text" class="form-control" placeholder="Desde" aria-describedby="sizing-addon3" onfocus="limpiar('')" required>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="input-group input-group-sm">
-                    <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                    <input id="" name="" type="text" class="form-control" placeholder="Hasta" aria-describedby="sizing-addon3" onfocus="limpiar('')" required>
-                  </div>
+                <div class="col-md-12">
+                  
+                    <!-- Acá debe ir el datepicker -->
+                  
                 </div>
               </div>
 
