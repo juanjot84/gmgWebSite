@@ -76,10 +76,11 @@ include("includes/nav.php"); ?>
 
               <h5 class="titulosalta"> Comisión</h5>
  
-              <p><div class="input-group input-group-sm">
-                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                <input id="nombreNegocio" name="nombreNegocio" type="text" class="form-control" placeholder="Porcentaje de comisión %" aria-describedby="sizing-addon3" onfocus="limpiar('nombreNegocio')" required>
-              </div></p>
+              <label class="titulohorarioatencion">Elegí el <strong class="naranja">porcentaje de comisión</strong></label>
+                            <div class="slidecontainer">
+                              <p class="horasanticipacion">Comisión: <span id="demo"></span>%</p>
+                              <input type="range" min="1" max="20" value="1" class="slider1" id="myRange" onchange="actualizarMargen('myRange')">
+                            </div>
 
 
               <h5 class="titulosalta"> Impacta en reservas</h5>
@@ -171,19 +172,26 @@ include("includes/nav.php"); ?>
             </form>    
 
             <!-- Table -->
-            <div id="cabeceraTablaNegocios">
+            <div id="">
               <div class="panel-heading tituloseccion" >PROMOCIONES</div>
+              <br>
+              <br>
               <table class="table">
                 <thead class="titulotabla">
                   <tr> 
-                    <th>#</th>
-                        <th>Nombre</th>
-                        <th style="text-align: center;">Porcentaje</th>
-                        <th style="text-align: center;">Acción</th>
+                      <th>#</th>
+                      <th style="text-align: center;">Nombre</th>
+                      <th style="text-align: center;">Porcentaje</th>
+                      <th style="text-align: center;">Acción</th>
                   </tr>
                 </thead>
-                <tbody id="listadoNegocios">
-
+                <tbody id="">
+                  <tr class="text-center">
+                    <td>1</td>
+                    <td>Promoción ALMALBEC</td>
+                    <td>15%</td>
+                    <td>Ponela de nuevo</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -283,6 +291,31 @@ include("includes/nav.php"); ?>
 
 
 </script>
+
+<!-- Slider Range -->
+
+<script>
+  var slider = document.getElementById("myRange");
+  var output = document.getElementById("demo");
+  output.innerHTML = slider.value;
+
+  slider.oninput = function() {
+    output.innerHTML = this.value;
+  }
+</script>
+
+
+<script>
+  var slider2 = document.getElementById("myRange2");
+  var output2 = document.getElementById("demo2");
+  output2.innerHTML = slider2.value;
+
+  slider2.oninput = function() {
+    output2.innerHTML = this.value;
+  }
+</script>
+
+<!-- End Slider Range -->
 
 </body>
 

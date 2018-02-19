@@ -82,6 +82,24 @@ $redirect = isset($_GET['redirect']) ? $_GET['redirect'] : 'index.php';
     /></noscript>
     <!-- End Facebook Pixel Code -->
 
+    <style type="text/css">
+        @media only screen and (max-width : 320px) {
+           img.logoweb {
+               max-width: 230px;
+               float: left;
+            margin-left: 55px;
+           }
+           img.logoweb {
+               width: 230px;
+               padding-top: 5px;
+               max-width: 230px;
+               float: left;
+               margin-left: 40px;
+           }
+
+        }
+    </style>
+
 </head>
 
 <body id="page-top" class="index">
