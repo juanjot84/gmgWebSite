@@ -172,19 +172,26 @@ include("includes/nav.php"); ?>
             </form>    
 
             <!-- Table -->
-            <div id="cabeceraTablaNegocios">
+            <div id="">
               <div class="panel-heading tituloseccion" >PROMOCIONES</div>
+              <br>
+              <br>
               <table class="table">
                 <thead class="titulotabla">
                   <tr> 
-                    <th>#</th>
-                        <th>Nombre</th>
-                        <th style="text-align: center;">Porcentaje</th>
-                        <th style="text-align: center;">Acción</th>
+                      <th>#</th>
+                      <th style="text-align: center;">Nombre</th>
+                      <th style="text-align: center;">Porcentaje</th>
+                      <th style="text-align: center;">Acción</th>
                   </tr>
                 </thead>
-                <tbody id="listadoNegocios">
-
+                <tbody id="">
+                  <tr class="text-center">
+                    <td>1</td>
+                    <td>Promoción ALMALBEC</td>
+                    <td>15%</td>
+                    <td>Ponela de nuevo</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
