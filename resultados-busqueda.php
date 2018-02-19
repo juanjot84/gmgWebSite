@@ -76,6 +76,12 @@
             width: 45%;
             margin: 0 auto;
         }
+        img.logoweb {
+            max-width: 230px;
+            float: left;
+            margin-left: 60px;
+            padding-top: 8px;
+        }
      }
 
   </style>

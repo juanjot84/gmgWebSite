@@ -19,8 +19,8 @@
     $nombreUsuario = $_SESSION['nombreUsuario'];
     $apellidoUsuario = $_SESSION['apellidoUsuario'];
   
-    $login = '<li><a href="login.php"><i class="fa fa-user" aria-hidden="true"></i> ACCEDER</a></li>';
-    $logout = '<div class="nombreusuarionav"><a class="linkperfil" href="mi-perfil.php"> <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;'. $nombreUsuario.' '.$apellidoUsuario.'</a> <a class="botonsalirfront" href="cerrar_sesion.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Salir</a></div><li><a href="mis-favoritos.php"><i class="fa fa-heart" style="color: #e02222 !important;" aria-hidden="true"></i> FAVORITOS</a></li><li><a href="mis-reservas.php"><i class="fa fa-check" aria-hidden="true"></i> RESERVAS</a></li>';
+    $login = '<li class="acceder-mobile"><a href="login.php"><i class="fa fa-user" aria-hidden="true"></i> ACCEDER</a></li>';
+    $logout = '<div class="nombreusuarionav acceder-mobile"><a class="linkperfil" href="mi-perfil.php"> <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;'. $nombreUsuario.' '.$apellidoUsuario.'</a> <a class="botonsalirfront" href="cerrar_sesion.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Salir</a></div><li><a href="mis-favoritos.php"><i class="fa fa-heart" style="color: #e02222 !important;" aria-hidden="true"></i> FAVORITOS</a></li><li><a href="mis-reservas.php"><i class="fa fa-check" aria-hidden="true"></i> RESERVAS</a></li>';
   
     $check_login = isset($_SESSION['jwt']) ? $logout : $login;
   }
@@ -55,12 +55,9 @@
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header page-scroll">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span> <i class="fa fa-bars"></i>
-        </button>
-        <a class="navbar-brand page-scroll" href="index.php"><img class="logoweb" src="img/logo-gmg.png"></a>
+        <a  href="index.php"><img class="logoweb" src="img/logo-gmg.png"></a>
 
-        <form class="buscadorresultados" action="resultados-busqueda.php" method="post" >
+        <form class="buscadorresultados" action="resultados-busqueda.php" method="post">
             <div class="input-group">
               <input type="text" class="form-control buscadornav2" placeholder="Buscá por nombre, zona o tipo de cocina" name="parametro">
             </div>
@@ -72,7 +69,7 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right acceder-pc">
 
           <li class="hidden">
             <a href="#page-top"></a>

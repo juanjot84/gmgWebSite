@@ -83,9 +83,9 @@ header {
 }
 
 .fondopubli-web {
-    background: url(../img/fondopubli.jpg) no-repeat;
+    /*background: url(../img/fondopubli.jpg) no-repeat;*/
     background-size: cover;
-    min-height: 400px;
+    /*min-height: 400px;*/
     background-position: top;
     display: block;
 }
@@ -754,7 +754,7 @@ input#login-submit:hover {
 
     img.logoweb {
         width: 230px;
-        padding-top: 9%;
+        padding-top: 25px;
     }
 
     .navbar-custom {
@@ -936,14 +936,10 @@ li#calificacionLocal {
     img.logoweb {
         max-width: 230px;
         float: left;
-        margin-left: 20px;
+        margin-left: -25px;
     }
 
     /*Menu lateral*/
-
-    .navbar.navbar-fixed-top {
-    position: sticky !important;
-}
 
     .acceder-mobile {
         display: block;
@@ -961,8 +957,15 @@ li#calificacionLocal {
         font-weight: bold;
     }
 
+    .navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+        margin-left: 25px;
+    }
+
     /*Fin Menu Lateral*/
 }
+
+
+
 @media only screen and (max-width : 768px) {
 
     nav#mainNav {
@@ -1080,4 +1083,28 @@ li#calificacionLocal {
     .navbar-nav {
         margin: 15.5px -15px;
     }
+    .navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+        margin-left: 60px;
+    }
+
+    img.logoweb {
+        max-width: 230px;
+        float: left;
+        margin-left: 43px;
+        padding-top: 25px;
+    }
+
+ }
+
+
+@media only screen and (max-width : 320px) {
+
+
+    img.logoweb {
+        max-width: 230px;
+        float: left;
+        margin-left: -10px;
+        padding-top: 25px;
+    }
+
  }
