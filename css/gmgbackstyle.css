@@ -410,6 +410,15 @@ td {
 
 }
 
+.titulotablacomisones {
+    background: #a3a3a3;
+    color: #fff;
+}
+
+tr.text-center.listacomision {
+    font-size: 0.8em;
+}
+
 .btn-default.botaccion {
     border: 0;
 }
@@ -739,6 +748,14 @@ ul.selecdiashorario {
     font-weight: 700;
 }
 
+.titulospromocion {
+    text-transform: uppercase;
+    line-height: 1.5em;
+    color: #616161;
+    padding-bottom: 15px;
+}
+
+
 .titulohorarioatencionbajada {
     text-transform: none;
     line-height: 1em;
@@ -986,6 +1003,17 @@ input:checked + .slider:before {
 .slidecontainer {
     width: 100%;
     padding: 0 20%;
+}
+
+.slidecontainer2 {
+    width: 100%;
+    text-align: left !important;
+    padding-right: 25%;
+}
+
+.textocomisionpromo {
+    text-align: left;
+    font-weight: bold;
 }
 
 .slider1 {

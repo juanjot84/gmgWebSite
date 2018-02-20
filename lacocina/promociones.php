@@ -75,12 +75,113 @@ include("includes/nav.php"); ?>
               </div></p>
 
               <h5 class="titulosalta"> Comisión</h5>
- 
-              <label class="titulohorarioatencion">Elegí el <strong class="naranja">porcentaje de comisión</strong></label>
-                            <div class="slidecontainer">
-                              <p class="horasanticipacion">Comisión: <span id="demo"></span>%</p>
-                              <input type="range" min="1" max="20" value="1" class="slider1" id="myRange" onchange="actualizarMargen('myRange')">
-                            </div>
+              
+              <div class="row">
+                <div class="col-md-6">
+
+                  <div class="radio">
+                    <label class="titulospromocion radio-inline">
+                      <input type="radio" name="optradio">Elegir el <strong class="naranja">porcentaje de comisión</strong>
+                    </label>
+                  </div>
+
+
+                  <div class="slidecontainer2">
+                    <p class="textocomisionpromo">Comisión: <span id="demo"></span>%</p>
+                    <input type="range" min="1" max="20" value="1" class="slider1" id="myRange" onchange="actualizarMargen('myRange')">
+                  </div>
+                </div>
+
+                <div class="col-md-6"></div>
+              </div>
+
+              <div class="row" style="margin-top: 40px; border-top: 1px solid #e2e2e2; padding-top: 20px;">
+
+                <div class="col-md-6">
+
+                  <div class="radio">
+                    <label class="titulospromocion radio-inline">
+                      <input type="radio" name="optradio">Elegir un <strong class="naranja">valor fijo por rango</strong>
+                    </label>
+                  </div>
+
+                  <div class="row">
+
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="">Desde:</label>
+                        <input id="" name="" type="number" class="form-control" placeholder="1" aria-describedby="sizing-addon3">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="">Hasta:</label>
+                        <input id="" name="" type="number" class="form-control" placeholder="300" aria-describedby="sizing-addon3">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="">$:</label>
+                        <input id="" name="" type="number" class="form-control" placeholder="$" aria-describedby="sizing-addon3">
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="agregarquitar">
+                    <button class="botonagregarhorario"><i class="fa fa-plus" aria-hidden="true"></i> Agregar a lista</button>
+                  </div>
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <h5>Listado resumen de comisiones</h5>
+                  <table class="table">
+                    <thead class="titulotablacomisones">
+                      <tr> 
+                        <th style="text-align: center;">Comisión</th>
+                        <th style="text-align: center;">Desde</th>
+                        <th style="text-align: center;">Hasta</th>
+                        <th style="text-align: center;">Valor</th>
+                        <th style="text-align: center;">Acción</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody id="">
+                      <tr class="text-center listacomision">
+                        <td>Fijo por Rango</td>
+                        <td>1</td>
+                        <td class="text-center">300</td>
+                        <td class="text-center">$15</td>
+                        <td class="centrarbotaccion">
+                          <button onclick="editar('')" title="Editar" class="btn btn-default botaccion" type="button">
+                            <i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                          </button>
+                          <button title="Eliminar" onclick="mostrarModalEliminar('')" class="btn btn-default botaccion" type="button">
+                            <i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr class="text-center listacomision">
+                        <td>Fijo por Rango</td>
+                        <td>301</td>
+                        <td class="text-center">500</td>
+                        <td class="text-center">$25</td>
+                        <td class="centrarbotaccion">
+                          <button onclick="editar('')" title="Editar" class="btn btn-default botaccion" type="button">
+                            <i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                          </button>
+                          <button title="Eliminar" onclick="mostrarModalEliminar('')" class="btn btn-default botaccion" type="button">
+                            <i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
 
 
               <h5 class="titulosalta"> Impacta en reservas</h5>
@@ -96,18 +197,26 @@ include("includes/nav.php"); ?>
                   <li> SI</li>
                 </ul>
 
-              <h5 class="titulosalta"> Url de imagen de la promoción para Web</h5>
+
+              <h5 class="titulosalta"> Cargar ícono de la promoción</h5>
 
               <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                <input id="urlIconoNegocio" name="urlIconoNegocio" type="text" class="form-control" placeholder="Url de la imagen para web" aria-describedby="sizing-addon3" onfocus="limpiar('urlIconoNegocio')" required>
+                <input id="" name="" type="text" class="form-control" placeholder="Url de la imagen para web" aria-describedby="sizing-addon3" onfocus="limpiar('')" required>
               </div></p>
 
-              <h5 class="titulosalta"> Url de imagen de la promoción para App</h5>
+              <h5 class="titulosalta"> Cargar imagen de la promoción para Web</h5>
 
               <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                <input id="urlIconoNegocio" name="urlIconoNegocio" type="text" class="form-control" placeholder="Url de la imagen para app" aria-describedby="sizing-addon3" onfocus="limpiar('urlIconoNegocio')" required>
+                <input id="" name="" type="text" class="form-control" placeholder="Url de la imagen para web" aria-describedby="sizing-addon3" onfocus="limpiar('')" required>
+              </div></p>
+
+              <h5 class="titulosalta"> Cargar imagen de la promoción para App</h5>
+
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                <input id="" name="" type="text" class="form-control" placeholder="Url de la imagen para app" aria-describedby="sizing-addon3" onfocus="limpiar('')" required>
               </div></p>
 
               <h5 class="titulosalta"> Duración de la promoción</h5>
@@ -141,7 +250,6 @@ include("includes/nav.php"); ?>
                         <th>Seleccionar</th>
                         <th>Negocio</th>
                         <th style="text-align: center;">Sucursal</th>
-                        <th style="text-align: center;">Destacado</th>
                         
                       </tr>
                     </thead>
@@ -153,7 +261,6 @@ include("includes/nav.php"); ?>
                           </div>
                         </td>
                         <td>Todos</td>
-                        <td class="text-center">-</td>
                         <td class="text-center">-</td>
                         
                       </tr>
