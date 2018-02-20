@@ -201,22 +201,19 @@ include("includes/nav.php"); ?>
               <h5 class="titulosalta"> Cargar ícono de la promoción</h5>
 
               <p><div class="input-group input-group-sm">
-                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                <input id="" name="" type="text" class="form-control" placeholder="Url de la imagen para web" aria-describedby="sizing-addon3" onfocus="limpiar('')" required>
+                Colocar cargador de img.
               </div></p>
 
               <h5 class="titulosalta"> Cargar imagen de la promoción para Web</h5>
 
               <p><div class="input-group input-group-sm">
-                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                <input id="" name="" type="text" class="form-control" placeholder="Url de la imagen para web" aria-describedby="sizing-addon3" onfocus="limpiar('')" required>
+                Colocar cargador de img.
               </div></p>
 
               <h5 class="titulosalta"> Cargar imagen de la promoción para App</h5>
 
               <p><div class="input-group input-group-sm">
-                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                <input id="" name="" type="text" class="form-control" placeholder="Url de la imagen para app" aria-describedby="sizing-addon3" onfocus="limpiar('')" required>
+                Colocar cargador de img.
               </div></p>
 
               <h5 class="titulosalta"> Duración de la promoción</h5>
@@ -289,6 +286,9 @@ include("includes/nav.php"); ?>
                       <th>#</th>
                       <th style="text-align: center;">Nombre</th>
                       <th style="text-align: center;">Porcentaje</th>
+                      <th style="text-align: center;">Desde:</th>
+                      <th style="text-align: center;">Hasta</th>
+                      <th style="text-align: center;">Valor $</th>
                       <th style="text-align: center;">Acción</th>
                   </tr>
                 </thead>
@@ -297,7 +297,33 @@ include("includes/nav.php"); ?>
                     <td>1</td>
                     <td>Promoción ALMALBEC</td>
                     <td>15%</td>
-                    <td>Ponela de nuevo</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td class="centrarbotaccion">
+                      <button onclick="editar('')" title="Editar" class="btn btn-default botaccion" type="button">
+                        <i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                      </button>
+                      <button title="Eliminar" onclick="mostrarModalEliminar('')" class="btn btn-default botaccion" type="button">
+                        <i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="text-center">
+                    <td>1</td>
+                    <td>Promoción ALMALBEC</td>
+                    <td>-</td>
+                    <td>1</td>
+                    <td>300</td>
+                    <td>$15</td>
+                    <td class="centrarbotaccion">
+                      <button onclick="editar('')" title="Editar" class="btn btn-default botaccion" type="button">
+                        <i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                      </button>
+                      <button title="Eliminar" onclick="mostrarModalEliminar('')" class="btn btn-default botaccion" type="button">
+                        <i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i>
+                      </button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
