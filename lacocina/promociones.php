@@ -1,22 +1,3 @@
-<?php 
-error_reporting(E_ERROR);
-session_start();
-
-$idNegocio = $_SESSION['idNegocio'];
-$tipoUsuario = $_SESSION['tipoUsuario'];
-
-
-if (!$_SESSION) {
-       header('Location: index.php');
-} else {
-    if ($tipoUsuario == 'superAdmin') {
-        
-    } else {
-        header('Location: index.php');
-    }
-}
-
-?>
 
 <?php 
 error_reporting(E_ERROR);
@@ -30,18 +11,11 @@ include("includes/head.php"); ?>
 error_reporting(E_ERROR);
 include("includes/nav.php"); ?>
 
-<center><div id="loading"></div></center>
 
     <div class="container-fluid" style="padding: 1%;background: yellow;margin-top: -21px;">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="input-group">
-                      <input type="text" class="form-control" placeholder="BUSCAR..." style="padding: 25.6px;">
-                      <span class="input-group-btn">
-                        <button class="btn btn-default botonbuscar" style="color: #333; background-color: #fff; border: 1px solid #ccc; padding: 15px; border-radius: 0;" type="button"><i style="font-size: 1.5em;" class="fa fa-search" aria-hidden="true"></i></button>
-                      </span>
-                    </div>
                 </div>
                 <div class="col-md-6" style="text-align: right;">
                     <div class="input-group">
@@ -61,7 +35,7 @@ include("includes/nav.php"); ?>
                  <!-- Table -->
 
           <!-- Formulario de promociones -->
-            <form action="" id="formularioAgregar" style="display:none">
+            <form>
 
             <h2 class="tituloseccion">Alta de Promoción</h2>
  
@@ -286,7 +260,7 @@ include("includes/nav.php"); ?>
                       <th style="text-align: center;">Nombre</th>
                       <th style="text-align: center;">Porcentaje</th>
                       <th style="text-align: center;">Desde:</th>
-                      <th style="text-align: center;">Hasta</th>
+                      <th style="text-align: center;">Hasta:</th>
                       <th style="text-align: center;">Valor $</th>
                       <th style="text-align: center;">Acción</th>
                   </tr>
@@ -333,41 +307,7 @@ include("includes/nav.php"); ?>
       </div>
     </div>
 
-  <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-   <div class="modal-dialog">
-      <div class="modal-content">
-         <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h3>No se pudo eliminar el Negocio</h3>
-     </div>
-         <div class="modal-body">
-            <h5>Este negocio tiene locales asociados</h5>
 
-     </div>
-         <div class="modal-footer">
-        <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
-     </div>
-      </div>
-   </div>
-</div>
-
-<div class="modal fade" id="mostrarmodal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-   <div class="modal-dialog">
-      <div class="modal-content">
-         <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h3>ATENCIÓN</h3>
-     </div>
-         <div class="modal-body">
-            <h5>Está por eliminar un restaurante y toda la información asociada al mismo</h5>
-     </div>
-         <div class="modal-footer">
-        <a href="#" data-dismiss="modal" class="btn btn-danger">Cancelar</a>
-        <a onClick="eliminar()" data-dismiss="modal" class="btn btn-danger">Aceptar</a>
-     </div>
-      </div>
-   </div>
-</div>
 
     
     <?php 
@@ -388,35 +328,11 @@ include("includes/nav.php"); ?>
     <script src="../js/jqBootstrapValidation.js"></script>
     <script src="../js/contact_me.js"></script>
 
-    <!-- Funciones de Negocio JavaScript -->
-    <script src="js/controladores/promocion.controlador.js"></script>
-
     <!-- Theme JavaScript -->
     <script src="../js/agency.min.js"></script>
 
     <script type="text/javascript">
         
-
-    $(function() {
-
-    $('#login-form-link').click(function(e) {
-        $("#login-form").delay(100).fadeIn(100);
-        $("#register-form").fadeOut(100);
-        $('#register-form-link').removeClass('active');
-        $(this).addClass('active');
-        e.preventDefault();
-    });
-    $('#register-form-link').click(function(e) {
-        $("#register-form").delay(100).fadeIn(100);
-        $("#login-form").fadeOut(100);
-        $('#login-form-link').removeClass('active');
-        $(this).addClass('active');
-        e.preventDefault();
-    });
-
-    });
-
-
 </script>
 
 <!-- Slider Range -->
