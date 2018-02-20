@@ -46,7 +46,7 @@ include("includes/nav.php"); ?>
                 <div class="col-md-6" style="text-align: right;">
                     <div class="input-group">
                       <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" style="padding: 17px;" onClick="agregarNegocio()"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVA</button>
+                        <button class="btn btn-default" type="button" style="padding: 17px;" onClick=""><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVA</button>
                       </span>
                     </div>
                 </div>
@@ -65,13 +65,12 @@ include("includes/nav.php"); ?>
 
             <h2 class="tituloseccion">Alta de Promoción</h2>
  
-              <input type="text" name="idNegocio" id="idNegocio" class="hidden">
 
              <h5 class="titulosalta"> Nombre</h5>
  
               <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                <input id="nombreNegocio" name="nombreNegocio" type="text" class="form-control" placeholder="Nombre de la promoción" aria-describedby="sizing-addon3" onfocus="limpiar('nombreNegocio')" required>
+                <input id="nombrePromocion" name="nombrePromocion" type="text" class="form-control" placeholder="Nombre de la promoción" aria-describedby="sizing-addon3" required>
               </div></p>
 
               <h5 class="titulosalta"> Comisión</h5>
@@ -390,7 +389,7 @@ include("includes/nav.php"); ?>
     <script src="../js/contact_me.js"></script>
 
     <!-- Funciones de Negocio JavaScript -->
-    <script src="js/controladores/negocio.controlador.js"></script>
+    <script src="js/controladores/promocion.controlador.js"></script>
 
     <!-- Theme JavaScript -->
     <script src="../js/agency.min.js"></script>
@@ -415,11 +414,6 @@ include("includes/nav.php"); ?>
         e.preventDefault();
     });
 
-    });
-
-    $(function() {
-      var accion = 'crear';
-      iniciar(accion);
     });
 
 
