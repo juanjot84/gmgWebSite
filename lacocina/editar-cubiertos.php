@@ -42,7 +42,7 @@ include("includes/head.php"); ?>
 
 <center><div id="loading"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span></div></center>
 
-  <div class="container-fluid" style="padding: 1%;background: yellow;margin-top: -21px;">
+  <div class="container-fluid" style="padding: 1%; background: #fff; margin-top: -21px;">
     <div class="container">
       <div class="row">
         <div class="col-md-6">

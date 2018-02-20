@@ -40,7 +40,7 @@ include("includes/head.php"); ?>
   }
   ?>
 
-  <div class="container-fluid" style="padding: 1%;background: yellow;margin-top: -21px;">
+  <div class="container-fluid" style="padding: 1%; background: #fff; margin-top: -21px;">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
