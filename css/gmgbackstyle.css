@@ -1075,7 +1075,8 @@ input:checked + .slider:before {
 
 .cuadrocargamenupromo {
     border: 1px solid #f1efef;
-    background: #f4f4f4;
+    background: url(../lacocina/img/background-menu.jpg);
+    background-size: cover;
     padding: 3% 5%;
     margin: 3% 0 1% 0;
 }

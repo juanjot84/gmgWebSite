@@ -29,9 +29,17 @@ include("includes/nav.php"); ?>
         </div>
     </div>
     <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
+
+      <div class="input-group" style="text-align: right;">
+         <span class="input-group-btn">
+          <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
+        </span>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
                  <!-- Table -->
 
           <!-- Formulario de promociones -->
@@ -238,7 +246,6 @@ include("includes/nav.php"); ?>
                   </table>
                 </div>
 
-              
               <div class="input-group">
                  <span class="input-group-btn">
                   <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar('crear')"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
@@ -300,6 +307,12 @@ include("includes/nav.php"); ?>
                   </tr>
                 </tbody>
               </table>
+            </div>
+
+            <div class="input-group">
+               <span class="input-group-btn">
+                <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
+              </span>
             </div>
 
             </div>
