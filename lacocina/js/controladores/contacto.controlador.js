@@ -118,7 +118,7 @@ function actualizarContacto(){
   });
 }
 
-function send() {
+function send(accionSalir) {
   if (_.isUndefined(server)) {
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     });
@@ -162,7 +162,10 @@ function send() {
            var idLocal = $("#idLocalCreado").val();
            var tipoNegocio = negocio.idTipoNegocio.nombreTipoNegocio;
            var accion = $("#idContactoRecibido").val();
-           if(tipoNegocio != 'Restaurante' && accion != 'creEd'){
+           
+           if(accionSalir == 'crearSalir'){
+            volverPanelLocal();
+           }else if(tipoNegocio != 'Restaurante' && accion != 'creEd'){
             var url = "../lacocina/editar-horarios.php?idLocal="+ idLocal+"&acc=cre";
             $(location).attr('href',url);
             $("#formularioAgregar :input").val('');
@@ -229,8 +232,8 @@ function validar(accion){
   }
 
   if(hayError==false){
-    if(accion == 'crear'){
-      send();
+    if(accion == 'crear' || accion == 'crearSalir'){
+      send(accion);
     }else if(accion == 'editar'){
       var contacto = $("#idContactoRecibido").val();
       if(contacto == 'creEd'){
@@ -268,6 +271,10 @@ function volverPanelLocal(){
     });
   }
   var idLocal = $("#idLocalRecibido").val();
+  var idLocalCreado = $("#idLocalCreado").val();
+  if(idLocal != ''){
+    idLocal = idLocalCreado;
+  }
   $('#target').html('obteniendo...');
   $.ajax({
     url: server + '/api/v1/admin/locales?id='+ idLocal +"",

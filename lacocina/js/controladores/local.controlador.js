@@ -833,25 +833,26 @@ function validar(accion){
       $("#alturaLocal").parent().after('<span id="alturaLocalAlert" style="color:red"> Debe ingresar una Altura para el Local</span>');
       $("#alturaLocal").addClass('alert-danger');
       hayError = true;
-   }
+   } */
 
-   if(poloNegocio == null){
+   if(poloNegocio == null && tipoNegocio == 'Restaurante'){
       $("#poloNegocio").parent().after('<span id="poloNegocioAlert" style="color:red"> Debe seleccionar un Polo Gastronómico para el Local</span>');
       $("#poloNegocio").addClass('alert-danger');
       hayError = true;
    }
-
-   if(nivelPrecio == null){
+ 
+  
+   if(nivelPrecio == null && tipoNegocio == 'Restaurante'){
       $("#nivelPrecio").parent().after('<span id="nivelPrecioAlert" style="color:red"> Debe seleccionar un Nivel de Precio para el Local</span>');
       $("#nivelPrecio").addClass('alert-danger');
       hayError = true;
    }
 
-   if(TipoCocinaPpal == null){
+   if(TipoCocinaPpal == null && tipoNegocio == 'Restaurante'){
       $("#TipoCocinaPpal").parent().after('<span id="TipoCocinaPpalAlert" style="color:red"> Debe seleccionar un Tipo de Cocina Principal para el Local</span>');
       $("#TipoCocinaPpal").addClass('alert-danger');
       hayError = true;
-   } */
+   } 
 
   if(hayError==false){
     if(accion == 'crear'){

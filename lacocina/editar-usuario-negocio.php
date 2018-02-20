@@ -63,7 +63,7 @@ error_reporting(E_ERROR);
             <div class="col-md-12">
                 <div class="panel panel-default">
 
-                <input type="text" name="idNegocioSeleccionado" id="idNegocioSeleccionado" value="<?php  error_reporting(E_ERROR); echo $idNegocio; ?>" class="hidden">
+                <input type="text" name="idNegocio" id="idNegocio" value="<?php  error_reporting(E_ERROR); echo $idNegocio; ?>" class="hidden">
 
             <form action="" id="formularioAgregar">
 
