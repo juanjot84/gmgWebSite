@@ -892,6 +892,14 @@ ul.selecdiashorario {
     display: none;
 }
 
+.botonagregarnuevo {
+    padding: 17px;
+    background: #5cb85c;
+    color: #fff;
+    margin-right: 10px !important;
+    border-radius: 4px !important;
+}
+
 button#botonVolver {
     background: #f8981d;
     color: #fff;
