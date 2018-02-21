@@ -114,6 +114,11 @@ function buscarTipoNegocio(accion){
     success: function (data) {
       var negocio = data;
       tipoNegocio = negocio.idTipoNegocio.nombreTipoNegocio;
+        $("#tripadvisorLocal").val(negocio.tripadvisorNegocio);
+        $("#facebookLocal").val(negocio.facebookNegocio);
+        $("#instagramLocal").val(negocio.instagramNegocio);
+        $("#twitterLocal").val(negocio.twitterNegocio);
+        $("#webLocal").val(negocio.webNegocio);
       if(tipoNegocio != 'Restaurante'){
         $("#tituloPolo").hide();
         $("#listaPolo").hide();
