@@ -110,7 +110,6 @@ function cargarFormEditar(idNegocio) {
         $("input[name=destacadoNegocio][value=" + negocio.destacadoNegocio + "]").prop("checked", true);
         $("#bajadaNegocio").val(negocio.bajadaNegocio);
         $("#webNegocio").val(negocio.webNegocio);
-        $("#urlIconoNegocio").val(negocio.urlIconoNegocio);
         $("#tagsNegocio").val(negocio.tagsNegocio);
         $("#tripadvisorNegocio").val(negocio.tripadvisorNegocio);
         $("#twitterNegocio").val(negocio.twitterNegocio);
@@ -142,7 +141,6 @@ function actualizarNegocio(accion, tipoUsuario) {
     "nombreNegocio": $("#nombreNegocio").val(),
     "descripcionNegocio": $("#descripcionNegocio").val(),
     "destacadoNegocio": $('input[name=destacadoNegocio]:checked', '#formularioEditar').val(),
-    "urlIconoNegocio": $("#urlIconoNegocio").val(),
     "idTipoNegocio": $("#tipoNegocio").val(),
     "bajadaNegocio": $("#bajadaNegocio").val(),
     "webNegocio": $("#webNegocio").val(),
@@ -193,7 +191,6 @@ function mostrar(idNegocio) {
     $("#nombreNegocio").val(negocio.nombreNegocio);
     $("#descripcionNegocio").val(negocio.descripcionNegocio);
     $("input[name=destacadoNegocio][value=" + negocio.destacadoNegocio + "]").prop("checked", true);
-    $("#urlIconoNegocio").val(negocio.urlIconoNegocio);
     $("#bajadaNegocio").val(negocio.bajadaNegocio);
     $("#webNegocio").val(negocio.webNegocio);
     $("#tagsNegocio").val(negocio.tagsNegocio);
@@ -320,7 +317,6 @@ function send() {
     "nombreNegocio": $("#nombreNegocio").val(),
     "descripcionNegocio": $("#descripcionNegocio").val(),
     "destacadoNegocio": $('input[name=destacadoNegocio]:checked', '#formularioAgregar').val(),
-    "urlIconoNegocio": $("#urlIconoNegocio").val(),
     "idTipoNegocio": $("#tipoNegocio").val(),
     "bajadaNegocio": $("#bajadaNegocio").val(),
     "webNegocio": $("#webNegocio").val(),
