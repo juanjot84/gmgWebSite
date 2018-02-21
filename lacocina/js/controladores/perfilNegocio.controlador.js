@@ -20,8 +20,11 @@
 
     var negocios;
     var tipoNegocios;
+    var idLocal;
+    var cont = 0;
 
     obtenerListado();
+    obtenerLocales();
 
     function obtenerListado() {
       $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
@@ -58,6 +61,37 @@
     });
     }
 
+   function obtenerLocales(){
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      $('#listadoNegocios').html('');
+      $('#target').html('obteniendo...');       
+      $.ajax({
+          url: server + '/api/v1/admin/todosLocales',
+          type: 'GET',
+          
+          dataType: "json",
+          crossDomain: true,
+          contentType:"application/json",
+          success: function (data) {
+              cont = 0;    
+              var idNegocio = $("#idNegocio").val();
+            _.each(data, function(local){
+                if(local.idNegocio._id == idNegocio){
+                  cont++;
+                  idLocal = local._id;
+                }
+            });
+        },
+        error:function(jqXHR,textStatus,errorThrown)
+        {
+            $('#target').append("jqXHR: "+jqXHR);
+            $('#target').append("textStatus: "+textStatus);
+            $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+        },
+    });
+  });
+   }
+
     function editar(idNegocio){    
        var url = "../lacocina/panel-negocio.php?idNegocio="+ idNegocio+"";
        $(location).attr('href',url);
@@ -73,9 +107,14 @@
        var url = "../editar-usuario-negocio.php?idNegocio="+ negocioEditar+"";
        $(location).attr('href',url);
       }else if(formulario == "local"){
-       var negocioEditar = $("#idNegocio").val();
-       var url = "../locales.php?idNegocio="+ negocioEditar+"";
-       $(location).attr('href',url);
+        var negocioEditar = $("#idNegocio").val();
+        if(cont == 1){
+          var url = "../panel-locales.php?idLocal="+ idLocal+"&idNegocio="+negocioEditar+"";
+          $(location).attr('href',url);
+        }else{
+          var url = "../locales.php?idNegocio="+ negocioEditar+"";
+          $(location).attr('href',url);
+        }
       }
 
     }
