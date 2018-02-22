@@ -272,8 +272,10 @@ function volverPanelLocal(){
   }
   var idLocal = $("#idLocalRecibido").val();
   var idLocalCreado = $("#idLocalCreado").val();
-  if(idLocal != ''){
+  if(idLocal == '' && idLocalCreado != ''){
     idLocal = idLocalCreado;
+  }else if(idLocal != '' && idLocalCreado == ''){
+    idLocal
   }
   $('#target').html('obteniendo...');
   $.ajax({
