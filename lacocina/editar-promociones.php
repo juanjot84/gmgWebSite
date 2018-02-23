@@ -265,6 +265,7 @@ error_reporting(E_ERROR);
                             <th >#</th>
                             <th style="text-align: center;">Promoción</th>
                             <th style="text-align: center;">Nombre de Menú</th>
+                            <th style="text-align: center;">Acción</th>
                         </tr>
                     </thead>
                     <tbody id="">
@@ -278,6 +279,11 @@ error_reporting(E_ERROR);
                             <td>
                                 2 empanadadas + 2 copas de Malbec
                             </td>
+                            <td class="centrarbotaccion">
+                              <button onclick="mostrar('')" title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>
+                              <button onclick="editar('')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                              <button title="Eliminar" onclick="eliminar('')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>
+                            </td>
                         </tr>
 
                         <tr class="text-center">
@@ -290,7 +296,13 @@ error_reporting(E_ERROR);
                             <td>
                                 2 empanadadas + 2 copas de Malbec
                             </td>
+                            <td class="centrarbotaccion">
+                              <button onclick="mostrar('')" title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>
+                              <button onclick="editar('')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                              <button title="Eliminar" onclick="eliminar('')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>
+                            </td>
                         </tr>
+
                     </tbody>
                   </table>
                   
