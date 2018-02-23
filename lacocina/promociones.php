@@ -148,7 +148,13 @@ include("includes/nav.php"); ?>
               <h5 class="titulosalta"> Cargar ícono de la promoción</h5>
 
               <p><div class="input-group input-group-sm">
-                Colocar cargador de img.
+              <div class="input-group">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" style="padding: 17px;" data-toggle="modal"  data-target="#mdlArchivos"><i class="fa fa-plus-square-o" aria-hidden="true"></i> CARGAR ICONO</button>
+                      </span>
+              </div>
+
+              <input type="text" id="iconoPromocion"/> 
               </div></p>
 
               <h5 class="titulosalta"> Cargar imagen de la promoción para Web</h5>
@@ -282,6 +288,26 @@ include("includes/nav.php"); ?>
       </div>
     </div>
 
+    <!-- Modal -->
+    <div id="mdlArchivos" class="modal fade">
+        <div class="modal-dialog" style="width: 65%;">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Subir Icono</h4>
+            </div>
+            <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12" id="formDropZone"></div>
+            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
 
 
     
@@ -309,6 +335,10 @@ include("includes/nav.php"); ?>
 
     <!-- Funciones de Promocion JavaScript -->
     <script src="js/controladores/promocion.controlador.js"></script>
+
+    <script src="js/dropzone.js"></script>
+
+    <link rel="stylesheet" href="css/dropzone.css"> 
 
     <script type="text/javascript">
     
