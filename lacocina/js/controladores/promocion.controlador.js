@@ -84,6 +84,10 @@ function eliminarFila(idCampo){
    $("#"+idCampo).html('');
 }
 
+function eliminarIcono(nombreicono){
+
+}
+
 $('#mdlArchivos').on('show.bs.modal', function (event) {
     $("#formDropZone").append("<form id='dZUpload' class='dropzone borde-dropzone' style='cursor: pointer;'>"+
                               "<div class='dz-default dz-message text-center'>"+
@@ -94,7 +98,7 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
            url: "scripts/mainIcono.php",
            addRemoveLinks: true,
            paramName: "konostech",
-           maxFilesize: 5, // MB
+           maxFilesize: 7, // MB
            resizeWidth: 80,
            acceptedFiles: '.png',
            dictRemoveFile: "Eliminar",
@@ -102,12 +106,13 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
            success: function (file, response) {           
                var iconoName = response;
                nombreIcono = iconoName.trim();
-          //     var iconoViejo = $("#cartaLocal1").val();
-          /*     if(cartaVieja != ''){
-                 eliminarCartaVieja(cartaVieja);
-               } */
+               var iconoViejo = $("#iconoPromocion").val();
+               if(iconoViejo != ''){
+                 eliminarIcono(iconoViejo);
+               } 
                $("#iconoPromocion").val(nombreIcono);
-               $('#cartaLocal').attr('href', nombreIcono);
+               $('#verIconoPromocion').attr('src', nombreIcono);
+               $('#verIconoPromocion').show();
                file.previewElement.classList.add("dz-success");
                console.log("Successfully uploaded :" + iconoName);
            },
@@ -126,8 +131,4 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
          }
        });
        
-   });
-   $('#mdlArchivos').on('hidden.bs.modal', function (event) {
-     $("#formDropZone").empty();
-     //  getArchivos();
    });

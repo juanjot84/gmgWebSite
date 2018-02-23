@@ -153,8 +153,8 @@ include("includes/nav.php"); ?>
                         <button class="btn btn-default" type="button" style="padding: 17px;" data-toggle="modal"  data-target="#mdlArchivos"><i class="fa fa-plus-square-o" aria-hidden="true"></i> CARGAR ICONO</button>
                       </span>
               </div>
-
-              <input type="text" id="iconoPromocion"/> 
+              <img class="miniatura-galeria" id="verIconoPromocion" style="display:none">
+              <input type="text" id="iconoPromocion" style="display:none"/> 
               </div></p>
 
               <h5 class="titulosalta"> Cargar imagen de la promoción para Web</h5>

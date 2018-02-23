@@ -515,6 +515,14 @@ h5.titulosalta {
     padding: 0 2%;
 }
 
+.miniatura-icono {
+    object-fit: cover;
+    object-position: center;
+    height: 60px;
+    width: 80px;
+    padding: 0 2%;
+}
+
 .miniaturas-orden {
     display: inline-block;
 }
