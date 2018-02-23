@@ -36,7 +36,7 @@ include("includes/nav.php"); ?>
                  <!-- Table -->
 
           <!-- Formulario de promociones -->
-            <form>
+            <div id="formPromocion">
 
             <h2 class="tituloseccion">Alta de Promoción</h2>
  
@@ -45,7 +45,7 @@ include("includes/nav.php"); ?>
  
               <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                <input id="nombrePromocion" name="nombrePromocion" type="text" class="form-control" placeholder="Nombre de la promoción" aria-describedby="sizing-addon3" required>
+                <input id="nombrePromocion" name="nombrePromocion" type="text" class="form-control" placeholder="Nombre de la promoción" aria-describedby="sizing-addon3">
               </div></p>
 
               <h5 class="titulosalta"> Comisión</h5>
@@ -55,7 +55,7 @@ include("includes/nav.php"); ?>
 
                   <div class="radio">
                     <label class="titulospromocion radio-inline">
-                      <input type="radio" name="optradio">Elegir el <strong class="naranja">porcentaje de comisión</strong>
+                      <input type="radio" id="radioComision" name="radioComision" value="porcentaje" checked="checked" onchange="controlarRadioSeleccionado()">Elegir el <strong class="naranja">porcentaje de comisión</strong>
                     </label>
                   </div>
 
@@ -75,7 +75,7 @@ include("includes/nav.php"); ?>
 
                   <div class="radio">
                     <label class="titulospromocion radio-inline">
-                      <input type="radio" name="optradio">Elegir un <strong class="naranja">valor fijo por rango</strong>
+                      <input type="radio" name="radioComision" id="radioComision" value="valorFijo" onchange="controlarRadioSeleccionado()">Elegir un <strong class="naranja">valor fijo por rango</strong>
                     </label>
                   </div>
 
@@ -84,32 +84,32 @@ include("includes/nav.php"); ?>
                     <div class="col-md-4">
                       <div class="form-group">
                         <label for="">Desde:</label>
-                        <input id="" name="" type="number" class="form-control" placeholder="1" aria-describedby="sizing-addon3">
+                        <input id="valorDesde" name="valorDesde" type="number" onclick="quitarAlert('valorDesde')" class="form-control" placeholder="1" min="1" aria-describedby="sizing-addon3">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
                         <label for="">Hasta:</label>
-                        <input id="" name="" type="number" class="form-control" placeholder="300" aria-describedby="sizing-addon3">
+                        <input id="valorHasta" name="valorHasta" type="number" onclick="quitarAlert('valorHasta')" class="form-control" placeholder="300" min="1" aria-describedby="sizing-addon3">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
                         <label for="">$:</label>
-                        <input id="" name="" type="number" class="form-control" placeholder="$" aria-describedby="sizing-addon3">
+                        <input id="valorFijo" name="valorFijo" type="number" onclick="quitarAlert('valorFijo')" class="form-control" placeholder="$"  min="1" aria-describedby="sizing-addon3">
                       </div>
                     </div>
 
                   </div>
 
                   <div class="agregarquitar">
-                    <button class="botonagregarhorario"><i class="fa fa-plus" aria-hidden="true"></i> Agregar a lista</button>
+                    <button class="botonagregarValor" id="btnAgregarValor" onclick="validarDatosLista()"><i class="fa fa-plus" aria-hidden="true"></i> Agregar a lista</button>
                   </div>
 
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6" id="tablaRangos" style="display:none">
                   <h5>Listado resumen de comisiones</h5>
                   <table class="table">
                     <thead class="titulotablacomisones">
@@ -122,35 +122,8 @@ include("includes/nav.php"); ?>
                         
                       </tr>
                     </thead>
-                    <tbody id="">
-                      <tr class="text-center listacomision">
-                        <td>Fijo por Rango</td>
-                        <td>1</td>
-                        <td class="text-center">300</td>
-                        <td class="text-center">$15</td>
-                        <td class="centrarbotaccion">
-                          <button onclick="editar('')" title="Editar" class="btn btn-default botaccion" type="button">
-                            <i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                          </button>
-                          <button title="Eliminar" onclick="mostrarModalEliminar('')" class="btn btn-default botaccion" type="button">
-                            <i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr class="text-center listacomision">
-                        <td>Fijo por Rango</td>
-                        <td>301</td>
-                        <td class="text-center">500</td>
-                        <td class="text-center">$25</td>
-                        <td class="centrarbotaccion">
-                          <button onclick="editar('')" title="Editar" class="btn btn-default botaccion" type="button">
-                            <i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                          </button>
-                          <button title="Eliminar" onclick="mostrarModalEliminar('')" class="btn btn-default botaccion" type="button">
-                            <i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i>
-                          </button>
-                        </td>
-                      </tr>
+                    <tbody id="listaComision">
+
                     </tbody>
                   </table>
                 </div>
@@ -164,7 +137,7 @@ include("includes/nav.php"); ?>
                   <li>NO </li>
                   <li>
                     <label class="switch">
-                      <input type="checkbox" id="" name="" value="true" onClick="">
+                      <input type="checkbox" id="impactaReservas" name="impactaReservas" value="true">
                       <span class="slider round"></span>
                     </label>
                   </li>
@@ -191,27 +164,23 @@ include("includes/nav.php"); ?>
               </div></p>
 
               <h5 class="titulosalta"> Duración de la promoción</h5>
- 
-              <p>Ver opción para colocar Date Picker</p>
 
               <div class="row">
                 <div class="col-md-12">
                   
-                    <!-- Acá debe ir el datepicker -->
+                 <input type="text" id="duracionPromocion" name="daterange" value="" />
                   
                 </div>
               </div>
 
               <h5 class="titulosalta">Términos y condiciones</h5>
 
-              <p>Hay que quitar limitación de 500 caracteres</p>
-
               <div class="form-group">
                 
-                <textarea class="form-control" rows="5" id="descripcionNegocio" name="descripcionNegocio" onfocus="limpiar('descripcionNegocio')"></textarea>
+                <textarea class="form-control" rows="5" id="terminosCondiciones" name="terminosCondiciones"></textarea>
               </div>
 
-              <h5 class="titulosalta">Seleccionar Negocio</h5>
+              <h5 class="titulosalta">Seleccionar Locales</h5>
               
                 <!-- Table -->
                 <div id=" " class="text-center">
@@ -241,12 +210,12 @@ include("includes/nav.php"); ?>
 
               <div class="input-group">
                  <span class="input-group-btn">
-                  <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
-                  <button id="botoncancelar" class="btn btn-default" type="button" style="padding: 17px;" onClick="cancelar()"><i class="fa fa-ban" aria-hidden="true"></i> Cancelar</button>
+                  <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick=""><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+                  <button id="botoncancelar" class="btn btn-default" type="button" style="padding: 17px;" onClick=""><i class="fa fa-ban" aria-hidden="true"></i> Cancelar</button>
                 </span>
               </div>
 
-            </form>    
+            </div>    
 
             <!-- Table -->
             <div id="">
@@ -321,6 +290,7 @@ include("includes/nav.php"); ?>
     include("includes/footer.php"); ?>
     
 
+
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
 
@@ -332,13 +302,37 @@ include("includes/nav.php"); ?>
 
     <!-- Contact Form JavaScript -->
     <script src="../js/jqBootstrapValidation.js"></script>
-    <script src="../js/contact_me.js"></script>
+   <!-- <script src="../js/contact_me.js"></script> -->
 
     <!-- Theme JavaScript -->
     <script src="../js/agency.min.js"></script>
 
+    <!-- Funciones de Promocion JavaScript -->
+    <script src="js/controladores/promocion.controlador.js"></script>
+
     <script type="text/javascript">
-        
+    
+    </script>
+
+<!-- Include Required Prerequisites -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
+ 
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
+<script type="text/javascript">
+$(function() {
+ $('input[name="daterange"]').daterangepicker(
+  {
+    locale: {
+      format: 'DD/MM/YYYY'
+    }
+  }
+    );
+});
 </script>
 
 <!-- Slider Range -->
@@ -353,16 +347,6 @@ include("includes/nav.php"); ?>
   }
 </script>
 
-
-<script>
-  var slider2 = document.getElementById("myRange2");
-  var output2 = document.getElementById("demo2");
-  output2.innerHTML = slider2.value;
-
-  slider2.oninput = function() {
-    output2.innerHTML = this.value;
-  }
-</script>
 
 <!-- End Slider Range -->
 
