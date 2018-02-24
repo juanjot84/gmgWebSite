@@ -66,7 +66,7 @@ function validarDatosLista(){
         $("#valorFijo").parent().after('<span id="valorFijoAlert" style="color:red">Ingresar Valor</span>');
         $("#valorFijo").addClass('alert-danger');
     }
-    if(valorHasta < valorDesde){
+    if(valorDesde > valorHasta){
         error = true;
         $("#valorHasta").parent().after('<span id="valorHastaAlert" style="color:red">Debe ser mayor que el valor desde</span>');
         $("#valorHasta").addClass('alert-danger');
@@ -87,7 +87,7 @@ function eliminarFila(idCampo){
    $("#"+idCampo).html('');
 }
 
-function eliminarIcono(nombreicono){
+function eliminarIcono(nombreicono, accion){
     if (_.isUndefined(server)) {
         $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
         });
@@ -102,18 +102,23 @@ function eliminarIcono(nombreicono){
               url:   'scripts/eliminarIcono.php', 
               type:  'post', 
               success:  function (response) {
+               if(accion == 'vieja'){
+                
+               }else{
                 $('#contenedorImagenes').html('');
+               }
               }
       });
 }
 
 $('#mdlArchivos').on('show.bs.modal', function (event) {
-    $("#formDropZone").append("<form id='dZUpload' class='dropzone borde-dropzone' style='cursor: pointer;'>"+
+  $("#formDropZone").html('');
+    $("#formDropZone").append("<form id='dZUpload3' class='dropzone borde-dropzone' style='cursor: pointer;'>"+
                               "<div class='dz-default dz-message text-center'>"+
                                 "<span><h2>Arrastra el icono aquí</h2></span><br>"+
                               "<p>(o Click para seleccionar)</p>"+
                               "</div></form>");
-         myAwesomeDropzone = {
+         myAwesomeDropzone3 = {
            url: "scripts/mainIcono.php",
            addRemoveLinks: true,
            paramName: "konostech",
@@ -127,7 +132,9 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
                 nombreIcono = iconoName.trim();
                var iconoViejo = $("#iconoPromocion").val();
                if(iconoViejo != ''){
-                 eliminarIcono(iconoViejo);
+                 var accion = 'vieja';
+                 eliminarIcono(iconoViejo, accion);
+                 $('#contenedorImagenes').html('');
                } 
                $("#iconoPromocion").val(nombreIcono);
                $('#contenedorImagenes').append(  '<br>' +
@@ -138,18 +145,18 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
                  '<br>'+
                  '<button title="Eliminar" onClick="eliminarIcono(\'' + nombreIcono + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i></button> '+
                '</li>'+
-           '');
-
+               '');
+              
                file.previewElement.classList.add("dz-success");
            },
            error: function (file, response) {
              file.previewElement.classList.add("dz-error");
-             myDropzone.removeFile(file);
+             myDropzone3.removeFile(file);
            }
            
          } // FIN myAwesomeDropzone
-     var myDropzone = new Dropzone("#dZUpload", myAwesomeDropzone);    
-       myDropzone.on("complete", function(file) {
+     var myDropzone3 = new Dropzone("#dZUpload3", myAwesomeDropzone3);    
+       myDropzone3.on("complete", function(file) {
           if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {  
          } else {
            console.log('todavia hay archivos subiendose ');
@@ -158,7 +165,7 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
        
    });
 
-   function eliminarImgWeb(nombreimgweb){
+   function eliminarImgWeb(nombreimgweb, accion){
     if (_.isUndefined(server)) {
         $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
         });
@@ -173,21 +180,27 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
               url:   'scripts/eliminarImgWeb.php', 
               type:  'post', 
               success:  function (response) {
-                $('#contenedorImagenWeb').html('');
+                if(accion == 'vieja'){
+
+                }else{
+                  $('#contenedorImagenWeb').html('');
+                }
+                
               }
       });
 }
 
    $('#mdlImgWeb').on('show.bs.modal', function (event) {
-    $("#formDropZone1").append("<form id='dZUpload' class='dropzone borde-dropzone' style='cursor: pointer;'>"+
+    $("#formDropZone1").html('');
+    $("#formDropZone1").append("<form id='dZUpload1' class='dropzone borde-dropzone' style='cursor: pointer;'>"+
                               "<div class='dz-default dz-message text-center'>"+
                                 "<span><h2>Arrastra la imagen aquí</h2></span><br>"+
                               "<p>(o Click para seleccionar)</p>"+
                               "</div></form>");
-         myAwesomeDropzone = {
+         myAwesomeDropzone1 = {
            url: "scripts/mainImgWeb.php",
            addRemoveLinks: true,
-           paramName: "konostech",
+           paramName: "konostech1",
            maxFilesize: 20, // MB
            resizeWidth: 260,
            acceptedFiles: '.jpg,.jpeg',
@@ -198,7 +211,9 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
                 nombreImgWeb = imgWebName.trim();
                var imgWebVieja = $("#imgPromocionWeb").val();
                if(imgWebVieja != ''){
+                 var accion = 'vieja';
                 eliminarImgWeb(imgWebVieja);
+                $('#contenedorImagenWeb').html('');
                } 
                $("#imgPromocionWeb").val(nombreImgWeb);
                $('#contenedorImagenWeb').append(  '<br>' +
@@ -216,22 +231,22 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
            },
            error: function (file, response) {
              file.previewElement.classList.add("dz-error");
-             myDropzone.removeFile(file);
+             myDropzone1.removeFile(file);
            }
            
          } // FIN myAwesomeDropzone
-     var myDropzone = new Dropzone("#dZUpload", myAwesomeDropzone);    
-       myDropzone.on("complete", function(file) {
-          if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {  
-         } else {
-           console.log('todavia hay archivos subiendose ')
-         }
-       });
-       
+
+         var myDropzone1 = new Dropzone("#dZUpload1", myAwesomeDropzone1);    
+         myDropzone1.on("complete", function(file) {
+            if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {  
+           } else {
+             console.log('todavia hay archivos subiendose ');
+           }
+         });
    });
 
 
-   function eliminarImgApp(nombreimgapp){
+   function eliminarImgApp(nombreimgapp, accion){
     if (_.isUndefined(server)) {
         $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
         });
@@ -246,24 +261,29 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
               url:   'scripts/eliminarImgApp.php', 
               type:  'post', 
               success:  function (response) {
-                $('#contenedorImagenApp').html('');
+                if(accion == 'vieja'){
+
+                }else{
+                  $('#contenedorImagenApp').html('');
+                }
+                
               }
       });
 }
 
-
    $('#mdlImgApp').on('show.bs.modal', function (event) {
-    $("#formDropZone2").append("<form id='dZUpload' class='dropzone borde-dropzone' style='cursor: pointer;'>"+
+    $("#formDropZone2").html('');
+    $("#formDropZone2").append("<form id='dZUpload2' class='dropzone borde-dropzone' style='cursor: pointer;'>"+
                               "<div class='dz-default dz-message text-center'>"+
                                 "<span><h2>Arrastra la imagen aquí</h2></span><br>"+
                               "<p>(o Click para seleccionar)</p>"+
                               "</div></form>");
-         myAwesomeDropzone = {
+         myAwesomeDropzone2 = {
            url: "scripts/mainImgApp.php",
            addRemoveLinks: true,
-           paramName: "konostech",
+           paramName: "konostech2",
            maxFilesize: 20, // MB
-           resizeWidth: 260,
+           resizeWidth: 150,
            acceptedFiles: '.jpg,.jpeg',
            dictRemoveFile: "Eliminar",
            maxFiles: 1,
@@ -272,7 +292,8 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
                 nombreImgApp = imgAppName.trim();
                var imgAppVieja = $("#imgPromocionApp").val();
                if(imgAppVieja != ''){
-                eliminarImgApp(imgAppVieja);
+                 var accion = 'vieja';
+                eliminarImgApp(imgAppVieja, accion);
                } 
                $("#imgPromocionApp").val(nombreImgApp);
                $('#contenedorImagenApp').append(  '<br>' +
@@ -294,12 +315,13 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
            }
            
          } // FIN myAwesomeDropzone
-     var myDropzone2 = new Dropzone("#dZUpload", myAwesomeDropzone);    
-       myDropzone2.on("complete", function(file) {
-          if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {  
-         } else {
-           console.log('todavia hay archivos subiendose ')
-         }
-       });
+
+         var myDropzone2 = new Dropzone("#dZUpload2", myAwesomeDropzone2);    
+         myDropzone2.on("complete", function(file) {
+            if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {  
+           } else {
+             console.log('todavia hay archivos subiendose ');
+           }
+         });
        
    });

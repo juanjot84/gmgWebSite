@@ -10,7 +10,7 @@ $dir_subida = '../../imgAppPromociones/';
 $fichero_subido = $dir_subida . basename($nombreIcono);
 $dirIcono = $raiz.$nombreIcono;
 
-if (move_uploaded_file($_FILES['konostech']['tmp_name'], $fichero_subido)) {
+if (move_uploaded_file($_FILES['konostech2']['tmp_name'], $fichero_subido)) {
        echo $dirIcono;
 } else {
     echo "¡Posible ataque de subida de ficheros!\n";
