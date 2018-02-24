@@ -1,6 +1,7 @@
 
 var contLista = 0;
-
+var porcentaje = '';
+var impactaEnReserva;
 
 iniciar();
 
@@ -33,10 +34,10 @@ function agregarRangoLista(valorDesde, valorHasta, valorFijo){
     contLista++;
     $('#listaComision').append(''+
      '<tr id="'+contLista+'" class="text-center listacomision">'+
-        '<td>Fijo por Rango</td>'+
-        '<td>'+valorDesde+'</td>'+
-        '<td class="text-center">'+valorHasta+'</td>'+
-        '<td class="text-center">$'+valorFijo+'</td>'+
+        '<td>'+contLista+'</td>'+
+        '<td><input id="valorDesde'+contLista+'" value="'+valorDesde+'" type="text"></td>'+
+        '<td class="text-center"><input id="valorHasta'+contLista+'" value="'+valorHasta+'" type="text"></td>'+
+        '<td class="text-center"><input id="valorFijo'+contLista+'" value="'+valorFijo+'" type="text"></td>'+
         '<td class="centrarbotaccion">'+
             '<button title="Eliminar" onclick="eliminarFila(\'' + contLista + '\')" class="btn btn-default botaccion" type="button">'+
                '<i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i>'+
@@ -71,10 +72,14 @@ function validarDatosLista(){
         $("#valorHasta").parent().after('<span id="valorHastaAlert" style="color:red">Debe ser mayor que el valor desde</span>');
         $("#valorHasta").addClass('alert-danger');
     }
+    if(valorDesde == valorHasta){
+      error = true;
+      $("#valorDesde").parent().after('<span id="valorDesdeAlert" style="color:red">Desde y hasta no pueden ser iguales</span>');
+      $("#valorDesde").addClass('alert-danger');
+    }
     if(error == false){
         agregarRangoLista(valorDesde, valorHasta, valorFijo);
-    }
-    
+    }   
 }
 
 function quitarAlert(idCampo){
@@ -145,8 +150,7 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
                  '<br>'+
                  '<button title="Eliminar" onClick="eliminarIcono(\'' + nombreIcono + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i></button> '+
                '</li>'+
-               '');
-              
+               '');              
                file.previewElement.classList.add("dz-success");
            },
            error: function (file, response) {
@@ -161,8 +165,7 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
          } else {
            console.log('todavia hay archivos subiendose ');
          }
-       });
-       
+       });       
    });
 
    function eliminarImgWeb(nombreimgweb, accion){
@@ -184,8 +187,7 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
 
                 }else{
                   $('#contenedorImagenWeb').html('');
-                }
-                
+                }                
               }
       });
 }
@@ -225,9 +227,7 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
                  '<button title="Eliminar" onClick="eliminarImgWeb(\'' + nombreImgWeb + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i></button> '+
                '</li>'+
            '');
-
-               file.previewElement.classList.add("dz-success");
-              
+               file.previewElement.classList.add("dz-success"); 
            },
            error: function (file, response) {
              file.previewElement.classList.add("dz-error");
@@ -323,5 +323,105 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
              console.log('todavia hay archivos subiendose ');
            }
          });
-       
    });
+
+   function cargarFormCrear(){
+     $("#formPromocion").show();
+     $("#tablaPromociones").hide();
+   }
+
+   function cancelar(){
+    $("#formPromocion").hide();
+    $("#tablaPromociones").show();
+   }
+
+   function subirWeb(seccion){
+    $('html,body').animate({
+      scrollTop: $("#"+seccion).offset().top
+    }, 2000);
+  }
+
+   function validarDatosPromocio(){
+     var error = false;
+     var nombrePromocion = $("#nombrePromocion").val();
+     if(nombrePromocion == ''){
+       error = true;
+       $("#nombrePromocion").parent().after('<span id="nombrePromocionAlert" style="color:red">Ingresar nombre de la promoción</span>');
+       $("#nombrePromocion").addClass('alert-danger');
+       subirWeb('formPromocion');
+     }
+     var radioPorcentaje = $('input[name=radioComision]:checked').val();
+     porcentaje = 0;
+     if(radioPorcentaje == 'porcentaje'){
+       porcentaje = $("#myRange").val();
+     }else if(radioPorcentaje == 'valorFijo'){
+      
+      if(contLista == 0){
+        error = true;
+        $("#valorDesde").parent().after('<span id="valorDesdeAlert" style="color:red">Ingresar al menos un rango de precios</span>');
+        $("#valorDesde").addClass('alert-danger');
+        subirWeb('formPromocion');
+      }
+     }
+     impactaEnReserva = $('input[name=impactaReservas]:checked').val();
+     if(impactaEnReserva == 'true'){
+      impactaEnReserva = true;
+     }else{
+      impactaEnReserva = false;
+     }
+
+     if(error == false){
+       guardarPromocion()
+     }
+
+   }
+
+function guardarPromocion(){
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
+  var isNew =$("#idPromocion").val() == '';
+  var operacion = isNew  ? "POST": "PUT";
+  var rangoPromocion = [];
+  for (i = 1; i < contLista + 1; i++){ 
+    var rango = {
+    "desde": $("#valorDesde"+i).val(),
+    "hasta": $("#valorHasta"+i).val(),
+    "valor": $("#valorFijo"+i).val()
+    };
+    rangoPromocion.push(rango);
+  }
+  var duracionPromocion = $("#duracionPromocion").val();
+  var duracionPromocionDesde = duracionPromocion.substr(0,10);
+  var duracionPromocionHasta = duracionPromocion.substr(13,10);
+
+  var promocion = JSON.stringify({
+      "nombrePromocion": $("#nombrePromocion").val(),
+      "comisionPromocion": porcentaje,
+      "impactaEnReserva": impactaEnReserva,
+      "imagenWebPromocion": $("#imgPromocionWeb").val(),
+      "imagenAppPromocion": $("#imgPromocionApp").val(),
+      "iconoPromocion": $("#iconoPromocion").val(),
+      "terminosCondicionesPromocion": $("#terminosCondiciones").val(),
+      "rangoPromocion": rangoPromocion,
+      "duracionDesdePromocion": duracionPromocionDesde,
+      "duracionHastaPromocion": duracionPromocionHasta
+  });
+  $('#target').html('sending..');
+  var queryParam = isNew  ? "": "?id=" + $("#idPromocion").val();
+  $.ajax({
+      url: server + '/api/v1/admin/promocion' + queryParam,
+      type: operacion,
+      dataType: "json",
+      crossDomain: true,
+      contentType:"application/json",
+      success: function (data) {
+           alert('se guardo');
+      },
+      error:function(jqXHR,textStatus,errorThrown)
+      {
+    },
+    data: promocion
+});
+}

@@ -1,6 +1,21 @@
 
 <?php 
 error_reporting(E_ERROR);
+
+session_start();
+$tipoUsuario = $_SESSION['tipoUsuario'];
+
+if (!$_SESSION) {
+  header('Location: index.php');
+} else {
+if ($tipoUsuario == 'superAdmin') {
+   
+} else {
+   header('Location: index.php');
+}
+}
+
+
 include("includes/head.php"); ?>
 
 <body id="page-top" class="index">
@@ -19,7 +34,7 @@ include("includes/nav.php"); ?>
                 <div class="col-md-6" style="text-align: right;">
                   <div class="input-group">
                     <span class="input-group-btn">
-                      <button class="botonagregarnuevo btn btn-default" type="button" onClick=""><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVA</button>
+                      <button class="botonagregarnuevo btn btn-default" type="button" onClick="cargarFormCrear()"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVA</button>
                       <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
                     </span>
                   </div>
@@ -34,9 +49,11 @@ include("includes/nav.php"); ?>
         <div class="col-md-12">
           <div class="panel panel-default">
                  <!-- Table -->
+          
+          <input type="text" id="idPromocion" style="display:none"/> 
 
           <!-- Formulario de promociones -->
-            <div id="formPromocion">
+          <div id="formPromocion" style="display:none">
 
             <h2 class="tituloseccion">Alta de Promoción</h2>
  
@@ -45,7 +62,7 @@ include("includes/nav.php"); ?>
  
               <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                <input id="nombrePromocion" name="nombrePromocion" type="text" class="form-control" placeholder="Nombre de la promoción" aria-describedby="sizing-addon3">
+                <input id="nombrePromocion" name="nombrePromocion" onclick="quitarAlert('nombrePromocion')" type="text" class="form-control" placeholder="Nombre de la promoción" aria-describedby="sizing-addon3">
               </div></p>
 
               <h5 class="titulosalta"> Comisión</h5>
@@ -234,15 +251,15 @@ include("includes/nav.php"); ?>
 
               <div class="input-group">
                  <span class="input-group-btn">
-                  <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick=""><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
-                  <button id="botoncancelar" class="btn btn-default" type="button" style="padding: 17px;" onClick=""><i class="fa fa-ban" aria-hidden="true"></i> Cancelar</button>
+                  <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validarDatosPromocio()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+                  <button id="botoncancelar" class="btn btn-default" type="button" style="padding: 17px;" onClick="cancelar()"><i class="fa fa-ban" aria-hidden="true"></i> Cancelar</button>
                 </span>
               </div>
 
-            </div>    
+          </div>    
 
-            <!-- Table -->
-            <div id="">
+    <!-- Tabla Promociones -->
+            <div id="tablaPromociones">
               <div class="panel-heading tituloseccion" >PROMOCIONES</div>
               <br>
               <br>
