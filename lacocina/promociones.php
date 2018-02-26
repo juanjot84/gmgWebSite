@@ -101,19 +101,19 @@ include("includes/nav.php"); ?>
                     <div class="col-md-4">
                       <div class="form-group">
                         <label for="">Desde:</label>
-                        <input id="valorDesde" name="valorDesde" type="number" onclick="quitarAlert('valorDesde')" class="form-control" placeholder="1" min="1" aria-describedby="sizing-addon3">
+                        <input id="valorDesde" name="valorDesde" value="0" type="number" onclick="quitarAlert('valorDesde')" class="form-control" placeholder="1" min="1" aria-describedby="sizing-addon3">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
                         <label for="">Hasta:</label>
-                        <input id="valorHasta" name="valorHasta" type="number" onclick="quitarAlert('valorHasta')" class="form-control" placeholder="300" min="1" aria-describedby="sizing-addon3">
+                        <input id="valorHasta" name="valorHasta" value="0" type="number" onclick="quitarAlert('valorHasta')" class="form-control" placeholder="300" min="1" aria-describedby="sizing-addon3">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
                         <label for="">$:</label>
-                        <input id="valorFijo" name="valorFijo" type="number" onclick="quitarAlert('valorFijo')" class="form-control" placeholder="$"  min="1" aria-describedby="sizing-addon3">
+                        <input id="valorFijo" name="valorFijo" value="0" type="number" onclick="quitarAlert('valorFijo')" class="form-control" placeholder="$"  min="1" aria-describedby="sizing-addon3">
                       </div>
                     </div>
 
@@ -343,13 +343,10 @@ include("includes/nav.php"); ?>
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
-    
     <?php 
     error_reporting(E_ERROR);
     include("includes/footer.php"); ?>
     
-
-
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
 
@@ -361,7 +358,6 @@ include("includes/nav.php"); ?>
 
     <!-- Contact Form JavaScript -->
     <script src="../js/jqBootstrapValidation.js"></script>
-   <!-- <script src="../js/contact_me.js"></script> -->
 
     <!-- Theme JavaScript -->
     <script src="../js/agency.min.js"></script>

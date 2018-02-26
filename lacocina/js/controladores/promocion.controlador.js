@@ -49,44 +49,50 @@ function agregarRangoLista(valorDesde, valorHasta, valorFijo){
     '')
 }
 
+function colocarAlerta(idCampo,mensaje){
+  $("#"+idCampo).parent().after('<span id="'+idCampo+'Alert" style="color:red">'+mensaje+'</span>');
+  $("#"+idCampo).addClass('alert-danger');
+}
+
 function validarDatosLista(){
     var error = false;
     var valorDesde = parseInt($("#valorDesde").val(), 10);
     var valorHasta = parseInt($("#valorHasta").val(), 10);
     var valorFijo =  parseInt($("#valorFijo").val(), 10);
-    if(valorDesde == ''){
+
+    if(valorDesde == 0){
         error = true;
-        $("#valorDesde").parent().after('<span id="valorDesdeAlert" style="color:red">Ingresar Valor</span>');
-        $("#valorDesde").addClass('alert-danger');
+        $("#valorDesdeAlert").html(''); 
+        colocarAlerta('valorDesde','Ingresar Valor');
     }
-    if(valorHasta == ''){
+    if(valorHasta == 0){
         error = true;
-        $("#valorHasta").parent().after('<span id="valorHastaAlert" style="color:red">Ingresar Valor</span>');
-        $("#valorHasta").addClass('alert-danger');
+        $("#valorHastaAlert").html(''); 
+        colocarAlerta('valorHasta','Ingresar Valor');
     }
-    if(valorFijo == ''){
+    if(valorFijo == 0){
         error = true;
-        $("#valorFijo").parent().after('<span id="valorFijoAlert" style="color:red">Ingresar Valor</span>');
-        $("#valorFijo").addClass('alert-danger');
+        $("#valorFijoAlert").html(''); 
+        colocarAlerta('valorFijo','Ingresar Valor');
     }
     if(valorDesde > valorHasta){
         error = true;
-        $("#valorHasta").parent().after('<span id="valorHastaAlert" style="color:red">Debe ser mayor que el valor desde</span>');
-        $("#valorHasta").addClass('alert-danger');
+        $("#valorHastaAlert").html(''); 
+        colocarAlerta('valorHasta','Debe ser mayor que el valor desde');
     }
     if(valorDesde == valorHasta){
       error = true;
-      $("#valorDesde").parent().after('<span id="valorDesdeAlert" style="color:red">Desde y hasta no pueden ser iguales</span>');
-      $("#valorDesde").addClass('alert-danger');
+      $("#valorDesdeAlert").html(''); 
+      colocarAlerta('valorDesde','Desde y hasta no pueden ser iguales');
     }
     if(error == false){
-        agregarRangoLista(valorDesde, valorHasta, valorFijo);
+      agregarRangoLista(valorDesde, valorHasta, valorFijo);
     }   
 }
 
 function quitarAlert(idCampo){
+    $("#"+idCampo+"Alert").html(''); 
     $("#"+idCampo+"Alert").hide();
-    $("#"+idCampo+"Alert").html('');  
     $("#"+idCampo).removeClass('alert-danger');
 }
 
@@ -96,26 +102,26 @@ function eliminarFila(idCampo){
 
 function eliminarIcono(nombreicono, accion){
     if (_.isUndefined(server)) {
-        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
-        });
-      }
-      var largoString = nombreicono.length;
-      var nombreIcono = nombreicono.substr(49, largoString);
-      var parametros = {
+       $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+       });
+    }
+       var largoString = nombreicono.length;
+       var nombreIcono = nombreicono.substr(49, largoString);
+       var parametros = {
               "nombreArchivo" : nombreIcono,
-      };
-      $.ajax({
-              data:  parametros, 
-              url:   'scripts/eliminarIcono.php', 
-              type:  'post', 
-              success:  function (response) {
-               if(accion == 'vieja'){
+       };
+       $.ajax({
+          data:  parametros, 
+          url:   'scripts/eliminarIcono.php', 
+          type:  'post', 
+          success:  function (response) {
+            if(accion == 'vieja'){
                 
-               }else{
-                $('#contenedorImagenes').html('');
-               }
-              }
-      });
+            }else{
+              $('#contenedorImagenes').html('');
+            }
+          }
+       });
 }
 
 $('#mdlArchivos').on('show.bs.modal', function (event) {
@@ -333,9 +339,7 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
    }
 
    function cancelar(){
-    $("#formPromocion").hide();
     dibujarListadoPromociones();
-    $("#tablaPromociones").show();
    }
 
    function subirWeb(seccion){
@@ -349,8 +353,7 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
      var nombrePromocion = $("#nombrePromocion").val();
      if(nombrePromocion == ''){
        error = true;
-       $("#nombrePromocion").parent().after('<span id="nombrePromocionAlert" style="color:red">Ingresar nombre de la promoción</span>');
-       $("#nombrePromocion").addClass('alert-danger');
+       colocarAlerta('nombrePromocion','Ingresar nombre de la promoción');
        subirWeb('formPromocion');
      }
      var radioPorcentaje = $('input[name=radioComision]:checked').val();
@@ -361,8 +364,7 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
       
       if(contLista == 0){
         error = true;
-        $("#valorDesde").parent().after('<span id="valorDesdeAlert" style="color:red">Ingresar al menos un rango de precios</span>');
-        $("#valorDesde").addClass('alert-danger');
+        colocarAlerta('valorDesde','Ingresar al menos un rango de precios');
         subirWeb('formPromocion');
       }
      }
@@ -372,11 +374,7 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
      }else{
       impactaEnReserva = false;
      }
-
-     if(error == false){
-       guardarPromocion()
-     }
-
+     if(!error){guardarPromocion()}
    }
 
 function guardarPromocion(){
@@ -426,10 +424,7 @@ function guardarPromocion(){
       crossDomain: true,
       contentType:"application/json",
       success: function (data) {
-        $("#formPromocion").hide();
         dibujarListadoPromociones();
-        $("#tablaPromociones").show();
-
       },
       error:function(jqXHR,textStatus,errorThrown)
       {
@@ -459,12 +454,11 @@ function editarPromocion(idPromocion){
             $("#myRange").val(comisionPromocion);
             $("#demo").html('');
             $("#demo").append(comisionPromocion);
-            controlarRadioSeleccionado();
           }else{
             $("input[name=radioComision][value=valorFijo]").prop("checked",true);
             dibujarListaRangos(promocion.rangoPromocion);
-            controlarRadioSeleccionado();
           }
+          controlarRadioSeleccionado();
           if(promocion.impactaEnReserva == true){
             $("input[name=impactaReservas][value=true]").prop("checked",true);
           }
@@ -483,7 +477,7 @@ function editarPromocion(idPromocion){
           var localesSeleccionados = promocion.idLocal;
           obtenerListadoLocales().done(function(data){
               locales = data
-          popularDropdownLocalesEditar(localesSeleccionados);
+              popularDropdownLocalesEditar(localesSeleccionados);
           });
      
           $("#tablaPromociones").hide();
@@ -630,6 +624,7 @@ function dibujarListadoLocales(){
 }
 
 function dibujarListadoPromociones(){
+  $("#formPromocion").hide();
   $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     $('#listadoPromociones').html('');
     $('#loading').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span>');       
@@ -649,8 +644,7 @@ function dibujarListadoPromociones(){
               }else{
                 comision = promocion.comisionPromocion;
               }
-
-                $('#listadoPromociones').append('' +
+              $('#listadoPromociones').append('' +
                 '<tr class="text-center">'+
                   '<td>'+contPromociones+'</td>'+
                   '<td>'+promocion.nombrePromocion+'</td>'+
@@ -667,10 +661,10 @@ function dibujarListadoPromociones(){
                     '</button>'+
                   '</td>'+
                 '</tr>'+
-                '');
-                contPromociones++; 
-              });
-                   $('#loading').hide();
+              '');
+                  contPromociones++; 
+            });
+                  $('#loading').hide();
         },
         error:function(jqXHR,textStatus,errorThrown)
         {           
@@ -680,6 +674,7 @@ function dibujarListadoPromociones(){
         },
     });
   });
+          $("#tablaPromociones").show();
 }
 
 function seleccionarTodos(){
@@ -697,5 +692,9 @@ function seleccionarTodos(){
       $("input[name=localCheck][value=" + local.idLocal + "]").prop("checked",false);  
     }); 
   }
+
+}
+
+function limpiarForm(){
 
 }
