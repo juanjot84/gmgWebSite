@@ -234,17 +234,8 @@ include("includes/nav.php"); ?>
                         
                       </tr>
                     </thead>
-                    <tbody id="">
-                      <tr>
-                        <td>
-                          <div class="checkbox">
-                            <label><input type="checkbox" value=""></label>
-                          </div>
-                        </td>
-                        <td>Todos</td>
-                        <td class="text-center">-</td>
-                        
-                      </tr>
+                    <tbody id="listadoLocales">
+
                     </tbody>
                   </table>
                 </div>
@@ -275,39 +266,8 @@ include("includes/nav.php"); ?>
                       <th style="text-align: center;">Acción</th>
                   </tr>
                 </thead>
-                <tbody id="">
-                  <tr class="text-center">
-                    <td>1</td>
-                    <td>Promoción ALMALBEC</td>
-                    <td>15%</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td class="centrarbotaccion">
-                      <button onclick="editar('')" title="Editar" class="btn btn-default botaccion" type="button">
-                        <i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                      </button>
-                      <button title="Eliminar" onclick="mostrarModalEliminar('')" class="btn btn-default botaccion" type="button">
-                        <i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr class="text-center">
-                    <td>1</td>
-                    <td>Promoción ALMALBEC</td>
-                    <td>-</td>
-                    <td>1</td>
-                    <td>300</td>
-                    <td>$15</td>
-                    <td class="centrarbotaccion">
-                      <button onclick="editar('')" title="Editar" class="btn btn-default botaccion" type="button">
-                        <i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                      </button>
-                      <button title="Eliminar" onclick="mostrarModalEliminar('')" class="btn btn-default botaccion" type="button">
-                        <i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i>
-                      </button>
-                    </td>
-                  </tr>
+                <tbody id="listadoPromociones">
+
                 </tbody>
               </table>
             </div>
