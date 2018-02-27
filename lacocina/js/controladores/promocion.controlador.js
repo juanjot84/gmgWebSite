@@ -22,8 +22,10 @@ function controlarRadioSeleccionado(){
             $("#valorFijo").attr('disabled', 'disabled');
             $("#btnAgregarValor").attr('disabled', 'disabled');
             $("#tablaRangos").hide();
+            $("#tablaRangos").html('');
         }else if(radioPorcentaje == 'valorFijo'){
             $("#myRange").prop('disabled', true);
+            $("#myRange").val(1);
             $("#valorDesde").removeAttr('disabled');
             $("#valorHasta").removeAttr('disabled');
             $("#valorFijo").removeAttr('disabled');
@@ -334,12 +336,16 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
    });
 
    function cargarFormCrear(){
+     limpiarForm();
+     dibujarListadoLocales();
      $("#formPromocion").show();
      $("#tablaPromociones").hide();
    }
 
    function cancelar(){
     dibujarListadoPromociones();
+    limpiarForm();
+    dibujarListadoLocales();
    }
 
    function subirWeb(seccion){
@@ -696,5 +702,22 @@ function seleccionarTodos(){
 }
 
 function limpiarForm(){
+  $('input[type="text"]').val('');
+  $('input[type="number"]').val(0);
+  $("#listaComision").html('');
+  $("#tablaRangos").hide();
+  $("#terminosCondiciones").val('');
+  $("input[name=radioComision][value=porcentaje]").prop("checked",true);
+  $("input[name=impactaReservas][value=true]").prop("checked",false);
+  $('input[name=impactaReservas]:checked').val();
+  $("#contenedorImagenes").html('');
+  $("#contenedorImagenWeb").html('');
+  $("#contenedorImagenApp").html('');
+  $("#listadoLocales").html('');
+  $("#myRange").val(1);
+}
 
+function Volver(){
+  var url = "../lacocina/negocios.php"; 
+  $(location).attr('href',url);
 }
