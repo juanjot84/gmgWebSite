@@ -92,6 +92,7 @@ include("includes/nav.php"); ?>
 
               <div class="input-group">
                  <span class="input-group-btn">
+                 <button id="botonGuardarS" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar('crearSalir')"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Salir</button>
                   <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar('crear')"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
                 </span>
               </div>

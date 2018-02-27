@@ -123,13 +123,6 @@ include("includes/nav.php"); ?>
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-tripadvisor" aria-hidden="true"></i></span>
                 <input id="tripadvisorNegocio" name="tripadvisorNegocio" type="text" class="form-control" placeholder="Tripadvisor del Negocio" aria-describedby="sizing-addon3">
               </div></p>
-
-              <h5 class="titulosalta"> Url de imagen principal del negocio</h5>
-
-              <p><div class="input-group input-group-sm">
-                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                <input id="urlIconoNegocio" name="urlIconoNegocio" type="text" class="form-control" placeholder="Url del Icono del Negocio" aria-describedby="sizing-addon3" onfocus="limpiar('urlIconoNegocio')" required>
-              </div></p>
  
                <h5 class="titulosalta"> Descripción</h5>
 

@@ -62,6 +62,7 @@ include("includes/nav.php");
               <input type="text" name="idUsuarioNegocio" id="idUsuarioNegocio" class="hidden">
 
               <input type="text" name="idNegocio" id="idNegocio" value="<?php echo $idNegocio; ?>" class="hidden">
+              <input type="text" name="tipoUs" id="tipoUs" value="<?php echo $tipoUsuario; ?>" class="hidden">
             
               <h5 class="titulosalta"> Datos de usuario administrador del negocio</h5>
 
@@ -98,6 +99,7 @@ include("includes/nav.php");
 
               <div class="input-group">
                  <span class="input-group-btn">
+                 <button id="botonGuardarS" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar('crearSalir')"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Salir</button>
                   <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar('crear')"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
                 </span>
               </div>

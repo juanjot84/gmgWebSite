@@ -9,8 +9,9 @@ function setJWT(jwtToken){
     
     jwt = jwtToken;
     var tipoUsuario = $("#tipoUsuario").val();
-    if(tipoUsuario == 'superAdmin'){
-      $("#botCrearReserva").hide();
+    $("#botCrearReserva").html('');
+    if(tipoUsuario == 'usuarioNegocio'){
+      $("#botCrearReserva").append('<a href="reserva.php" class="btn btn-default" type="button" style="padding: 17px;"><i class="fa fa-plus-square-o" aria-hidden="true" ></i> CREAR RESERVA</a>');
     }
     obtenerListado(); 
     } 

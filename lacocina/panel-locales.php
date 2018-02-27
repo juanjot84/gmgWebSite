@@ -60,19 +60,19 @@ error_reporting(E_ERROR);
             </div>
          <div id="menuGeneral">   
             <div class="row text-center">
-                <div class="col-md-4 botonmanito" id="reservasRealizadas">
+                <div class="col-md-4 botonmanito" id="reservasRealizadas" style="display: none">
                     <a class="sombrabotonpanel" href="perfil/reservas.php"><div style="font-size: 1.5em;">
                         <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-ok" aria-hidden="true"></span><br>
                         VER RESERVAS REALIZADAS
                     </div></a>
                 </div>
-                <div class="col-md-4 botonmanito" id="configReservas">
+                <div class="col-md-4 botonmanito" id="configReservas" style="display: none">
                     <a class="sombrabotonpanel" onclick="editarCubiertos()"><div style="font-size: 1.5em;">
                         <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-cutlery" aria-hidden="true"></span><br>
                         CONFIGURAR RESERVAS
                 </div></a>
                 </div>
-                <div class="col-md-4 botonmanito" id="descuentos">
+                <div class="col-md-4 botonmanito" id="descuentos" style="display: none">
                     <a class="sombrabotonpanel" onclick="editarDescuentos()"><div style="font-size: 1.5em;">
                         <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-usd" aria-hidden="true"></span><br>
                         DESCUENTOS
@@ -80,19 +80,19 @@ error_reporting(E_ERROR);
                 </div>
             </div>
             <div class="row text-center" style="padding-top: 5%;">
-                <div class="col-md-4 botonmanito" id="columna2">
+                <div class="col-md-4 botonmanito col-md-offset-2" id="columna2" style="display: none">
                     <a class="sombrabotonpanel" onclick="editarHorarios()"><div style="font-size: 1.5em;">
                         <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-time" aria-hidden="true"></span><br>
                         HORARIOS DE ATENCIÓN
                     </div></a>
                 </div>
-                <div class="col-md-4 botonmanito" id="calificaciones">
+                <div class="col-md-4 botonmanito" id="calificaciones" style="display: none">
                     <a class="sombrabotonpanel" onclick="verCalificaciones()"><div style="font-size: 1.5em;">
                         <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-star" aria-hidden="true"></span><br>
                         VER CALIFICACIONES
                     </div></a>
                 </div>
-                <div class="col-md-4 botonmanito">
+                <div class="col-md-4 botonmanito" id="datosSucursal" style="display: none">
                     <a class="sombrabotonpanel" onclick="cargarForm('local')"><div style="font-size: 1.5em;">
                         <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-cog" aria-hidden="true"></span><br>
                         DATOS DE SUCURSAL
@@ -100,19 +100,19 @@ error_reporting(E_ERROR);
                 </div>
             </div>
             <div class="row text-center" style="padding-top: 5%;">                
-                <div class="col-md-4 botonmanito" id="columna1">
+                <div class="col-md-4 botonmanito col-md-offset-2" id="columna1" style="display: none">
                     <a class="sombrabotonpanel" onclick="editarContacto()"><div style="font-size: 1.5em;">
                         <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span><br>
                         CONTACTO DEL LOCAL
                     </div></a>
                 </div>
-                <div class="col-md-4 botonmanito">
+                <div class="col-md-4 botonmanito" id="cargarImagen" style="display: none">
                     <a class="sombrabotonpanel" onclick="cargarImagenes()"><div style="font-size: 1.5em;">
                         <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-picture" aria-hidden="true"></span><br>
                         CARGAR IMÁGENES
                     </div></a>
                 </div>
-                <div class="col-md-4 botonmanito" id="remarketing">
+                <div class="col-md-4 botonmanito" id="remarketing" style="display: none">
                     <a class="sombrabotonpanel" href="perfil/remarketing.php"><div style="font-size: 1.5em;">
                         <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-stats" aria-hidden="true"></span><br>
                         REMARKETING
@@ -120,13 +120,13 @@ error_reporting(E_ERROR);
                 </div>
             </div>
             <div class="row text-center" style="padding-top: 5%;">
-                <div class="col-md-4 botonmanito" id="remarketing">
+                <div class="col-md-4 botonmanito" id="promociones" style="display: none">
                     <a class="sombrabotonpanel" href="perfil/remarketing.php"><div style="font-size: 1.5em;">
                         <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-gift" aria-hidden="true"></span><br>
                         PROMOCIONES
                     </div></a>
                 </div>
-                <div class="col-md-4 botonmanito" id="remarketing">
+                <div class="col-md-4 botonmanito" id="remarketing1">
                     
                 </div>
                 <div class="col-md-4 botonmanito">

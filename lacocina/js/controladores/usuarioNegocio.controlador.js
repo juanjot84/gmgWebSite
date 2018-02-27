@@ -23,7 +23,7 @@ var mailUsuario;
 
     $(function() {
       $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
-      var idNegocio = $("#idNegocioSeleccionado").val();
+      var idNegocio = $("#idNegocio").val();
       cargarFormEditar(idNegocio);
     });
     });
@@ -111,7 +111,7 @@ var mailUsuario;
           var url = "../lacocina/perfil/mi-perfil.php";
           $(location).attr('href',url);
       }else if(tipoUsuario == 'superAdmin'){
-          var negocioCreado = $("#idNegocioSeleccionado").val(); 
+          var negocioCreado = $("#idNegocio").val(); 
           var url = "../lacocina/panel-negocio.php?idNegocio="+ negocioCreado+"";
           $(location).attr('href',url);
       }
@@ -141,7 +141,7 @@ var mailUsuario;
             contentType:"application/json",
             success: function (data) {              
                 
-             var negocioCreado = $("#idNegocioSeleccionado").val();
+             var negocioCreado = $("#idNegocio").val();
              if(accion == 'editar' && tipoUsuario == 'usuarioNegocio'){
                 var url = "../lacocina/perfil/mi-perfil.php?idNegocio="+ negocioCreado+"";
                 $(location).attr('href',url);
@@ -160,7 +160,7 @@ var mailUsuario;
       });
     }
 
-    function send() {
+    function send(accion) {
       if (_.isUndefined(server)) {
         $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
         });
@@ -189,10 +189,13 @@ var mailUsuario;
                 
              var negocioCreado = $("#idNegocio").val();  
 
-             var url = "../lacocina/local.php?idNegocio="+ negocioCreado+"";
-            $(location).attr('href',url);
-
-            $("#formularioAgregar :input").val('');
+            if(accion == 'crear'){
+              var url = "../lacocina/local.php?idNegocio="+ negocioCreado+"";
+              $(location).attr('href',url);
+              $("#formularioAgregar :input").val('');
+            } else if(accion == 'crearSalir'){
+              volverPanelNegocio();
+            }
 
             },
             error:function(jqXHR,textStatus,errorThrown)
@@ -209,10 +212,12 @@ var mailUsuario;
 
 function habilitarBotonGuardar(){
   $("#botonGuardar").removeClass('disabled');
+  $("#botonGuardarS").removeClass('disabled');
 };
 
 function validar(accion){
   $("#botonGuardar").addClass('disabled');
+  $("#botonGuardarS").addClass('disabled');
   var email = $("#email").val();
   var nombre = $("#nombre").val();
   var password = $("#password").val();
@@ -246,7 +251,9 @@ function validar(accion){
       editarUsuarioNegocio(accion, tipoUsuario);
 
     }else if(accion == "crear"){
-        send();
+        send(accion);
+    }else if(accion == "crearSalir"){
+        send(accion);
     }
   }else{
     $(location).attr('href',"#formularioAgregar");

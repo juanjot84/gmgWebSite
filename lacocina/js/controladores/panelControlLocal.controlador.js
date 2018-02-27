@@ -40,16 +40,27 @@
        success: function (data) {
          var negocio = data;
          var tipoNegocio = negocio.idTipoNegocio.nombreTipoNegocio;
+         $("#menuGeneral").hide();
          if(tipoNegocio != 'Restaurante'){
-          $("#menuGeneral").hide();
-          $("#reservasRealizadas").hide();
-          $("#configReservas").hide();
-          $("#descuentos").hide();
-          $("#remarketing").hide();
-          $("#calificaciones").hide();
-          $("#columna1").addClass('col-md-offset-2');
-          $("#columna2").addClass('col-md-offset-2');
+           $("#columna2").show();
+           $("#datosSucursal").show();
           $("#menuGeneral").show();
+          $("#columna1").show();
+          $("#cargarImagen").show();
+         }else{
+          $("#columna1").removeClass('col-md-offset-2');
+          $("#columna2").removeClass('col-md-offset-2');
+          $("#columna2").show();
+          $("#datosSucursal").show();
+          $("#columna1").show();
+          $("#reservasRealizadas").show();
+          $("#configReservas").show();
+          $("#descuentos").show();
+          $("#remarketing").show();
+          $("#calificaciones").show();
+          $("#menuGeneral").show();
+          $("#cargarImagen").show();
+          $("#promociones").show();
          }
    
        },
