@@ -28,9 +28,6 @@
   <link href="css/simple-sidebar.css" rel="stylesheet">
   <link href="css/burguerbutton.css" rel="stylesheet">
 
-  <!-- Carousel Vertical -->
-  <link rel="stylesheet" href="css/jQuery.verticalCarousel.css">
-
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -71,13 +68,12 @@
         .etiquetadescuento {
             text-align: center;
             background: #f8981d;
-            font-size: 1em;
-            padding: 5% 1%;
+            font-size: 1.4em;
+            padding: 3% 0;
             font-weight: 400;
             color: #fff;
             border-radius: 5px;
-            width: 80px;
-            height: 40px;
+            width: 45%;
             margin: 0 auto;
         }
         img.logoweb {
@@ -235,16 +231,6 @@ if (empty($filtro)) $filtro = '';
       $("#wrapper").toggleClass("toggled");
   });
   </script>
-
-  <!-- Carousel Vertical -->
-  <script src="js/jQuery.verticalCarousel.js"></script>
-  <script>
-      $(".contenedorpromos").verticalCarousel({
-          currentItem: 1,
-          showItems: 3,
-      });
-  </script>
-  <!-- Fin Carousel Vertical -->
 
 
 </body>
