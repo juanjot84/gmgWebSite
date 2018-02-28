@@ -410,6 +410,15 @@ td {
 
 }
 
+.titulotablacomisones {
+    background: #a3a3a3;
+    color: #fff;
+}
+
+tr.text-center.listacomision {
+    font-size: 0.8em;
+}
+
 .btn-default.botaccion {
     border: 0;
 }
@@ -503,6 +512,14 @@ h5.titulosalta {
     object-position: center;
     height: 135px;
     width: 220px;
+    padding: 0 2%;
+}
+
+.miniatura-icono {
+    object-fit: cover;
+    object-position: center;
+    height: 60px;
+    width: 80px;
     padding: 0 2%;
 }
 
@@ -739,6 +756,14 @@ ul.selecdiashorario {
     font-weight: 700;
 }
 
+.titulospromocion {
+    text-transform: uppercase;
+    line-height: 1.5em;
+    color: #616161;
+    padding-bottom: 15px;
+}
+
+
 .titulohorarioatencionbajada {
     text-transform: none;
     line-height: 1em;
@@ -875,6 +900,14 @@ ul.selecdiashorario {
     display: none;
 }
 
+.botonagregarnuevo {
+    padding: 17px;
+    background: #5cb85c;
+    color: #fff;
+    margin-right: 10px !important;
+    border-radius: 4px !important;
+}
+
 button#botonVolver {
     background: #f8981d;
     color: #fff;
@@ -988,6 +1021,17 @@ input:checked + .slider:before {
     padding: 0 20%;
 }
 
+.slidecontainer2 {
+    width: 100%;
+    text-align: left !important;
+    padding-right: 25%;
+}
+
+.textocomisionpromo {
+    text-align: left;
+    font-weight: bold;
+}
+
 .slider1 {
     -webkit-appearance: none;
     width: 100%;
@@ -1047,7 +1091,8 @@ input:checked + .slider:before {
 
 .cuadrocargamenupromo {
     border: 1px solid #f1efef;
-    background: #f4f4f4;
+    background: url(../lacocina/img/background-menu.jpg);
+    background-size: cover;
     padding: 3% 5%;
     margin: 3% 0 1% 0;
 }

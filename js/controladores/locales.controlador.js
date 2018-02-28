@@ -155,11 +155,11 @@ function renderLocal(local) {
   var descuentoDia = _.filter(local.idLocalDescuento, {'diaDescuento': getDia()});
   var descuento = '';
   if (!_.isEmpty(descuentoDia)) {
-    descuento = ' <br><h2 class="etiquetadescuento">' + descuentoDia[0].idDescuento.nombreDescuento + '</h2>';
+    descuento = '<p class="etiquetadescuento">' + descuentoDia[0].idDescuento.nombreDescuento + '</p>';
   }
 
   $('.container.locales').append('' +
-    '<a href="ficha.php?id=' + local._id + '"><div class="row" style="padding-top: 5%;color: #252525;border-bottom: 1px solid #e3e3e3;padding-bottom: 2%;">' +
+    '<div class="row resultadoficha"><a class="linkresultadobuscador" href="ficha.php?id=' + local._id + '">' +
     '<div class="col-sm-3 col-md-3">' +
     '<img class="img-responsive imgslocalesbusqueda" src="' + local.fotoPrincipalLocal + '">' +
     '</div>' +
@@ -170,10 +170,16 @@ function renderLocal(local) {
     '<p style="letter-spacing: 1px;"><strong>' + labelOscuras + '</strong><span style="color: #cbcbcb">' + labelGrises + '</span></p>' +
     '<p><span class="descripcion">' + local.idNegocio.descripcionNegocio.substr(0, 147) + '...</span></p>' +
 
-    '</div>' +
-    '<div class="col-sm-2 col-md-3">' +
-    descuento +
-    '</div>' +
-    '</div></a>');
+    '</a></div>' +
+    '<div class="col-sm-2 col-md-3 text-center"><div class="contenedorpromos">'+
+    '<div class="botslidervert"><a href="#" class="vc_goUp"><i class="fa fa-fw fa-angle-up"></i></a></div>'+
+    '<ul class="promosvertical vc_list"><li>'+ descuento +'</li>'+
+    '<li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>'+
+    '<li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>'+
+    '<li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>'+
+    '<li><img class="etiquetapromo" src="img/promos/promodemo.png"></li></ul>'+
+    '<div class="botslidervert"><a href="#" class="vc_goDown"><i class="fa fa-fw fa-angle-down"></i></a></div>' +
+    '</div>');
 
 }
+

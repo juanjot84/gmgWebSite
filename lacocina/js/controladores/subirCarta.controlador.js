@@ -1,10 +1,4 @@
 
-/*
-$(document).ready(function(){
-  //  getArchivos();
-  //  mostrarImagenes()
-  
-  }); */
   
 var nombreCarta = '';
 

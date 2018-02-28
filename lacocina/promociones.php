@@ -1,27 +1,22 @@
+
 <?php 
 error_reporting(E_ERROR);
-session_start();
 
-$idNegocio = $_SESSION['idNegocio'];
+session_start();
 $tipoUsuario = $_SESSION['tipoUsuario'];
 
-
 if (!$_SESSION) {
-       header('Location: index.php');
+  header('Location: index.php');
 } else {
-    if ($tipoUsuario == 'superAdmin') {
-        
-    } else {
-        header('Location: index.php');
-    }
+if ($tipoUsuario == 'superAdmin') {
+   
+} else {
+   header('Location: index.php');
+}
 }
 
-?>
 
-<?php 
-error_reporting(E_ERROR);
 include("includes/head.php"); ?>
-
 
 <body id="page-top" class="index">
 
@@ -30,57 +25,127 @@ include("includes/head.php"); ?>
 error_reporting(E_ERROR);
 include("includes/nav.php"); ?>
 
-<center><div id="loading"></div></center>
 
-    <div class="container-fluid" style="padding: 1%;background: yellow;margin-top: -21px;">
+    <div class="container-fluid" style="padding: 1%; background: #fff; margin-top: -21px;">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="input-group">
-                      <input type="text" class="form-control" placeholder="BUSCAR..." style="padding: 25.6px;">
-                      <span class="input-group-btn">
-                        <button class="btn btn-default botonbuscar" style="color: #333; background-color: #fff; border: 1px solid #ccc; padding: 15px; border-radius: 0;" type="button"><i style="font-size: 1.5em;" class="fa fa-search" aria-hidden="true"></i></button>
-                      </span>
-                    </div>
                 </div>
                 <div class="col-md-6" style="text-align: right;">
-                    <div class="input-group">
-                      <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" style="padding: 17px;" onClick="agregarNegocio()"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVA</button>
-                      </span>
-                    </div>
+                  <div class="input-group">
+                    <span class="input-group-btn">
+                      <button class="botonagregarnuevo btn btn-default" type="button" onClick="cargarFormCrear()"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVA</button>
+                      <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="Volver()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
+                    </span>
+                  </div>
                 </div>
 
             </div>
         </div>
     </div>
     <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
                  <!-- Table -->
+          
+          <input type="text" id="idPromocion" style="display:none"/> 
 
           <!-- Formulario de promociones -->
-            <form action="" id="formularioAgregar" style="display:none">
+          <div id="formPromocion" style="display:none">
 
             <h2 class="tituloseccion">Alta de Promoción</h2>
  
-              <input type="text" name="idNegocio" id="idNegocio" class="hidden">
 
              <h5 class="titulosalta"> Nombre</h5>
  
               <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                <input id="nombreNegocio" name="nombreNegocio" type="text" class="form-control" placeholder="Nombre de la promoción" aria-describedby="sizing-addon3" onfocus="limpiar('nombreNegocio')" required>
+                <input id="nombrePromocion" name="nombrePromocion" onclick="quitarAlert('nombrePromocion')" type="text" class="form-control" placeholder="Nombre de la promoción" aria-describedby="sizing-addon3">
               </div></p>
 
               <h5 class="titulosalta"> Comisión</h5>
- 
-              <label class="titulohorarioatencion">Elegí el <strong class="naranja">porcentaje de comisión</strong></label>
-                            <div class="slidecontainer">
-                              <p class="horasanticipacion">Comisión: <span id="demo"></span>%</p>
-                              <input type="range" min="1" max="20" value="1" class="slider1" id="myRange" onchange="actualizarMargen('myRange')">
-                            </div>
+              
+              <div class="row">
+                <div class="col-md-6">
+
+                  <div class="radio">
+                    <label class="titulospromocion radio-inline">
+                      <input type="radio" id="radioComision" name="radioComision" value="porcentaje" checked="checked" onchange="controlarRadioSeleccionado()">Elegir el <strong class="naranja">porcentaje de comisión</strong>
+                    </label>
+                  </div>
+
+
+                  <div class="slidecontainer2">
+                    <p class="textocomisionpromo">Comisión: <span id="demo"></span>%</p>
+                    <input type="range" min="1" max="20" value="1" class="slider1" id="myRange" onchange="actualizarMargen('myRange')">
+                  </div>
+                </div>
+
+                <div class="col-md-6"></div>
+              </div>
+
+              <div class="row" style="margin-top: 40px; border-top: 1px solid #e2e2e2; padding-top: 20px;">
+
+                <div class="col-md-6">
+
+                  <div class="radio">
+                    <label class="titulospromocion radio-inline">
+                      <input type="radio" name="radioComision" id="radioComision" value="valorFijo" onchange="controlarRadioSeleccionado()">Elegir un <strong class="naranja">valor fijo por rango</strong>
+                    </label>
+                  </div>
+
+                  <div class="row">
+
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="">Desde:</label>
+                        <input id="valorDesde" name="valorDesde" value="0" type="number" onclick="quitarAlert('valorDesde')" class="form-control" placeholder="1" min="1" aria-describedby="sizing-addon3">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="">Hasta:</label>
+                        <input id="valorHasta" name="valorHasta" value="0" type="number" onclick="quitarAlert('valorHasta')" class="form-control" placeholder="300" min="1" aria-describedby="sizing-addon3">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="">$:</label>
+                        <input id="valorFijo" name="valorFijo" value="0" type="number" onclick="quitarAlert('valorFijo')" class="form-control" placeholder="$"  min="1" aria-describedby="sizing-addon3">
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="agregarquitar">
+                    <button class="botonagregarValor" id="btnAgregarValor" onclick="validarDatosLista()"><i class="fa fa-plus" aria-hidden="true"></i> Agregar a lista</button>
+                  </div>
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6" id="tablaRangos" style="display:none">
+                  <h5>Listado resumen de comisiones</h5>
+                  <table class="table">
+                    <thead class="titulotablacomisones">
+                      <tr> 
+                        <th style="text-align: center;">Comisión</th>
+                        <th style="text-align: center;">Desde</th>
+                        <th style="text-align: center;">Hasta</th>
+                        <th style="text-align: center;">Valor</th>
+                        <th style="text-align: center;">Acción</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody id="listaComision">
+
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
 
 
               <h5 class="titulosalta"> Impacta en reservas</h5>
@@ -89,49 +154,74 @@ include("includes/nav.php"); ?>
                   <li>NO </li>
                   <li>
                     <label class="switch">
-                      <input type="checkbox" id="" name="" value="true" onClick="">
+                      <input type="checkbox" id="impactaReservas" name="impactaReservas" value="true">
                       <span class="slider round"></span>
                     </label>
                   </li>
                   <li> SI</li>
                 </ul>
 
-              <h5 class="titulosalta"> Url de imagen de la promoción para Web</h5>
+
+              <h5 class="titulosalta"> Cargar ícono de la promoción</h5>
 
               <p><div class="input-group input-group-sm">
-                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                <input id="urlIconoNegocio" name="urlIconoNegocio" type="text" class="form-control" placeholder="Url de la imagen para web" aria-describedby="sizing-addon3" onfocus="limpiar('urlIconoNegocio')" required>
+              <div class="input-group">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" style="padding: 17px;" data-toggle="modal"  data-target="#mdlArchivos"><i class="fa fa-plus-square-o" aria-hidden="true"></i> CARGAR ICONO</button>
+                      </span>
+              </div>
+              <div id="contenedorImagenes">
+
+              </div>
+              <input type="text" id="iconoPromocion" style="display:none"/> 
               </div></p>
 
-              <h5 class="titulosalta"> Url de imagen de la promoción para App</h5>
+              <h5 class="titulosalta"> Cargar imagen de la promoción para Web</h5>
 
               <p><div class="input-group input-group-sm">
-                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                <input id="urlIconoNegocio" name="urlIconoNegocio" type="text" class="form-control" placeholder="Url de la imagen para app" aria-describedby="sizing-addon3" onfocus="limpiar('urlIconoNegocio')" required>
+              <div class="input-group">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" style="padding: 17px;" data-toggle="modal"  data-target="#mdlImgWeb"><i class="fa fa-plus-square-o" aria-hidden="true"></i> CARGAR IMAGEN WEB</button>
+                      </span>
+              </div>
+              <div id="contenedorImagenWeb">
+
+              </div>
+              <input type="text" id="imgPromocionWeb" style="display:none"/> 
+              </div></p>
+
+              <h5 class="titulosalta"> Cargar imagen de la promoción para App</h5>
+
+              <p><div class="input-group input-group-sm">
+              <div class="input-group">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" style="padding: 17px;" data-toggle="modal"  data-target="#mdlImgApp"><i class="fa fa-plus-square-o" aria-hidden="true"></i> CARGAR IMAGEN APP</button>
+                      </span>
+              </div>
+              <div id="contenedorImagenApp">
+
+              </div>
+              <input type="text" id="imgPromocionApp" style="display:none"/> 
               </div></p>
 
               <h5 class="titulosalta"> Duración de la promoción</h5>
- 
-              <p>Ver opción para colocar Date Picker</p>
 
               <div class="row">
                 <div class="col-md-12">
                   
-                    <!-- Acá debe ir el datepicker -->
+                 <input type="text" id="duracionPromocion" name="daterange" value="" />
                   
                 </div>
               </div>
 
               <h5 class="titulosalta">Términos y condiciones</h5>
 
-              <p>Hay que quitar limitación de 500 caracteres</p>
-
               <div class="form-group">
                 
-                <textarea class="form-control" rows="5" id="descripcionNegocio" name="descripcionNegocio" onfocus="limpiar('descripcionNegocio')"></textarea>
+                <textarea class="form-control" rows="5" id="terminosCondiciones" name="terminosCondiciones"></textarea>
               </div>
 
-              <h5 class="titulosalta">Seleccionar Negocio</h5>
+              <h5 class="titulosalta">Seleccionar Locales</h5>
               
                 <!-- Table -->
                 <div id=" " class="text-center">
@@ -141,38 +231,26 @@ include("includes/nav.php"); ?>
                         <th>Seleccionar</th>
                         <th>Negocio</th>
                         <th style="text-align: center;">Sucursal</th>
-                        <th style="text-align: center;">Destacado</th>
                         
                       </tr>
                     </thead>
-                    <tbody id="">
-                      <tr>
-                        <td>
-                          <div class="checkbox">
-                            <label><input type="checkbox" value=""></label>
-                          </div>
-                        </td>
-                        <td>Todos</td>
-                        <td class="text-center">-</td>
-                        <td class="text-center">-</td>
-                        
-                      </tr>
+                    <tbody id="listadoLocales">
+
                     </tbody>
                   </table>
                 </div>
 
-              
               <div class="input-group">
                  <span class="input-group-btn">
-                  <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar('crear')"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
+                  <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validarDatosPromocio()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
                   <button id="botoncancelar" class="btn btn-default" type="button" style="padding: 17px;" onClick="cancelar()"><i class="fa fa-ban" aria-hidden="true"></i> Cancelar</button>
                 </span>
               </div>
 
-            </form>    
+          </div>    
 
-            <!-- Table -->
-            <div id="">
+    <!-- Tabla Promociones -->
+            <div id="tablaPromociones">
               <div class="panel-heading tituloseccion" >PROMOCIONES</div>
               <br>
               <br>
@@ -182,18 +260,22 @@ include("includes/nav.php"); ?>
                       <th>#</th>
                       <th style="text-align: center;">Nombre</th>
                       <th style="text-align: center;">Porcentaje</th>
+                      <th style="text-align: center;">Desde:</th>
+                      <th style="text-align: center;">Hasta:</th>
+                      <th style="text-align: center;">Valor $</th>
                       <th style="text-align: center;">Acción</th>
                   </tr>
                 </thead>
-                <tbody id="">
-                  <tr class="text-center">
-                    <td>1</td>
-                    <td>Promoción ALMALBEC</td>
-                    <td>15%</td>
-                    <td>Ponela de nuevo</td>
-                  </tr>
+                <tbody id="listadoPromociones">
+
                 </tbody>
               </table>
+            </div>
+
+            <div class="input-group">
+               <span class="input-group-btn">
+                <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="Volver()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
+              </span>
             </div>
 
             </div>
@@ -201,48 +283,70 @@ include("includes/nav.php"); ?>
       </div>
     </div>
 
-  <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-   <div class="modal-dialog">
-      <div class="modal-content">
-         <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h3>No se pudo eliminar el Negocio</h3>
-     </div>
-         <div class="modal-body">
-            <h5>Este negocio tiene locales asociados</h5>
+    <!-- Modal icono -->
+    <div id="mdlArchivos" class="modal fade">
+        <div class="modal-dialog" style="width: 65%;">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Subir Icono</h4>
+            </div>
+            <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12" id="formDropZone"> </div>
+            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
-     </div>
-         <div class="modal-footer">
-        <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
-     </div>
-      </div>
-   </div>
-</div>
+    <!-- Modal imagen web -->
+    <div id="mdlImgWeb" class="modal fade">
+        <div class="modal-dialog" style="width: 65%;">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Subir Imagen para Web</h4>
+            </div>
+            <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12" id="formDropZone1"></div>
+            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
-<div class="modal fade" id="mostrarmodal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-   <div class="modal-dialog">
-      <div class="modal-content">
-         <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h3>ATENCIÓN</h3>
-     </div>
-         <div class="modal-body">
-            <h5>Está por eliminar un restaurante y toda la información asociada al mismo</h5>
-     </div>
-         <div class="modal-footer">
-        <a href="#" data-dismiss="modal" class="btn btn-danger">Cancelar</a>
-        <a onClick="eliminar()" data-dismiss="modal" class="btn btn-danger">Aceptar</a>
-     </div>
-      </div>
-   </div>
-</div>
+    <!-- Modal imagen app -->
+    <div id="mdlImgApp" class="modal fade">
+        <div class="modal-dialog" style="width: 65%;">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Subir Imagen para App</h4>
+            </div>
+            <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12" id="formDropZone2"></div>
+            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
-    
     <?php 
     error_reporting(E_ERROR);
     include("includes/footer.php"); ?>
     
-
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
 
@@ -254,42 +358,40 @@ include("includes/nav.php"); ?>
 
     <!-- Contact Form JavaScript -->
     <script src="../js/jqBootstrapValidation.js"></script>
-    <script src="../js/contact_me.js"></script>
-
-    <!-- Funciones de Negocio JavaScript -->
-    <script src="js/controladores/negocio.controlador.js"></script>
 
     <!-- Theme JavaScript -->
     <script src="../js/agency.min.js"></script>
 
+    <!-- Funciones de Promocion JavaScript -->
+    <script src="js/controladores/promocion.controlador.js"></script>
+
+    <script src="js/dropzone.js"></script>
+
+    <link rel="stylesheet" href="css/dropzone.css"> 
+
     <script type="text/javascript">
-        
+    
+    </script>
 
-    $(function() {
+<!-- Include Required Prerequisites -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 
-    $('#login-form-link').click(function(e) {
-        $("#login-form").delay(100).fadeIn(100);
-        $("#register-form").fadeOut(100);
-        $('#register-form-link').removeClass('active');
-        $(this).addClass('active');
-        e.preventDefault();
-    });
-    $('#register-form-link').click(function(e) {
-        $("#register-form").delay(100).fadeIn(100);
-        $("#login-form").fadeOut(100);
-        $('#login-form-link').removeClass('active');
-        $(this).addClass('active');
-        e.preventDefault();
-    });
+ 
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 
-    });
-
-    $(function() {
-      var accion = 'crear';
-      iniciar(accion);
-    });
-
-
+<script type="text/javascript">
+$(function() {
+ $('input[name="daterange"]').daterangepicker(
+  {
+    locale: {
+      format: 'DD/MM/YYYY'
+    }
+  }
+    );
+});
 </script>
 
 <!-- Slider Range -->
@@ -304,16 +406,6 @@ include("includes/nav.php"); ?>
   }
 </script>
 
-
-<script>
-  var slider2 = document.getElementById("myRange2");
-  var output2 = document.getElementById("demo2");
-  output2.innerHTML = slider2.value;
-
-  slider2.oninput = function() {
-    output2.innerHTML = this.value;
-  }
-</script>
 
 <!-- End Slider Range -->
 

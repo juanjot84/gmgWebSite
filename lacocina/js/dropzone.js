@@ -1038,6 +1038,12 @@ var Dropzone = function (_Emitter) {
       throw new Error("Dropzone already attached.");
     }
 
+/*
+if (this.element.dropzone) {
+  return this.element.dropzone;
+}
+*/
+
     // Now add this dropzone to the instances.
     Dropzone.instances.push(_this);
 

@@ -57,7 +57,7 @@ function buscarCalificaciones() {
       mostrarModalNoCalificaciones();
     },
     headers: {
-      Authorization: 'JWT ' + jwt
+      Authorization: 'gmgAuth ' + jwt
     }
   });
 }

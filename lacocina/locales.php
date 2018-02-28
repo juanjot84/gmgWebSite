@@ -54,7 +54,7 @@ error_reporting(E_ERROR);
        }
     ?>
 
-        <div class="container-fluid" style="padding: 1%;background: yellow;margin-top: -21px; <?php  error_reporting(E_ERROR); echo $display; ?> ">
+        <div class="container-fluid" style="padding: 1%; background: #fff; margin-top: -21px; <?php  error_reporting(E_ERROR); echo $display; ?> ">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">

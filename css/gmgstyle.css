@@ -21,6 +21,7 @@ header {
 
 .navbar-custom {
     background-color: #ffff00 !important;
+    padding: 10px 0;
     height: auto;
 }
 .navbar-brand {
@@ -33,6 +34,15 @@ header {
 .navbar-custom .nav li a:focus, .navbar-custom .nav li a:hover {
     color: #7F7600 !important;
     outline: 0;
+}
+
+.navbar-custom.affix {
+    background-color: #222;
+    padding: 0px 0;
+}
+
+.logoweb {
+    margin-top: -25px;
 }
 
 .nombreusuarionav {
@@ -325,7 +335,7 @@ i.fa.fa-globe.redesficha:hover {
 
 .verreservar {
     display: block !important;
-    margin-top: 70px;
+    margin-top: 85px;
     border-top: 2px solid #2cbdbe ;
     z-index: 20;
     transition: all .6s ease-in-out;
@@ -384,6 +394,16 @@ div#iconoFavorito {
 
 .desact {
     opacity: 0.2;
+}
+
+.promocionesficha {
+    display: inline-flex;
+    list-style: none;
+    overflow: hidden;
+}
+
+.etiquetapromoficha {
+    padding: 0 5px
 }
 
 ul, menu, dir {
@@ -646,6 +666,10 @@ h3.botdescarmapa {
     padding-top: 6%;
 }
 
+h3#labelRestaurantesBusquedas {
+    padding-top: 3%;
+}
+
 .locales {
     margin-bottom: 5%;
     min-height: 80vh;
@@ -697,6 +721,37 @@ a.linkperfil {
 
 .imgnoresultado-mobile {
     display: none;
+}
+
+.modalpromoficha {
+    max-width: 650px;
+}
+
+.separadormodalpromoficha {
+    border-bottom: 1px solid #ededed;
+    padding-bottom: 2%;
+}
+
+.separador {
+    padding: 3% 0;
+}
+
+.headermodalpromoficha {
+    border-bottom: 3px solid #ededed;
+}
+
+.imgspromoficha {
+    object-fit: cover;
+    object-position: center;
+    height: 150px;
+    width: 260px;
+    margin: 0 auto 5%;
+}
+
+h4.elegimenu {
+    margin-top: -5px;
+    font-size: 15px;
+    color: #f8981d;
 }
 
 @media only screen and (max-width: 768px) {
@@ -835,17 +890,6 @@ li#calificacionLocal {
     display: inline-flex;
 }
 
-.etiquetadescuento {
-    text-align: center;
-    background: #f8981d;
-    font-size: 1.4em;
-    padding: 3%;
-    font-weight: 400;
-    color: #fff;
-    border-radius: 5px;
-    width: 50%;
-    margin: 0 auto;
-}
 
 .botonverreserva {
     text-align: center;
@@ -871,16 +915,42 @@ li#calificacionLocal {
     padding: 3% 0;
 }
 
+a.linkresultadobuscador {
+    color: #000 !important;
+}
+
+.resultadoficha {
+    padding-top: 5%;
+    color: #252525;
+    border-bottom: 1px solid #e3e3e3;
+    padding-bottom: 2%;
+}
+
 .etiquetadescuento {
     text-align: center;
     background: #f8981d;
-    font-size: 1.2em;
-    padding: 5% 1%;
+    font-size: 1em;
+    padding: 3.5% 1%;
     font-weight: 400;
     color: #fff;
     border-radius: 5px;
-    width: 60%;
-    margin: 11% auto;
+    width: 80px;
+    height: 40px;
+    margin: 2px auto;
+}
+
+.contenedorpromos {
+    text-align: center;
+}
+
+.botslidervert a {
+    text-align: center;
+    color: #000;
+    font-size: 18px;
+}
+
+.etiquetapromo {
+    margin: 2px 0;
 }
 
 .verreserva {

@@ -104,7 +104,7 @@ function crearSesion(tipoUs, idNeg, token, nombreUsuario, apellidoUsuario) {
             var url = "perfil/mi-perfil.php";
             $(location).attr('href', url);
           } else if (tipoUs == 'superAdmin') {
-            var url = "panel-administrador.php";
+            var url = "negocios.php";
             $(location).attr('href', url);
           }
         }
