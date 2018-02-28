@@ -86,7 +86,7 @@ error_reporting(E_ERROR);
         </ul>
         <div class="tab-content">
           <div id="reservasHoy" class="tab-pane fade in active">
-             <div class="panel-heading tituloseccion">Reservas para hoy</div>
+             
                  <div class="container locales">
                     <center><div id="loading"></div></center> 
                  </div>
@@ -94,14 +94,14 @@ error_reporting(E_ERROR);
 
           </div>
           <div id="proximas" class="tab-pane fade">
-             <div class="panel-heading tituloseccion">Próximas Reservas</div>
+             
                  <div class="container proximas">
                     <center><div id="loading"></div></center> 
                  </div>
              </div>
           </div>
           <div id="historial" class="tab-pane fade">
-            <div class="panel-heading tituloseccion">Historial de reservas</div>
+            
                  <div class="container historial">
                     <center><div id="loading"></div></center> 
                  </div>
