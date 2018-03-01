@@ -976,6 +976,10 @@ a.linkresultadobuscador {
     text-align: center;
 }
 
+ul.promosvertical.vc_list {
+    list-style: none;
+}
+
 .botslidervert a {
     text-align: center;
     color: #000;
@@ -983,7 +987,7 @@ a.linkresultadobuscador {
 }
 
 .etiquetapromo {
-    margin: 2px 0;
+    margin: 2px 10px;
 }
 
 .verreserva {

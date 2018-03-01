@@ -125,7 +125,7 @@ $idLocal = $_GET["id"];
                 <p>
                   <div class="form-group">
                     <label for="selectAdulto">¿Para cuántos adultos?</label>
-                    <select class="form-control cantopcionesmenureserva" id="selectAdulto">
+                    <select class="form-control" id="selectAdulto">
                       <option value="1">1 adulto</option>
                       <option value="2">2 adultos</option>
                       <option value="3">3 adultos</option>
@@ -155,7 +155,7 @@ $idLocal = $_GET["id"];
                 <p>
                   <div class="form-group">
                     <label for="selectNino">¿Para cuántos niños?</label>
-                    <select class="form-control cantopcionesmenureserva" id="selectNino">
+                    <select class="form-control" id="selectNino">
                     <option value="0">0 niño</option>
                       <option value="1">1 niño</option>
                       <option value="2">2 niños</option>
@@ -186,7 +186,7 @@ $idLocal = $_GET["id"];
                 <p>
                   <div class="form-group">
                     <label for="selectDia">¿Qué día?</label>
-                    <select class="form-control cantopcionesmenureserva" id="selectDia">
+                    <select class="form-control" id="selectDia">
                     </select>
                   </div>
                 </p>

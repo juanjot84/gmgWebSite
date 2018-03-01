@@ -182,7 +182,7 @@ session_start();
                         </div>
                     </div>
 
-                        <div class="container text-center">
+                        <div class="container text-center" style="display: flex;">
                             <h3>Promociones</h3>
                             <ul class="promocionesficha">
                                 <li class="etiquetapromoficha"><a href="#"><img class="etiquetapromo" src="img/promos/promodemo.png"></a></li>
