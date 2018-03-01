@@ -25,7 +25,7 @@ function obtenerListadoPolos() {
 
 function renderPolos(polos){
   $('.container.polos').html('');
-  $('.container.polos').append('<div class="row">    <div class="col-lg-12 text-center">      <h2 class="section-heading">POLOS GASTRONÓMICOS</h2>    </div>  </div>');
+  $('.container.polos').append('<div class="row">    <div class="col-lg-12 text-center">      <h2 class="section-heading">ZONAS</h2>    </div>  </div>');
 
 
   _.each(polos, function(polo){

@@ -754,6 +754,39 @@ h4.elegimenu {
     color: #f8981d;
 }
 
+h4.elegiopcionreserva {
+    margin-top: 3px;
+    font-size: 15px;
+    color: #f8981d;
+}
+
+h5.opcionmenureserva {
+    text-transform: none;
+    color: #3f3f3f;
+}
+
+.cantopcionesmenureserva {
+    padding: 5% 2%;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    color: #e27f00;    
+}
+
+
+.separadoropcionesreservas {
+    border-bottom: 3px solid #ededed;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.seccionopcionesreserva {
+    padding: 5px 40px !important;
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fafafa;
+}
+
 @media only screen and (max-width: 768px) {
     
   .imgnoresultado-web {
