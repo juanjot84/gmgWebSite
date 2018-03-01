@@ -163,3 +163,98 @@ function volverPanelLocal(){
               },
         });
 }
+
+function configurarReserva(){
+    var idLocal = $("#idLocal").val();
+    var url = "../lacocina/editar-cubiertos.php?idLocal="+ idLocal+"";
+    $(location).attr('href',url);
+}
+
+function eliminarImgMenu(nombreimgweb, accion){
+    if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }
+      var largoString = nombreimgweb.length;
+      var nombreImgWeb = nombreimgweb.substr(49, largoString);
+      var parametros = {
+              "nombreArchivo" : nombreImgWeb,
+      };
+      $.ajax({
+              data:  parametros, 
+              url:   'scripts/eliminarImgMenu.php', 
+              type:  'post', 
+              success:  function (response) {
+                if(accion == 'vieja'){
+
+                }else{
+                  $('#contenedorImagenWeb').html('');
+                }                
+              }
+      });
+}
+
+$('#mdlImgMenu').on('show.bs.modal', function (event) {
+    $("#formDropZone1").html('');
+    $("#formDropZone1").append("<form id='dZUpload1' class='dropzone borde-dropzone' style='cursor: pointer;'>"+
+                              "<div class='dz-default dz-message text-center'>"+
+                                "<span><h2>Arrastra la imagen aquí</h2></span><br>"+
+                              "<p>(o Click para seleccionar)</p>"+
+                              "</div></form>");
+         myAwesomeDropzone1 = {
+           url: "scripts/mainImgMenu.php",
+           addRemoveLinks: true,
+           paramName: "konostech1",
+           maxFilesize: 20, // MB
+           resizeWidth: 180,
+           acceptedFiles: '.jpg,.jpeg',
+           dictRemoveFile: "Eliminar",
+           maxFiles: 1,
+           success: function (file, response) {           
+               var imgWebName = response;
+                nombreImgWeb = imgWebName.trim();
+               var imgWebVieja = $("#imgPromocionWeb").val();
+               if(imgWebVieja != ''){
+                 var accion = 'vieja';
+                eliminarImgWeb(imgWebVieja);
+                $('#contenedorImagenWeb').html('');
+               } 
+               $("#imgPromocionWeb").val(nombreImgWeb);
+               $('#contenedorImagenWeb').append(  '<br>' +
+               '<li class="miniaturas-orden">'+
+                  '<a href="#">'+
+                    '<img class="miniatura-galeria" src="'+nombreImgWeb+'">'+
+                  '</a>'+
+                 '<br>'+
+                 '<button title="Eliminar" onClick="eliminarImgMenu(\'' + nombreImgWeb + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i></button> '+
+               '</li>'+
+           '');
+               file.previewElement.classList.add("dz-success"); 
+           },
+           error: function (file, response) {
+             file.previewElement.classList.add("dz-error");
+             myDropzone1.removeFile(file);
+           }
+           
+         } // FIN myAwesomeDropzone
+
+         var myDropzone1 = new Dropzone("#dZUpload1", myAwesomeDropzone1);    
+         myDropzone1.on("complete", function(file) {
+            if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {  
+           } else {
+             console.log('todavia hay archivos subiendose ');
+           }
+         });
+   });
+
+   function dibujarImagen(dirImagen, contenedor){
+    $('#'+contenedor).append(  '<br>' +
+    '<li class="miniaturas-orden">'+
+       '<a href="#">'+
+         '<img class="miniatura-galeria" src="'+dirImagen+'">'+
+       '</a>'+
+      '<br>'+
+      '<button title="Eliminar" onClick="eliminarImgMenu(\'' + dirImagen + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i></button> '+
+    '</li>'+
+  '');
+  }
