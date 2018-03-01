@@ -125,7 +125,7 @@ $idLocal = $_GET["id"];
                 <p>
                   <div class="form-group">
                     <label for="selectAdulto">¿Para cuántos adultos?</label>
-                    <select class="form-control" id="selectAdulto">
+                    <select class="form-control cantopcionesmenureserva" id="selectAdulto">
                       <option value="1">1 adulto</option>
                       <option value="2">2 adultos</option>
                       <option value="3">3 adultos</option>
@@ -155,7 +155,7 @@ $idLocal = $_GET["id"];
                 <p>
                   <div class="form-group">
                     <label for="selectNino">¿Para cuántos niños?</label>
-                    <select class="form-control" id="selectNino">
+                    <select class="form-control cantopcionesmenureserva" id="selectNino">
                     <option value="0">0 niño</option>
                       <option value="1">1 niño</option>
                       <option value="2">2 niños</option>
@@ -186,7 +186,7 @@ $idLocal = $_GET["id"];
                 <p>
                   <div class="form-group">
                     <label for="selectDia">¿Qué día?</label>
-                    <select class="form-control" id="selectDia">
+                    <select class="form-control cantopcionesmenureserva" id="selectDia">
                     </select>
                   </div>
                 </p>
@@ -206,6 +206,139 @@ $idLocal = $_GET["id"];
                 <ul  id="selecHoras" style="flex-direction: row; flex-wrap: wrap; display: flex;" onclick="limpiar('selecHoras')">
                 </ul>
               </div>
+            </div>
+
+            <section class="seccionopcionesreserva">
+                <div class="row">
+                  <h3>Elegí una opción para tu reserva</h3>
+                </div>
+
+                <!-- INICIO PROMO -->
+
+                <div class="row separadoropcionesreservas">
+                  <div class="radio">
+                    <label><input type="radio" name="optradio"><h4 class="elegiopcionreserva">Sin promoción ni descuento</h4></label>
+                  </div>
+                </div>
+
+                <!-- FIN PROMO -->
+
+                <!-- INICIO PROMO -->
+
+                <div class="row separadoropcionesreservas">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <div class="radio">
+                        <label><input type="radio" name="optradio"><h4 class="elegiopcionreserva">PROMOCIÓN ALMAlbec</h4></label>
+                        <span>| Válido del 1 al 22 de abril</span>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <img class="etiquetapromo" src="img/promos/promodemo.png">
+                    </div>
+                  </div>
+                  
+
+                  <!-- INICIO MENU -->
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h5 class="opcionmenureserva">Nombre de menú A</h5>  
+                    </div> 
+                    
+                    <div class="col-md-2">
+                      <input id="" name="" type="number" class="form-control cantopcionesmenureserva" placeholder="0" aria-describedby="sizing-addon3">
+                    </div>
+                  </div>
+                  <!-- FIN MENU -->
+
+                  <!-- INICIO MENU -->
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h5 class="opcionmenureserva">Nombre de menú B</h5>
+                    </div> 
+                    
+                    <div class="col-md-2">
+                      <input id="" name="" type="number" class="form-control cantopcionesmenureserva" placeholder="0" aria-describedby="sizing-addon3">
+                    </div>
+                  </div>
+                  <!-- FIN MENU -->
+
+                </div>
+
+                <!-- FIN PROMO -->
+
+                <!-- INICIO PROMO -->
+
+                <div class="row separadoropcionesreservas">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <div class="radio">
+                        <label><input type="radio" name="optradio"><h4 class="elegiopcionreserva">PROMOCIÓN B</h4></label>
+                        <span>| Válido del 1 al 22 de abril</span>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <img class="etiquetapromo" src="img/promos/promodemo.png">
+                    </div>
+                  </div>
+
+                  <!-- INICIO MENU -->
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h5 class="opcionmenureserva">Nombre de menú A</h5>
+                    </div> 
+                    
+                    <div class="col-md-2">
+                      <input id="" name="" type="number" class="form-control cantopcionesmenureserva" placeholder="0" aria-describedby="sizing-addon3">
+                    </div>
+                  </div>
+                  <!-- FIN MENU -->
+
+                  <!-- INICIO MENU -->
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h5 class="opcionmenureserva">Nombre de menú B</h5>
+                    </div> 
+                    
+                    <div class="col-md-2">
+                      <input id="" name="" type="number" class="form-control cantopcionesmenureserva" placeholder="0" aria-describedby="sizing-addon3">
+                    </div>
+                  </div>
+                  <!-- FIN MENU -->
+
+                  <!-- INICIO MENU -->
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h5 class="opcionmenureserva">Nombre de menú C</h5>
+                    </div> 
+                    
+                    <div class="col-md-2">
+                      <input id="" name="" type="number" class="form-control cantopcionesmenureserva" placeholder="0" aria-describedby="sizing-addon3">
+                    </div>
+                  </div>
+                  <!-- FIN MENU -->
+
+                </div>
+
+                <!-- FIN PROMO -->
+
+                <!-- INICIO PROMO -->
+
+                <div class="row separadoropcionesreservas">
+                  <h4 class="elegiopcionreserva" style="margin: 10px 0;">DESCUENTO</h4>
+                  <div class="radio">
+                    <label><input type="radio" name="optradio"><h4 class="elegiopcionreserva">20% OFF</h4></label>
+                  </div>
+                  <div class="radio">
+                    <label><input type="radio" name="optradio"><h4 class="elegiopcionreserva">2x1 | De 19 a 21 hs.</h4></label>
+                  </div>
+                </div>
+
+                <!-- FIN PROMO -->
+
+            </section>
+
+            <div class="row">
               <div style="text-align: center;">
                 <a href="#" onClick="realizarReserva()" id="reservar" class="page-scroll btn btn-xl" style="max-width: 300px; margin: 5% 0;">RESERVAR</a>
               </div>
@@ -219,7 +352,7 @@ $idLocal = $_GET["id"];
                     <h3>No has iniciado sesión</h3>
                   </div>
                   <div class="modal-body">
-                    <h5>Por favor, inicie sesión para continuar</h5>
+                    <h5 class="opcionmenureserva">Por favor, inicie sesión para continuar</h5>
 
                   </div>
                   <div class="modal-footer">
@@ -257,14 +390,14 @@ $idLocal = $_GET["id"];
                     <div class="row">
                       <div class="col-md-12">
                         <h3 class="titulo"></h3>
-                        <p id="cantidadReserva"></p>
+                        <p id="0Reserva"></p>
                         <p id="horarioReserva" ></p>
                         <p id="direccionLocal" ></p>
                       </div>
                       <div class="col-md-12">
                         <p>
                           <div class="form-group">
-                              <input type="text" name="telefonoReserva" id="telefonoReserva" tabindex="1" class="form-control" placeholder="Teléfono de contacto" value="<?php error_reporting(E_ERROR); echo $telefonoUsuario; ?>" onfocus="limpiar('telefonoReserva')">
+                              <input type="text" name="telefonoReserva" id="telefonoReserva" tabindex="1" class="form-control cantopcionesmenureserva" placeholder="Teléfono de contacto" value="<?php error_reporting(E_ERROR); echo $telefonoUsuario; ?>" onfocus="limpiar('telefonoReserva')">
                           </div>
                         </p>
                       </div>
