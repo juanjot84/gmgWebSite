@@ -550,13 +550,21 @@ function popularDropdownLocalesEditar(localesSeleccionados){
 }
 
 function dibujarImagen(dirImagen, contenedor){
+  var metodo= '';
+  if(contenedor == 'contenedorImagenes'){
+    metodo = 'Icono';
+  }else if(contenedor == 'contenedorImagenWeb'){
+    metodo = 'Web';
+  }else if(contenedor == 'contenedorImagenApp'){
+    metodo = 'App';
+  }
   $('#'+contenedor).append(  '<br>' +
   '<li class="miniaturas-orden">'+
      '<a href="#">'+
        '<img class="miniatura-galeria" src="'+dirImagen+'">'+
      '</a>'+
     '<br>'+
-    '<button title="Eliminar" onClick="eliminarImgApp(\'' + dirImagen + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i></button> '+
+    '<button title="Eliminar" onClick="eliminarImg'+metodo+'(\'' + dirImagen + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i></button> '+
   '</li>'+
 '');
 }

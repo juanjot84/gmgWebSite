@@ -82,7 +82,7 @@ error_reporting(E_ERROR);
 
                     <h5 class="titulosalta"> Días y horarios</h5>
 
-                    <p>Las promociones responden a los días y horarios especificados en la configuración general de las Reservas. Para modificar esta información, haga click <a style="color: #f8981d;" href="#">aquí</a></p> <!-- Va configuración de Reservas del panel principal -->
+                    <p>Las promociones responden a los días y horarios especificados en la configuración general de las Reservas. Para modificar esta información, haga click <a style="color: #f8981d;" onclick="configurarReserva()">aquí</a></p> <!-- Va configuración de Reservas del panel principal -->
        
                     <div class="separadortransp"></div>
 
@@ -205,7 +205,7 @@ error_reporting(E_ERROR);
                           
                           <p><div class="input-group input-group-sm">
                             <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                            <input id="nombreNegocio" name="nombreNegocio" type="text" class="form-control" placeholder="Nombre" aria-describedby="sizing-addon3" onfocus="limpiar('nombreNegocio')" required>
+                            <input id="nombreMenu" name="nombreMenu" type="text" class="form-control" placeholder="Nombre" aria-describedby="sizing-addon3">
                           </div></p>
 
                           <div class="separadortransp"></div>
@@ -213,7 +213,7 @@ error_reporting(E_ERROR);
                           <h4 class="titulocargamenu"> Cantidad de menúes disponibles (Stock)</h4>
 
                           <div class="form-group">
-                            <input id="" name="" type="number" class="form-control" placeholder="Cargar stock" aria-describedby="sizing-addon3">
+                            <input id="cantidadDisponible" name="cantidadDisponible" type="number" class="form-control" placeholder="Cargar stock" aria-describedby="sizing-addon3">
                           </div>
 
                           <div class="separadortransp"></div>
@@ -223,7 +223,7 @@ error_reporting(E_ERROR);
                           <!-- Hay que quitar limitación de 500 caracteres -->
 
                           <div class="form-group">
-                            <textarea class="form-control" rows="5" id="" name="" onfocus="limpiar('')"></textarea>
+                            <textarea class="form-control" rows="5" id="descriocionMenu" name="descriocionMenu"></textarea>
                           </div>
 
                           <div class="separadortransp"></div>
@@ -232,15 +232,24 @@ error_reporting(E_ERROR);
                           
                           <p><div class="input-group input-group-sm">
                             <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                            <input id="nombreNegocio" name="nombreNegocio" type="text" class="form-control" placeholder="Precio $" aria-describedby="sizing-addon3" onfocus="limpiar('nombreNegocio')" required>
+                            <input id="precioMenu" name="precioMenu" type="text" class="form-control" placeholder="Precio $" aria-describedby="sizing-addon3">
                           </div></p>
 
                           <div class="separadortransp"></div>
 
                           <h4 class="titulocargamenu"> Foto de Menú</h4>
 
-                          <!-- Colocar cargador de imagen para foto de menú -->
+                          <p><div class="input-group input-group-sm">
+                            <div class="input-group">
+                              <span class="input-group-btn">
+                                <button class="btn btn-default" type="button" style="padding: 17px;" data-toggle="modal"  data-target="#mdlImgMenu"><i class="fa fa-plus-square-o" aria-hidden="true"></i> CARGAR IMAGEN</button>
+                              </span>
+                            </div>
+                            <div id="contenedorImagenWeb">
 
+                            </div>
+                              <input type="text" id="imgPromocionWeb" style="display:none"/> 
+                            </div></p>
                           <!-- Colocar botón para agregar a listado de promociones elegidas -->
 
                           <div class="agregarquitar">
@@ -251,7 +260,7 @@ error_reporting(E_ERROR);
                   </div>
                 
                   <div class="separadortransp"></div>
-
+                <div id="tablaMenu">
                   <table class="table">
                     <thead class="titulotabla">
                         <tr> 
@@ -344,6 +353,7 @@ error_reporting(E_ERROR);
                         </tr>
                     </tbody>
                   </table>
+                </div>
                 
                   <div class="separadortransp"></div>
 
@@ -360,6 +370,26 @@ error_reporting(E_ERROR);
             </div>
       </div>
     </div>
+
+    <!-- Modal imagen web -->
+      <div id="mdlImgMenu" class="modal fade">
+        <div class="modal-dialog" style="width: 65%;">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Subir Imagen para el menú</h4>
+            </div>
+            <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12" id="formDropZone1"></div>
+            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
 
     
     <?php 
@@ -381,6 +411,9 @@ error_reporting(E_ERROR);
 
     <!-- Funcione de promocionLocal JavaScript -->
     <script src="js/controladores/promocionLocal.controlador.js"></script>
+
+    <script src="js/dropzone.js"></script>
+    <link rel="stylesheet" href="css/dropzone.css"> 
 
     <!-- Theme JavaScript -->
     <script src="../js/agency.min.js"></script>
