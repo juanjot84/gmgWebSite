@@ -121,7 +121,7 @@ error_reporting(E_ERROR);
             </div>
             <div class="row text-center" style="padding-top: 5%;">
                 <div class="col-md-4 botonmanito" id="promociones" style="display: none">
-                    <a class="sombrabotonpanel" href="perfil/remarketing.php"><div style="font-size: 1.5em;">
+                    <a class="sombrabotonpanel" onclick="cargarPromociones()"><div style="font-size: 1.5em;">
                         <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-gift" aria-hidden="true"></span><br>
                         PROMOCIONES
                     </div></a>
