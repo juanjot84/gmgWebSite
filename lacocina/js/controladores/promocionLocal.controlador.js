@@ -99,9 +99,10 @@ function aplicarHorarios(dia, dibujar){
   }
 
 function listadoPromocionesDisponibles(){
+  var idLocal = $("#idLocal").val();
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {       
       $.ajax({
-          url: server + '/api/v1/admin/promocionesActivas',
+          url: server + '/api/v1/admin/promocionesActivasLocal?id='+idLocal+'',
           type: 'GET',
           dataType: "json",
           crossDomain: true,
@@ -126,6 +127,7 @@ function listadoPromocionesDisponibles(){
 }
 
 function cargarFormCrear(){
+    $("#botonAgregar").attr("disabled", false);
     $("#formPromocion").show();
     $("#listaPromociones").hide();
 }
@@ -134,7 +136,7 @@ function cancelar(){
     $("#formPromocion").hide();
     limpiarFormMenu();
     $("#listaPromociones").show();
-    menuCargado = [];
+    menuCargado = []; ///revisar
 }
 
 function volverPanelLocal(){
@@ -303,20 +305,20 @@ $('#mdlImgMenu').on('show.bs.modal', function (event) {
         "precioMenu": precioMenu,
         "imgPromocionWeb": imgPromocionWeb
         };
-        menuCargado.push(opcionMenu);
+        menuCargado[contLista] = opcionMenu; //revisar y poner push
         agregarOpcionLista(opcionMenu);
     }
     
   }
 
-  function agregarOpcionLista(opcionMenu){
+  function agregarOpcionLista(opcionMenu){ //revisar
     $("#listaOpcionesMenu").append(''+
      '<tr class="text-center" id="'+opcionMenu.idOpcion+'">'+
        '<td>'+opcionMenu.nombreOpcion+'</td>'+
        '<td>'+opcionMenu.precioMenu+'</td>'+
        '<td>'+opcionMenu.cantidadDisponible+'</td>'+
        '<td class="centrarbotaccion">'+
-         '<button onclick="mostrar(\'' + opcionMenu.idOpcion + '\')" title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>'+
+         '<button onclick="mostrarOpcionLista(\'' + opcionMenu.idOpcion + '\')" title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>'+
          '<button onclick="editarOpcionLista(\'' + opcionMenu.idOpcion + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>'+
          '<button title="Eliminar" onclick="eliminarOpLista(\'' + opcionMenu.idOpcion + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>'+
        '</td>'+
@@ -327,6 +329,7 @@ $('#mdlImgMenu').on('show.bs.modal', function (event) {
   }
 
   function limpiarFormMenu(){
+    $("#botonAgregar").attr("disabled", false);
     $("#nombreMenu").val('');
     $("#cantidadDisponible").val('');
     $("#descriocionMenu").val('');
@@ -335,9 +338,9 @@ $('#mdlImgMenu').on('show.bs.modal', function (event) {
     $("#contenedorImagenWeb").html('');
   }
 
-  function editarOpcionLista(idOpcion){
+  function editarOpcionLista(idOpcion){ //revisar
     limpiarFormMenu();
-    _.each(menuCargado, function(menu){
+    var menu = menuCargado[idOpcion];   
        if(menu.idOpcion == idOpcion){
         $("#nombreMenu").val(menu.nombreOpcion);
         $("#cantidadDisponible").val(menu.cantidadDisponible);
@@ -347,7 +350,28 @@ $('#mdlImgMenu').on('show.bs.modal', function (event) {
         if(menu.imgPromocionWeb != ''){
           dibujarImagen(menu.imgPromocionWeb, 'contenedorImagenWeb');
         }
-        
+        menuCargado.splice(menu.idOpcion, 1);
+        eliminarOpLista(menu.idOpcion);
+       } 
+  }
+
+  function mostrarOpcionLista(idOpcion){ //revisar
+       limpiarFormMenu();
+       $("#botonAgregar").attr("disabled", true);
+       var menu = menuCargado[idOpcion];   
+       if(menu.idOpcion == idOpcion){
+          $("#nombreMenu").val(menu.nombreOpcion);
+          $("#cantidadDisponible").val(menu.cantidadDisponible);
+          $("#descriocionMenu").val(menu.descriocionMenu);
+          $("#precioMenu").val(menu.precioMenu);
+          $("#imgPromocionWeb").val(menu.imgPromocionWeb);
+        if(menu.imgPromocionWeb != ''){
+          dibujarImagen(menu.imgPromocionWeb, 'contenedorImagenWeb');
+        }
        }
-    });
+  }
+
+  function eliminarOpLista(idOpcion){ //revisar
+     $("#"+idOpcion).html('');
+     menuCargado.splice(idOpcion, 1);
   }

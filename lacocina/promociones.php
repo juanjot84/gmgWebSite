@@ -126,12 +126,11 @@ include("includes/nav.php"); ?>
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-6" id="tablaRangos" style="display:none">
+                <div class="col-md-6" id="tablaRangos">
                   <h5>Listado resumen de comisiones</h5>
                   <table class="table">
                     <thead class="titulotablacomisones">
                       <tr> 
-                        <th style="text-align: center;">Comisión</th>
                         <th style="text-align: center;">Desde</th>
                         <th style="text-align: center;">Hasta</th>
                         <th style="text-align: center;">Valor</th>

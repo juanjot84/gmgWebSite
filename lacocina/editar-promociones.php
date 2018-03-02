@@ -251,7 +251,7 @@ error_reporting(E_ERROR);
                           <!-- Colocar botón para agregar a listado de promociones elegidas -->
 
                           <div class="agregarquitar">
-                            <button class="botonagregarhorario" onclick="validarOpciones()"><i class="fa fa-plus" aria-hidden="true"></i> Agregar menú</button>
+                            <button class="botonagregarhorario" id="botonAgregar" onclick="validarOpciones()"><i class="fa fa-plus" aria-hidden="true"></i> Agregar menú</button>
                           </div>
                       </div>
                     </div>

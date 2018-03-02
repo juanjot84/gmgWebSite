@@ -1,7 +1,8 @@
 
-var contLista = 0;
 var porcentaje = '';
 var impactaEnReserva;
+var idRangoComision = 99;
+var rangosComisiones = [];
 
 iniciar();
 
@@ -22,7 +23,6 @@ function controlarRadioSeleccionado(){
             $("#valorFijo").attr('disabled', 'disabled');
             $("#btnAgregarValor").attr('disabled', 'disabled');
             $("#tablaRangos").hide();
-            $("#tablaRangos").html('');
         }else if(radioPorcentaje == 'valorFijo'){
             $("#myRange").prop('disabled', true);
             $("#myRange").val(1);
@@ -34,21 +34,27 @@ function controlarRadioSeleccionado(){
         }
 }
 
-function agregarRangoLista(valorDesde, valorHasta, valorFijo){
-    contLista++;
+function dibujarListaRangos(rangos){
+ $('#listaComision').html('');
+  _.each(rangos, function(rango){
     $('#listaComision').append(''+
-     '<tr id="'+contLista+'" class="text-center listacomision">'+
-        '<td>'+contLista+'</td>'+
-        '<td><input id="valorDesde'+contLista+'" value="'+valorDesde+'" type="text"></td>'+
-        '<td class="text-center"><input id="valorHasta'+contLista+'" value="'+valorHasta+'" type="text"></td>'+
-        '<td class="text-center"><input id="valorFijo'+contLista+'" value="'+valorFijo+'" type="text"></td>'+
+     '<tr id="'+rango.idRango+'" class="text-center listacomision">'+
+        '<td>'+rango.desde+'</td>'+
+        '<td class="text-center">'+rango.hasta+'</td>'+
+        '<td class="text-center">'+rango.valor+'</td>'+
         '<td class="centrarbotaccion">'+
-            '<button title="Eliminar" onclick="eliminarFila(\'' + contLista + '\')" class="btn btn-default botaccion" type="button">'+
+            '<button title="Eliminar" onclick="eliminarFila(\'' + rango.idRango + '\')" class="btn btn-default botaccion" type="button">'+
                '<i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i>'+
             '</button>'+
         '</td>'+
       '</tr>'+
     '')
+  });
+}
+
+function eliminarFila(idCampo){
+    var evens = _.remove(rangosComisiones, function(n) { return n.idRango == idCampo;});
+    dibujarListaRangos(rangosComisiones);
 }
 
 function colocarAlerta(idCampo,mensaje){
@@ -88,7 +94,15 @@ function validarDatosLista(){
       colocarAlerta('valorDesde','Desde y hasta no pueden ser iguales');
     }
     if(error == false){
-      agregarRangoLista(valorDesde, valorHasta, valorFijo);
+      var rango = {
+        "idRango": idRangoComision,
+        "desde": valorDesde,
+        "hasta": valorHasta,
+        "valor": valorFijo
+        };
+        rangosComisiones.push(rango);
+        idRangoComision++;
+        dibujarListaRangos(rangosComisiones);
     }   
 }
 
@@ -96,10 +110,6 @@ function quitarAlert(idCampo){
     $("#"+idCampo+"Alert").html(''); 
     $("#"+idCampo+"Alert").hide();
     $("#"+idCampo).removeClass('alert-danger');
-}
-
-function eliminarFila(idCampo){
-   $("#"+idCampo).html('');
 }
 
 function eliminarIcono(nombreicono, accion){
@@ -366,13 +376,6 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
      porcentaje = 0;
      if(radioPorcentaje == 'porcentaje'){
        porcentaje = $("#myRange").val();
-     }else if(radioPorcentaje == 'valorFijo'){
-      
-      if(contLista == 0){
-        error = true;
-        colocarAlerta('valorDesde','Ingresar al menos un rango de precios');
-        subirWeb('formPromocion');
-      }
      }
      impactaEnReserva = $('input[name=impactaReservas]:checked').val();
      if(impactaEnReserva == 'true'){
@@ -390,15 +393,6 @@ function guardarPromocion(){
   }
   var isNew =$("#idPromocion").val() == '';
   var operacion = isNew  ? "POST": "PUT";
-  var rangoPromocion = [];
-  for (i = 1; i < contLista + 1; i++){ 
-    var rango = {
-    "desde": $("#valorDesde"+i).val(),
-    "hasta": $("#valorHasta"+i).val(),
-    "valor": $("#valorFijo"+i).val()
-    };
-    rangoPromocion.push(rango);
-  }
   var duracionPromocion = $("#duracionPromocion").val();
   var duracionPromocionDesde = duracionPromocion.substr(0,10);
   var duracionPromocionHasta = duracionPromocion.substr(13,10);
@@ -416,7 +410,7 @@ function guardarPromocion(){
       "imagenAppPromocion": $("#imgPromocionApp").val(),
       "iconoPromocion": $("#iconoPromocion").val(),
       "terminosCondicionesPromocion": $("#terminosCondiciones").val(),
-      "rangoPromocion": rangoPromocion,
+      "rangoPromocion": rangosComisiones,
       "duracionDesdePromocion": duracionPromocionDesde,
       "duracionHastaPromocion": duracionPromocionHasta,
       "idLocal": localesSeleccionados
@@ -462,6 +456,7 @@ function editarPromocion(idPromocion){
             $("#demo").append(comisionPromocion);
           }else{
             $("input[name=radioComision][value=valorFijo]").prop("checked",true);
+            rangosComisiones = promocion.rangoPromocion;
             dibujarListaRangos(promocion.rangoPromocion);
           }
           controlarRadioSeleccionado();
@@ -569,26 +564,6 @@ function dibujarImagen(dirImagen, contenedor){
 '');
 }
 
-function dibujarListaRangos(rangos){
-  var contLista = 1;
-  _.each(rangos, function(rango){
-    contLista++;
-    $('#listaComision').append(''+
-     '<tr id="'+contLista+'" class="text-center listacomision">'+
-        '<td>'+contLista+'</td>'+
-        '<td><input id="valorDesde'+contLista+'" value="'+rango.desde+'" type="text"></td>'+
-        '<td class="text-center"><input id="valorHasta'+contLista+'" value="'+rango.hasta+'" type="text"></td>'+
-        '<td class="text-center"><input id="valorFijo'+contLista+'" value="'+rango.valor+'" type="text"></td>'+
-        '<td class="centrarbotaccion">'+
-            '<button title="Eliminar" onclick="eliminarFila(\'' + contLista + '\')" class="btn btn-default botaccion" type="button">'+
-               '<i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i>'+
-            '</button>'+
-        '</td>'+
-      '</tr>'+
-    '')
-  });
-}
-
 function dibujarListadoLocales(){
   $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     $('#listadoLocales').html('');
@@ -638,6 +613,7 @@ function dibujarListadoLocales(){
 }
 
 function dibujarListadoPromociones(){
+  limpiarForm();
   $("#formPromocion").hide();
   $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     $('#listadoPromociones').html('');
