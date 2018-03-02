@@ -77,7 +77,7 @@ error_reporting(E_ERROR);
                     
                      <p><div class="input-group input-group-sm">
                           <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                          <select id="selectPromociones" name="selectPromociones" class="form-control"></select>
+                          <select id="selectPromociones" name="selectPromociones" onclick="quitarAlert('selectPromociones')" class="form-control"></select>
                     </div></p>
 
                     <h5 class="titulosalta"> Días y horarios</h5>
@@ -198,7 +198,7 @@ error_reporting(E_ERROR);
                       <div class="cuadrocargamenupromo">
 
                           <h5 class="titulosalta"> Cargar menú</h5>
-
+                          <div id="tituloMenu"></div>
                           <div class="separadortransp"></div>
 
                           <h4 class="titulocargamenu"> Nombre del menú</h4>
@@ -276,7 +276,7 @@ error_reporting(E_ERROR);
 
                   <div class="input-group">
                        <span class="input-group-btn">
-                        <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick=""><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+                        <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validarPromocion()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
                         <button id="botoncancelar" class="btn btn-default" type="button" style="padding: 17px;" onClick="cancelar()"><i class="fa fa-ban" aria-hidden="true"></i> Cancelar</button>
                       </span>
                   </div>

@@ -1,5 +1,5 @@
 
-var contLista = 1;
+var contLista = 199;
 var menuCargado = [];
 
 iniciar();
@@ -7,7 +7,7 @@ iniciar();
 function iniciar(){
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
         listadoPromocionesLocal();
-        listadoPromocionesDisponibles(); //actualizar cuando fede haga la consulta
+        listadoPromocionesDisponibles();
         dibujarHorariosReservas();
     });
   }
@@ -305,27 +305,30 @@ $('#mdlImgMenu').on('show.bs.modal', function (event) {
         "precioMenu": precioMenu,
         "imgPromocionWeb": imgPromocionWeb
         };
-        menuCargado[contLista] = opcionMenu; //revisar y poner push
-        agregarOpcionLista(opcionMenu);
+        menuCargado.push(opcionMenu);
+        contLista++;
+        dibujarListaOpciones(menuCargado);
+        limpiarFormMenu();
     }
     
   }
 
-  function agregarOpcionLista(opcionMenu){ //revisar
-    $("#listaOpcionesMenu").append(''+
-     '<tr class="text-center" id="'+opcionMenu.idOpcion+'">'+
-       '<td>'+opcionMenu.nombreOpcion+'</td>'+
-       '<td>'+opcionMenu.precioMenu+'</td>'+
-       '<td>'+opcionMenu.cantidadDisponible+'</td>'+
-       '<td class="centrarbotaccion">'+
-         '<button onclick="mostrarOpcionLista(\'' + opcionMenu.idOpcion + '\')" title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>'+
-         '<button onclick="editarOpcionLista(\'' + opcionMenu.idOpcion + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>'+
-         '<button title="Eliminar" onclick="eliminarOpLista(\'' + opcionMenu.idOpcion + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>'+
-       '</td>'+
-     '</tr>'+
-    '');
-    contLista++;
-    limpiarFormMenu();
+  function dibujarListaOpciones(opcionesMenu){
+    $("#listaOpcionesMenu").html('');
+    _.each(opcionesMenu, function(opcion){
+      $("#listaOpcionesMenu").append(''+
+        '<tr class="text-center" id="'+opcion.idOpcion+'">'+
+          '<td>'+opcion.nombreOpcion+'</td>'+
+          '<td>'+opcion.precioMenu+'</td>'+
+          '<td>'+opcion.cantidadDisponible+'</td>'+
+          '<td class="centrarbotaccion">'+
+             '<button onclick="mostrarOpcionLista(\'' + opcion.idOpcion + '\')" title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>'+
+             '<button onclick="editarOpcionLista(\'' + opcion.idOpcion + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>'+
+             '<button title="Eliminar" onclick="eliminarOpLista(\'' + opcion.idOpcion + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>'+
+          '</td>'+
+        '</tr>'+
+      '');
+    });
   }
 
   function limpiarFormMenu(){
@@ -338,40 +341,61 @@ $('#mdlImgMenu').on('show.bs.modal', function (event) {
     $("#contenedorImagenWeb").html('');
   }
 
-  function editarOpcionLista(idOpcion){ //revisar
+  function editarOpcionLista(idOpcion){
+    var indice = _.findIndex(menuCargado, function(o) { return o.idOpcion == idOpcion; });
     limpiarFormMenu();
-    var menu = menuCargado[idOpcion];   
-       if(menu.idOpcion == idOpcion){
-        $("#nombreMenu").val(menu.nombreOpcion);
-        $("#cantidadDisponible").val(menu.cantidadDisponible);
-        $("#descriocionMenu").val(menu.descriocionMenu);
-        $("#precioMenu").val(menu.precioMenu);
-        $("#imgPromocionWeb").val(menu.imgPromocionWeb);
-        if(menu.imgPromocionWeb != ''){
-          dibujarImagen(menu.imgPromocionWeb, 'contenedorImagenWeb');
-        }
-        menuCargado.splice(menu.idOpcion, 1);
-        eliminarOpLista(menu.idOpcion);
-       } 
+    var menu = menuCargado[indice];   
+
+    $("#nombreMenu").val(menu.nombreOpcion);
+    $("#cantidadDisponible").val(menu.cantidadDisponible);
+    $("#descriocionMenu").val(menu.descriocionMenu);
+    $("#precioMenu").val(menu.precioMenu);
+    $("#imgPromocionWeb").val(menu.imgPromocionWeb);
+    if(menu.imgPromocionWeb != ''){
+        dibujarImagen(menu.imgPromocionWeb, 'contenedorImagenWeb');
+    }
+    eliminarOpLista(menu.idOpcion);     
   }
 
-  function mostrarOpcionLista(idOpcion){ //revisar
-       limpiarFormMenu();
-       $("#botonAgregar").attr("disabled", true);
-       var menu = menuCargado[idOpcion];   
-       if(menu.idOpcion == idOpcion){
-          $("#nombreMenu").val(menu.nombreOpcion);
-          $("#cantidadDisponible").val(menu.cantidadDisponible);
-          $("#descriocionMenu").val(menu.descriocionMenu);
-          $("#precioMenu").val(menu.precioMenu);
-          $("#imgPromocionWeb").val(menu.imgPromocionWeb);
-        if(menu.imgPromocionWeb != ''){
-          dibujarImagen(menu.imgPromocionWeb, 'contenedorImagenWeb');
-        }
-       }
+  function mostrarOpcionLista(idOpcion){
+    var indice = _.findIndex(menuCargado, function(o) { return o.idOpcion == idOpcion; });
+    limpiarFormMenu();
+    var menu = menuCargado[indice];  
+    $("#botonAgregar").attr("disabled", true); 
+       
+    $("#nombreMenu").val(menu.nombreOpcion);
+    $("#cantidadDisponible").val(menu.cantidadDisponible);
+    $("#descriocionMenu").val(menu.descriocionMenu);
+    $("#precioMenu").val(menu.precioMenu);
+    $("#imgPromocionWeb").val(menu.imgPromocionWeb);
+    if(menu.imgPromocionWeb != ''){
+      dibujarImagen(menu.imgPromocionWeb, 'contenedorImagenWeb');
+    }    
   }
 
-  function eliminarOpLista(idOpcion){ //revisar
-     $("#"+idOpcion).html('');
-     menuCargado.splice(idOpcion, 1);
+  function eliminarOpLista(idOpcion){
+    var evens = _.remove(menuCargado, function(n) { return n.idOpcion == idOpcion;});
+    dibujarListaOpciones(menuCargado);
   }
+
+  function subirWeb(seccion){
+    $('html,body').animate({
+      scrollTop: $("#"+seccion).offset().top
+    }, 2000);
+  }
+
+  function validarPromocion(){
+    var promocion = $("#selectPromociones").val();
+    var error = false;
+    if(promocion == null){
+      error = true;
+      colocarAlerta('selectPromociones','Debe seleccionar una promoción');
+      subirWeb('selectPromociones')
+    }
+    if(menuCargado.length == 0){
+      error = true;
+      colocarAlerta('nombreMenu','Debe cargar al menos un Menú para la promoción');
+      subirWeb('tituloMenu');
+    } 
+  }
+
