@@ -1,3 +1,7 @@
+
+var contLista = 1;
+var menuCargado = [];
+
 iniciar();
 
 function iniciar(){
@@ -128,12 +132,9 @@ function cargarFormCrear(){
 
 function cancelar(){
     $("#formPromocion").hide();
-    limpiarForm();
+    limpiarFormMenu();
     $("#listaPromociones").show();
-}
-
-function limpiarForm(){
-
+    menuCargado = [];
 }
 
 function volverPanelLocal(){
@@ -257,4 +258,96 @@ $('#mdlImgMenu').on('show.bs.modal', function (event) {
       '<button title="Eliminar" onClick="eliminarImgMenu(\'' + dirImagen + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i></button> '+
     '</li>'+
   '');
+  }
+
+  function colocarAlerta(idCampo,mensaje){
+    $("#"+idCampo).parent().after('<span id="'+idCampo+'Alert" style="color:red">'+mensaje+'</span>');
+    $("#"+idCampo).addClass('alert-danger');
+  }
+
+  function quitarAlert(idCampo){
+    $("#"+idCampo+"Alert").html(''); 
+    $("#"+idCampo+"Alert").hide();
+    $("#"+idCampo).removeClass('alert-danger');
+  }
+
+  function validarOpciones(){
+    var error = false;
+    var nombreOpcion = $("#nombreMenu").val();
+    if(nombreOpcion == ''){
+      error = true;
+      colocarAlerta('nombreMenu','Debe ingresar un nombre para el menú');
+    }
+    var cantidadDisponible = $("#cantidadDisponible").val();
+    if(cantidadDisponible == ''){
+      error = true;
+      colocarAlerta('cantidadDisponible','Debe ingresar una cantidad para el menú');
+    }
+    var descriocionMenu = $("#descriocionMenu").val();
+    if(descriocionMenu == ''){
+      error = true;
+      colocarAlerta('descriocionMenu','Debe ingresar una descripción para el menú');
+    }
+    var precioMenu = $("#precioMenu").val();
+    if(precioMenu ==''){
+      error = true;
+      colocarAlerta('precioMenu','Debe ingresar una precio para el menú');
+    }
+    var imgPromocionWeb = $("#imgPromocionWeb").val();
+    if(error == false){
+      var opcionMenu = {
+        "idOpcion": contLista,
+        "nombreOpcion": nombreOpcion,
+        "cantidadDisponible": cantidadDisponible,
+        "descriocionMenu": descriocionMenu,
+        "precioMenu": precioMenu,
+        "imgPromocionWeb": imgPromocionWeb
+        };
+        menuCargado.push(opcionMenu);
+        agregarOpcionLista(opcionMenu);
+    }
+    
+  }
+
+  function agregarOpcionLista(opcionMenu){
+    $("#listaOpcionesMenu").append(''+
+     '<tr class="text-center" id="'+opcionMenu.idOpcion+'">'+
+       '<td>'+opcionMenu.nombreOpcion+'</td>'+
+       '<td>'+opcionMenu.precioMenu+'</td>'+
+       '<td>'+opcionMenu.cantidadDisponible+'</td>'+
+       '<td class="centrarbotaccion">'+
+         '<button onclick="mostrar(\'' + opcionMenu.idOpcion + '\')" title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>'+
+         '<button onclick="editarOpcionLista(\'' + opcionMenu.idOpcion + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>'+
+         '<button title="Eliminar" onclick="eliminarOpLista(\'' + opcionMenu.idOpcion + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>'+
+       '</td>'+
+     '</tr>'+
+    '');
+    contLista++;
+    limpiarFormMenu();
+  }
+
+  function limpiarFormMenu(){
+    $("#nombreMenu").val('');
+    $("#cantidadDisponible").val('');
+    $("#descriocionMenu").val('');
+    $("#precioMenu").val('');
+    $("#imgPromocionWeb").val('');
+    $("#contenedorImagenWeb").html('');
+  }
+
+  function editarOpcionLista(idOpcion){
+    limpiarFormMenu();
+    _.each(menuCargado, function(menu){
+       if(menu.idOpcion == idOpcion){
+        $("#nombreMenu").val(menu.nombreOpcion);
+        $("#cantidadDisponible").val(menu.cantidadDisponible);
+        $("#descriocionMenu").val(menu.descriocionMenu);
+        $("#precioMenu").val(menu.precioMenu);
+        $("#imgPromocionWeb").val(menu.imgPromocionWeb);
+        if(menu.imgPromocionWeb != ''){
+          dibujarImagen(menu.imgPromocionWeb, 'contenedorImagenWeb');
+        }
+        
+       }
+    });
   }

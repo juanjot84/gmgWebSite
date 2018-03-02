@@ -205,7 +205,7 @@ error_reporting(E_ERROR);
                           
                           <p><div class="input-group input-group-sm">
                             <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                            <input id="nombreMenu" name="nombreMenu" type="text" class="form-control" placeholder="Nombre" aria-describedby="sizing-addon3">
+                            <input id="nombreMenu" name="nombreMenu" type="text" onclick="quitarAlert('nombreMenu')" class="form-control" placeholder="Nombre" aria-describedby="sizing-addon3">
                           </div></p>
 
                           <div class="separadortransp"></div>
@@ -213,17 +213,15 @@ error_reporting(E_ERROR);
                           <h4 class="titulocargamenu"> Cantidad de menúes disponibles (Stock)</h4>
 
                           <div class="form-group">
-                            <input id="cantidadDisponible" name="cantidadDisponible" type="number" class="form-control" placeholder="Cargar stock" aria-describedby="sizing-addon3">
+                            <input id="cantidadDisponible" name="cantidadDisponible" type="number" onclick="quitarAlert('cantidadDisponible')" class="form-control" placeholder="Cargar stock" aria-describedby="sizing-addon3">
                           </div>
 
                           <div class="separadortransp"></div>
 
                           <h4 class="titulocargamenu"> Descripción</h4>
 
-                          <!-- Hay que quitar limitación de 500 caracteres -->
-
                           <div class="form-group">
-                            <textarea class="form-control" rows="5" id="descriocionMenu" name="descriocionMenu"></textarea>
+                            <textarea class="form-control" rows="5" onclick="quitarAlert('descriocionMenu')" id="descriocionMenu" name="descriocionMenu"></textarea>
                           </div>
 
                           <div class="separadortransp"></div>
@@ -232,7 +230,7 @@ error_reporting(E_ERROR);
                           
                           <p><div class="input-group input-group-sm">
                             <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                            <input id="precioMenu" name="precioMenu" type="text" class="form-control" placeholder="Precio $" aria-describedby="sizing-addon3">
+                            <input id="precioMenu" name="precioMenu" type="text" onclick="quitarAlert('precioMenu')" class="form-control" placeholder="Precio $" aria-describedby="sizing-addon3">
                           </div></p>
 
                           <div class="separadortransp"></div>
@@ -253,7 +251,7 @@ error_reporting(E_ERROR);
                           <!-- Colocar botón para agregar a listado de promociones elegidas -->
 
                           <div class="agregarquitar">
-                            <button class="botonagregarhorario"><i class="fa fa-plus" aria-hidden="true"></i> Agregar menú</button>
+                            <button class="botonagregarhorario" onclick="validarOpciones()"><i class="fa fa-plus" aria-hidden="true"></i> Agregar menú</button>
                           </div>
                       </div>
                     </div>
@@ -264,47 +262,13 @@ error_reporting(E_ERROR);
                   <table class="table">
                     <thead class="titulotabla">
                         <tr> 
-                            <th >#</th>
-                            <th style="text-align: center;">Promoción</th>
-                            <th style="text-align: center;">Nombre de Menú</th>
+                            <th >Nombre de Menú</th>
+                            <th style="text-align: center;">Precio</th>
+                            <th style="text-align: center;">Cantidad</th>
                             <th style="text-align: center;">Acción</th>
                         </tr>
                     </thead>
-                    <tbody id="">
-                        <tr class="text-center">
-                            <td>
-                                1
-                            </td>
-                            <td>
-                                Al Malbec
-                            </td>
-                            <td>
-                                2 empanadadas + 2 copas de Malbec
-                            </td>
-                            <td class="centrarbotaccion">
-                              <button onclick="mostrar('')" title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>
-                              <button onclick="editar('')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                              <button title="Eliminar" onclick="eliminar('')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>
-                            </td>
-                        </tr>
-
-                        <tr class="text-center">
-                            <td>
-                                2
-                            </td>
-                            <td>
-                                Otra promo
-                            </td>
-                            <td>
-                                2 empanadadas + 2 copas de Malbec
-                            </td>
-                            <td class="centrarbotaccion">
-                              <button onclick="mostrar('')" title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>
-                              <button onclick="editar('')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                              <button title="Eliminar" onclick="eliminar('')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>
-                            </td>
-                        </tr>
-
+                    <tbody id="listaOpcionesMenu">
                     </tbody>
                   </table>
                 
@@ -317,14 +281,15 @@ error_reporting(E_ERROR);
                       </span>
                   </div>
                 </div>
-
-
-
                 </div>
             </div>
             <div class="separadortransp"></div>
+                </div>
+            </div>
+
 
             <div class="col-md-12" id="listaPromociones">
+             <div class="separadortransp"></div>
                   <table class="table">
                     <thead class="titulotabla">
                         <tr> 
@@ -364,10 +329,6 @@ error_reporting(E_ERROR);
                   </div>
                 </div>
 
-
-
-                </div>
-            </div>
       </div>
     </div>
 
