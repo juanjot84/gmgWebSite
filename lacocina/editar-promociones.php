@@ -46,6 +46,7 @@ error_reporting(E_ERROR);
     }
 ?>
     <input type="text" name="idLocal" id="idLocal" value="<?php  error_reporting(E_ERROR); echo $idLocal; ?>" class="hidden">
+    <input type="text" name="localPromocion" id="localPromocion" value="" class="hidden">
     <div class="container-fluid" style="padding: 1%; background: #fff; margin-top: -21px;">
         <div class="container">
             <div class="row">
@@ -299,23 +300,8 @@ error_reporting(E_ERROR);
                             <th style="text-align: center;">Acción</th>
                         </tr>
                     </thead>
-                    <tbody id="">
-                        <tr class="text-center">
-                            <td>
-                                1
-                            </td>
-                            <td>
-                                Al Malbec
-                            </td>
-                            <td>
-                                Activa
-                            </td>
-                            <td class="centrarbotaccion">
-                              <button onclick="mostrar('')" title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>
-                              <button onclick="editar('')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                              <button title="Eliminar" onclick="eliminar('')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>
-                            </td>
-                        </tr>
+                    <tbody id="tablaPromocionesLocal">
+
                     </tbody>
                   </table>
                 </div>

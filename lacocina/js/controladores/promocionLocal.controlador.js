@@ -1,6 +1,7 @@
 
 var contLista = 199;
 var menuCargado = [];
+var opcionPromocionCreados = [];
 
 iniciar();
 
@@ -13,7 +14,45 @@ function iniciar(){
   }
 
 function listadoPromocionesLocal(){
-
+  $("#formPromocion").hide();
+  $("#listaPromociones").show();
+  var idLocal = $("#idLocal").val();
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {       
+    $.ajax({
+        url: server + '/api/v1/admin/promocionesLocal?id='+idLocal+'',
+        type: 'GET',
+        dataType: "json",
+        crossDomain: true,
+        contentType:"application/json",
+        success: function (data) {
+         promociones = data;
+         var contador = 1;
+         _.each(promociones, function(promocion){
+            $('#tablaPromocionesLocal').html('');
+            $('#tablaPromocionesLocal').append(''+
+             '<tr class="text-center">'+
+              '<td>'+contador+'</td>'+
+              '<td>'+promocion.nombrePromocion+'</td>'+
+              '<td>'+promocion.estadoPromocion+'</td>'+
+              '<td class="centrarbotaccion">'+
+                 '<button onclick="" title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>'+
+                 '<button onclick="" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>'+
+                 '<button title="Eliminar" onclick="" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>'+
+              '</td>'+
+             '</tr>'+
+            '');
+          });
+            contador++;
+            $('#loading').hide();
+        },
+        error:function(jqXHR,textStatus,errorThrown)
+        {           
+          $('#target').append("jqXHR: "+jqXHR);
+          $('#target').append("textStatus: "+textStatus);
+          $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+        },
+    });
+  });
 }
 
 function dibujarHorariosReservas(){
@@ -396,6 +435,85 @@ $('#mdlImgMenu').on('show.bs.modal', function (event) {
       error = true;
       colocarAlerta('nombreMenu','Debe cargar al menos un Menú para la promoción');
       subirWeb('tituloMenu');
-    } 
+    }
+    if(error == false){
+      guardarPromocion(promocion,menuCargado);
+    }
   }
 
+  function guardarPromocion(promocion,menues){
+//  $("#botonGuardar").addClass('disabled');
+    var idOpcionPromocion = [];
+    var guardarPromociones = [];
+      _.each(menues, function(menu){
+        var guardar =  guardarOpcionMenu(menu).then(function(id){
+          opcionPromocionCreados.push(id);
+        });
+        guardarPromociones.push(guardar);
+      });
+
+      Promise.all(guardarPromociones).then(function () {
+        var isNew = $("#localPromocion").val() == "";
+        var operacion = isNew ? "POST": "PUT";
+        var PromocionLocal = JSON.stringify({
+            "idLocal": $("#idLocal").val(),
+            "idPromocion": promocion,
+            "idOpcionPromocion": opcionPromocionCreados
+        });
+    
+        $('#target').html('sending..');
+        var queryParam = isNew  ? "": "?id=" + $("#localPromocion").val();
+        $.ajax({
+            url: server + '/api/v1/admin/localPromocion'+ queryParam,
+            type: operacion,
+    
+            dataType: "json",
+            crossDomain: true,
+            contentType: "application/json",
+            success: function (data) {
+              listadoPromocionesLocal();
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+            },
+            data: PromocionLocal
+        });
+    
+      });
+
+  }
+
+  function guardarOpcionMenu(menu){
+    var promise = new Promise(function(resolve, reject) {
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+    }
+        var operacion = "POST";
+        var opcionPromocion = JSON.stringify({
+          "nombreOpcion": menu.nombreOpcion,
+          "descripcionOpcion": menu.descriocionMenu,
+          "precioOpcion": menu.precioMenu,
+          "fotoOpcion": menu.imgPromocionWeb,
+          "cantidadDisponible": menu.cantidadDisponible          
+        });
+  
+        $('#target').html('sending..');
+        $.ajax({
+          url: server + '/api/v1/admin/opcionPromocion',
+          type: operacion,
+          dataType: "json",
+          crossDomain: true,
+          contentType:"application/json",
+          success: function (data) {
+            resolve(data._id);
+          },
+          error:function(jqXHR,textStatus,errorThrown)
+          {
+            
+          },
+          data: opcionPromocion
+        });
+    });
+  
+    return promise
+  }
