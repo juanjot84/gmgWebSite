@@ -2,13 +2,13 @@
 var contLista = 199;
 var menuCargado = [];
 var opcionPromocionCreados = [];
+var promociones;
 
 iniciar();
 
 function iniciar(){
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
         listadoPromocionesLocal();
-        listadoPromocionesDisponibles();
         dibujarHorariosReservas();
     });
   }
@@ -36,7 +36,7 @@ function listadoPromocionesLocal(){
               '<td>'+promocion.estadoPromocion+'</td>'+
               '<td class="centrarbotaccion">'+
                  '<button onclick="" title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>'+
-                 '<button onclick="" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>'+
+                 '<button onclick="editarLocalPromocion(\'' + promocion.idLocalPromocion+ '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>'+
                  '<button title="Eliminar" onclick="" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>'+
               '</td>'+
              '</tr>'+
@@ -139,34 +139,144 @@ function aplicarHorarios(dia, dibujar){
 
 function listadoPromocionesDisponibles(){
   var idLocal = $("#idLocal").val();
-    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {       
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }   
+    return $.ajax({
+        url: server + '/api/v1/admin/promocionesActivasLocal?id='+idLocal+'',
+        type: 'GET',
+        
+        dataType: "json",
+        crossDomain: true,
+        contentType:"application/json",
+        success: function (data) {
+           return data;
+        } 
+  });
+}
+
+function obtenerPromocion(idPromocion){
+  var idLocal = $("#idLocal").val();
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }   
       $.ajax({
-          url: server + '/api/v1/admin/promocionesActivasLocal?id='+idLocal+'',
-          type: 'GET',
+        url: server + '/api/v1/admin/promocion?id='+idPromocion+'',
+        type: 'GET',
+        
+        dataType: "json",
+        crossDomain: true,
+        contentType:"application/json",
+        success: function (data) {
+           $('#selectPromociones').html('');
+           var option = $('<option>').val(data._id).text(data.nombrePromocion);
+           option.attr('selected', 'selected');
+           option.appendTo('#selectPromociones');
+        } 
+  });
+}
+
+function popularDropdownPromocionAlta(){
+  $('#selectPromociones').html('');
+  $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#selectPromociones');       
+  _.each(promociones, function(promocion){
+    $('<option>').val(promocion._id).text(promocion.nombrePromocion).appendTo('#selectPromociones');
+  });
+}
+
+function popularDropdownPromocionEditar(idPromocion){
+    $('#selectPromociones').html('');
+    _.each(promociones, function (promocion){;
+      var option = $('<option>').val(promocion._id).text(promocion.nombrePromocion);
+      if (idPromocion==promocion._id)
+      option.attr('selected', 'selected');
+      option.appendTo('#selectPromociones');
+    });
+}
+
+function editarLocalPromocion(idLocalPromocion){
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {       
+    $.ajax({
+        url: server + '/api/v1/admin/localPromocion?id='+idLocalPromocion+'',
+        type: 'GET',
+        dataType: "json",
+        crossDomain: true,
+        contentType:"application/json",
+        success: function (data){
+          $("#localPromocion").val(idLocalPromocion);
+          cargarFormEditar(data.idPromocion);
+          buscarOpcionesMenu(data.idOpcionPromocion);
+        },
+        error:function(jqXHR,textStatus,errorThrown)
+        {           
+          $('#target').append("jqXHR: "+jqXHR);
+          $('#target').append("textStatus: "+textStatus);
+          $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+        },
+    });
+  });
+}
+
+function buscarOpcionesMenu(idOpcionPromocion){
+        var obtenerOpcionesPromocion = [];
+        _.each(idOpcionPromocion, function(idOpcionMenu){
+          var guardar =  obtenerOpcionMenu(idOpcionMenu).then(function(menu){
+            menu.idOpcion = contLista;
+            menuCargado.push(menu);
+            contLista++;
+          });
+          obtenerOpcionesPromocion.push(guardar);
+        });
+        Promise.all(obtenerOpcionesPromocion).then(function () {
+          dibujarListaOpciones(menuCargado);
+        });
+}
+
+function obtenerOpcionMenu(idOpcionMenu){
+  var promise = new Promise(function(resolve, reject) {
+    if (_.isUndefined(server)) {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      });
+    }
+    $.ajax({
+      url: server + '/api/v1/admin/opcionPromocion?id='+ idOpcionMenu +"",
+          type: 'GET',  
           dataType: "json",
           crossDomain: true,
           contentType:"application/json",
           success: function (data) {
-              promociones = data;
-              $('#selectPromociones').html('');
-              $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#selectPromociones');       
-              _.each(promociones, function(promocion){
-                $('<option>').val(promocion._id).text(promocion.nombrePromocion).appendTo('#selectPromociones');
-              });
-              $('#loading').hide();
+            resolve(data);
           },
           error:function(jqXHR,textStatus,errorThrown)
-          {           
-            $('#target').append("jqXHR: "+jqXHR);
-            $('#target').append("textStatus: "+textStatus);
-            $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+          {
+              $('#target').append("jqXHR: "+jqXHR);
+              $('#target').append("textStatus: "+textStatus);
+              $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
           },
-      });
-    });
+    });   
+  });
+  return promise
+}
+
+function cargarFormEditar(idPromocion){
+  obtenerPromocion(idPromocion);
+  $("#selectPromociones").attr("disabled", true);
+  $("#botonAgregar").attr("disabled", false);
+  $("#formPromocion").show();
+  $("#listaPromociones").hide();
 }
 
 function cargarFormCrear(){
+    listadoPromocionesDisponibles().done(function(data){ 
+      promociones = data; 
+      popularDropdownPromocionAlta(); 
+    });
+    $("#selectPromociones").attr("disabled", false);
     $("#botonAgregar").attr("disabled", false);
+    menuCargado = [];
+    dibujarListaOpciones(menuCargado);
     $("#formPromocion").show();
     $("#listaPromociones").hide();
 }
@@ -175,7 +285,7 @@ function cancelar(){
     $("#formPromocion").hide();
     limpiarFormMenu();
     $("#listaPromociones").show();
-    menuCargado = []; ///revisar
+    menuCargado = [];
 }
 
 function volverPanelLocal(){
@@ -340,9 +450,9 @@ $('#mdlImgMenu').on('show.bs.modal', function (event) {
         "idOpcion": contLista,
         "nombreOpcion": nombreOpcion,
         "cantidadDisponible": cantidadDisponible,
-        "descriocionMenu": descriocionMenu,
-        "precioMenu": precioMenu,
-        "imgPromocionWeb": imgPromocionWeb
+        "descripcionOpcion": descriocionMenu,
+        "precioOpcion": precioMenu,
+        "fotoOpcion": imgPromocionWeb
         };
         menuCargado.push(opcionMenu);
         contLista++;
@@ -358,10 +468,9 @@ $('#mdlImgMenu').on('show.bs.modal', function (event) {
       $("#listaOpcionesMenu").append(''+
         '<tr class="text-center" id="'+opcion.idOpcion+'">'+
           '<td>'+opcion.nombreOpcion+'</td>'+
-          '<td>'+opcion.precioMenu+'</td>'+
+          '<td>'+opcion.precioOpcion+'</td>'+
           '<td>'+opcion.cantidadDisponible+'</td>'+
           '<td class="centrarbotaccion">'+
-             '<button onclick="mostrarOpcionLista(\'' + opcion.idOpcion + '\')" title="Ver" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i></button>'+
              '<button onclick="editarOpcionLista(\'' + opcion.idOpcion + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button>'+
              '<button title="Eliminar" onclick="eliminarOpLista(\'' + opcion.idOpcion + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button>'+
           '</td>'+
@@ -387,33 +496,18 @@ $('#mdlImgMenu').on('show.bs.modal', function (event) {
 
     $("#nombreMenu").val(menu.nombreOpcion);
     $("#cantidadDisponible").val(menu.cantidadDisponible);
-    $("#descriocionMenu").val(menu.descriocionMenu);
-    $("#precioMenu").val(menu.precioMenu);
-    $("#imgPromocionWeb").val(menu.imgPromocionWeb);
-    if(menu.imgPromocionWeb != ''){
-        dibujarImagen(menu.imgPromocionWeb, 'contenedorImagenWeb');
+    $("#descriocionMenu").val(menu.descripcionOpcion);
+    $("#precioMenu").val(menu.precioOpcion);
+    $("#imgPromocionWeb").val(menu.fotoOpcion);
+    if(menu.fotoOpcion != ''){
+        dibujarImagen(menu.fotoOpcion, 'contenedorImagenWeb');
     }
-    eliminarOpLista(menu.idOpcion);     
-  }
-
-  function mostrarOpcionLista(idOpcion){
-    var indice = _.findIndex(menuCargado, function(o) { return o.idOpcion == idOpcion; });
-    limpiarFormMenu();
-    var menu = menuCargado[indice];  
-    $("#botonAgregar").attr("disabled", true); 
-       
-    $("#nombreMenu").val(menu.nombreOpcion);
-    $("#cantidadDisponible").val(menu.cantidadDisponible);
-    $("#descriocionMenu").val(menu.descriocionMenu);
-    $("#precioMenu").val(menu.precioMenu);
-    $("#imgPromocionWeb").val(menu.imgPromocionWeb);
-    if(menu.imgPromocionWeb != ''){
-      dibujarImagen(menu.imgPromocionWeb, 'contenedorImagenWeb');
-    }    
+    eliminarOpLista(idOpcion);     
   }
 
   function eliminarOpLista(idOpcion){
-    var evens = _.remove(menuCargado, function(n) { return n.idOpcion == idOpcion;});
+    var indice = _.findIndex(menuCargado, function(o) { return o.idOpcion == idOpcion; });
+    menuCargado.splice(indice, 1);
     dibujarListaOpciones(menuCargado);
   }
 
@@ -445,6 +539,7 @@ $('#mdlImgMenu').on('show.bs.modal', function (event) {
 //  $("#botonGuardar").addClass('disabled');
     var idOpcionPromocion = [];
     var guardarPromociones = [];
+    opcionPromocionCreados = [];
       _.each(menues, function(menu){
         var guardar =  guardarOpcionMenu(menu).then(function(id){
           opcionPromocionCreados.push(id);
@@ -471,6 +566,8 @@ $('#mdlImgMenu').on('show.bs.modal', function (event) {
             crossDomain: true,
             contentType: "application/json",
             success: function (data) {
+              menuCargado = [];
+              $("#listaOpcionesMenu").html('');
               listadoPromocionesLocal();
             },
             error: function (jqXHR, textStatus, errorThrown) {
@@ -490,10 +587,11 @@ $('#mdlImgMenu').on('show.bs.modal', function (event) {
     }
         var operacion = "POST";
         var opcionPromocion = JSON.stringify({
+          "idOpcion": menu.idOpcion,
           "nombreOpcion": menu.nombreOpcion,
-          "descripcionOpcion": menu.descriocionMenu,
-          "precioOpcion": menu.precioMenu,
-          "fotoOpcion": menu.imgPromocionWeb,
+          "descripcionOpcion": menu.descripcionOpcion,
+          "precioOpcion": menu.precioOpcion,
+          "fotoOpcion": menu.fotoOpcion,
           "cantidadDisponible": menu.cantidadDisponible          
         });
   
