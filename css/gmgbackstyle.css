@@ -635,6 +635,14 @@ a.botsalir {
 
 }
 
+.tutoriales {
+    margin-top: -1.5%;
+    height: 300px;
+    background: url(../lacocina/img/tutoriales.jpg) no-repeat;
+    background-position: top right;
+    background-size: cover;
+}
+
 .fraseregistrar {
     margin-top: -1.5%;
     height: 575px;

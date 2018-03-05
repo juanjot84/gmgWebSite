@@ -126,8 +126,11 @@ error_reporting(E_ERROR);
                         PROMOCIONES
                     </div></a>
                 </div>
-                <div class="col-md-4 botonmanito" id="remarketing1">
-                    
+                <div class="col-md-4 botonmanito" id="promociones">
+                    <a class="sombrabotonpanel" href="tutoriales.php"><div style="font-size: 1.5em;">
+                        <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-play" aria-hidden="true"></span><br>
+                        TUTORIALES
+                    </div></a>
                 </div>
                 <div class="col-md-4 botonmanito">
                     <a class="sombrabotonpanel" onclick="cargarLocales()"><div style="font-size: 1.5em;">

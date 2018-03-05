@@ -229,7 +229,13 @@ function buscarTipoNegocio(accion){
               popularDropdownPolosEditar(idPolo);
               });
               $("input[name=aceptaReservaNegocio][value=" + local.aceptaReservaNegocio + "]").prop("checked",true);
-             var idNivelPrecio = local.idNivelPrecio._id ;
+            
+             var idNivelPrecio;
+             if (local.idNivelPrecio == null){
+              idNivelPrecio = '';
+             }else{
+              idNivelPrecio = local.idNivelPrecio._id;
+             }
              obtenerListadoNivelPrecio().done(function(data){
                  nivelPrecios = data
              popularDropdownNivelPrecioEditar(idNivelPrecio);

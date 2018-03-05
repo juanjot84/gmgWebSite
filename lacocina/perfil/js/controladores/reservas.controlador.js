@@ -135,7 +135,7 @@ function renderReservas(reservasLocal){
                         '<tbody>'+
                           '<tr>'+
                             '<td>'+
-                            '  Local calle  ' + calle + ' ('+ altura + ')'+
+                            ''+
                             '</td>'+
                           '</tr>'+
                         '</tbody>'+
@@ -306,7 +306,7 @@ function renderReservasProximas(reservasLocal){
                        '<tbody>'+
                          '<tr>'+
                            '<td>'+
-                           '  Local calle  ' + local[0].calleLocal + ' ('+ local[0].alturaLocal + ')'+
+                           ''+
                            '</td>'+
                          '</tr>'+
                        '</tbody>'+
@@ -490,7 +490,7 @@ function renderReservasHistorico(reservasLocal){
                        '<tbody>'+
                          '<tr>'+
                            '<td>'+
-                           '  Local calle  ' + local[0].calleLocal + ' ('+ local[0].alturaLocal + ')'+
+                           ''+
                            '</td>'+
                          '</tr>'+
                        '</tbody>'+
