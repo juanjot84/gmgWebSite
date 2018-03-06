@@ -643,6 +643,11 @@ function dibujarListadoPromociones(){
                   '<td>-</td>'+
                   '<td>-</td>'+
                   '<td class="centrarbotaccion">'+
+                    '<button onclick="" title="Activar / desactivar" class="btn btn-default botaccion" type="button">'+
+                      '<i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i>'+
+                    '</button>'+
+                  '</td>'+
+                  '<td class="centrarbotaccion">'+
                     '<button onclick="editarPromocion(\'' + promocion._id + '\')" title="Editar" class="btn btn-default botaccion" type="button">'+
                       '<i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i>'+
                     '</button>'+

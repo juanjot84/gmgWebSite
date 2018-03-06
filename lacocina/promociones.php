@@ -262,6 +262,7 @@ include("includes/nav.php"); ?>
                       <th style="text-align: center;">Desde:</th>
                       <th style="text-align: center;">Hasta:</th>
                       <th style="text-align: center;">Valor $</th>
+                      <th style="text-align: center;">Visible</th>
                       <th style="text-align: center;">Acción</th>
                   </tr>
                 </thead>
