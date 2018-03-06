@@ -173,11 +173,13 @@ function renderLocal(local) {
     '</a></div>' +
     '<div class="col-sm-2 col-md-3 text-center"><div class="contenedorpromos">'+
     '<div class="botslidervert"><a href="#" class="vc_goUp"><i class="fa fa-fw fa-angle-up"></i></a></div>'+
-    '<ul class="promosvertical vc_list"><li>'+ descuento +'</li>'+
-    '<li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>'+
-    '<li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>'+
-    '<li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>'+
-    '<li><img class="etiquetapromo" src="img/promos/promodemo.png"></li></ul>'+
+      '<ul class="promosvertical vc_list">'+
+        '<li>'+ descuento +'</li>'+
+        '<li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>'+
+        '<li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>'+
+        '<li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>'+
+        '<li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>'+
+      '</ul>'+
     '<div class="botslidervert"><a href="#" class="vc_goDown"><i class="fa fa-fw fa-angle-down"></i></a></div>' +
     '</div>');
 

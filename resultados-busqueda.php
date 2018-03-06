@@ -199,7 +199,7 @@ if (empty($filtro)) $filtro = '';
   <script src="js/controladores/barraLateral.controlador.js"></script>
 
   <!-- Funciones de Locales JavaScript -->
-  <script src="js/controladores/locales.controlador.js"></script>
+  <script src="js/controladores/locales.controlador.js"></script>  
 
   <!-- Theme JavaScript -->
   <script src="js/agency.min.js"></script>
