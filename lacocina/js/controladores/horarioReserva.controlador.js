@@ -111,14 +111,14 @@ function cargarHorariosSeteados() {
 
       var margenReservar
       if (typeof(data.margenCreacionReserva) == "undefined"){
-        margenReservar = 1;
+        margenReservar = 0;
       }else{
         margenReservar = data.margenCreacionReserva;
       }
 
      var margenCancelar
      if (typeof(data.margenCancelacionReserva) == "undefined"){
-      margenCancelar = 2;
+      margenCancelar = 1;
     }else{
       margenCancelar = data.margenCancelacionReserva;
     }

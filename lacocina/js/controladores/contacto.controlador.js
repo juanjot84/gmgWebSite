@@ -272,9 +272,9 @@ function volverPanelLocal(){
   }
   var idLocal = $("#idLocalRecibido").val();
   var idLocalCreado = $("#idLocalCreado").val();
-  if(idLocal == '' && idLocalCreado != ''){
+  if(typeof(idLocal) == "undefined" && idLocalCreado != ''){
     idLocal = idLocalCreado;
-  }else if(idLocal != '' && idLocalCreado == ''){
+  }else if(idLocal != '' && typeof(idLocalCreado) == "undefined"){
     idLocal
   }
   $('#target').html('obteniendo...');
