@@ -224,6 +224,7 @@ function renderReservas(reservasLocal){
                             '<td class="centrarbotaccion"><img title="Cantidad de adultos" src="imgs/adultos.png">'+reserva.cubiertosAdultos+'</td>'+
                             '<td class="centrarbotaccion"><img title="Cantidad de niños" src="imgs/ninos.png">'+reserva.cubiertosMenores+'</td>'+
                             '<td class="centrarbotaccion" style="min-width: 97px;">'+reserva.horaSola+' hs</td>'+
+                            '<td class="centrarbotaccion"><i class="fa fa-exclamation-triangle alertareservas"></i></td>'+
                             '<td class="centrarbotaccion">'+medioDeReserva+'</td>'+
                             '<td class="centrarbotaccion">'+
                             '<a data-toggle="collapse" data-parent="#accordion" href="#'+collapseReserva+'">'+
@@ -242,9 +243,45 @@ function renderReservas(reservasLocal){
                 '</div>'+
                 '<div id="'+collapseReserva+'" class="panel-collapse collapse">'+
                     '<div class="panel-body">'+
-                      '<p><i class="fa fa-mobile" aria-hidden="true"></i>'+reserva.telefonoUsuarioReserva +'</p>'+
-                      '<p><i class="fa fa-envelope-o" aria-hidden="true"></i>'+reserva.email+'</p>'+
-                      '<p>Observaciones:</p>'+
+                      '<div class="container detallereservas">'+
+                      '<div class="row">'+
+                         '<div class="col-md-4">'+
+                             '<p><i class="fa fa-mobile naranjabold" aria-hidden="true"></i>'+reserva.telefonoUsuarioReserva +'</p>'+
+                             '<p><i class="fa fa-envelope-o naranjabold" aria-hidden="true"></i>'+reserva.email+'</p>'+
+                             '<p class="naranjabold">Observaciones:</p>'+
+                          '</div>'+
+                          '<div class="col-md-4">'+
+                            '<h4 class="elegiopcionreserva">PROMOCIÓN ALMAlbec</h4>'+
+                              '<a href="#"><img class="etiquetapromo" src="../../img/promos/promodemo.png"></a>'+
+                          '</div>'+
+                          '<div class="col-md-4">'+
+                              '<div class="row separamenues">'+
+                                '<div class="col-md-6">'+
+                                  '<h5 class="opcionmenureserva">Nombre de menú A</h5>'+
+                                '</div> '+
+                                '<div class="col-md-6">'+
+                                  '<p>Cantidad: <span class="naranjabold">4</span></p>'+
+                                '</div>'+
+                              '</div>'+
+                              '<div class="row separamenues">'+
+                                '<div class="col-md-6">'+
+                                  '<h5 class="opcionmenureserva">Nombre de menú B</h5>'+
+                                '</div> '+
+                                '<div class="col-md-6">'+
+                                  '<p>Cantidad: <span class="naranjabold">1</span></p>'+
+                                '</div>'+
+                              '</div>'+
+                              '<div class="row separamenues">'+
+                                '<div class="col-md-6">'+
+                                  '<h5 class="opcionmenureserva">Nombre de menú C</h5>'+
+                                '</div> '+
+                                '<div class="col-md-6">'+
+                                  '<p>Cantidad: <span class="naranjabold">2</span></p>'+
+                                '</div>'+
+                              '</div>'+
+                          '</div>'+
+                      '</div>'+
+                     '</div>'+
                     '</div>'+
                   '</div>'+
                 '</div>'+
@@ -377,6 +414,7 @@ function renderReservasProximas(reservasLocal){
                            '<td class="centrarbotaccion"><img title="Cantidad de adultos" src="imgs/adultos.png">'+reserva.cubiertosAdultos+'</td>'+
                            '<td class="centrarbotaccion"><img title="Cantidad de niños" src="imgs/ninos.png">'+reserva.cubiertosMenores+'</td>'+
                            '<td class="centrarbotaccion" style="min-width: 97px;">'+reserva.horaSola+' hs</td>'+
+                           '<td class="centrarbotaccion"><i class="fa fa-exclamation-triangle alertareservas"></i></td>'+
                            '<td class="centrarbotaccion">'+medioDeReserva+'</td>'+
                            '<td class="centrarbotaccion">'+
                            '<a data-toggle="collapse" data-parent="#accordion" href="#'+collapseReserva+'">'+
@@ -392,9 +430,45 @@ function renderReservasProximas(reservasLocal){
                '</div>'+
                '<div id="'+collapseReserva+'" class="panel-collapse collapse">'+
                    '<div class="panel-body">'+
-                     '<p><i class="fa fa-mobile" aria-hidden="true"></i>'+reserva.telefonoUsuarioReserva +'</p>'+
-                     '<p><i class="fa fa-envelope-o" aria-hidden="true"></i>'+reserva.email+'</p>'+
-                     '<p>Observaciones:</p>'+
+                     '<div class="container detallereservas">'+
+                      '<div class="row">'+
+                         '<div class="col-md-4">'+
+                             '<p><i class="fa fa-mobile naranjabold" aria-hidden="true"></i>'+reserva.telefonoUsuarioReserva +'</p>'+
+                             '<p><i class="fa fa-envelope-o naranjabold" aria-hidden="true"></i>'+reserva.email+'</p>'+
+                             '<p class="naranjabold">Observaciones:</p>'+
+                          '</div>'+
+                          '<div class="col-md-4">'+
+                            '<h4 class="elegiopcionreserva">PROMOCIÓN ALMAlbec</h4>'+
+                              '<a href="#"><img class="etiquetapromo" src="../../img/promos/promodemo.png"></a>'+
+                          '</div>'+
+                          '<div class="col-md-4">'+
+                              '<div class="row separamenues">'+
+                                '<div class="col-md-6">'+
+                                  '<h5 class="opcionmenureserva">Nombre de menú A</h5>'+
+                                '</div> '+
+                                '<div class="col-md-6">'+
+                                  '<p>Cantidad: <span class="naranjabold">4</span></p>'+
+                                '</div>'+
+                              '</div>'+
+                              '<div class="row separamenues">'+
+                                '<div class="col-md-6">'+
+                                  '<h5 class="opcionmenureserva">Nombre de menú B</h5>'+
+                                '</div> '+
+                                '<div class="col-md-6">'+
+                                  '<p>Cantidad: <span class="naranjabold">1</span></p>'+
+                                '</div>'+
+                              '</div>'+
+                              '<div class="row separamenues">'+
+                                '<div class="col-md-6">'+
+                                  '<h5 class="opcionmenureserva">Nombre de menú C</h5>'+
+                                '</div> '+
+                                '<div class="col-md-6">'+
+                                  '<p>Cantidad: <span class="naranjabold">2</span></p>'+
+                                '</div>'+
+                              '</div>'+
+                          '</div>'+
+                      '</div>'+
+                     '</div>'+
                    '</div>'+
                  '</div>'+
                '</div>'+
@@ -586,6 +660,7 @@ function renderReservasHistorico(reservasLocal){
                            '<td class="centrarbotaccion"><img title="Cantidad de niños" src="imgs/ninos.png">'+reserva.cubiertosMenores+'</td>'+
                            '<td class="centrarbotaccion" style="min-width: 97px;">'+reserva.horaSola+' hs</td>'+
                            '<td class="centrarbotaccion"><i title="Medio de reserva" class="" aria-hidden="true"></i></td>'+
+                           '<td class="centrarbotaccion"><i class="fa fa-exclamation-triangle alertareservas"></i></td>'+
                            '<td class="centrarbotaccion">'+medioDeReserva+'</td>'+
                            '<td class="centrarbotaccion">'+
                            '<a data-toggle="collapse" data-parent="#accordion" href="#'+collapseReserva+'">'+
@@ -601,9 +676,45 @@ function renderReservasHistorico(reservasLocal){
                '</div>'+
                '<div id="'+collapseReserva+'" class="panel-collapse collapse">'+
                    '<div class="panel-body">'+
-                     '<p><i class="fa fa-mobile" aria-hidden="true"></i>'+reserva.telefonoUsuarioReserva +'</p>'+
-                     '<p><i class="fa fa-envelope-o" aria-hidden="true"></i>'+reserva.email+'</p>'+
-                     '<p>Observaciones:</p>'+
+                     '<div class="container detallereservas">'+
+                      '<div class="row">'+
+                         '<div class="col-md-4">'+
+                             '<p><i class="fa fa-mobile naranjabold" aria-hidden="true"></i>'+reserva.telefonoUsuarioReserva +'</p>'+
+                             '<p><i class="fa fa-envelope-o naranjabold" aria-hidden="true"></i>'+reserva.email+'</p>'+
+                             '<p class="naranjabold">Observaciones:</p>'+
+                          '</div>'+
+                          '<div class="col-md-4">'+
+                            '<h4 class="elegiopcionreserva">PROMOCIÓN ALMAlbec</h4>'+
+                              '<a href="#"><img class="etiquetapromo" src="../../img/promos/promodemo.png"></a>'+
+                          '</div>'+
+                          '<div class="col-md-4">'+
+                              '<div class="row separamenues">'+
+                                '<div class="col-md-6">'+
+                                  '<h5 class="opcionmenureserva">Nombre de menú A</h5>'+
+                                '</div> '+
+                                '<div class="col-md-6">'+
+                                  '<p>Cantidad: <span class="naranjabold">4</span></p>'+
+                                '</div>'+
+                              '</div>'+
+                              '<div class="row separamenues">'+
+                                '<div class="col-md-6">'+
+                                  '<h5 class="opcionmenureserva">Nombre de menú B</h5>'+
+                                '</div> '+
+                                '<div class="col-md-6">'+
+                                  '<p>Cantidad: <span class="naranjabold">1</span></p>'+
+                                '</div>'+
+                              '</div>'+
+                              '<div class="row separamenues">'+
+                                '<div class="col-md-6">'+
+                                  '<h5 class="opcionmenureserva">Nombre de menú C</h5>'+
+                                '</div> '+
+                                '<div class="col-md-6">'+
+                                  '<p>Cantidad: <span class="naranjabold">2</span></p>'+
+                                '</div>'+
+                              '</div>'+
+                          '</div>'+
+                      '</div>'+
+                     '</div>'+
                    '</div>'+
                  '</div>'+
                '</div>'+
