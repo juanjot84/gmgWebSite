@@ -93,6 +93,7 @@ function validarDatosLista(){
       $("#valorDesdeAlert").html(''); 
       colocarAlerta('valorDesde','Desde y hasta no pueden ser iguales');
     }
+
     if(error == false){
       var rango = {
         "idRango": idRangoComision,
@@ -383,6 +384,18 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
      }else{
       impactaEnReserva = false;
      }
+     var nombreCortoPromocion = $("#nombreCortoPromocion").val();
+     if(nombreCortoPromocion == ''){
+      error = true;
+      colocarAlerta('nombreCortoPromocion','Ingresar nombre corto de la promoción');
+      subirWeb('formPromocion');
+     }
+     var colorPromocion = $("#colorPromocion").val();
+     if(colorPromocion == ''){
+      error = true;
+      colocarAlerta('colorPromocion','Ingresar color de la promoción');
+      subirWeb('formPromocion');
+     }
      if(!error){guardarPromocion()}
    }
 
@@ -404,6 +417,8 @@ function guardarPromocion(){
 
   var promocion = JSON.stringify({
       "nombrePromocion": $("#nombrePromocion").val(),
+      "nombreCortoPromocion": $("#nombreCortoPromocion").val(),
+      "colorPromocion" : $("#colorPromocion").val(),
       "comisionPromocion": porcentaje,
       "impactaEnReserva": impactaEnReserva,
       "imagenWebPromocion": $("#imgPromocionWeb").val(),
@@ -448,6 +463,8 @@ function editarPromocion(idPromocion){
           $("#listadoLocales").html('');
           $("#idPromocion").val(promocion._id);
           $("#nombrePromocion").val(promocion.nombrePromocion);
+          $("#nombreCortoPromocion").val(promocion.nombreCortoPromocion);
+          $("#colorPromocion").val(promocion.colorPromocion);
           var comisionPromocion = promocion.comisionPromocion;
           if(comisionPromocion != 0){
             $("input[name=radioComision][value=porcentaje]").prop("checked",true);
@@ -634,6 +651,13 @@ function dibujarListadoPromociones(){
               }else{
                 comision = promocion.comisionPromocion;
               }
+              var estadoVisible;
+              if(promocion.visible == true){
+                estadoVisible = "fa fa-eye";
+              }
+              if(promocion.visible == false){
+                estadoVisible = "fa fa-eye-slash";
+              }
               $('#listadoPromociones').append('' +
                 '<tr class="text-center">'+
                   '<td>'+contPromociones+'</td>'+
@@ -643,8 +667,8 @@ function dibujarListadoPromociones(){
                   '<td>-</td>'+
                   '<td>-</td>'+
                   '<td class="centrarbotaccion">'+
-                    '<button onclick="" title="Activar / desactivar" class="btn btn-default botaccion" type="button">'+
-                      '<i style="font-size: 1.5em;" class="fa fa-eye" aria-hidden="true"></i>'+
+                    '<button onclick="actualizarVisible(\'' + promocion._id + '\',\'' + promocion.visible + '\')" title="Activar / desactivar" class="btn btn-default botaccion" type="button">'+
+                      '<i style="font-size: 1.5em;" class="'+estadoVisible+'" aria-hidden="true"></i>'+
                     '</button>'+
                   '</td>'+
                   '<td class="centrarbotaccion">'+
@@ -672,6 +696,36 @@ function dibujarListadoPromociones(){
           $("#tablaPromociones").show();
 }
 
+function actualizarVisible(idPromocion, estado){
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    var nuevoCampo = {};
+    var valorAActualizar;
+    if(estado == 'true'){
+      valorAActualizar = false;
+    }else if(estado == 'false'){
+      valorAActualizar = true;
+    }
+    campoAAcuatualizar = 'visible';
+    nuevoCampo[campoAAcuatualizar] = valorAActualizar;
+
+    $.ajax({
+      url: server + '/api/v1/admin/promocion?id=' + idPromocion,
+      type: 'PUT',
+
+      dataType: "json",
+      crossDomain: true,
+      contentType: "application/json",
+      success: function (data) {
+        dibujarListadoPromociones();
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        reject(errorThrown);
+      },
+      data: JSON.stringify(nuevoCampo)
+    });
+   });
+}
+
 function seleccionarTodos(){
   var checkTodos = $('#localCheckTodos').prop('checked') ;
   obtenerListadoLocales().done(function(data){
@@ -693,6 +747,7 @@ function seleccionarTodos(){
 function limpiarForm(){
   $('input[type="text"]').val('');
   $('input[type="number"]').val(0);
+  $("#colorPromocion").val('');
   $("#listaComision").html('');
   $("#tablaRangos").hide();
   $("#terminosCondiciones").val('');

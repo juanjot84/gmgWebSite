@@ -65,6 +65,20 @@ include("includes/nav.php"); ?>
                 <input id="nombrePromocion" name="nombrePromocion" onclick="quitarAlert('nombrePromocion')" type="text" class="form-control" placeholder="Nombre de la promoción" aria-describedby="sizing-addon3">
               </div></p>
 
+             <h5 class="titulosalta"> Nombre Corto</h5>
+ 
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                <input id="nombreCortoPromocion" name="nombreCortoPromocion" onclick="quitarAlert('nombreCortoPromocion')" type="text" class="form-control" placeholder="Nombre corto de la promoción" aria-describedby="sizing-addon3">
+              </div></p>
+
+              <h5 class="titulosalta"> Color de la Promoción</h5>
+
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                <input id="colorPromocion" name="colorPromocion" onclick="quitarAlert('colorPromocion')" type="color" value="" class="form-control" aria-describedby="sizing-addon3">
+              </div></p>
+
               <h5 class="titulosalta"> Comisión</h5>
               
               <div class="row">
