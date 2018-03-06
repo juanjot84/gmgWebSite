@@ -113,6 +113,8 @@
 
   <?php include("includes/soportezen.php"); ?>
 
+  <link rel="stylesheet" href="css/jQuery.verticalCarousel.css">
+
 </head>
 
 <?php
@@ -173,6 +175,35 @@ if (empty($filtro)) $filtro = '';
 
           </div>
 
+
+          <!-- ACA ANDA -->
+
+            <div class="contenedorpromos">
+                <div class="botslidervert">
+                    <a href="#" class="vc_goUp"><i class="fa fa-fw fa-angle-up"></i></a>
+                </div>
+                  <ul class="promosvertical vc_list">
+                    <li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>
+                    <li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>
+                    <li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>
+                    <li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>
+                    <li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>
+                    <li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>
+                  </ul>
+                <div class="botslidervert">
+                    <a href="#" class="vc_goDown"><i class="fa fa-fw fa-angle-down"></i></a>
+                </div>
+            </div>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+          <script src="js/jQuery.verticalCarousel.js"></script>
+          <script>
+              $(".contenedorpromos").verticalCarousel({
+                  currentItem: 1,
+                  showItems: 3,
+              });
+          </script>
+
+          <!-- FIN -->
 
          <?php
          error_reporting(E_ERROR);
