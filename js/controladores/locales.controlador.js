@@ -1,3 +1,4 @@
+var cont= 1;
 function obtenerListado() {
   if (_.isUndefined(server)) {
     $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
@@ -160,28 +161,82 @@ function renderLocal(local) {
 
   $('.container.locales').append('' +
     '<div class="row resultadoficha"><a class="linkresultadobuscador" href="ficha.php?id=' + local._id + '">' +
-    '<div class="col-sm-3 col-md-3">' +
-    '<img class="img-responsive imgslocalesbusqueda" src="' + local.fotoPrincipalLocal + '">' +
-    '</div>' +
-    '<div class="col-sm-6 col-md-6">' +
-    '<p><span style="font-size: 1.5em;"><strong>' + local.idNegocio.nombreNegocio + '</strong> ' + bajadaNegocio + '</span></p>' +
-    '<i class="fa fa-map-marker iconoficha" aria-hidden="true"></i><span class="polo">   ' + nombrePolo + '</span> |  ' +
-    '<i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' + tipoCocina + '</span></br>' +
-    '<p style="letter-spacing: 1px;"><strong>' + labelOscuras + '</strong><span style="color: #cbcbcb">' + labelGrises + '</span></p>' +
-    '<p><span class="descripcion">' + local.idNegocio.descripcionNegocio.substr(0, 147) + '...</span></p>' +
-
+        '<div class="col-sm-3 col-md-3">' +
+            '<img class="img-responsive imgslocalesbusqueda" src="' + local.fotoPrincipalLocal + '">' +
+        '</div>' +
+        '<div class="col-sm-6 col-md-6">' +
+            '<p><span style="font-size: 1.5em;"><strong>' + local.idNegocio.nombreNegocio + '</strong> ' + bajadaNegocio + '</span></p>' +
+               '<i class="fa fa-map-marker iconoficha" aria-hidden="true"></i><span class="polo">   ' + nombrePolo + '</span> |  ' +
+                '<i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' + tipoCocina + '</span></br>' +
+            '<p style="letter-spacing: 1px;"><strong>' + labelOscuras + '</strong><span style="color: #cbcbcb">' + labelGrises + '</span></p>' +
+            '<p><span class="descripcion">' + local.idNegocio.descripcionNegocio.substr(0, 147) + '...</span></p>' +
     '</a></div>' +
-    '<div class="col-sm-2 col-md-3 text-center"><div class="contenedorpromos">'+
-    '<div class="botslidervert"><a href="#" class="vc_goUp"><i class="fa fa-fw fa-angle-up"></i></a></div>'+
-      '<ul class="promosvertical vc_list">'+
-        '<li>'+ descuento +'</li>'+
-        '<li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>'+
-        '<li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>'+
-        '<li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>'+
-        '<li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>'+
-      '</ul>'+
-    '<div class="botslidervert"><a href="#" class="vc_goDown"><i class="fa fa-fw fa-angle-down"></i></a></div>' +
-    '</div>');
+    '<div class="col-sm-2 col-md-3 text-center" id="contTotalPromo'+cont+'">'+
 
+   '</div>'+
+  '');
+   cargarSlide(cont, local._id, descuento);
+   cont++;
 }
 
+function cargarSlide(idDiv, idLocal, descuento){
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {       
+    $.ajax({
+        url: server + '/api/v1/admin/promocionesLocal?id='+idLocal+'',
+        type: 'GET',
+        dataType: "json",
+        crossDomain: true,
+        contentType:"application/json",
+        success: function (data) {
+         promociones = data;
+         if(promociones.length != 0){
+            $("#contTotalPromo"+idDiv).append(''+
+               '<div class="contenedorpromos'+idDiv+'">'+
+                   '<div class="botslidervert">'+
+                     '<a href="#" class="vc_goUp"><i class="fa fa-fw fa-angle-up"></i></a>'+
+                   '</div>'+
+                      '<ul class="promosvertical vc_list" id="contSlide'+idDiv+'">'+
+                      '</ul>'+
+                   '<div class="botslidervert">'+
+                     '<a href="#" class="vc_goDown"><i class="fa fa-fw fa-angle-down"></i></a>'+
+                   '</div>'+
+               '</div>'+
+            '');
+            if(descuento != ''){
+              $('#contSlide'+idDiv).append('<li>'+descuento+'</li>');
+            }
+            _.each(promociones, function(promocion){
+               $('#contSlide'+idDiv).append(''+
+                  '<li><img class="etiquetapromo" src="'+promocion.iconoPromocion+'"></li>'+
+               '');
+              
+               $(".contenedorpromos"+idDiv).verticalCarousel({
+                  currentItem: 1,
+                  showItems: 3,
+               });
+            });
+         }else if(promociones.length == 0 && descuento != ''){
+          $("#contTotalPromo"+idDiv).append(''+
+             '<div class="contenedorpromos'+idDiv+'">'+
+               '<div class="botslidervert">'+
+                '<a href="#" class="vc_goUp"><i class="fa fa-fw fa-angle-up"></i></a>'+
+               '</div>'+
+                 '<ul class="promosvertical vc_list" id="contSlide'+idDiv+'">'+
+                    '<li>'+descuento+'</li>'+
+                 '</ul>'+
+               '<div class="botslidervert">'+
+                '<a href="#" class="vc_goDown"><i class="fa fa-fw fa-angle-down"></i></a>'+
+               '</div>'+
+             '</div>'+
+          '');
+         }
+        },
+        error:function(jqXHR,textStatus,errorThrown)
+        {           
+          $('#target').append("jqXHR: "+jqXHR);
+          $('#target').append("textStatus: "+textStatus);
+          $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+        },
+    });
+  });
+}

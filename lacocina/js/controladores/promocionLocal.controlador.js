@@ -27,8 +27,8 @@ function listadoPromocionesLocal(){
         success: function (data) {
          promociones = data;
          var contador = 1;
+         $('#tablaPromocionesLocal').html('');
          _.each(promociones, function(promocion){
-            $('#tablaPromocionesLocal').html('');
             $('#tablaPromocionesLocal').append(''+
              '<tr class="text-center">'+
               '<td>'+contador+'</td>'+

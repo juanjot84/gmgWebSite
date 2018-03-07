@@ -172,38 +172,7 @@ if (empty($filtro)) $filtro = '';
           </div>
           <center><div id="loading"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span></div></center>
           <div class="container locales">
-
           </div>
-
-
-          <!-- ACA ANDA -->
-
-            <div class="contenedorpromos">
-                <div class="botslidervert">
-                    <a href="#" class="vc_goUp"><i class="fa fa-fw fa-angle-up"></i></a>
-                </div>
-                  <ul class="promosvertical vc_list">
-                    <li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>
-                    <li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>
-                    <li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>
-                    <li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>
-                    <li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>
-                    <li><img class="etiquetapromo" src="img/promos/promodemo.png"></li>
-                  </ul>
-                <div class="botslidervert">
-                    <a href="#" class="vc_goDown"><i class="fa fa-fw fa-angle-down"></i></a>
-                </div>
-            </div>
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-          <script src="js/jQuery.verticalCarousel.js"></script>
-          <script>
-              $(".contenedorpromos").verticalCarousel({
-                  currentItem: 1,
-                  showItems: 3,
-              });
-          </script>
-
-          <!-- FIN -->
 
          <?php
          error_reporting(E_ERROR);
@@ -228,6 +197,9 @@ if (empty($filtro)) $filtro = '';
 
   <!-- Funciones de Barra JavaScript -->
   <script src="js/controladores/barraLateral.controlador.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="js/jQuery.verticalCarousel.js"></script>
 
   <!-- Funciones de Locales JavaScript -->
   <script src="js/controladores/locales.controlador.js"></script>  
