@@ -124,8 +124,6 @@ function renderReservas(reservasLocal){
       }else {
         altura = local[0].alturaLocal;
       }
-
-
       $('.container.locales').append(''+
           '<div class="panel panel-default">'+
               '<div class="panel-heading">'+
@@ -210,6 +208,15 @@ function renderReservas(reservasLocal){
             clasificar = '<td class="columsietepchon"><i title="Vino y Calificó" class="fa fa-check-square-o" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
           }
 
+          var observacion = '';
+          if(typeof(reserva.comentarioUsuarioReserva) == "undefined"){
+            observacion = '';
+          }else if(reserva.comentarioUsuarioReserva == null){
+            observacion = '';
+          }else{
+            observacion = reserva.comentarioUsuarioReserva;
+          }
+
           $('.container.'+conteinReservas).append(''+
               '<div class="panel panel-default">'+
                   '<div class="panel-heading">'+
@@ -248,7 +255,7 @@ function renderReservas(reservasLocal){
                          '<div class="col-md-4">'+
                              '<p><i class="fa fa-mobile naranjabold" aria-hidden="true"></i>'+reserva.telefonoUsuarioReserva +'</p>'+
                              '<p><i class="fa fa-envelope-o naranjabold" aria-hidden="true"></i>'+reserva.email+'</p>'+
-                             '<p class="naranjabold">Observaciones:</p>'+
+                             '<p class="naranjabold">Observaciones: '+observacion+'</p>'+
                           '</div>'+
                           '<div class="col-md-4">'+
                             '<h4 class="elegiopcionreserva">PROMOCIÓN ALMAlbec</h4>'+
@@ -400,6 +407,15 @@ function renderReservasProximas(reservasLocal){
             medioDeReserva = '<i title="Medio de reserva" class="fa fa-globe" aria-hidden="true"></i>';
         }
 
+        var observacion = '';
+        if(typeof(reserva.comentarioUsuarioReserva) == "undefined"){
+          observacion = '';
+        }else if(reserva.comentarioUsuarioReserva == null){
+          observacion = '';
+        }else{
+          observacion = reserva.comentarioUsuarioReserva;
+        }
+
          $('.container.'+conteinReservas).append(''+
              '<div class="panel panel-default">'+
                  '<div class="panel-heading">'+
@@ -435,7 +451,7 @@ function renderReservasProximas(reservasLocal){
                          '<div class="col-md-4">'+
                              '<p><i class="fa fa-mobile naranjabold" aria-hidden="true"></i>'+reserva.telefonoUsuarioReserva +'</p>'+
                              '<p><i class="fa fa-envelope-o naranjabold" aria-hidden="true"></i>'+reserva.email+'</p>'+
-                             '<p class="naranjabold">Observaciones:</p>'+
+                             '<p class="naranjabold">Observaciones: '+observacion+'</p>'+
                           '</div>'+
                           '<div class="col-md-4">'+
                             '<h4 class="elegiopcionreserva">PROMOCIÓN ALMAlbec</h4>'+
@@ -645,6 +661,15 @@ function renderReservasHistorico(reservasLocal){
           clasificar = '<td class="columsietepchon"><ul style="list-style: none; display: inline-flex;"><li><button title="Marcar como NO vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', false)"><i class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></button></li><li><button title="Marcar como SI vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', true)"><i class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></button></li></ul></td>';
         }
 
+        var observacion = '';
+        if(typeof(reserva.comentarioUsuarioReserva) == "undefined"){
+          observacion = '';
+        }else if(reserva.comentarioUsuarioReserva == null){
+          observacion = '';
+        }else{
+          observacion = reserva.comentarioUsuarioReserva;
+        }
+
          $('.container.'+conteinReservas).append(''+
              '<div class="panel panel-default">'+
                  '<div class="panel-heading">'+
@@ -681,7 +706,7 @@ function renderReservasHistorico(reservasLocal){
                          '<div class="col-md-4">'+
                              '<p><i class="fa fa-mobile naranjabold" aria-hidden="true"></i>'+reserva.telefonoUsuarioReserva +'</p>'+
                              '<p><i class="fa fa-envelope-o naranjabold" aria-hidden="true"></i>'+reserva.email+'</p>'+
-                             '<p class="naranjabold">Observaciones:</p>'+
+                             '<p class="naranjabold">Observaciones: '+observacion+'</p>'+
                           '</div>'+
                           '<div class="col-md-4">'+
                             '<h4 class="elegiopcionreserva">PROMOCIÓN ALMAlbec</h4>'+
