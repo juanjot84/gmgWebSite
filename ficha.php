@@ -182,62 +182,31 @@ session_start();
                         </div>
                     </div>
 
-                        <div class="container text-center" style="display: flex;">
-                            <h3>Promociones</h3>
-                            <ul class="promocionesficha">
-                                <li class="etiquetapromoficha"><a href="#"><img class="etiquetapromo" src="img/promos/promodemo.png"></a></li>
-                                <li class="etiquetapromoficha"><a href="#"><img class="etiquetapromo" src="img/promos/promodemo.png"></a></li>
-                                <li class="etiquetapromoficha"><a href="#"><img class="etiquetapromo" src="img/promos/promodemo.png"></a></li>
-                                <li class="etiquetapromoficha"><a href="#"><img class="etiquetapromo" src="img/promos/promodemo.png"></a></li>
+                    <div class="container text-center" style="display: flex;">
+                        <h3>Promociones</h3>
+                            <ul class="promocionesficha" id="listaPromociones">
                             </ul>
-                        </div>
-
-
-                    <!-- ESTO VA EN UN MODAL AL HACER CLICK EN UNA PROMO-->
-                    <div class="container modalpromoficha">
-                        <div class="row text-center headermodalpromoficha">
-                            <div class="col-md-6">
-                                <!-- Foto de la Promo -->
-                                <img class="img-responsive imgspromoficha" src="http://guiamendozagourmet.com/img-locales/5a0d85a350a2902300c0dc6c5a0dc22014447.jpg">
-                            </div>
-                            <div class="col-md-6">
-                                <h2>NOMBRE DE LA PROMO</h2>                                
-                            </div>
-                        </div>
-
-                        <div class="separador"></div>
-
-                        <!-- MENÚ U OPCIÓN 1 -->
-
-                        <div class="row separadormodalpromoficha">
-                            <div class="col-md-4">
-                                <!-- Foto del menu -->
-                                <img class="img-responsive imgspromoficha" src="http://guiamendozagourmet.com/img-locales/5a0d85a350a2902300c0dc6c5a0dc22014447.jpg">
-                            </div>
-
-                            <div class="col-md-6">
-                                <h3>Nombre de menú</h3>
-                                <!-- Descripcion del menu -->
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            </div>
-                            <div class="col-md-2">
-                                <!-- Precio del menu -->
-                                <h3>$170</h3>
-                                <br>
-                                <div class="radio">
-                                  <label><input type="radio" name="optradio"><h4 class="elegimenu">Elegir Menú</h4></label>
-                                </div>
-                            </div>
-
-                            <div class="separador"></div>
-
-                        </div>
-
-
                     </div>
 
-                    <!-- FIN MODAL -->
-                        
+                    <div class="modal fade" id="modalPromocion" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                      <div class="modal-dialog">
+                       <!-- ESTO VA EN UN MODAL AL HACER CLICK EN UNA PROMO-->
+                       <div class="container modalpromoficha">
+                          <div class="row text-center headermodalpromoficha">
+                            <div class="col-md-6">
+                                <img class="img-responsive imgspromoficha" id="fotoPromo">
+                            </div>
+                            <div class="col-md-6">
+                                <h2 id="nombrePromo"></h2>                                
+                            </div>
+                           </div>
+                          <div class="separador"></div>
+                          <div id="opcionMenu"></div>
+                       </div>
+                        <!-- FIN MODAL -->
+                      </div>
+                    </div>
+
 
                     <section style="padding: 0 0 3% 0 !important;">
                         <div class="container text-center">
