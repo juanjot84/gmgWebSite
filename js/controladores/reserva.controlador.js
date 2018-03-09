@@ -104,6 +104,7 @@ function buscarHorarios() {
   }
   $('.horas').hide();
   $('#noHorario').hide();
+  buscarPromociones();
   var data = {
     'idLocal': idLocal,
     'fechaReserva': $('#selectDia').val(),
@@ -134,6 +135,154 @@ function buscarHorarios() {
     },
     data: JSON.stringify(data)
   });
+}
+
+function buscarPromociones(){
+   var fechaSeleccionada = $('#selectDia').val();
+   var idLocal = $("#idLocal").val();
+   var fecha = JSON.stringify({
+    "fechaReserva": fechaSeleccionada
+   });
+
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {       
+      $.ajax({
+          url: server + '/api/v1/admin/promocionesLocalXFecha?id='+idLocal+'',
+          type: 'POST',
+          dataType: "json",
+          crossDomain: true,
+          contentType:"application/json",
+          success: function (data) {
+           promociones = data;
+           if(promociones.length != 0){
+            $("#seccionOpcionesReserva").show();
+            $("#contenedorPromociones").html('');
+            _.each(promociones, function (promocion){
+              $("#contenedorPromociones").append(''+
+                '<div class="row separadoropcionesreservas">'+
+                    '<div class="row">'+
+                      '<div class="col-md-8">'+
+                        '<div class="radio">'+
+                          '<label><input type="radio" name="optradio" value="'+promocion.idLocalPromocion+'"><h4 class="elegiopcionreserva">'+promocion.nombrePromocion+ '</h4></label>'+
+                          '<span> | Válido del '+promocion.duracionDesdePromocion+' al '+promocion.duracionHastaPromocion+'</span>'+
+                        '</div>'+
+                      '</div>'+
+                      '<div class="col-md-4">'+
+                        '<img class="etiquetapromo" src="'+promocion.iconoPromocion+'">'+
+                      '</div>'+
+                    '</div>'+
+                '<!-- INICIO MENU -->'+
+                   '<div id="contenedorMenu">'+
+                   '</div>'+
+                '<!-- FIN MENU -->'+
+                '</div>'+
+              '');
+            var opcionesMenu = promocion.idOpcionPromocion;
+              _.each(opcionesMenu, function (menu){
+                 $("#contenedorMenu").append(''+
+                  '<div class="row">'+
+                    '<div class="col-md-6">'+
+                       '<h5 class="opcionmenureserva">'+menu.nombreOpcion+'</h5>'+
+                      '<input type="text" name="nombreOpcion'+menu._id+'" id="nombreOpcion'+menu._id+'" value="'+menu.nombreOpcion+'" class="hidden">'+
+                    '</div>'+
+                    '<div class="col-md-2">'+
+                      '<input id="cantidad'+menu._id+'" name="cantidad'+menu._id+'" type="number" max="'+menu.cantidadDisponible+'" class="form-control cantopcionesmenureserva" placeholder="0" aria-describedby="sizing-addon3">'+
+                    '</div>'+
+                  '</div>'+
+                 '');
+              });
+            });
+           }
+          },
+          error:function(jqXHR,textStatus,errorThrown)
+          {           
+            $('#target').append("jqXHR: "+jqXHR);
+            $('#target').append("textStatus: "+textStatus);
+            $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+          },
+          data: fecha
+      });
+    });
+}
+
+function confirmarReserva() {
+  if (_.isUndefined(server)) {
+    $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
+    });
+  }
+  var promocionSeleccionada = $('input[name=optradio]:checked').val();
+  guardarReserva(promocionSeleccionada);
+  limpiar('telefonoReserva');
+}
+
+function saveReserva(opcionReservada){
+  var telefonoReserva = $("#telefonoReserva").val();
+  if (telefonoReserva.length > 6 && /^(\+{1})?([0-9])*$/.test(telefonoReserva)) {
+    var data = {
+      'idLocal': idLocal,
+      'fechaReserva': $('#selectDia').val(),
+      'horaReserva': horaSeleccionada,
+      'cubiertosAdultosReservados': $('#selectAdulto').val(),
+      'cubiertosMenoresReservados': $('#selectNino').val(),
+      'telefonoUsuarioReserva': $('#telefonoReserva').val(),
+      'opcionReservada' : opcionReservada
+    };
+    $.ajax({
+      url: server + '/api/v1/admin/reserva',
+      type: 'POST',
+      dataType: "json",
+      crossDomain: true,
+      contentType: "application/json",
+      success: function (data) {
+
+        $("#realizarReserva").modal("hide");
+        $("#reservaConfirmada").modal("show");
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        $('#target').append("jqXHR: " + jqXHR);
+        $('#target').append("textStatus: " + textStatus);
+        $('#target').append("You can not send Cross Domain AJAX requests: " + errorThrown);
+      },
+      headers: {
+        Authorization: 'JWT ' + jwt
+      },
+      data: JSON.stringify(data)
+    });
+  } else {
+    $("#telefonoReserva").parent().after('<span id="telefonoReservaAlert" style="color:red"> Por favor ingrese un teléfono válido sin utilizar - ni ()</span>');
+    $("#telefonoReserva").addClass('alert-danger');
+  }
+}
+
+function guardarReserva(idPromocion){
+  var opcionReservada = [];
+  if(idPromocion == 'sinPromocion'){
+    opcionReservada = [];
+    saveReserva(opcionReservada);
+  }else{
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }   
+          $.ajax({
+            url: server + '/api/v1/admin/localPromocion?id='+idPromocion+'',
+            type: 'GET',           
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+              _.each(data.idOpcionPromocion, function (opcion) {
+                 var menu = {
+                   "idOpcionPromocion" : opcion,
+                   "nombreOpcion" : $("#nombreOpcion"+opcion).val(),
+                   "cantidad" : $("#cantidad"+opcion).val(),
+                 }
+                 opcionReservada.push(menu);
+              });
+          } 
+      });
+      saveReserva(opcionReservada);
+  }
+  
 }
 
 function popularOpcionesReserva(opciones) {
@@ -192,50 +341,6 @@ function realizarReserva() {
   } else {
     mostrarModalLogin();
   }
-}
-
-function confirmarReserva() {
-  if (_.isUndefined(server)) {
-    $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
-    });
-  }
-  limpiar('telefonoReserva');
-  var telefonoReserva = $("#telefonoReserva").val();
-  if (telefonoReserva.length > 6 && /^(\+{1})?([0-9])*$/.test(telefonoReserva)) {
-    var data = {
-      'idLocal': idLocal,
-      'fechaReserva': $('#selectDia').val(),
-      'horaReserva': horaSeleccionada,
-      'cubiertosAdultosReservados': $('#selectAdulto').val(),
-      'cubiertosMenoresReservados': $('#selectNino').val(),
-      'telefonoUsuarioReserva': $('#telefonoReserva').val()
-    };
-    $.ajax({
-      url: server + '/api/v1/admin/reserva',
-      type: 'POST',
-      dataType: "json",
-      crossDomain: true,
-      contentType: "application/json",
-      success: function (data) {
-
-        $("#realizarReserva").modal("hide");
-        $("#reservaConfirmada").modal("show");
-      },
-      error: function (jqXHR, textStatus, errorThrown) {
-        $('#target').append("jqXHR: " + jqXHR);
-        $('#target').append("textStatus: " + textStatus);
-        $('#target').append("You can not send Cross Domain AJAX requests: " + errorThrown);
-      },
-      headers: {
-        Authorization: 'JWT ' + jwt
-      },
-      data: JSON.stringify(data)
-    });
-  } else {
-    $("#telefonoReserva").parent().after('<span id="telefonoReservaAlert" style="color:red"> Por favor ingrese un teléfono válido sin utilizar - ni ()</span>');
-    $("#telefonoReserva").addClass('alert-danger');
-  }
-
 }
 
 function getMisReservas() {

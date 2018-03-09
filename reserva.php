@@ -112,6 +112,8 @@ $idLocal = $_GET["id"];
           include("includes/nav.php");
            ?>
 
+          <input type="text" name="idLocal" id="idLocal" value="<?php echo $idLocal; ?>" class="hidden">
+
           <div class="container reservafront">
             <div class="row">
               <div class="col-md-12">
@@ -209,120 +211,26 @@ $idLocal = $_GET["id"];
             </div>
 
             <section class="seccionopcionesreserva">
+              <div id="seccionOpcionesReserva">
                 <div class="row">
                   <h3>Elegí una opción para tu reserva</h3>
                 </div>
-
                 <!-- INICIO PROMO -->
-
                 <div class="row separadoropcionesreservas">
                   <div class="radio">
-                    <label><input type="radio" name="optradio"><h4 class="elegiopcionreserva">Sin promoción ni descuento</h4></label>
+                    <label><input type="radio" name="optradio" id="optradio" value="sinPromocion" checked="checked"><h4 class="elegiopcionreserva">Sin promoción ni descuento</h4></label>
                   </div>
                 </div>
-
+              </div>
                 <!-- FIN PROMO -->
 
                 <!-- INICIO PROMO -->
+              <div id="contenedorPromociones">
 
-                <div class="row separadoropcionesreservas">
-                  <div class="row">
-                    <div class="col-md-8">
-                      <div class="radio">
-                        <label><input type="radio" name="optradio"><h4 class="elegiopcionreserva">PROMOCIÓN ALMAlbec</h4></label>
-                        <span>| Válido del 1 al 22 de abril</span>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <img class="etiquetapromo" src="img/promos/promodemo.png">
-                    </div>
-                  </div>
-                  
-
-                  <!-- INICIO MENU -->
-                  <div class="row">
-                    <div class="col-md-6">
-                      <h5 class="opcionmenureserva">Nombre de menú A</h5>  
-                    </div> 
-                    
-                    <div class="col-md-2">
-                      <input id="" name="" type="number" class="form-control cantopcionesmenureserva" placeholder="0" aria-describedby="sizing-addon3">
-                    </div>
-                  </div>
-                  <!-- FIN MENU -->
-
-                  <!-- INICIO MENU -->
-                  <div class="row">
-                    <div class="col-md-6">
-                      <h5 class="opcionmenureserva">Nombre de menú B</h5>
-                    </div> 
-                    
-                    <div class="col-md-2">
-                      <input id="" name="" type="number" class="form-control cantopcionesmenureserva" placeholder="0" aria-describedby="sizing-addon3">
-                    </div>
-                  </div>
-                  <!-- FIN MENU -->
-
-                </div>
-
+              </div>
                 <!-- FIN PROMO -->
 
-                <!-- INICIO PROMO -->
-
-                <div class="row separadoropcionesreservas">
-                  <div class="row">
-                    <div class="col-md-8">
-                      <div class="radio">
-                        <label><input type="radio" name="optradio"><h4 class="elegiopcionreserva">PROMOCIÓN B</h4></label>
-                        <span>| Válido del 1 al 22 de abril</span>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <img class="etiquetapromo" src="img/promos/promodemo.png">
-                    </div>
-                  </div>
-
-                  <!-- INICIO MENU -->
-                  <div class="row">
-                    <div class="col-md-6">
-                      <h5 class="opcionmenureserva">Nombre de menú A</h5>
-                    </div> 
-                    
-                    <div class="col-md-2">
-                      <input id="" name="" type="number" class="form-control cantopcionesmenureserva" placeholder="0" aria-describedby="sizing-addon3">
-                    </div>
-                  </div>
-                  <!-- FIN MENU -->
-
-                  <!-- INICIO MENU -->
-                  <div class="row">
-                    <div class="col-md-6">
-                      <h5 class="opcionmenureserva">Nombre de menú B</h5>
-                    </div> 
-                    
-                    <div class="col-md-2">
-                      <input id="" name="" type="number" class="form-control cantopcionesmenureserva" placeholder="0" aria-describedby="sizing-addon3">
-                    </div>
-                  </div>
-                  <!-- FIN MENU -->
-
-                  <!-- INICIO MENU -->
-                  <div class="row">
-                    <div class="col-md-6">
-                      <h5 class="opcionmenureserva">Nombre de menú C</h5>
-                    </div> 
-                    
-                    <div class="col-md-2">
-                      <input id="" name="" type="number" class="form-control cantopcionesmenureserva" placeholder="0" aria-describedby="sizing-addon3">
-                    </div>
-                  </div>
-                  <!-- FIN MENU -->
-
-                </div>
-
-                <!-- FIN PROMO -->
-
-                <!-- INICIO PROMO -->
+                <!-- INICIO PROMO 
 
                 <div class="row separadoropcionesreservas">
                   <h4 class="elegiopcionreserva" style="margin: 10px 0;">DESCUENTO</h4>
@@ -334,7 +242,7 @@ $idLocal = $_GET["id"];
                   </div>
                 </div>
 
-                <!-- FIN PROMO -->
+                 FIN PROMO -->
 
             </section>
 
