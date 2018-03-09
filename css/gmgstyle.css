@@ -403,7 +403,14 @@ div#iconoFavorito {
 }
 
 .etiquetapromoficha {
-    padding: 0 5px
+    padding: 0 5px;
+    cursor: pointer;
+}
+
+.decrippromoficha {
+    height: 90px;
+    overflow: overlay;
+    padding-right: 22px;
 }
 
 ul, menu, dir {
@@ -725,6 +732,23 @@ a.linkperfil {
 
 .modalpromoficha {
     max-width: 650px;
+    background: #fff;
+    padding: 5%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 6px #c4c4c4;
+    margin-top: 30%;
+}
+
+.tycmenupromos {
+    color: #787878;
+}
+.tycmenupromos p {
+    font-size: 12px;
+}
+
+
+div#modalPromocion {
+    background: rgba(33, 33, 33, 0.8);
 }
 
 .separadormodalpromoficha {
@@ -745,7 +769,7 @@ a.linkperfil {
     object-position: center;
     height: 150px;
     width: 260px;
-    margin: 0 auto 5%;
+    margin: 0 0 5%;
 }
 
 h4.elegimenu {

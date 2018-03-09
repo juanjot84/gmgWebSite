@@ -202,6 +202,13 @@ session_start();
                            </div>
                           <div class="separador"></div>
                           <div id="opcionMenu"></div>
+                          <div class="tycmenupromos">
+                              <h3>Términos y condiciones</h3>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus diam turpis, ullamcorper eget luctus quis, mollis ac nunc. Donec gravida dui vitae faucibus dapibus. Integer odio mi, condimentum....</p>
+                          </div>
+                          <div>
+                            <a href="#" class="page-scroll btn btn-xl" style="width: 100%; margin-top: 2%; margin-bottom: 1%;" id="reservar">RESERVAR</a>
+                          </div>
                        </div>
                         <!-- FIN MODAL -->
                       </div>

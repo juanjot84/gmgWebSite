@@ -563,7 +563,7 @@ function dibujarListaOpciones(opcionesMenu){
             '</div>'+
             '<div class="col-md-6">'+
               '<h3>'+opcion.nombreOpcion+'</h3>'+
-              '<p>'+opcion.descripcionOpcion+'</p>'+
+              '<p class="decrippromoficha">'+opcion.descripcionOpcion+'</p>'+
             '</div>'+
             '<div class="col-md-2">'+
               '<h3>$'+opcion.precioOpcion+'</h3>'+
