@@ -92,6 +92,45 @@ header {
     border-color: #f6bf01;
 }
 
+.btn-info {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #5cb85c;
+}
+
+.btn-info:hover {
+    color: #fff !important;
+    background-color: #368136;
+    border-color: #d8d8d8;
+}
+
+.btn-info:focus {
+    color: #fff !important;
+    background-color: #368136;
+    border-color: #d8d8d8;
+}
+
+
+.btn-danger {
+    color: #b8221e;
+    background: #fff6f6;
+    border-color: #efefef;
+}
+
+.btn-danger:hover {
+    color: #fff !important;
+    background-color: #d9534f;
+    border-color: #adadad;
+}
+
+.btn-danger:focus {
+    color: #fff !important;
+    background: #fff6f6;
+    border-color: #adadad;
+}
+
+
+
 .fondopubli-web {
     /*background: url(../img/fondopubli.jpg) no-repeat;*/
     background-size: cover;
@@ -844,6 +883,16 @@ input#login-submit:hover {
 }
 
 
+@media only screen and (max-width : 375px) {
+
+    .modalpromoficha {
+        max-width: 290px !important;
+        margin-top: 130% !important;
+    }
+
+}
+
+
 @media only screen and (max-width: 425px) {
 
     .servicios {
@@ -921,6 +970,12 @@ input#login-submit:hover {
         padding-top: 18%;
         min-height: 85vh;
     }
+
+    .modalpromoficha {
+        max-width: 330px;
+        margin-top: 100%;
+    }
+
 
 }
 
@@ -1106,6 +1161,12 @@ ul.promosvertical.vc_list {
     .fondopubli-mobile {
         display: block;
     }
+
+    .modalpromoficha {
+        max-width: 560px !important;
+        margin-top: 35% !important;
+    }
+
 }
 
 
@@ -1166,6 +1227,11 @@ ul.promosvertical.vc_list {
         font-size: 30px !important;
         margin-top: 20px !important;
         margin-bottom: 15px !important;
+    }
+
+    .modalpromoficha {
+        max-width: 560px !important;
+        margin-top: 70% !important;
     }
 
 

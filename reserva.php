@@ -257,15 +257,17 @@ $idLocal = $_GET["id"];
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h3>No has iniciado sesión</h3>
+                    <div class="text-center">
+                      <img src="http://guiamendozagourmet.com/img/logo-gmg.png">
+                    </div>
                   </div>
-                  <div class="modal-body">
-                    <h5 class="opcionmenureserva">Por favor, inicie sesión para continuar</h5>
-
+                  <div class="modal-body text-center">
+                    <h4>Iniciar sesión</h4>
+                    <p>Iniciá sesión o creá una cuenta para continuar con la reserva.</p>
                   </div>
-                  <div class="modal-footer">
-                    <a href="login.php" data-confirm="modal" class="btn btn-info" id="botonLogin">Iniciar sesión</a>
-                    <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+                  <div class="modal-footer" style="text-align: center !important;">
+                    <a href="#" data-dismiss="modal" class="btn btn-danger"><i class="fa fa-ban"></i> Cancelar</a>
+                    <a href="login.php" data-confirm="modal" class="btn btn-info" id="botonLogin"><i class="fa fa-arrow-right"></i> Continuar</a>
                   </div>
                 </div>
               </div>
