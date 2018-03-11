@@ -881,6 +881,12 @@ ul.selecdiashorario {
     text-align: left;
 }
 
+input.data-horarios {
+    display: inline-block;
+    width: 45%;
+    padding-left: 2%;
+}
+
 .horariocubiertos {
     min-width: 80px;
     text-align: left;

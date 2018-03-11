@@ -24,6 +24,10 @@ var horariosViejos = [];
 
 var localCubiertosCreados = [];
 var cubiertosViejos = [];
+var cantidadHorarios = 0;
+var cantidadCubiertos =0;
+
+var idLocalCreado = $("#idLocalCreado").val();
 
 
 var dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabados", "Domingos", "Feriados"];
@@ -65,9 +69,9 @@ function aplicarHorarios(dia, dibujar){
   if($('#horaInicioManana').val() != $('#horaFinManana').val() || dibujar){
     $('#' + dia + ' td:nth-child(2)').removeAttr('style').html('' +
       '<div class="iconoslista">'+
-      ' <div class="horariolista"><span id="Hdesde' + dia + 'Manana" >' + $('#horaInicioManana').val() + '</span> - <span id="Hhasta' + dia + 'Manana" >' + $('#horaFinManana').val() + '</span></div>' +
-      ' <div class="horariocubiertos"><i class="fa fa-cutlery" aria-hidden="true"></i><span id="Cubiertos' + dia + 'Manana" >' + $('#cantCubiertosManana').val() + '</span></div>' +
-      ' <div class="horarioduracionreserva"><i class="fa fa-clock-o" aria-hidden="true"></i><span id="Duracion' + dia + 'Manana" >' + $('#duracionReservaManana').val() + '</span></div>' +
+      ' <div class="horariolista"><input class="data-horarios" type="text" id="Hdesde' + dia + 'Manana" value="' + $('#horaInicioManana').val() + '"> - <input class="data-horarios" type="text"  id="Hhasta' + dia + 'Manana"  value="' + $('#horaFinManana').val() + '"></div>' +
+      ' <div class="horariocubiertos"><i class="fa fa-cutlery" aria-hidden="true"></i><input class="data-horarios" type="text" id="Cubiertos' + dia + 'Manana" value="' + $('#cantCubiertosManana').val() + '"></div>' +
+      ' <div class="horarioduracionreserva"><i class="fa fa-clock-o" aria-hidden="true"></i><input class="data-horarios" type="text" id="Duracion' + dia + 'Manana"  value="' + $('#duracionReservaManana').val() + '"></div>' +
       '</div>');
   } else {
     $('#' + dia + ' td:nth-child(2)').attr('style', 'color: #f8981d;').html('Sin datos de reserva');
@@ -76,9 +80,9 @@ function aplicarHorarios(dia, dibujar){
   if($('#horaInicioTarde').val() != $('#horaFinTarde').val() || dibujar){
     $('#' + dia + ' td:nth-child(3)').removeAttr('style').html('' +
       '<div class="iconoslista">'+
-      ' <div class="horariolista"><span id="Hdesde' + dia + 'Tarde" >' + $('#horaInicioTarde').val() + '</span> - <span id="Hhasta' + dia + 'Tarde" >' + $('#horaFinTarde').val()  + '</span></div>' +
-      ' <div class="horariocubiertos"><i class="fa fa-cutlery" aria-hidden="true"></i><span id="Cubiertos' + dia + 'Tarde" >' + $('#cantCubiertosTarde').val() + '</span></div>' +
-      ' <div class="horarioduracionreserva"><i class="fa fa-clock-o" aria-hidden="true"></i><span id="Duracion' + dia + 'Tarde" >' + $('#duracionReservaTarde').val() + '</span></div>' +
+      ' <div class="horariolista"><input class="data-horarios" type="text" id="Hdesde' + dia + 'Tarde" value="' + $('#horaInicioTarde').val() + '"> - <input class="data-horarios" type="text" id="Hhasta' + dia + 'Tarde" value="' + $('#horaFinTarde').val()  + '" ></div>' +
+      ' <div class="horariocubiertos"><i class="fa fa-cutlery" aria-hidden="true"></i><input class="data-horarios" type="text" id="Cubiertos' + dia + 'Tarde"  value="' + $('#cantCubiertosTarde').val() + '"></div>' +
+      ' <div class="horarioduracionreserva"><i class="fa fa-clock-o" aria-hidden="true"></i><input class="data-horarios" type="text" id="Duracion' + dia + 'Tarde"  value="' + $('#duracionReservaTarde').val() + '"></div>' +
       '</div>');
   }else {
     $('#' + dia + ' td:nth-child(3)').attr('style', 'color: #f8981d;').html('Sin datos de reserva');
@@ -146,18 +150,18 @@ function cargarHorariosSeteados() {
         if ( (horarioManana  && cubiertosManana) || (horarioTarde && cubiertosTarde) ) {
           aplicarHorarios(diaSemana, true);
           if (horarioManana && cubiertosManana) {
-            $("#Hdesde" + horarioManana.diaSemanaHorarioAtencion + "Manana").html(horarioManana.horaInicioHorarioAtencion);
-            $("#Hhasta" + horarioManana.diaSemanaHorarioAtencion + "Manana").html(horarioManana.horaFinHorarioAtencion);
-            $("#Cubiertos" + horarioManana.diaSemanaHorarioAtencion + "Manana").html(cubiertosManana.cantidadCubiertoDia);
-            $("#Duracion" + horarioManana.diaSemanaHorarioAtencion + "Manana").html(cubiertosManana.duracionReserva);
+            $("#Hdesde" + horarioManana.diaSemanaHorarioAtencion + "Manana").val(horarioManana.horaInicioHorarioAtencion);
+            $("#Hhasta" + horarioManana.diaSemanaHorarioAtencion + "Manana").val(horarioManana.horaFinHorarioAtencion);
+            $("#Cubiertos" + horarioManana.diaSemanaHorarioAtencion + "Manana").val(cubiertosManana.cantidadCubiertoDia);
+            $("#Duracion" + horarioManana.diaSemanaHorarioAtencion + "Manana").val(cubiertosManana.duracionReserva);
           } else {
             $('#' + diaSemana + ' td:nth-child(2)').attr('style', 'color: #f8981d;').html('Sin datos de reserva');
           }
           if (horarioTarde  && cubiertosTarde) {
-            $("#Hdesde" + horarioTarde.diaSemanaHorarioAtencion + "Tarde").html(horarioTarde.horaInicioHorarioAtencion);
-            $("#Hhasta" + horarioTarde.diaSemanaHorarioAtencion + "Tarde").html(horarioTarde.horaFinHorarioAtencion);
-            $("#Cubiertos" + horarioTarde.diaSemanaHorarioAtencion + "Tarde").html(cubiertosTarde.cantidadCubiertoDia);
-            $("#Duracion" + horarioTarde.diaSemanaHorarioAtencion + "Tarde").html(cubiertosTarde.duracionReserva);
+            $("#Hdesde" + horarioTarde.diaSemanaHorarioAtencion + "Tarde").val(horarioTarde.horaInicioHorarioAtencion);
+            $("#Hhasta" + horarioTarde.diaSemanaHorarioAtencion + "Tarde").val(horarioTarde.horaFinHorarioAtencion);
+            $("#Cubiertos" + horarioTarde.diaSemanaHorarioAtencion + "Tarde").val(cubiertosTarde.cantidadCubiertoDia);
+            $("#Duracion" + horarioTarde.diaSemanaHorarioAtencion + "Tarde").val(cubiertosTarde.duracionReserva);
           } else {
             $('#' + diaSemana + ' td:nth-child(3)').attr('style', 'color: #f8981d;').html('Sin datos de reserva');
           }
@@ -192,18 +196,17 @@ function sendHorarioAtencion() {
   var idDuracionReserTarde = [];
 
   _.each(dias, function (dia) {
-    idHorariosDesdeManana.push({'hora': $("#Hdesde" + dia + "Manana").html(), 'dia': dia});
-    idHorariosHastaManana.push({'hora': $("#Hhasta" + dia + "Manana").html(), 'dia': dia});
-    idHorariosDesdeTarde.push({'hora': $("#Hdesde" + dia + "Tarde").html(), 'dia': dia});
-    idHorariosHastaTarde.push({'hora': $("#Hhasta" + dia + "Tarde").html(), 'dia': dia});
+    idHorariosDesdeManana.push({'hora': $("#Hdesde" + dia + "Manana").val(), 'dia': dia});
+    idHorariosHastaManana.push({'hora': $("#Hhasta" + dia + "Manana").val(), 'dia': dia});
+    idHorariosDesdeTarde.push({'hora': $("#Hdesde" + dia + "Tarde").val(), 'dia': dia});
+    idHorariosHastaTarde.push({'hora': $("#Hhasta" + dia + "Tarde").val(), 'dia': dia});
 
-    idCantCubiertosManana.push({'hora': $("#Cubiertos" + dia + "Manana").html(), 'dia': dia});
-    idDuracionReserManana.push({'hora': $("#Duracion" + dia + "Manana").html(), 'dia': dia});
-    idCantCubiertosTarde.push({'hora': $("#Cubiertos" + dia + "Tarde").html(), 'dia': dia});
-    idDuracionReserTarde.push({'hora': $("#Duracion" + dia + "Tarde").html(), 'dia': dia});
+    idCantCubiertosManana.push({'hora': $("#Cubiertos" + dia + "Manana").val(), 'dia': dia});
+    idDuracionReserManana.push({'hora': $("#Duracion" + dia + "Manana").val(), 'dia': dia});
+    idCantCubiertosTarde.push({'hora': $("#Cubiertos" + dia + "Tarde").val(), 'dia': dia});
+    idDuracionReserTarde.push({'hora': $("#Duracion" + dia + "Tarde").val(), 'dia': dia});
   });
 
-  var idLocalCreado = $("#idLocalCreado").val();
   var guardarHorarios = [];
   var guardarCubiertos = [];
   var actualizarHorarioAtencion = [];
@@ -216,19 +219,13 @@ function sendHorarioAtencion() {
     var horarioHastaT = _.find(idHorariosHastaTarde, {'dia': dia});
 
     if (horarioDesdeM != "" && horarioHastaM != "") {
-      var guardarManana = sendHorarios(dia, horarioDesdeM.hora, horarioHastaM.hora, 'manana').then(function (id) {
-        return true;
-      }).catch(function (err) {
-        return false;
-      });
+      cantidadHorarios++;
+      var guardarManana = sendHorarios(dia, horarioDesdeM.hora, horarioHastaM.hora, 'manana');
       guardarHorarios.push(guardarManana);
     }
     if (horarioDesdeT != "" && horarioHastaT != "") {
-      var guardarTarde = sendHorarios(dia, horarioDesdeT.hora, horarioHastaT.hora, 'tarde').then(function (id) {
-        return true;
-      }).catch(function (err) {
-        return false;
-      });
+      cantidadHorarios++;
+      var guardarTarde = sendHorarios(dia, horarioDesdeT.hora, horarioHastaT.hora, 'tarde');
       guardarHorarios.push(guardarTarde);
     }
 
@@ -238,61 +235,73 @@ function sendHorarioAtencion() {
     var duracionReservaT = _.find(idDuracionReserTarde, {'dia': dia});
 
     if (cantCubiertoM != "" && duracionReservaM != "") {
-      var guardarManana = sendCubiertos(dia, cantCubiertoM.hora, duracionReservaM.hora, 'manana').then(function (id) {
-        return true
-      }).catch(function (err) {
-        return false;
-      });
+      cantidadCubiertos++;
+      var guardarManana = sendCubiertos(dia, cantCubiertoM.hora, duracionReservaM.hora, 'manana');
       guardarCubiertos.push(guardarManana);
     }
     if (cantCubiertoT != "" && duracionReservaT != "") {
-      var guardarTarde = sendCubiertos(dia, cantCubiertoT.hora, duracionReservaT.hora, 'tarde').then(function (id) {
-        return true;
-      }).catch(function (err) {
-        return false
-      });
+      cantidadCubiertos++;
+      var guardarTarde = sendCubiertos(dia, cantCubiertoT.hora, duracionReservaT.hora, 'tarde');
       guardarCubiertos.push(guardarTarde);
     }
   });
 
   Promise.all(guardarHorarios, guardarCubiertos).then(function () {
-    var campoAAcuatualizar = "idHorarioAtencion";
-    console.log(localHorariosCreados);
-    var guardarHT = actualizarLocal(idLocalCreado, _.without(localHorariosCreados, ""), campoAAcuatualizar).then(function (data) {
-      resolve(true);
-    }).catch(function (err) {
-      console.log(err);
-    });
-    actualizarHorarioAtencion.push(guardarHT);
 
-    campoAAcuatualizar = "idCubiertosDia";
-    var guardarCD = actualizarLocal(idLocalCreado, _.without(localCubiertosCreados, ""), campoAAcuatualizar).then(function (data) {
-      resolve(true);
-    }).catch(function (err) {
-      console.log(err);
-    });
-    actualizarCubiertos.push(guardarCD);
+    verificarCantidad();
 
-    Promise.all(actualizarHorarioAtencion, actualizarCubiertos).then(function(){
-      console.log(localCubiertosCreados);
-       
-      actualizarAceptaReserva(idLocalCreado);
-
-      if (accion == 'crear') {
-        cargarHorarioAtencion();
-        $('#loading').hide();
-      } else if (accion == 'editar') {
-        eliminarViejos(cubiertosViejos).then(function (error, success) {
-          volverPanelLocal();
-        }).catch(function (err) {
-          $('#loading').hide();
-          console.log(err);
-        });
-      }
-    })
   }).catch(function (err) {
     console.log(err);
   });
+}
+
+function verificarCantidad(){
+  if (cantidadHorarios > localHorariosCreados.length||  cantidadCubiertos > localCubiertosCreados.length){
+    // verificar que esten todas las opciones guardadas
+    window.setTimeout(verificarCantidad,50);
+    return;
+  }
+  procesarLocal()
+}
+
+function procesarLocal(){
+
+  var actualizarHorarioAtencion = [];
+  var actualizarCubiertos = [];
+  var campoAAcuatualizar = "idHorarioAtencion";
+  console.log(localHorariosCreados);
+  var guardarHT = actualizarLocal(idLocalCreado, _.without(localHorariosCreados, ""), campoAAcuatualizar).then(function (data) {
+    resolve(true);
+  }).catch(function (err) {
+    console.log(err);
+  });
+  actualizarHorarioAtencion.push(guardarHT);
+
+  campoAAcuatualizar = "idCubiertosDia";
+  var guardarCD = actualizarLocal(idLocalCreado, _.without(localCubiertosCreados, ""), campoAAcuatualizar).then(function (data) {
+    resolve(true);
+  }).catch(function (err) {
+    console.log(err);
+  });
+  actualizarCubiertos.push(guardarCD);
+
+  Promise.all(actualizarHorarioAtencion, actualizarCubiertos).then(function(){
+    console.log(localCubiertosCreados);
+
+    actualizarAceptaReserva(idLocalCreado);
+
+    if (accion == 'crear') {
+      cargarHorarioAtencion();
+      $('#loading').hide();
+    } else if (accion == 'editar') {
+      eliminarViejos(cubiertosViejos).then(function (error, success) {
+        volverPanelLocal();
+      }).catch(function (err) {
+        $('#loading').hide();
+        console.log(err);
+      });
+    }
+  })
 }
 
 function actualizarAceptaReserva(){
@@ -331,7 +340,7 @@ function cargarHorarioAtencion(){
       $('#target').append("jqXHR: " + jqXHR);
       $('#target').append("textStatus: " + textStatus);
       $('#target').append("You can not send Cross Domain AJAX requests: " + errorThrown);
-    },
+    }
   });
 }
 
@@ -370,90 +379,78 @@ function eliminar(idHorarioAtencion) {
 }
 
 function sendHorarios(diaHorario, horaDesde, horaHasta, turno) {
-  var promise = new Promise(function (resolve, reject) {
-    if (_.isUndefined(server)) {
-      $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
-      });
-    }
-    if (!_.isNil(diaHorario) && !_.isNil(horaDesde)) {
-      var isNew = $("#idCubierto").val() == "";
-      var operacion = isNew ? "POST" : "PUT";
-      var horario = JSON.stringify({
-        "diaSemanaHorarioAtencion": diaHorario,
-        "idLocal": $("#idLocalCreado").val(),
-        "horaInicioHorarioAtencion": horaDesde,
-        "horaFinHorarioAtencion": horaHasta,
-        "turnoHorarioAtencion": turno
-      });
+  if (_.isUndefined(server)) {
+    $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
+    });
+  }
+  if (!_.isNil(diaHorario) && !_.isNil(horaDesde)) {
+    var isNew = $("#idCubierto").val() == "";
+    var operacion = isNew ? "POST" : "PUT";
+    var horario = JSON.stringify({
+      "diaSemanaHorarioAtencion": diaHorario,
+      "idLocal": $("#idLocalCreado").val(),
+      "horaInicioHorarioAtencion": horaDesde,
+      "horaFinHorarioAtencion": horaHasta,
+      "turnoHorarioAtencion": turno
+    });
 
-      $('#target').html('sending..');
-      var queryParam = isNew ? "" : "?id=" + $("#idHorario").val();
-      $.ajax({
-        url: server + '/api/v1/admin/horarioAtencion' + queryParam,
-        type: operacion,
+    $('#target').html('sending..');
+    var queryParam = isNew ? "" : "?id=" + $("#idHorario").val();
+    return $.ajax({
+      url: server + '/api/v1/admin/horarioAtencion' + queryParam,
+      type: operacion,
 
-        dataType: "json",
-        crossDomain: true,
-        contentType: "application/json",
-        success: function (data) {
-          localHorariosCreados.push(data._id)
-          resolve(true);
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-          reject(Error("It broke"));
-        },
-        data: horario
-      });
-    } else {
-      resolve('');
-    }
-  });
+      dataType: "json",
+      crossDomain: true,
+      contentType: "application/json",
+      success: function (data) {
+        localHorariosCreados.push(data._id);
+        //resolve(true);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        reject(Error("It broke"));
+      },
+      data: horario
+    });
+  } else {
+    return ('');
+  }
 
   return promise
 }
 
 function sendCubiertos(diaCubierto, cantCubiertos, duracionReserva, turno) {
+  if (!_.isNil(diaCubierto) && !_.isNil(cantCubiertos)) {
+    var isNew = $("#idCubierto").val() == "";
+    var operacion = isNew ? "POST" : "PUT";
+    var cubierto = JSON.stringify({
+      "diaSemanaCubiertoDia": diaCubierto,
+      "cantidadCubiertoDia": cantCubiertos,
+      "duracionReserva": duracionReserva,
+      "turnoCubiertoDia": turno
+    });
 
-  var promise = new Promise(function (resolve, reject) {
-    if (_.isUndefined(server)) {
-      $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
-      });
-    }
+    $('#target').html('sending..');
+    var queryParam = isNew ? "" : "?id=" + $("#idCubierto").val();
+    return $.ajax({
+      url: server + '/api/v1/admin/cubiertosDia' + queryParam,
+      type: operacion,
 
-    if (!_.isNil(diaCubierto) && !_.isNil(cantCubiertos)) {
-      var isNew = $("#idCubierto").val() == "";
-      var operacion = isNew ? "POST" : "PUT";
-      var cubierto = JSON.stringify({
-        "diaSemanaCubiertoDia": diaCubierto,
-        "cantidadCubiertoDia": cantCubiertos,
-        "duracionReserva": duracionReserva,
-        "turnoCubiertoDia": turno
-      });
-
-      $('#target').html('sending..');
-      var queryParam = isNew ? "" : "?id=" + $("#idCubierto").val();
-      $.ajax({
-        url: server + '/api/v1/admin/cubiertosDia' + queryParam,
-        type: operacion,
-
-        dataType: "json",
-        crossDomain: true,
-        contentType: "application/json",
-        success: function (data) {
-          localCubiertosCreados.push(data._id)
-          resolve(true);
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-          reject(Error("It broke"));
-        },
-        data: cubierto
-      });
-    } else {
-      resolve('');
-    }
-  });
-
-  return promise
+      dataType: "json",
+      crossDomain: true,
+      contentType: "application/json",
+      success: function (data) {
+        localCubiertosCreados.push(data._id);
+        //resolve(true);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        reject(Error("It broke"));
+      },
+      data: cubierto
+    });
+  } else {
+    return('');
+  }
 }
 
 function limpiar(campo, campoBack) {

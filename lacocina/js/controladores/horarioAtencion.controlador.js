@@ -20,6 +20,7 @@ function iniciar(action) {
 
 var localHorariosCreados = [];
 var horariosViejos = [];
+var cantidadHorarios = 0;
 
 var dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabados", "Domingos", "Feriados"];
 
@@ -181,6 +182,7 @@ function sendHorarioAtencion() {
     var horarioHastaT = _.find(idHorariosHastaTarde, {'dia': dia});
 
     if (horarioDesdeM != "" && horarioHastaM != "") {
+      cantidadHorarios++;
       var guardarManana = sendHorarios(dia, horarioDesdeM.hora, horarioHastaM.hora, 'manana').then(function (id) {
         localHorariosCreados.push(id);
       }).catch(function (err) {
@@ -189,6 +191,7 @@ function sendHorarioAtencion() {
       guardarHorarios.push(guardarManana);
     }
     if (horarioDesdeT != "" && horarioHastaT != "") {
+      cantidadHorarios++;
       var guardarTarde = sendHorarios(dia, horarioDesdeT.hora, horarioHastaT.hora, 'tarde').then(function (id) {
         localHorariosCreados.push(id);
       }).catch(function (err) {
@@ -198,32 +201,43 @@ function sendHorarioAtencion() {
     }
   });
   Promise.all(guardarHorarios).then(function () {
-    var campoAAcuatualizar = "idHorarioApertura";
-    console.log(localHorariosCreados);
-    actualizarLocal(idLocalCreado, _.without(localHorariosCreados, ""), campoAAcuatualizar).then(function (data) {
-      console.log(data);
-      if (accion == 'crear') {
-        cargarImagenes();
-        $(location).attr('href', url);
-      } else if (accion == 'editar') {
+    verificarCantidad();
+  }).catch(function (err) {
+    console.log(err);
+  });
+}
 
-        if (horariosViejos.length) {
-          eliminarViejos(horariosViejos).then(function (error, success) {
-            volverPanelLocal();
-          }).catch(function (err) {
-            console.log(err);
-            volverPanelLocal();
-          });
-        } else {
+function verificarCantidad(){
+  if (cantidadHorarios > localHorariosCreados.length){
+    // verificar que esten todas las opciones guardadas
+    window.setTimeout(verificarCantidad,50);
+    return;
+  }
+  procesarHorariosLocal()
+}
+
+function procesarHorariosLocal(){
+  var campoAAcuatualizar = "idHorarioApertura";
+  console.log(localHorariosCreados);
+  actualizarLocal(idLocalCreado, _.without(localHorariosCreados, ""), campoAAcuatualizar).then(function (data) {
+    console.log(data);
+    if (accion == 'crear') {
+      cargarImagenes();
+      $(location).attr('href', url);
+    } else if (accion == 'editar') {
+
+      if (horariosViejos.length) {
+        eliminarViejos(horariosViejos).then(function (error, success) {
           volverPanelLocal();
-        }
-
+        }).catch(function (err) {
+          console.log(err);
+          volverPanelLocal();
+        });
+      } else {
+        volverPanelLocal();
       }
-    }).catch(function (err) {
-      console.log(err);
-    });
 
-
+    }
   }).catch(function (err) {
     console.log(err);
   });
