@@ -467,7 +467,7 @@ function cargarPromociones(idLocal){
             $('#listaPromociones').html('');
             _.each(promociones, function(promocion){
                 $('#listaPromociones').append(''+
-                   '<li class="etiquetapromoficha"><a ><img onclick="crearModal(\'' + promocion.idLocalPromocion+ '\',\'' + promocion.imagenWebPromocion+ '\',\'' + promocion.nombrePromocion+ '\')" class="etiquetapromo" src="'+promocion.iconoPromocion+'"></a></li>'+
+                   '<li class="etiquetapromoficha"><a ><img onclick="crearModal(\'' + promocion.idLocalPromocion+ '\',\'' + promocion.imagenWebPromocion+ '\',\'' + promocion.nombrePromocion+ '\',\'' + promocion.duracionDesdePromocion+ '\',\'' + promocion.duracionHastaPromocion+ '\',\'' + promocion.terminosCondicionesPromocion+ '\')" class="etiquetapromo" src="'+promocion.iconoPromocion+'"></a></li>'+
                 '');
             });
           }
@@ -489,11 +489,14 @@ function limpiarModal(){
   $("#opcionMenu").html('');
 }
 
-function crearModal(idLocalPromocion, imagenPromocion, nombrePromocion){
+function crearModal(idLocalPromocion, imagenPromocion, nombrePromocion,duracionDesdePromocion, duracionHastaPromocion, terminos){
   limpiarModal();
   $("#fotoPromo").attr('src', imagenPromocion);
   $("#nombrePromo").append(nombrePromocion);
-  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {       
+  $("#fechaInicioPromo").html(duracionDesdePromocion);
+  $("#fechaFinPromo").html(duracionHastaPromocion);
+  $("#terminos").html(terminos);
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     $.ajax({
         url: server + '/api/v1/admin/localPromocion?id='+idLocalPromocion+'',
         type: 'GET',
@@ -548,14 +551,14 @@ function obtenerOpcionMenu(idOpcionMenu){
               $('#target').append("jqXHR: "+jqXHR);
               $('#target').append("textStatus: "+textStatus);
               $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
-          },
+          }
     });   
   });
   return promise
 }
 
 function dibujarListaOpciones(opcionesMenu){
-  _.each(opcionesMenu, function(opcion){
+  _.each(_.orderBy(opcionesMenu, ['nombreOpcion'], ['asc']), function(opcion){
     $("#opcionMenu").append(''+
          '<div class="row separadormodalpromoficha">'+
             '<div class="col-md-4">'+

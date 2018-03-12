@@ -205,10 +205,10 @@ session_start();
                           <div>
                             <a href="#" class="page-scroll btn btn-xl" style="width: 100%; margin-top: 2%; margin-bottom: 4%;" id="reservar">RESERVAR</a>
                           </div>
-                          <div>Promoción válida desde 00-00 hasta 00-00</div>
+                          <div>Promoción válida desde <span id="fechaInicioPromo">00-00</span> hasta <span id="fechaFinPromo">00-00</span></div>
                           <div class="tycmenupromos">
                               <h3>Términos y condiciones</h3>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus diam turpis, ullamcorper eget luctus quis, mollis ac nunc. Donec gravida dui vitae faucibus dapibus. Integer odio mi, condimentum....</p>
+                              <p id="terminos"></p>
                           </div>
                        </div>
                         <!-- FIN MODAL -->
