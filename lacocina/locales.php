@@ -63,7 +63,7 @@ error_reporting(E_ERROR);
                 <div class="col-md-6" style="text-align: right;">
                     <div class="input-group">
                       <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" style="padding: 17px;" onClick="crearLocal()"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVO</button>
+                        <button class="botonagregarnuevo btn btn-default" type="button" style="padding: 17px;" onClick="crearLocal()"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVO</button>
                       </span>
                     </div>
                 </div>
