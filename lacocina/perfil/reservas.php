@@ -51,11 +51,17 @@ error_reporting(E_ERROR);
 
     <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
 
-    <div class="input-group">
-        <span class="input-group-btn">
-            <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
-        </span>
-    </div>
+      <div class="row">
+          <div class="col-md-6">
+          </div>
+          <div class="col-md-6" style="text-align: right;">
+            <div class="input-group">
+              <span class="input-group-btn">
+                <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
+              </span>
+            </div>
+          </div>
+      </div>
  
     <div class="reservaspestanas"> 
         <ul class="nav nav-tabs nav-justified" style="margin-bottom: 3%;">
