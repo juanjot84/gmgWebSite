@@ -248,7 +248,7 @@ function renderReservas(reservasLocal){
                       '</table>'+
                     '</p>'+
                 '</div>'+
-                '<div id="'+collapseReserva+'" class="panel-collapse collapse">'+
+                '<div id="'+collapseReserva+'" class="panel-collapse collapse hidden">'+
                     '<div class="panel-body">'+
                       '<div class="container detallereservas">'+
                       '<div class="row">'+
