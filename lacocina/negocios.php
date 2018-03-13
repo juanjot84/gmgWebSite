@@ -152,6 +152,7 @@ include("includes/nav.php"); ?>
                                 <th >#</th>
                                     <th >Nombre</th>
                                     <th style="text-align: center;">Destacado</th>
+                                    <th style="text-align: center;">Acepta reservas</th>
                                     <th style="text-align: center;">Acción</th>
                                 </tr>
                         </thead>
