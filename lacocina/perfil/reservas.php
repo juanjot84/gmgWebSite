@@ -58,6 +58,7 @@ error_reporting(E_ERROR);
             <div class="input-group">
               <span class="input-group-btn">
                 <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
+                <a href="reserva.php" class="botonagregarnuevo btn btn-default" type="button" style="padding: 17px;"><i class="fa fa-plus-square-o" aria-hidden="true"></i> CREAR RESERVA</a>
               </span>
             </div>
           </div>
