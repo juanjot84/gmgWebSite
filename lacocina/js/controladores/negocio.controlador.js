@@ -41,6 +41,16 @@ function obtenerListado() {
           '<td>' + negocio.nombreNegocio + '</td>' +
           '<td class="centrarbotdescado"><button title="Cambiar Destacado" onClick="actualizarDestacado(\'' + negocio._id + '\',\'' + negocio.destacadoNegocio + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="' + negocioDestacado + '" aria-hidden="true"></i></button></td>' +
           '<td class="centrarbotaccion">' +
+          '<ul class="activaronoreservas">'+
+          '<li>'+
+          '<label class="switch">'+
+          '<input type="checkbox" id="" name="" value="true" onClick="">'+
+          '<span class="slider round"></span>'+
+          '</label>'+
+          '</li>'+
+          '</ul>'+
+          '</td> ' +
+          '<td class="centrarbotaccion">' +
           '<button onClick="editar(\'' + negocio._id + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button> ' +
           '<button title="Eliminar" onClick="mostrarModalEliminar(\'' + negocio._id + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +
           '</td> ' +
