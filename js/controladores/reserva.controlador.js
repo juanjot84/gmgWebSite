@@ -373,6 +373,16 @@ function renderMisReservas(reservas) {
   $('.container.mis-reservas').append('<div class="row"><div class="col-lg-12 text-center"><h2 class="section-heading">Mis reservas</h2></div></div>');
 
   _.each(reservas, function (reserva) {
+    var reservaPendiente = reserva.estadoReserva == "pendiente";
+    var mensajeBoton = '';
+    if (reserva.estadoReserva == "pendiente"){
+      mensajeBoton = '<a href="#" onclick="cancelarReserva(\'' +  reserva._id + '\')" class="btn btn-danger cancelarreservafront" id="botonCancelar" style="max-width: 60%; margin: 5% auto;"><i class="fa fa-times"></i> Cancelar Reserva</a>';
+    }
+    var botonCancelar ='  <div class="col-md-3" style="display: grid;">' +
+      '   <a href="#" onclick="mostrarDetalleReserva(\'' +  reserva._id + '\')"><h2 class="verreserva">Ver reserva</h2></a>' +
+       mensajeBoton+
+      '  </div>';
+
     $('.container.mis-reservas').append('' +
       '<div class="row" style="padding-top: 5%;color: #252525;border-bottom: 1px solid #e3e3e3;padding-bottom: 2%;">' +
       ' <div class="col-md-3"><img class="img-responsive" src="' + reserva.idLocal.fotoPrincipalLocal + '">' +
@@ -389,10 +399,7 @@ function renderMisReservas(reservas) {
       '     ...</span>' +
       '   </p>  ' +
       '  </div>  ' +
-      '  <div class="col-md-3" style="display: grid;">' +
-      '   <a href="#" onclick="mostrarDetalleReserva(\'' +  reserva._id + '\')"><h2 class="verreserva">Ver reserva</h2></a>' +
-          '<a href="#" onclick="cancelarReserva(\'' +  reserva._id + '\')" class="btn btn-danger cancelarreservafront" id="botonCancelar" style="max-width: 60%; margin: 5% auto;"><i class="fa fa-times"></i> Cancelar Reserva</a>' +
-      '  </div>' +
+      botonCancelar+
       '  </div>')
   });
 }
