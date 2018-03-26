@@ -231,7 +231,7 @@ function renderReservas(reservasLocal){
                             '<td class="centrarbotaccion"><img title="Cantidad de adultos" src="imgs/adultos.png">'+reserva.cubiertosAdultos+'</td>'+
                             '<td class="centrarbotaccion"><img title="Cantidad de niños" src="imgs/ninos.png">'+reserva.cubiertosMenores+'</td>'+
                             '<td class="centrarbotaccion" style="min-width: 97px;">'+reserva.horaSola+' hs</td>'+
-                            '<td class="centrarbotaccion"><i class="fa fa-exclamation-triangle alertareservas"></i></td>'+
+                            '<td class="centrarbotaccion"><i class="fa fa-exclamation-triangle alertareservas hidden"></i></td>'+
                             '<td class="centrarbotaccion">'+medioDeReserva+'</td>'+
                             '<td class="centrarbotaccion">'+
                             '<a data-toggle="collapse" data-parent="#accordion" href="#'+collapseReserva+'">'+
@@ -248,7 +248,7 @@ function renderReservas(reservasLocal){
                       '</table>'+
                     '</p>'+
                 '</div>'+
-                '<div id="'+collapseReserva+'" class="panel-collapse collapse hidden">'+
+                '<div id="'+collapseReserva+'" class="panel-collapse collapse">'+
                     '<div class="panel-body">'+
                       '<div class="container detallereservas">'+
                       '<div class="row">'+
@@ -257,11 +257,11 @@ function renderReservas(reservasLocal){
                              '<p><i class="fa fa-envelope-o naranjabold" aria-hidden="true"></i>'+reserva.email+'</p>'+
                              '<p class="naranjabold">Observaciones: '+observacion+'</p>'+
                           '</div>'+
-                          '<div class="col-md-4">'+
+                          '<div class="col-md-4 hidden ">'+
                             '<h4 class="elegiopcionreserva">PROMOCIÓN ALMAlbec</h4>'+
                               '<a href="#"><img class="etiquetapromo" src="../../img/promos/promodemo.png"></a>'+
                           '</div>'+
-                          '<div class="col-md-4">'+
+                          '<div class="col-md-4 hidden">'+
                               '<div class="row separamenues">'+
                                 '<div class="col-md-6">'+
                                   '<h5 class="opcionmenureserva">Nombre de menú A</h5>'+

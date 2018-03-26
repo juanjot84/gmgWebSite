@@ -126,16 +126,20 @@ var mailUsuario;
       var operacion = isNew ? "POST": "PUT";
       var queryParam = isNew ? "": "?id=" + $("#idUsuarioNegocio").val();
       var endPoint = isNew ? "registerUsuarioNegocio" : "usuarioNegocio";
-      var usuarioNegocio = JSON.stringify({
-          "email": $("#email").val(),
-          "nombre":$("#nombre").val(),
-          "apellido":$("#apellido").val(),
-          "sexoUsuario":$("#sexoUsuario").val(),
-          "idNegocio":$("#idNegocio").val()
-      });
-       if ($("#password").val()){
-         usuarioNegocio.password = $("#password").val()
-       }
+      datos = {
+        "email": $("#email").val(),
+        "nombre":$("#nombre").val(),
+        "apellido":$("#apellido").val(),
+        "sexoUsuario":$("#sexoUsuario").val(),
+        "idNegocio":$("#idNegocio").val()
+      };
+      if ($("#password").val()){
+        datos.password = $("#password").val()
+      } else if ($("#passEditar").val()){
+        datos.password = $("#passEditar").val()
+      }
+      var usuarioNegocio = JSON.stringify(datos);
+
       $('#target').html('sending..');
 
       $.ajax({

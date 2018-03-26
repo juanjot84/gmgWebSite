@@ -219,7 +219,8 @@ function verificarCantidad(){
 function procesarHorariosLocal(){
   var campoAAcuatualizar = "idHorarioApertura";
   console.log(localHorariosCreados);
-  actualizarLocal(idLocalCreado, _.without(localHorariosCreados, ""), campoAAcuatualizar).then(function (data) {
+  var idLocal = $("#idLocalCreado").val();
+  actualizarLocal(idLocal, _.without(localHorariosCreados, ""), campoAAcuatualizar).then(function (data) {
     console.log(data);
     if (accion == 'crear') {
       cargarImagenes();
