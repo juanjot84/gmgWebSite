@@ -123,7 +123,7 @@ error_reporting(E_ERROR);
                 <div class="col-md-4 botonmanito" id="promociones" style="display: none">
                     <a class="sombrabotonpanel" onclick="cargarPromociones()"><div style="font-size: 1.5em;">
                         <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-gift" aria-hidden="true"></span><br>
-                        PROMOCIONES
+                        PROMOCIONES DE LA GUÍA
                     </div></a>
                 </div>
                 <div class="col-md-4 botonmanito" id="promociones">
