@@ -189,6 +189,13 @@ error_reporting(E_ERROR);
       </div>
     </div>
 
+    <div class="row">
+      <div class="col-md-4">
+      <label for="selectNino">Observación:</label>
+       <input id="observacionPersona" name="observacionPersona" type="text" class="form-control" placeholder="" aria-describedby="sizing-addon3" >  
+      </div>
+    </div>
+
     <div id="noHorario" style="display: none">
       No existen horarios que cumplan con los datos ingresados.
     </div>
@@ -247,6 +254,7 @@ error_reporting(E_ERROR);
                 <p id="cantidadReserva"></p>
                 <p id="horarioReserva" ></p>
                 <p id="direccionLocal" ></p>
+                <p id="observacion" ></p>
               </div>
             </div>
           </div>

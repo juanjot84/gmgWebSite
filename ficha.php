@@ -203,7 +203,7 @@ session_start();
                           <div class="separador"></div>
                           <div id="opcionMenu"></div>
                           <div>
-                            <a href="#" class="page-scroll btn btn-xl" style="width: 100%; margin-top: 2%; margin-bottom: 4%;" id="reservar">RESERVAR</a>
+                            <a href="reserva.php?id=<?php  error_reporting(E_ERROR); echo $idLocal; ?>" class="page-scroll btn btn-xl" style="width: 100%; margin-top: 2%; margin-bottom: 4%;" id="reservar">RESERVAR</a>
                           </div>
                           <div>Promoción válida desde <span id="fechaInicioPromo">00-00</span> hasta <span id="fechaFinPromo">00-00</span></div>
                           <div class="tycmenupromos">
