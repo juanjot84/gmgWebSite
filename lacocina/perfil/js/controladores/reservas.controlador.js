@@ -9,9 +9,12 @@ function setJWT(jwtToken){
     
     jwt = jwtToken;
     var tipoUsuario = $("#tipoUsuario").val();
-    $("#botCrearReserva").html('');
+    $("#botones").html('');
     if(tipoUsuario == 'usuarioNegocio'){
-      $("#botCrearReserva").append('<a href="reserva.php" class="btn btn-default" type="button" style="padding: 17px;"><i class="fa fa-plus-square-o" aria-hidden="true" ></i> CREAR RESERVA</a>');
+      $("#botones").append('<button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>'+
+      '<a href="reserva.php" class="botonagregarnuevo btn btn-default" type="button" style="padding: 17px;"><i class="fa fa-plus-square-o" aria-hidden="true"></i> CREAR RESERVA</a>');
+    }else if(tipoUsuario == 'superAdmin'){
+      $("#botones").append('<button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>');
     }
     obtenerListado(); 
     } 
