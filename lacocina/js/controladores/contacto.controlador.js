@@ -80,6 +80,7 @@ function cargarFormContacto(){
       $('#mailContacto').val(contacto.mailContacto);
       $('#telefonoContacto').val(contacto.telefonoContacto);
       $('#celContacto').val(contacto.celContacto);
+      $("#mailReserva").val(contacto.mailReserva);
     },
     error:function(jqXHR,textStatus,errorThrown)
     {
@@ -100,7 +101,8 @@ function actualizarContacto(){
     "nombreContacto": $("#nombreContacto").val(),
     "mailContacto":$("#mailContacto").val(),
     "telefonoContacto":$("#telefonoContacto").val(),
-    "celContacto":$("#celContacto").val()
+    "celContacto":$("#celContacto").val(),
+    "mailReserva":$("#mailReserva").val()
   });
   $.ajax({
     url: server + '/api/v1/admin/contacto?id=' + idContacto,
@@ -129,7 +131,8 @@ function send(accionSalir) {
     "nombreContacto": $("#nombreContacto").val(),
     "mailContacto":$("#mailContacto").val(),
     "telefonoContacto":$("#telefonoContacto").val(),
-    "celContacto":$("#celContacto").val()
+    "celContacto":$("#celContacto").val(),
+    "mailReserva":$("#mailReserva").val()
   });
   var queryParam = isNew  ? "": "?id=" + $("#idContacto").val();
   $.ajax({

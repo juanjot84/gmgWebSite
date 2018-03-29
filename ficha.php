@@ -183,7 +183,7 @@ session_start();
                     </div>
 
                     <div class="container text-center" style="display: flex;">
-                        <h3>Promociones</h3>
+                        <h3>Reservá con</h3>
                             <ul class="promocionesficha" id="listaPromociones">
                             </ul>
                     </div>

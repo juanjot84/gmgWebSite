@@ -149,7 +149,7 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
            addRemoveLinks: true,
            paramName: "konostech",
            maxFilesize: 7, // MB
-           resizeWidth: 80,
+           resizeWidth: 500,
            acceptedFiles: '.png',
            dictRemoveFile: "Eliminar",
            maxFiles: 1,
