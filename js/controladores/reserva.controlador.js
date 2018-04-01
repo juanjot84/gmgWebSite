@@ -377,6 +377,9 @@ function renderMisReservas(reservas) {
     var mensajeBoton = '';
     if (reserva.estadoReserva == "pendiente"){
       mensajeBoton = '<a href="#" onclick="cancelarReserva(\'' +  reserva._id + '\')" class="btn btn-danger cancelarreservafront" id="botonCancelar" style="max-width: 60%; margin: 5% auto;"><i class="fa fa-times"></i> Cancelar Reserva</a>';
+    } else if (reserva.estadoReserva == "calificable" || reserva.estadoReserva == "cumplida"){
+      //TODO: mostrar modal de calificar con todo el proceso
+      mensajeBoton = '<a href="#" onclick="getOpcionesReservaLocal(\'' +  reserva._id + '\')" class="btn btn-info cancelarreservafront" id="botonCalificar" style="max-width: 60%; margin: 5% auto;">Calificar Reserva</a>';
     }
     var botonCancelar ='  <div class="col-md-3" style="display: grid;">' +
       '   <a href="#" onclick="mostrarDetalleReserva(\'' +  reserva._id + '\')"><h2 class="verreserva">Ver reserva</h2></a>' +
@@ -399,12 +402,12 @@ function renderMisReservas(reservas) {
       '     ...</span>' +
       '   </p>  ' +
       '  </div>  ' +
-      botonCancelar+
+      botonCancelar +
       '  </div>')
   });
 }
 
-function mostrarDetalleReserva(idReserva){
+function mostrarDetalleReserva(idReserva, calificar){
   if (_.isUndefined(server)) {
     $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
     });
@@ -423,7 +426,8 @@ function mostrarDetalleReserva(idReserva){
       $("#cantidadReserva").html('').html("Reserva para " + reserva.cubiertosAdultosReservados + " adultos y "  + reserva.cubiertosMenoresReservados +  " niño/s");
       $("#horarioReserva").html('').html(reserva.horaReserva + " hs. | " + reserva.fechaReserva);
       $("#direccionLocal").html('').html(reserva.idLocal.calleLocal + " " + reserva.idLocal.alturaLocal);
-      document.getElementById("h3NombreNegocio").innerHTML = 'Reserva en "' + reserva.idLocal.idNegocio.nombreNegocio+'"';
+      $("#fotoRestaurant").attr("src", reserva.idLocal.fotoPrincipalLocal);
+      $("#h3NombreNegocio").html = 'Reserva en "' + reserva.idLocal.idNegocio.nombreNegocio+'"';
     },
     error: function (jqXHR, textStatus, errorThrown) {
       $('#target').append("jqXHR: " + jqXHR);
