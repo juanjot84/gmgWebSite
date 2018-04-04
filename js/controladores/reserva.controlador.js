@@ -214,7 +214,7 @@ function confirmarReserva() {
   limpiar('telefonoReserva');
 }
 
-function saveReserva(opcionReservada){
+function saveReserva(opcionReservada, idLocalPromocion){
   var telefonoReserva = $("#telefonoReserva").val();
   if (telefonoReserva.length > 6 && /^(\+{1})?([0-9])*$/.test(telefonoReserva)) {
     var data = {
@@ -224,7 +224,8 @@ function saveReserva(opcionReservada){
       'cubiertosAdultosReservados': $('#selectAdulto').val(),
       'cubiertosMenoresReservados': $('#selectNino').val(),
       'telefonoUsuarioReserva': $('#telefonoReserva').val(),
-      'opcionReservada' : opcionReservada
+      'opcionReservada' : opcionReservada,
+      'idLocalPromocion': idLocalPromocion
     };
     $.ajax({
       url: server + '/api/v1/admin/reserva',
@@ -270,6 +271,7 @@ function guardarReserva(idPromocion){
             crossDomain: true,
             contentType:"application/json",
             success: function (data) {
+              var idLocalPromocion = data._id;
               _.each(data.idOpcionPromocion, function (opcion) {
                  var menu = {
                    "idOpcionPromocion" : opcion,
@@ -278,9 +280,10 @@ function guardarReserva(idPromocion){
                  }
                  opcionReservada.push(menu);
               });
+              saveReserva(opcionReservada, idLocalPromocion);
           } 
       });
-      saveReserva(opcionReservada);
+      
   }
   
 }
