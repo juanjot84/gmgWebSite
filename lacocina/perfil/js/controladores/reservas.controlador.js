@@ -220,6 +220,26 @@ function renderReservas(reservasLocal){
             observacion = reserva.comentarioUsuarioReserva;
           }
 
+          var promocionReserva = "";
+          if(typeof(reserva.idLocalPromocion) == "undefined"){
+            promocionReserva ='<td class="centrarbotaccion"><i class="fa fa-exclamation-triangle alertareservas hidden"></i></td>';
+          }else {
+            promocionReserva = '<td class="centrarbotaccion"><i class="fa fa-exclamation-triangle alertareservas"></i></td>';
+          }
+          var opcionesMenu = "";
+          if(reserva.opcionReservada != []){
+            opcionesMenu = reserva.opcionReservada;
+          }
+          var nombrePromocion = "";
+          if(typeof(reserva.nombrePromocion) != "undefined"){
+            nombrePromocion = '<h4 class="elegiopcionreserva">'+reserva.nombrePromocion+'</h4>';
+          }
+  
+          var iconoPromocion = "";
+          if( typeof(reserva.iconoPromocion) != "undefined"){
+            iconoPromocion = '<a href="#"><img class="etiquetapromo" src="'+reserva.iconoPromocion+'"></a>';
+          }
+
           $('.container.'+conteinReservas).append(''+
               '<div class="panel panel-default">'+
                   '<div class="panel-heading">'+
@@ -234,7 +254,7 @@ function renderReservas(reservasLocal){
                             '<td class="centrarbotaccion"><img title="Cantidad de adultos" src="imgs/adultos.png">'+reserva.cubiertosAdultos+'</td>'+
                             '<td class="centrarbotaccion"><img title="Cantidad de niños" src="imgs/ninos.png">'+reserva.cubiertosMenores+'</td>'+
                             '<td class="centrarbotaccion" style="min-width: 97px;">'+reserva.horaSola+' hs</td>'+
-                            '<td class="centrarbotaccion"><i class="fa fa-exclamation-triangle alertareservas hidden"></i></td>'+
+                            promocionReserva +
                             '<td class="centrarbotaccion">'+medioDeReserva+'</td>'+
                             '<td class="centrarbotaccion">'+
                             '<a data-toggle="collapse" data-parent="#accordion" href="#'+collapseReserva+'">'+
@@ -252,49 +272,25 @@ function renderReservas(reservasLocal){
                     '</p>'+
                 '</div>'+
                 '<div id="'+collapseReserva+'" class="panel-collapse collapse">'+
-                    '<div class="panel-body">'+
-                      '<div class="container detallereservas">'+
-                      '<div class="row">'+
-                         '<div class="col-md-4">'+
-                             '<p><i class="fa fa-mobile naranjabold" aria-hidden="true"></i>'+reserva.telefonoUsuarioReserva +'</p>'+
-                             '<p><i class="fa fa-envelope-o naranjabold" aria-hidden="true"></i>'+reserva.email+'</p>'+
-                             '<p class="naranjabold">Observaciones: '+observacion+'</p>'+
-                          '</div>'+
-                          '<div class="col-md-4 hidden ">'+
-                            '<h4 class="elegiopcionreserva">PROMOCIÓN ALMAlbec</h4>'+
-                              '<a href="#"><img class="etiquetapromo" src="../../img/promos/promodemo.png"></a>'+
-                          '</div>'+
-                          '<div class="col-md-4 hidden">'+
-                              '<div class="row separamenues">'+
-                                '<div class="col-md-6">'+
-                                  '<h5 class="opcionmenureserva">Nombre de menú A</h5>'+
-                                '</div> '+
-                                '<div class="col-md-6">'+
-                                  '<p>Cantidad: <span class="naranjabold">4</span></p>'+
-                                '</div>'+
-                              '</div>'+
-                              '<div class="row separamenues">'+
-                                '<div class="col-md-6">'+
-                                  '<h5 class="opcionmenureserva">Nombre de menú B</h5>'+
-                                '</div> '+
-                                '<div class="col-md-6">'+
-                                  '<p>Cantidad: <span class="naranjabold">1</span></p>'+
-                                '</div>'+
-                              '</div>'+
-                              '<div class="row separamenues">'+
-                                '<div class="col-md-6">'+
-                                  '<h5 class="opcionmenureserva">Nombre de menú C</h5>'+
-                                '</div> '+
-                                '<div class="col-md-6">'+
-                                  '<p>Cantidad: <span class="naranjabold">2</span></p>'+
-                                '</div>'+
-                              '</div>'+
-                          '</div>'+
-                      '</div>'+
-                     '</div>'+
-                    '</div>'+
+                '<div class="panel-body">'+
+                  '<div class="container detallereservas">'+
+                   '<div class="row">'+
+                      '<div class="col-md-4">'+
+                          '<p><i class="fa fa-mobile naranjabold" aria-hidden="true"></i>'+reserva.telefonoUsuarioReserva +'</p>'+
+                          '<p><i class="fa fa-envelope-o naranjabold" aria-hidden="true"></i>'+reserva.email+'</p>'+
+                          '<p class="naranjabold">Observaciones: '+observacion+'</p>'+
+                       '</div>'+
+                       '<div class="col-md-4">'+
+                         nombrePromocion+
+                         iconoPromocion+
+                       '</div>'+
+                       '<div class="col-md-4" id="contMenu'+collapseReserva+'">'+
+                       '</div>'+
+                   '</div>'+
                   '</div>'+
                 '</div>'+
+              '</div>'+
+            '</div>'+
 
                   '<div class="modal fade" id="modal'+collapseReserva+'" role="dialog">'+
                   '<input type="text" name="id'+collapseReserva+'" id="id'+collapseReserva+'" value="" class="hidden">'+
@@ -323,6 +319,20 @@ function renderReservas(reservasLocal){
                   '</div>'+
                 '</div>'+
           '');
+
+          _.each(opcionesMenu, function(opcion){
+            $("#contMenu"+collapseReserva).append(''+
+           
+              '<div class="row separamenues">'+
+                '<div class="col-md-6">'+
+                  '<h5 class="opcionmenureserva">'+opcion.nombreOpcion+'</h5>'+
+                '</div> '+
+                '<div class="col-md-6">'+
+                  '<p>Cantidad: <span class="naranjabold">'+opcion.cantidad+'</span></p>'+
+                '</div>'+
+              '</div>'+
+             '');
+          });
 
             $("#id"+collapseReserva).val(reserva.idReserva);
             collapseReserva++;
@@ -430,13 +440,13 @@ function renderReservasProximas(reservasLocal){
           opcionesMenu = reserva.opcionReservada;
         }
         var nombrePromocion = "";
-        if(reserva.nombrePromocion != ""){
-          nombrePromocion = reserva.nombrePromocion;
+        if(typeof(reserva.nombrePromocion) != "undefined"){
+          nombrePromocion = '<h4 class="elegiopcionreserva">'+reserva.nombrePromocion+'</h4>';
         }
 
         var iconoPromocion = "";
-        if(reserva.iconoPromocion != ""){
-          iconoPromocion = reserva.iconoPromocion;
+        if( typeof(reserva.iconoPromocion) != "undefined"){
+          iconoPromocion = '<a href="#"><img class="etiquetapromo" src="'+reserva.iconoPromocion+'"></a>';
         }
 
          $('.container.'+conteinReservas).append(''+
@@ -477,8 +487,8 @@ function renderReservasProximas(reservasLocal){
                              '<p class="naranjabold">Observaciones: '+observacion+'</p>'+
                           '</div>'+
                           '<div class="col-md-4">'+
-                            '<h4 class="elegiopcionreserva">'+nombrePromocion+'</h4>'+
-                              '<a href="#"><img class="etiquetapromo" src="'+iconoPromocion+'"></a>'+
+                            nombrePromocion+
+                            iconoPromocion+
                           '</div>'+
                           '<div class="col-md-4" id="contMenu'+collapseReserva+'">'+
                           '</div>'+
@@ -685,6 +695,26 @@ function renderReservasHistorico(reservasLocal){
           observacion = reserva.comentarioUsuarioReserva;
         }
 
+        var promocionReserva = "";
+        if(typeof(reserva.idLocalPromocion) == "undefined"){
+          promocionReserva ='<td class="centrarbotaccion"><i class="fa fa-exclamation-triangle alertareservas hidden"></i></td>';
+        }else {
+          promocionReserva = '<td class="centrarbotaccion"><i class="fa fa-exclamation-triangle alertareservas"></i></td>';
+        }
+        var opcionesMenu = "";
+        if(reserva.opcionReservada != []){
+          opcionesMenu = reserva.opcionReservada;
+        }
+        var nombrePromocion = "";
+        if(typeof(reserva.nombrePromocion) != "undefined"){
+          nombrePromocion = '<h4 class="elegiopcionreserva">'+reserva.nombrePromocion+'</h4>';
+        }
+
+        var iconoPromocion = "";
+        if( typeof(reserva.iconoPromocion) != "undefined"){
+          iconoPromocion = '<a href="#"><img class="etiquetapromo" src="'+reserva.iconoPromocion+'"></a>';
+        }
+
          $('.container.'+conteinReservas).append(''+
              '<div class="panel panel-default">'+
                  '<div class="panel-heading">'+
@@ -700,7 +730,7 @@ function renderReservasHistorico(reservasLocal){
                            '<td class="centrarbotaccion"><img title="Cantidad de niños" src="imgs/ninos.png">'+reserva.cubiertosMenores+'</td>'+
                            '<td class="centrarbotaccion" style="min-width: 97px;">'+reserva.horaSola+' hs</td>'+
                            '<td class="centrarbotaccion"><i title="Medio de reserva" class="" aria-hidden="true"></i></td>'+
-                           '<td class="centrarbotaccion"><i class="fa fa-exclamation-triangle alertareservas hidden"></i></td>'+
+                           promocionReserva +
                            '<td class="centrarbotaccion">'+medioDeReserva+'</td>'+
                            '<td class="centrarbotaccion">'+
                            '<a data-toggle="collapse" data-parent="#accordion" href="#'+collapseReserva+'">'+
@@ -715,49 +745,25 @@ function renderReservasHistorico(reservasLocal){
                    '</p>'+
                '</div>'+
                '<div id="'+collapseReserva+'" class="panel-collapse collapse">'+
-                   '<div class="panel-body">'+
-                     '<div class="container detallereservas">'+
-                      '<div class="row">'+
-                         '<div class="col-md-4">'+
-                             '<p><i class="fa fa-mobile naranjabold" aria-hidden="true"></i>'+reserva.telefonoUsuarioReserva +'</p>'+
-                             '<p><i class="fa fa-envelope-o naranjabold" aria-hidden="true"></i>'+reserva.email+'</p>'+
-                             '<p class="naranjabold">Observaciones: '+observacion+'</p>'+
-                          '</div>'+
-                          '<div class="col-md-4 hidden">'+
-                            '<h4 class="elegiopcionreserva">PROMOCIÓN ALMAlbec</h4>'+
-                              '<a href="#"><img class="etiquetapromo" src="../../img/promos/promodemo.png"></a>'+
-                          '</div>'+
-                          '<div class="col-md-4 hidden">'+
-                              '<div class="row separamenues">'+
-                                '<div class="col-md-6">'+
-                                  '<h5 class="opcionmenureserva">Nombre de menú A</h5>'+
-                                '</div> '+
-                                '<div class="col-md-6">'+
-                                  '<p>Cantidad: <span class="naranjabold">4</span></p>'+
-                                '</div>'+
-                              '</div>'+
-                              '<div class="row separamenues">'+
-                                '<div class="col-md-6">'+
-                                  '<h5 class="opcionmenureserva">Nombre de menú B</h5>'+
-                                '</div> '+
-                                '<div class="col-md-6">'+
-                                  '<p>Cantidad: <span class="naranjabold">1</span></p>'+
-                                '</div>'+
-                              '</div>'+
-                              '<div class="row separamenues">'+
-                                '<div class="col-md-6">'+
-                                  '<h5 class="opcionmenureserva">Nombre de menú C</h5>'+
-                                '</div> '+
-                                '<div class="col-md-6">'+
-                                  '<p>Cantidad: <span class="naranjabold">2</span></p>'+
-                                '</div>'+
-                              '</div>'+
-                          '</div>'+
+               '<div class="panel-body">'+
+                 '<div class="container detallereservas">'+
+                  '<div class="row">'+
+                     '<div class="col-md-4">'+
+                         '<p><i class="fa fa-mobile naranjabold" aria-hidden="true"></i>'+reserva.telefonoUsuarioReserva +'</p>'+
+                         '<p><i class="fa fa-envelope-o naranjabold" aria-hidden="true"></i>'+reserva.email+'</p>'+
+                         '<p class="naranjabold">Observaciones: '+observacion+'</p>'+
                       '</div>'+
-                     '</div>'+
-                   '</div>'+
+                      '<div class="col-md-4">'+
+                        nombrePromocion+
+                        iconoPromocion+
+                      '</div>'+
+                      '<div class="col-md-4" id="contMenu'+collapseReserva+'">'+
+                      '</div>'+
+                  '</div>'+
                  '</div>'+
                '</div>'+
+             '</div>'+
+           '</div>'+
 
                  '<div class="modal fade" id="modal'+collapseReserva+'" role="dialog">'+
                  '<input type="text" name="id'+collapseReserva+'" id="id'+collapseReserva+'" value="" class="hidden">'+
@@ -786,6 +792,20 @@ function renderReservasHistorico(reservasLocal){
                  '</div>'+
                '</div>'+
          '');
+
+         _.each(opcionesMenu, function(opcion){
+          $("#contMenu"+collapseReserva).append(''+
+         
+            '<div class="row separamenues">'+
+              '<div class="col-md-6">'+
+                '<h5 class="opcionmenureserva">'+opcion.nombreOpcion+'</h5>'+
+              '</div> '+
+              '<div class="col-md-6">'+
+                '<p>Cantidad: <span class="naranjabold">'+opcion.cantidad+'</span></p>'+
+              '</div>'+
+            '</div>'+
+           '');
+        });
 
            $("#id"+collapseReserva).val(reserva.idReserva);
            collapseReserva++;

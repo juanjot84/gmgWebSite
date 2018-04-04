@@ -193,6 +193,13 @@ $idLocal = $_GET["id"];
                   </div>
                 </p>
               </div>
+              
+            <div class="row">
+              <div class="col-md-4">
+                  <label for="selectNino">Observación:</label>
+                  <input id="observacionPersona" name="observacionPersona" type="text" class="form-control" placeholder="" aria-describedby="sizing-addon3" >  
+              </div>
+            </div>
 
             <div id="sinHorarios"></div>
 
@@ -222,28 +229,9 @@ $idLocal = $_GET["id"];
                   </div>
                 </div>
               </div>
-                <!-- FIN PROMO -->
-
-                <!-- INICIO PROMO -->
               <div id="contenedorPromociones">
 
               </div>
-                <!-- FIN PROMO -->
-
-                <!-- INICIO PROMO 
-
-                <div class="row separadoropcionesreservas">
-                  <h4 class="elegiopcionreserva" style="margin: 10px 0;">DESCUENTO</h4>
-                  <div class="radio">
-                    <label><input type="radio" name="optradio"><h4 class="elegiopcionreserva">20% OFF</h4></label>
-                  </div>
-                  <div class="radio">
-                    <label><input type="radio" name="optradio"><h4 class="elegiopcionreserva">2x1 | De 19 a 21 hs.</h4></label>
-                  </div>
-                </div>
-
-                 FIN PROMO -->
-
             </section>
 
             <div class="row">

@@ -225,7 +225,8 @@ function saveReserva(opcionReservada, idLocalPromocion){
       'cubiertosMenoresReservados': $('#selectNino').val(),
       'telefonoUsuarioReserva': $('#telefonoReserva').val(),
       'opcionReservada' : opcionReservada,
-      'idLocalPromocion': idLocalPromocion
+      'idLocalPromocion': idLocalPromocion,
+      'comentarioUsuarioReserva': $("#observacionPersona").val()
     };
     $.ajax({
       url: server + '/api/v1/admin/reserva',
