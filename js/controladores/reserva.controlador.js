@@ -178,6 +178,11 @@ function buscarPromociones(){
               '');
             var opcionesMenu = promocion.idOpcionPromocion;
               _.each(opcionesMenu, function (menu){
+                 var disponibilidad = "";
+                 if(menu.cantidadDisponible == "0"){
+                  disponibilidad = "<span>(Sin disponibilidad)</span>";
+                 }
+
                  $("#contenedorMenu").append(''+
                   '<div class="row">'+
                     '<div class="col-md-6">'+
@@ -185,8 +190,8 @@ function buscarPromociones(){
                       '<input type="text" name="nombreOpcion'+menu._id+'" id="nombreOpcion'+menu._id+'" value="'+menu.nombreOpcion+'" class="hidden">'+
                     '</div>'+
                     '<div class="col-md-2">'+
-                      '<input id="cantidad'+menu._id+'" name="cantidad'+menu._id+'" type="number" max="'+menu.cantidadDisponible+'" class="form-control cantopcionesmenureserva" placeholder="0" aria-describedby="sizing-addon3">'+
-                    '</div>'+
+                      '<input id="cantidad'+menu._id+'" name="cantidad'+menu._id+'" type="number" min="0" max="'+menu.cantidadDisponible+'" class="form-control cantopcionesmenureserva" placeholder="0" aria-describedby="sizing-addon3">'+
+                    '</div>'+ disponibilidad+
                   '</div>'+
                  '');
               });
