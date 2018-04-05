@@ -181,7 +181,7 @@ function sendHorarioAtencion() {
     var horarioDesdeT = _.find(idHorariosDesdeTarde, {'dia': dia});
     var horarioHastaT = _.find(idHorariosHastaTarde, {'dia': dia});
 
-    if (horarioDesdeM != "" && horarioHastaM != "") {
+    if (horarioDesdeM != "" && horarioHastaM != "" && horarioDesdeM.hora && horarioHastaM.hora ) {
       cantidadHorarios++;
       var guardarManana = sendHorarios(dia, horarioDesdeM.hora, horarioHastaM.hora, 'manana').then(function (id) {
         localHorariosCreados.push(id);
@@ -190,7 +190,7 @@ function sendHorarioAtencion() {
       });
       guardarHorarios.push(guardarManana);
     }
-    if (horarioDesdeT != "" && horarioHastaT != "") {
+    if (horarioDesdeT != "" && horarioHastaT != "" && horarioDesdeT.hora && horarioHastaT.hora ) {
       cantidadHorarios++;
       var guardarTarde = sendHorarios(dia, horarioDesdeT.hora, horarioHastaT.hora, 'tarde').then(function (id) {
         localHorariosCreados.push(id);
@@ -219,7 +219,8 @@ function verificarCantidad(){
 function procesarHorariosLocal(){
   var campoAAcuatualizar = "idHorarioApertura";
   console.log(localHorariosCreados);
-  actualizarLocal(idLocalCreado, _.without(localHorariosCreados, ""), campoAAcuatualizar).then(function (data) {
+  var idLocal = $("#idLocalCreado").val();
+  actualizarLocal(idLocal, _.without(localHorariosCreados, ""), campoAAcuatualizar).then(function (data) {
     console.log(data);
     if (accion == 'crear') {
       cargarImagenes();

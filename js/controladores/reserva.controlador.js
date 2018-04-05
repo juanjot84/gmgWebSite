@@ -104,6 +104,7 @@ function buscarHorarios() {
   }
   $('.horas').hide();
   $('#noHorario').hide();
+  buscarPromociones();
   var data = {
     'idLocal': idLocal,
     'fechaReserva': $('#selectDia').val(),
@@ -134,6 +135,163 @@ function buscarHorarios() {
     },
     data: JSON.stringify(data)
   });
+}
+
+function buscarPromociones(){
+   var fechaSeleccionada = $('#selectDia').val();
+   var idLocal = $("#idLocal").val();
+   var fecha = JSON.stringify({
+    "fechaReserva": fechaSeleccionada
+   });
+
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {       
+      $.ajax({
+          url: server + '/api/v1/admin/promocionesLocalXFecha?id='+idLocal+'',
+          type: 'POST',
+          dataType: "json",
+          crossDomain: true,
+          contentType:"application/json",
+          success: function (data) {
+           promociones = data;
+           if(promociones.length != 0){
+            $("#seccionOpcionesReserva").show();
+            $("#contenedorPromociones").html('');
+            _.each(promociones, function (promocion){
+              $("#contenedorPromociones").append(''+
+                '<div class="row separadoropcionesreservas">'+
+                    '<div class="row">'+
+                      '<div class="col-md-8">'+
+                        '<div class="radio">'+
+                          '<label><input type="radio" name="optradio" value="'+promocion.idLocalPromocion+'"><h4 class="elegiopcionreserva">'+promocion.nombrePromocion+ '</h4></label>'+
+                          '<span> | Válido del '+promocion.duracionDesdePromocion+' al '+promocion.duracionHastaPromocion+'</span>'+
+                        '</div>'+
+                      '</div>'+
+                      '<div class="col-md-4">'+
+                        '<img class="etiquetapromo" src="'+promocion.iconoPromocion+'">'+
+                      '</div>'+
+                    '</div>'+
+                '<!-- INICIO MENU -->'+
+                   '<div id="contenedorMenu">'+
+                   '</div>'+
+                '<!-- FIN MENU -->'+
+                '</div>'+
+              '');
+            var opcionesMenu = promocion.idOpcionPromocion;
+              _.each(opcionesMenu, function (menu){
+                 var disponibilidad = "";
+                 if(menu.cantidadDisponible == "0"){
+                  disponibilidad = "<span>(Sin disponibilidad)</span>";
+                 }
+
+                 $("#contenedorMenu").append(''+
+                  '<div class="row">'+
+                    '<div class="col-md-6">'+
+                       '<h5 class="opcionmenureserva">'+menu.nombreOpcion+'</h5>'+
+                      '<input type="text" name="nombreOpcion'+menu._id+'" id="nombreOpcion'+menu._id+'" value="'+menu.nombreOpcion+'" class="hidden">'+
+                    '</div>'+
+                    '<div class="col-md-2">'+
+                      '<input id="cantidad'+menu._id+'" name="cantidad'+menu._id+'" type="number" min="0" max="'+menu.cantidadDisponible+'" class="form-control cantopcionesmenureserva" placeholder="0" aria-describedby="sizing-addon3">'+
+                    '</div>'+ disponibilidad+
+                  '</div>'+
+                 '');
+              });
+            });
+           }
+          },
+          error:function(jqXHR,textStatus,errorThrown)
+          {           
+            $('#target').append("jqXHR: "+jqXHR);
+            $('#target').append("textStatus: "+textStatus);
+            $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+          },
+          data: fecha
+      });
+    });
+}
+
+function confirmarReserva() {
+  if (_.isUndefined(server)) {
+    $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
+    });
+  }
+  var promocionSeleccionada = $('input[name=optradio]:checked').val();
+  guardarReserva(promocionSeleccionada);
+  limpiar('telefonoReserva');
+}
+
+function saveReserva(opcionReservada, idLocalPromocion){
+  var telefonoReserva = $("#telefonoReserva").val();
+  if (telefonoReserva.length > 6 && /^(\+{1})?([0-9])*$/.test(telefonoReserva)) {
+    var data = {
+      'idLocal': idLocal,
+      'fechaReserva': $('#selectDia').val(),
+      'horaReserva': horaSeleccionada,
+      'cubiertosAdultosReservados': $('#selectAdulto').val(),
+      'cubiertosMenoresReservados': $('#selectNino').val(),
+      'telefonoUsuarioReserva': $('#telefonoReserva').val(),
+      'opcionReservada' : opcionReservada,
+      'idLocalPromocion': idLocalPromocion,
+      'comentarioUsuarioReserva': $("#observacionPersona").val()
+    };
+    $.ajax({
+      url: server + '/api/v1/admin/reserva',
+      type: 'POST',
+      dataType: "json",
+      crossDomain: true,
+      contentType: "application/json",
+      success: function (data) {
+
+        $("#realizarReserva").modal("hide");
+        $("#reservaConfirmada").modal("show");
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        $('#target').append("jqXHR: " + jqXHR);
+        $('#target').append("textStatus: " + textStatus);
+        $('#target').append("You can not send Cross Domain AJAX requests: " + errorThrown);
+      },
+      headers: {
+        Authorization: 'JWT ' + jwt
+      },
+      data: JSON.stringify(data)
+    });
+  } else {
+    $("#telefonoReserva").parent().after('<span id="telefonoReservaAlert" style="color:red"> Por favor ingrese un teléfono válido sin utilizar - ni ()</span>');
+    $("#telefonoReserva").addClass('alert-danger');
+  }
+}
+
+function guardarReserva(idPromocion){
+  var opcionReservada = [];
+  if(idPromocion == 'sinPromocion'){
+    opcionReservada = [];
+    saveReserva(opcionReservada);
+  }else{
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }   
+          $.ajax({
+            url: server + '/api/v1/admin/localPromocion?id='+idPromocion+'',
+            type: 'GET',           
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+              var idLocalPromocion = data._id;
+              _.each(data.idOpcionPromocion, function (opcion) {
+                 var menu = {
+                   "idOpcionPromocion" : opcion,
+                   "nombreOpcion" : $("#nombreOpcion"+opcion).val(),
+                   "cantidad" : $("#cantidad"+opcion).val(),
+                 }
+                 opcionReservada.push(menu);
+              });
+              saveReserva(opcionReservada, idLocalPromocion);
+          } 
+      });
+      
+  }
+  
 }
 
 function popularOpcionesReserva(opciones) {
@@ -194,50 +352,6 @@ function realizarReserva() {
   }
 }
 
-function confirmarReserva() {
-  if (_.isUndefined(server)) {
-    $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
-    });
-  }
-  limpiar('telefonoReserva');
-  var telefonoReserva = $("#telefonoReserva").val();
-  if (telefonoReserva.length > 6 && /^(\+{1})?([0-9])*$/.test(telefonoReserva)) {
-    var data = {
-      'idLocal': idLocal,
-      'fechaReserva': $('#selectDia').val(),
-      'horaReserva': horaSeleccionada,
-      'cubiertosAdultosReservados': $('#selectAdulto').val(),
-      'cubiertosMenoresReservados': $('#selectNino').val(),
-      'telefonoUsuarioReserva': $('#telefonoReserva').val()
-    };
-    $.ajax({
-      url: server + '/api/v1/admin/reserva',
-      type: 'POST',
-      dataType: "json",
-      crossDomain: true,
-      contentType: "application/json",
-      success: function (data) {
-
-        $("#realizarReserva").modal("hide");
-        $("#reservaConfirmada").modal("show");
-      },
-      error: function (jqXHR, textStatus, errorThrown) {
-        $('#target').append("jqXHR: " + jqXHR);
-        $('#target').append("textStatus: " + textStatus);
-        $('#target').append("You can not send Cross Domain AJAX requests: " + errorThrown);
-      },
-      headers: {
-        Authorization: 'JWT ' + jwt
-      },
-      data: JSON.stringify(data)
-    });
-  } else {
-    $("#telefonoReserva").parent().after('<span id="telefonoReservaAlert" style="color:red"> Por favor ingrese un teléfono válido sin utilizar - ni ()</span>');
-    $("#telefonoReserva").addClass('alert-danger');
-  }
-
-}
-
 function getMisReservas() {
   if (_.isUndefined(server)) {
     $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
@@ -268,6 +382,16 @@ function renderMisReservas(reservas) {
   $('.container.mis-reservas').append('<div class="row"><div class="col-lg-12 text-center"><h2 class="section-heading">Mis reservas</h2></div></div>');
 
   _.each(reservas, function (reserva) {
+    var reservaPendiente = reserva.estadoReserva == "pendiente";
+    var mensajeBoton = '';
+    if (reserva.estadoReserva == "pendiente"){
+      mensajeBoton = '<a href="#" onclick="cancelarReserva(\'' +  reserva._id + '\')" class="btn btn-danger cancelarreservafront" id="botonCancelar" style="max-width: 60%; margin: 5% auto;"><i class="fa fa-times"></i> Cancelar Reserva</a>';
+    }
+    var botonCancelar ='  <div class="col-md-3" style="display: grid;">' +
+      '   <a href="#" onclick="mostrarDetalleReserva(\'' +  reserva._id + '\')"><h2 class="verreserva">Ver reserva</h2></a>' +
+       mensajeBoton+
+      '  </div>';
+
     $('.container.mis-reservas').append('' +
       '<div class="row" style="padding-top: 5%;color: #252525;border-bottom: 1px solid #e3e3e3;padding-bottom: 2%;">' +
       ' <div class="col-md-3"><img class="img-responsive" src="' + reserva.idLocal.fotoPrincipalLocal + '">' +
@@ -284,10 +408,7 @@ function renderMisReservas(reservas) {
       '     ...</span>' +
       '   </p>  ' +
       '  </div>  ' +
-      '  <div class="col-md-3" style="display: grid;">' +
-      '   <a href="#" onclick="mostrarDetalleReserva(\'' +  reserva._id + '\')"><h2 class="verreserva">Ver reserva</h2></a>' +
-          '<a href="#" onclick="cancelarReserva(\'' +  reserva._id + '\')" class="btn btn-danger cancelarreservafront" id="botonCancelar" style="max-width: 60%; margin: 5% auto;"><i class="fa fa-times"></i> Cancelar Reserva</a>' +
-      '  </div>' +
+      botonCancelar+
       '  </div>')
   });
 }

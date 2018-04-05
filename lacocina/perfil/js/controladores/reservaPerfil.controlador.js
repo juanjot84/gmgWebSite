@@ -168,6 +168,7 @@ function realizarReserva() {
     $("#mailPersReserva").html('Mail: '+ $('#mailPersona').val() );
     $("#cantidadReserva").html(" " + $('#selectAdulto').val() + " adultos y " + $('#selectNino').val() + " niño");
     $("#horarioReserva").html(horaSeleccionada + " hs. | " + $('#selectDia').val());
+    $("#observacion").html('Observación: ' + $("#observacionPersona").val());
   } else {
     mostrarModalLogin();
   }
@@ -187,7 +188,8 @@ function confirmarReserva() {
     'nombreReservaEventual': $('#nombrePersona').val(),
     'mailReservaEventual': $('#mailPersona').val(),
     'telefonoUsuarioReserva': $('#telPersona').val(),
-    'medioCreacionReserva': $('input:radio[name=opMedio]:checked').val()
+    'medioCreacionReserva': $('input:radio[name=opMedio]:checked').val(),
+    'comentarioUsuarioReserva': $("#observacionPersona").val()
   };
   $.ajax({
     url: server + '/api/v1/admin/reservaEventual',

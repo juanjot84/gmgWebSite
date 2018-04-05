@@ -42,26 +42,18 @@ error_reporting(E_ERROR);
     }
 ?>
  
-    <div class="container-fluid" style="padding: 1%; background: #fff; margin-top: -21px;">
+    <div class="container-fluid" style="padding: 2%; background: #fff; margin-top: -21px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="input-group">
-                      <input type="text" class="form-control" placeholder="BUSCAR..." style="padding: 25.6px;">
-                      <span class="input-group-btn"> 
-                       <button  class="btn btn-default botonbuscar" style="color: #333; background-color: #fff; border: 1px solid #ccc; padding: 15px; border-radius: 0;" type="button"><i style="font-size: 1.5em;" class="fa fa-search" aria-hidden="true"></i></button>
-                      </span>
-                    </div>
- 
-                </div>
- 
-                <div class="col-md-6" style="text-align: right;">
-                    <div class="input-group">
-                      <span class="input-group-btn">
-                        <a href="reserva.php" class="btn btn-default" type="button" style="padding: 17px;"><i class="fa fa-plus-square-o" aria-hidden="true"></i> CREAR RESERVA</a>
-                      </span>
-                    </div>
-                </div>
+              <div class="col-md-6">
+              </div>
+              <div class="col-md-6" style="text-align: right;">
+                  <div class="input-group">
+                    <span class="input-group-btn">
+                      <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
+                    </span>
+                  </div>
+              </div>
             </div>
         </div>
     </div>

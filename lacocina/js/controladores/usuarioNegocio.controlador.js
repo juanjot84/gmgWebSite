@@ -117,98 +117,59 @@ var mailUsuario;
       }
     }
 
-    function editarUsuarioNegocio(accion, tipoUsuario){
-      if (_.isUndefined(server)) {
-        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
-        });
-      }
-        var usuarioNegocio = JSON.stringify({
-            "email": $("#email").val(),
-            "nombre":$("#nombre").val(),
-            "apellido":$("#apellido").val(),
-            "sexoUsuario":$("#sexoUsuario").val(),
-            "idNegocio":$("#idNegocio").val()
-        });
-
-        $('#target').html('sending..');
-        var queryParam = $("#idUsuarioNegocio").val();
-        $.ajax({
-            url: server + '/api/v1/admin/usuarioNegocio?id=' + queryParam,
-            type: "PUT",
-            
-            dataType: "json",
-            crossDomain: true,
-            contentType:"application/json",
-            success: function (data) {              
-                
-             var negocioCreado = $("#idNegocio").val();
-             if(accion == 'editar' && tipoUsuario == 'usuarioNegocio'){
-                var url = "../lacocina/perfil/mi-perfil.php?idNegocio="+ negocioCreado+"";
-                $(location).attr('href',url);
-                $("#formularioAgregar :input").val(''); 
-              }else{
-                var url = "../lacocina/panel-negocio.php?idNegocio="+ negocioCreado+"";
-                $(location).attr('href',url);
-                $("#formularioAgregar :input").val('');
-              }  
-
-            },
-            error:function(jqXHR,textStatus,errorThrown)
-            {
-          },
-          data: usuarioNegocio
-      });
-    }
-
     function send(accion) {
       if (_.isUndefined(server)) {
         $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
         });
       }
-        var isNew = $("#idUsuarioNegocio").val() == "";
-        var operacion = isNew ? "POST": "PUT";
-        var usuarioNegocio = JSON.stringify({
-            "email": $("#email").val(),
-            "nombre":$("#nombre").val(),
-            "apellido":$("#apellido").val(),
-            "sexoUsuario":$("#sexoUsuario").val(),
-            "password":$("#password").val(),
-            "idNegocio":$("#idNegocio").val()
-        });
+      var isNew = $("#idUsuarioNegocio").val() == "";
+      var operacion = isNew ? "POST": "PUT";
+      var queryParam = isNew ? "": "?id=" + $("#idUsuarioNegocio").val();
+      var endPoint = isNew ? "registerUsuarioNegocio" : "usuarioNegocio";
+      datos = {
+        "email": $("#email").val(),
+        "nombre":$("#nombre").val(),
+        "apellido":$("#apellido").val(),
+        "sexoUsuario":$("#sexoUsuario").val(),
+        "idNegocio":$("#idNegocio").val()
+      };
+      if ($("#password").val()){
+        datos.password = $("#password").val()
+      } else if ($("#passEditar").val()){
+        datos.password = $("#passEditar").val()
+      }
+      var usuarioNegocio = JSON.stringify(datos);
 
-        $('#target').html('sending..');
-        var queryParam = isNew  ? "": "?id=" + $("#idUsuarioNegocio").val();
-        $.ajax({
-            url: server + '/api/v1/admin/registerUsuarioNegocio' + queryParam,
-            type: operacion,
-            
-            dataType: "json",
-            crossDomain: true,
-            contentType:"application/json",
-            success: function (data) {              
-                
-             var negocioCreado = $("#idNegocio").val();  
+      $('#target').html('sending..');
 
-            if(accion == 'crear'){
-              var url = "../lacocina/local.php?idNegocio="+ negocioCreado+"";
-              $(location).attr('href',url);
-              $("#formularioAgregar :input").val('');
-            } else if(accion == 'crearSalir'){
-              volverPanelNegocio();
-            }
+      $.ajax({
+          url: server + '/api/v1/admin/' + endPoint + queryParam,
+          type: operacion,
+          dataType: "json",
+          crossDomain: true,
+          contentType:"application/json",
+          success: function (data) {
+           var negocioCreado = $("#idNegocio").val();
 
-            },
-            error:function(jqXHR,textStatus,errorThrown)
-            {
-               if(textStatus == 'error'){
-                $("#mostrarmodal1").modal("show");
-                
-               }
+           if(accion == 'crear'){
+             var url = "../lacocina/local.php?idNegocio="+ negocioCreado+"";
+             $(location).attr('href',url);
+             $("#formularioAgregar :input").val('');
+           } else {
+             volverPanelNegocio();
+           }
 
           },
-          data: usuarioNegocio
-      }); 
-    }
+          error:function(jqXHR,textStatus,errorThrown){
+            if(textStatus == 'error'){
+              $("#mostrarmodal1").modal("show");
+
+          }
+
+        },
+        data: usuarioNegocio
+    });
+  }
 
 function habilitarBotonGuardar(){
   $("#botonGuardar").removeClass('disabled');
@@ -245,16 +206,7 @@ function validar(accion){
    }
  
   if(hayError==false){
-
-    if(accion == "editar"){
-       var tipoUsuario = $("#tipoUs").val();
-      editarUsuarioNegocio(accion, tipoUsuario);
-
-    }else if(accion == "crear"){
-        send(accion);
-    }else if(accion == "crearSalir"){
-        send(accion);
-    }
+    send(accion);
   }else{
     $(location).attr('href',"#formularioAgregar");
   }

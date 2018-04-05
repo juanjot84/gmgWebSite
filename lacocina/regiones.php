@@ -24,32 +24,30 @@ include("includes/head.php"); ?>
 <body id="page-top" class="index">
 
 
-    <?php 
-    error_reporting(E_ERROR);
-    include("includes/nav.php"); ?>
+<?php 
+error_reporting(E_ERROR);
+include("includes/nav.php"); ?>
 
-    <center><div id="loading"></div></center>
+<center><div id="loading"></div></center>
 
-    <div class="container-fluid" style="padding: 1%; background: #fff; margin-top: -21px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="input-group">
-                      <span class="input-group-btn">
-                    </span>
-                </div>
-            </div>
-            <div class="col-md-6" style="text-align: right;">
-                <div class="input-group">
-                  <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" style="padding: 17px;" onClick="agregarRegion()"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVO</button>
-                </span>
-            </div>
+<div class="container-fluid" style="padding: 1%; background: #fff; margin-top: -21px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+
+      </div>
+      <div class="col-md-6" style="text-align: right;">
+        <div class="input-group">
+          <span class="input-group-btn">
+            <button class="botonagregarnuevo btn btn-default" type="button" style="padding: 17px;" onClick="agregarRegion()"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVO</button>
+          </span>
         </div>
-
+      </div>
     </div>
+  </div>
 </div>
-</div>
+
+
 <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
     <div class="row">
         <div class="col-md-12">
@@ -94,20 +92,20 @@ include("includes/head.php"); ?>
                 
 
 <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-   <div class="modal-dialog">
-      <div class="modal-content">
-         <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h3>No se pudo eliminar la Región</h3>
-     </div>
-         <div class="modal-body">
+    <div class="modal-dialog">
+       <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h3>No se pudo eliminar la Región</h3>
+          </div>
+          <div class="modal-body">
             <h5>Esta Región tiene Polos Gastronómicos asociados</h5>
 
-     </div>
-         <div class="modal-footer">
-        <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
-     </div>
-      </div>
+          </div>
+          <div class="modal-footer">
+              <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+          </div>
+       </div>
    </div>
 </div>
             </div>

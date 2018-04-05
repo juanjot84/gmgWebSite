@@ -43,14 +43,15 @@ error_reporting(E_ERROR);
     <div class="container-fluid" style="padding: 1%; background: #fff; margin-top: -21px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="input-group">
-                      <span class="input-group-btn">
-                      </span>
-                    </div>
+              <div class="col-md-6">
+              </div>
+              <div class="col-md-6" style="text-align: right;">
+                <div class="input-group">
+                  <span class="input-group-btn">
+                     <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
+                  </span>
                 </div>
-
-
+              </div>
             </div>
         </div>
     </div>
@@ -75,11 +76,18 @@ error_reporting(E_ERROR);
                 <input id="nombreContacto" name="nombreContacto" type="text" class="form-control" placeholder="Nombre del Contacto" aria-describedby="sizing-addon3" onfocus="limpiar('nombreContacto')" required>
               </div></p>
 
-          <h5 class="titulosalta"> Mail de contacto y reservas</h5>
+          <h5 class="titulosalta"> Mail de contacto</h5>
             
               <p><div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-envelope" aria-hidden="true"></i></span>
                 <input id="mailContacto" name="mailContacto" type="text" class="form-control" placeholder="Mail del Contacto" aria-describedby="sizing-addon3" onfocus="limpiar('mailContacto')" required>
+              </div></p>
+
+         <h5 class="titulosalta"> Mail de notificaciones de reservas</h5>
+            
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                <input id="mailReserva" name="mailReserva" type="text" class="form-control" placeholder="Mail de reservas" aria-describedby="sizing-addon3" onfocus="limpiar('mailReserva')" required>
               </div></p>
 
           <h5 class="titulosalta"> Teléfono fijo</h5>

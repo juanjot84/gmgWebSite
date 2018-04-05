@@ -362,7 +362,7 @@ td {
     font-weight: bold;
     font-size: 1.5em;
     text-transform: uppercase;
-    padding: 0 0;
+    padding-bottom: 18px;
     color: #464646 !important;
     background-color: transparent !important;
     font-size: 2em;
@@ -1115,6 +1115,63 @@ input:checked + .slider:before {
     font-family: "Roboto", sans-serif;
     text-transform: none;
     font-weight: 700;
+}
+
+.alertareservas {
+    color: yellow;
+    text-shadow: 1px 1px 7px #101010;
+    margin: 0 10px;
+}
+
+.alertacantpersonas {
+    color: #f8981d;
+    text-shadow: 1px 1px 7px #ffffff;
+    margin: 0 10px;
+}
+
+.titulotabladetallereserva {
+    background: #f1f1f1;
+    color: #565656;
+    font-size: 14px;
+}
+
+.fuentesmall {
+    font-size: small;
+}
+
+.estadouser-v {
+    color: green;
+}
+.estadouser-r {
+    color: red;
+}
+.estadouser-a {
+    color: yellow;
+}
+
+.comentariosreservasgrales{
+    font-size: 11px;
+}
+
+.anchoceldaresergrales {
+    min-width: 150px;
+}
+
+.anchoceldaresergrales2 {
+    min-width: 50px;
+    max-width: 270px;
+    font-size: 14px;
+}
+
+h5.opcionmenureserva {
+    text-transform: none;
+    color: #3f3f3f;
+    margin: 5px;
+}
+
+.separamenues {
+    border-bottom: 1px solid #d0d0d0;
+    margin-top: 7px;
 }
 
 /*MEDIA  QUERIES*/

@@ -24,32 +24,29 @@ include("includes/head.php"); ?>
 <body id="page-top" class="index">
 
 
-    <?php 
-    error_reporting(E_ERROR);
-    include("includes/nav.php"); ?>
+<?php 
+error_reporting(E_ERROR);
+include("includes/nav.php"); ?>
 
-    <center><div id="loading"></div></center>
+<center><div id="loading"></div></center>
 
-    <div class="container-fluid" style="padding: 1%; background: #fff; margin-top: -21px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="input-group">
-                      <span class="input-group-btn">
-                    </span>
-                </div>
-            </div>
-            <div class="col-md-6" style="text-align: right;">
-                <div class="input-group">
-                  <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" style="padding: 17px;" onClick="agregarOcasion()"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVO</button>
-                </span>
-            </div>
+<div class="container-fluid" style="padding: 1%; background: #fff; margin-top: -21px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+
+      </div>
+      <div class="col-md-6" style="text-align: right;">
+        <div class="input-group">
+          <span class="input-group-btn">
+            <button class="botonagregarnuevo btn btn-default" type="button" style="padding: 17px;" onClick="agregarOcasion()"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVO</button>
+          </span>
         </div>
-
+      </div>
     </div>
-</div>
-</div>
+  </div>
+</div>  
+
 <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
     <div class="row">
         <div class="col-md-12">

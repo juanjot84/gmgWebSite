@@ -69,12 +69,19 @@ include("includes/nav.php"); ?>
                 <input id="nombreContacto" name="nombreContacto" type="text" class="form-control" placeholder="Nombre del Contacto" aria-describedby="sizing-addon3" onfocus="limpiar('nombreContacto')" required>
               </div></p>
 
-          <h5 class="titulosalta"> Mail</h5>    
-            
-              <p><div class="input-group input-group-sm">
-                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                <input id="mailContacto" name="mailContacto" type="text" class="form-control" placeholder="Mail del Contacto" aria-describedby="sizing-addon3" onfocus="limpiar('mailContacto')" required>
-              </div></p>
+          <h5 class="titulosalta"> Mail de contacto</h5>
+              
+                <p><div class="input-group input-group-sm">
+                  <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                  <input id="mailContacto" name="mailContacto" type="text" class="form-control" placeholder="Mail del Contacto" aria-describedby="sizing-addon3" onfocus="limpiar('mailContacto')" required>
+                </div></p>
+  
+          <h5 class="titulosalta"> Mail de notificaciones de reservas</h5>
+              
+                <p><div class="input-group input-group-sm">
+                  <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                  <input id="mailReserva" name="mailReserva" type="text" class="form-control" placeholder="Mail reservas" aria-describedby="sizing-addon3" onfocus="limpiar('mailReserva')" required>
+                </div></p>
 
           <h5 class="titulosalta"> Teléfono fijo</h5> 
 

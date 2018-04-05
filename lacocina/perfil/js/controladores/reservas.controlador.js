@@ -9,9 +9,12 @@ function setJWT(jwtToken){
     
     jwt = jwtToken;
     var tipoUsuario = $("#tipoUsuario").val();
-    $("#botCrearReserva").html('');
+    $("#botones").html('');
     if(tipoUsuario == 'usuarioNegocio'){
-      $("#botCrearReserva").append('<a href="reserva.php" class="btn btn-default" type="button" style="padding: 17px;"><i class="fa fa-plus-square-o" aria-hidden="true" ></i> CREAR RESERVA</a>');
+      $("#botones").append('<button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>'+
+      '<a href="reserva.php" class="botonagregarnuevo btn btn-default" type="button" style="padding: 17px;"><i class="fa fa-plus-square-o" aria-hidden="true"></i> CREAR RESERVA</a>');
+    }else if(tipoUsuario == 'superAdmin'){
+      $("#botones").append('<button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>');
     }
     obtenerListado(); 
     } 
@@ -124,8 +127,6 @@ function renderReservas(reservasLocal){
       }else {
         altura = local[0].alturaLocal;
       }
-
-
       $('.container.locales').append(''+
           '<div class="panel panel-default">'+
               '<div class="panel-heading">'+
@@ -210,6 +211,35 @@ function renderReservas(reservasLocal){
             clasificar = '<td class="columsietepchon"><i title="Vino y Calificó" class="fa fa-check-square-o" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
           }
 
+          var observacion = '';
+          if(typeof(reserva.comentarioUsuarioReserva) == "undefined"){
+            observacion = '';
+          }else if(reserva.comentarioUsuarioReserva == null){
+            observacion = '';
+          }else{
+            observacion = reserva.comentarioUsuarioReserva;
+          }
+
+          var promocionReserva = "";
+          if(typeof(reserva.idLocalPromocion) == "undefined"){
+            promocionReserva ='<td class="centrarbotaccion"><i class="fa fa-exclamation-triangle alertareservas hidden"></i></td>';
+          }else {
+            promocionReserva = '<td class="centrarbotaccion"><i class="fa fa-exclamation-triangle alertareservas"></i></td>';
+          }
+          var opcionesMenu = "";
+          if(reserva.opcionReservada != []){
+            opcionesMenu = reserva.opcionReservada;
+          }
+          var nombrePromocion = "";
+          if(typeof(reserva.nombrePromocion) != "undefined"){
+            nombrePromocion = '<h4 class="elegiopcionreserva">'+reserva.nombrePromocion+'</h4>';
+          }
+  
+          var iconoPromocion = "";
+          if( typeof(reserva.iconoPromocion) != "undefined"){
+            iconoPromocion = '<a href="#"><img class="etiquetapromo" src="'+reserva.iconoPromocion+'"></a>';
+          }
+
           $('.container.'+conteinReservas).append(''+
               '<div class="panel panel-default">'+
                   '<div class="panel-heading">'+
@@ -224,6 +254,7 @@ function renderReservas(reservasLocal){
                             '<td class="centrarbotaccion"><img title="Cantidad de adultos" src="imgs/adultos.png">'+reserva.cubiertosAdultos+'</td>'+
                             '<td class="centrarbotaccion"><img title="Cantidad de niños" src="imgs/ninos.png">'+reserva.cubiertosMenores+'</td>'+
                             '<td class="centrarbotaccion" style="min-width: 97px;">'+reserva.horaSola+' hs</td>'+
+                            promocionReserva +
                             '<td class="centrarbotaccion">'+medioDeReserva+'</td>'+
                             '<td class="centrarbotaccion">'+
                             '<a data-toggle="collapse" data-parent="#accordion" href="#'+collapseReserva+'">'+
@@ -241,13 +272,25 @@ function renderReservas(reservasLocal){
                     '</p>'+
                 '</div>'+
                 '<div id="'+collapseReserva+'" class="panel-collapse collapse">'+
-                    '<div class="panel-body">'+
-                      '<p><i class="fa fa-mobile" aria-hidden="true"></i>'+reserva.telefonoUsuarioReserva +'</p>'+
-                      '<p><i class="fa fa-envelope-o" aria-hidden="true"></i>'+reserva.email+'</p>'+
-                      '<p>Observaciones:</p>'+
-                    '</div>'+
+                '<div class="panel-body">'+
+                  '<div class="container detallereservas">'+
+                   '<div class="row">'+
+                      '<div class="col-md-4">'+
+                          '<p><i class="fa fa-mobile naranjabold" aria-hidden="true"></i>'+reserva.telefonoUsuarioReserva +'</p>'+
+                          '<p><i class="fa fa-envelope-o naranjabold" aria-hidden="true"></i>'+reserva.email+'</p>'+
+                          '<p class="naranjabold">Observaciones: '+observacion+'</p>'+
+                       '</div>'+
+                       '<div class="col-md-4">'+
+                         nombrePromocion+
+                         iconoPromocion+
+                       '</div>'+
+                       '<div class="col-md-4" id="contMenu'+collapseReserva+'">'+
+                       '</div>'+
+                   '</div>'+
                   '</div>'+
                 '</div>'+
+              '</div>'+
+            '</div>'+
 
                   '<div class="modal fade" id="modal'+collapseReserva+'" role="dialog">'+
                   '<input type="text" name="id'+collapseReserva+'" id="id'+collapseReserva+'" value="" class="hidden">'+
@@ -276,6 +319,20 @@ function renderReservas(reservasLocal){
                   '</div>'+
                 '</div>'+
           '');
+
+          _.each(opcionesMenu, function(opcion){
+            $("#contMenu"+collapseReserva).append(''+
+           
+              '<div class="row separamenues">'+
+                '<div class="col-md-6">'+
+                  '<h5 class="opcionmenureserva">'+opcion.nombreOpcion+'</h5>'+
+                '</div> '+
+                '<div class="col-md-6">'+
+                  '<p>Cantidad: <span class="naranjabold">'+opcion.cantidad+'</span></p>'+
+                '</div>'+
+              '</div>'+
+             '');
+          });
 
             $("#id"+collapseReserva).val(reserva.idReserva);
             collapseReserva++;
@@ -363,6 +420,35 @@ function renderReservasProximas(reservasLocal){
             medioDeReserva = '<i title="Medio de reserva" class="fa fa-globe" aria-hidden="true"></i>';
         }
 
+        var observacion = '';
+        if(typeof(reserva.comentarioUsuarioReserva) == "undefined"){
+          observacion = '';
+        }else if(reserva.comentarioUsuarioReserva == null){
+          observacion = '';
+        }else{
+          observacion = reserva.comentarioUsuarioReserva;
+        }
+        
+        var promocionReserva = "";
+        if(typeof(reserva.idLocalPromocion) == "undefined"){
+          promocionReserva ='<td class="centrarbotaccion"><i class="fa fa-exclamation-triangle alertareservas hidden"></i></td>';
+        }else {
+          promocionReserva = '<td class="centrarbotaccion"><i class="fa fa-exclamation-triangle alertareservas"></i></td>';
+        }
+        var opcionesMenu = "";
+        if(reserva.opcionReservada != []){
+          opcionesMenu = reserva.opcionReservada;
+        }
+        var nombrePromocion = "";
+        if(typeof(reserva.nombrePromocion) != "undefined"){
+          nombrePromocion = '<h4 class="elegiopcionreserva">'+reserva.nombrePromocion+'</h4>';
+        }
+
+        var iconoPromocion = "";
+        if( typeof(reserva.iconoPromocion) != "undefined"){
+          iconoPromocion = '<a href="#"><img class="etiquetapromo" src="'+reserva.iconoPromocion+'"></a>';
+        }
+
          $('.container.'+conteinReservas).append(''+
              '<div class="panel panel-default">'+
                  '<div class="panel-heading">'+
@@ -377,6 +463,7 @@ function renderReservasProximas(reservasLocal){
                            '<td class="centrarbotaccion"><img title="Cantidad de adultos" src="imgs/adultos.png">'+reserva.cubiertosAdultos+'</td>'+
                            '<td class="centrarbotaccion"><img title="Cantidad de niños" src="imgs/ninos.png">'+reserva.cubiertosMenores+'</td>'+
                            '<td class="centrarbotaccion" style="min-width: 97px;">'+reserva.horaSola+' hs</td>'+
+                            promocionReserva +
                            '<td class="centrarbotaccion">'+medioDeReserva+'</td>'+
                            '<td class="centrarbotaccion">'+
                            '<a data-toggle="collapse" data-parent="#accordion" href="#'+collapseReserva+'">'+
@@ -392,9 +479,21 @@ function renderReservasProximas(reservasLocal){
                '</div>'+
                '<div id="'+collapseReserva+'" class="panel-collapse collapse">'+
                    '<div class="panel-body">'+
-                     '<p><i class="fa fa-mobile" aria-hidden="true"></i>'+reserva.telefonoUsuarioReserva +'</p>'+
-                     '<p><i class="fa fa-envelope-o" aria-hidden="true"></i>'+reserva.email+'</p>'+
-                     '<p>Observaciones:</p>'+
+                     '<div class="container detallereservas">'+
+                      '<div class="row">'+
+                         '<div class="col-md-4">'+
+                             '<p><i class="fa fa-mobile naranjabold" aria-hidden="true"></i>'+reserva.telefonoUsuarioReserva +'</p>'+
+                             '<p><i class="fa fa-envelope-o naranjabold" aria-hidden="true"></i>'+reserva.email+'</p>'+
+                             '<p class="naranjabold">Observaciones: '+observacion+'</p>'+
+                          '</div>'+
+                          '<div class="col-md-4">'+
+                            nombrePromocion+
+                            iconoPromocion+
+                          '</div>'+
+                          '<div class="col-md-4" id="contMenu'+collapseReserva+'">'+
+                          '</div>'+
+                      '</div>'+
+                     '</div>'+
                    '</div>'+
                  '</div>'+
                '</div>'+
@@ -427,10 +526,26 @@ function renderReservasProximas(reservasLocal){
                '</div>'+
          '');
 
+         _.each(opcionesMenu, function(opcion){
+          $("#contMenu"+collapseReserva).append(''+
+         
+            '<div class="row separamenues">'+
+              '<div class="col-md-6">'+
+                '<h5 class="opcionmenureserva">'+opcion.nombreOpcion+'</h5>'+
+              '</div> '+
+              '<div class="col-md-6">'+
+                '<p>Cantidad: <span class="naranjabold">'+opcion.cantidad+'</span></p>'+
+              '</div>'+
+            '</div>'+
+           '');
+        });
+
            $("#id"+collapseReserva).val(reserva.idReserva);
            collapseReserva++;
            fecha = reserva.fechaReserva;
        });
+
+
 
        contLocales++;
    } );
@@ -571,6 +686,35 @@ function renderReservasHistorico(reservasLocal){
           clasificar = '<td class="columsietepchon"><ul style="list-style: none; display: inline-flex;"><li><button title="Marcar como NO vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', false)"><i class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></button></li><li><button title="Marcar como SI vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', true)"><i class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></button></li></ul></td>';
         }
 
+        var observacion = '';
+        if(typeof(reserva.comentarioUsuarioReserva) == "undefined"){
+          observacion = '';
+        }else if(reserva.comentarioUsuarioReserva == null){
+          observacion = '';
+        }else{
+          observacion = reserva.comentarioUsuarioReserva;
+        }
+
+        var promocionReserva = "";
+        if(typeof(reserva.idLocalPromocion) == "undefined"){
+          promocionReserva ='<td class="centrarbotaccion"><i class="fa fa-exclamation-triangle alertareservas hidden"></i></td>';
+        }else {
+          promocionReserva = '<td class="centrarbotaccion"><i class="fa fa-exclamation-triangle alertareservas"></i></td>';
+        }
+        var opcionesMenu = "";
+        if(reserva.opcionReservada != []){
+          opcionesMenu = reserva.opcionReservada;
+        }
+        var nombrePromocion = "";
+        if(typeof(reserva.nombrePromocion) != "undefined"){
+          nombrePromocion = '<h4 class="elegiopcionreserva">'+reserva.nombrePromocion+'</h4>';
+        }
+
+        var iconoPromocion = "";
+        if( typeof(reserva.iconoPromocion) != "undefined"){
+          iconoPromocion = '<a href="#"><img class="etiquetapromo" src="'+reserva.iconoPromocion+'"></a>';
+        }
+
          $('.container.'+conteinReservas).append(''+
              '<div class="panel panel-default">'+
                  '<div class="panel-heading">'+
@@ -586,6 +730,7 @@ function renderReservasHistorico(reservasLocal){
                            '<td class="centrarbotaccion"><img title="Cantidad de niños" src="imgs/ninos.png">'+reserva.cubiertosMenores+'</td>'+
                            '<td class="centrarbotaccion" style="min-width: 97px;">'+reserva.horaSola+' hs</td>'+
                            '<td class="centrarbotaccion"><i title="Medio de reserva" class="" aria-hidden="true"></i></td>'+
+                           promocionReserva +
                            '<td class="centrarbotaccion">'+medioDeReserva+'</td>'+
                            '<td class="centrarbotaccion">'+
                            '<a data-toggle="collapse" data-parent="#accordion" href="#'+collapseReserva+'">'+
@@ -600,13 +745,25 @@ function renderReservasHistorico(reservasLocal){
                    '</p>'+
                '</div>'+
                '<div id="'+collapseReserva+'" class="panel-collapse collapse">'+
-                   '<div class="panel-body">'+
-                     '<p><i class="fa fa-mobile" aria-hidden="true"></i>'+reserva.telefonoUsuarioReserva +'</p>'+
-                     '<p><i class="fa fa-envelope-o" aria-hidden="true"></i>'+reserva.email+'</p>'+
-                     '<p>Observaciones:</p>'+
-                   '</div>'+
+               '<div class="panel-body">'+
+                 '<div class="container detallereservas">'+
+                  '<div class="row">'+
+                     '<div class="col-md-4">'+
+                         '<p><i class="fa fa-mobile naranjabold" aria-hidden="true"></i>'+reserva.telefonoUsuarioReserva +'</p>'+
+                         '<p><i class="fa fa-envelope-o naranjabold" aria-hidden="true"></i>'+reserva.email+'</p>'+
+                         '<p class="naranjabold">Observaciones: '+observacion+'</p>'+
+                      '</div>'+
+                      '<div class="col-md-4">'+
+                        nombrePromocion+
+                        iconoPromocion+
+                      '</div>'+
+                      '<div class="col-md-4" id="contMenu'+collapseReserva+'">'+
+                      '</div>'+
+                  '</div>'+
                  '</div>'+
                '</div>'+
+             '</div>'+
+           '</div>'+
 
                  '<div class="modal fade" id="modal'+collapseReserva+'" role="dialog">'+
                  '<input type="text" name="id'+collapseReserva+'" id="id'+collapseReserva+'" value="" class="hidden">'+
@@ -635,6 +792,20 @@ function renderReservasHistorico(reservasLocal){
                  '</div>'+
                '</div>'+
          '');
+
+         _.each(opcionesMenu, function(opcion){
+          $("#contMenu"+collapseReserva).append(''+
+         
+            '<div class="row separamenues">'+
+              '<div class="col-md-6">'+
+                '<h5 class="opcionmenureserva">'+opcion.nombreOpcion+'</h5>'+
+              '</div> '+
+              '<div class="col-md-6">'+
+                '<p>Cantidad: <span class="naranjabold">'+opcion.cantidad+'</span></p>'+
+              '</div>'+
+            '</div>'+
+           '');
+        });
 
            $("#id"+collapseReserva).val(reserva.idReserva);
            collapseReserva++;

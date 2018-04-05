@@ -112,6 +112,8 @@ $idLocal = $_GET["id"];
           include("includes/nav.php");
            ?>
 
+          <input type="text" name="idLocal" id="idLocal" value="<?php echo $idLocal; ?>" class="hidden">
+
           <div class="container reservafront">
             <div class="row">
               <div class="col-md-12">
@@ -191,6 +193,13 @@ $idLocal = $_GET["id"];
                   </div>
                 </p>
               </div>
+              
+            <div class="row">
+              <div class="col-md-4">
+                  <label for="selectNino">Observación:</label>
+                  <input id="observacionPersona" name="observacionPersona" type="text" class="form-control" placeholder="" aria-describedby="sizing-addon3" >  
+              </div>
+            </div>
 
             <div id="sinHorarios"></div>
 
@@ -206,6 +215,26 @@ $idLocal = $_GET["id"];
                 <ul  id="selecHoras" style="flex-direction: row; flex-wrap: wrap; display: flex;" onclick="limpiar('selecHoras')">
                 </ul>
               </div>
+            </div>
+
+            <section class="seccionopcionesreserva">
+              <div id="seccionOpcionesReserva">
+                <div class="row">
+                  <h3>Elegí una opción para tu reserva</h3>
+                </div>
+                <!-- INICIO PROMO -->
+                <div class="row separadoropcionesreservas">
+                  <div class="radio">
+                    <label><input type="radio" name="optradio" id="optradio" value="sinPromocion" checked="checked"><h4 class="elegiopcionreserva">Sin promoción ni descuento</h4></label>
+                  </div>
+                </div>
+              </div>
+              <div id="contenedorPromociones">
+
+              </div>
+            </section>
+
+            <div class="row">
               <div style="text-align: center;">
                 <a href="#" onClick="realizarReserva()" id="reservar" class="page-scroll btn btn-xl" style="max-width: 300px; margin: 5% 0;">RESERVAR</a>
               </div>
@@ -216,15 +245,17 @@ $idLocal = $_GET["id"];
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h3>No has iniciado sesión</h3>
+                    <div class="text-center">
+                      <img src="http://guiamendozagourmet.com/img/logo-gmg.png">
+                    </div>
                   </div>
-                  <div class="modal-body">
-                    <h5>Por favor, inicie sesión para continuar</h5>
-
+                  <div class="modal-body text-center">
+                    <h4>Iniciar sesión</h4>
+                    <p>Iniciá sesión o creá una cuenta para continuar con la reserva.</p>
                   </div>
-                  <div class="modal-footer">
-                    <a href="login.php" data-confirm="modal" class="btn btn-info" id="botonLogin">Iniciar sesión</a>
-                    <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+                  <div class="modal-footer" style="text-align: center !important;">
+                    <a href="#" data-dismiss="modal" class="btn btn-danger"><i class="fa fa-ban"></i> Cancelar</a>
+                    <a href="login.php" data-confirm="modal" class="btn btn-info" id="botonLogin"><i class="fa fa-arrow-right"></i> Continuar</a>
                   </div>
                 </div>
               </div>
@@ -257,14 +288,14 @@ $idLocal = $_GET["id"];
                     <div class="row">
                       <div class="col-md-12">
                         <h3 class="titulo"></h3>
-                        <p id="cantidadReserva"></p>
+                        <p id="0Reserva"></p>
                         <p id="horarioReserva" ></p>
                         <p id="direccionLocal" ></p>
                       </div>
                       <div class="col-md-12">
                         <p>
                           <div class="form-group">
-                              <input type="text" name="telefonoReserva" id="telefonoReserva" tabindex="1" class="form-control" placeholder="Teléfono de contacto" value="<?php error_reporting(E_ERROR); echo $telefonoUsuario; ?>" onfocus="limpiar('telefonoReserva')">
+                              <input type="text" name="telefonoReserva" id="telefonoReserva" tabindex="1" class="form-control cantopcionesmenureserva" placeholder="Teléfono de contacto" value="<?php error_reporting(E_ERROR); echo $telefonoUsuario; ?>" onfocus="limpiar('telefonoReserva')">
                           </div>
                         </p>
                       </div>

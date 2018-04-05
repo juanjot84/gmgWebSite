@@ -93,6 +93,9 @@ function mostrarCalificaciones(data){
       puntComidaSin = puntComidaSin + '<li><i class="fa fa-star-o" aria-hidden="true"></i></li>';      
     }
 
+    var fechaReserva = reserva.idReserva ?  '<li>' + reserva.idReserva.fechaReserva + '</li>'  : "";
+    var horaReserva = reserva.idReserva ? '<li>' + reserva.idReserva.horaReserva + '</li>' : "";
+
     $('.calificaciones').append('' +
       '<div class="row" ><div class="container" style="padding-top: 2%; border-bottom: 1px solid #e0e0e0;">' +
       '  <div class="row">' +
@@ -104,8 +107,8 @@ function mostrarCalificaciones(data){
       '      <div class="row">' +
       '        <div class="col-md-4">' +
       '          <ul>' +
-      '            <li>'+ reserva.idReserva.fechaReserva +'</li>' +
-      '            <li>'+ reserva.idReserva.horaReserva +'</li>' +
+                   fechaReserva +
+                   horaReserva +
       '          </ul>' +
       '        </div>' +
       '        <div class="col-md-4">' +
@@ -144,7 +147,7 @@ function mostrarCalificaciones(data){
       '   </div>' +
       '   <div class="col-md-6">' +
       '     <p><strong>Comentario</strong></p>' +
-      '     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>' +
+      '     <p>' + reserva.comentarioEvaluacion +'</p>' +
       '   </div>' +
       ' </div>' +
       ' <div class="row">' +

@@ -218,12 +218,12 @@ function sendHorarioAtencion() {
     var horarioDesdeT = _.find(idHorariosDesdeTarde, {'dia': dia});
     var horarioHastaT = _.find(idHorariosHastaTarde, {'dia': dia});
 
-    if (horarioDesdeM != "" && horarioHastaM != "") {
+    if (horarioDesdeM != "" && horarioHastaM != ""&& horarioDesdeM.hora && horarioHastaM.hora) {
       cantidadHorarios++;
       var guardarManana = sendHorarios(dia, horarioDesdeM.hora, horarioHastaM.hora, 'manana');
       guardarHorarios.push(guardarManana);
     }
-    if (horarioDesdeT != "" && horarioHastaT != "") {
+    if (horarioDesdeT != "" && horarioHastaT != "" && horarioDesdeT.hora && horarioHastaT.hora) {
       cantidadHorarios++;
       var guardarTarde = sendHorarios(dia, horarioDesdeT.hora, horarioHastaT.hora, 'tarde');
       guardarHorarios.push(guardarTarde);
@@ -234,12 +234,12 @@ function sendHorarioAtencion() {
     var cantCubiertoT = _.find(idCantCubiertosTarde, {'dia': dia});
     var duracionReservaT = _.find(idDuracionReserTarde, {'dia': dia});
 
-    if (cantCubiertoM != "" && duracionReservaM != "") {
+    if (cantCubiertoM != "" && duracionReservaM != "" && cantCubiertoM.hora && duracionReservaM.hora) {
       cantidadCubiertos++;
       var guardarManana = sendCubiertos(dia, cantCubiertoM.hora, duracionReservaM.hora, 'manana');
       guardarCubiertos.push(guardarManana);
     }
-    if (cantCubiertoT != "" && duracionReservaT != "") {
+    if (cantCubiertoT != "" && duracionReservaT != "" && cantCubiertoT.hora && duracionReservaT.hora) {
       cantidadCubiertos++;
       var guardarTarde = sendCubiertos(dia, cantCubiertoT.hora, duracionReservaT.hora, 'tarde');
       guardarCubiertos.push(guardarTarde);

@@ -390,4 +390,10 @@ $('#cabeceraTablaNegocios').html('');
   });
 
   return promise;  
-    }
+}
+
+function cargarPromociones(){
+  var idLocal = $("#idLocal").val();
+  var url = "../lacocina/editar-promociones.php?idLocal="+idLocal+"";
+  $(location).attr('href',url);
+}

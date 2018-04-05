@@ -92,6 +92,45 @@ header {
     border-color: #f6bf01;
 }
 
+.btn-info {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #5cb85c;
+}
+
+.btn-info:hover {
+    color: #fff !important;
+    background-color: #368136;
+    border-color: #d8d8d8;
+}
+
+.btn-info:focus {
+    color: #fff !important;
+    background-color: #368136;
+    border-color: #d8d8d8;
+}
+
+
+.btn-danger {
+    color: #b8221e;
+    background: #fff6f6;
+    border-color: #efefef;
+}
+
+.btn-danger:hover {
+    color: #fff !important;
+    background-color: #d9534f;
+    border-color: #adadad;
+}
+
+.btn-danger:focus {
+    color: #fff !important;
+    background: #fff6f6;
+    border-color: #adadad;
+}
+
+
+
 .fondopubli-web {
     /*background: url(../img/fondopubli.jpg) no-repeat;*/
     background-size: cover;
@@ -403,7 +442,14 @@ div#iconoFavorito {
 }
 
 .etiquetapromoficha {
-    padding: 0 5px
+    padding: 0 5px;
+    cursor: pointer;
+}
+
+.decrippromoficha {
+    height: 90px;
+    overflow: overlay;
+    padding-right: 22px;
 }
 
 ul, menu, dir {
@@ -725,6 +771,23 @@ a.linkperfil {
 
 .modalpromoficha {
     max-width: 650px;
+    background: #fff;
+    padding: 5%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 6px #c4c4c4;
+    margin-top: 30%;
+}
+
+.tycmenupromos {
+    color: #787878;
+}
+.tycmenupromos p {
+    font-size: 12px;
+}
+
+
+div#modalPromocion {
+    background: rgba(33, 33, 33, 0.8);
 }
 
 .separadormodalpromoficha {
@@ -745,13 +808,46 @@ a.linkperfil {
     object-position: center;
     height: 150px;
     width: 260px;
-    margin: 0 auto 5%;
+    margin: 0 0 5%;
 }
 
 h4.elegimenu {
     margin-top: -5px;
     font-size: 15px;
     color: #f8981d;
+}
+
+h4.elegiopcionreserva {
+    margin-top: 3px;
+    font-size: 15px;
+    color: #f8981d;
+}
+
+h5.opcionmenureserva {
+    text-transform: none;
+    color: #3f3f3f;
+}
+
+.cantopcionesmenureserva {
+    padding: 5% 2%;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    color: #e27f00;    
+}
+
+
+.separadoropcionesreservas {
+    border-bottom: 3px solid #ededed;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.seccionopcionesreserva {
+    padding: 5px 40px !important;
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fafafa;
 }
 
 @media only screen and (max-width: 768px) {
@@ -784,6 +880,16 @@ input#login-submit:hover {
     border-radius: 3px !important;
     font-size: 1em !important;
     padding: 8px 15px !important;
+}
+
+
+@media only screen and (max-width : 375px) {
+
+    .modalpromoficha {
+        max-width: 290px !important;
+        margin-top: 130% !important;
+    }
+
 }
 
 
@@ -865,6 +971,12 @@ input#login-submit:hover {
         min-height: 85vh;
     }
 
+    .modalpromoficha {
+        max-width: 330px;
+        margin-top: 100%;
+    }
+
+
 }
 
 p#nivelPrecio {
@@ -943,6 +1055,14 @@ a.linkresultadobuscador {
     text-align: center;
 }
 
+.nombrePromocion {
+    text-transform: none;
+}
+
+ul.promosvertical.vc_list {
+    list-style: none;
+}
+
 .botslidervert a {
     text-align: center;
     color: #000;
@@ -950,7 +1070,7 @@ a.linkresultadobuscador {
 }
 
 .etiquetapromo {
-    margin: 2px 0;
+    margin: 2px 10px;
 }
 
 .verreserva {
@@ -1045,6 +1165,12 @@ a.linkresultadobuscador {
     .fondopubli-mobile {
         display: block;
     }
+
+    .modalpromoficha {
+        max-width: 560px !important;
+        margin-top: 35% !important;
+    }
+
 }
 
 
@@ -1105,6 +1231,11 @@ a.linkresultadobuscador {
         font-size: 30px !important;
         margin-top: 20px !important;
         margin-bottom: 15px !important;
+    }
+
+    .modalpromoficha {
+        max-width: 560px !important;
+        margin-top: 70% !important;
     }
 
 

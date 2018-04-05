@@ -5,6 +5,8 @@ var jwt;
 var localFavorito;
 var nombrePolo = '';
 var tipoCocina = '';
+var contLista = 199;
+var menuCargado = [];
 var marker;          //variable del marcador
 var coords = {};    //coordenadas obtenidas con la geolocalización
 var iconBase = 'https://guiamendozagourmet.com/map/'; //direccion base del icono de marcador
@@ -237,7 +239,7 @@ $('#paginaNegocio').attr('href', web);
   _.each(local.idMedioPago, function (medioPago) {
     mediosPago += medioPago.descripcionMedioPago + coma;
   });
-
+  cargarPromociones(local._id);
   $('#medioPago').text(mediosPago);
   dibujarServicios(local.idServicio);
   var coordenadas = {lng: local.longitudLocal, lat: local.latitudLocal};
@@ -449,10 +451,133 @@ _.each(locales, function(local){
     contSugeridos++;
   }
 });
-
-
-
-
 }
 
+function cargarPromociones(idLocal){
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {       
+    $.ajax({
+        url: server + '/api/v1/admin/promocionesLocal?id='+idLocal+'',
+        type: 'GET',
+        dataType: "json",
+        crossDomain: true,
+        contentType:"application/json",
+        success: function (data) {
+         promociones = data;
+          if(promociones.length != 0){
+            $('#listaPromociones').html('');
+            _.each(promociones, function(promocion){
+                $('#listaPromociones').append(''+
+                   '<li class="etiquetapromoficha"><a ><img onclick="crearModal(\'' + promocion.idLocalPromocion+ '\',\'' + promocion.imagenWebPromocion+ '\',\'' + promocion.nombrePromocion+ '\',\'' + promocion.duracionDesdePromocion+ '\',\'' + promocion.duracionHastaPromocion+ '\',\'' + promocion.terminosCondicionesPromocion+ '\')" class="etiquetapromo" src="'+promocion.iconoPromocion+'"></a></li>'+
+                '');
+            });
+          }
+        },
+        error:function(jqXHR,textStatus,errorThrown)
+        {           
+          $('#target').append("jqXHR: "+jqXHR);
+          $('#target').append("textStatus: "+textStatus);
+          $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+        },
+    });
+  });
+}
+
+function limpiarModal(){
+  menuCargado = [];
+  $("#fotoPromo").attr('src', '');
+  $("#nombrePromo").html('');
+  $("#opcionMenu").html('');
+}
+
+function crearModal(idLocalPromocion, imagenPromocion, nombrePromocion,duracionDesdePromocion, duracionHastaPromocion, terminos){
+  limpiarModal();
+  $("#fotoPromo").attr('src', imagenPromocion);
+  $("#nombrePromo").append(nombrePromocion);
+  $("#fechaInicioPromo").html(duracionDesdePromocion);
+  $("#fechaFinPromo").html(duracionHastaPromocion);
+  $("#terminos").html(terminos);
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    $.ajax({
+        url: server + '/api/v1/admin/localPromocion?id='+idLocalPromocion+'',
+        type: 'GET',
+        dataType: "json",
+        crossDomain: true,
+        contentType:"application/json",
+        success: function (data){
+          buscarOpcionesMenu(data.idOpcionPromocion);
+        },
+        error:function(jqXHR,textStatus,errorThrown)
+        {           
+          $('#target').append("jqXHR: "+jqXHR);
+          $('#target').append("textStatus: "+textStatus);
+          $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+        },
+    });
+  });
+}
+
+function buscarOpcionesMenu(idOpcionPromocion){
+  var obtenerOpcionesPromocion = [];
+  _.each(idOpcionPromocion, function(idOpcionMenu){
+    var guardar =  obtenerOpcionMenu(idOpcionMenu).then(function(menu){
+      menu.idOpcion = contLista;
+      menuCargado.push(menu);
+      contLista++;
+    });
+    obtenerOpcionesPromocion.push(guardar);
+  });
+  Promise.all(obtenerOpcionesPromocion).then(function () {
+    dibujarListaOpciones(menuCargado);
+  });
+}
+
+function obtenerOpcionMenu(idOpcionMenu){
+  var promise = new Promise(function(resolve, reject) {
+    if (_.isUndefined(server)) {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      });
+    }
+    $.ajax({
+      url: server + '/api/v1/admin/opcionPromocion?id='+ idOpcionMenu +"",
+          type: 'GET',  
+          dataType: "json",
+          crossDomain: true,
+          contentType:"application/json",
+          success: function (data) {
+            resolve(data);
+          },
+          error:function(jqXHR,textStatus,errorThrown)
+          {
+              $('#target').append("jqXHR: "+jqXHR);
+              $('#target').append("textStatus: "+textStatus);
+              $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+          }
+    });   
+  });
+  return promise
+}
+
+function dibujarListaOpciones(opcionesMenu){
+  _.each(_.orderBy(opcionesMenu, ['nombreOpcion'], ['asc']), function(opcion){
+    $("#opcionMenu").append(''+
+         '<div class="row separadormodalpromoficha">'+
+            '<div class="col-md-4">'+
+                '<img class="img-responsive imgspromoficha" src="'+opcion.fotoOpcion+'">'+
+            '</div>'+
+            '<div class="col-md-6">'+
+              '<h3>'+opcion.nombreOpcion+'</h3>'+
+              '<p class="decrippromoficha">'+opcion.descripcionOpcion+'</p>'+
+            '</div>'+
+            '<div class="col-md-2">'+
+              '<h3>$'+opcion.precioOpcion+'</h3>'+
+              '<br>'+
+            '</div>'+
+            '<div class="separador"></div>'+
+         '</div>'+
+    '');
+  });
+
+  $("#modalPromocion").modal();
+
+}
 

@@ -104,7 +104,7 @@ include("includes/head.php"); ?>
               <span class="valorrecomendado">Valor recomendado: 1</span>
               <div class="slidecontainer">
                 <p class="horasanticipacion">Horas: <span id="demo"></span></p>
-                <input type="range" min="1" max="48" value="1" class="slider1" id="myRange" onchange="actualizarMargen('myRange')">
+                <input type="range" min="0" max="48" value="0" class="slider1" id="myRange" onchange="actualizarMargen('myRange')">
               </div>
 
             </div>
@@ -115,7 +115,7 @@ include("includes/head.php"); ?>
               <span class="valorrecomendado">Valor recomendado: 2</span>
               <div class="slidecontainer">
                 <p class="horasanticipacion">Horas: <span id="demo2"></span></p>
-                <input type="range" min="1" max="48" value="2" class="slider1" id="myRange2" onchange="actualizarMargen('myRange2')">
+                <input type="range" min="0" max="48" value="1" class="slider1" id="myRange2" onchange="actualizarMargen('myRange2')">
               </div>
 
             </div>

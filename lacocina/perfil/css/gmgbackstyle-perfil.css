@@ -688,6 +688,70 @@ button#botonVolver {
     font-weight: bold;
 }
 
+.alertareservas {
+    color: yellow;
+    text-shadow: 1px 1px 7px #101010;
+}
+
+i.fa.fa-mobile.naranjabold {
+    font-size: 19px;
+}
+
+.detallereservas {
+    padding: 2%;
+    background: #fbfbfb;
+    border-radius: 5px;
+    width: 95%;
+}
+
+.promocionesficha {
+    display: inline-flex;
+    list-style: none;
+    overflow: hidden;
+}
+
+.etiquetapromo {
+    margin: 2px 10px;
+}
+
+.etiquetadescuento {
+    text-align: center;
+    background: #f8981d;
+    font-size: 1em;
+    padding: 11.5% 1%;
+    font-weight: 400;
+    color: #fff;
+    border-radius: 5px;
+    width: 80px;
+    height: 40px;
+    margin: 2px auto;
+}
+
+h5.opcionmenureserva {
+    text-transform: none;
+    color: #3f3f3f;
+    margin: 5px;
+}
+
+h4.elegiopcionreserva {
+    margin-top: 3px;
+    font-size: 15px;
+    color: #f8981d;
+}
+
+.separamenues {
+    border-bottom: 1px solid #d0d0d0;
+    margin-top: 7px;
+}
+
+.botonagregarnuevo {
+    padding: 17px;
+    background: #5cb85c;
+    color: #fff;
+    margin-right: 10px !important;
+    border-radius: 4px !important;
+}
+
 /*MEDIA QUERIES*/
 
 
