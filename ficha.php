@@ -197,7 +197,7 @@ session_start();
                                 <img class="img-responsive imgspromoficha" id="fotoPromo">
                             </div>
                             <div class="col-md-6">
-                                <h2 id="nombrePromo"></h2>                                
+                                <h2 id="nombrePromo" class="nombrePromocion"></h2>                                
                             </div>
                            </div>
                           <div class="separador"></div>
