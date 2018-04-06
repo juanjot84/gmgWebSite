@@ -145,10 +145,9 @@ function send(accionSalir) {
       var idLocal = '';
       var idLocalCreado = $("#idLocalCreado").val();
       var localRecibido = $("#idLocalRecibido").val()
-      if(idLocalCreado != ''){
+      if(typeof(idLocalCreado) != "undefined"){
         idLocal = idLocalCreado;
-      }
-      else if(localRecibido != ''){
+      }else if(typeof(localRecibido) != "undefined"){
         idLocal = localRecibido;
       }
       var resultado = data;
