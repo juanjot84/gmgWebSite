@@ -142,15 +142,19 @@ function send(accionSalir) {
     crossDomain: true,
     contentType:"application/json",
     success: function (data) {
+      var idLocal = '';
       var idLocalCreado = $("#idLocalCreado").val();
       var localRecibido = $("#idLocalRecibido").val()
-      if(localRecibido != ''){
-        idLocalCreado = localRecibido;
+      if(idLocalCreado != ''){
+        idLocal = idLocalCreado;
+      }
+      else if(localRecibido != ''){
+        idLocal = localRecibido;
       }
       var resultado = data;
       var contactoCreado =  resultado._id;
       var campo = "idContacto";
-      actualizarLocal(idLocalCreado, contactoCreado, campo).then( function(data){
+      actualizarLocal(idLocal, contactoCreado, campo).then( function(data){
 
         var idNegocio = $("#idNegocioCreado").val();
         $.ajax({
