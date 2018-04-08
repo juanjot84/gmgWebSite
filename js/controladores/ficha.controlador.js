@@ -490,10 +490,6 @@ function limpiarModal(){
   $("#opcionMenu").html('');
 }
 
-$('#modalPromocion').on('hidden.bs.modal', function () {
-  modalHabilitado = true;
-});
-
 function crearModal(idLocalPromocion, imagenPromocion, nombrePromocion,duracionDesdePromocion, duracionHastaPromocion, terminos){
   if (modalHabilitado){
     modalHabilitado = !modalHabilitado;
@@ -512,6 +508,7 @@ function crearModal(idLocalPromocion, imagenPromocion, nombrePromocion,duracionD
           contentType:"application/json",
           success: function (data){
             buscarOpcionesMenu(data.idOpcionPromocion);
+            modalHabilitado = true;
           },
           error:function(jqXHR,textStatus,errorThrown)
           {           
