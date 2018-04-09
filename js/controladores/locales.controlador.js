@@ -34,7 +34,7 @@ function obtenerListadoTags(tags) {
   }
   $('.container.locales').html('');
   $.ajax({
-    url: server + '/api/v1/admin/filtroZona',
+    url: server + '/api/v1/admin/filtroTag',
     type: 'POST',
     dataType: "json",
     crossDomain: true,
