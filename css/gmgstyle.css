@@ -1,3 +1,11 @@
+/****************************************
+
+29-03-2018
+* Nueva Clase Creada, .anteriores, para dividir las guias.
+* Se agrego el hover a la clase .descarga-mapa-
+
+********************************************/
+
 header {
     background-image: none !important;
     background-color: #ffff00;
@@ -278,11 +286,11 @@ button.btn.btn-default.btnbuscarnav2:hover {
 }
 
 input[type="text"].buscadornav2::-webkit-input-placeholder {
-  color: #555;
+    color: #555;
 }
 
 .buscadornav2::selection {
-  background: #ccc;
+    background: #ccc;
 }
 
 input.form-control.buscadornav2 {
@@ -425,6 +433,7 @@ div#iconoFavorito {
     font-size: 24px;
     text-align: center;
     padding-bottom: 2%;
+
 }
 .iconos {
     max-width: 40px;
@@ -500,7 +509,7 @@ ul, menu, dir {
 }
 
 .menufooter {
-        text-align: left;
+    text-align: left;
 }
 
 .altoocasiones {
@@ -703,6 +712,14 @@ h3.elegimapa {
     box-shadow: 1px 1px 8px #ccc;
 }
 
+.descarga-mapa:hover {
+    max-width: 250px;
+    margin: 3% 0;
+    box-shadow: 1px 1px 8px #868686;
+
+}
+
+
 h3.botdescarmapa {
     font-size: 1.3em;
     text-align: center;
@@ -723,7 +740,7 @@ h3#labelRestaurantesBusquedas {
 
 .modal {
     z-index: 99999999 !important;
-    background: rgba(255, 255, 255, 0.8); 
+    background: rgba(255, 255, 255, 0.8);
 }
 .modal-backdrop {
     display: none;
@@ -833,7 +850,7 @@ h5.opcionmenureserva {
     text-align: center;
     font-size: 15px;
     font-weight: bold;
-    color: #e27f00;    
+    color: #e27f00;
 }
 
 
@@ -851,14 +868,14 @@ h5.opcionmenureserva {
 }
 
 @media only screen and (max-width: 768px) {
-    
-  .imgnoresultado-web {
-    display: none;
-  }
 
-  .imgnoresultado-mobile {
-    display: block;
-  }
+    .imgnoresultado-web {
+        display: none;
+    }
+
+    .imgnoresultado-mobile {
+        display: block;
+    }
 }
 
 
@@ -896,7 +913,7 @@ input#login-submit:hover {
 @media only screen and (max-width: 425px) {
 
     .servicios {
-    display: block !important;
+        display: block !important;
     }
 
     button.navbar-toggle.collapsed {
@@ -909,6 +926,7 @@ input#login-submit:hover {
 
     i.fa.fa-bars {
         font-size: 2em;
+
     }
 
     ul.nav.navbar-nav.navbar-right {
@@ -950,7 +968,7 @@ input#login-submit:hover {
     }
 
     .menufooter {
-            text-align: center;
+        text-align: center;
     }
 
     .precioficha {
@@ -1301,7 +1319,7 @@ ul.promosvertical.vc_list {
         padding-top: 25px;
     }
 
- }
+}
 
 
 @media only screen and (max-width : 320px) {
@@ -1314,4 +1332,8 @@ ul.promosvertical.vc_list {
         padding-top: 25px;
     }
 
- }
+}
+/*Ariel CSS*/
+.anteriores img {
+    width: 50%
+}
