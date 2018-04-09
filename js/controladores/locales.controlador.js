@@ -1,7 +1,7 @@
 var cont= 1;
 var contLista = 199;
 var modalHabilitado = true;
-function obtenerListado() {
+function obtenerListado(mostrarModalPromocion) {
   if (_.isUndefined(server)) {
     $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
     });
@@ -16,7 +16,7 @@ function obtenerListado() {
     success: function (data) {
       locales = data;
       _.each(data, function (local) {
-        renderLocal(local);
+        renderLocal(local, mostrarModalPromocion);
       });
       $('#loading').hide();
     },
