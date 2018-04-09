@@ -114,7 +114,7 @@ $idReserva = $_GET["idReserva"];
         <div class="modal-body">
           <div class="row">
             <div class="col-md-6 text-center">
-              Foto restaurant
+              <img class="col-md-12" id="fotoRestaurant">
             </div>
             <div class="col-md-6">
               <h3 class="titulo"></h3>
@@ -124,7 +124,7 @@ $idReserva = $_GET["idReserva"];
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12 text-center">
+            <div class="col-md-12 text-center" id="botonCancelarReserva">
               <a href="#" class="btn btn-danger cancelarreserva" id="detalleReservaBotonCancelar" style="max-width: 300px; margin: 5% 0;"><i class="fa fa-times"></i> Cancelar Reserva</a>
             </div>
           </div>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -58,8 +59,10 @@
 
   <!-- FIN SMARTLOOK -->
 
-  <?php include("includes/soportezen.php"); ?>
-
+    <!-- Start of guiamendozagourmet Zendesk Widget script -->
+  <script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(e){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var e=this.createElement("script");n&&(this.domain=n),e.id="js-iframe-async",e.src="https://assets.zendesk.com/embeddable_framework/main.js",this.t=+new Date,this.zendeskHost="guiamendozagourmet.zendesk.com",this.zEQueue=a,this.body.appendChild(e)},o.write('<body onload="document._l();">'),o.close()}();
+  /*]]>*/</script>
+  <!-- End of guiamendozagourmet Zendesk Widget script -->
   <style type="text/css">
     a {
       color: #000;
@@ -70,10 +73,36 @@
 
 <body id="page-top" class="index">
 
-   <?php
-  error_reporting(E_ERROR);
-  include("includes/nav.php");
-   ?>
+     <!-- Navigation -->
+  <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header page-scroll">
+        <a  href="index.php"><img class="logoweb" src="img/logo-gmg.png"></a>
+
+        <form class="buscadorresultados" action="resultados-busqueda.php" method="post">
+            <div class="input-group">
+              <input type="text" class="form-control buscadornav2" placeholder="Buscá por nombre, zona o tipo de cocina" name="parametro">
+            </div>
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-default btnbuscarnav2"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </span>
+          </form>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right acceder-pc">
+
+          <li class="hidden">
+            <a href="#page-top"></a>
+          </li>
+          <li class="acceder-mobile"><a href="login.php"><i class="fa fa-user" aria-hidden="true"></i> ACCEDER</a></li>        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
 
 
   <!-- Texto Politicas -->
@@ -86,18 +115,43 @@
       </div>
       <div class="row">
         <div class="col-lg-4 text-center">
+          <h3 class="elegimapa">#3 / CIUDAD • GRAN MENDOZA / 2018-19</h3>
+          <a target="_blank" href=MapaGMG-Ciudad-3.pdf"><img class="descarga-mapa" src="img/tapas-mapas/ed-03-Ciudad.jpg">
+          <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</a></h3>
+        </div>
+        <div class="col-lg-4 text-center">
+          <h3 class="elegimapa">#3 / CIUDAD • PALMARES / 2018-19</h3>
+          <a target="_blank" href="MapaGMG-ChacrasPalmares-3.pdf"><img class="descarga-mapa" src="img/tapas-mapas/ed-03-ChacrasPalmares.jpg">
+          <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</a></h3>
+        </div>
+        <div class="col-lg-4 text-center">
+          <h3 class="elegimapa">#3 / LUJÁN DE CUYO • MAIPÚ / 2018-19</h3>
+          <a target="_blank" href="MapaGMG-MaipuLujanValleUco-3.pdf"><img class="descarga-mapa" src="img/tapas-mapas/ed-03-MaipuLujanValleUco.jpg">
+          <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</a></h3>
+        </div>
+      </div>
+      <div class="row">
+      	<h3>Ediciones Anteriores</h3>
+      </div>
+      <div class="row anteriores">
+        <div class="col-lg-4 text-center">
+          <h4>#2 / CIUDAD • PALMARES / 2017-18</h4>
+          <a target="_blank" href="MapaGMG-Ciudad-Palmares-2.pdf"><img class="descarga-mapa" src="img/tapas-mapas/tapa-002.jpg">
+          <h4 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</a></h4>
+        </div>
+        <div class="col-lg-4 text-center">
+          <h4>#2 / LUJÁN DE CUYO • MAIPÚ / 2017-18</h2>
+          <a target="_blank" href="MapaGMG-Lujan-de-Cuyo-Maipu.pdf"><img class="descarga-mapa" src="img/tapas-mapas/tapa-003.jpg">
+          <h4 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</a></h4>
+        </div>
+        
+      </div>
+      
+      <div class="row anteriores">
+    
+        <div class="col-lg-4 text-center">
           <h3 class="elegimapa">#1 / CIUDAD • PALMARES / 2017</h3>
           <a target="_blank" href="MapaGMG-Ciudad-Palmares.pdf"><img class="descarga-mapa" src="img/tapas-mapas/tapa-001.jpg">
-          <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</a></h3>
-        </div>
-        <div class="col-lg-4 text-center">
-          <h3 class="elegimapa">#2 / CIUDAD • PALMARES / 2017-18</h3>
-          <a target="_blank" href="MapaGMG-Ciudad-Palmares-2.pdf"><img class="descarga-mapa" src="img/tapas-mapas/tapa-002.jpg">
-          <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</a></h3>
-        </div>
-        <div class="col-lg-4 text-center">
-          <h3 class="elegimapa">#2 / LUJÁN DE CUYO • MAIPÚ / 2017-18</h3>
-          <a target="_blank" href="MapaGMG-Lujan-de-Cuyo-Maipu.pdf"><img class="descarga-mapa" src="img/tapas-mapas/tapa-003.jpg">
           <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</a></h3>
         </div>
       </div>
@@ -106,11 +160,65 @@
   </section>
 
  
- <?php 
- error_reporting(E_ERROR);
- include("includes/footer.php"); 
- ?>
+ <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 menufooter">
+          <!-- <p><a style="color: #000;" href="quienes-somos.php">Quiénes somos</a></p>
+          <p><a style="color: #000;" href="terminos-y-condiciones.php">Términos y condiciones</a></p> -->
+          <div class="row">
+            <div class="col-md-4 col-lg-6">
+              <p><a style="color: #000;" href="mi-perfil.php">Ver perfil</a></p>
+              <p><a style="color: #000;" href="mis-reservas.php">Ver Mis Reservas</a></p>
+              <p><a style="color: #000;" href="quienes-somos.php">Quiénes somos</a></p>
+              <p><a style="color: #000;" target="_blank" href="http://aliciasistero.com">Blog</a></p>
+              <p><a style="color: #000;" target="_blank" href="soporte.php">Soporte</a></p>
 
+            </div>
+            <div class="col-md-8 col-lg-6">
+              <p><a style="color: #000;" target="_blank" href="lacocina/registrar-mi-negocio.php">Registrar mi negocio</a></p>
+              <p><a style="color: #000;" target="_blank" href="lacocina/index.php">Acceso Restaurantes</a></p>
+              <p><a style="color: #000;" href="politicas-de-privacidad.php">Políticas de Privacidad</a></p>
+              <p><a style="color: #000;" href="condiciones-de-uso.php">Condiciones de Uso</a></p>
+              <p><a style="color: #000;" href="preguntas-frecuentes.php">Preguntas Frecuentes</a></p>
+            </div>
+          </div>
+          
+          <!-- <p><a style="color: #000;" href="faqs.php">Preguntas frecuentes</a></p> -->
+          <p><a style="color: #000; font-weight: bold; text-transform: uppercase; font-size: 1.2em;" target="_blank" href="descarga-el-mapa-impreso.php"><i class="fa fa-map-o" aria-hidden="true"></i></i> Descargá el mapa impreso</a></p>
+        </div>
+        <div class="col-md-4 menufooter">
+        
+          <img class="img-responsive bajateapp" src="img/bajate.svg">
+          <p style="text-align: center;">
+            <a target="_blank" href="https://itunes.apple.com/us/app/gu%C3%ADa-mendoza-gourmet/id1300430301?l=es&ls=1&mt=8"><img class="img-responsive appstore" src="img/app-apple.svg"></a>
+            <a target="_blank" href="https://play.google.com/store/apps/details?id=pronet.apps.com.guiamendozagourmet&hl=es"><img class="img-responsive appstore" src="img/app-google.svg"></a>
+          </p>
+      
+        </div>
+        <div class="col-md-4">
+
+          <ul class="list-inline social-buttons">
+            <li><a target="_blank" href="https://twitter.com/guiamendozagour"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li><a target="_blank" href="https://www.facebook.com/guiamendozagourmet"><i class="fa fa-facebook"></i></a>
+            </li>
+            <li><a target="_blank" href="https://www.instagram.com/guiamendozagourmet"><i class="fa fa-instagram"></i></a>
+            </li>
+          </ul>
+
+          <ul class="list-inline quicklinks">
+            <li>
+              <span class="copyright">Copyright &copy; GMG 2018</span>
+            </li>
+            <li>
+              Desarrollado por <a style="text-decoration: none; color: #000;" href="#">Estudio Pronet</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 
   <!-- jQuery -->

@@ -222,6 +222,8 @@ function buscarTipoNegocio(accion){
              $("#instagramLocal").val(local.instagramLocal);
              $("#twitterLocal").val(local.twitterLocal);
              $("#tripadvisorLocal").val(local.tripadvisorLocal);
+             $("#tagBusqueda").val(local.tagBusqueda);
+             $("#valorTagBusqueda").val(local.valorTagBusqueda);
              if(tipoNegocio == 'Restaurante'){
               var idPolo = local.idPoloGastronomico._id;
               obtenerListadoPolos().done(function(data){
@@ -686,6 +688,8 @@ function buscarTipoNegocio(accion){
             "calleLocal":$("#calleLocal").val(),
             "nombreLocal":$("#nombreLocal").val(),
             "aceptaReservaNegocio":$('input[name=aceptaReservaNegocio]:checked', '#formularioLocal').val(),
+            "tagBusqueda":$('#tagBusqueda').val(),
+            "valorTagBusqueda":$('#valorTagBusqueda').val(),
             "localPremium":$('input[name=localPremium]:checked', '#formularioLocal').val()
         });
         var idLocalActualizar = $("#idLocalRecibido").val();

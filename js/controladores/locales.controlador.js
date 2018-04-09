@@ -16,7 +16,7 @@ function obtenerListado() {
     success: function (data) {
       locales = data;
       _.each(data, function (local) {
-        renderLocal(local);
+        renderLocal(local, mostrarModalPromocion);
       });
       $('#loading').hide();
     },
@@ -29,13 +29,52 @@ function obtenerListado() {
   });
 }
 
-function buscar(parametro, filtro) {
+function obtenerListadoTags(tags) {
+  if (_.isUndefined(server)) {
+    $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
+    });
+  }
+  $('.container.locales').html('');
+  $.ajax({
+    url: server + '/api/v1/admin/filtroTag',
+    type: 'POST',
+    dataType: "json",
+    crossDomain: true,
+    contentType: "application/json",
+    success: function (data) {
+      locales = data;
+      _.each(data, function (local) {
+        renderLocal(local);
+      });
+      $('#loading').hide();
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      $('#target').append("jqXHR: " + jqXHR);
+      $('#target').append("textStatus: " + textStatus);
+      $('#target').append("You can not send Cross Domain AJAX requests: " + errorThrown);
+      $('#loading').hide();
+    },
+    data: JSON.stringify(tags)
+  });
+}
 
+function buscar(parametro, filtro, promocion) {
+ var contienePromocion = promocion;
   $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
-
-
-    if (_.isEmpty(parametro) && _.isEmpty(filtro)) {
-      obtenerListado();
+    if (!promocion && window.location.search.length && window.location.search.indexOf('=') !== -1 ){
+      var urlParams = window.location.search.split('?');
+      var searchParams = {};
+      _.each(urlParams, function(param){
+        if (param) {
+          var values = param.split('=');
+          searchParams.tagBusqueda = values[0];
+          searchParams.valorTagBusqueda = values[1];
+        }
+      });
+      obtenerListadoTags(searchParams);
+      getTituloBusqueda(parametro, filtro);
+    } else if (_.isEmpty(parametro) && _.isEmpty(filtro)) {
+      obtenerListado(promocion);
       getTituloBusqueda(parametro, filtro);
     } else {
       $('.container.locales').html('');
@@ -61,7 +100,7 @@ function buscar(parametro, filtro) {
         contentType: "application/json",
         success: function (data) {
           locales = data;
-          
+
           if(data.length == 0){
             $('.container.locales').append('' +
             '<div class="imgnoresultado-web">'+
@@ -72,9 +111,9 @@ function buscar(parametro, filtro) {
             '</div>');
           }else{
             _.each(data, function (local) {
-              renderLocal(local);
+              renderLocal(local, contienePromocion);
             });
-            
+
 
           }
 
@@ -118,7 +157,7 @@ function getDia(dia) {
   return dias[n];
 }
 
-function renderLocal(local) {
+function renderLocal(local, mostrarModalPromocion) {
 
   var nivelPrecio = 0;
   var longNivelPrecio = 0;
@@ -162,7 +201,7 @@ function renderLocal(local) {
   }
 
   $('.container.locales').append('' +
-    '<div class="row resultadoficha"><a class="linkresultadobuscador" href="ficha.php?id=' + local._id + '">' +
+    '<div class="row resultadoficha" id="ficha' + local._id + '"><a class="linkresultadobuscador" href="ficha.php?id=' + local._id + '">' +
         '<div class="col-sm-3 col-md-3">' +
             '<img class="img-responsive imgslocalesbusqueda" src="' + local.fotoPrincipalLocal + '">' +
         '</div>' +
@@ -177,11 +216,12 @@ function renderLocal(local) {
 
    '</div>'+
   '');
-   cargarSlide(cont, local._id, descuento);
+   cargarSlide(cont, local._id, descuento, mostrarModalPromocion);
    cont++;
 }
 
-function cargarSlide(idDiv, idLocal, descuento){
+function cargarSlide(idDiv, idLocal, descuento, mostrarModalPromocion){
+  var idL = idLocal;
   $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {       
     $.ajax({
         url: server + '/api/v1/admin/promocionesLocal?id='+idLocal+'',
@@ -217,7 +257,9 @@ function cargarSlide(idDiv, idLocal, descuento){
                   showItems: 3,
                });
             });
-         }else if(promociones.length == 0 && descuento != ''){
+         } else if(mostrarModalPromocion && !promociones.length){
+           $("#ficha" + idL).hide();
+         } else if(promociones.length == 0 && descuento != ''){
           $("#contTotalPromo"+idDiv).append(''+
              '<div class="contenedorpromos'+idDiv+'">'+
                '<div class="botslidervert">'+
