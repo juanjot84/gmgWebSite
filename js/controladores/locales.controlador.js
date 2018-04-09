@@ -16,7 +16,7 @@ function obtenerListado() {
     success: function (data) {
       locales = data;
       _.each(data, function (local) {
-        renderLocal(local, mostrarModalPromocion);
+        renderLocal(local);
       });
       $('#loading').hide();
     },
