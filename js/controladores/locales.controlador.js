@@ -216,11 +216,11 @@ function renderLocal(local, mostrarModalPromocion) {
 
    '</div>'+
   '');
-   cargarSlide(cont, local._id, descuento, mostrarModalPromocion);
+   cargarSlide(cont, local._id, descuento, mostrarModalPromocion, local.idNegocio.nombreNegocio);
    cont++;
 }
 
-function cargarSlide(idDiv, idLocal, descuento, mostrarModalPromocion){
+function cargarSlide(idDiv, idLocal, descuento, mostrarModalPromocion, nombreNegocio){
   var idL = idLocal;
   $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {       
     $.ajax({
@@ -249,7 +249,7 @@ function cargarSlide(idDiv, idLocal, descuento, mostrarModalPromocion){
             }
             _.each(promociones, function(promocion){
                $('#contSlide'+idDiv).append(''+
-                  '<li class="etiquetapromoficha"><a ><img onclick="crearModal(\'' + promocion.idLocalPromocion+ '\',\'' + promocion.imagenWebPromocion+ '\',\'' + promocion.nombrePromocion+ '\',\'' + promocion.duracionDesdePromocion+ '\',\'' + promocion.duracionHastaPromocion+ '\',\'' + promocion.terminosCondicionesPromocion+ '\')" class="etiquetapromo" src="'+promocion.iconoPromocion+'"></a></li>'+
+                  '<li class="etiquetapromoficha"><a ><img onclick="crearModal(\'' + promocion.idLocalPromocion+ '\',\'' + promocion.imagenWebPromocion+ '\',\'' + promocion.nombrePromocion+ '\',\'' + promocion.duracionDesdePromocion+ '\',\'' + promocion.duracionHastaPromocion+ '\',\'' + promocion.terminosCondicionesPromocion+ '\',\'' + nombreNegocio+ '\')" class="etiquetapromo" src="'+promocion.iconoPromocion+'"></a></li>'+
                '');
               
                $(".contenedorpromos"+idDiv).verticalCarousel({
@@ -292,12 +292,12 @@ function limpiarModal(){
   $("#opcionMenu").html('');
 }
 
-function crearModal(idLocalPromocion, imagenPromocion, nombrePromocion,duracionDesdePromocion, duracionHastaPromocion, terminos){
+function crearModal(idLocalPromocion, imagenPromocion, nombrePromocion,duracionDesdePromocion, duracionHastaPromocion, terminos, nombreNegocio){
   if (modalHabilitado){
     modalHabilitado = !modalHabilitado;
     limpiarModal();
     $("#fotoPromo").attr('src', imagenPromocion);
-    $("#nombrePromo").append(nombrePromocion);
+    $("#nombrePromo").append(nombreNegocio);
     $("#fechaInicioPromo").html(duracionDesdePromocion);
     $("#fechaFinPromo").html(duracionHastaPromocion);
     $("#terminos").html(terminos);

@@ -499,12 +499,12 @@ function limpiarModal(){
   $("#opcionMenu").html('');
 }
 
-function crearModal(idLocalPromocion, imagenPromocion, nombrePromocion,duracionDesdePromocion, duracionHastaPromocion, terminos){
+function crearModal(idLocalPromocion, imagenPromocion, nombrePromocion,duracionDesdePromocion, duracionHastaPromocion, terminos, nombreNegocio){
   if (modalHabilitado){
     modalHabilitado = !modalHabilitado;
     limpiarModal();
     $("#fotoPromo").attr('src', imagenPromocion);
-    $("#nombrePromo").append(nombrePromocion);
+    $("#nombrePromo").append(nombreNegocio);
     $("#fechaInicioPromo").html(duracionDesdePromocion);
     $("#fechaFinPromo").html(duracionHastaPromocion);
     $("#terminos").html(terminos);
