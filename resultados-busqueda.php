@@ -41,6 +41,7 @@
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" integrity="sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY" crossorigin="anonymous"></script>
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
   <![endif]-->
+
   <style type="text/css">
 
     .imgslocalesbusqueda {
@@ -244,6 +245,32 @@ if (empty($promocion)) $promocion = '';
   });
   </script>
 
+<div class="modal fade" id="modalPromocion" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+          <!-- ESTO VA EN UN MODAL AL HACER CLICK EN UNA PROMO-->
+            <div class="container modalpromoficha">
+              <div class="row text-center headermodalpromoficha">
+                  <div class="col-md-6">
+                    <img class="img-responsive imgspromoficha" id="fotoPromo">
+                  </div>
+                  <div class="col-md-6">
+                    <h2 id="nombrePromo" class="nombrePromocion"></h2>                                
+                  </div>
+              </div>
+              <div class="separador"></div>
+              <div id="opcionMenu"></div>
+              <div>
+                <a href="reserva.php?id=<?php  error_reporting(E_ERROR); echo $idLocal; ?>" class="page-scroll btn btn-xl" style="width: 100%; margin-top: 2%; margin-bottom: 4%;" id="reservar">RESERVAR</a>
+              </div>
+              <div>Promoción válida desde <span id="fechaInicioPromo">00-00</span> hasta <span id="fechaFinPromo">00-00</span></div>
+              <div class="tycmenupromos">
+                <h3>Términos y condiciones</h3>
+                  <p id="terminos"></p>
+              </div>
+            </div>
+          <!-- FIN MODAL -->
+        </div>
+    </div>
 
 </body>
 

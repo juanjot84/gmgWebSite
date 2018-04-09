@@ -6,6 +6,7 @@ var localFavorito;
 var nombrePolo = '';
 var tipoCocina = '';
 var contLista = 199;
+var modalHabilitado = true;
 var menuCargado = [];
 var marker;          //variable del marcador
 var coords = {};    //coordenadas obtenidas con la geolocalización
@@ -497,31 +498,35 @@ function limpiarModal(){
   $("#opcionMenu").html('');
 }
 
-function crearModal(idLocalPromocion, imagenPromocion, nombrePromocion,duracionDesdePromocion, duracionHastaPromocion, terminos, nombreNegocio){
-  limpiarModal();
-  $("#fotoPromo").attr('src', imagenPromocion);
-  $("#nombrePromo").append(nombreNegocio);
-  $("#fechaInicioPromo").html(duracionDesdePromocion);
-  $("#fechaFinPromo").html(duracionHastaPromocion);
-  $("#terminos").html(terminos);
-  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
-    $.ajax({
-        url: server + '/api/v1/admin/localPromocion?id='+idLocalPromocion+'',
-        type: 'GET',
-        dataType: "json",
-        crossDomain: true,
-        contentType:"application/json",
-        success: function (data){
-          buscarOpcionesMenu(data.idOpcionPromocion);
-        },
-        error:function(jqXHR,textStatus,errorThrown)
-        {           
-          $('#target').append("jqXHR: "+jqXHR);
-          $('#target').append("textStatus: "+textStatus);
-          $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
-        },
+function crearModal(idLocalPromocion, imagenPromocion, nombrePromocion,duracionDesdePromocion, duracionHastaPromocion, terminos){
+  if (modalHabilitado){
+    modalHabilitado = !modalHabilitado;
+    limpiarModal();
+    $("#fotoPromo").attr('src', imagenPromocion);
+    $("#nombrePromo").append(nombrePromocion);
+    $("#fechaInicioPromo").html(duracionDesdePromocion);
+    $("#fechaFinPromo").html(duracionHastaPromocion);
+    $("#terminos").html(terminos);
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      $.ajax({
+          url: server + '/api/v1/admin/localPromocion?id='+idLocalPromocion+'',
+          type: 'GET',
+          dataType: "json",
+          crossDomain: true,
+          contentType:"application/json",
+          success: function (data){
+            buscarOpcionesMenu(data.idOpcionPromocion);
+            modalHabilitado = true;
+          },
+          error:function(jqXHR,textStatus,errorThrown)
+          {           
+            $('#target').append("jqXHR: "+jqXHR);
+            $('#target').append("textStatus: "+textStatus);
+            $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+          },
+      });
     });
-  });
+  }
 }
 
 function buscarOpcionesMenu(idOpcionPromocion){

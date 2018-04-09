@@ -1,6 +1,7 @@
 var cont= 1;
-function obtenerListado(promocion) {
-  var mostrarModalPromocion= promocion;
+var contLista = 199;
+var modalHabilitado = true;
+function obtenerListado() {
   if (_.isUndefined(server)) {
     $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
     });
@@ -248,7 +249,7 @@ function cargarSlide(idDiv, idLocal, descuento, mostrarModalPromocion){
             }
             _.each(promociones, function(promocion){
                $('#contSlide'+idDiv).append(''+
-                  '<li><img class="etiquetapromo" src="'+promocion.iconoPromocion+'"></li>'+
+                  '<li class="etiquetapromoficha"><a ><img onclick="crearModal(\'' + promocion.idLocalPromocion+ '\',\'' + promocion.imagenWebPromocion+ '\',\'' + promocion.nombrePromocion+ '\',\'' + promocion.duracionDesdePromocion+ '\',\'' + promocion.duracionHastaPromocion+ '\',\'' + promocion.terminosCondicionesPromocion+ '\')" class="etiquetapromo" src="'+promocion.iconoPromocion+'"></a></li>'+
                '');
               
                $(".contenedorpromos"+idDiv).verticalCarousel({
@@ -282,4 +283,108 @@ function cargarSlide(idDiv, idLocal, descuento, mostrarModalPromocion){
         },
     });
   });
+}
+
+function limpiarModal(){
+  menuCargado = [];
+  $("#fotoPromo").attr('src', '');
+  $("#nombrePromo").html('');
+  $("#opcionMenu").html('');
+}
+
+function crearModal(idLocalPromocion, imagenPromocion, nombrePromocion,duracionDesdePromocion, duracionHastaPromocion, terminos){
+  if (modalHabilitado){
+    modalHabilitado = !modalHabilitado;
+    limpiarModal();
+    $("#fotoPromo").attr('src', imagenPromocion);
+    $("#nombrePromo").append(nombrePromocion);
+    $("#fechaInicioPromo").html(duracionDesdePromocion);
+    $("#fechaFinPromo").html(duracionHastaPromocion);
+    $("#terminos").html(terminos);
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      $.ajax({
+          url: server + '/api/v1/admin/localPromocion?id='+idLocalPromocion+'',
+          type: 'GET',
+          dataType: "json",
+          crossDomain: true,
+          contentType:"application/json",
+          success: function (data){
+            buscarOpcionesMenu(data.idOpcionPromocion);
+            modalHabilitado = true;
+          },
+          error:function(jqXHR,textStatus,errorThrown)
+          {           
+            $('#target').append("jqXHR: "+jqXHR);
+            $('#target').append("textStatus: "+textStatus);
+            $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+          },
+      });
+    });
+  }
+
+}
+
+function buscarOpcionesMenu(idOpcionPromocion){
+  var obtenerOpcionesPromocion = [];
+  _.each(idOpcionPromocion, function(idOpcionMenu){
+    var guardar =  obtenerOpcionMenu(idOpcionMenu).then(function(menu){
+      menu.idOpcion = contLista;
+      menuCargado.push(menu);
+      contLista++;
+    });
+    obtenerOpcionesPromocion.push(guardar);
+  });
+  Promise.all(obtenerOpcionesPromocion).then(function () {
+    dibujarListaOpciones(menuCargado);
+  });
+}
+
+function obtenerOpcionMenu(idOpcionMenu){
+  var promise = new Promise(function(resolve, reject) {
+    if (_.isUndefined(server)) {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      });
+    }
+    $.ajax({
+      url: server + '/api/v1/admin/opcionPromocion?id='+ idOpcionMenu +"",
+          type: 'GET',  
+          dataType: "json",
+          crossDomain: true,
+          contentType:"application/json",
+          success: function (data) {
+            resolve(data);
+          },
+          error:function(jqXHR,textStatus,errorThrown)
+          {
+              $('#target').append("jqXHR: "+jqXHR);
+              $('#target').append("textStatus: "+textStatus);
+              $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+          }
+    });   
+  });
+  return promise
+}
+
+function dibujarListaOpciones(opcionesMenu){
+  _.each(_.orderBy(opcionesMenu, ['nombreOpcion'], ['asc']), function(opcion){
+    $("#opcionMenu").append(''+
+         '<div class="row separadormodalpromoficha">'+
+            '<div class="col-md-4">'+
+                '<img class="img-responsive imgspromoficha" src="'+opcion.fotoOpcion+'">'+
+            '</div>'+
+            '<div class="col-md-6">'+
+              '<h3>'+opcion.nombreOpcion+'</h3>'+
+              '<p class="decrippromoficha">'+opcion.descripcionOpcion+'</p>'+
+            '</div>'+
+            '<div class="col-md-2">'+
+              '<h3>$'+opcion.precioOpcion+'</h3>'+
+              '<br>'+
+            '</div>'+
+            '<div class="separador"></div>'+
+         '</div>'+
+    '');
+  });
+
+  $("#modalPromocion").modal();
+
 }
