@@ -131,9 +131,11 @@ $filtro = '';
 
 $parametro = $_POST["parametro"];
 $filtro = $_POST['filtro'];
+$promocion = $_GET["promocion"];
 
 if (empty($parametro)) $parametro = '';
 if (empty($filtro)) $filtro = '';
+if (empty($promocion)) $promocion = '';
 ?>
 
 
@@ -219,7 +221,7 @@ if (empty($filtro)) $filtro = '';
 
   <script>
     obtenerListadoTiposNegocio();
-    buscar('<?php echo $parametro; ?>', '<?php echo $filtro; ?>');
+    buscar('<?php echo $parametro; ?>', '<?php echo $filtro; ?>', '<?php echo $promocion; ?>');
   </script>
 
   <!-- Menu lateral -->
