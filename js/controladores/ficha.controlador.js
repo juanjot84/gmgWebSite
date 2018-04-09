@@ -216,7 +216,7 @@ function popularLocal(local) {
   }else{
 $('#paginaNegocio').attr('href', web);
   }
-  
+
   $('#telefonoLocal').text(local.telContacto);
   $('#mailLocal').text(local.mailContacto);
   $('#tipoCocinaPrincipal').text(tipoCocina);
@@ -445,7 +445,7 @@ function buscarSugeridos() {
 function renderSugeridos(locales){
   $('.container.sugeridos').html('');
   contSugeridos = 1;
-  
+
 
 _.each(locales, function(local){
   if(contSugeridos < 7){
@@ -478,6 +478,7 @@ function cargarPromociones(idLocal, modal, nombreNegocio){
               '');
           });
           if(openModal){
+            var promocion = _.find(promociones, function(p) { return p.nombreCortoPromocion == modal; });
             crearModal(promocion.idLocalPromocion, promocion.imagenWebPromocion, promocion.nombrePromocion, promocion.duracionDesdePromocion, promocion.duracionHastaPromocion, promocion.terminosCondicionesPromocion, nombreNegocio);
           }
         }
@@ -519,7 +520,7 @@ function crearModal(idLocalPromocion, imagenPromocion, nombrePromocion,duracionD
             modalHabilitado = true;
           },
           error:function(jqXHR,textStatus,errorThrown)
-          {           
+          {
             $('#target').append("jqXHR: "+jqXHR);
             $('#target').append("textStatus: "+textStatus);
             $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
