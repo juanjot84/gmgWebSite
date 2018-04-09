@@ -27,12 +27,51 @@ function obtenerListado() {
   });
 }
 
+function obtenerListadoTags(tags) {
+  if (_.isUndefined(server)) {
+    $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
+    });
+  }
+  $('.container.locales').html('');
+  $.ajax({
+    url: server + '/api/v1/admin/filtroZona',
+    type: 'POST',
+    dataType: "json",
+    crossDomain: true,
+    contentType: "application/json",
+    success: function (data) {
+      locales = data;
+      _.each(data, function (local) {
+        renderLocal(local);
+      });
+      $('#loading').hide();
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      $('#target').append("jqXHR: " + jqXHR);
+      $('#target').append("textStatus: " + textStatus);
+      $('#target').append("You can not send Cross Domain AJAX requests: " + errorThrown);
+      $('#loading').hide();
+    },
+    data: JSON.stringify(tags)
+  });
+}
+
 function buscar(parametro, filtro) {
 
   $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
-
-
-    if (_.isEmpty(parametro) && _.isEmpty(filtro)) {
+    if (window.location.search.length && window.location.search.indexOf('=') !== -1 ){
+      var urlParams = window.location.search.split('?');
+      var searchParams = {};
+      _.each(urlParams, function(param){
+        if (param) {
+          var values = param.split('=');
+          searchParams.tagBusqueda = values[0];
+          searchParams.valorTagBusqueda = values[1];
+        }
+      });
+      obtenerListadoTags(searchParams);
+      getTituloBusqueda(parametro, filtro);
+    } else if (_.isEmpty(parametro) && _.isEmpty(filtro)) {
       obtenerListado();
       getTituloBusqueda(parametro, filtro);
     } else {
@@ -59,7 +98,7 @@ function buscar(parametro, filtro) {
         contentType: "application/json",
         success: function (data) {
           locales = data;
-          
+
           if(data.length == 0){
             $('.container.locales').append('' +
             '<div class="imgnoresultado-web">'+
@@ -72,7 +111,7 @@ function buscar(parametro, filtro) {
             _.each(data, function (local) {
               renderLocal(local);
             });
-            
+
 
           }
 

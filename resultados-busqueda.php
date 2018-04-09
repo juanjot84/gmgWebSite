@@ -2,7 +2,14 @@
 <html lang="es">
 
 <head>
-
+  <script>
+    var url = window.location.href;
+    var indexSlash = url.lastIndexOf("/");
+    var indexPHP = url.lastIndexOf(".php");
+    if (indexSlash > indexPHP){
+      window.location.href = url.slice(0, indexSlash) + url.slice(indexSlash+1, url.length)
+    }
+  </script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -202,7 +209,7 @@ if (empty($filtro)) $filtro = '';
   <script src="js/jQuery.verticalCarousel.js"></script>
 
   <!-- Funciones de Locales JavaScript -->
-  <script src="js/controladores/locales.controlador.js"></script>  
+  <script src="js/controladores/locales.controlador.js"></script>
 
   <!-- Theme JavaScript -->
   <script src="js/agency.min.js"></script>
