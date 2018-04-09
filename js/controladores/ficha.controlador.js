@@ -11,30 +11,35 @@ var marker;          //variable del marcador
 var coords = {};    //coordenadas obtenidas con la geolocalización
 var iconBase = 'https://guiamendozagourmet.com/map/'; //direccion base del icono de marcador
 //Funcion principal
-function getDetalleLocal(idLocal) {
- $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
-  $('#target').html('obteniendo...');
-  $.ajax({
-    url: server + '/api/v1/admin/locales?id=' + idLocal,
-    type: 'GET',
-    dataType: "json",
-    crossDomain: true,
-    contentType: "application/json",
-    success: function (data) {
-      buscarSugeridos();
-      locales = data;
-      popularLocal(data);
+function getDetalleLocal(idLocal, modal) {
+  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    $('#target').html('obteniendo...');
+    $.ajax({
+      url: server + '/api/v1/admin/locales?id=' + idLocal,
+      type: 'GET',
+      dataType: "json",
+      crossDomain: true,
+      contentType: "application/json",
+      success: function (data) {
+        buscarSugeridos();
+        locales = data;
+        popularLocal(data);
+        if (!_.isNil(modal) && !_.isEmpty(modal)) {
+          mostrarModalLocal(data._id, modal);
+        }
 
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-      $('#target').append("jqXHR: " + jqXHR);
-      $('#target').append("textStatus: " + textStatus);
-      $('#target').append("You can not send Cross Domain AJAX requests: " + errorThrown);
-    }
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        $('#target').append("jqXHR: " + jqXHR);
+        $('#target').append("textStatus: " + textStatus);
+        $('#target').append("You can not send Cross Domain AJAX requests: " + errorThrown);
+      }
+    });
   });
+}
 
-});
-
+function mostrarModalLocal(idLocal, modal){
+  cargarPromociones(idLocal, modal);
 }
 
 function buscar(parametro, filtro) {
@@ -453,32 +458,35 @@ _.each(locales, function(local){
 });
 }
 
-function cargarPromociones(idLocal){
-  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {       
-    $.ajax({
-        url: server + '/api/v1/admin/promocionesLocal?id='+idLocal+'',
-        type: 'GET',
-        dataType: "json",
-        crossDomain: true,
-        contentType:"application/json",
-        success: function (data) {
-         promociones = data;
-          if(promociones.length != 0){
-            $('#listaPromociones').html('');
-            _.each(promociones, function(promocion){
-                $('#listaPromociones').append(''+
-                   '<li class="etiquetapromoficha"><a ><img onclick="crearModal(\'' + promocion.idLocalPromocion+ '\',\'' + promocion.imagenWebPromocion+ '\',\'' + promocion.nombrePromocion+ '\',\'' + promocion.duracionDesdePromocion+ '\',\'' + promocion.duracionHastaPromocion+ '\',\'' + promocion.terminosCondicionesPromocion+ '\')" class="etiquetapromo" src="'+promocion.iconoPromocion+'"></a></li>'+
-                '');
-            });
+function cargarPromociones(idLocal, modal){
+  var openModal = modal;
+  $.ajax({
+      url: server + '/api/v1/admin/promocionesLocal?id='+idLocal+'',
+      type: 'GET',
+      dataType: "json",
+      crossDomain: true,
+      contentType:"application/json",
+      success: function (data) {
+       promociones = data;
+        console.log(promociones);
+        if(promociones.length != 0){
+          $('#listaPromociones').html('');
+          _.each(promociones, function(promocion){
+              $('#listaPromociones').append(''+
+                 '<li class="etiquetapromoficha"><a ><img onclick="crearModal(\'' + promocion.idLocalPromocion+ '\',\'' + promocion.imagenWebPromocion+ '\',\'' + promocion.nombrePromocion+ '\',\'' + promocion.duracionDesdePromocion+ '\',\'' + promocion.duracionHastaPromocion+ '\',\'' + promocion.terminosCondicionesPromocion+ '\')" class="etiquetapromo" src="'+promocion.iconoPromocion+'"></a></li>'+
+              '');
+          });
+          if(openModal){
+            crearModal(promocion.idLocalPromocion, promocion.imagenWebPromocion, promocion.nombrePromocion, promocion.duracionDesdePromocion, promocion.duracionHastaPromocion, promocion.terminosCondicionesPromocion);
           }
-        },
-        error:function(jqXHR,textStatus,errorThrown)
-        {           
-          $('#target').append("jqXHR: "+jqXHR);
-          $('#target').append("textStatus: "+textStatus);
-          $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
-        },
-    });
+        }
+      },
+      error:function(jqXHR,textStatus,errorThrown)
+      {
+        $('#target').append("jqXHR: "+jqXHR);
+        $('#target').append("textStatus: "+textStatus);
+        $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+      },
   });
 }
 

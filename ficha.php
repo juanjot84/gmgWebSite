@@ -4,7 +4,11 @@ session_start();
       $jwt = $_SESSION['jwt'];
       $idUsuarioReserva = $_SESSION['idUsuarioReserva'];
       $idLocal = $_GET["id"];
-      
+      $modal = $_GET["modal"];
+
+      if (empty($idLocal)) $idLocal = '';
+      if (empty($modal)) $modal = '';
+
 ?>
     
     <!DOCTYPE html>
@@ -319,7 +323,7 @@ session_start();
         <script src="js/controladores/ficha.controlador.js"></script>
         <script>
           obtenerListadoTiposNegocio();
-          getDetalleLocal('<?php echo $idLocal; ?>');
+          getDetalleLocal('<?php echo $idLocal; ?>', '<?php echo $modal; ?>');
 
         </script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHhrWZLpRB2OO1JJEU3Ls9FpfZzbXaQ-A"></script>
