@@ -244,7 +244,7 @@ $('#paginaNegocio').attr('href', web);
   _.each(local.idMedioPago, function (medioPago) {
     mediosPago += medioPago.descripcionMedioPago + coma;
   });
-  cargarPromociones(local._id);
+  cargarPromociones(local._id, '', local.idNegocio.nombreNegocio);
   $('#medioPago').text(mediosPago);
   dibujarServicios(local.idServicio);
   var coordenadas = {lng: local.longitudLocal, lat: local.latitudLocal};
@@ -458,7 +458,7 @@ _.each(locales, function(local){
 });
 }
 
-function cargarPromociones(idLocal, modal){
+function cargarPromociones(idLocal, modal, nombreNegocio){
   var openModal = modal;
   $.ajax({
       url: server + '/api/v1/admin/promocionesLocal?id='+idLocal+'',
@@ -473,11 +473,11 @@ function cargarPromociones(idLocal, modal){
           $('#listaPromociones').html('');
           _.each(promociones, function(promocion){
               $('#listaPromociones').append(''+
-                 '<li class="etiquetapromoficha"><a ><img onclick="crearModal(\'' + promocion.idLocalPromocion+ '\',\'' + promocion.imagenWebPromocion+ '\',\'' + promocion.nombrePromocion+ '\',\'' + promocion.duracionDesdePromocion+ '\',\'' + promocion.duracionHastaPromocion+ '\',\'' + promocion.terminosCondicionesPromocion+ '\')" class="etiquetapromo" src="'+promocion.iconoPromocion+'"></a></li>'+
+                 '<li class="etiquetapromoficha"><a ><img onclick="crearModal(\'' + promocion.idLocalPromocion+ '\',\'' + promocion.imagenWebPromocion+ '\',\'' + promocion.nombrePromocion+ '\',\'' + promocion.duracionDesdePromocion+ '\',\'' + promocion.duracionHastaPromocion+ '\',\'' + promocion.terminosCondicionesPromocion+ '\',\'' + nombreNegocio+ '\')" class="etiquetapromo" src="'+promocion.iconoPromocion+'"></a></li>'+
               '');
           });
           if(openModal){
-            crearModal(promocion.idLocalPromocion, promocion.imagenWebPromocion, promocion.nombrePromocion, promocion.duracionDesdePromocion, promocion.duracionHastaPromocion, promocion.terminosCondicionesPromocion);
+            crearModal(promocion.idLocalPromocion, promocion.imagenWebPromocion, promocion.nombrePromocion, promocion.duracionDesdePromocion, promocion.duracionHastaPromocion, promocion.terminosCondicionesPromocion, nombreNegocio);
           }
         }
       },
@@ -497,10 +497,10 @@ function limpiarModal(){
   $("#opcionMenu").html('');
 }
 
-function crearModal(idLocalPromocion, imagenPromocion, nombrePromocion,duracionDesdePromocion, duracionHastaPromocion, terminos){
+function crearModal(idLocalPromocion, imagenPromocion, nombrePromocion,duracionDesdePromocion, duracionHastaPromocion, terminos, nombreNegocio){
   limpiarModal();
   $("#fotoPromo").attr('src', imagenPromocion);
-  $("#nombrePromo").append(nombrePromocion);
+  $("#nombrePromo").append(nombreNegocio);
   $("#fechaInicioPromo").html(duracionDesdePromocion);
   $("#fechaFinPromo").html(duracionHastaPromocion);
   $("#terminos").html(terminos);
