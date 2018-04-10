@@ -137,7 +137,10 @@ function buscarTipoNegocio(accion){
         $("#datosNoResto").hide();
       }
 
-      editarLocal();
+      if (accion == 'editar') {
+        editarLocal();
+      }
+
 
     },
     error:function(jqXHR,textStatus,errorThrown)
@@ -193,11 +196,11 @@ function buscarTipoNegocio(accion){
         });
       }
        var idLocal = $('#idLocalRecibido').val();
-        $('#target').html('obteniendo...');       
+        $('#target').html('obteniendo...');
         $.ajax({
             url: server + '/api/v1/admin/locales?id='+ idLocal +"",
             type: 'GET',
-            
+
             dataType: "json",
             crossDomain: true,
             contentType:"application/json",
@@ -231,7 +234,7 @@ function buscarTipoNegocio(accion){
               popularDropdownPolosEditar(idPolo);
               });
               $("input[name=aceptaReservaNegocio][value=" + local.aceptaReservaNegocio + "]").prop("checked",true);
-            
+
              var idNivelPrecio;
              if (local.idNivelPrecio == null){
               idNivelPrecio = '';
@@ -249,7 +252,7 @@ function buscarTipoNegocio(accion){
              }else{
               idTipoCocinaPpal = local.idTipoCocinaPrincipal._id;
              }
-             
+
              var tipoCocinaSeleccionados = local.idTipoCocina;
              obtenerListadoTipoCocina().done(function(data){
                  tipoCocinas = data
