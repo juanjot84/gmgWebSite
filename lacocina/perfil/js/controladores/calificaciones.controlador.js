@@ -101,7 +101,7 @@ function mostrarCalificaciones(data){
       '  <div class="row">' +
       '    <div class="col-md-2 text-center">' +
       '      <img class="fotoperfilcalif" src="imgs/avatar.png">' +
-      '      <p><strong>' + reserva.idUsuarioReserva.nombre + ' ' + reserva.idUsuarioReserva.apellido +'</strong></p>' +
+      '      <p><strong>' + _.get(reserva, 'idUsuarioReserva.nombre', '') + ' ' + _.get(reserva, 'idUsuarioReserva.apellido', '') +'</strong></p>' +
       '    </div>' +
       '    <div class="col-md-8">' +
       '      <div class="row">' +
@@ -113,14 +113,14 @@ function mostrarCalificaciones(data){
       '        </div>' +
       '        <div class="col-md-4">' +
       '          <ul>' +
-      '            <li>' + reserva.idUsuarioReserva.fechaNacimientoUsuario + '</li>' +
-      '            <li>' + reserva.idUsuarioReserva.sexoUsuario + '</li>' +
+      '            <li>' + _.get(reserva, 'idUsuarioReserva.fechaNacimientoUsuario', '') + '</li>' +
+      '            <li>' + _.get(reserva, 'idUsuarioReserva.sexoUsuario', '') + '</li>' +
       '          </ul>' +
       '         </div>' +
       '         <div class="col-md-4">' +
       '           <ul>' +
-      '             <li>' + reserva.idUsuarioReserva.email +'</li>' +
-      '             <li>' + reserva.idUsuarioReserva.nroCelular +'</li>' +
+      '             <li>' + _.get(reserva, 'idUsuarioReserva.email', '') +'</li>' +
+      '             <li>' + _.get(reserva, 'idUsuarioReserva.nroCelular', '') +'</li>' +
       '           </ul>' +
       '         </div>' +
       '       </div>' +
@@ -147,7 +147,7 @@ function mostrarCalificaciones(data){
       '   </div>' +
       '   <div class="col-md-6">' +
       '     <p><strong>Comentario</strong></p>' +
-      '     <p>' + reserva.comentarioEvaluacion +'</p>' +
+      '     <p>' + _.get(reserva, 'comentarioEvaluacion') +'</p>' +
       '   </div>' +
       ' </div>' +
       ' <div class="row">' +
