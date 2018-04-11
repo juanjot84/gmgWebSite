@@ -216,11 +216,11 @@ function renderLocal(local, mostrarModalPromocion) {
 
    '</div>'+
   '');
-   cargarSlide(cont, local._id, descuento, mostrarModalPromocion, local.idNegocio.nombreNegocio);
+   cargarSlide(cont, local._id, descuento, mostrarModalPromocion, local.idNegocio.nombreNegocio, local.aceptaReservaNegocio);
    cont++;
 }
 
-function cargarSlide(idDiv, idLocal, descuento, mostrarModalPromocion, nombreNegocio){
+function cargarSlide(idDiv, idLocal, descuento, mostrarModalPromocion, nombreNegocio, aceptaReserva){
   var idL = idLocal;
   $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {       
     $.ajax({
@@ -249,7 +249,7 @@ function cargarSlide(idDiv, idLocal, descuento, mostrarModalPromocion, nombreNeg
             }
             _.each(promociones, function(promocion){
                $('#contSlide'+idDiv).append(''+
-                  '<li class="etiquetapromoficha"><a ><img onclick="crearModal(\'' + promocion.idLocalPromocion+ '\',\'' + promocion.imagenWebPromocion+ '\',\'' + promocion.nombrePromocion+ '\',\'' + promocion.duracionDesdePromocion+ '\',\'' + promocion.duracionHastaPromocion+ '\',\'' + promocion.terminosCondicionesPromocion+ '\',\'' + nombreNegocio+ '\')" class="etiquetapromo" src="'+promocion.iconoPromocion+'"></a></li>'+
+                  '<li class="etiquetapromoficha"><a ><img onclick="crearModal(\'' + promocion.idLocalPromocion+ '\',\'' + promocion.imagenWebPromocion+ '\',\'' + promocion.nombrePromocion+ '\',\'' + promocion.duracionDesdePromocion+ '\',\'' + promocion.duracionHastaPromocion+ '\',\'' + promocion.terminosCondicionesPromocion+ '\',\'' + nombreNegocio+ '\',\'' + aceptaReserva+ '\')" class="etiquetapromo" src="'+promocion.iconoPromocion+'"></a></li>'+
                '');
               
                $(".contenedorpromos"+idDiv).verticalCarousel({
@@ -292,10 +292,13 @@ function limpiarModal(){
   $("#opcionMenu").html('');
 }
 
-function crearModal(idLocalPromocion, imagenPromocion, nombrePromocion,duracionDesdePromocion, duracionHastaPromocion, terminos, nombreNegocio){
+function crearModal(idLocalPromocion, imagenPromocion, nombrePromocion,duracionDesdePromocion, duracionHastaPromocion, terminos, nombreNegocio, aceptaReserva){
   if (modalHabilitado){
     modalHabilitado = !modalHabilitado;
     limpiarModal();
+    if(aceptaReserva == 'false'){
+      $("#reservarBoton").hide();
+    }
     $("#fotoPromo").attr('src', imagenPromocion);
     $("#nombrePromo").append(nombreNegocio);
     $("#fechaInicioPromo").html(duracionDesdePromocion);

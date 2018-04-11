@@ -245,7 +245,7 @@ $('#paginaNegocio').attr('href', web);
   _.each(local.idMedioPago, function (medioPago) {
     mediosPago += medioPago.descripcionMedioPago + coma;
   });
-  cargarPromociones(local._id, '', local.idNegocio.nombreNegocio);
+  cargarPromociones(local._id, '', local.idNegocio.nombreNegocio, local.aceptaReservaNegocio);
   $('#medioPago').text(mediosPago);
   dibujarServicios(local.idServicio);
   var coordenadas = {lng: local.longitudLocal, lat: local.latitudLocal};
@@ -459,7 +459,7 @@ _.each(locales, function(local){
 });
 }
 
-function cargarPromociones(idLocal, modal, nombreNegocio){
+function cargarPromociones(idLocal, modal, nombreNegocio, aceptaReserva){
   var openModal = modal;
   $.ajax({
       url: server + '/api/v1/admin/promocionesLocal?id='+idLocal+'',
@@ -474,12 +474,12 @@ function cargarPromociones(idLocal, modal, nombreNegocio){
           $('#listaPromociones').html('');
           _.each(promociones, function(promocion){
               $('#listaPromociones').append(''+
-                 '<li class="etiquetapromoficha"><a ><img onclick="crearModal(\'' + promocion.idLocalPromocion+ '\',\'' + promocion.imagenWebPromocion+ '\',\'' + promocion.nombrePromocion+ '\',\'' + promocion.duracionDesdePromocion+ '\',\'' + promocion.duracionHastaPromocion+ '\',\'' + promocion.terminosCondicionesPromocion+ '\',\'' + nombreNegocio+ '\')" class="etiquetapromo" src="'+promocion.iconoPromocion+'"></a></li>'+
+                 '<li class="etiquetapromoficha"><a ><img onclick="crearModal(\'' + promocion.idLocalPromocion+ '\',\'' + promocion.imagenWebPromocion+ '\',\'' + promocion.nombrePromocion+ '\',\'' + promocion.duracionDesdePromocion+ '\',\'' + promocion.duracionHastaPromocion+ '\',\'' + promocion.terminosCondicionesPromocion+ '\',\'' + nombreNegocio+ '\',\'' + aceptaReserva+ '\')" class="etiquetapromo" src="'+promocion.iconoPromocion+'"></a></li>'+
               '');
           });
           if(openModal){
             var promocion = _.find(promociones, function(p) { return p.nombreCortoPromocion == modal; });
-            crearModal(promocion.idLocalPromocion, promocion.imagenWebPromocion, promocion.nombrePromocion, promocion.duracionDesdePromocion, promocion.duracionHastaPromocion, promocion.terminosCondicionesPromocion, nombreNegocio);
+            crearModal(promocion.idLocalPromocion, promocion.imagenWebPromocion, promocion.nombrePromocion, promocion.duracionDesdePromocion, promocion.duracionHastaPromocion, promocion.terminosCondicionesPromocion, nombreNegocio, aceptaReserva);
           }
         }
       },
@@ -499,10 +499,13 @@ function limpiarModal(){
   $("#opcionMenu").html('');
 }
 
-function crearModal(idLocalPromocion, imagenPromocion, nombrePromocion,duracionDesdePromocion, duracionHastaPromocion, terminos, nombreNegocio){
+function crearModal(idLocalPromocion, imagenPromocion, nombrePromocion,duracionDesdePromocion, duracionHastaPromocion, terminos, nombreNegocio, aceptaReserva){
   if (modalHabilitado){
     modalHabilitado = !modalHabilitado;
     limpiarModal();
+    if(aceptaReserva == 'false'){
+       $("#reservarBoton").hide();
+    }
     $("#fotoPromo").attr('src', imagenPromocion);
     $("#nombrePromo").append(nombreNegocio);
     $("#fechaInicioPromo").html(duracionDesdePromocion);
