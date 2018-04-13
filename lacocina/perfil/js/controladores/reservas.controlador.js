@@ -321,7 +321,10 @@ function renderReservas(reservasLocal){
           '');
 
           _.each(opcionesMenu, function(opcion){
-            $("#contMenu"+collapseReserva).append(''+
+            if(opcion.cantidad == null){
+
+            }else{
+              $("#contMenu"+collapseReserva).append(''+
            
               '<div class="row separamenues">'+
                 '<div class="col-md-6">'+
@@ -332,6 +335,7 @@ function renderReservas(reservasLocal){
                 '</div>'+
               '</div>'+
              '');
+            }
           });
 
             $("#id"+collapseReserva).val(reserva.idReserva);
@@ -527,7 +531,10 @@ function renderReservasProximas(reservasLocal){
          '');
 
          _.each(opcionesMenu, function(opcion){
-          $("#contMenu"+collapseReserva).append(''+
+          if(opcion.cantidad == null){
+
+          }else{
+            $("#contMenu"+collapseReserva).append(''+
          
             '<div class="row separamenues">'+
               '<div class="col-md-6">'+
@@ -538,6 +545,7 @@ function renderReservasProximas(reservasLocal){
               '</div>'+
             '</div>'+
            '');
+          }
         });
 
            $("#id"+collapseReserva).val(reserva.idReserva);
@@ -794,7 +802,10 @@ function renderReservasHistorico(reservasLocal){
          '');
 
          _.each(opcionesMenu, function(opcion){
-          $("#contMenu"+collapseReserva).append(''+
+          if(opcion.cantidad == null){
+
+          }else{
+            $("#contMenu"+collapseReserva).append(''+
          
             '<div class="row separamenues">'+
               '<div class="col-md-6">'+
@@ -805,6 +816,7 @@ function renderReservasHistorico(reservasLocal){
               '</div>'+
             '</div>'+
            '');
+          }
         });
 
            $("#id"+collapseReserva).val(reserva.idReserva);
