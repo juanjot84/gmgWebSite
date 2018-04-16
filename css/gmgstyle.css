@@ -20,7 +20,7 @@ header {
     color: #fff;
 }
 
-.carousel-inner>.item {
+.carousel-inner > .item {
     object-fit: cover;
     object-position: center;
     max-height: 408px;
@@ -32,14 +32,19 @@ header {
     padding: 0;
     height: auto;
 }
+
 .navbar-brand {
     padding: 0px 15px;
     margin-top: -15px;
 }
-.navbar-custom .nav li a, .navbar-custom .navbar-toggle {
+
+.navbar-custom .nav li a,
+.navbar-custom .navbar-toggle {
     color: #111 !important;
 }
-.navbar-custom .nav li a:focus, .navbar-custom .nav li a:hover {
+
+.navbar-custom .nav li a:focus,
+.navbar-custom .nav li a:hover {
     color: #7F7600 !important;
     outline: 0;
 }
@@ -50,7 +55,7 @@ header {
 }
 
 .logoweb {
-    margin-top: -25px;
+    margin-top: -25px
 }
 
 .nombreusuarionav {
@@ -87,17 +92,35 @@ header {
 }
 
 .btn-xl {
+     -moz-transition:all .2s ease-in;
+    -o-transition:all .2s ease-in;
+    -webkit-transition:all .2s ease-in;
     color: #fff !important;
-    background-color: #2cbdbe !important;
-    border-color: #2cbdbe !important;
+    
+     background-color: #2cbdbe!important;
+    border-color: #2cbdbe!important;
+    /* MAGENTA
+    background-color: #da3743!important;
+    border-color: #da3743!important;*/
+     /*AZUL
+    background-color: #237b98!important;
+    border-color: #237b98!important;*/
+      /*ALMAlbec
+    background-color: #a4113d!important;
+    border-color: #a4113d!important;*/
     border-radius: 3px !important;
     font-size: 16px !important;
     padding: 8px 15px !important;
 }
-.btn-xl.active, .btn-xl:active, .btn-xl:focus, .btn-xl:hover, .open .dropdown-toggle.btn-xl {
-    color: #111 !important;
-    background-color: #E5D500;
-    border-color: #f6bf01;
+
+.btn-xl.active,
+.btn-xl:active,
+.btn-xl:focus,
+.btn-xl:hover,
+.open .dropdown-toggle.btn-xl {
+    color: #fff !important;
+    background-color: #019192!important;
+    border-color: #019192!important;
 }
 
 .btn-info {
@@ -160,11 +183,13 @@ header {
 section {
     padding: 60px 0 !important;
 }
+
 footer {
     background: #ffff00;
     color: #000;
     padding: 5% 0 !important;
 }
+
 ul.social-buttons li a {
     background-color: #000000 !important;
     display: block;
@@ -179,33 +204,45 @@ ul.social-buttons li a {
     -moz-transition: all .3s;
     transition: all .3s;
 }
-ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
+
+ul.social-buttons li a:active,
+ul.social-buttons li a:focus,
+ul.social-buttons li a:hover {
     background-color: #ffff00 !important;
     color: #000 !important;
     border: 1px solid #000;
     color: #111;
     margin-top: -1px;
 }
+
 h3 {
     text-transform: none !important;
 }
+
 .linkpolo {
     text-decoration: none;
     color: #111;
     cursor: pointer;
 }
+
 .linkpolo:hover {
     text-decoration: none;
     color: #777;
 }
+
 .linkpolo:active {
     text-decoration: none;
     color: #777;
 }
-a.active, a:active, a:focus, a:hover {
+
+a.active,
+a:active,
+a:focus,
+a:hover {
     color: #777 !important;
     text-decoration: none;
 }
+
 h3.section-heading {
     font-size: 22px;
     font-weight: 400;
@@ -214,6 +251,7 @@ h3.section-heading {
 .intro-heading {
     font-size: 55px !important;
 }
+
 .intro-lead-in {
     font-size: 30px !important;
     color: #000 !important;
@@ -230,11 +268,12 @@ h3.section-heading {
 .miperfilusuario {
     padding: 7% 0 2% 0;
 }
+
 input.form-control {
     padding: 5% 2%;
 }
 
-input.form-control.perfil{
+input.form-control.perfil {
     padding: 3% 2%;
     margin: 7px;
 }
@@ -248,10 +287,12 @@ header .intro-text .intro-heading {
     margin-bottom: 0px !important;
     color: #000 !important;
 }
+
 header .intro-text {
     padding-top: 70px !important;
     padding-bottom: 0px !important;
 }
+
 button.btn.btn-default.btnbuscar {
     padding: 10px 20%;
     background-color: #000000;
@@ -260,6 +301,7 @@ button.btn.btn-default.btnbuscar {
     color: white;
     margin-left: 0%;
 }
+
 button.btn.btn-default.btnbuscar:hover {
     padding: 10px 20%;
     background-color: #f8f8f8;
@@ -268,6 +310,9 @@ button.btn.btn-default.btnbuscar:hover {
 }
 
 button.btn.btn-default.btnbuscarnav2 {
+    -moz-transition:all .2s ease-in;
+    -o-transition:all .2s ease-in;
+    -webkit-transition:all .2s ease-in;
     background: #f8981d;
     color: #fff;
     border-color: #f8981d;
@@ -281,8 +326,8 @@ button.btn.btn-default.btnbuscarnav2:hover {
 
 .form-control:focus {
     outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(216, 216, 216, 0.6);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(202, 202, 202, 0.6);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(216, 216, 216, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(202, 202, 202, 0.6);
 }
 
 input[type="text"].buscadornav2::-webkit-input-placeholder {
@@ -316,37 +361,47 @@ h3.titulo {
     overflow: hidden;
     line-height: 1.6em;
 }
+
 .redesficha {
     font-size: 1.7em;
     padding: 5px 15px;
 }
+
 a .redesficha {
     color: #111;
 }
+
 a .redesficha:hover {
     color: #ccc;
 }
+
 i.fa.fa-facebook.redesficha:hover {
     color: #3b5998;
 }
+
 i.fa.fa-twitter.redesficha:hover {
     color: #55acee;
 }
+
 i.fa.fa-instagram.redesficha:hover {
     color: #8a3ab9;
 }
+
 i.fa.fa-tripadvisor.redesficha:hover {
     color: #00af87;
 }
+
 i.fa.fa-globe.redesficha:hover {
     color: #efde00;
 }
+
 .datosficha {
     font-size: 1.3em;
     width: 30px;
     text-align: center;
     color: #777;
 }
+
 .textodatosficha {
     font-size: 13px;
 }
@@ -383,7 +438,7 @@ i.fa.fa-globe.redesficha:hover {
 .verreservar {
     display: block !important;
     margin-top: 85px;
-    border-top: 2px solid #2cbdbe ;
+    border-top: 2px solid #2cbdbe;
     z-index: 20;
     transition: all .6s ease-in-out;
 }
@@ -421,20 +476,24 @@ div#iconoFavorito {
     text-align: center;
     padding-bottom: 2%;
 }
+
 .titulosugerencia2 {
     font-size: 16px;
     text-align: center;
 }
+
 .descripsugerencia {
     font-size: 12px;
     text-align: center;
 }
+
 .titulocomentarios {
     font-size: 24px;
     text-align: center;
     padding-bottom: 2%;
 
 }
+
 .iconos {
     max-width: 40px;
     padding: 10%;
@@ -461,7 +520,9 @@ div#iconoFavorito {
     padding-right: 22px;
 }
 
-ul, menu, dir {
+ul,
+menu,
+dir {
     display: block;
     list-style-type: disc;
     -webkit-margin-before: 1em;
@@ -474,32 +535,38 @@ ul, menu, dir {
 /*Comentarios*/
 
 .thumbnail {
-    padding:0px;
+    padding: 0px;
 }
+
 .panel {
-    position:relative;
+    position: relative;
 }
-.panel>.panel-heading:after,.panel>.panel-heading:before{
-    position:absolute;
-    top:11px;left:-16px;
-    right:100%;
-    width:0;
-    height:0;
-    display:block;
-    content:" ";
-    border-color:transparent;
-    border-style:solid solid outset;
-    pointer-events:none;
+
+.panel > .panel-heading:after,
+.panel > .panel-heading:before {
+    position: absolute;
+    top: 11px;
+    left: -16px;
+    right: 100%;
+    width: 0;
+    height: 0;
+    display: block;
+    content: " ";
+    border-color: transparent;
+    border-style: solid solid outset;
+    pointer-events: none;
 }
-.panel>.panel-heading:after{
-    border-width:7px;
-    border-right-color:#f7f7f7;
-    margin-top:1px;
-    margin-left:2px;
+
+.panel > .panel-heading:after {
+    border-width: 7px;
+    border-right-color: #f7f7f7;
+    margin-top: 1px;
+    margin-left: 2px;
 }
-.panel>.panel-heading:before{
-    border-right-color:#ddd;
-    border-width:8px;
+
+.panel > .panel-heading:before {
+    border-right-color: #ddd;
+    border-width: 8px;
 }
 
 .filtros {
@@ -526,21 +593,21 @@ h4.titulotipococina {
     margin-bottom: 8%;
 }
 
-#overlay{
+#overlay {
     position: fixed;
-    top:0 ;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: #f7f7f7;
-    filter:alpha(opacity=5);
-    -moz-opacity:0.5;
+    filter: alpha(opacity=5);
+    -moz-opacity: 0.5;
     -khtml-opacity: 0.5;
     opacity: 0.5;
     z-index: 10000;
 }
 
-#overlay #loading{
+#overlay #loading {
     position: fixed;
     top: 0;
     left: 0;
@@ -742,6 +809,7 @@ h3#labelRestaurantesBusquedas {
     z-index: 99999999 !important;
     background: rgba(255, 255, 255, 0.8);
 }
+
 .modal-backdrop {
     display: none;
 }
@@ -798,6 +866,7 @@ a.linkperfil {
 .tycmenupromos {
     color: #787878;
 }
+
 .tycmenupromos p {
     font-size: 12px;
 }
@@ -818,6 +887,8 @@ div#modalPromocion {
 
 .headermodalpromoficha {
     border-bottom: 3px solid #ededed;
+
+    v
 }
 
 .imgspromoficha {
@@ -900,7 +971,7 @@ input#login-submit:hover {
 }
 
 
-@media only screen and (max-width : 375px) {
+@media only screen and (max-width: 375px) {
 
     .modalpromoficha {
         max-width: 290px !important;
@@ -1008,6 +1079,7 @@ p#nivelPrecio {
     font-weight: bold;
     font-size: 1.2em;
 }
+
 li#calificacionLocal {
     display: none;
 }
@@ -1016,6 +1088,7 @@ li#calificacionLocal {
     font-weight: 400;
     font-size: 0.9em;
 }
+
 .servicios {
     display: inline-flex;
 }
@@ -1115,7 +1188,7 @@ ul.promosvertical.vc_list {
     margin: 4% auto;
 }
 
-@media only screen and (max-width : 1024px) {
+@media only screen and (max-width: 1024px) {
     .altoocasiones {
         width: 960px;
     }
@@ -1150,7 +1223,6 @@ ul.promosvertical.vc_list {
     }
 
     /*Menu lateral*/
-
     .acceder-mobile {
         display: block;
     }
@@ -1167,7 +1239,8 @@ ul.promosvertical.vc_list {
         font-weight: bold;
     }
 
-    .navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+    .navbar > .container .navbar-brand,
+    .navbar > .container-fluid .navbar-brand {
         margin-left: 25px;
     }
 
@@ -1193,7 +1266,7 @@ ul.promosvertical.vc_list {
 
 
 
-@media only screen and (max-width : 768px) {
+@media only screen and (max-width: 768px) {
 
     nav#mainNav {
         margin-bottom: 0px;
@@ -1259,7 +1332,7 @@ ul.promosvertical.vc_list {
 
 }
 
-@media only screen and (max-width : 425px) {
+@media only screen and (max-width: 425px) {
 
     .fondopubli-web {
         display: none;
@@ -1308,7 +1381,8 @@ ul.promosvertical.vc_list {
     .navbar-nav {
         margin: 15.5px -15px;
     }
-    .navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+    .navbar > .container .navbar-brand,
+    .navbar > .container-fluid .navbar-brand {
         margin-left: 60px;
     }
 
@@ -1322,7 +1396,7 @@ ul.promosvertical.vc_list {
 }
 
 
-@media only screen and (max-width : 320px) {
+@media only screen and (max-width: 320px) {
 
 
     img.logoweb {
@@ -1333,7 +1407,92 @@ ul.promosvertical.vc_list {
     }
 
 }
-/*Ariel CSS*/
+
+/***************************************Ariel CSS*/
+
 .anteriores img {
     width: 50%
+}
+
+.modal-body {
+    padding: 0!important
+}
+
+/*Buscador del Index*/
+
+.input-index {
+
+    width: 80%;
+    float: left;
+    border-radius: 4px 0 0 4px;
+    border: none
+}
+
+button.btn.btn-default.btnbuscar {
+
+    width: 20%;
+    float: left;
+    padding: 0;
+    padding: 3% 2%;
+    margin: 0;
+    border-radius: 0 4px 4px 0;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    background-color: #000;
+    border: #000
+}
+
+button.btn.btn-default.btnbuscar:hover {
+
+    width: 20%;
+    float: left;
+    padding: 0;
+    padding: 3% 2%;
+    margin: 0;
+    background-color: #f8981d;
+    color: #fff
+}
+
+.logoindex .logoweb {
+    margin-top: 0
+}
+
+/*Seccion para especiales*/
+
+#seccion-especiales {
+    
+    margin:10% 0 0 0
+        
+}
+.contenedor-boton {
+    
+padding:90px 0 0 0
+}
+
+.boton-restos {
+    text-decoration: none;
+    padding: 20px;
+    font-size: 12px;
+    
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    background-color: #a4113d;
+    color: #ffffff;
+    border-radius: 4px;
+   font-weight:500
+    
+}
+
+.boton-restos:hover {
+    background-color: #000;
+    color:#fff!important
+}
+
+
+/*Arreglo para encuadrar imagenes en Slider*/
+.carousel-inner > .item > a > img, .carousel-inner > .item > img {
+    
+    width: 750px
 }
