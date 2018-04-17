@@ -166,7 +166,7 @@ include("includes/head.php"); ?>
                     <!-- Elegir horario -->
                     <div class="form-group">
                       <label for="sel1">Cantidad de Cubiertos:</label>
-                      <input id="cantCubiertosManana" name="" type="number" class="form-control" placeholder="Cantidad de cubiertos" aria-describedby="sizing-addon3">
+                      <input id="cantCubiertosManana" name="" type="number" min="0"  class="form-control" placeholder="Cantidad de cubiertos" aria-describedby="sizing-addon3">
                     </div>
                     <!-- Fin Elegir horario -->
                   </div>
@@ -174,10 +174,11 @@ include("includes/head.php"); ?>
                     <!-- Elegir horario -->
                     <div class="form-group">
                       <label for="sel1">Duración en minutos:</label>
-                      <input id="duracionReservaManana" name="" type="number" step="30" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3">
+                      <input id="duracionReservaManana" name="" type="number" min="0" step="30" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3">
                     </div>
                     <!-- Fin Elegir horario -->
                   </div>
+                   <span id="errorDuracionManana" style="color: #f8981d;"> La Duración de Reserva no puede ser menor a 30 minutos</span>
                 </div>
               </div>
 
@@ -215,7 +216,7 @@ include("includes/head.php"); ?>
                     <!-- Elegir horario -->
                     <div class="form-group">
                       <label for="sel1">Cantidad de Cubiertos:</label>
-                      <input id="cantCubiertosTarde" name="" type="number" class="form-control" placeholder="Cantidad de cubiertos" aria-describedby="sizing-addon3">
+                      <input id="cantCubiertosTarde" name="" type="number" min="0" class="form-control" placeholder="Cantidad de cubiertos" aria-describedby="sizing-addon3">
                     </div>
                     <!-- Fin Elegir horario -->
                   </div>
@@ -223,10 +224,11 @@ include("includes/head.php"); ?>
                     <!-- Elegir horario -->
                     <div class="form-group">
                       <label for="sel1">Duración en minutos:</label>
-                      <input id="duracionReservaTarde" name="" type="number" step="30" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3"">
+                      <input id="duracionReservaTarde" name="" type="number" min="0" step="30" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3"">
                     </div>
                     <!-- Fin Elegir horario -->
                   </div>
+                  <span id="errorDuracionTarde" style="color: #f8981d;"> La Duración de Reserva no puede ser menor a 30 minutos</span>
                 </div>
               </div>
             </div>
@@ -385,6 +387,17 @@ include("includes/head.php"); ?>
                     </td>
                     <td style="    color: #f8981d;">
                       Sin datos de reserva
+                    </td>
+                  </tr>
+                   <tr id='errores'>
+                    <td>
+
+                    </td>
+                    <td style="    color: #f8981d;">
+                      <span id="errorDuracionListadoManana" style="color: #f8981d;"> La Duración de Reserva no puede ser menor a 30 minutos</span>
+                    </td>
+                    <td style="    color: #f8981d;">
+                      <span id="errorDuracionListadoTarde" style="color: #f8981d;"> La Duración de Reserva no puede ser menor a 30 minutos</span>
                     </td>
                   </tr>
                 </tbody>
