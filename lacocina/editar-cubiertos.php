@@ -27,6 +27,12 @@ $accion = $_GET['acc'];
 error_reporting(E_ERROR);
 include("includes/head.php"); ?>
 
+<!--  jQuery UI Theme CSS -->
+<link href="css/jquery-ui.min.css" rel="stylesheet">
+
+<!-- MultiDatesPicker for jQuery UI Theme CSS -->
+<link href="css/jquery-ui.multidatespicker.css" rel="stylesheet">
+
 <body id="page-top" class="index">
 
 
@@ -288,6 +294,10 @@ include("includes/head.php"); ?>
             <!-- <button class="botonremoverhorario"><i class="fa fa-times" aria-hidden="true"></i> Remover</button> -->
           </div>
 
+         <h5 class="titulosalta">Dias que no se recibiran reservas</h5>
+
+         <div id="selectorDiasBloqueados"></div>
+
           <h5 class="titulosalta">Lista de horarios</h5>
 
           <div class="cuadrohorariosresumen">
@@ -463,6 +473,13 @@ include("includes/head.php"); ?>
 
   <!-- Theme JavaScript -->
   <script src="../js/agency.min.js"></script>
+
+  <!-- jQuery UI -->
+  <script src="js/jquery-ui.min.js"></script>
+
+
+  <!-- MultiDatesPicker for jQuery UI -->
+  <script src="js/jquery-ui.multidatespicker.js"></script>
   
   <script type="text/javascript">
 
@@ -517,6 +534,29 @@ include("includes/head.php"); ?>
   </script>
 
   <!-- End Slider Range -->
+
+  <script>
+   $('#selectorDiasBloqueados').multiDatesPicker({
+       prevText: 'anterior',
+       nextText: 'siguiente;',
+       monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+               'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+       monthNamesShort: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+                                      'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+       dayNames: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
+       dayNamesShort: ['Do', 'Lu', 'Mar', 'Mi', 'Ju', 'Vi', 'Sa'],
+       dayNamesMin: ['Do', 'Lu', 'Mar', 'Mi', 'Ju', 'Vi', 'Sa'],
+       weekHeader: 'Semana',
+       dateFormat: 'dd/mm/yy',
+       firstDay: 1,
+       changeMonth: true,
+       changeYear: true,
+       yearRange: "-0:+1",
+       isRTL: false,
+       showMonthAfterYear: false,
+       minDate: 0
+    });
+  </script>
 
 </body>
 

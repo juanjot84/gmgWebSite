@@ -135,27 +135,33 @@ function cargarHorariosSeteados() {
       if(aceptaReserva == true){
         $('input:checkbox[name=aceptaReservaCheck]').attr('checked',true);
       }else{
-        $('input:checkbox[name=aceptaReservaCheck]').attr('checked',false);       
+        $('input:checkbox[name=aceptaReservaCheck]').attr('checked',false);
       }
 
-      var margenReservar
+      var margenReservar;
       if (typeof(data.margenCreacionReserva) == "undefined"){
         margenReservar = 0;
       }else{
         margenReservar = data.margenCreacionReserva;
       }
 
-     var margenCancelar
-     if (typeof(data.margenCancelacionReserva) == "undefined"){
-      margenCancelar = 1;
-    }else{
-      margenCancelar = data.margenCancelacionReserva;
-    }
+      var margenCancelar;
+      if (typeof(data.margenCancelacionReserva) == "undefined"){
+        margenCancelar = 1;
+      }else{
+        margenCancelar = data.margenCancelacionReserva;
+      }
+
+      _.each(data.fechaBloqueoReserva, function(fecha){
+        $('#selectorDiasBloqueados').multiDatesPicker( {
+          addDates: [fecha]
+        });
+      });
     
-     $("#demo").html('');
-     $("#demo").append(margenReservar);
-     $("#demo2").html('');
-     $("#demo2").append(margenCancelar);
+      $("#demo").html('');
+      $("#demo").append(margenReservar);
+      $("#demo2").html('');
+      $("#demo2").append(margenCancelar);
       $("#myRange").val(margenReservar);
       $("#myRange2").val(margenCancelar);
 
@@ -323,6 +329,7 @@ function procesarLocal(){
 
   var actualizarHorarioAtencion = [];
   var actualizarCubiertos = [];
+  var actualizarFechas = [];
   var campoAAcuatualizar = "idHorarioAtencion";
   console.log(localHorariosCreados);
   var guardarHT = actualizarLocal(idLocalCreado, _.without(localHorariosCreados, ""), campoAAcuatualizar).then(function (data) {
@@ -340,7 +347,16 @@ function procesarLocal(){
   });
   actualizarCubiertos.push(guardarCD);
 
-  Promise.all(actualizarHorarioAtencion, actualizarCubiertos).then(function(){
+  campoAAcuatualizar = "fechaBloqueoReserva";
+  var fechas = $('#selectorDiasBloqueados').multiDatesPicker( 'getDates');
+  var guardarFecha = actualizarLocal(idLocalCreado, fechas , campoAAcuatualizar).then(function (data) {
+    resolve(true);
+  }).catch(function (err) {
+    console.log(err);
+  });
+  actualizarFechas.push(guardarFecha);
+
+  Promise.all(actualizarHorarioAtencion, actualizarCubiertos, actualizarFechas).then(function(){
     console.log(localCubiertosCreados);
 
     actualizarAceptaReserva(idLocalCreado);
