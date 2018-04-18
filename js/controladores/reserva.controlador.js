@@ -140,6 +140,7 @@ function buscarHorarios() {
 function buscarPromociones(){
    var fechaSeleccionada = $('#selectDia').val();
    var idLocal = $("#idLocal").val();
+   $("#contenedorPromociones").html('');
    var fecha = JSON.stringify({
     "fechaReserva": fechaSeleccionada
    });
@@ -186,7 +187,7 @@ function buscarPromociones(){
                  $("#contenedorMenu").append(''+
                   '<div class="row">'+
                     '<div class="col-md-6">'+
-                       '<h5 class="opcionmenureserva">'+menu.nombreOpcion+'</h5>'+
+                       '<h5 class="opcionmenureserva">'+menu.nombreOpcion+' $'+menu.precioOpcion+'</h5>'+
                       '<input type="text" name="nombreOpcion'+menu._id+'" id="nombreOpcion'+menu._id+'" value="'+menu.nombreOpcion+'" class="hidden">'+
                     '</div>'+
                     '<div class="col-md-2">'+
