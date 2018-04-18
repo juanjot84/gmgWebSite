@@ -193,18 +193,15 @@ $idLocal = $_GET["id"];
                   </div>
                 </p>
               </div>
-              
+            </div>
             <div class="row">
               <div class="col-md-4">
                   <label for="selectNino">Observación:</label>
-                  <input id="observacionPersona" name="observacionPersona" type="text" class="form-control" placeholder="" aria-describedby="sizing-addon3" >  
+                  <input id="observacionPersona" name="observacionPersona" type="text" class="form-control" placeholder="" aria-describedby="sizing-addon3" >
               </div>
             </div>
 
             <div id="sinHorarios"></div>
-
-            </div>
-
 
             <div id="noHorario" style="display: none">
               No existen horarios que cumplan con los datos ingresados.
