@@ -49,7 +49,7 @@ function popularDropdownHorarios(){
 $('.botonagregarhorario').click(function (e) {
   $('.diashorario :checked').each(function(){
     // console.log($(this).attr('value'));
-    aplicarHorarios($(this).attr('value'))
+     return aplicarHorarios($(this).attr('value'));
   })
 });
 
@@ -66,29 +66,54 @@ $('#todos').click(function (e) {
 });
 
 function aplicarHorarios(dia, dibujar){
-  if($('#horaInicioManana').val() != $('#horaFinManana').val() || dibujar){
-    $('#' + dia + ' td:nth-child(2)').removeAttr('style').html('' +
-      '<div class="iconoslista">'+
-      ' <div class="horariolista"><input class="data-horarios" type="text" id="Hdesde' + dia + 'Manana" value="' + $('#horaInicioManana').val() + '"> - <input class="data-horarios" type="text"  id="Hhasta' + dia + 'Manana"  value="' + $('#horaFinManana').val() + '"></div>' +
-      ' <div class="horariocubiertos"><i class="fa fa-cutlery" aria-hidden="true"></i><input class="data-horarios" type="text" id="Cubiertos' + dia + 'Manana" value="' + $('#cantCubiertosManana').val() + '"></div>' +
-      ' <div class="horarioduracionreserva"><i class="fa fa-clock-o" aria-hidden="true"></i><input class="data-horarios" type="text" id="Duracion' + dia + 'Manana"  value="' + $('#duracionReservaManana').val() + '"></div>' +
-      '</div>');
-  } else {
-    $('#' + dia + ' td:nth-child(2)').attr('style', 'color: #f8981d;').html('Sin datos de reserva');
-  }
-
-  if($('#horaInicioTarde').val() != $('#horaFinTarde').val() || dibujar){
-    $('#' + dia + ' td:nth-child(3)').removeAttr('style').html('' +
-      '<div class="iconoslista">'+
-      ' <div class="horariolista"><input class="data-horarios" type="text" id="Hdesde' + dia + 'Tarde" value="' + $('#horaInicioTarde').val() + '"> - <input class="data-horarios" type="text" id="Hhasta' + dia + 'Tarde" value="' + $('#horaFinTarde').val()  + '" ></div>' +
-      ' <div class="horariocubiertos"><i class="fa fa-cutlery" aria-hidden="true"></i><input class="data-horarios" type="text" id="Cubiertos' + dia + 'Tarde"  value="' + $('#cantCubiertosTarde').val() + '"></div>' +
-      ' <div class="horarioduracionreserva"><i class="fa fa-clock-o" aria-hidden="true"></i><input class="data-horarios" type="text" id="Duracion' + dia + 'Tarde"  value="' + $('#duracionReservaTarde').val() + '"></div>' +
-      '</div>');
+  hideErrors();
+  if(!_.isUndefined(dibujar) && !dibujar){
+    if ( $('#duracionReservaManana').val() < 30 ){
+      $('#errorDuracionManana').show();
+      return false
+    } else if ( $('#duracionReservaTarde').val() < 30 ) {
+      $('#errorDuracionTarde').show();
+      return false
+    }
   }else {
-    $('#' + dia + ' td:nth-child(3)').attr('style', 'color: #f8981d;').html('Sin datos de reserva');
+    if($('#horaInicioManana').val() != $('#horaFinManana').val() || dibujar){
+      $('#' + dia + ' td:nth-child(2)').removeAttr('style').html('' +
+        '<div class="iconoslista">'+
+        ' <div class="horariolista">' +
+        '  <input class="data-horarios" type="text" id="Hdesde' + dia + 'Manana" value="' + $('#horaInicioManana').val() + '"> - ' +
+        '  <input class="data-horarios" type="text"  id="Hhasta' + dia + 'Manana"  value="' + $('#horaFinManana').val() + '">' +
+        ' </div>' +
+        ' <div class="horariocubiertos"><i class="fa fa-cutlery" aria-hidden="true"></i>' +
+        '  <input class="data-horarios" type="number" min="30" id="Cubiertos' + dia + 'Manana" value="' + $('#cantCubiertosManana').val() + '">' +
+        ' </div>' +
+        ' <div class="horarioduracionreserva"><i class="fa fa-clock-o" aria-hidden="true"></i>' +
+        '  <input class="data-horarios" type="number" min="30"  id="Duracion' + dia + 'Manana"  value="' + $('#duracionReservaManana').val() + '"></div>' +
+        '</div>');
+    } else {
+      $('#' + dia + ' td:nth-child(2)').attr('style', 'color: #f8981d;').html('Sin datos de reserva');
+    }
+
+    if($('#horaInicioTarde').val() != $('#horaFinTarde').val() || dibujar){
+      $('#' + dia + ' td:nth-child(3)').removeAttr('style').html('' +
+        '<div class="iconoslista">'+
+        ' <div class="horariolista">' +
+        '  <input class="data-horarios" type="text" id="Hdesde' + dia + 'Tarde" value="' + $('#horaInicioTarde').val() + '"> - ' +
+        '  <input class="data-horarios" type="text" id="Hhasta' + dia + 'Tarde" value="' + $('#horaFinTarde').val()  + '" >' +
+        ' </div>' +
+        ' <div class="horariocubiertos"><i class="fa fa-cutlery" aria-hidden="true"></i>' +
+        '  <input class="data-horarios" type="number" min="30" id="Cubiertos' + dia + 'Tarde"  value="' + $('#cantCubiertosTarde').val() + '">' +
+        ' </div>' +
+        ' <div class="horarioduracionreserva"><i class="fa fa-clock-o" aria-hidden="true"></i>' +
+        '  <input class="data-horarios" type="number" min="30"  id="Duracion' + dia + 'Tarde"  value="' + $('#duracionReservaTarde').val() + '">' +
+        ' </div>' +
+        '</div>');
+    } else {
+      $('#' + dia + ' td:nth-child(3)').attr('style', 'color: #f8981d;').html('Sin datos de reserva');
+      return false
+    }
   }
 
-
+  return true
 }
 
 function cargarHorariosSeteados() {
@@ -178,6 +203,17 @@ function cargarHorariosSeteados() {
     }
   });
 }
+$(document).on('change', '.cuadrohorariosresumen input[type=number]', function() {
+  hideErrors();
+});
+
+function hideErrors(){
+  $('#errorDuracionManana').hide();
+  $('#errorDuracionTarde').hide();
+  $('#errores').hide();
+  $('#errorDuracionListadoManana').hide();
+  $('#errorDuracionListadoTarde').hide();
+}
 
 function sendHorarioAtencion() {
   $('#loading').show();
@@ -194,7 +230,7 @@ function sendHorarioAtencion() {
   var idDuracionReserManana = [];
   var idCantCubiertosTarde = [];
   var idDuracionReserTarde = [];
-
+  var valido = true;
   _.each(dias, function (dia) {
     idHorariosDesdeManana.push({'hora': $("#Hdesde" + dia + "Manana").val(), 'dia': dia});
     idHorariosHastaManana.push({'hora': $("#Hhasta" + dia + "Manana").val(), 'dia': dia});
@@ -202,57 +238,76 @@ function sendHorarioAtencion() {
     idHorariosHastaTarde.push({'hora': $("#Hhasta" + dia + "Tarde").val(), 'dia': dia});
 
     idCantCubiertosManana.push({'hora': $("#Cubiertos" + dia + "Manana").val(), 'dia': dia});
+    if ( $("#Duracion" + dia + "Manana").val() < 30 ){
+      $('#errores').show();
+      $('#errorDuracionListadoManana').show();
+      valido = false;
+      return false
+    }
     idDuracionReserManana.push({'hora': $("#Duracion" + dia + "Manana").val(), 'dia': dia});
     idCantCubiertosTarde.push({'hora': $("#Cubiertos" + dia + "Tarde").val(), 'dia': dia});
+    if ( $("#Duracion" + dia + "Tarde").val() < 30 ){
+      $('#errores').show();
+      $('#errorDuracionListadoTarde').show();
+      valido = false;
+      return false
+    }
     idDuracionReserTarde.push({'hora': $("#Duracion" + dia + "Tarde").val(), 'dia': dia});
   });
+  if ( valido ) {
+    var guardarHorarios = [];
+    var guardarCubiertos = [];
+    var actualizarHorarioAtencion = [];
+    var actualizarCubiertos = [];
 
-  var guardarHorarios = [];
-  var guardarCubiertos = [];
-  var actualizarHorarioAtencion = [];
-  var actualizarCubiertos = [];
+    _.each(dias, function (dia) {
+     var horarioDesdeM = _.find(idHorariosDesdeManana, {'dia': dia});
+     var horarioHastaM = _.find(idHorariosHastaManana, {'dia': dia});
+     var horarioDesdeT = _.find(idHorariosDesdeTarde, {'dia': dia});
+     var horarioHastaT = _.find(idHorariosHastaTarde, {'dia': dia});
 
-  _.each(dias, function (dia) {
-    var horarioDesdeM = _.find(idHorariosDesdeManana, {'dia': dia});
-    var horarioHastaM = _.find(idHorariosHastaManana, {'dia': dia});
-    var horarioDesdeT = _.find(idHorariosDesdeTarde, {'dia': dia});
-    var horarioHastaT = _.find(idHorariosHastaTarde, {'dia': dia});
+     if (horarioDesdeM != "" && horarioHastaM != ""&& horarioDesdeM.hora && horarioHastaM.hora) {
+       cantidadHorarios++;
+       var guardarManana = sendHorarios(dia, horarioDesdeM.hora, horarioHastaM.hora, 'manana');
+       guardarHorarios.push(guardarManana);
+     }
+     if (horarioDesdeT != "" && horarioHastaT != "" && horarioDesdeT.hora && horarioHastaT.hora) {
+       cantidadHorarios++;
+       var guardarTarde = sendHorarios(dia, horarioDesdeT.hora, horarioHastaT.hora, 'tarde');
+       guardarHorarios.push(guardarTarde);
+     }
 
-    if (horarioDesdeM != "" && horarioHastaM != ""&& horarioDesdeM.hora && horarioHastaM.hora) {
-      cantidadHorarios++;
-      var guardarManana = sendHorarios(dia, horarioDesdeM.hora, horarioHastaM.hora, 'manana');
-      guardarHorarios.push(guardarManana);
-    }
-    if (horarioDesdeT != "" && horarioHastaT != "" && horarioDesdeT.hora && horarioHastaT.hora) {
-      cantidadHorarios++;
-      var guardarTarde = sendHorarios(dia, horarioDesdeT.hora, horarioHastaT.hora, 'tarde');
-      guardarHorarios.push(guardarTarde);
-    }
+     var cantCubiertoM = _.find(idCantCubiertosManana, {'dia': dia});
+     var duracionReservaM = _.find(idDuracionReserManana, {'dia': dia});
+     var cantCubiertoT = _.find(idCantCubiertosTarde, {'dia': dia});
+     var duracionReservaT = _.find(idDuracionReserTarde, {'dia': dia});
 
-    var cantCubiertoM = _.find(idCantCubiertosManana, {'dia': dia});
-    var duracionReservaM = _.find(idDuracionReserManana, {'dia': dia});
-    var cantCubiertoT = _.find(idCantCubiertosTarde, {'dia': dia});
-    var duracionReservaT = _.find(idDuracionReserTarde, {'dia': dia});
+     if (cantCubiertoM != "" && duracionReservaM != "" && cantCubiertoM.hora && duracionReservaM.hora) {
+       cantidadCubiertos++;
+       var guardarManana = sendCubiertos(dia, cantCubiertoM.hora, duracionReservaM.hora, 'manana');
+       guardarCubiertos.push(guardarManana);
+     }
+     if (cantCubiertoT != "" && duracionReservaT != "" && cantCubiertoT.hora && duracionReservaT.hora) {
+       cantidadCubiertos++;
+       var guardarTarde = sendCubiertos(dia, cantCubiertoT.hora, duracionReservaT.hora, 'tarde');
+       guardarCubiertos.push(guardarTarde);
+     }
+    });
 
-    if (cantCubiertoM != "" && duracionReservaM != "" && cantCubiertoM.hora && duracionReservaM.hora) {
-      cantidadCubiertos++;
-      var guardarManana = sendCubiertos(dia, cantCubiertoM.hora, duracionReservaM.hora, 'manana');
-      guardarCubiertos.push(guardarManana);
-    }
-    if (cantCubiertoT != "" && duracionReservaT != "" && cantCubiertoT.hora && duracionReservaT.hora) {
-      cantidadCubiertos++;
-      var guardarTarde = sendCubiertos(dia, cantCubiertoT.hora, duracionReservaT.hora, 'tarde');
-      guardarCubiertos.push(guardarTarde);
-    }
-  });
+    Promise.all(guardarHorarios, guardarCubiertos).then(function () {
 
-  Promise.all(guardarHorarios, guardarCubiertos).then(function () {
+     verificarCantidad();
 
-    verificarCantidad();
+    }).catch(function (err) {
+     console.log(err);
+    });
+  } else {
+    $('#loading').hide();
+    $('#botonVolver').removeAttr('disabled');
+    $('#botonVolverFondo').removeAttr('disabled');
+    $('#botonGuardar').removeAttr('disabled');
+  }
 
-  }).catch(function (err) {
-    console.log(err);
-  });
 }
 
 function verificarCantidad(){
