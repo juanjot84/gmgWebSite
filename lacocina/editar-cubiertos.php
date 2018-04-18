@@ -294,10 +294,6 @@ include("includes/head.php"); ?>
             <!-- <button class="botonremoverhorario"><i class="fa fa-times" aria-hidden="true"></i> Remover</button> -->
           </div>
 
-         <h5 class="titulosalta">Dias que no se recibiran reservas</h5>
-
-         <div id="selectorDiasBloqueados"></div>
-
           <h5 class="titulosalta">Lista de horarios</h5>
 
           <div class="cuadrohorariosresumen">
@@ -413,6 +409,9 @@ include("includes/head.php"); ?>
                 </tbody>
               </table>
             </div>
+
+            <h5 class="titulosalta">Dias que no se recibiran reservas</h5>
+            <div id="selectorDiasBloqueados"></div>
 
             <div class="input-group">
               <span class="input-group-btn">
