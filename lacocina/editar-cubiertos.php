@@ -27,6 +27,12 @@ $accion = $_GET['acc'];
 error_reporting(E_ERROR);
 include("includes/head.php"); ?>
 
+<!--  jQuery UI Theme CSS -->
+<link href="css/jquery-ui.min.css" rel="stylesheet">
+
+<!-- MultiDatesPicker for jQuery UI Theme CSS -->
+<link href="css/jquery-ui.multidatespicker.css" rel="stylesheet">
+
 <body id="page-top" class="index">
 
 
@@ -404,6 +410,9 @@ include("includes/head.php"); ?>
               </table>
             </div>
 
+            <h5 class="titulosalta">Dias que no se recibiran reservas</h5>
+            <center style="margin: 15px 0;"><div id="selectorDiasBloqueados"></div></center>
+
             <div class="input-group">
               <span class="input-group-btn">
                 <button id="botonVolverFondo" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
@@ -463,6 +472,13 @@ include("includes/head.php"); ?>
 
   <!-- Theme JavaScript -->
   <script src="../js/agency.min.js"></script>
+
+  <!-- jQuery UI -->
+  <script src="js/jquery-ui.min.js"></script>
+
+
+  <!-- MultiDatesPicker for jQuery UI -->
+  <script src="js/jquery-ui.multidatespicker.js"></script>
   
   <script type="text/javascript">
 
@@ -517,6 +533,33 @@ include("includes/head.php"); ?>
   </script>
 
   <!-- End Slider Range -->
+
+  <script>
+   var today = new Date();
+   var y = today.getFullYear();selectorDiasBloqueados
+   $('#selectorDiasBloqueados').multiDatesPicker({
+       prevText: 'anterior',
+       nextText: 'siguiente;',
+       monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+               'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+       monthNamesShort: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+                                      'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+       dayNames: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
+       dayNamesShort: ['Do', 'Lu', 'Mar', 'Mi', 'Ju', 'Vi', 'Sa'],
+       dayNamesMin: ['Do', 'Lu', 'Mar', 'Mi', 'Ju', 'Vi', 'Sa'],
+       weekHeader: 'Semana',
+       dateFormat: 'dd/mm/yy',
+       firstDay: 1,
+       changeMonth: false,
+       changeYear: false,
+       yearRange: "-0:+1",
+       isRTL: false,
+       showMonthAfterYear: false,
+       minDate: 0,
+       numberOfMonths: [1,4],
+       defaultDate: '1/1/'+y
+    });
+  </script>
 
 </body>
 
