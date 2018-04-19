@@ -411,7 +411,7 @@ include("includes/head.php"); ?>
             </div>
 
             <h5 class="titulosalta">Dias que no se recibiran reservas</h5>
-            <div id="selectorDiasBloqueados"></div>
+            <center style="margin: 15px 0;"><div id="selectorDiasBloqueados"></div></center>
 
             <div class="input-group">
               <span class="input-group-btn">
@@ -535,6 +535,8 @@ include("includes/head.php"); ?>
   <!-- End Slider Range -->
 
   <script>
+   var today = new Date();
+   var y = today.getFullYear();selectorDiasBloqueados
    $('#selectorDiasBloqueados').multiDatesPicker({
        prevText: 'anterior',
        nextText: 'siguiente;',
@@ -548,12 +550,14 @@ include("includes/head.php"); ?>
        weekHeader: 'Semana',
        dateFormat: 'dd/mm/yy',
        firstDay: 1,
-       changeMonth: true,
-       changeYear: true,
+       changeMonth: false,
+       changeYear: false,
        yearRange: "-0:+1",
        isRTL: false,
        showMonthAfterYear: false,
-       minDate: 0
+       minDate: 0,
+       numberOfMonths: [1,4],
+       defaultDate: '1/1/'+y
     });
   </script>
 
