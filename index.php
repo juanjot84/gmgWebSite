@@ -25,7 +25,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
 
   <!-- Theme CSS -->
   <link href="css/gmgstyle.css" rel="stylesheet">
@@ -61,11 +61,11 @@
 
   <style type="text/css">
     .modal-content {
-        background-color: #fff001;
+        
     }
       .modal-dialog {
         z-index: 999999;
-        width: 500px;
+        width: 450px;
         text-align: center;
     }
     .modal-header {
@@ -96,7 +96,7 @@
 
     @media (max-width: 1440px) {
       .modal-dialog {
-        width: 850px;
+        width: 450px;
         margin: 30px auto;
       }
       .fade {
@@ -106,7 +106,7 @@
 
     @media (max-width: 1024px) {
       .modal-dialog {
-        width: 850px;
+        width: 450px;
         margin: 10px auto;
       }
       .fade {
@@ -116,7 +116,7 @@
 
     @media (max-width: 768px) {
       .modal-dialog {
-        width: 610px;
+        width: 450px;
         margin: 15px auto;
       }
       .fade {
@@ -126,7 +126,7 @@
 
     @media (max-width: 425px) {
       .modal-dialog {
-          width: 360px;
+          width: 200px;
           margin: 155px auto;
       }
       .tamimg {
@@ -145,17 +145,42 @@
           font-size: 1.4em;
           line-height: 1.3em;
       }
+      .input-index{
+          
+          width: 100%;
+          float: left;
+          border-radius:4px 0 0 4px
+      }
+  
+button.btn.btn-default.btnbuscar {
+          
+          width: 50%;
+          float: none;
+          padding: 0;
+          padding: 3% 2%;
+          margin:15px auto 0 auto;
+          border-radius:4px
+      }
+button.btn.btn-default.btnbuscar:hover{
+          
+          width: 50%;
+          float: none;
+          padding: 0;
+          padding: 3% 2%;
+           margin:0
+      }
+        .contenedor-boton {
+    
+padding:50px 0 0 0
+}
     }
 
     @media (max-width: 375px) {
           .modal-dialog {
-              width: 360px;
+              width: 200px;
               margin: 120px auto;
           }
-          .tamimg {
-            width: 80%;
-            height: auto;
-          }
+          
           .fade {
             padding-top: 10%;
           }
@@ -168,17 +193,16 @@
               font-size: 1.2em;
               line-height: 1.3em;
           }
+
+
         }
 
     @media (max-width: 320px) {
       .modal-dialog {
-        width: 280px;
+        width: 200px;
         margin: 90px auto;
       }
-      .tamimg {
-        width: 70%;
-        height: auto;
-      }
+      
       .fade {
         opacity: 1;
         padding-top: 10%;
@@ -193,6 +217,7 @@
           line-height: 1.3em;
       }
     }
+     
   </style>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -252,26 +277,41 @@
   <!-- End Facebook Pixel Code -->
 
   <?php include("includes/soportezen.php"); ?>
+  
+  <!-- Google Analitics Polenta -->
+  
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MGCXHZF');</script>
+<!-- End Google Tag Manager -->
 
 </head>
 
 <body id="page-top" class="index">
 
-  <div id="myModal" class="modal fade">
+<!-- Google Analitics Polenta -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MGCXHZF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  
+
+  <!--div id="myModal" class="modal fade">
       <div class="modal-dialog">
           <div class="modal-content">
-              <div class="modal-header">
-                  <a href="#" class="close" data-dismiss="modal" aria-hidden="true" style="cursor: pointer; color: #000; text-decoration: none; font-size: 14px; font-weight: bold; opacity: 1;
-    text-shadow: none;">Cerrar</a>
-              </div>
+           
               <div class="modal-body">
-                  <img class="tamimg" src="http://guiamendozagourmet.com/banner-publicidad-vertical2.jpg" alt="Guía Mendoza Gourmet">
-                  <p class="modaltexto1">NUESTRA APP ESTÁ CRECIENDO, RÁPIDO Y CON CARIÑO.</p>
-                  <p class="modaltexto2">Cada día se suman restaurantes para que muy pronto puedas reservar online en cientos de locales de Mendoza.</p>
+                 <a href="#" class="close" data-dismiss="modal" aria-hidden="true" style="cursor: pointer; color: #000; text-decoration: none; font-size: 14px; font-weight: bold; opacity: 1;
+    text-shadow: none;"> <img src="img/icono-cerrar.png" alt=""> </a>
+                  <img class="tamimg" src="img/banner-publicidad-vertical2.jpg" alt="Guía Mendoza Gourmet">
+                 
               </div>
           </div>
       </div>
-  </div>
+  </div-->
 
   <div id="wrapper">
 
@@ -280,7 +320,7 @@
           include("includes/menulateral.php");
       ?>
 
-      <div id="page-content-wrapper">
+      <div id="page-content-wrapper" class="logoindex">
            
           <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">
               <div id="nav-icon3">
@@ -291,6 +331,7 @@
               </div>
           </a>
 
+        
           <?php 
           error_reporting(E_ERROR);
           include("includes/nav-home.php"); 
@@ -308,8 +349,10 @@
                   <a href="#" class="page-scroll btn btn-xl">CÓMO FUNCIONA</a> -->
                   <div class="form-group" style="padding-top: 7%;">
                     <form action="resultados-busqueda.php" method="post">
-                      <input type="text" class="form-control" placeholder="Buscá por nombre, zona o tipo de cocina" name="parametro">
-
+                      <input type="text" class="form-control input-index" placeholder="Buscá por nombre, zona o tipo de cocina" name="parametro">
+                      <button type="submit" class="btn btn-default btnbuscar">BUSCAR</button> 
+                      
+                               
                       <!-- <div class="filtros">
                         <input type="radio" name="filtro" value="nombre" aria-label="..."> POR NOMBRE
                         <input type="radio" name="filtro" value="localidad" aria-label="..."> POR ZONA
@@ -319,10 +362,21 @@
                         <!-- <button type="button" class="btn btn-default">FECHA</button>
                         <button type="button" class="btn btn-default">HORA</button>
                         <button type="button" class="btn btn-default">COMENSALES</button> -->
-                        <button type="submit" class="btn btn-default btnbuscar">BUSCAR</button>
+                        
                       </div>
                     </form>
                   </div>
+                  
+               <!--   <div class="row" id="seccion-especiales">
+                      <div class="col-md-8">
+                          <img class="img-responsive" style="margin: 0 auto;" src="img/reservaALMAlbec.png">
+                      </div>
+                      <div class="col-md-4 contenedor-boton">
+                          <a class="boton-restos" href="resultados-busqueda.php?promocion=ALMAlbec">VER RESTAURANTES</a>
+                      </div>
+                  </div>  -->
+                  
+
                 </div>
                 <div class="col-md-6 intro-text">
                   <img style="margin: 0 auto;" class="img-responsive" src="img/cortes.png">
@@ -369,7 +423,7 @@
                   <!-- <img style="margin: 5% auto;" class="img-responsive" src="img/publicidad.png"> -->
 
                   <!-- Zuelo -->
-                  <iframe src="banners/banner_zuelo1920x400/index.php" width="100%" height="400" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                  <iframe src="banners/banner_zuelo1920x400Ed2/bannerzuelo_1920x400Responsive.html" width="100%" height="400" frameborder="0" scrolling="no" allowfullscreen></iframe>
                   <!-- Fin Zuelo -->
 
                 </div>
@@ -381,7 +435,7 @@
                   <!-- <img class="img-responsive" src="img/publicidad-mobile.png"> -->
 
                   <!-- Zuelo -->
-                  <iframe src="banners/banner_zuelo500x500/index.php" width="100%" height="400" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                  <iframe src="banners/banner_zuelo350x350/bannerzuelo_350x350.html" width="100%" height="400" frameborder="0" scrolling="no" allowfullscreen></iframe>
                   <!-- Fin Zuelo -->
 
                 </div>
