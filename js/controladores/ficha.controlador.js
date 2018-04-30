@@ -25,9 +25,9 @@ function getDetalleLocal(idLocal, modal) {
         buscarSugeridos();
         locales = data;
         popularLocal(data);
-        if (!_.isNil(modal) && !_.isEmpty(modal)) {
-          mostrarModalLocal(data._id, modal);
-        }
+        //if (!_.isNil(modal) && !_.isEmpty(modal)) {
+        //  mostrarModalLocal(data._id, modal);
+        //}
 
       },
       error: function (jqXHR, textStatus, errorThrown) {
@@ -245,7 +245,7 @@ $('#paginaNegocio').attr('href', web);
   _.each(local.idMedioPago, function (medioPago) {
     mediosPago += medioPago.descripcionMedioPago + coma;
   });
-  cargarPromociones(local._id, '', local.idNegocio.nombreNegocio, local.aceptaReservaNegocio);
+  //cargarPromociones(local._id, '', local.idNegocio.nombreNegocio, local.aceptaReservaNegocio);
   $('#medioPago').text(mediosPago);
   dibujarServicios(local.idServicio);
   var coordenadas = {lng: local.longitudLocal, lat: local.latitudLocal};
