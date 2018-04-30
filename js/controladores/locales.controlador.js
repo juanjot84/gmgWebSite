@@ -216,7 +216,8 @@ function renderLocal(local, mostrarModalPromocion) {
 
    '</div>'+
   '');
-   cargarSlide(cont, local._id, descuento, mostrarModalPromocion, local.idNegocio.nombreNegocio, local.aceptaReservaNegocio);
+//  TODO: validar las fechas de las promociones antes de mostrarlas. Fix rapido. evitar la llamada a las promos
+//   cargarSlide(cont, local._id, descuento, mostrarModalPromocion, local.idNegocio.nombreNegocio, local.aceptaReservaNegocio);
    cont++;
 }
 
