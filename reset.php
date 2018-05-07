@@ -39,16 +39,7 @@ $token = isset($_GET['token']) ? $_GET['token'] : '';
     <![endif]-->
     
     <!-- ANALYTICS -->
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111410422-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-111410422-1');
-    </script>
+       <?php include("includes/analytics.php"); ?>
 
 </head>
 

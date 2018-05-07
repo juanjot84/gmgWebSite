@@ -234,58 +234,21 @@ padding:50px 0 0 0
 
 
   <!-- ANALYTICS -->
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111410422-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-111410422-1');
-  </script>
-
+    <?php include("includes/analytics.php"); ?>
   <!-- SMARTLOOK -->
-
-  <script type="text/javascript">
-      window.smartlook||(function(d) {
-      var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
-      var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
-      c.charset='utf-8';c.src='https://rec.smartlook.com/recorder.js';h.appendChild(c);
-      })(document);
-      smartlook('init', '0f96f4e577145df7b76f73ea418d1f88a242f08b');
-  </script>
-
+    <?php include("includes/smartlook.php"); ?>
   <!-- FIN SMARTLOOK -->
 
   <!-- Facebook Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '510992362591893');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=510992362591893&ev=PageView&noscript=1"
-  /></noscript>
+    <?php include("includes/pixelFace.php"); ?>
   <!-- End Facebook Pixel Code -->
 
-  <?php include("includes/soportezen.php"); ?>
+    <?php include("includes/soportezen.php"); ?>
   
   <!-- Google Analitics Polenta -->
   
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MGCXHZF');</script>
+    <?php include("includes/googleTagManager.php"); ?>
 <!-- End Google Tag Manager -->
 
 </head>
@@ -294,8 +257,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- Google Analitics Polenta -->
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MGCXHZF"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <?php include("includes/googleTagManagerBody.php"); ?>
 <!-- End Google Tag Manager (noscript) -->
   
 
