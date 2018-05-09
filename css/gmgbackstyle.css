@@ -22,7 +22,7 @@ header {
 
 .navbar-custom .nav li a:focus,
 .navbar-custom .nav li a:hover {
-    color: #ffff00 !important;
+    color: #ffff00 ;
     outline: 0;
 }
 
