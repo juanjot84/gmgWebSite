@@ -6,7 +6,7 @@ header {
 }
 
 .navbar-custom {
-    background-color: #000 ;
+    background-color: #000 !important;
     height: auto;
 }
 
