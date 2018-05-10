@@ -8,6 +8,12 @@ function iniciar(accion) {
   });
 }
 
+function controlarServer(){
+  $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
+
+  });
+}
+
 var negocios;
 var tipoNegocios;
 
