@@ -174,6 +174,58 @@ include("includes/nav.php"); ?>
                   <li> SI</li>
                 </ul>
 
+              <h5 class="titulosalta"> Promoción Flexible</h5>
+
+                <ul class="activaronoreservas">
+                  <li>NO </li>
+                  <li>
+                    <label class="switch">
+                      <input type="checkbox" id="promocionFlexible" name="promocionFlexible" value="true">
+                      <span class="slider round"></span>
+                    </label>
+                  </li>
+                  <li> SI</li>
+                </ul>
+
+              <h5 class="titulosalta"> Promoción tipo Voucher</h5>
+
+                <ul class="activaronoreservas">
+                  <li>NO </li>
+                  <li>
+                    <label class="switch">
+                      <input type="checkbox" id="tipoVoucher" name="tipoVoucher" value="true">
+                      <span class="slider round"></span>
+                    </label>
+                  </li>
+                  <li> SI</li>
+                </ul>
+
+              <h5 class="titulosalta"> Voucher Primer Uso</h5>
+
+                <ul class="activaronoreservas">
+                  <li>NO </li>
+                  <li>
+                    <label class="switch">
+                      <input type="checkbox" id="voucherPrimerUso" name="voucherPrimerUso" value="true">
+                      <span class="slider round"></span>
+                    </label>
+                  </li>
+                  <li> SI</li>
+                </ul>
+
+              <h5 class="titulosalta" id="tituloPolo"> Modalidad de Cobro</h5>
+
+                <p>
+                  <div class="input-group input-group-sm">
+                    <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                    <select id="modalidadCobro" name="modalidadCobro" class="form-control"  required>
+                       <option value="cubierto+menu">cubierto + menu</option>
+                       <option value="menu">menu</option>
+                       <option value="cubiertos">cubiertos</option>
+                       <option value="sin_comision">sin comision</option>
+                    </select>
+                  </div>
+                </p>
 
               <h5 class="titulosalta"> Cargar ícono de la promoción</h5>
 

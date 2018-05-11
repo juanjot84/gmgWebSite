@@ -1,6 +1,10 @@
 
 var porcentaje = '';
 var impactaEnReserva;
+var promocionFlexible;
+var tipoVoucher;
+var voucherPrimerUso;
+var modalidadCobro;
 var idRangoComision = 99;
 var rangosComisiones = [];
 
@@ -384,6 +388,28 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
      }else{
       impactaEnReserva = false;
      }
+
+     promocionFlexible = $('input[name=promocionFlexible]:checked').val();
+     if(promocionFlexible == 'true'){
+      promocionFlexible = true;
+     }else{
+      promocionFlexible = false;
+     }
+
+     tipoVoucher = $('input[name=tipoVoucher]:checked').val();
+     if(tipoVoucher == 'true'){
+      tipoVoucher = true;
+     }else{
+      tipoVoucher = false;
+     }
+
+     voucherPrimerUso = $('input[name=voucherPrimerUso]:checked').val();
+     if(voucherPrimerUso == 'true'){
+      voucherPrimerUso = true;
+     }else{
+      voucherPrimerUso = false;
+     }
+
      var nombreCortoPromocion = $("#nombreCortoPromocion").val();
      if(nombreCortoPromocion == ''){
       error = true;
@@ -421,6 +447,10 @@ function guardarPromocion(){
       "colorPromocion" : $("#colorPromocion").val(),
       "comisionPromocion": porcentaje,
       "impactaEnReserva": impactaEnReserva,
+      "tipoVoucher": tipoVoucher,
+      "voucherPrimerUso": voucherPrimerUso,
+      "promocionFlexible": promocionFlexible,
+      "modalidadCobro": $("#modalidadCobro").val(),
       "imagenWebPromocion": $("#imgPromocionWeb").val(),
       "imagenAppPromocion": $("#imgPromocionApp").val(),
       "iconoPromocion": $("#iconoPromocion").val(),
@@ -480,6 +510,16 @@ function editarPromocion(idPromocion){
           if(promocion.impactaEnReserva == true){
             $("input[name=impactaReservas][value=true]").prop("checked",true);
           }
+          if(promocion.promocionFlexible == true){
+            $("input[name=promocionFlexible][value=true]").prop("checked",true);
+          }
+          if(promocion.tipoVoucher == true){
+            $("input[name=tipoVoucher][value=true]").prop("checked",true);
+          }
+          if(promocion.voucherPrimerUso == true){
+            $("input[name=voucherPrimerUso][value=true]").prop("checked",true);
+          }
+          $("#modalidadCobro").val(promocion.modalidadCobro);
           $("#iconoPromocion").val(promocion.iconoPromocion);
           $("#contenedorImagenes").html('');
           dibujarImagen(promocion.iconoPromocion,'contenedorImagenes');
