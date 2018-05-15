@@ -237,19 +237,19 @@
 
 
     <!-- ANALYTICS -->
-      <?php include("includes/analytics.php"); ?>
+    <?php include("includes/analytics.php"); ?>
     <!-- SMARTLOOK -->
-      <?php include("includes/smartlook.php"); ?>
+    <?php include("includes/smartlook.php"); ?>
     <!-- FIN SMARTLOOK -->
 
     <!-- Facebook Pixel Code -->
-      <?php include("includes/pixelFace.php"); ?>
+    <?php include("includes/pixelFace.php"); ?>
     <!-- End Facebook Pixel Code -->
-      <?php include("includes/soportezen.php"); ?>
+    <?php include("includes/soportezen.php"); ?>
     <!-- Google Analitics Polenta -->
 
     <!-- Google Tag Manager -->
-      <?php include("includes/googleTagManager.php"); ?>
+    <?php include("includes/googleTagManager.php"); ?>
     <!-- End Google Tag Manager -->
 
 
@@ -286,7 +286,7 @@
 
     <!-- Google Analitics Polenta -->
     <!-- Google Tag Manager (noscript) -->
-      <?php include("includes/googleTagManagerBody.php"); ?>
+    <?php include("includes/googleTagManagerBody.php"); ?>
     <!-- End Google Tag Manager (noscript) -->
 
 
@@ -366,7 +366,7 @@
                                     <a class="boton-restos" href="resultados-busqueda.php?promocion=ALMAlbec">VER RESTAURANTES</a>
                                 </div-->
                                 <div class="col-md-12">
-                                    
+
 
                                     <div class="descargateApp">
 
@@ -417,15 +417,20 @@
 
             <!-- Publicidad -->
             <section style="padding: 0px 0 !important;">
-                <div class="container-fluid fondopubli-web">
+                
+                    <!--Publicidad 1360x300--> 
+                    <div class="container-fluid fondopubli-web">
 
                     <div class="row">
                         <div class="col-lg-12 text-center">
                             <!-- <img style="margin: 5% auto;" class="img-responsive" src="img/publicidad.png"> -->
 
-                            <!-- Zuelo -->
-                            <iframe src="banners/banner_zuelo1920x400Ed2/bannerzuelo_1920x400Responsive.html" width="100%" height="400" frameborder="0" scrolling="no" allowfullscreen></iframe>
-                            <!-- Fin Zuelo -->
+                        
+
+                            <!-- Revive Adserver Etiqueta JS asincrónica - Generated with Revive Adserver v4.1.3 - 1360x300-->
+                            <ins data-revive-zoneid="1" data-revive-id="6a42b0d4b55d90b58eb8e42f829d9ed3"></ins>
+                            <script async src="//adserver.guiamendozagourmet.com/www/delivery/asyncjs.php"></script>
+                           
 
                         </div>
                     </div>
