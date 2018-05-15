@@ -174,7 +174,7 @@ header {
 .fondopubli-mobile {
     /*background: url(../img/fondopubli-mobile.jpg) no-repeat;*/
     background-size: auto;
-    min-height: 425px;
+    /*min-height: 425px;*/
     background-position: center;
     display: none;
     max-width: 500px;
@@ -1006,7 +1006,7 @@ input#login-submit:hover {
 
     img.logoweb {
         width: 230px;
-        padding-top: 25px;
+        margin:0 auto
     }
 
     .navbar-custom {
@@ -1217,9 +1217,8 @@ ul.promosvertical.vc_list {
         padding: 12% 0 2% 0;
     }
     img.logoweb {
-        max-width: 230px;
-        float: left;
-        margin-left: -25px;
+        
+        margin: 0 auto
     }
 
     /*Menu lateral*/
@@ -1328,6 +1327,11 @@ ul.promosvertical.vc_list {
         max-width: 560px !important;
         margin-top: 70% !important;
     }
+    #seccion-especiales {
+    
+    display: none
+        
+}
 
 
 }
@@ -1387,11 +1391,14 @@ ul.promosvertical.vc_list {
     }
 
     img.logoweb {
-        max-width: 230px;
-        float: left;
-        margin-left: 43px;
-        padding-top: 25px;
+        width: 230px;
+       margin: 0 auto
     }
+    #seccion-especiales {
+    
+    display: none
+        
+}
 
 }
 
@@ -1400,12 +1407,15 @@ ul.promosvertical.vc_list {
 
 
     img.logoweb {
-        max-width: 230px;
-        float: left;
-        margin-left: -10px;
-        padding-top: 25px;
+       width: 230px;
+        margin:0 auto
     }
-
+    
+    #seccion-especiales {
+    
+    display: none
+        
+}
 }
 
 /***************************************Ariel CSS*/
@@ -1497,6 +1507,42 @@ padding:90px 0 0 0
     width: 750px
 }
 
+/*DEscargate la APP*/
+
+.descargate {
+    background-color: #000
+    
+}
+
+.descargate h1 {
+    font-size: 14px;
+    color:#fff
+}
+
+.descargateApp {
+    position: relative;
+    padding-bottom: 54%;
+    overflow: hidden;
+
+}
+
+.descargateApp iframe
+
+ {
+  position: absolute;
+  display: block;
+  bottom: 0;
+ left: 0;
+ width: 100%;
+height: 100%;
+margin:0
+}
+
+.nomargin {
+    padding:0
+}
+
+
 /*Arreglos PopUp Reservas*/ 
  
  
@@ -1534,3 +1580,10 @@ padding:90px 0 0 0
     box-shadow: 0px 0px 25px -6px rgba(0,0,0,0.75); 
      
 } 
+
+
+/********AdServe*/
+
+.container-fluid {
+       padding:0!important
+}
