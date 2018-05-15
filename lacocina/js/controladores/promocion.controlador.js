@@ -533,6 +533,9 @@ function editarPromocion(idPromocion){
           }
           if(promocion.horarioPromocion == true){
             $("input[name=horarioPromocion][value=true]").prop("checked",true);
+            mostrarHorarios();
+          } else {
+            ocultarHorarios();
           }
           if(promocion.voucherPrimerUso == true){
             $("input[name=voucherPrimerUso][value=true]").prop("checked",true);
@@ -783,6 +786,33 @@ function actualizarVisible(idPromocion, estado){
     });
    });
 }
+
+$('#tipoVoucher').on('change', function() {
+  var  voucher = $('input[name=tipoVoucher]:checked').val();
+  if (voucher == 'true') {
+    $("#voucherPrimerUso").removeAttr("disabled");
+  } else {
+    $("#voucherPrimerUso").attr("disabled", true);
+  }
+   
+});
+
+function mostrarHorarios(){
+   $("#cargaHorarios").show();
+}
+
+function ocultarHorarios(){
+  $("#cargaHorarios").hide();
+}
+
+$('#horarioPromocion').on('change', function() {
+ var  horario = $('input[name=horarioPromocion]:checked').val();
+  if(horario == 'true') {
+    $("#cargaHorarios").show();
+  } else {
+    $("#cargaHorarios").hide();
+  }
+});
 
 function seleccionarTodos(){
   var checkTodos = $('#localCheckTodos').prop('checked') ;

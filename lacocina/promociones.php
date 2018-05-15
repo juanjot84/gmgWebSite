@@ -293,7 +293,7 @@ include("includes/nav.php"); ?>
                 </ul>
 
         <!-- NUEVO FORMATO -->
-        <div id="cargaHorarios" class="hidden">
+        <div id="cargaHorarios">
           <div class="cuadrohorarios">
             <div class="row">
               <div class="col-md-6 columnahorarios">
