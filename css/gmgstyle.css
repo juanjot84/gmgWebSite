@@ -1449,7 +1449,7 @@ button.btn.btn-default.btnbuscar {
     -moz-transition: all .2s ease-in;
     -o-transition: all .2s ease-in;
     -webkit-transition: all .2s ease-in;
-    background-color: #000;
+    background-color: #e3e3e3;
     border: #000
 }
 
