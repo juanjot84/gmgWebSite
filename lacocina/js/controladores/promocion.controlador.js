@@ -5,8 +5,14 @@ var promocionFlexible;
 var tipoVoucher;
 var voucherPrimerUso;
 var modalidadCobro;
+var horarioPromocion;
 var idRangoComision = 99;
 var rangosComisiones = [];
+var localHorariosCreados = [];
+var horariosViejos = [];
+var cantidadHorarios = 0;
+
+var dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabados", "Domingos", "Feriados"];
 
 iniciar();
 
@@ -14,7 +20,8 @@ function iniciar(){
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
        controlarRadioSeleccionado();
        dibujarListadoLocales();
-       dibujarListadoPromociones(); 
+       dibujarListadoPromociones();
+       popularDropdownHorarios();
     });
 }
 
@@ -410,6 +417,13 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
       voucherPrimerUso = false;
      }
 
+     horarioPromocion = $('input[name=horarioPromocion]:checked').val();
+     if(horarioPromocion == 'true'){
+      horarioPromocion = true;
+     }else{
+      horarioPromocion = false;
+     }
+
      var nombreCortoPromocion = $("#nombreCortoPromocion").val();
      if(nombreCortoPromocion == ''){
       error = true;
@@ -449,6 +463,7 @@ function guardarPromocion(){
       "impactaEnReserva": impactaEnReserva,
       "tipoVoucher": tipoVoucher,
       "voucherPrimerUso": voucherPrimerUso,
+      "horarioPromocion": horarioPromocion,
       "promocionFlexible": promocionFlexible,
       "modalidadCobro": $("#modalidadCobro").val(),
       "imagenWebPromocion": $("#imgPromocionWeb").val(),
@@ -515,6 +530,9 @@ function editarPromocion(idPromocion){
           }
           if(promocion.tipoVoucher == true){
             $("input[name=tipoVoucher][value=true]").prop("checked",true);
+          }
+          if(promocion.horarioPromocion == true){
+            $("input[name=horarioPromocion][value=true]").prop("checked",true);
           }
           if(promocion.voucherPrimerUso == true){
             $("input[name=voucherPrimerUso][value=true]").prop("checked",true);
@@ -805,3 +823,89 @@ function Volver(){
   var url = "../lacocina/negocios.php"; 
   $(location).attr('href',url);
 }
+
+function popularDropdownHorarios(){
+  var rangoHorario = cadaMediaHora('00:00', '23:30');
+  $('.select-horario').each(function(){
+    $(this).html('');
+    var elem = this;
+    _.each(rangoHorario, function(hora){
+      $(elem).append($('<option>', {
+          value: hora,
+          text: hora
+      }));
+    });
+  });
+}
+
+$('.botonagregarhorario').click(function (e) {
+  $('.diashorario :checked').each(function(){
+    // console.log($(this).attr('value'));
+    aplicarHorarios($(this).attr('value'))
+  })
+});
+
+$('#todos').click(function (e) {
+  if ($('#todos').is(':checked')) {
+    $(".diashorario:not(:first)").each(function(){
+      $(this).find('input').prop('checked', true);
+    })
+  } else {
+    $(".diashorario:not(:first)").each(function(){
+      $(this).find('input').prop('checked', false);
+    })
+  }
+});
+
+
+function aplicarHorarios(dia, dibujar){
+  if($('#horaInicioManana').val() != $('#horaFinManana').val() || dibujar){
+    $('#' + dia + ' td:nth-child(2)').removeAttr('style').html('<span id="Hdesde' + dia + 'Manana" >' + $('#horaInicioManana').val() + '</span> - <span id="Hhasta' + dia + 'Manana" >' + $('#horaFinManana').val() + '</span>' );
+  } else {
+    $('#' + dia + ' td:nth-child(2)').attr('style', 'color: #f8981d;').html('Sin horario de atención')
+  }
+
+  if($('#horaInicioTarde').val() != $('#horaFinTarde').val() || dibujar)  {
+    $('#' + dia + ' td:nth-child(3)').removeAttr('style').html('<span id="Hdesde' + dia + 'Tarde" >' + $('#horaInicioTarde').val() + '</span> - <span id="Hhasta' + dia + 'Tarde" >' + $('#horaFinTarde').val());
+  } else {
+    $('#' + dia + ' td:nth-child(3)').attr('style', 'color: #f8981d;').html('Sin horario de atención')
+  }
+ }
+
+
+var toInt = function(time){
+   var tiempo = time.split(':').map(parseFloat);
+   return (tiempo[0]*2 + tiempo[1]/30);
+ };
+
+
+ var toTime = function(int){
+   var hora = Math.floor(int/2);
+   if ( hora >= 24 )
+     hora -= 24;
+
+   hora = hora.toString().length === 1 ? "0" + hora : hora;
+
+
+   return [hora, int % 2 ? '30' : '00'].join(':');
+  };
+
+ var range = function(from, to){
+   var rango = Array(to-from+1).fill();
+
+   for (var i = 0; i < rango.length; i++) {
+     rango[i] = from + i;
+   }
+   return rango;
+ };
+
+ //funcion que convierte una hora a int, luego crea un rango entre esas horas y despues lo completa convirtiendo cada int a hora nuevamente
+ //viene de: https://codereview.stackexchange.com/questions/128260/populating-an-array-with-times-with-half-hour-interval-between-them
+ var cadaMediaHora = function(t1,t2){
+   var rangoNums = range(toInt(t1), toInt(t2));
+   var rangoHoras = [];
+   _.each(rangoNums, function(hora){
+     rangoHoras.push(toTime(hora));
+   });
+   return rangoHoras;
+ };
