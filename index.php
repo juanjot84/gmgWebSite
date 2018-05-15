@@ -332,7 +332,7 @@
             <header>
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6 intro-text" style="margin-top: 5%;">
+                        <div class="col-md-6 intro-text">
 
                             <img class="img-responsive" style="margin: 0 auto;" src="img/reserva.png">
                             <!-- <div class="intro-heading">RESERVÁ TU LUGAR</div>
@@ -379,7 +379,7 @@
 
 
                         </div>
-                        <div class="col-md-6 intro-text">
+                        <div class="col-md-6 intro-text" >
                             <img style="margin: 0 auto;" class="img-responsive" src="img/cortes.png">
                         </div>
                     </div>
