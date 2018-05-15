@@ -97,8 +97,8 @@ header {
     -webkit-transition:all .2s ease-in;
     color: #fff !important;
     
-     background-color: #f8981d!important;
-    border-color: #f8981d!important;
+     background-color: #2cbdbe!important;
+    border-color: #2cbdbe!important;
     /* MAGENTA
     background-color: #da3743!important;
     border-color: #da3743!important;*/
@@ -119,8 +119,8 @@ header {
 .btn-xl:hover,
 .open .dropdown-toggle.btn-xl {
     color: #fff !important;
-    background-color: #dc7d03!important;
-    border-color: #dc7d03!important;
+    background-color: #019192!important;
+    border-color: #019192!important;
 }
 
 .btn-info {
@@ -1496,3 +1496,41 @@ padding:90px 0 0 0
     
     width: 750px
 }
+
+/*Arreglos PopUp Reservas*/ 
+ 
+ 
+.btn-info { 
+    background-color: #f8981d; 
+    border-color: #f8981d; 
+    } 
+ 
+.btn-info:hover { 
+    background-color: #e78200 
+} 
+ 
+ 
+.modal-header { 
+    background-color: #ffff00; 
+    border-radius: 6px 6px 0 0; 
+} 
+ 
+.alert { 
+     
+    border-radius: 0 
+} 
+ 
+.modal-body h3.titulo, .modal-body p { 
+    padding: 0 15px 
+} 
+ 
+#telefonoReserva { 
+     
+    width: 50%; 
+    margin: 0 auto; 
+    padding: 0; 
+    border-radius: 0; 
+    border:1px; 
+    box-shadow: 0px 0px 25px -6px rgba(0,0,0,0.75); 
+     
+} 
