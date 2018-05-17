@@ -292,6 +292,7 @@ include("includes/nav.php"); ?>
                   <li> SI</li>
                 </ul>
 
+          <input type="text" name="idHorario" id="idHorario" class="hidden">
         <!-- NUEVO FORMATO -->
         <div id="cargaHorarios">
           <div class="cuadrohorarios">
