@@ -663,6 +663,9 @@ include("includes/nav.php"); ?>
     <!-- Funciones de Promocion JavaScript -->
     <script src="js/controladores/promocion.controlador.js"></script>
 
+    <!-- Funciones de Servicios JavaScript -->
+    <script src="js/servicios/eliminarEntidad.servicio.js"></script>
+
     <script src="js/dropzone.js"></script>
 
     <link rel="stylesheet" href="css/dropzone.css"> 

@@ -509,6 +509,7 @@ function editarPromocion(idPromocion){
           var promocion = data;
           $("#listadoLocales").html('');
           $("#idPromocion").val(promocion._id);
+          cargarHorariosSeteados(promocion._id);
           $("#nombrePromocion").val(promocion.nombrePromocion);
           $("#nombreCortoPromocion").val(promocion.nombreCortoPromocion);
           $("#colorPromocion").val(promocion.colorPromocion);
@@ -1074,4 +1075,51 @@ function verificarCantidad(){
   }
   //procesarHorariosLocal()
   dibujarListadoPromociones();
+}
+
+function cargarHorariosSeteados(idPromocion) {
+  if (_.isUndefined(server)) {
+    $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
+    });
+  }
+  var promocion = JSON.stringify({
+    "idPromocion": idPromocion
+  });
+  $('#target').html('obteniendo...');
+  $.ajax({
+    url: server + '/api/v1/admin/horarioPromocionActivo',
+    type: 'POST',
+
+    dataType: "json",
+    crossDomain: true,
+    contentType: "application/json",
+    success: function (data) {
+      var horariosPromocion = data;
+      horariosViejos = data;
+      _.each(dias, function (diaSemana) {
+        var horariosDia = _.filter(horariosPromocion, function(hp) { return hp.idHorarioValidoPromocion.diaSemanaPromocion === diaSemana; });
+        var horarioManana = _.find(horariosDia, function(hp) { return hp.idHorarioValidoPromocion.turnoHorarioPromocion === 'manana'; });
+        var horarioTarde = _.find(horariosDia, function(hp) { return hp.idHorarioValidoPromocion.turnoHorarioPromocion === 'tarde'; });
+        if (horarioManana || horarioTarde) {
+          aplicarHorarios(diaSemana, true);
+          if (horarioManana) {
+            $("#Hdesde" + horarioManana.idHorarioValidoPromocion.diaSemanaPromocion + "Manana").html(horarioManana.idHorarioValidoPromocion.horaInicioPromocion);
+            $("#Hhasta" + horarioManana.idHorarioValidoPromocion.diaSemanaPromocion + "Manana").html(horarioManana.idHorarioValidoPromocion.horaFinPromocion);
+          }
+          if (horarioTarde) {
+            $("#Hdesde" + horarioTarde.idHorarioValidoPromocion.diaSemanaPromocion + "Tarde").html(horarioTarde.idHorarioValidoPromocion.horaInicioPromocion);
+            $("#Hhasta" + horarioTarde.idHorarioValidoPromocion.diaSemanaPromocion + "Tarde").html(horarioTarde.idHorarioValidoPromocion.horaFinPromocion);
+          }
+        }
+      });
+      $('#loading').hide();
+      $('.datos-horarios').removeClass('hidden');
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      $('#target').append("jqXHR: " + jqXHR);
+      $('#target').append("textStatus: " + textStatus);
+      $('#target').append("You can not send Cross Domain AJAX requests: " + errorThrown);
+    },
+    data: promocion
+  });
 }
