@@ -56,7 +56,7 @@ function obtenerListado() {
           '<ul class="activaronoreservas">'+
           '<li>'+
           '<label class="switch">'+
-          '<input type="checkbox" id="aceptaReserva" name="aceptaReserva" value="" '+aceptaReserva+' disabled="true">'+
+          '<input type="checkbox" id="aceptaReserva" name="aceptaReserva" '+aceptaReserva+' disabled="true">'+
           '<span class="slider round"></span>'+
           '</label>'+
           '</li>'+
