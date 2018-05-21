@@ -417,20 +417,20 @@
 
             <!-- Publicidad -->
             <section style="padding: 0px 0 !important;">
-                
-                    <!--Publicidad 1360x300--> 
-                    <div class="container-fluid fondopubli-web">
+
+                <!--Publicidad 1360x300-->
+                <div class="container-fluid fondopubli-web">
 
                     <div class="row">
                         <div class="col-lg-12 text-center">
                             <!-- <img style="margin: 5% auto;" class="img-responsive" src="img/publicidad.png"> -->
 
-                        
+
 
                             <!-- Revive Adserver Etiqueta JS asincrónica - Generated with Revive Adserver v4.1.3 - 1360x300-->
                             <ins data-revive-zoneid="1" data-revive-id="6a42b0d4b55d90b58eb8e42f829d9ed3"></ins>
                             <script async src="//adserver.guiamendozagourmet.com/www/delivery/asyncjs.php"></script>
-                           
+
 
                         </div>
                     </div>
@@ -440,9 +440,9 @@
                         <div class="col-lg-12 text-center">
                             <!-- <img class="img-responsive" src="img/publicidad-mobile.png"> -->
 
-                            <!-- Zuelo -->
-                            <iframe src="banners/banner_zuelo350x350/bannerzuelo_350x350.html" width="100%" height="400" frameborder="0" scrolling="no" allowfullscreen></iframe>
-                            <!-- Fin Zuelo -->
+                            <!-- Revive Adserver Etiqueta JS asincrónica - Generated with Revive Adserver v4.1.3 - 350x350 -->
+                            <ins data-revive-zoneid="2" data-revive-id="6a42b0d4b55d90b58eb8e42f829d9ed3"></ins>
+                            <script async src="//adserver.guiamendozagourmet.com/www/delivery/asyncjs.php"></script>
 
                         </div>
                     </div>
