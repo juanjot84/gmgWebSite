@@ -26,7 +26,7 @@ function obtenerListado() {
   $('#listadoNegocios').html('');
   $('#loading').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span>');
   $.ajax({
-    url: server + '/api/v1/admin/negocio',
+    url: server + '/api/v1/admin/negocioReserva',
     type: 'GET',
 
     dataType: "json",
@@ -36,11 +36,17 @@ function obtenerListado() {
       negocios = data;
       var cont = 1;
       var negocioDestacado;
+      var aceptaReserva;
       _.each(data, function (negocio) {
         if (negocio.destacadoNegocio == true) {
           negocioDestacado = 'fa fa-star';
         } else {
           negocioDestacado = 'fa fa-star-o';
+        }
+        if(negocio.localAceptaReservas == true){ 
+          aceptaReserva = "checked";
+        } else {
+          aceptaReserva = "";
         }
         $('#listadoNegocios').append(' <tr>' +
           '<th scope="row" style="font-size: 1.5em;">' + cont++ + '</th>' +
@@ -50,7 +56,7 @@ function obtenerListado() {
           '<ul class="activaronoreservas">'+
           '<li>'+
           '<label class="switch">'+
-          '<input type="checkbox" id="" name="" value="true" onClick="">'+
+          '<input type="checkbox" id="aceptaReserva" name="aceptaReserva" value="" '+aceptaReserva+' disabled="true">'+
           '<span class="slider round"></span>'+
           '</label>'+
           '</li>'+
