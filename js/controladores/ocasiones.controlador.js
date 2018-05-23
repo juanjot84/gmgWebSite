@@ -37,7 +37,7 @@ function renderOcasiones(ocasiones){
 }
 
 function buscarOcasion(idOcasion) {
-  redirect('resultados-busqueda.php', 'post', idOcasion);
+  redirect('resultados-busqueda.php', 'post', 'ocasion', idOcasion);
 }
 
 function iniciarCarousel(){
