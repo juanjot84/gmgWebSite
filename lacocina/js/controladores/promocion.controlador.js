@@ -485,14 +485,38 @@ function guardarPromocion(){
       contentType:"application/json",
       success: function (data) {
         var idPromocion = data._id;
-        sendHorarioPromocion(idPromocion);
-      //  dibujarListadoPromociones();
+        deshabitarHorariosPromocion(idPromocion);
       },
       error:function(jqXHR,textStatus,errorThrown)
       {
     },
     data: promocion
 });
+}
+
+function deshabitarHorariosPromocion(idPromocion){
+    if (_.isUndefined(server)) {
+      $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
+      });
+    }
+    var promocion = JSON.stringify({
+      "idPromocion": idPromocion
+    });
+    $.ajax({
+      url: server + '/api/v1/admin/deshabitarHorariosPromocion?id='+idPromocion+'',
+      type: 'POST',
+      dataType: "json",
+      crossDomain: true,
+      contentType: "application/json",
+      success: function (data) {
+        sendHorarioPromocion(idPromocion);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        return false;
+      },
+      data: promocion
+    });
+  
 }
 
 function editarPromocion(idPromocion){
@@ -850,6 +874,7 @@ function limpiarForm(){
   $("#contenedorImagenApp").html('');
   $("#listadoLocales").html('');
   $("#myRange").val(1);
+  limpiarHorarios();
 }
 
 function Volver(){
@@ -1121,5 +1146,12 @@ function cargarHorariosSeteados(idPromocion) {
       $('#target').append("You can not send Cross Domain AJAX requests: " + errorThrown);
     },
     data: promocion
+  });
+}
+
+function limpiarHorarios(){
+  _.each(dias, function (dia) {
+      $('#' + dia + ' td:nth-child(2)').attr('style', 'color: #f8981d;').html('Sin horario de atención');
+      $('#' + dia + ' td:nth-child(3)').attr('style', 'color: #f8981d;').html('Sin horario de atención');
   });
 }
