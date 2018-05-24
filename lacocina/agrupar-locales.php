@@ -52,9 +52,8 @@ include("includes/nav.php"); ?>
           <input type="text" id="idGrupo" style="display:none"/> 
 
           <!-- Formulario de promociones -->
-          <div id="formAgrupador" >
-
-    <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
+         
+    <div id="formAgrupador" class="container" style="padding-top: 2%; padding-bottom: 1%; display:none">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -130,8 +129,6 @@ include("includes/nav.php"); ?>
             </div>
         </div>
     </div>
-
-          </div>    
 
     <!-- Tabla Promociones -->
             <div id="tablaGrupos">

@@ -266,8 +266,8 @@ function dibujarListadoGrupos(){
         crossDomain: true,
         contentType:"application/json",
         success: function (data) {
-          guardarLocalAgrupador();
-          dibujarListadoGrupos(localesSeleccionados, data._id);
+          guardarLocalAgrupador(localesSeleccionados, data._id);
+          dibujarListadoGrupos();
         },
         error:function(jqXHR,textStatus,errorThrown)
         {
@@ -276,6 +276,6 @@ function dibujarListadoGrupos(){
   });
   }
 
-  function dibujarListadoGrupos(localesSeleccionados, idGrupo){
+  function guardarLocalAgrupador(localesSeleccionados, idGrupo){
 
   }
