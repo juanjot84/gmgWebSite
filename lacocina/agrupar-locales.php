@@ -49,7 +49,7 @@ include("includes/nav.php"); ?>
           <div class="panel panel-default">
                  <!-- Table -->
           
-          <input type="text" id="idPromocion" style="display:none"/> 
+          <input type="text" id="idGrupo" style="display:none"/> 
 
           <!-- Formulario de promociones -->
           <div id="formAgrupador" >
@@ -67,57 +67,63 @@ include("includes/nav.php"); ?>
                            <h5 class="titulosalta"> Nombre</h5>
                         <div class="input-group input-group-sm">
                             <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                            <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre" aria-describedby="sizing-addon3">
+                            <input id="nombreGrupo" name="nombreGrupo" onclick="quitarAlert('nombreGrupo')" type="text" class="form-control" aria-describedby="sizing-addon3">
                         </div>
                     </div>
                       <div class="col-md-6">
-                           <h5 class="titulosalta"> Url</h5>
+                           <h5 class="titulosalta"> Descripción</h5>
                         <div class="input-group input-group-sm">
                             <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
-                            <input id="url" name="nombre" type="text" class="form-control" placeholder="Url" aria-describedby="sizing-addon3">
+                            <input id="descripcionGrupo" name="descripcionGrupo" type="text" class="form-control" aria-describedby="sizing-addon3">
                         </div>
                     </div>
-                       </div>
+                    </div>
+
+                    <div class="row"  style="margin-bottom: 20px">
+                       <div class="col-md-6">
+                           <h5 class="titulosalta"> Parámetro</h5>
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                            <input id="parametro" name="parametro" onclick="quitarAlert('parametro')" type="text" class="form-control" aria-describedby="sizing-addon3">
+                        </div>
+                    </div>
+                      <div class="col-md-6">
+                           <h5 class="titulosalta"> Valor</h5>
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                            <input id="valor" name="valor" onclick="quitarAlert('valor')" type="text" class="form-control" aria-describedby="sizing-addon3">
+                        </div>
+                    </div>
+                    </div>
                        
                     <div id="cabeceraTablaNegocios">
 
                         
-                        <h5 class="titulosalta"> Negocios</h5>
-                        
-                        <table class="table">
-                            <thead class="">
-                                <tr>
-                                    <th>Seleccionar</th>
-                                    <th>Listad</th>
-                                    <th style="text-align: center;">Sucursal</th>
+                        <h5 class="titulosalta">Seleccionar Locales</h5>
+              
+              <!-- Table -->
+              <div id=" " class="text-center">
+                <table class="table">
+                  <thead class="">
+                    <tr> 
+                      <th>Seleccionar</th>
+                      <th>Negocio</th>
+                      <th style="text-align: center;">Sucursal</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody id="listadoLocales">
 
-                                </tr>
-                            </thead>
-                            <tbody id="listadoLocales">
-                                <tr>
-                                    <td>
-                                        <div class="checkbox"><label><input type="checkbox" id="localCheckTodos" value="true" onclick="seleccionarTodos()"></label></div>
-                                    </td>
-                                    <td>Todos</td>
-                                    <td class="text-center">-</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox"><label><input type="checkbox" id="localCheck" name="localCheck" value="5a2166c8e5a40efb39098774"></label></div>
-                                    </td>
-                                    <td>Abrasado</td>
-                                    <td class="text-center">Los Toneles</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="checkbox"><label><input type="checkbox" id="localCheck" name="localCheck" value="5ad89cfe5d4c41d819ca5c25"></label></div>
-                                    </td>
-                                    <td>Almacén de Uco</td>
-                                    <td class="text-center">Almacén de Uco</td>
-                                </tr>
+                  </tbody>
+                </table>
+              </div>
 
-                            </tbody>
-                        </table>
+                            <div class="input-group">
+                 <span class="input-group-btn">
+                  <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validarDatosGrupo()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+                  <button id="botoncancelar" class="btn btn-default" type="button" style="padding: 17px;" onClick="cancelar()"><i class="fa fa-ban" aria-hidden="true"></i> Cancelar</button>
+                </span>
+              </div>
 
                     </div>
                 </div>
@@ -149,12 +155,6 @@ include("includes/nav.php"); ?>
               </table>
             </div>
 
-            <div class="input-group">
-               <span class="input-group-btn">
-                <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="Volver()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
-              </span>
-            </div>
-
             </div>
           </div>
       </div>
@@ -179,7 +179,7 @@ include("includes/nav.php"); ?>
     <!-- Theme JavaScript -->
     <script src="../js/agency.min.js"></script>
 
-    <!-- Funciones de Promocion JavaScript -->
+    <!-- Funciones de Grupos JavaScript -->
     <script src="js/controladores/agruparLocales.controlador.js"></script>
 
     <script src="js/dropzone.js"></script>
@@ -189,42 +189,6 @@ include("includes/nav.php"); ?>
     <script type="text/javascript">
     
     </script>
-
-<!-- Include Required Prerequisites -->
-<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-
- 
-<!-- Include Date Range Picker -->
-<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-
-<script type="text/javascript">
-$(function() {
- $('input[name="daterange"]').daterangepicker(
-  {
-    locale: {
-      format: 'DD/MM/YYYY'
-    }
-  }
-    );
-});
-</script>
-
-<!-- Slider Range -->
-
-<script>
-  var slider = document.getElementById("myRange");
-  var output = document.getElementById("demo");
-  output.innerHTML = slider.value;
-
-  slider.oninput = function() {
-    output.innerHTML = this.value;
-  }
-</script>
-
-
-<!-- End Slider Range -->
 
 </body>
 
