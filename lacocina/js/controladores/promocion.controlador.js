@@ -549,22 +549,22 @@ function editarPromocion(idPromocion){
             dibujarListaRangos(promocion.rangoPromocion);
           }
           controlarRadioSeleccionado();
-          if(promocion.impactaEnReserva == true){
+          if(promocion.impactaEnReserva){
             $("input[name=impactaReservas][value=true]").prop("checked",true);
           }
-          if(promocion.promocionFlexible == true){
+          if(promocion.promocionFlexible){
             $("input[name=promocionFlexible][value=true]").prop("checked",true);
           }
-          if(promocion.tipoVoucher == true){
+          if(promocion.tipoVoucher){
             $("input[name=tipoVoucher][value=true]").prop("checked",true);
           }
-          if(promocion.horarioPromocion == true){
+          if(promocion.horarioPromocion){
             $("input[name=horarioPromocion][value=true]").prop("checked",true);
             mostrarHorarios();
           } else {
             ocultarHorarios();
           }
-          if(promocion.voucherPrimerUso == true){
+          if(promocion.voucherPrimerUso){
             $("input[name=voucherPrimerUso][value=true]").prop("checked",true);
           }
           $("#modalidadCobro").val(promocion.modalidadCobro);
@@ -814,49 +814,48 @@ function actualizarVisible(idPromocion, estado){
    });
 }
 
-$('#tipoVoucher').on('change', function() {
-  var  voucher = $('input[name=tipoVoucher]:checked').val();
-  if (voucher == 'true') {
-    $("#voucherPrimerUso").removeAttr("disabled");
-  } else {
-    $("#voucherPrimerUso").attr("disabled", true);
-  }
+  $('#tipoVoucher').on('change', function() {
+    var  voucher = $('input[name=tipoVoucher]:checked').val();
+    if (voucher == 'true') {
+      $("#voucherPrimerUso").removeAttr("disabled");
+    } else {
+      $("#voucherPrimerUso").attr("disabled", true);
+    }
    
-});
+  });
 
 function mostrarHorarios(){
-   $("#cargaHorarios").show();
+  $("#cargaHorarios").show();
 }
 
 function ocultarHorarios(){
   $("#cargaHorarios").hide();
 }
 
-$('#horarioPromocion').on('change', function() {
- var  horario = $('input[name=horarioPromocion]:checked').val();
-  if(horario == 'true') {
-    $("#cargaHorarios").show();
-  } else {
-    $("#cargaHorarios").hide();
-  }
-});
-
-function seleccionarTodos(){
-  var checkTodos = $('#localCheckTodos').prop('checked') ;
-  obtenerListadoLocales().done(function(data){
-      locales = data
+  $('#horarioPromocion').on('change', function() {
+   var  horario = $('input[name=horarioPromocion]:checked').val();
+    if(horario == 'true') {
+      $("#cargaHorarios").show();
+    } else {
+      $("#cargaHorarios").hide();
+    }
   });
 
-  if(checkTodos == true){
-    _.each(locales, function (local){
+function seleccionarTodos(){
+   var checkTodos = $('#localCheckTodos').prop('checked') ;
+   obtenerListadoLocales().done(function(data){
+       locales = data
+   });
+
+    if(checkTodos == true){
+      _.each(locales, function (local){
         $("input[name=localCheck][value=" + local.idLocal + "]").prop("checked",true);  
-   }); 
-  }else{
-    _.each(locales, function (local){
-      $("input[name=localCheck][value=" + local.idLocal + "]").prop("checked",false);  
+      }); 
+    }else{
+      _.each(locales, function (local){
+        $("input[name=localCheck][value=" + local.idLocal + "]").prop("checked",false);  
     }); 
   }
-
 }
 
 function limpiarForm(){
@@ -896,12 +895,11 @@ function popularDropdownHorarios(){
   });
 }
 
-$('.botonagregarhorario').click(function (e) {
-  $('.diashorario :checked').each(function(){
-    // console.log($(this).attr('value'));
-    aplicarHorarios($(this).attr('value'))
-  })
-});
+  $('.botonagregarhorario').click(function (e) {
+    $('.diashorario :checked').each(function(){
+      aplicarHorarios($(this).attr('value'))
+    })
+  });
 
 $('#todos').click(function (e) {
   if ($('#todos').is(':checked')) {
@@ -957,8 +955,6 @@ var toInt = function(time){
    return rango;
  };
 
- //funcion que convierte una hora a int, luego crea un rango entre esas horas y despues lo completa convirtiendo cada int a hora nuevamente
- //viene de: https://codereview.stackexchange.com/questions/128260/populating-an-array-with-times-with-half-hour-interval-between-them
  var cadaMediaHora = function(t1,t2){
    var rangoNums = range(toInt(t1), toInt(t2));
    var rangoHoras = [];
@@ -969,11 +965,6 @@ var toInt = function(time){
  };
 
  function sendHorarioPromocion(idPromocion) {
-//  $('#loading').show();
-//  $('#botonVolver').attr('disabled','disabled');
-//  $('#botonVolverFondo').attr('disabled','disabled');
-//  $('#botonGuardar').attr('disabled','disabled');
-
   var idHorariosDesdeManana = [];
   var idHorariosDesdeTarde = [];
   var idHorariosHastaManana = [];
@@ -986,7 +977,6 @@ var toInt = function(time){
     idHorariosHastaTarde.push({'hora': $("#Hhasta" + dia + "Tarde").html(), 'dia': dia});
   });
 
- // var idLocalCreado = $("#idLocalCreado").val();
   var guardarHorarios = [];
 
   _.each(dias, function (dia) {
@@ -1094,11 +1084,9 @@ function guardarHorarioPromocion(idPromocion, idHorarioValidoPromocion){
 
 function verificarCantidad(){
   if (cantidadHorarios > localHorariosCreados.length){
-    // verificar que esten todas las opciones guardadas
     window.setTimeout(verificarCantidad,50);
     return;
   }
-  //procesarHorariosLocal()
   dibujarListadoPromociones();
 }
 
