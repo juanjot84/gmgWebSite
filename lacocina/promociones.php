@@ -174,6 +174,58 @@ include("includes/nav.php"); ?>
                   <li> SI</li>
                 </ul>
 
+              <h5 class="titulosalta"> Promoción Flexible</h5>
+
+                <ul class="activaronoreservas">
+                  <li>NO </li>
+                  <li>
+                    <label class="switch">
+                      <input type="checkbox" id="promocionFlexible" name="promocionFlexible" value="true">
+                      <span class="slider round"></span>
+                    </label>
+                  </li>
+                  <li> SI</li>
+                </ul>
+
+              <h5 class="titulosalta"> Promoción tipo Voucher</h5>
+
+                <ul class="activaronoreservas">
+                  <li>NO </li>
+                  <li>
+                    <label class="switch">
+                      <input type="checkbox" id="tipoVoucher" name="tipoVoucher" value="true">
+                      <span class="slider round"></span>
+                    </label>
+                  </li>
+                  <li> SI</li>
+                </ul>
+
+              <h5 class="titulosalta"> Voucher Primer Uso</h5>
+
+                <ul class="activaronoreservas">
+                  <li>NO </li>
+                  <li>
+                    <label class="switch">
+                      <input type="checkbox" id="voucherPrimerUso" name="voucherPrimerUso" value="true">
+                      <span class="slider round"></span>
+                    </label>
+                  </li>
+                  <li> SI</li>
+                </ul>
+
+              <h5 class="titulosalta" id="tituloPolo"> Modalidad de Cobro</h5>
+
+                <p>
+                  <div class="input-group input-group-sm">
+                    <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                    <select id="modalidadCobro" name="modalidadCobro" class="form-control"  required>
+                       <option value="cubierto+menu">cubierto + menu</option>
+                       <option value="menu">menu</option>
+                       <option value="cubiertos">cubiertos</option>
+                       <option value="sin_comision">sin comision</option>
+                    </select>
+                  </div>
+                </p>
 
               <h5 class="titulosalta"> Cargar ícono de la promoción</h5>
 
@@ -226,6 +278,238 @@ include("includes/nav.php"); ?>
                   
                 </div>
               </div>
+
+              <h5 class="titulosalta"> Horario valido de promocion</h5>
+
+                <ul class="activaronoreservas">
+                  <li>NO </li>
+                  <li>
+                    <label class="switch">
+                      <input type="checkbox" id="horarioPromocion" name="horarioPromocion" value="true">
+                      <span class="slider round"></span>
+                   </label>
+                  </li>
+                  <li> SI</li>
+                </ul>
+
+          <input type="text" name="idHorario" id="idHorario" class="hidden">
+        <!-- NUEVO FORMATO -->
+        <div id="cargaHorarios">
+          <div class="cuadrohorarios">
+            <div class="row">
+              <div class="col-md-6 columnahorarios">
+                <strong class="titulohorarioatencion"><i class="fa fa-clock-o" aria-hidden="true"></i> Turno 1</strong>
+                <div class="row">
+                  <div class="col-md-6">
+                    <!-- Elegir horario -->
+                    <div class="form-group">
+                      <label for="sel1">Inicio:</label>
+                      <select class="form-control select-horario" id="horaInicioManana">
+                      </select>
+                    </div>
+                    <!-- Fin Elegir horario -->
+                  </div>
+                  <div class="col-md-6">
+                    <!-- Elegir horario -->
+                    <div class="form-group">
+                      <label for="sel1">Fin:</label>
+                      <select class="form-control select-horario" id="horaFinManana">
+                      </select>
+                    </div>
+                    <!-- Fin Elegir horario -->
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 columnahorarios">
+                <strong class="titulohorarioatencion"><i class="fa fa-clock-o" aria-hidden="true"></i> Turno 2</strong>
+                <div class="row">
+                  <div class="col-md-6">
+                    <!-- Elegir horario -->
+                    <div class="form-group">
+                      <label for="sel1">Inicio:</label>
+                      <select class="form-control select-horario" id="horaInicioTarde">
+                      </select>
+                    </div>
+                    <!-- Fin Elegir horario -->
+                  </div>
+                  <div class="col-md-6">
+                    <!-- Elegir horario -->
+                    <div class="form-group">
+                      <label for="sel1">Fin:</label>
+                      <select class="form-control select-horario" id="horaFinTarde">
+                      </select>
+                    </div>
+                    <!-- Fin Elegir horario -->
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <span class="titulohorarioatencion"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Días en los que aplica:</span>
+
+            <ul class="selecdiashorario">
+              <li>
+                <div class="checkbox-inline diashorario">
+                  <label><input type="checkbox" value="Todos" id="todos">Todos</label>
+                </div>
+              </li>
+              <li>
+                <div class="checkbox-inline diashorario">
+                  <label><input type="checkbox" value="Lunes">Lunes</label>
+                </div>
+              </li>
+              <li>
+                <div class="checkbox-inline diashorario">
+                  <label><input type="checkbox" value="Martes">Martes</label>
+                </div>
+              </li>
+              <li>
+                <div class="checkbox-inline diashorario">
+                  <label><input type="checkbox" value="Miercoles">Miércoles</label>
+                </div>
+              </li>
+              <li>
+                <div class="checkbox-inline diashorario">
+                  <label><input type="checkbox" value="Jueves">Jueves</label>
+                </div>
+              </li>
+              <li>
+                <div class="checkbox-inline diashorario">
+                  <label><input type="checkbox" value="Viernes">Viernes</label>
+                </div>
+              </li>
+              <li>
+                <div class="checkbox-inline diashorario">
+                  <label><input type="checkbox" value="Sabados">Sábado</label>
+                </div>
+              </li>
+              <li>
+                <div class="checkbox-inline diashorario">
+                  <label><input type="checkbox" value="Domingos">Domingo</label>
+                </div>
+              </li>
+              <li>
+                <div class="checkbox-inline diashorario">
+                  <label><input type="checkbox" value="Feriados">Feriados</label>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="agregarquitar">
+            <button class="botonagregarhorario"><i class="fa fa-plus" aria-hidden="true"></i> Agregar a lista</button>
+            <!-- <button class="botonremoverhorario"><i class="fa fa-times" aria-hidden="true"></i> Remover</button> -->
+          </div>
+
+          <h5 class="titulosalta">Lista de horarios</h5>
+
+          <div class="cuadrohorariosresumen">
+            <div class="table-responsive">
+              <table class="table text-center">
+                <thead>
+                  <tr>
+                    <th class="titulostablahorarios"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Días</th>
+                    <th class="titulostablahorarios"><i class="fa fa-clock-o" aria-hidden="true"></i> Turno 1...</th>
+                    <th class="titulostablahorarios"><i class="fa fa-clock-o" aria-hidden="true"></i> Turno 2...</th>
+                  </tr>
+                </thead>
+                <tbody >
+                   <tr id='Lunes'>
+                    <td >
+                      <span class="diassemanaresumen">Lunes</span>
+                    </td>
+                    <td style="    color: #f8981d;">
+                      Sin horario de atención
+                    </td>
+                    <td style="    color: #f8981d;">
+                      Sin horario de atención
+                    </td>
+                  </tr>
+                  <tr id='Martes'>
+                    <td>
+                      <span class="diassemanaresumen">Martes</span>
+                    </td>
+                    <td style="    color: #f8981d;">
+                      Sin horario de atención
+                    </td>
+                    <td style="    color: #f8981d;">
+                      Sin horario de atención
+                    </td>
+                  </tr>
+                  <tr  id='Miercoles'>
+                    <td>
+                      <span class="diassemanaresumen">Miércoles</span>
+                    </td>
+                    <td style="    color: #f8981d;">
+                      Sin horario de atención
+                    </td>
+                    <td style="    color: #f8981d;">
+                      Sin horario de atención
+                    </td>
+                  </tr>
+                  <tr  id='Jueves'>
+                    <td>
+                      <span class="diassemanaresumen">Jueves</span>
+                    </td>
+                    <td style="    color: #f8981d;">
+                      Sin horario de atención
+                    </td>
+                    <td style="    color: #f8981d;">
+                      Sin horario de atención
+                    </td>
+                  </tr>
+                  <tr  id='Viernes'>
+                    <td>
+                      <span class="diassemanaresumen">Viernes</span>
+                    </td>
+                    <td style="    color: #f8981d;">
+                      Sin horario de atención
+                    </td>
+                    <td style="    color: #f8981d;">
+                      Sin horario de atención
+                    </td>
+                  </tr>
+                  <tr  id='Sabados'>
+                    <td>
+                      <span class="diassemanaresumen">Sábado</span>
+                    </td>
+                    <td style="    color: #f8981d;">
+                      Sin horario de atención
+                    </td>
+                    <td style="    color: #f8981d;">
+                      Sin horario de atención
+                    </td>
+                  </tr>
+                  <tr  id='Domingos'>
+                    <td>
+                      <span class="diassemanaresumen">Domingo</span>
+                    </td>
+                    <td style="    color: #f8981d;">
+                      Sin horario de atención
+                    </td>
+                    <td style="    color: #f8981d;">
+                      Sin horario de atención
+                    </td>
+                  </tr>
+                  <tr  id='Feriados'>
+                    <td>
+                      <span class="diassemanaresumen">Feriados</span>
+                    </td>
+                    <td style="    color: #f8981d;">
+                      Sin horario de atención
+                    </td>
+                    <td style="    color: #f8981d;">
+                      Sin horario de atención
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              </div>
+ 
+             </div>
+            </div>
+          <!-- FIN NUEVO FORMATO -->
 
               <h5 class="titulosalta">Términos y condiciones</h5>
 
