@@ -244,6 +244,7 @@ function dibujarListadoGrupos(){
       });
     }
     var isNew =$("#idGrupo").val() == '';
+    var idGrupo = $("#idGrupo").val();
     var operacion = isNew  ? "POST": "PUT";
     var localesSeleccionados = [];
     var seleccionados = $('input[name=localCheck]:checked');
@@ -266,8 +267,11 @@ function dibujarListadoGrupos(){
         crossDomain: true,
         contentType:"application/json",
         success: function (data) {
-          guardarLocalAgrupador(localesSeleccionados, data._id);
-          dibujarListadoGrupos();
+          if (!isNew) {
+            deshabitarlocalAgrupador(idGrupo, localesSeleccionados);
+          } else {
+            enviarLocalesAgrupador(localesSeleccionados, data._id);
+          }   
         },
         error:function(jqXHR,textStatus,errorThrown)
         {
@@ -276,6 +280,159 @@ function dibujarListadoGrupos(){
   });
   }
 
-  function guardarLocalAgrupador(localesSeleccionados, idGrupo){
+  function enviarLocalesAgrupador(localesSeleccionados, idGrupo){
 
+     _.each(localesSeleccionados, function (idLocal) {
+         sendLocalAgrupador(idLocal, idGrupo);
+    });
+    dibujarListadoGrupos();
+  }
+
+  function sendLocalAgrupador(idLocal, idGrupo){
+    if (_.isUndefined(server)) {
+      $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
+      });
+    }
+    var localAgrupador = JSON.stringify({
+      "idLocal": idLocal,
+      "idAgrupadorLocales": idGrupo
+    });
+    $.ajax({
+      url: server + '/api/v1/admin/localAgrupador',
+      type: 'POST',
+      dataType: "json",
+      crossDomain: true,
+      contentType: "application/json",
+      success: function (data) {
+        
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        return false;
+      },
+      data: localAgrupador
+    });
+  }
+
+  function editarGrupo(idGrupo){
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      $('#listadoLocales').html('');
+      $('#loading').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span>');       
+      $.ajax({
+          url: server + '/api/v1/admin/agrupadorLocales?id='+idGrupo+"",
+          type: 'GET',
+          dataType: "json",
+          crossDomain: true,
+          contentType:"application/json",
+          success: function (data) {
+            var grupo = data;
+            $("#listadoLocales").html('');
+            $("#idGrupo").val(grupo._id);
+            $("#nombreGrupo").val(grupo.nombreGrupo);
+            $("#descripcionGrupo").val(grupo.descripcionGrupo);
+            $("#parametro").val(grupo.parametro);
+            $("#valor").val(grupo.valor);
+            var localesSeleccionados;
+            obtenerListadoLocalesSeleccionados(grupo._id);
+            $("#tablaGrupos").hide();
+            $("#formAgrupador").show();
+          },
+          error:function(jqXHR,textStatus,errorThrown)
+          {           
+            $('#target').append("jqXHR: "+jqXHR);
+            $('#target').append("textStatus: "+textStatus);
+            $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+          },
+      });
+    });
+  }
+  
+  function obtenerListadoLocalesSeleccionados(idGrupo){
+    if (_.isUndefined(server)) {
+      $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
+      });
+    }
+    var agrupadorLocales = JSON.stringify({
+      "idAgrupadorLocales": idGrupo
+    });
+    $('#target').html('obteniendo...');
+    $.ajax({
+      url: server + '/api/v1/admin/localAgrupadorActivo',
+      type: 'POST',
+  
+      dataType: "json",
+      crossDomain: true,
+      contentType: "application/json",
+      success: function (data) {
+        var localesSeleccionados = data;
+
+        obtenerListadoLocales().done(function(data){
+          locales = data
+          popularDropdownLocalesEditar(localesSeleccionados);
+        });
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        $('#target').append("jqXHR: " + jqXHR);
+        $('#target').append("textStatus: " + textStatus);
+        $('#target').append("You can not send Cross Domain AJAX requests: " + errorThrown);
+      },
+      data: agrupadorLocales
+    });
+  }
+
+  function popularDropdownLocalesEditar(localesSeleccionados){
+    $('#listadoLocales').html('');
+    $('#listadoLocales').append('' +
+    '<tr>'+
+      '<td>'+
+         '<div class="checkbox">'+
+             '<label><input type="checkbox" id="localCheckTodos" value="true" onclick="seleccionarTodos()"></label>'+
+        '</div>'+
+      '</td>'+
+      '<td>Todos</td>'+
+      '<td class="text-center">-</td>'+
+    '</tr>'+
+  '');
+    _.each(locales, function (local){
+        $('#listadoLocales').append('' +
+         '<tr>'+
+         '<td>'+
+           '<div class="checkbox">'+
+               '<label><input type="checkbox" id="localCheck" name="localCheck" value="'+local.idLocal+'"></label>'+
+          '</div>'+
+         '</td>'+
+         '<td>'+local.nombreNegocio+'</td>'+
+         '<td class="text-center">'+local.nombreLocal+'</td>'+
+         '</tr>'+
+       ''); 
+        _.each(localesSeleccionados, function (localSeleccionado){
+          if(localSeleccionado.idLocal == local.idLocal){
+            $("input[name=localCheck][value=" + local.idLocal + "]").prop("checked",true);  
+          }   
+       });           
+    });
+  }
+
+  function deshabitarlocalAgrupador(idAgrupadorLocales, localesSeleccionados){
+    if (_.isUndefined(server)) {
+      $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
+      });
+    }
+    var localAgrupador = JSON.stringify({
+      "idAgrupadorLocales": idAgrupadorLocales
+    });
+    $.ajax({
+      url: server + '/api/v1/admin/deshabitarlocalAgrupador',
+      type: 'POST',
+      dataType: "json",
+      crossDomain: true,
+      contentType: "application/json",
+      success: function (data) {
+        enviarLocalesAgrupador(localesSeleccionados, idAgrupadorLocales);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        return false;
+      },
+      data: localAgrupador
+    });
+  
   }
