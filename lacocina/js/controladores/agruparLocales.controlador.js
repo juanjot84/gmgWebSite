@@ -47,7 +47,7 @@ function dibujarListadoGrupos(){
                       '<button onclick="editarGrupo(\'' + grupo._id + '\')" title="Editar" class="btn btn-default botaccion" type="button">'+
                         '<i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i>'+
                       '</button>'+
-                      '<button title="Eliminar" onclick="mostrarModalEliminar()" class="btn btn-default botaccion" type="button">'+
+                      '<button title="Eliminar" onclick="modalEliminar(\'' + grupo._id + '\')" class="btn btn-default botaccion" type="button">'+
                         '<i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i>'+
                       '</button>'+
                     '</td>'+
@@ -435,4 +435,62 @@ function dibujarListadoGrupos(){
       data: localAgrupador
     });
   
+  }
+
+  function modalEliminar(idGrupo){
+    $('#botonesModal').append('' +
+    '<a href="#" data-dismiss="modal" onclick="eliminarGrupo(\'' + idGrupo + '\')" class="btn btn-danger">Aceptar</a>'+
+    '<a href="#" data-dismiss="modal" onclick="quitarBotones()" class="btn btn-danger">Cerrar</a>'); 
+    $("#mostrarmodal").modal("show");
+  }
+
+  function quitarBotones(){
+    $("#mostrarmodal").modal("hide");
+    $('#botonesModal').html('');
+  }
+
+  function eliminarGrupo(idGrupo){
+    if (_.isUndefined(server)) {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      });
+    }
+    $.ajax({
+        url: server + '/api/v1/admin/agrupadorLocales?id=' + idGrupo,
+        type: 'DELETE',
+        dataType: "json",
+        crossDomain: true,
+        contentType:"application/json",
+        success: function (data) {
+          if(data != 'Borrado'){  
+            dibujarListadoGrupos();
+          }else if(data == 'Borrado'){
+            eliminarLocalAgrupador(idGrupo);
+          } 
+        },
+        error:function(jqXHR,textStatus,errorThrown) { }
+    }); 
+  }
+
+  function eliminarLocalAgrupador(idGrupo){
+    if (_.isUndefined(server)) {
+      $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
+      });
+    }
+    var localAgrupador = JSON.stringify({
+      "idAgrupadorLocales": idGrupo
+    });
+    $.ajax({
+      url: server + '/api/v1/admin/eliminarlocalesAgrupador',
+      type: 'POST',
+      dataType: "json",
+      crossDomain: true,
+      contentType: "application/json",
+      success: function (data) {
+        dibujarListadoGrupos();
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        return false;
+      },
+      data: localAgrupador
+    });
   }
