@@ -1,28 +1,26 @@
-<?php 
-error_reporting(E_ERROR);
+  <?php 
+  error_reporting(E_ERROR);
+  session_start();
+  $tipoUsuario = $_SESSION['tipoUsuario'];
 
-session_start();
-$tipoUsuario = $_SESSION['tipoUsuario'];
-
-if (!$_SESSION) {
-  header('Location: index.php');
-} else {
-if ($tipoUsuario == 'superAdmin') {
+  if (!$_SESSION) {
+    header('Location: index.php');
+  } else {
+  if ($tipoUsuario == 'superAdmin') {
    
-} else {
-   header('Location: index.php');
-}
-}
+  } else {
+     header('Location: index.php');
+  }
+  
+
+  include("includes/head.php"); ?>
+
+  <body id="page-top" class="index">
 
 
-include("includes/head.php"); ?>
-
-<body id="page-top" class="index">
-
-
-<?php 
-error_reporting(E_ERROR);
-include("includes/nav.php"); ?>
+  <?php 
+  error_reporting(E_ERROR);
+  include("includes/nav.php"); ?>
 
 
     <div class="container-fluid" style="padding: 1%; background: #fff; margin-top: -21px;">
@@ -117,7 +115,7 @@ include("includes/nav.php"); ?>
                 </table>
               </div>
 
-                            <div class="input-group">
+              <div class="input-group">
                  <span class="input-group-btn">
                   <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validarDatosGrupo()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
                   <button id="botoncancelar" class="btn btn-default" type="button" style="padding: 17px;" onClick="cancelar()"><i class="fa fa-ban" aria-hidden="true"></i> Cancelar</button>

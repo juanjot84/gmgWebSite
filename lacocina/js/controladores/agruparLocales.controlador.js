@@ -1,14 +1,14 @@
 
 iniciar();
 
-function iniciar(){
+function iniciar() {
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     dibujarListadoLocales();
     dibujarListadoGrupos(); 
     });
 }
 
-function dibujarListadoGrupos(){
+function dibujarListadoGrupos() {
     limpiarForm();
     $("#formAgrupador").hide();
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
@@ -23,13 +23,13 @@ function dibujarListadoGrupos(){
           success: function (data) {
               gruposLocales = data;
               var contGrupos = 1;       
-              _.each(gruposLocales, function(grupo){
+              _.each(gruposLocales, function(grupo) {
                 
                 var estadoGrupo;
-                if(grupo.estadoAgrupador == true){
+                if (grupo.estadoAgrupador == true) {
                     estadoGrupo = "fa fa-eye";
                 }
-                if(grupo.estadoAgrupador == false){
+                if (grupo.estadoAgrupador == false) {
                     estadoGrupo = "fa fa-eye-slash";
                 }
                 $('#listadoGrupos').append('' +
@@ -68,13 +68,13 @@ function dibujarListadoGrupos(){
             $("#tablaGrupos").show();
   }
 
-  function actualizarEstadoGrupo(idGrupo, estado){
+  function actualizarEstadoGrupo(idGrupo, estado) {
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
         var nuevoCampo = {};
         var valorAActualizar;
-        if(estado == 'true'){
+        if (estado == 'true') {
           valorAActualizar = false;
-        }else if(estado == 'false'){
+        } else if (estado == 'false') {
           valorAActualizar = true;
         }
         campoAAcuatualizar = 'estadoAgrupador';
@@ -98,31 +98,31 @@ function dibujarListadoGrupos(){
        });
   }
 
-  function cargarFormCrear(){
+  function cargarFormCrear() {
     limpiarForm();
     dibujarListadoGrupos();
     $("#formAgrupador").show();
     $("#tablaGrupos").hide();
   }
 
-  function cancelar(){
+  function cancelar() {
     dibujarListadoGrupos();
     limpiarForm();
     dibujarListadoLocales();
   }
 
-  function seleccionarTodos(){
+  function seleccionarTodos() {
     var checkTodos = $('#localCheckTodos').prop('checked') ;
-    obtenerListadoLocales().done(function(data){
+    obtenerListadoLocales().done(function(data) {
         locales = data
     });
   
-    if(checkTodos == true){
-      _.each(locales, function (local){
+    if (checkTodos == true) {
+      _.each(locales, function (local) {
           $("input[name=localCheck][value=" + local.idLocal + "]").prop("checked",true);  
      }); 
-    }else{
-      _.each(locales, function (local){
+    } else {
+      _.each(locales, function (local) {
         $("input[name=localCheck][value=" + local.idLocal + "]").prop("checked",false);  
       }); 
     }
@@ -145,7 +145,7 @@ function dibujarListadoGrupos(){
     });
   }
 
-  function limpiarForm(){
+  function limpiarForm() {
     $('input[type="text"]').val('');
   }
 
@@ -172,7 +172,7 @@ function dibujarListadoGrupos(){
                 '<td class="text-center">-</td>'+
               '</tr>'+
             '');
-              _.each(locales, function(local){
+              _.each(locales, function(local) {
                   $('#listadoLocales').append('' +
                     '<tr>'+
                       '<td>'+
@@ -197,34 +197,34 @@ function dibujarListadoGrupos(){
     });
   }
 
-  function subirWeb(seccion){
+  function subirWeb(seccion) {
     $('html,body').animate({
       scrollTop: $("#"+seccion).offset().top
     }, 2000);
   }
 
-  function validarDatosGrupo(){
+  function validarDatosGrupo() {
     var error = false;
     var nombreGrupo = $("#nombreGrupo").val();
-    if(nombreGrupo == ''){
+    if(nombreGrupo == '') {
       error = true;
       colocarAlerta('nombreGrupo','Ingresar nombre del Grupo');
       subirWeb('formAgrupador');
     }
     var parametro = $("#parametro").val();
-    if(parametro == ''){
+    if (parametro == '') {
      error = true;
      colocarAlerta('parametro','Ingresar parametro del Grupo');
      subirWeb('formAgrupador');
     }
     var valor = $("#valor").val();
-    if(valor == ''){
+    if (valor == '') {
      error = true;
      colocarAlerta('valor','Ingresar valor del Grupo');
      subirWeb('formAgrupador');
     }
 
-    if(!error){guardarGrupo()}
+    if (!error){guardarGrupo()}
   }
 
   function quitarAlert(idCampo){
@@ -233,7 +233,7 @@ function dibujarListadoGrupos(){
     $("#"+idCampo).removeClass('alert-danger');
   }
 
-  function colocarAlerta(idCampo,mensaje){
+  function colocarAlerta(idCampo,mensaje) {
     $("#"+idCampo).parent().after('<span id="'+idCampo+'Alert" style="color:red">'+mensaje+'</span>');
     $("#"+idCampo).addClass('alert-danger');
   }
@@ -248,7 +248,7 @@ function dibujarListadoGrupos(){
     var operacion = isNew  ? "POST": "PUT";
     var localesSeleccionados = [];
     var seleccionados = $('input[name=localCheck]:checked');
-      _.each(seleccionados, function(item){ 
+      _.each(seleccionados, function(item) { 
         localesSeleccionados.push(item.value);
     })
   
@@ -280,7 +280,7 @@ function dibujarListadoGrupos(){
   });
   }
 
-  function enviarLocalesAgrupador(localesSeleccionados, idGrupo){
+  function enviarLocalesAgrupador(localesSeleccionados, idGrupo) {
 
      _.each(localesSeleccionados, function (idLocal) {
          sendLocalAgrupador(idLocal, idGrupo);
@@ -288,7 +288,7 @@ function dibujarListadoGrupos(){
     dibujarListadoGrupos();
   }
 
-  function sendLocalAgrupador(idLocal, idGrupo){
+  function sendLocalAgrupador(idLocal, idGrupo) {
     if (_.isUndefined(server)) {
       $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
       });
@@ -313,7 +313,7 @@ function dibujarListadoGrupos(){
     });
   }
 
-  function editarGrupo(idGrupo){
+  function editarGrupo(idGrupo) {
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
       $('#listadoLocales').html('');
       $('#loading').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span>');       
@@ -346,7 +346,7 @@ function dibujarListadoGrupos(){
     });
   }
   
-  function obtenerListadoLocalesSeleccionados(idGrupo){
+  function obtenerListadoLocalesSeleccionados(idGrupo) {
     if (_.isUndefined(server)) {
       $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
       });
@@ -365,7 +365,7 @@ function dibujarListadoGrupos(){
       success: function (data) {
         var localesSeleccionados = data;
 
-        obtenerListadoLocales().done(function(data){
+        obtenerListadoLocales().done(function(data) {
           locales = data
           popularDropdownLocalesEditar(localesSeleccionados);
         });
@@ -379,7 +379,7 @@ function dibujarListadoGrupos(){
     });
   }
 
-  function popularDropdownLocalesEditar(localesSeleccionados){
+  function popularDropdownLocalesEditar(localesSeleccionados) {
     $('#listadoLocales').html('');
     $('#listadoLocales').append('' +
     '<tr>'+
@@ -392,7 +392,7 @@ function dibujarListadoGrupos(){
       '<td class="text-center">-</td>'+
     '</tr>'+
   '');
-    _.each(locales, function (local){
+    _.each(locales, function (local) {
         $('#listadoLocales').append('' +
          '<tr>'+
          '<td>'+
@@ -404,15 +404,15 @@ function dibujarListadoGrupos(){
          '<td class="text-center">'+local.nombreLocal+'</td>'+
          '</tr>'+
        ''); 
-        _.each(localesSeleccionados, function (localSeleccionado){
-          if(localSeleccionado.idLocal == local.idLocal){
+        _.each(localesSeleccionados, function (localSeleccionado) {
+          if (localSeleccionado.idLocal == local.idLocal) {
             $("input[name=localCheck][value=" + local.idLocal + "]").prop("checked",true);  
           }   
        });           
     });
   }
 
-  function deshabitarlocalAgrupador(idAgrupadorLocales, localesSeleccionados){
+  function deshabitarlocalAgrupador(idAgrupadorLocales, localesSeleccionados) {
     if (_.isUndefined(server)) {
       $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
       });
@@ -433,23 +433,22 @@ function dibujarListadoGrupos(){
         return false;
       },
       data: localAgrupador
-    });
-  
+    }); 
   }
 
-  function modalEliminar(idGrupo){
+  function modalEliminar(idGrupo) {
     $('#botonesModal').append('' +
     '<a href="#" data-dismiss="modal" onclick="eliminarGrupo(\'' + idGrupo + '\')" class="btn btn-danger">Aceptar</a>'+
     '<a href="#" data-dismiss="modal" onclick="quitarBotones()" class="btn btn-danger">Cerrar</a>'); 
     $("#mostrarmodal").modal("show");
   }
 
-  function quitarBotones(){
+  function quitarBotones() {
     $("#mostrarmodal").modal("hide");
     $('#botonesModal').html('');
   }
 
-  function eliminarGrupo(idGrupo){
+  function eliminarGrupo(idGrupo) {
     if (_.isUndefined(server)) {
       $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
       });
@@ -461,9 +460,9 @@ function dibujarListadoGrupos(){
         crossDomain: true,
         contentType:"application/json",
         success: function (data) {
-          if(data != 'Borrado'){  
+          if (data != 'Borrado') {  
             dibujarListadoGrupos();
-          }else if(data == 'Borrado'){
+          }else if (data == 'Borrado') {
             eliminarLocalAgrupador(idGrupo);
           } 
         },
@@ -471,7 +470,7 @@ function dibujarListadoGrupos(){
     }); 
   }
 
-  function eliminarLocalAgrupador(idGrupo){
+  function eliminarLocalAgrupador(idGrupo) {
     if (_.isUndefined(server)) {
       $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
       });
