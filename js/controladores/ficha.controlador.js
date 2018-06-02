@@ -292,11 +292,18 @@ function buscarFavoritos(local){
       var iconoCorazon = 'favoritosfichagris fa fa-heart';
       $("#iconoFavorito").append('<h3 class="titulo"><span id="nombreNegocio">'+local.idNegocio.nombreNegocio+'</span>  <span id="bajadaNegocio">'+bajadaNegocio+'</span>'+
       '<i id="corazon" style="cursor:pointer;" class="'+iconoCorazon+'" aria-hidden="true" ></i></h3>'+
-      '<p ><i class="fa fa-map-marker iconoficha" aria-hidden="true"></i> <span id="polo">' + nombrePolo + ' |  <i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' +tipoCocina +'</span></p>');
+      '<p >' +
+        '<i class="fa fa-map-marker iconoficha" aria-hidden="true"></i> <span id="polo">' + nombrePolo + ' |  ' +
+        '<i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' +tipoCocina +'</span>' +
+          mostrarHorarioApertura(local) +
+       '</p>');
 
-         $('#target').append("jqXHR: "+jqXHR);
-         $('#target').append("textStatus: "+textStatus);
-         $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+       $('[data-toggle="tooltip"]').tooltip()
+       $('[data-toggle="popover"]').popover();
+
+       $('#target').append("jqXHR: "+jqXHR);
+       $('#target').append("textStatus: "+textStatus);
+       $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
      },
      headers: {
          Authorization: 'JWT ' + jwt
@@ -304,6 +311,40 @@ function buscarFavoritos(local){
  });}
 }
 
+function mostrarHorarioApertura(local){
+  var separador = '<i class="fa fa-clock-o iconoficha iconoficha-cerrado" aria-hidden="true"></i>';
+  var dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabados", "Domingos", "Feriados"];
+
+  var span = $('<span>').html('Abre a las 20:00');
+  var table = $('<table>');
+  table.append( '<tr><th>Dias</th><th>Horarios</th></tr>' );
+
+  _.each(dias, function(dia){
+    var horariosDia = _.filter(local.idHorarioApertura, {'diaSemanaHorarioApertura': dia});
+
+    var dataDia = $('<td>').text(dia);
+    var horarios = '';
+
+    var horarioManana = _.find(horariosDia, {'turnoHorarioApertura': 'manana'});
+    var horarioTarde = _.find(horariosDia, {'turnoHorarioApertura': 'tarde'});
+
+    horarios = horarioManana.horaInicioHorarioApertura + ' a ' + horarioManana.horaFinHorarioApertura;
+    if (horarioTarde){
+      horarios += ' - ' +  horarioTarde.horaInicioHorarioApertura + ' a ' + horarioTarde.horaFinHorarioApertura;
+    }
+
+    var dataHorarios = $('<td>').text(horarios);
+    var row = $('<tr>').html(dataDia + dataHorarios);
+    table.append(row);
+  });
+
+  var a = $('<a>').attr('data-toggle', 'popover').attr('data-placement', 'bottom').attr('data-content', table.html()).attr('data-original-title', '').attr('title', '').html('Ver Horarios');
+  span.append(a);
+
+  //var html = ;
+
+  return separador + span.html();
+}
 
 function mostrarModalLogin(){
   $("#botonLogin").attr("href", 'login.php?redirect=' + encodeURIComponent(window.location.href));
