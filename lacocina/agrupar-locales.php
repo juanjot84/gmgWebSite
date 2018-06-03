@@ -11,7 +11,7 @@
   } else {
      header('Location: index.php');
   }
-  
+}
 
   include("includes/head.php"); ?>
 
