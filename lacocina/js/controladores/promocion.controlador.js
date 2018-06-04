@@ -1,29 +1,40 @@
 
-var porcentaje = '';
-var impactaEnReserva;
-var idRangoComision = 99;
-var rangosComisiones = [];
+  var porcentaje = '';
+  var impactaEnReserva;
+  var promocionFlexible;
+  var tipoVoucher;
+  var voucherPrimerUso;
+  var modalidadCobro;
+  var horarioPromocion;
+  var idRangoComision = 99;
+  var rangosComisiones = [];
+  var localHorariosCreados = [];
+  var horariosViejos = [];
+  var cantidadHorarios = 0;
 
-iniciar();
+  var dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabados", "Domingos", "Feriados"];
 
-function iniciar(){
+  iniciar();
+
+  function iniciar() {
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
        controlarRadioSeleccionado();
        dibujarListadoLocales();
-       dibujarListadoPromociones(); 
+       dibujarListadoPromociones();
+       popularDropdownHorarios();
     });
-}
+  }
 
-function controlarRadioSeleccionado(){
+  function controlarRadioSeleccionado() {
     var radioPorcentaje = $('input[name=radioComision]:checked').val();  
-        if(radioPorcentaje == 'porcentaje'){
+        if (radioPorcentaje == 'porcentaje') {
             $("#myRange").prop('disabled', false);
             $("#valorDesde").attr('disabled', 'disabled');
             $("#valorHasta").attr('disabled', 'disabled');
             $("#valorFijo").attr('disabled', 'disabled');
             $("#btnAgregarValor").attr('disabled', 'disabled');
             $("#tablaRangos").hide();
-        }else if(radioPorcentaje == 'valorFijo'){
+        } else if (radioPorcentaje == 'valorFijo') {
             $("#myRange").prop('disabled', true);
             $("#myRange").val(1);
             $("#valorDesde").removeAttr('disabled');
@@ -32,69 +43,69 @@ function controlarRadioSeleccionado(){
             $("#btnAgregarValor").removeAttr('disabled');
             $("#tablaRangos").show();
         }
-}
+  }
 
-function dibujarListaRangos(rangos){
- $('#listaComision').html('');
-  _.each(rangos, function(rango){
-    $('#listaComision').append(''+
-     '<tr id="'+rango.idRango+'" class="text-center listacomision">'+
-        '<td>'+rango.desde+'</td>'+
-        '<td class="text-center">'+rango.hasta+'</td>'+
-        '<td class="text-center">'+rango.valor+'</td>'+
-        '<td class="centrarbotaccion">'+
-            '<button title="Eliminar" onclick="eliminarFila(\'' + rango.idRango + '\')" class="btn btn-default botaccion" type="button">'+
-               '<i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i>'+
-            '</button>'+
-        '</td>'+
-      '</tr>'+
-    '')
-  });
-}
+  function dibujarListaRangos(rangos) {
+   $('#listaComision').html('');
+    _.each(rangos, function(rango) {
+      $('#listaComision').append(''+
+       '<tr id="'+rango.idRango+'" class="text-center listacomision">'+
+          '<td>'+rango.desde+'</td>'+
+          '<td class="text-center">'+rango.hasta+'</td>'+
+          '<td class="text-center">'+rango.valor+'</td>'+
+          '<td class="centrarbotaccion">'+
+              '<button title="Eliminar" onclick="eliminarFila(\'' + rango.idRango + '\')" class="btn btn-default botaccion" type="button">'+
+                 '<i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i>'+
+              '</button>'+
+          '</td>'+
+        '</tr>'+
+      '')
+    });
+  }
 
-function eliminarFila(idCampo){
+  function eliminarFila(idCampo) {
     var evens = _.remove(rangosComisiones, function(n) { return n.idRango == idCampo;});
     dibujarListaRangos(rangosComisiones);
-}
+  }
 
-function colocarAlerta(idCampo,mensaje){
-  $("#"+idCampo).parent().after('<span id="'+idCampo+'Alert" style="color:red">'+mensaje+'</span>');
-  $("#"+idCampo).addClass('alert-danger');
-}
+  function colocarAlerta(idCampo,mensaje) {
+    $("#"+idCampo).parent().after('<span id="'+idCampo+'Alert" style="color:red">'+mensaje+'</span>');
+    $("#"+idCampo).addClass('alert-danger');
+  }
 
-function validarDatosLista(){
+  function validarDatosLista() {
     var error = false;
     var valorDesde = parseInt($("#valorDesde").val(), 10);
     var valorHasta = parseInt($("#valorHasta").val(), 10);
     var valorFijo =  parseInt($("#valorFijo").val(), 10);
 
-    if(valorDesde == 0){
+    if (valorDesde == 0) {
         error = true;
         $("#valorDesdeAlert").html(''); 
         colocarAlerta('valorDesde','Ingresar Valor');
     }
-    if(valorHasta == 0){
+    if (valorHasta == 0) {
         error = true;
         $("#valorHastaAlert").html(''); 
         colocarAlerta('valorHasta','Ingresar Valor');
     }
-    if(valorFijo == 0){
+    if (valorFijo == 0) {
         error = true;
         $("#valorFijoAlert").html(''); 
         colocarAlerta('valorFijo','Ingresar Valor');
     }
-    if(valorDesde > valorHasta){
+    if (valorDesde > valorHasta) {
         error = true;
         $("#valorHastaAlert").html(''); 
         colocarAlerta('valorHasta','Debe ser mayor que el valor desde');
     }
-    if(valorDesde == valorHasta){
+    if (valorDesde == valorHasta) {
       error = true;
       $("#valorDesdeAlert").html(''); 
       colocarAlerta('valorDesde','Desde y hasta no pueden ser iguales');
     }
 
-    if(error == false){
+    if (error == false) {
       var rango = {
         "idRango": idRangoComision,
         "desde": valorDesde,
@@ -105,15 +116,15 @@ function validarDatosLista(){
         idRangoComision++;
         dibujarListaRangos(rangosComisiones);
     }   
-}
+  }
 
-function quitarAlert(idCampo){
+  function quitarAlert(idCampo) {
     $("#"+idCampo+"Alert").html(''); 
     $("#"+idCampo+"Alert").hide();
     $("#"+idCampo).removeClass('alert-danger');
-}
+  }
 
-function eliminarIcono(nombreicono, accion){
+  function eliminarIcono(nombreicono, accion) {
     if (_.isUndefined(server)) {
        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
        });
@@ -128,17 +139,17 @@ function eliminarIcono(nombreicono, accion){
           url:   'scripts/eliminarIcono.php', 
           type:  'post', 
           success:  function (response) {
-            if(accion == 'vieja'){
+            if (accion == 'vieja') {
                 
-            }else{
+            } else {
               $('#contenedorImagenes').html('');
             }
           }
        });
-}
+  }
 
-$('#mdlArchivos').on('show.bs.modal', function (event) {
-  $("#formDropZone").html('');
+  $('#mdlArchivos').on('show.bs.modal', function (event) {
+    $("#formDropZone").html('');
     $("#formDropZone").append("<form id='dZUpload3' class='dropzone borde-dropzone' style='cursor: pointer;'>"+
                               "<div class='dz-default dz-message text-center'>"+
                                 "<span><h2>Arrastra el icono aquí</h2></span><br>"+
@@ -157,7 +168,7 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
                var iconoName = response;
                 nombreIcono = iconoName.trim();
                var iconoViejo = $("#iconoPromocion").val();
-               if(iconoViejo != ''){
+               if (iconoViejo != '') {
                  var accion = 'vieja';
                  eliminarIcono(iconoViejo, accion);
                  $('#contenedorImagenes').html('');
@@ -189,7 +200,7 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
        });       
    });
 
-   function eliminarImgWeb(nombreimgweb, accion){
+  function eliminarImgWeb(nombreimgweb, accion) {
     if (_.isUndefined(server)) {
         $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
         });
@@ -204,16 +215,16 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
               url:   'scripts/eliminarImgWeb.php', 
               type:  'post', 
               success:  function (response) {
-                if(accion == 'vieja'){
+                if (accion == 'vieja') {
 
-                }else{
+                } else {
                   $('#contenedorImagenWeb').html('');
                 }                
               }
       });
-}
+  }
 
-   $('#mdlImgWeb').on('show.bs.modal', function (event) {
+  $('#mdlImgWeb').on('show.bs.modal', function (event) {
     $("#formDropZone1").html('');
     $("#formDropZone1").append("<form id='dZUpload1' class='dropzone borde-dropzone' style='cursor: pointer;'>"+
                               "<div class='dz-default dz-message text-center'>"+
@@ -233,7 +244,7 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
                var imgWebName = response;
                 nombreImgWeb = imgWebName.trim();
                var imgWebVieja = $("#imgPromocionWeb").val();
-               if(imgWebVieja != ''){
+               if (imgWebVieja != '') {
                  var accion = 'vieja';
                 eliminarImgWeb(imgWebVieja);
                 $('#contenedorImagenWeb').html('');
@@ -264,11 +275,10 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
              console.log('todavia hay archivos subiendose ');
            }
          });
-   });
+  });
 
-
-   function eliminarImgApp(nombreimgapp, accion){
-    if (_.isUndefined(server)) {
+  function eliminarImgApp(nombreimgapp, accion) {
+      if (_.isUndefined(server)) {
         $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
         });
       }
@@ -282,17 +292,17 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
               url:   'scripts/eliminarImgApp.php', 
               type:  'post', 
               success:  function (response) {
-                if(accion == 'vieja'){
+                if (accion == 'vieja') {
 
-                }else{
+                } else {
                   $('#contenedorImagenApp').html('');
                 }
                 
               }
       });
-}
+  }
 
-   $('#mdlImgApp').on('show.bs.modal', function (event) {
+  $('#mdlImgApp').on('show.bs.modal', function (event) {
     $("#formDropZone2").html('');
     $("#formDropZone2").append("<form id='dZUpload2' class='dropzone borde-dropzone' style='cursor: pointer;'>"+
                               "<div class='dz-default dz-message text-center'>"+
@@ -312,7 +322,7 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
                var imgAppName = response;
                 nombreImgApp = imgAppName.trim();
                var imgAppVieja = $("#imgPromocionApp").val();
-               if(imgAppVieja != ''){
+               if (imgAppVieja != '') {
                  var accion = 'vieja';
                 eliminarImgApp(imgAppVieja, accion);
                } 
@@ -344,83 +354,117 @@ $('#mdlArchivos').on('show.bs.modal', function (event) {
              console.log('todavia hay archivos subiendose ');
            }
          });
-   });
+  });
 
-   function cargarFormCrear(){
+  function cargarFormCrear() {
      limpiarForm();
      dibujarListadoLocales();
      $("#formPromocion").show();
      $("#tablaPromociones").hide();
-   }
+  }
 
-   function cancelar(){
+  function cancelar(){
     dibujarListadoPromociones();
     limpiarForm();
     dibujarListadoLocales();
-   }
+  }
 
-   function subirWeb(seccion){
+  function subirWeb(seccion) {
     $('html,body').animate({
       scrollTop: $("#"+seccion).offset().top
     }, 2000);
   }
 
-   function validarDatosPromocio(){
+  function validarDatosPromocio() {
      var error = false;
      var nombrePromocion = $("#nombrePromocion").val();
-     if(nombrePromocion == ''){
+     if (nombrePromocion == '') {
        error = true;
        colocarAlerta('nombrePromocion','Ingresar nombre de la promoción');
        subirWeb('formPromocion');
      }
      var radioPorcentaje = $('input[name=radioComision]:checked').val();
      porcentaje = 0;
-     if(radioPorcentaje == 'porcentaje'){
+     if (radioPorcentaje == 'porcentaje') {
        porcentaje = $("#myRange").val();
      }
      impactaEnReserva = $('input[name=impactaReservas]:checked').val();
-     if(impactaEnReserva == 'true'){
+     if (impactaEnReserva == 'true') {
       impactaEnReserva = true;
-     }else{
+     } else {
       impactaEnReserva = false;
      }
+
+     promocionFlexible = $('input[name=promocionFlexible]:checked').val();
+     if (promocionFlexible == 'true') {
+      promocionFlexible = true;
+    } else {
+      promocionFlexible = false;
+     }
+
+     tipoVoucher = $('input[name=tipoVoucher]:checked').val();
+     if (tipoVoucher == 'true') {
+      tipoVoucher = true;
+     } else {
+      tipoVoucher = false;
+     }
+
+     voucherPrimerUso = $('input[name=voucherPrimerUso]:checked').val();
+     if (voucherPrimerUso == 'true') {
+      voucherPrimerUso = true;
+     } else {
+      voucherPrimerUso = false;
+     }
+
+     horarioPromocion = $('input[name=horarioPromocion]:checked').val();
+     if (horarioPromocion == 'true') {
+      horarioPromocion = true;
+     } else {
+      horarioPromocion = false;
+     }
+
      var nombreCortoPromocion = $("#nombreCortoPromocion").val();
-     if(nombreCortoPromocion == ''){
+     if (nombreCortoPromocion == '') {
       error = true;
       colocarAlerta('nombreCortoPromocion','Ingresar nombre corto de la promoción');
       subirWeb('formPromocion');
      }
      var colorPromocion = $("#colorPromocion").val();
-     if(colorPromocion == ''){
+     if (colorPromocion == '') {
       error = true;
       colocarAlerta('colorPromocion','Ingresar color de la promoción');
       subirWeb('formPromocion');
      }
-     if(!error){guardarPromocion()}
+     if (!error) {guardarPromocion()}
    }
 
-function guardarPromocion(){
-  if (_.isUndefined(server)) {
-    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
-    });
-  }
-  var isNew =$("#idPromocion").val() == '';
-  var operacion = isNew  ? "POST": "PUT";
-  var duracionPromocion = $("#duracionPromocion").val();
-  var duracionPromocionDesde = duracionPromocion.substr(0,10);
-  var duracionPromocionHasta = duracionPromocion.substr(13,10);
-  var localesSeleccionados = [];
-  var seleccionados = $('input[name=localCheck]:checked');
-    _.each(seleccionados, function(item){ 
-      localesSeleccionados.push(item.value);
-  })
+  function guardarPromocion() {
+    if (_.isUndefined(server)) {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      });
+    }
+    var isNew =$("#idPromocion").val() == '';
+    var operacion = isNew  ? "POST": "PUT";
+    var duracionPromocion = $("#duracionPromocion").val();
+    var duracionPromocionDesde = duracionPromocion.substr(0,10);
+    var duracionPromocionHasta = duracionPromocion.substr(13,10);
+    var localesSeleccionados = [];
+    var seleccionados = $('input[name=localCheck]:checked');
+      _.each(seleccionados, function(item){ 
+        localesSeleccionados.push(item.value);
+    })
 
-  var promocion = JSON.stringify({
+    var promocion = JSON.stringify({
       "nombrePromocion": $("#nombrePromocion").val(),
       "nombreCortoPromocion": $("#nombreCortoPromocion").val(),
       "colorPromocion" : $("#colorPromocion").val(),
       "comisionPromocion": porcentaje,
       "impactaEnReserva": impactaEnReserva,
+      "tipoVoucher": tipoVoucher,
+      "voucherPrimerUso": voucherPrimerUso,
+      "horarioPromocion": horarioPromocion,
+      "promocionFlexible": promocionFlexible,
+      "modalidadCobro": $("#modalidadCobro").val(),
       "imagenWebPromocion": $("#imgPromocionWeb").val(),
       "imagenAppPromocion": $("#imgPromocionApp").val(),
       "iconoPromocion": $("#iconoPromocion").val(),
@@ -429,30 +473,56 @@ function guardarPromocion(){
       "duracionDesdePromocion": duracionPromocionDesde,
       "duracionHastaPromocion": duracionPromocionHasta,
       "idLocal": localesSeleccionados
-  });
-  $('#target').html('sending..');
-  var queryParam = isNew  ? "": "?id=" + $("#idPromocion").val();
-  $.ajax({
+    });
+    $('#target').html('sending..');
+    var queryParam = isNew  ? "": "?id=" + $("#idPromocion").val();
+    $.ajax({
       url: server + '/api/v1/admin/promocion' + queryParam,
       type: operacion,
       dataType: "json",
       crossDomain: true,
       contentType:"application/json",
       success: function (data) {
-        dibujarListadoPromociones();
+        var idPromocion = data._id;
+        deshabitarHorariosPromocion(idPromocion);
       },
       error:function(jqXHR,textStatus,errorThrown)
       {
     },
     data: promocion
-});
-}
+    });
+  }
 
-function editarPromocion(idPromocion){
-  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
-    $('#listadoPromociones').html('');
-    $('#loading').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span>');       
+  function deshabitarHorariosPromocion(idPromocion) {
+    if (_.isUndefined(server)) {
+      $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
+      });
+    }
+    var promocion = JSON.stringify({
+      "idPromocion": idPromocion
+    });
     $.ajax({
+      url: server + '/api/v1/admin/deshabitarHorariosPromocion?id='+idPromocion+'',
+      type: 'POST',
+      dataType: "json",
+      crossDomain: true,
+      contentType: "application/json",
+      success: function (data) {
+        sendHorarioPromocion(idPromocion);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        return false;
+      },
+      data: promocion
+    });
+  
+  }
+
+  function editarPromocion(idPromocion) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      $('#listadoPromociones').html('');
+      $('#loading').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span>');       
+      $.ajax({
         url: server + '/api/v1/admin/promocion?id='+idPromocion+"",
         type: 'GET',
         dataType: "json",
@@ -462,24 +532,41 @@ function editarPromocion(idPromocion){
           var promocion = data;
           $("#listadoLocales").html('');
           $("#idPromocion").val(promocion._id);
+          cargarHorariosSeteados(promocion._id);
           $("#nombrePromocion").val(promocion.nombrePromocion);
           $("#nombreCortoPromocion").val(promocion.nombreCortoPromocion);
           $("#colorPromocion").val(promocion.colorPromocion);
           var comisionPromocion = promocion.comisionPromocion;
-          if(comisionPromocion != 0){
+          if (comisionPromocion != 0) {
             $("input[name=radioComision][value=porcentaje]").prop("checked",true);
             $("#myRange").val(comisionPromocion);
             $("#demo").html('');
             $("#demo").append(comisionPromocion);
-          }else{
+          } else {
             $("input[name=radioComision][value=valorFijo]").prop("checked",true);
             rangosComisiones = promocion.rangoPromocion;
             dibujarListaRangos(promocion.rangoPromocion);
           }
           controlarRadioSeleccionado();
-          if(promocion.impactaEnReserva == true){
+          if (promocion.impactaEnReserva) {
             $("input[name=impactaReservas][value=true]").prop("checked",true);
           }
+          if (promocion.promocionFlexible) {
+            $("input[name=promocionFlexible][value=true]").prop("checked",true);
+          }
+          if (promocion.tipoVoucher) {
+            $("input[name=tipoVoucher][value=true]").prop("checked",true);
+          }
+          if (promocion.horarioPromocion) {
+            $("input[name=horarioPromocion][value=true]").prop("checked",true);
+            mostrarHorarios();
+          } else {
+            ocultarHorarios();
+          }
+          if (promocion.voucherPrimerUso) {
+            $("input[name=voucherPrimerUso][value=true]").prop("checked",true);
+          }
+          $("#modalidadCobro").val(promocion.modalidadCobro);
           $("#iconoPromocion").val(promocion.iconoPromocion);
           $("#contenedorImagenes").html('');
           dibujarImagen(promocion.iconoPromocion,'contenedorImagenes');
@@ -507,16 +594,16 @@ function editarPromocion(idPromocion){
           $('#target').append("textStatus: "+textStatus);
           $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
         },
+      });
     });
-  });
-}
+  }
 
-function obtenerListadoLocales() {
-  if (_.isUndefined(server)) {
-    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
-    });
-  }   
-    return $.ajax({
+  function obtenerListadoLocales() {
+    if (_.isUndefined(server)) {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      });
+    }   
+      return $.ajax({
         url: server + '/api/v1/admin/localesNegocio',
         type: 'GET',           
         dataType: "json",
@@ -525,67 +612,67 @@ function obtenerListadoLocales() {
         success: function (data) {
            return data;
         } 
-  });
-}
+      });
+  }
 
-function popularDropdownLocalesEditar(localesSeleccionados){
-  $('#listadoLocales').html('');
-  $('#listadoLocales').append('' +
-  '<tr>'+
-    '<td>'+
-       '<div class="checkbox">'+
-           '<label><input type="checkbox" id="localCheckTodos" value="true" onclick="seleccionarTodos()"></label>'+
-      '</div>'+
-    '</td>'+
-    '<td>Todos</td>'+
-    '<td class="text-center">-</td>'+
-  '</tr>'+
-'');
-  _.each(locales, function (local){
-      $('#listadoLocales').append('' +
-       '<tr>'+
-       '<td>'+
-         '<div class="checkbox">'+
-             '<label><input type="checkbox" id="localCheck" name="localCheck" value="'+local.idLocal+'"></label>'+
-        '</div>'+
-       '</td>'+
-       '<td>'+local.nombreNegocio+'</td>'+
-       '<td class="text-center">'+local.nombreLocal+'</td>'+
-       '</tr>'+
-     ''); 
-      _.each(localesSeleccionados, function (localSeleccionado){
-        if(localSeleccionado == local.idLocal){
+  function popularDropdownLocalesEditar(localesSeleccionados) {
+    $('#listadoLocales').html('');
+    $('#listadoLocales').append('' +
+     '<tr>'+
+     '<td>'+
+        '<div class="checkbox">'+
+            '<label><input type="checkbox" id="localCheckTodos" value="true" onclick="seleccionarTodos()"></label>'+
+       '</div>'+
+     '</td>'+
+     '<td>Todos</td>'+
+     '<td class="text-center">-</td>'+
+     '</tr>'+
+    '');
+    _.each(locales, function (local) {
+        $('#listadoLocales').append('' +
+         '<tr>'+
+         '<td>'+
+           '<div class="checkbox">'+
+               '<label><input type="checkbox" id="localCheck" name="localCheck" value="'+local.idLocal+'"></label>'+
+          '</div>'+
+         '</td>'+
+         '<td>'+local.nombreNegocio+'</td>'+
+         '<td class="text-center">'+local.nombreLocal+'</td>'+
+         '</tr>'+
+    ''); 
+    _.each(localesSeleccionados, function (localSeleccionado) {
+        if (localSeleccionado == local.idLocal) {
           $("input[name=localCheck][value=" + local.idLocal + "]").prop("checked",true);  
         }   
-     });           
-  });
-}
-
-function dibujarImagen(dirImagen, contenedor){
-  var metodo= '';
-  if(contenedor == 'contenedorImagenes'){
-    metodo = 'Icono';
-  }else if(contenedor == 'contenedorImagenWeb'){
-    metodo = 'Web';
-  }else if(contenedor == 'contenedorImagenApp'){
-    metodo = 'App';
+    });           
+    });
   }
-  $('#'+contenedor).append(  '<br>' +
-  '<li class="miniaturas-orden">'+
-     '<a href="#">'+
-       '<img class="miniatura-galeria" src="'+dirImagen+'">'+
-     '</a>'+
-    '<br>'+
-    '<button title="Eliminar" onClick="eliminarImg'+metodo+'(\'' + dirImagen + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i></button> '+
-  '</li>'+
-'');
-}
 
-function dibujarListadoLocales(){
-  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
-    $('#listadoLocales').html('');
-    $('#loading').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span>');       
-    $.ajax({
+  function dibujarImagen(dirImagen, contenedor) {
+    var metodo= '';
+    if (contenedor == 'contenedorImagenes') {
+      metodo = 'Icono';
+    } else if (contenedor == 'contenedorImagenWeb') {
+      metodo = 'Web';
+    } else if (contenedor == 'contenedorImagenApp') {
+    metodo = 'App';
+    }
+    $('#'+contenedor).append(  '<br>' +
+     '<li class="miniaturas-orden">'+
+        '<a href="#">'+
+          '<img class="miniatura-galeria" src="'+dirImagen+'">'+
+        '</a>'+
+       '<br>'+
+      '<button title="Eliminar" onClick="eliminarImg'+metodo+'(\'' + dirImagen + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i></button> '+
+     '</li>'+
+    '');
+  }
+
+  function dibujarListadoLocales() {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      $('#listadoLocales').html('');
+      $('#loading').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span>');       
+      $.ajax({
         url: server + '/api/v1/admin/localesNegocio',
         type: 'GET',      
         dataType: "json",
@@ -604,7 +691,7 @@ function dibujarListadoLocales(){
               '<td class="text-center">-</td>'+
             '</tr>'+
           '');
-            _.each(locales, function(local){
+            _.each(locales, function(local) {
                 $('#listadoLocales').append('' +
                   '<tr>'+
                     '<td>'+
@@ -618,24 +705,24 @@ function dibujarListadoLocales(){
                 '');        
               });
                    $('#loading').hide();
-        },
-        error:function(jqXHR,textStatus,errorThrown)
-        {           
-          $('#target').append("jqXHR: "+jqXHR);
-          $('#target').append("textStatus: "+textStatus);
-          $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
-        },
+          },
+          error:function(jqXHR,textStatus,errorThrown)
+          {           
+            $('#target').append("jqXHR: "+jqXHR);
+            $('#target').append("textStatus: "+textStatus);
+            $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+          },
+      });
     });
-  });
-}
+  }
 
-function dibujarListadoPromociones(){
-  limpiarForm();
-  $("#formPromocion").hide();
-  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
-    $('#listadoPromociones').html('');
-    $('#loading').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span>');       
-    $.ajax({
+  function dibujarListadoPromociones() {
+    limpiarForm();
+    $("#formPromocion").hide();
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      $('#listadoPromociones').html('');
+      $('#loading').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span>');       
+      $.ajax({
         url: server + '/api/v1/admin/promocionesActivas',
         type: 'GET',
         dataType: "json",
@@ -644,18 +731,18 @@ function dibujarListadoPromociones(){
         success: function (data) {
             promociones = data;
             var contPromociones = 1;       
-            _.each(promociones, function(promocion){
+            _.each(promociones, function(promocion) {
               var comision;
-              if(promocion.comisionPromocion == 0){
+              if (promocion.comisionPromocion == 0) {
                 comision = '-';
-              }else{
+              } else {
                 comision = promocion.comisionPromocion;
               }
               var estadoVisible;
-              if(promocion.visible == true){
+              if (promocion.visible == true) {
                 estadoVisible = "fa fa-eye";
               }
-              if(promocion.visible == false){
+              if (promocion.visible == false) {
                 estadoVisible = "fa fa-eye-slash";
               }
               $('#listadoPromociones').append('' +
@@ -691,77 +778,363 @@ function dibujarListadoPromociones(){
           $('#target').append("textStatus: "+textStatus);
           $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
         },
+      });
     });
-  });
           $("#tablaPromociones").show();
-}
+  }
 
-function actualizarVisible(idPromocion, estado){
-  $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
-    var nuevoCampo = {};
-    var valorAActualizar;
-    if(estado == 'true'){
-      valorAActualizar = false;
-    }else if(estado == 'false'){
-      valorAActualizar = true;
+  function actualizarVisible(idPromocion, estado) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      var nuevoCampo = {};
+      var valorAActualizar;
+      if (estado == 'true') {
+        valorAActualizar = false;
+      } else if (estado == 'false') {
+        valorAActualizar = true;
+      }
+      campoAAcuatualizar = 'visible';
+      nuevoCampo[campoAAcuatualizar] = valorAActualizar;
+
+      $.ajax({
+        url: server + '/api/v1/admin/promocion?id=' + idPromocion,
+        type: 'PUT',
+
+        dataType: "json",
+        crossDomain: true,
+        contentType: "application/json",
+        success: function (data) {
+          dibujarListadoPromociones();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+          reject(errorThrown);
+        },
+        data: JSON.stringify(nuevoCampo)
+      });
+   });
+  }
+
+  $('#tipoVoucher').on('change', function() {
+    var  voucher = $('input[name=tipoVoucher]:checked').val();
+    if (voucher == 'true') {
+      $("#voucherPrimerUso").removeAttr("disabled");
+    } else {
+      $("#voucherPrimerUso").attr("disabled", true);
     }
-    campoAAcuatualizar = 'visible';
-    nuevoCampo[campoAAcuatualizar] = valorAActualizar;
+   
+  });
 
+  function mostrarHorarios() {
+    $("#cargaHorarios").show();
+  }
+
+  function ocultarHorarios() {
+    $("#cargaHorarios").hide();
+  }
+
+  $('#horarioPromocion').on('change', function() {
+   var  horario = $('input[name=horarioPromocion]:checked').val();
+    if (horario == 'true') {
+      $("#cargaHorarios").show();
+    } else {
+      $("#cargaHorarios").hide();
+    }
+  });
+
+  function seleccionarTodos() {
+     var checkTodos = $('#localCheckTodos').prop('checked') ;
+     obtenerListadoLocales().done(function(data) {
+         locales = data
+     });
+
+     if (checkTodos == true) {
+      _.each(locales, function (local) {
+        $("input[name=localCheck][value=" + local.idLocal + "]").prop("checked",true);  
+      }); 
+    } else {
+      _.each(locales, function (local) {
+        $("input[name=localCheck][value=" + local.idLocal + "]").prop("checked",false);  
+      }); 
+    }
+  }
+
+  function limpiarForm() {
+    $('input[type="text"]').val('');
+    $('input[type="number"]').val(0);
+    $("#colorPromocion").val('');
+    $("#listaComision").html('');
+    $("#tablaRangos").hide();
+    $("#terminosCondiciones").val('');
+    $("input[name=radioComision][value=porcentaje]").prop("checked",true);
+    $("input[name=impactaReservas][value=true]").prop("checked",false);
+    $('input[name=impactaReservas]:checked').val();
+    $("#contenedorImagenes").html('');
+    $("#contenedorImagenWeb").html('');
+    $("#contenedorImagenApp").html('');
+    $("#listadoLocales").html('');
+    $("#myRange").val(1);
+    limpiarHorarios();
+  }
+
+  function Volver() {
+    var url = "../lacocina/negocios.php"; 
+    $(location).attr('href',url);
+  }
+
+  function popularDropdownHorarios() {
+    var rangoHorario = cadaMediaHora('00:00', '23:30');
+    $('.select-horario').each(function() {
+      $(this).html('');
+      var elem = this;
+      _.each(rangoHorario, function(hora) {
+        $(elem).append($('<option>', {
+            value: hora,
+            text: hora
+        }));
+      });
+    });
+  }
+
+  $('.botonagregarhorario').click(function (e) {
+    $('.diashorario :checked').each(function() {
+      aplicarHorarios($(this).attr('value'))
+    })
+  });
+
+  $('#todos').click(function (e) {
+    if ($('#todos').is(':checked')) {
+      $(".diashorario:not(:first)").each(function() {
+        $(this).find('input').prop('checked', true);
+      })
+    } else {
+      $(".diashorario:not(:first)").each(function() {
+       $(this).find('input').prop('checked', false);
+      })
+    }
+  });
+
+  function aplicarHorarios(dia, dibujar) {
+    if ($('#horaInicioManana').val() != $('#horaFinManana').val() || dibujar) {
+      $('#' + dia + ' td:nth-child(2)').removeAttr('style').html('<span id="Hdesde' + dia + 'Manana" >' + $('#horaInicioManana').val() + '</span> - <span id="Hhasta' + dia + 'Manana" >' + $('#horaFinManana').val() + '</span>' );
+    } else {
+      $('#' + dia + ' td:nth-child(2)').attr('style', 'color: #f8981d;').html('Sin horario de atención')
+    }
+
+    if ($('#horaInicioTarde').val() != $('#horaFinTarde').val() || dibujar)  {
+      $('#' + dia + ' td:nth-child(3)').removeAttr('style').html('<span id="Hdesde' + dia + 'Tarde" >' + $('#horaInicioTarde').val() + '</span> - <span id="Hhasta' + dia + 'Tarde" >' + $('#horaFinTarde').val());
+    } else {
+      $('#' + dia + ' td:nth-child(3)').attr('style', 'color: #f8981d;').html('Sin horario de atención')
+    }
+   }
+
+  var toInt = function(time) {
+     var tiempo = time.split(':').map(parseFloat);
+     return (tiempo[0]*2 + tiempo[1]/30);
+  };
+
+  var toTime = function(int) {
+     var hora = Math.floor(int/2);
+     if ( hora >= 24 )
+       hora -= 24;
+
+     hora = hora.toString().length === 1 ? "0" + hora : hora;
+
+     return [hora, int % 2 ? '30' : '00'].join(':');
+  };
+
+  var range = function(from, to) {
+     var rango = Array(to-from+1).fill();
+
+     for (var i = 0; i < rango.length; i++) {
+       rango[i] = from + i;
+     }
+     return rango;
+  };
+
+  var cadaMediaHora = function(t1,t2) {
+     var rangoNums = range(toInt(t1), toInt(t2));
+     var rangoHoras = [];
+     _.each(rangoNums, function(hora) {
+       rangoHoras.push(toTime(hora));
+     });
+     return rangoHoras;
+  };
+
+   function sendHorarioPromocion(idPromocion) {
+    var idHorariosDesdeManana = [];
+    var idHorariosDesdeTarde = [];
+    var idHorariosHastaManana = [];
+    var idHorariosHastaTarde = [];
+
+    _.each(dias, function (dia) {
+      idHorariosDesdeManana.push({'hora': $("#Hdesde" + dia + "Manana").html(), 'dia': dia});
+      idHorariosHastaManana.push({'hora': $("#Hhasta" + dia + "Manana").html(), 'dia': dia});
+      idHorariosDesdeTarde.push({'hora': $("#Hdesde" + dia + "Tarde").html(), 'dia': dia});
+      idHorariosHastaTarde.push({'hora': $("#Hhasta" + dia + "Tarde").html(), 'dia': dia});
+    });
+
+    var guardarHorarios = [];
+
+    _.each(dias, function (dia) {
+      var horarioDesdeM = _.find(idHorariosDesdeManana, {'dia': dia});
+      var horarioHastaM = _.find(idHorariosHastaManana, {'dia': dia});
+      var horarioDesdeT = _.find(idHorariosDesdeTarde, {'dia': dia});
+      var horarioHastaT = _.find(idHorariosHastaTarde, {'dia': dia});
+
+      if (horarioDesdeM != "" && horarioHastaM != "" && horarioDesdeM.hora && horarioHastaM.hora ) {
+        cantidadHorarios++;
+        var guardarManana = sendHorarios(dia, horarioDesdeM.hora, horarioHastaM.hora, 'manana', idPromocion).then(function (id) {
+          localHorariosCreados.push(id);
+        }).catch(function (err) {
+          console.log(err);
+        });
+        guardarHorarios.push(guardarManana);
+      }
+      if (horarioDesdeT != "" && horarioHastaT != "" && horarioDesdeT.hora && horarioHastaT.hora ) {
+        cantidadHorarios++;
+        var guardarTarde = sendHorarios(dia, horarioDesdeT.hora, horarioHastaT.hora, 'tarde', idPromocion).then(function (id) {
+          localHorariosCreados.push(id);
+        }).catch(function (err) {
+          console.log(err);
+        });
+        guardarHorarios.push(guardarTarde);
+      }
+    });
+    Promise.all(guardarHorarios).then(function () {
+      verificarCantidad();
+    }).catch(function (err) {
+      console.log(err);
+    });
+  }
+
+  function sendHorarios(diaHorario, horaDesde, horaHasta, turno, idPromocion) {
+    var promise = new Promise(function (resolve, reject) {
+      if (_.isUndefined(server)) {
+        $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
+        });
+      }
+      if (!_.isNil(diaHorario) && !_.isNil(horaDesde)) {
+        var isNew = $("#idHorario").val() == "";
+        var operacion = isNew ? "POST" : "PUT";
+        var horario = JSON.stringify({
+          "diaSemanaPromocion": diaHorario,
+          "horaInicioPromocion": horaDesde,
+          "horaFinPromocion": horaHasta,
+          "turnoHorarioPromocion": turno
+        });
+
+        $('#target').html('sending..');
+        var queryParam = isNew ? "" : "?id=" + $("#idHorario").val();
+        $.ajax({
+          url: server + '/api/v1/admin/horarioValidoPromocion' + queryParam,
+          type: operacion,
+
+          dataType: "json",
+          crossDomain: true,
+          contentType: "application/json",
+          success: function (data) {
+            var idHorarioValidoPromocion = data._id;
+            guardarHorarioPromocion(idPromocion, idHorarioValidoPromocion);
+            resolve(data._id);
+          },
+          error: function (jqXHR, textStatus, errorThrown) {
+            reject(Error("It broke"));
+          },
+          data: horario
+        });
+      } else {
+        resolve('');
+      }
+    });
+
+    return promise
+  }
+
+  function guardarHorarioPromocion(idPromocion, idHorarioValidoPromocion) {
+    if (_.isUndefined(server)) {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      });
+    }
+     var operacion = "POST";
+     var horarioPromocion = JSON.stringify({
+        "idPromocion": idPromocion,
+        "idHorarioValidoPromocion":idHorarioValidoPromocion
+     });
+
+      $.ajax({
+        url: server + '/api/v1/admin/horarioPromocion',
+        type: operacion,
+    
+        dataType: "json",
+        crossDomain: true,
+        contentType:"application/json",
+        success: function (data) {
+
+        },
+            error:function(jqXHR,textStatus,errorThrown)
+        {
+      },
+      data: horarioPromocion
+    }); 
+  }
+
+  function verificarCantidad() {
+    if (cantidadHorarios > localHorariosCreados.length) {
+      window.setTimeout(verificarCantidad,50);
+      return;
+    }
+    dibujarListadoPromociones();
+  }
+
+  function cargarHorariosSeteados(idPromocion) {
+    if (_.isUndefined(server)) {
+      $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
+     });
+    }
+    var promocion = JSON.stringify({
+      "idPromocion": idPromocion
+    });
+    $('#target').html('obteniendo...');
     $.ajax({
-      url: server + '/api/v1/admin/promocion?id=' + idPromocion,
-      type: 'PUT',
+      url: server + '/api/v1/admin/horarioPromocionActivo',
+      type: 'POST',
 
       dataType: "json",
       crossDomain: true,
       contentType: "application/json",
       success: function (data) {
-        dibujarListadoPromociones();
+        var horariosPromocion = data;
+        horariosViejos = data;
+        _.each(dias, function (diaSemana) {
+          var horariosDia = _.filter(horariosPromocion, function(hp) { return hp.idHorarioValidoPromocion.diaSemanaPromocion === diaSemana; });
+          var horarioManana = _.find(horariosDia, function(hp) { return hp.idHorarioValidoPromocion.turnoHorarioPromocion === 'manana'; });
+          var horarioTarde = _.find(horariosDia, function(hp) { return hp.idHorarioValidoPromocion.turnoHorarioPromocion === 'tarde'; });
+          if (horarioManana || horarioTarde) {
+            aplicarHorarios(diaSemana, true);
+            if (horarioManana) {
+              $("#Hdesde" + horarioManana.idHorarioValidoPromocion.diaSemanaPromocion + "Manana").html(horarioManana.idHorarioValidoPromocion.horaInicioPromocion);
+              $("#Hhasta" + horarioManana.idHorarioValidoPromocion.diaSemanaPromocion + "Manana").html(horarioManana.idHorarioValidoPromocion.horaFinPromocion);
+            }
+            if (horarioTarde) {
+              $("#Hdesde" + horarioTarde.idHorarioValidoPromocion.diaSemanaPromocion + "Tarde").html(horarioTarde.idHorarioValidoPromocion.horaInicioPromocion);
+              $("#Hhasta" + horarioTarde.idHorarioValidoPromocion.diaSemanaPromocion + "Tarde").html(horarioTarde.idHorarioValidoPromocion.horaFinPromocion);
+            }
+          }
+        });
+        $('#loading').hide();
+        $('.datos-horarios').removeClass('hidden');
       },
       error: function (jqXHR, textStatus, errorThrown) {
-        reject(errorThrown);
+        $('#target').append("jqXHR: " + jqXHR);
+        $('#target').append("textStatus: " + textStatus);
+        $('#target').append("You can not send Cross Domain AJAX requests: " + errorThrown);
       },
-      data: JSON.stringify(nuevoCampo)
+      data: promocion
     });
-   });
-}
-
-function seleccionarTodos(){
-  var checkTodos = $('#localCheckTodos').prop('checked') ;
-  obtenerListadoLocales().done(function(data){
-      locales = data
-  });
-
-  if(checkTodos == true){
-    _.each(locales, function (local){
-        $("input[name=localCheck][value=" + local.idLocal + "]").prop("checked",true);  
-   }); 
-  }else{
-    _.each(locales, function (local){
-      $("input[name=localCheck][value=" + local.idLocal + "]").prop("checked",false);  
-    }); 
   }
 
-}
-
-function limpiarForm(){
-  $('input[type="text"]').val('');
-  $('input[type="number"]').val(0);
-  $("#colorPromocion").val('');
-  $("#listaComision").html('');
-  $("#tablaRangos").hide();
-  $("#terminosCondiciones").val('');
-  $("input[name=radioComision][value=porcentaje]").prop("checked",true);
-  $("input[name=impactaReservas][value=true]").prop("checked",false);
-  $('input[name=impactaReservas]:checked').val();
-  $("#contenedorImagenes").html('');
-  $("#contenedorImagenWeb").html('');
-  $("#contenedorImagenApp").html('');
-  $("#listadoLocales").html('');
-  $("#myRange").val(1);
-}
-
-function Volver(){
-  var url = "../lacocina/negocios.php"; 
-  $(location).attr('href',url);
-}
+  function limpiarHorarios() {
+    _.each(dias, function (dia) {
+        $('#' + dia + ' td:nth-child(2)').attr('style', 'color: #f8981d;').html('Sin horario de atención');
+        $('#' + dia + ' td:nth-child(3)').attr('style', 'color: #f8981d;').html('Sin horario de atención');
+    });
+  }
