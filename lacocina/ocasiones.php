@@ -36,7 +36,7 @@ include("includes/nav.php"); ?>
       <div class="col-md-6">
 
       </div>
-      <div class="col-md-6" style="text-align: right;">
+      <div class="col-md-6" style="text-align: right;" id="botonAgregarNuevo">
         <div class="input-group">
           <span class="input-group-btn">
             <button class="botonagregarnuevo btn btn-default" type="button" style="padding: 17px;" onClick="agregarOcasion()"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVO</button>
@@ -74,7 +74,7 @@ include("includes/nav.php"); ?>
               <h5 class="titulosalta"> Ocasion Destacada</h5>
               <p>
                 <label class="radio-inline"><input type="radio" name="destacadoOcasion" id="destacadoOcasion-true" value="true">Si</label>
-                <label class="radio-inline"><input type="radio" name="destacadoOcasion" id="destacadoOcasion-false" value="false" checked="checked">No</label>
+                <label class="radio-inline"><input type="radio" name="destacadoOcasion" id="destacadoOcasion-false" value="false">No</label>
               </p>
               </br>
               </br>
@@ -103,23 +103,42 @@ include("includes/nav.php"); ?>
                 </table>
                 
 
-<div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-   <div class="modal-dialog">
-      <div class="modal-content">
-         <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h3>No se pudo eliminar la Ocasion</h3>
-     </div>
-         <div class="modal-body">
-            <h5>Esta Ocasión tiene Locales asociados</h5>
+                <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                         <h3>No se pudo eliminar la Ocasion</h3>
+                      </div>
+                      <div class="modal-body">
+                          <h5>Esta Ocasión tiene Locales asociados</h5>
 
-     </div>
-         <div class="modal-footer">
-        <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
-     </div>
-      </div>
-   </div>
-</div>
+                      </div>
+                      <div class="modal-footer">
+                           <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="modal fade" id="mostrarmodal1" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                         <h3>¿Esta seguro que desea aliminar esta ocasión?</h3>
+                      </div>
+                      <div class="modal-body">
+                          <h5></h5>
+
+                      </div>
+                      <div class="modal-footer" id="botonesModal1">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
             </div>
         </div>
     </div>
