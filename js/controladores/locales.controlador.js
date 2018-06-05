@@ -164,6 +164,7 @@ function renderLocal(local, mostrarModalPromocion) {
   var nombrePolo = '';
   var tipoCocina = '';
   var labelOscuras = '';
+  var aceptaReserva = '';
   if(local.idNivelPrecio == null){
     longNivelPrecio = 0;
     labelOscuras = '';
@@ -199,7 +200,10 @@ function renderLocal(local, mostrarModalPromocion) {
   if (!_.isEmpty(descuentoDia)) {
     descuento = '<p class="etiquetadescuento">' + descuentoDia[0].idDescuento.nombreDescuento + '</p>';
   }
-
+ 
+  if(local.aceptaReservaNegocio){
+    aceptaReserva = '<p><span class="aceptareservas"><i class="fa fa-check" aria-hidden="true"></i>Acepta Reservas</span></p>';
+  }
   $('.container.locales').append('' +
     '<div class="row resultadoficha" id="ficha' + local._id + '"><a class="linkresultadobuscador" href="ficha.php?id=' + local._id + '">' +
         '<div class="col-sm-3 col-md-3">' +
@@ -210,6 +214,7 @@ function renderLocal(local, mostrarModalPromocion) {
                '<i class="fa fa-map-marker iconoficha" aria-hidden="true"></i><span class="polo">   ' + nombrePolo + '</span> |  ' +
                 '<i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' + tipoCocina + '</span></br>' +
             '<p style="letter-spacing: 1px;"><strong>' + labelOscuras + '</strong><span style="color: #cbcbcb">' + labelGrises + '</span></p>' +
+             aceptaReserva +
             '<p><span class="descripcion">' + local.idNegocio.descripcionNegocio.substr(0, 147) + '...</span></p>' +
     '</a></div>' +
     '<div class="col-sm-2 col-md-3 text-center" id="contTotalPromo'+cont+'">'+

@@ -168,10 +168,8 @@ session_start();
                         </div>
                     </div>
 
-                    <div class="container text-center" style="display: flex;">
-                        <h3>Reservá con</h3>
-                            <ul class="promocionesficha" id="listaPromociones">
-                            </ul>
+                    <div class="container text-center" style="display: flex;" id="contenedorListaPromociones">
+
                     </div>
 
                     <div class="modal fade" id="modalPromocion" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
@@ -224,7 +222,7 @@ session_start();
                         <div class="row">
                             <div class="col-lg-12 text-center">
                                 <!-- <h2 class="section-heading">Restaurantes Sugeregidos</h2> -->
-                                <h2 class="titulosugerencia1">También te puede interesar...</h2>
+                                <h2 class="titulosugerencia1">Podes reservar en:</h2>
                             </div>
                         </div>
                     <div class="container sugeridos">
