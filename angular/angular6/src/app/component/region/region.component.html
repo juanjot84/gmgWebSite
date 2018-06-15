@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col s5">
+      <div class="car">
+        <div class="card content">
+          <form #regionForm="ngForm" (ngSubmit)="addRegion(regionForm)">
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="text" name="nombreRegion" #name="ngModel" [(ngModel)]="regionService.selectedRegion.nombreRegion" placeholder="Ingresar nombre de region">
+              </div>
+              <div class="input-field col s12">
+                  <input type="text" name="descripcionRegion" #name="ngModel" [(ngModel)]="regionService.selectedRegion.descripcionRegion" placeholder="Ingresar descripcion de region">
+              </div>
+              <div class="card-action">
+                <div class="input-field col-s12">
+                  <button class="btn right" style="margin-left: 2px;" (click)="resetForm(regionForm)">Limpiar</button>
+                  <button class="btn right">Guardar</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col s7">
+      <table class="striped highlight black-text">
+        <thead>
+          <th>Nombre</th>
+          <th>Descripcion</th>
+          <th>Operaciones</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let region of regionService.regiones">
+            <td>{{ region.nombreRegion }}</td>
+            <td>{{ region.descripcionRegion }}</td>
+            <td>
+              <a (click)="editRegion(region)">
+                <i class="material-icons">edit</i>
+              </a>
+              <a (click)="deleteRegion(region._id, regionForm)">
+                <i class="material-icons">delete</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
