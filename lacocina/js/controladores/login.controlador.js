@@ -101,7 +101,7 @@ function crearSesion(tipoUs, idNeg, token, nombreUsuario, apellidoUsuario) {
         },
         success: function (response) {
           if (tipoUs == 'usuarioNegocio') {
-            var url = "perfil/mi-perfil.php";
+            var url = "dashboard.php";
             $(location).attr('href', url);
           } else if (tipoUs == 'superAdmin') {
             var url = "negocios.php";

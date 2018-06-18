@@ -1,35 +1,55 @@
+    <?php 
+        error_reporting(E_ERROR);
+        session_start();
 
+        $idNegocio = $_SESSION['idNegocio'];
+        $tipoUsuario = $_SESSION['tipoUsuario'];
+        $nombreUsuario = $_SESSION['nombreUsuario'];
+        $apellidoUsuario = $_SESSION['apellidoUsuario'];
+        $nombreNegocio = $_SESSION['nombreNegocio'];
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" type="image/png" href="favicon.png" />
+        if (!$_SESSION) {
+            header('Location: ../index.php');
+        } else {
+            if ($tipoUsuario == 'usuarioNegocio'  or $tipoUsuario == 'superAdmin') {
+                
+            } else {
+                header('Location: ../index.php');
+            }
+        }
+    ?>
 
-    <title>La Cocina - Dashboard</title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="shortcut icon" type="image/png" href="favicon.png" />
 
-   <!--Preloader-->
-    <script src="js/pace.js"></script>
-    <link rel="stylesheet" href="css/pace.css">
-   
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+        <title>La Cocina - Dashboard</title>
 
-    <!--Roboto Font Family-->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-
-    <!-- CSS -->
-    <link href="css/lacocina.css" rel="stylesheet">
-    <link href="css/mobile.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/barras.css">
-    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
-     
-    <!--Js-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/comportamientos.js"></script>
+    <!--Preloader-->
+        <script src="js/pace.js"></script>
+        <link rel="stylesheet" href="css/pace.css">
     
-</head>
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!--Roboto Font Family-->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+
+        <!-- CSS -->
+        <link href="css/lacocina.css" rel="stylesheet">
+        <link href="css/mobile.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/barras.css">
+        <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+        
+        <!--Js-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src=" https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js" crossorigin="anonymous"></script>
+        <script src="js/comportamientos.js"></script>
+        
+    </head>
 
     <body>
  
@@ -41,15 +61,14 @@
             <!--Barra de navegacion Full Size-->
             <nav class="navbar navbar-expand-md navbar-dark fixed-top">
 
-
-
                 <div class="row">
                     <div class="col-xs-5 mobile">
                         <div class="dropdown">
-                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"  aria-haspopup="true" aria-expanded="false">
                                 Palmares
                             </a>
-
+                           
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 <a class="dropdown-item" href="#">Palmares</a>
                                 <a class="dropdown-item" href="#">Chacras de Coria</a>
@@ -63,23 +82,12 @@
                        <img src="img/LogoResto.png">
                     </div>
                    
-
-
                     <div class="col-md-4 web">
                         <img src="img/logo-lacocina.png" class="mx-auto d-block ">
                     </div>
                     <div class="col-md-4 web">
-                        <div class="dropdown">
-                            <a class="btn btn-secondary dropdown-toggle text-center mx-auto d-block " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  Palmares
-  </a>
+                        <div id="navWeb" class="dropdown">
 
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="#">Palmares</a>
-                                <a class="dropdown-item" href="#">Chacras de Coria</a>
-                                <a class="dropdown-item" href="#">Lujan de Cuyo</a>
-                                <a class="dropdown-item" href="#">Aristides Villanueva</a>
-                            </div>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -94,47 +102,47 @@
                                 <li class="has_sub">
                                     <h2> <i class="fa"><img src="img/iconos/user-circle.svg"  title="imagen SVG" class="imgSvg"/></i>
                                         <span class="nav-text">
-                           Bienvenido, Ariel Karlen
-                        </span>
+                                           Bienvenido,  <?php  error_reporting(E_ERROR); echo $nombreUsuario; echo $apellidoUsuario; ?>
+                                        </span>
                                     </h2>
                                 </li>
                                 <li>
                                     <a href="admin-negocio.html" class="hvr-bounce-to-left">
-                       <i class="fa"><img src="img/iconos/building.svg"  title="imagen SVG" class="imgSvg"/></i>
-                        <span class="nav-text">
-                           Administrar Negocios
-                        </span>
-                    </a>
+                                        <i class="fa"><img src="img/iconos/building.svg"  title="imagen SVG" class="imgSvg"/></i>
+                                           <span class="nav-text">
+                                             Administrar Negocios
+                                           </span>
+                                    </a>
                                 </li>
                                 <li>
                                     <a href="usuarios.html" class="hvr-bounce-to-left"><i class="fa"><img src="img/iconos/user.svg"  title="imagen SVG" class="imgSvg"/></i>
-                        <span class="nav-text">
-                           Usuarios
-                        </span></a>
+                                            <span class="nav-text">
+                                              Usuarios
+                                            </span></a>
                                 </li>
                                 <li>
                                     <a href="datoscontacto.html" class="hvr-bounce-to-left"><i class="fa"><img src="img/iconos/phone.svg"  title="imagen SVG" class="imgSvg"/></i>
-                        <span class="nav-text">
-                           Datos de Contacto
-                        </span></a>
+                                            <span class="nav-text">
+                                              Datos de Contacto
+                                            </span></a>
                                 </li>
                                 <li>
                                     <a href="proveedores.pdf" class="hvr-bounce-to-left"><i class="fa"><img src="img/iconos/list.svg"  title="imagen SVG" class="imgSvg"/></i>
-                        <span class="nav-text">
-                           Lista de Proveedores
-                        </span></a>
+                                            <span class="nav-text">
+                                              Lista de Proveedores
+                                            </span></a>
                                 </li>
                                 <li>
                                     <a href="tutoriales.html" class="hvr-bounce-to-left"><i class="fa"><img src="img/iconos/play.svg"  title="imagen SVG" class="imgSvg"/></i>
-                        <span class="nav-text">
-                           Tutoriales
-                        </span></a>
+                                            <span class="nav-text">
+                                              Tutoriales
+                                            </span></a>
                                 </li>
                                 <li>
                                     <a href="index.html" class="hvr-bounce-to-left"><i class="fa"><img src="img/iconos/sign-out-alt.svg"  title="imagen SVG" class="imgSvg"/></i>
-                        <span class="nav-text">
-                           Salir
-                        </span></a>
+                                            <span class="nav-text">
+                                               Salir
+                                            </span></a>
                                 </li>
                             </ul>
                         </div>
@@ -694,10 +702,14 @@
         $("#menu-toggle").click(function(e) {
             e.preventDefault();
             $("#sidebar-wrapper").toggleClass("active");
-        });
-
+        }); 
     </script>
 
+    <script>
+        $(function() {
+           iniciar('<?php echo $idNegocio; ?>');
+        });
+    </script>
 
 
 </body>
