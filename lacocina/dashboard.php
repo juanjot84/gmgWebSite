@@ -7,6 +7,7 @@
         $nombreUsuario = $_SESSION['nombreUsuario'];
         $apellidoUsuario = $_SESSION['apellidoUsuario'];
         $nombreNegocio = $_SESSION['nombreNegocio'];
+        $idLocal = $_SESSION['idLocal'];
 
         if (!$_SESSION) {
             header('Location: ../index.php');
@@ -57,24 +58,14 @@
     <!--CAbecera para Web-->
     <header>
         <div class="container">
-
+        <input type="text" name="idNegocio" id="idNegocio" value="<?php  error_reporting(E_ERROR); echo $idNegocio; ?>" style="display:none">
             <!--Barra de navegacion Full Size-->
             <nav class="navbar navbar-expand-md navbar-dark fixed-top">
 
                 <div class="row">
                     <div class="col-xs-5 mobile">
-                        <div class="dropdown">
+                        <div id="navCel" class="dropdown">
                            
-                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"  aria-haspopup="true" aria-expanded="false">
-                                Palmares
-                            </a>
-                           
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="#">Palmares</a>
-                                <a class="dropdown-item" href="#">Chacras de Coria</a>
-                                <a class="dropdown-item" href="#">Lujan de Cuyo</a>
-                                <a class="dropdown-item" href="#">Aristides Villanueva</a>
-                            </div>
                         </div>
                         
                     </div>
@@ -102,26 +93,26 @@
                                 <li class="has_sub">
                                     <h2> <i class="fa"><img src="img/iconos/user-circle.svg"  title="imagen SVG" class="imgSvg"/></i>
                                         <span class="nav-text">
-                                           Bienvenido,  <?php  error_reporting(E_ERROR); echo $nombreUsuario; echo $apellidoUsuario; ?>
+                                           Bienvenido,  <?php  error_reporting(E_ERROR); echo $nombreUsuario; echo ' '.$apellidoUsuario; ?>
                                         </span>
                                     </h2>
                                 </li>
                                 <li>
-                                    <a href="admin-negocio.html" class="hvr-bounce-to-left">
+                                    <a id="formNegocio" href="#"  class="hvr-bounce-to-left">
                                         <i class="fa"><img src="img/iconos/building.svg"  title="imagen SVG" class="imgSvg"/></i>
                                            <span class="nav-text">
-                                             Administrar Negocios
+                                             Administrar Negocio
                                            </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="usuarios.html" class="hvr-bounce-to-left"><i class="fa"><img src="img/iconos/user.svg"  title="imagen SVG" class="imgSvg"/></i>
+                                    <a id="formUsuario" href="#" class="hvr-bounce-to-left"><i class="fa"><img src="img/iconos/user.svg"  title="imagen SVG" class="imgSvg"/></i>
                                             <span class="nav-text">
-                                              Usuarios
+                                             Usuario
                                             </span></a>
                                 </li>
                                 <li>
-                                    <a href="datoscontacto.html" class="hvr-bounce-to-left"><i class="fa"><img src="img/iconos/phone.svg"  title="imagen SVG" class="imgSvg"/></i>
+                                    <a id="formDatosContacto" href="#" class="hvr-bounce-to-left"><i class="fa"><img src="img/iconos/phone.svg"  title="imagen SVG" class="imgSvg"/></i>
                                             <span class="nav-text">
                                               Datos de Contacto
                                             </span></a>
@@ -139,7 +130,7 @@
                                             </span></a>
                                 </li>
                                 <li>
-                                    <a href="index.html" class="hvr-bounce-to-left"><i class="fa"><img src="img/iconos/sign-out-alt.svg"  title="imagen SVG" class="imgSvg"/></i>
+                                    <a href="<?php error_reporting(E_ERROR); echo $path; ?>scripts/cerrar_sesion.php" class="hvr-bounce-to-left"><i class="fa"><img src="img/iconos/sign-out-alt.svg"  title="imagen SVG" class="imgSvg"/></i>
                                             <span class="nav-text">
                                                Salir
                                             </span></a>
@@ -156,7 +147,7 @@
             <nav class="main-menu">
                 <ul>
                     <li class="izquierdoactive">
-                        <a href="dashboard.html" class="hvr-bounce-to-right">
+                        <a href="dashboard.php" class="hvr-bounce-to-right">
                         <i class="fa"><img src="img/iconos/home.svg"  title="imagen SVG" class="imgSvg"/></i>
                         <span class="nav-text" data-toggle="tooltip" data-placement="right" >
                             Inicio
@@ -165,7 +156,7 @@
 
                     </li>
                     <li>
-                        <a href="ver-reservas.html" class="hvr-bounce-to-right">
+                        <a id="formReservas" href="#" class="hvr-bounce-to-right">
                          <i class="fa"><img src="img/iconos/check.svg"  title="imagen SVG" class="imgSvg"/></i>
                         <span class="nav-text">
                             Ver Reservas Realizadas
@@ -707,7 +698,7 @@
 
     <script>
         $(function() {
-           iniciar('<?php echo $idNegocio; ?>');
+           iniciar('<?php echo $idNegocio; ?>' , '<?php echo $idLocal; ?>');
         });
     </script>
 

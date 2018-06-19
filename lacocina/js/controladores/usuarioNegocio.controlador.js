@@ -108,7 +108,7 @@ var mailUsuario;
     function volverPanelNegocio(){
       var tipoUsuario = $("#tipoUs").val();
       if(tipoUsuario == 'usuarioNegocio'){
-          var url = "../lacocina/perfil/mi-perfil.php";
+          var url = "dashboard.php";
           $(location).attr('href',url);
       }else if(tipoUsuario == 'superAdmin'){
           var negocioCreado = $("#idNegocio").val(); 
