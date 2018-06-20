@@ -308,51 +308,20 @@
             <!--Promociones Activas-->
             <div class="col-lg-4">
                 <div id="promocionesActivas" class="modulo rosado">
-                    <h1>Hay 4 promociones activas <span class="ver"><a href="#">  - Ver todas </a></span></h1>
+                    <h1 id="cantidadPromociones"></h1>
                     <div class="content content mCustomScrollbar  mCS-autoHide">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <img src="img/Promociones/Promocion01.jpg">
-                            </div>
+                    <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Dias</th>
+                                    <th scope="col">Hora</th>
+                                </tr>
+                            </thead>
+                            <tbody id="listaPromociones">
 
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <img src="img/Promociones/Promociones02.png">
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <img src="img/Promociones/Promocion01.jpg">
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <img src="img/Promociones/Promocion01.jpg">
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <img src="img/Promociones/Promocion01.jpg">
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <img src="img/Promociones/Promocion01.jpg">
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <img src="img/Promociones/Promocion01.jpg">
-                            </div>
-
-                        </div>
-
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -377,7 +346,7 @@
         <div class="row">
             <div class="col-lg-4">
                 <div id="HorariosAtencion" class="modulo celeste">
-                    <h1><span>Horarios</span> de Atención <span class="ver"><a href="#">  - Configurar </a></span></h1>
+                    <h1><span>Horarios</span> de Atención <span class="ver"><a id="formHorarioAtencion2" href="#">  - Configurar </a></span></h1>
 
                     <div class="content content mCustomScrollbar  mCS-autoHide">
                         <table class="table table-sm">
