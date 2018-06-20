@@ -165,7 +165,7 @@
 
                     </li>
                     <li>
-                        <a href="configurar-reservas.html" class="hvr-bounce-to-right">
+                        <a id="formConfigReservas" href="#" class="hvr-bounce-to-right">
                        <i class="fa"><img src="img/iconos/cutlery.svg"  title="imagen SVG" class="imgSvg"/></i>
                         <span class="nav-text">
                             Configurar Reservas
@@ -174,7 +174,7 @@
 
                     </li>
                     <li>
-                        <a href="descuentos.html" class="hvr-bounce-to-right">
+                        <a id="formPromLocal" href="#" class="hvr-bounce-to-right">
                        <i class="fa"><img src="img/iconos/gift.svg"  title="imagen SVG" class="imgSvg"/></i>
                         <span class="nav-text">
                             Descuentos y promociones
@@ -183,7 +183,7 @@
 
                     </li>
                     <li>
-                        <a href="horarios.html" class="hvr-bounce-to-right">
+                        <a id="formHorarioAtencion" href="#" class="hvr-bounce-to-right">
                         <i class="fa"><img src="img/iconos/clock.svg"  title="imagen SVG" class="imgSvg"/></i>
                         <span class="nav-text">
                             Horarios de Atención
@@ -191,7 +191,7 @@
                     </a>
                     </li>
                     <li>
-                        <a href="calificaciones.html" class="hvr-bounce-to-right">
+                        <a id="formCalificaciones" href="#" class="hvr-bounce-to-right">
                         <i class="fa"><img src="img/iconos/star.svg"  title="imagen SVG" class="imgSvg"/></i>
                         <span class="nav-text">
                             Calificaciones
@@ -199,7 +199,7 @@
                     </a>
                     </li>
                     <li>
-                        <a href="cargar-imagenes.html" class="hvr-bounce-to-right">
+                        <a id="formImagenes" href="#" class="hvr-bounce-to-right">
                         <i class="fa"><img src="img/iconos/image.svg"  title="imagen SVG" class="imgSvg"/></i>
                         <span class="nav-text">
                             Cargar Imagenes
@@ -207,7 +207,7 @@
                     </a>
                     </li>
                     <li>
-                        <a href="remarketing.html" class="hvr-bounce-to-right">
+                        <a id="formRemarketing" href="#" class="hvr-bounce-to-right">
                         <i class="fa"><img src="img/iconos/chart-area.svg"  title="imagen SVG" class="imgSvg"/></i>
                         <span class="nav-text">
                             Remarketing
@@ -238,43 +238,48 @@
                     <h1>Accesos directos</h1>
                     <ul id="accesosdirectos">
                         <li>
-                            <a href="admin-negocio.html">
-                        <i class="fa fa-building"></i>
-                        <span class="nav-text">
-                           Administrar Negocio
-                        </span>
-                    </a>
+                            <a id="formNegocio2" href="#">
+                                <i class="fa fa-building"></i>
+                                <span class="nav-text">
+                                Administrar Negocio
+                                </span>
+                            </a>
                         </li>
                         <li>
-                            <a href="usuarios.html"><i class="fa fa-user"></i>
-                        <span class="nav-text">
-                           Usuarios
-                        </span></a>
+                            <a id="formUsuario2" href="#"><i class="fa fa-user"></i>
+                                <span class="nav-text">
+                                Usuarios
+                                </span>
+                            </a>
                         </li>
                         <li>
-                            <a href="datoscontacto.html"><i class="fa fa-phone"></i>
-                        <span class="nav-text">
-                           Contacto
-                        </span></a>
+                            <a id="formDatosContacto2" href="#"><i class="fa fa-phone"></i>
+                                <span class="nav-text">
+                                Contacto
+                                </span>
+                            </a>
                         </li>
                         
                          <li>
-                         <a href="tutoriales.html"><i class="fa fa-list"></i>
-                        <span class="nav-text">
-                           Lista de Proveedores
-                        </span></a>
+                            <a href="tutoriales.html"><i class="fa fa-list"></i>
+                                <span class="nav-text">
+                                Lista de Proveedores
+                                </span>
+                            </a>
                         </li>
                         <li>
-                         <a href="tutoriales.html"><i class="fa fa-play"></i>
-                        <span class="nav-text">
-                           Tutoriales
-                        </span></a>
+                            <a href="tutoriales.html"><i class="fa fa-play"></i>
+                                <span class="nav-text">
+                                Tutoriales
+                                </span>
+                            </a>
                         </li>
                         <li class="no-border">
-                            <a href="index.html"><i class="fa fa-sign-out"></i>
-                        <span class="nav-text">
-                           Salir
-                        </span></a>
+                            <a href="<?php error_reporting(E_ERROR); echo $path; ?>scripts/cerrar_sesion.php"><i class="fa fa-sign-out"></i>
+                                <span class="nav-text">
+                                Salir
+                                </span>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -282,7 +287,7 @@
             <!--Reservas para hoy-->
             <div class="col-lg-4">
                 <div id="reservasparahoy" class="modulo celeste">
-                    <h1>Hay 5 reservas para hoy <span class="ver"><a href="ver-reservas.html">  - Ver todas </a></span></h1>
+                    <h1 id="cantidadReservas"></h1>
 
                     <div class="content content mCustomScrollbar  mCS-autoHide">
                         <table class="table table-sm">
@@ -291,70 +296,10 @@
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Personas</th>
                                     <th scope="col">Hora</th>
-
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">Ariel Karlen</th>
-                                    <td>2 Adultos - 3 Niños</td>
-                                    <td>13:30</td>
+                            <tbody id="listaReservasHoy">
 
-                                </tr>
-                                <tr>
-                                    <th scope="row">Ariel Karlen</th>
-                                    <td>2 Adultos - 3 Niños</td>
-                                    <td>13:30</td>
-
-                                </tr>
-                                <tr>
-                                    <th scope="row">Ariel Karlen</th>
-                                    <td>2 Adultos - 3 Niños</td>
-                                    <td>13:30</td>
-
-                                </tr>
-                                <tr>
-                                    <th scope="row">Ariel Karlen</th>
-                                    <td>2 Adultos - 3 Niños</td>
-                                    <td>13:30</td>
-
-                                </tr>
-                                <tr>
-                                    <th scope="row">Ariel Karlen</th>
-                                    <td>2 Adultos - 3 Niños</td>
-                                    <td>13:30</td>
-
-                                </tr>
-                                <tr>
-                                    <th scope="row">Ariel Karlen</th>
-                                    <td>2 Adultos - 3 Niños</td>
-                                    <td>13:30</td>
-
-                                </tr>
-                                <tr>
-                                    <th scope="row">Ariel Karlen</th>
-                                    <td>2 Adultos - 3 Niños</td>
-                                    <td>13:30</td>
-
-                                </tr>
-                                <tr>
-                                    <th scope="row">Ariel Karlen</th>
-                                    <td>2 Adultos - 3 Niños</td>
-                                    <td>13:30</td>
-
-                                </tr>
-                                <tr>
-                                    <th scope="row">Ariel Karlen</th>
-                                    <td>2 Adultos - 3 Niños</td>
-                                    <td>13:30</td>
-
-                                </tr>
-                                <tr>
-                                    <th scope="row">Ariel Karlen</th>
-                                    <td>2 Adultos - 3 Niños</td>
-                                    <td>13:30</td>
-
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -662,6 +607,7 @@
 
     <!-- Funciones de Dashboard JavaScript -->
     <script src="js/controladores/dashboard.controlador.js"></script>
+    <script src="js/controladores/actualizarSession.controlador.js"></script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

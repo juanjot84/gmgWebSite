@@ -8,6 +8,7 @@
               idLocal = local;
              }
              listadoLocales(idNegocio, idLocal);
+             reservasHoy();
         });     
     }
 
@@ -87,32 +88,113 @@
     }
 
     function verLocal(idLocal) {
+      actualizarSession(idLocal);
       var idNegocio = $("#idNegocio").val();
       listadoLocales(idNegocio, idLocal);
-      
+      reservasHoy();
     }
 
-    $("#formNegocio").click(function() {
+    $("#formNegocio, #formNegocio2").click(function() {
       var negocioEditar = $("#idNegocio").val();
       var url = "datos-generales-negocio.php?idNegocio="+ negocioEditar+"";
       $(location).attr('href',url);
     });
 
-    $("#formUsuario").click(function() {
+    $("#formUsuario, #formUsuario2").click(function() {
       var negocioEditar = $("#idNegocio").val();
       var url = "editar-usuario-negocio.php?idNegocio="+ negocioEditar+"";
       $(location).attr('href',url);
     });
 
-    $("#formDatosContacto").click(function() {
+    $("#formDatosContacto, #formDatosContacto2").click(function() {
       var url = "editar-contacto.php?idLocal="+idLocal+"&idContacto="+idContactoLocal+"";
       $(location).attr('href',url);
     });
 
-    $("#formReservas").click(function() {
+    $("#formReservas, #formReservas2").click(function() {
       var url = "perfil/reservas.php";
       $(location).attr('href',url);
     });
 
-  
+    $("#formConfigReservas").click(function() {
+      var url = "editar-cubiertos.php?idLocal="+idLocal+"";
+      $(location).attr('href',url);
+    });
 
+    $("#formPromLocal").click(function() {
+      var url = "editar-promociones.php?idLocal="+idLocal+"";
+      $(location).attr('href',url);
+    });
+
+    $("#formHorarioAtencion").click(function() {
+      var url = "editar-horarios.php?idLocal="+idLocal+"";
+      $(location).attr('href',url);
+    });
+
+    $("#formCalificaciones").click(function() {
+      var url = "perfil/calificaciones.php?idLocal="+idLocal+"";
+      $(location).attr('href',url);
+    });
+  
+    $("#formImagenes").click(function() {
+      var url = "subir-imagen.php?idLocal="+idLocal+"";
+      $(location).attr('href',url);
+    });
+
+    $("#formRemarketing").click(function() {
+      var url = "perfil/remarketing.php";
+      $(location).attr('href',url);
+    });
+
+    function reservasHoy() {
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }
+        var idNegocio = $('#idNegocio').val();
+        $('.container.negocios').html('');
+        $('#loading').html('<img class="img-responsive" src="imgs/loading.gif">');
+        $.ajax({
+            url: server + '/api/v1/admin/ReservasHoyNegocio?id='+ idNegocio +"",
+            type: 'GET',
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+                 renderReservasHoy(data);
+          },
+          error:function(jqXHR,textStatus,errorThrown)
+          {
+              $('#loading').hide();
+              $('#target').append("jqXHR: "+jqXHR);
+              $('#target').append("textStatus: "+textStatus);
+              $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+          }
+      });
+    }
+
+    function renderReservasHoy(reservas) {
+      var cont = 0;
+      $("#listaReservasHoy").html('');
+      $("#cantidadReservas").html('');
+      _.each(reservas, function(local){
+        _.each(local, function(reserva){
+            $("#listaReservasHoy").append(''+
+              '<tr>'+
+                '<th scope="row">'+reserva.nombreUsuarioReserva+'</th>'+
+                '<td>'+reserva.cubiertosAdultos+' Adultos - '+reserva.cubiertosMenores+' Niños</td>'+
+                '<td>'+reserva.horaSola+'</td>'+
+              '</tr>'+
+            '');
+            cont++;
+            var unaSola = '';
+            if (cont == 1) {
+              unaSola = 'reserva';
+            } else {
+              unaSola = 'reservas';
+            }
+            $("#cantidadReservas").append('Hay '+cont+' '+unaSola+' para hoy <span class="ver"><a id="formReservas2" href="#">  - Ver todas </a></span>');
+
+        });
+      });
+    }

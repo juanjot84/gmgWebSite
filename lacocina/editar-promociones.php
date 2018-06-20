@@ -46,6 +46,7 @@ error_reporting(E_ERROR);
     }
 ?>
     <input type="text" name="idLocal" id="idLocal" value="<?php  error_reporting(E_ERROR); echo $idLocal; ?>" class="hidden">
+    <input type="text" name="tipoUsuario" id="tipoUsuario" value="<?php  error_reporting(E_ERROR); echo $tipoUsuario; ?>" class="hidden">
     <input type="text" name="localPromocion" id="localPromocion" value="" class="hidden">
     <div class="container-fluid" style="padding: 2%; background: #fff; margin-top: -21px;">
         <div class="container">

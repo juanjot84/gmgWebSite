@@ -254,9 +254,15 @@ function volverPanelLocal(){
             crossDomain: true,
             contentType:"application/json",
             success: function (data) {
-               var idNegocio = data.idNegocio._id;
-               var url = "../lacocina/panel-locales.php?idLocal="+ localEditado+"&idNegocio="+ idNegocio +"";
-               $(location).attr('href',url);
+              var tipoUsuario = $("#tipoUsuario").val();
+              if (tipoUsuario == 'superAdmin') {
+                var idNegocio = data.idNegocio._id;
+                var url = "../lacocina/panel-locales.php?idLocal="+ localEditado+"&idNegocio="+ idNegocio +"";
+                $(location).attr('href',url);
+              } else if (tipoUsuario == 'usuarioNegocio') {
+                var url = "dashboard.php";
+                $(location).attr('href',url);
+              }
             } 
     });
 }

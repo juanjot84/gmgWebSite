@@ -98,6 +98,7 @@ include("includes/head.php"); ?>
           <input type="text" name="idCubierto" id="idCubierto" class="hidden">
           <input type="text" name="idLocalCreado" id="idLocalCreado" value="<?php  error_reporting(E_ERROR); echo $idLocal; ?>" class="hidden">
           <input type="text" name="accion" id="accion" value="<?php  error_reporting(E_ERROR); echo $accion; ?>" class="hidden">
+          <input type="text" name="tipoUsuario" id="tipoUsuario" value="<?php  error_reporting(E_ERROR); echo $tipoUsuario; ?>" class="hidden">
 
           <!-- NUEVO FORMATO -->
 

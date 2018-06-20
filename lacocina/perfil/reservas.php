@@ -157,6 +157,7 @@ error_reporting(E_ERROR);
 
     <!-- Funcione de Local JavaScript -->
     <script src="js/controladores/reservas.controlador.js"></script>
+    <script src="../js/controladores/actualizarSession.controlador.js"></script>
 
     <!-- Theme JavaScript -->
     <script src="js/agency.min.js"></script>
