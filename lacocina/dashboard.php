@@ -355,59 +355,49 @@
                                     <th scope="col">Dia</th>
                                     <th scope="col">Turno 1</th>
                                     <th scope="col">Turno 2</th>
-
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr id='Lunes'>
                                     <th scope="row">Lunes</th>
-                                    <td>09:30 a 13:30</td>
-                                    <td>21 a 01:30</td>
-
+                                    <td></td>
+                                    <td></td>
                                 </tr>
-                                <tr>
+                                <tr id='Martes'>
                                     <th scope="row">Martes</th>
-                                    <td>09:30 a 13:30</td>
-                                    <td>21 a 01:30</td>
-
+                                    <td></td>
+                                    <td></td>
                                 </tr>
-                                <tr>
+                                <tr id='Miercoles'>
                                     <th scope="row">Miercoles</th>
-                                    <td>09:30 a 13:30</td>
-                                    <td>21 a 01:30</td>
-
+                                    <td></td>
+                                    <td></td>
                                 </tr>
-                                <tr>
+                                <tr id='Jueves'>
                                     <th scope="row">Jueves</th>
-                                    <td>09:30 a 13:30</td>
-                                    <td>21 a 01:30</td>
-
+                                    <td></td>
+                                    <td></td>
                                 </tr>
-                                <tr>
+                                <tr id='Viernes'>
                                     <th scope="row">Viernes</th>
-                                    <td>09:30 a 13:30</td>
-                                    <td>21 a 01:30</td>
-
+                                    <td></td>
+                                    <td></td>
                                 </tr>
-                                <tr>
+                                <tr id='Sabados'>
                                     <th scope="row">Sábado</th>
-                                    <td>09:30 a 13:30</td>
-                                    <td>21 a 01:30</td>
-
+                                    <td></td>
+                                    <td></td>
                                 </tr>
-                                <tr>
+                                <tr id='Domingos'>
                                     <th scope="row">Domingo</th>
-                                    <td class="cerrado">Cerrado</td>
-                                    <td>21 a 01:30</td>
-
+                                    <td></td>
+                                    <td></td>
                                 </tr>
-                                <tr>
+                                <tr id='Feriados'>
                                     <th scope="row">Feriados</th>
-                                    <td class="cerrado">Cerrado</td>
-                                    <td class="cerrado">Cerrado</td>
-
+                                    <td></td>
+                                    <td></td>
                                 </tr>
-
                             </tbody>
                         </table>
                     </div>

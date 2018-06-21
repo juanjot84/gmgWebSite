@@ -10,8 +10,8 @@
              }
              listadoLocales(idNegocio, idLocal);
              reservasHoy();
-             promocionesActivas();
-             horariosAtencion();
+             promocionesActivas(idLocal);
+             horariosAtencion(idLocal);
         });     
     }
 
@@ -40,6 +40,7 @@
                    calleLocal = data[0].calleLocal;
                    alturaLocal = data[0].alturaLocal;
                    idContactoLocal = data[0].idContacto;
+                   verLocal(idLocal);
                  } else {
                    var localSeleccionado = _.find(data, {'_id': local});
                    idLocal = local;
@@ -48,7 +49,7 @@
                    alturaLocal = localSeleccionado.alturaLocal;
                    idContactoLocal = localSeleccionado.idContacto;
                  }
-
+                
                 $('#navWeb').html('');
                 $('#navCel').html('');
                 $('#navWeb').append(''+
@@ -95,8 +96,8 @@
       var idNegocio = $("#idNegocio").val();
       listadoLocales(idNegocio, idLocal);
       reservasHoy();
-      promocionesActivas();
-      horariosAtencion();
+      promocionesActivas(idLocal);
+      horariosAtencion(idLocal);
     }
 
     $("#formNegocio, #formNegocio2").click(function() {
@@ -169,8 +170,9 @@
             success: function (data) {
                  renderReservasHoy(data);
           },
-          error:function(jqXHR,textStatus,errorThrown)
-          {
+          error:function(jqXHR,textStatus,errorThrown) {
+              var data = {};
+              renderReservasHoy(data);
               $('#loading').hide();
               $('#target').append("jqXHR: "+jqXHR);
               $('#target').append("textStatus: "+textStatus);
@@ -205,39 +207,22 @@
       $("#cantidadReservas").append('Hay '+cont+' '+unaSola+' para hoy <span class="ver"><a id="formReservas2" href="#">  - Ver todas </a></span>');
     }
 
-    function promocionesActivas() {
+    function promocionesActivas(Local) {
       $("#cantidadPromociones").html('');
       $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {       
         $.ajax({
-            url: server + '/api/v1/admin/promocionesLocal?id='+idLocal+'',
+            url: server + '/api/v1/admin/promocionesLocal?id='+Local+'',
             type: 'GET',
             dataType: "json",
             crossDomain: true,
             contentType:"application/json",
             success: function (data) {
-             promociones = data;
-             var contProm = 0;
-             $('#listaPromociones').html('');
-             _.each(promociones, function(promocion){
-                $('#listaPromociones').append(''+
-
-
-                '');
-                contProm++;
-              });
-
-              var unaSolaProm = '';
-              if (contProm == 1) {
-                unaSolaProm = 'promocion activa';
-              } else {
-                unaSolaProm = 'promociones activas';
-              }
-              $("#cantidadPromociones").append('Hay '+contProm+' '+unaSolaProm+' <span class="ver"><a id="formPromLocal2" href="#">  - Ver todas </a></span>');
-              
+             renderPromociones(data);
                 $('#loading').hide();
             },
-            error:function(jqXHR,textStatus,errorThrown)
-            {           
+            error:function(jqXHR,textStatus,errorThrown) {
+              var data = {};
+              renderPromociones(data);     
               $('#target').append("jqXHR: "+jqXHR);
               $('#target').append("textStatus: "+textStatus);
               $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
@@ -246,14 +231,34 @@
       });
     }
 
-    function horariosAtencion() {
+    function renderPromociones(promociones) {
+      var contProm = 0;
+      $('#listaPromociones').html('');
+      _.each(promociones, function(promocion){
+         $('#listaPromociones').append(''+
+
+
+         '');
+         contProm++;
+       });
+
+       var unaSolaProm = '';
+       if (contProm == 1) {
+         unaSolaProm = 'promocion activa';
+       } else {
+         unaSolaProm = 'promociones activas';
+       }
+       $("#cantidadPromociones").append('Hay '+contProm+' '+unaSolaProm+' <span class="ver"><a id="formPromLocal2" href="#">  - Ver todas </a></span>');
+    }
+
+    function horariosAtencion(Local) {
       if (_.isUndefined(server)) {
         $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
         });
       }
       $('#target').html('obteniendo...');
       $.ajax({
-        url: server + '/api/v1/admin/locales?id=' + idLocal + "",
+        url: server + '/api/v1/admin/locales?id=' + Local + "",
         type: 'GET',
     
         dataType: "json",
@@ -266,12 +271,18 @@
             var horarioManana = _.find(horariosDia, {'turnoHorarioApertura': 'manana'});
             var horarioTarde = _.find(horariosDia, {'turnoHorarioApertura': 'tarde'});
             if (horarioManana || horarioTarde) {
-              aplicarHorarios(diaSemana, true);
-              if (horarioManana) {
+
+              if ( horarioManana === undefined || horarioManana.horaInicioHorarioApertura == horarioManana.horaFinHorarioApertura) {
+                $('#' + diaSemana + ' td:nth-child(2)').addClass('cerrado').html('Cerrado');
+              } else {
+                $('#' + diaSemana + ' td:nth-child(2)').html('<span id="Hdesde' + diaSemana + 'Manana" ></span> a <span id="Hhasta' + diaSemana + 'Manana" ></span>' );
                 $("#Hdesde" + horarioManana.diaSemanaHorarioApertura + "Manana").html(horarioManana.horaInicioHorarioApertura);
                 $("#Hhasta" + horarioManana.diaSemanaHorarioApertura + "Manana").html(horarioManana.horaFinHorarioApertura);
-              }
-              if (horarioTarde) {
+              } 
+              if (horarioTarde === undefined || horarioTarde.horaInicioHorarioApertura == horarioTarde.horaFinHorarioApertura) {
+                $('#' + diaSemana + ' td:nth-child(3)').addClass('cerrado').html('Cerrado');
+              } else {
+                $('#' + diaSemana + ' td:nth-child(3)').html('<span id="Hdesde' + diaSemana + 'Tarde" ></span> a <span id="Hhasta' + diaSemana + 'Tarde" ></span>');
                 $("#Hdesde" + horarioTarde.diaSemanaHorarioApertura + "Tarde").html(horarioTarde.horaInicioHorarioApertura);
                 $("#Hhasta" + horarioTarde.diaSemanaHorarioApertura + "Tarde").html(horarioTarde.horaFinHorarioApertura);
               }
@@ -287,17 +298,3 @@
         }
       });
     }
-
-    function aplicarHorarios(dia, dibujar){
-      if($('#horaInicioManana').val() != $('#horaFinManana').val() || dibujar){
-        $('#' + dia + ' td:nth-child(2)').removeAttr('style').html('<span id="Hdesde' + dia + 'Manana" >' + $('#horaInicioManana').val() + '</span> a <span id="Hhasta' + dia + 'Manana" >' + $('#horaFinManana').val() + '</span>' );
-      } else {
-        $('#' + dia + ' td:nth-child(2)').attr('style', 'color: #f8981d;').html('Sin horario de atención')
-      }
-    
-      if($('#horaInicioTarde').val() != $('#horaFinTarde').val() || dibujar)  {
-        $('#' + dia + ' td:nth-child(3)').removeAttr('style').html('<span id="Hdesde' + dia + 'Tarde" >' + $('#horaInicioTarde').val() + '</span> a <span id="Hhasta' + dia + 'Tarde" >' + $('#horaFinTarde').val());
-      } else {
-        $('#' + dia + ' td:nth-child(3)').attr('style', 'color: #f8981d;').html('Sin horario de atención')
-      }
-     }
