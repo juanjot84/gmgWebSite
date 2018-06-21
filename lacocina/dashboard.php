@@ -287,7 +287,7 @@
             <!--Reservas para hoy-->
             <div class="col-lg-4">
                 <div id="reservasparahoy" class="modulo celeste">
-                    <h1 id="cantidadReservas"></h1>
+                    <h1> Hay <span id="cantidadReservas"> </span> para hoy <span class="ver"><a id="formReservas2" href="#">  - Ver todas </a></span> </h1>
 
                     <div class="content content mCustomScrollbar  mCS-autoHide">
                         <table class="table table-sm">
@@ -308,7 +308,7 @@
             <!--Promociones Activas-->
             <div class="col-lg-4">
                 <div id="promocionesActivas" class="modulo rosado">
-                    <h1 id="cantidadPromociones"></h1>
+                    <h1> Hay <span id="cantidadPromociones"> </span> activas <span class="ver"><a id="formPromLocal2" href="#">  - Ver todas </a></span>   </h1>
                     <div class="content content mCustomScrollbar  mCS-autoHide">
                     <table class="table table-sm">
                             <thead>

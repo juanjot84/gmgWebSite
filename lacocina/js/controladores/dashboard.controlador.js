@@ -16,6 +16,7 @@
     }
 
     function listadoLocales(idNegocio, local) {
+          idLocal = local;
           if (_.isUndefined(server)) {
             $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
             });
@@ -204,11 +205,11 @@
       } else {
         unaSola = 'reservas';
       }
-      $("#cantidadReservas").append('Hay '+cont+' '+unaSola+' para hoy <span class="ver"><a id="formReservas2" href="#">  - Ver todas </a></span>');
+      $("#cantidadReservas").append(''+cont+' '+unaSola+'');
     }
 
     function promocionesActivas(Local) {
-      $("#cantidadPromociones").html('');
+      idLocal = Local;
       $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {       
         $.ajax({
             url: server + '/api/v1/admin/promocionesLocal?id='+Local+'',
@@ -233,6 +234,7 @@
 
     function renderPromociones(promociones) {
       var contProm = 0;
+      $("#cantidadPromociones").html('');
       $('#listaPromociones').html('');
       _.each(promociones, function(promocion){
          $('#listaPromociones').append(''+
@@ -244,14 +246,15 @@
 
        var unaSolaProm = '';
        if (contProm == 1) {
-         unaSolaProm = 'promocion activa';
+         unaSolaProm = 'promociones';
        } else {
-         unaSolaProm = 'promociones activas';
+         unaSolaProm = 'promociones';
        }
-       $("#cantidadPromociones").append('Hay '+contProm+' '+unaSolaProm+' <span class="ver"><a id="formPromLocal2" href="#">  - Ver todas </a></span>');
+       $("#cantidadPromociones").append( ''+contProm+' '+unaSolaProm+'');
     }
 
     function horariosAtencion(Local) {
+      idLocal = Local;
       if (_.isUndefined(server)) {
         $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
         });
