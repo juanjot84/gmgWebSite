@@ -2,16 +2,21 @@
     var idLocal = '';
     var idContactoLocal = '';
     var dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabados", "Domingos", "Feriados"];
+    var dia1Guia = 0; var dia2Guia = 0; var dia3Guia = 0; var dia4Guia = 0; var dia5Guia = 0; var dia6Guia = 0; var dia7Guia = 0;
+    var dia1Manual = 0; var dia2Manual = 0; var dia3Manual = 0; var dia4Manual = 0; var dia5Manual = 0; var dia6Manual = 0; var dia7Manual = 0;
+    var fechaDia1; var fechaDia2; var fechaDia1; var fechaDia3; var fechaDia4; var fechaDia5; var fechaDia6; var fechaDia7; 
 
     function iniciar(idNegocio, local) {
         $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
              if (local != '') {
               idLocal = local;
              }
+
              listadoLocales(idNegocio, idLocal);
              reservasHoy();
              promocionesActivas(idLocal);
              horariosAtencion(idLocal);
+             listadoProximas();
         });     
     }
 
@@ -99,6 +104,7 @@
       reservasHoy();
       promocionesActivas(idLocal);
       horariosAtencion(idLocal);
+      listadoProximas();
     }
 
     $("#formNegocio, #formNegocio2").click(function() {
@@ -237,10 +243,27 @@
       $("#cantidadPromociones").html('');
       $('#listaPromociones').html('');
       _.each(promociones, function(promocion){
+        var nombreCorto = '';
+        var iconoPromocion = '';
+        if (promocion.iconoPromocion != '' || promocion.iconoPromocion != undefined ) {
+          iconoPromocion ='<img src="'+ promocion.iconoPromocion + '" class="img-fluid" alt="">';
+        }
+        if (promocion.nombreCortoPromocion != '' || promocion.nombreCortoPromocion != undefined) {
+          nombreCorto = promocion.nombreCortoPromocion;
+        }
          $('#listaPromociones').append(''+
-
-
+            '<div class="row promo">'+                    
+                '<div id="colIzquierdaProm'+contProm+'" class="col-md-4">'+
+                    iconoPromocion +
+                '</div>'+
+                '<div id="colDerechaProm'+contProm+'" class="col-md-6">'+
+                    '<h5>'+nombreCorto+'</h5>'+
+                    '<h6> Del '+promocion.duracionDesdePromocion.substr(0,5)+' al '+promocion.duracionHastaPromocion.substr(0,5)+'</h6>'+
+                '</div>'+
+            '</div>'+
          '');
+         $("#colIzquierdaProm"+contProm).css('background-color', promocion.colorPromocion);
+         $("#colDerechaProm"+contProm).css('background-color', promocion.colorSecundarioPromocion);
          contProm++;
        });
 
@@ -301,3 +324,111 @@
         }
       });
     }
+
+    function listadoProximas(){
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }
+        var idNegocio = $('#idNegocio').val();
+        $('.container.negocios').html('');
+        $('#loading').html('<img class="img-responsive" src="imgs/loading.gif">');
+        $.ajax({
+            url: server + '/api/v1/admin/reservasPendienteNegocio?id='+ idNegocio +"",
+            type: 'GET',
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+              calcularReservas(data);
+          },
+          error:function(jqXHR,textStatus,errorThrown)
+          {
+              $('#target').append("jqXHR: "+jqXHR);
+              $('#target').append("textStatus: "+textStatus);
+              $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+          }
+      });
+    }
+
+    function calcularReservas(reservasLocal) {
+      var f = new Date();
+      fechaDia1 = f.getDate() +1 + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+      fechaDia2 = f.getDate() +2 + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+      fechaDia3 = f.getDate() +3 + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+      fechaDia4 = f.getDate() +4 + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+      fechaDia5 = f.getDate() +5 + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+      fechaDia6 = f.getDate() +6 + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+      fechaDia7 = f.getDate() +7 + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+
+      _.each(reservasLocal, function(local){
+        _.each(local, function(reserva){
+ 
+          if (fechaDia1 == reserva.fechaReserva && reserva.medioReserva == 'gmg') {
+            dia1Guia++;
+          } else if (fechaDia1 == reserva.fechaReserva && reserva.medioReserva != 'gmg') {
+            dia1Manual++;
+          }
+          if (fechaDia2 == reserva.fechaReserva && reserva.medioReserva == 'gmg') {
+            dia2Guia++;
+          } else if (fechaDia2 == reserva.fechaReserva && reserva.medioReserva != 'gmg') {
+            dia2Manual++;
+          }
+          if (fechaDia3 == reserva.fechaReserva && reserva.medioReserva == 'gmg') {
+            dia3Guia++;
+          } else if (fechaDia3 == reserva.fechaReserva && reserva.medioReserva != 'gmg') {
+            dia3Manual++;
+          }
+          if (fechaDia4 == reserva.fechaReserva && reserva.medioReserva == 'gmg') {
+            dia4Guia++;
+          } else if (fechaDia4 == reserva.fechaReserva && reserva.medioReserva != 'gmg') {
+            dia4Manual++;
+          }
+          if (fechaDia5 == reserva.fechaReserva && reserva.medioReserva == 'gmg') {
+            dia5Guia++;
+          } else if (fechaDia5 == reserva.fechaReserva && reserva.medioReserva != 'gmg') {
+            dia5Manual++;
+          }
+          if (fechaDia6 == reserva.fechaReserva && reserva.medioReserva == 'gmg') {
+            dia6Guia++;
+          } else if (fechaDia6 == reserva.fechaReserva && reserva.medioReserva != 'gmg') {
+            dia6Manual++;
+          }
+          if (fechaDia7 == reserva.fechaReserva && reserva.medioReserva == 'gmg') {
+            dia7Guia++;
+          } else if (fechaDia7 == reserva.fechaReserva && reserva.medioReserva != 'gmg') {
+            dia7Manual++;
+          }
+
+        });
+      });
+      google.charts.load("current", {packages:['corechart', 'bar']});
+      google.charts.setOnLoadCallback(drawChartProximasReservas);
+    }
+
+    function drawChartProximasReservas() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Proximos dias','Reservas de la guia', 'Reservas manuales', { role: 'annotation' } ],
+        [fechaDia1, dia1Guia, dia1Manual, ''],
+        [fechaDia2, dia2Guia, dia2Manual, ''],
+        [fechaDia3, dia3Guia, dia3Manual, ''],
+        [fechaDia4, dia4Guia, dia4Manual, ''],
+        [fechaDia5, dia5Guia, dia5Manual, ''],
+        [fechaDia6, dia6Guia, dia6Manual, ''],
+        [fechaDia7, dia7Guia, dia7Manual, '']
+      ]); 
+
+      var options = {
+        isStacked: true,
+        height: 200,
+        legend: {position: 'top', maxLines: 3},
+        vAxis: {
+          minValue: 0,
+          ticks: [0, .3, .6, .9, 1]
+        }
+      };
+    
+       var materialChart = new google.charts.Bar(document.getElementById('chartProximasReservas'));
+       materialChart.draw(data, options);
+     }

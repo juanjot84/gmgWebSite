@@ -49,6 +49,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src=" https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js" crossorigin="anonymous"></script>
         <script src="js/comportamientos.js"></script>
+
+                <!-- Charts -->
+                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
         
     </head>
 
@@ -309,19 +314,8 @@
             <div class="col-lg-4">
                 <div id="promocionesActivas" class="modulo rosado">
                     <h1> Hay <span id="cantidadPromociones"> </span> activas <span class="ver"><a id="formPromLocal2" href="#">  - Ver todas </a></span>   </h1>
-                    <div class="content content mCustomScrollbar  mCS-autoHide">
-                    <table class="table table-sm">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Dias</th>
-                                    <th scope="col">Hora</th>
-                                </tr>
-                            </thead>
-                            <tbody id="listaPromociones">
+                    <div id="listaPromociones" class="content content mCustomScrollbar  mCS-autoHide">
 
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>
@@ -337,7 +331,7 @@
                 <!--Grafico para Proximas Reservas - Google Charts. Column Charts Stacked-->
                 <div id="charts" class="modulo verde">
                     <h1><span>Reservas</span> para los proximos 7 dias</h1>
-                    <img src="img/05-Modulo.jpg" class="img-fluid">
+                    <div id="chartProximasReservas"></div>
 
                 </div>
             </div>

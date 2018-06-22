@@ -79,6 +79,13 @@ include("includes/nav.php"); ?>
                 <input id="colorPromocion" name="colorPromocion" onclick="quitarAlert('colorPromocion')" type="color" value="" class="form-control" aria-describedby="sizing-addon3">
               </div></p>
 
+              <h5 class="titulosalta"> Color secundario de la Promoción</h5>
+
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                <input id="colorsecundarioPromocion" name="colorsecundarioPromocion" onclick="quitarAlert('colorsecundarioPromocion')" type="color" value="" class="form-control" aria-describedby="sizing-addon3">
+              </div></p>
+
               <h5 class="titulosalta"> Comisión</h5>
               
               <div class="row">

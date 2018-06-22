@@ -24,7 +24,7 @@ header {
     margin: 0 0 20px 0
 }
 
-.row {}
+
 
 h1 {
 
@@ -520,6 +520,85 @@ nav.main-menu li.active > a,
     transform: scaleX(1);
 }
 
+/********************************Promociones*/
+
+.promo  {
+    color:#fff;
+    border-radius: 25px;
+    margin: 0 0 20px 0
+}
+
+.promo p {
+    font-size: 14px;
+    padding:15px 0 0 7px;
+    text-align: center;
+    font-weight: bold!important;
+    }
+
+.promo h5 {
+    font-size: 13px;
+    font-weight: bold!important;
+    padding:18px 0 0 0;
+    line-height: 0;
+    color: #414141
+}
+
+.promo h6 {
+    font-size: 10px;
+    color: #414141
+}
+
+
+.prom-turquesa-izq {
+    background-color: #21aaa3;
+    
+   
+}
+
+.prom-turquesa-der {
+    background-color: #44e9e1;
+    
+}
+
+.prom-rosa-izq {
+    background-color: #fc6180;
+    
+   
+}
+
+.prom-rosa-der {
+    background-color: #ff87a0;
+    
+}
+
+
+.prom-amarillo-izq {
+    background-color: #ec8b00;
+    
+   
+}
+
+.prom-amarillo-der {
+    background-color: #fcc06b;
+    
+}
+
+.prom-especial-izq {
+    background-color: #a6193d;
+    padding:7px 0 0 0
+    
+}
+
+.prom-especial-der {
+    background-color: #c92e5a;
+    
+}
+
+.prom-especial-der h5, .prom-especial-der h6  {
+    color:#fff!important
+}
+
+
 /********************************Slider*/
 
 
@@ -831,13 +910,6 @@ table {
 }
 
 /*Reservas para hoy*/
-
-/*Promociones Activas*/
-
-#promocionesActivas img {
-    width: 90%;
-    margin:0 0 20px 0
-}
 
 
 
@@ -1290,8 +1362,10 @@ p.detalleReservas {
 }
 
 
+/******************************************Elementos de Formularios*/
 
-/******************************************Custom Checkbox*/
+/************Switch*/
+
 
 label{
 	
@@ -1492,3 +1566,50 @@ select.form-control {
     box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
     
 }
+
+/*****************************Configurar Reservas*/
+
+
+
+/*****/
+#Configurarreservas .modulo {
+    height: auto
+}
+
+#Configurarreservas table span {
+    display: inline
+}
+
+.diasReservas {
+    width: 20%
+}
+
+.turnosReservas {
+    width: 40%;
+   
+}
+
+.rs-container {
+    width: 90%
+}
+
+.rs-tooltip {
+   background-color: transparent;
+    border: none;
+   bottom:-65px
+}
+
+.rs-container .rs-scale span ins {
+    color:#e3e3e3;
+    
+}
+
+/*Sliders Dobles*/
+
+#Configurarreservas .slider {
+    width: 20%
+}
+
+/***********/
+
+
