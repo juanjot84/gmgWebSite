@@ -96,25 +96,8 @@
                                             <div class="row">
                                                 <div class="col-lg-12">
                                                     <div class="text-center">
-                                                        <a href="#" tabindex="5" class="forgot-password">Olvidaste tu contraseña?</a>
+                                                        <a href="https://phpoll.com/recover" tabindex="5" class="forgot-password">Olvidaste tu contraseña?</a>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <form id="olvido-contrasena" method="post" role="form" style="display: none;">
-                                        <div class="form-group">
-                                            <input type="text" name="emailUsuario" id="recuperarEmailUsuario" tabindex="1" class="form-control" placeholder="Email de Usuario" value=""  onfocus="limpiar('recuperarEmailUsuario')" onclick="limpiar('recuperarEmailUsuario')">
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-sm-6 col-sm-offset-3">
-                                                    <input type="button" name="login-submit" id="recuperar-submit" tabindex="4" class="form-control btn btn-login" value="Recuperar contraseña" onclick="recuperar()" style="background: #ffff00c2; color: #000;">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                 <div class="col-sm-6 col-sm-offset-3" id="mensaje" style="color: #fff !important;">
-
                                                 </div>
                                             </div>
                                         </div>

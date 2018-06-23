@@ -140,7 +140,7 @@ $redirect = isset($_GET['redirect']) ? $_GET['redirect'] : 'index.php';
                                             </div>
                                         </div>
                                     </div>
-                                </form  >
+                                </form id="register-form" >
                                 <form id="register-form" method="post" role="form" style="display: none;">
                                     <div class="form-group">
                                         <input type="text" name="nombre" id="nombre" tabindex="1" class="form-control" placeholder="Nombre de usuario" onfocus="limpiar('nombre')">
