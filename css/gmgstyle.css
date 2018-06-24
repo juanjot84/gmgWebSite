@@ -92,22 +92,22 @@ header {
 }
 
 .btn-xl {
-     -moz-transition:all .2s ease-in;
+    -moz-transition:all .2s ease-in;
     -o-transition:all .2s ease-in;
     -webkit-transition:all .2s ease-in;
     color: #fff !important;
-    
-     background-color: #2cbdbe!important;
+
+    background-color: #2cbdbe!important;
     border-color: #2cbdbe!important;
     /* MAGENTA
     background-color: #da3743!important;
     border-color: #da3743!important;*/
-     /*AZUL
-    background-color: #237b98!important;
-    border-color: #237b98!important;*/
-      /*ALMAlbec
-    background-color: #a4113d!important;
-    border-color: #a4113d!important;*/
+    /*AZUL
+   background-color: #237b98!important;
+   border-color: #237b98!important;*/
+    /*ALMAlbec
+  background-color: #a4113d!important;
+  border-color: #a4113d!important;*/
     border-radius: 3px !important;
     font-size: 16px !important;
     padding: 8px 15px !important;
@@ -353,6 +353,85 @@ h3.titulo {
 .texto-ficha {
     color: #111;
     padding-top: 0;
+}
+
+/*************Horarios*/
+
+.popover {
+    padding:0 1% 1% 1%;
+    height: 260px;
+    width: 270px;
+    background-color:rgba(216,216,216,0.9);
+    margin: 10px 0 0 140px;
+    -webkit-box-shadow: 0px 4px 5px 2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 5px 2px rgba(0,0,0,0.75);
+    box-shadow: 0px 4px 5px 2px rgba(0,0,0,0.75);
+}
+
+table {
+    font-size: 12px;
+    padding: 0 10px;
+    margin:0;
+    position: absolute;
+    top:10px;
+    width: 250px
+}
+
+th {
+    margin:0;
+    padding: 5px;
+    border-bottom: 2px solid #fff
+}
+td {
+    padding: 4px;
+    border-bottom: 1px solid #fff
+}
+
+tr {
+    margin: 0;
+
+    padding: 0;
+}
+
+tr:hover {
+
+    background-color: #fff;
+    cursor:pointer
+}
+
+.popover:before {
+    content:"";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid;
+    border-bottom-color: rgba(216,216,216,0.9);
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    top: -10px;
+    left: 50px
+}
+/*Fin Horarios*/
+
+#iconoFavorito a:link {
+    color:#f8981d;
+    font-size: 11px;
+}
+
+#iconoFavorito a:hover {
+    color:#000
+}
+
+#iconoFavorito a:visited {
+    color:#f8981d;
+}
+
+.cerrado {
+    color: #c90000;
+}
+
+.iconoficha-cerrado {
+    color:#ababab;
 }
 
 .textoreserva {
@@ -1217,7 +1296,7 @@ ul.promosvertical.vc_list {
         padding: 12% 0 2% 0;
     }
     img.logoweb {
-        
+
         margin: 0 auto
     }
 
@@ -1328,10 +1407,8 @@ ul.promosvertical.vc_list {
         margin-top: 70% !important;
     }
     #seccion-especiales {
-    
-    display: none
-        
-}
+        display: none
+    }
 
 
 }
@@ -1392,13 +1469,12 @@ ul.promosvertical.vc_list {
 
     img.logoweb {
         width: 230px;
-       margin: 0 auto
+        margin: 0 auto;
     }
+
     #seccion-especiales {
-    
-    display: none
-        
-}
+        display: none;
+    }
 
 }
 
@@ -1407,15 +1483,13 @@ ul.promosvertical.vc_list {
 
 
     img.logoweb {
-       width: 230px;
-        margin:0 auto
+        width: 230px;
+        margin:0 auto;
     }
-    
+
     #seccion-especiales {
-    
-    display: none
-        
-}
+        display: none;
+    }
 }
 
 /***************************************Ariel CSS*/
@@ -1471,28 +1545,23 @@ button.btn.btn-default.btnbuscar:hover {
 /*Seccion para especiales*/
 
 #seccion-especiales {
-    
-    margin:10% 0 0 0
-        
+    margin:10% 0 0 0;
 }
 .contenedor-boton {
-    
-padding:90px 0 0 0
+    padding:90px 0 0 0;
 }
 
 .boton-restos {
     text-decoration: none;
     padding: 20px;
     font-size: 12px;
-    
     -moz-transition: all .2s ease-in;
     -o-transition: all .2s ease-in;
     -webkit-transition: all .2s ease-in;
     background-color: #a4113d;
     color: #ffffff;
     border-radius: 4px;
-   font-weight:500
-    
+    font-weight:500;
 }
 
 .boton-restos:hover {
@@ -1503,39 +1572,33 @@ padding:90px 0 0 0
 
 /*Arreglo para encuadrar imagenes en Slider*/
 .carousel-inner > .item > a > img, .carousel-inner > .item > img {
-    
-    width: 750px
-}
+    width: 750px;}
 
 /*DEscargate la APP*/
 
 .descargate {
-    background-color: #000
-    
+    background-color: #000;
 }
 
 .descargate h1 {
     font-size: 14px;
-    color:#fff
+    color:#fff;
 }
 
 .descargateApp {
     position: relative;
     padding-bottom: 54%;
     overflow: hidden;
-
 }
 
-.descargateApp iframe
-
- {
-  position: absolute;
-  display: block;
-  bottom: 0;
- left: 0;
- width: 100%;
-height: 100%;
-margin:0
+.descargateApp iframe{
+    position: absolute;
+    display: block;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin:0;
 }
 
 .nomargin {
@@ -1543,42 +1606,39 @@ margin:0
 }
 
 
-/*Arreglos PopUp Reservas*/ 
- 
- 
-.btn-info { 
-    background-color: #f8981d; 
-    border-color: #f8981d; 
-    } 
- 
-.btn-info:hover { 
-    background-color: #e78200 
-} 
- 
- 
-.modal-header { 
-    background-color: #ffff00; 
-    border-radius: 6px 6px 0 0; 
-} 
- 
-.alert { 
-     
-    border-radius: 0 
-} 
- 
-.modal-body h3.titulo, .modal-body p { 
-    padding: 0 15px 
-} 
- 
-#telefonoReserva { 
-     
-    width: 50%; 
-    margin: 0 auto; 
-    padding: 0; 
-    border-radius: 0; 
-    border:1px; 
-    box-shadow: 0px 0px 25px -6px rgba(0,0,0,0.75); 
-     
+/*Arreglos PopUp Reservas*/
+
+
+.btn-info {
+    background-color: #f8981d;
+    border-color: #f8981d;
+}
+
+.btn-info:hover {
+    background-color: #e78200
+}
+
+
+.modal-header {
+    background-color: #ffff00;
+    border-radius: 6px 6px 0 0;
+}
+
+.alert {
+    border-radius: 0;
+}
+
+.modal-body h3.titulo, .modal-body p {
+    padding: 0 15px;
+}
+
+#telefonoReserva {
+    width: 50%;
+    margin: 0 auto;
+    padding: 0;
+    border-radius: 0;
+    border:1px;
+    box-shadow: 0px 0px 25px -6px rgba(0,0,0,0.75);
 }
 
 .aceptareservas {
@@ -1587,16 +1647,16 @@ margin:0
     padding: 5px;
     border-radius: 2px;
     color: #fff;
-    font-weight: bold
+    font-weight: bold;
 }
 
 .aceptareservas .fa-check {
-    font-size: 14px
+    font-size: 14px;
 }
 
 
 /********AdServe*/
 
 .container-fluid {
-       padding:0!important
+    padding:0!important;
 }
