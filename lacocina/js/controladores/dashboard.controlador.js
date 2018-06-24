@@ -4,7 +4,7 @@
     var dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabados", "Domingos", "Feriados"];
     var dia1Guia = 0; var dia2Guia = 0; var dia3Guia = 0; var dia4Guia = 0; var dia5Guia = 0; var dia6Guia = 0; var dia7Guia = 0;
     var dia1Manual = 0; var dia2Manual = 0; var dia3Manual = 0; var dia4Manual = 0; var dia5Manual = 0; var dia6Manual = 0; var dia7Manual = 0;
-    var fechaDia1; var fechaDia2; var fechaDia1; var fechaDia3; var fechaDia4; var fechaDia5; var fechaDia6; var fechaDia7; 
+    var fechaDia1 = ''; var fechaDia2 = ''; var fechaDia1 = ''; var fechaDia3 = ''; var fechaDia4 = ''; var fechaDia5 = ''; var fechaDia6 = ''; var fechaDia7 = ''; 
 
     function iniciar(idNegocio, local) {
         $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
@@ -352,6 +352,8 @@
     }
 
     function calcularReservas(reservasLocal) {
+      dia1Guia = 0; dia2Guia = 0; dia3Guia = 0; dia4Guia = 0; dia5Guia = 0; dia6Guia = 0; dia7Guia = 0;
+      dia1Manual = 0; dia2Manual = 0; dia3Manual = 0; dia4Manual = 0; dia5Manual = 0; dia6Manual = 0; dia7Manual = 0; 
       var f = new Date();
       fechaDia1 = f.getDate() +1 + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
       fechaDia2 = f.getDate() +2 + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
@@ -361,46 +363,46 @@
       fechaDia6 = f.getDate() +6 + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
       fechaDia7 = f.getDate() +7 + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
 
-      _.each(reservasLocal, function(local){
-        _.each(local, function(reserva){
- 
-          if (fechaDia1 == reserva.fechaReserva && reserva.medioReserva == 'gmg') {
-            dia1Guia++;
-          } else if (fechaDia1 == reserva.fechaReserva && reserva.medioReserva != 'gmg') {
-            dia1Manual++;
-          }
-          if (fechaDia2 == reserva.fechaReserva && reserva.medioReserva == 'gmg') {
-            dia2Guia++;
-          } else if (fechaDia2 == reserva.fechaReserva && reserva.medioReserva != 'gmg') {
-            dia2Manual++;
-          }
-          if (fechaDia3 == reserva.fechaReserva && reserva.medioReserva == 'gmg') {
-            dia3Guia++;
-          } else if (fechaDia3 == reserva.fechaReserva && reserva.medioReserva != 'gmg') {
-            dia3Manual++;
-          }
-          if (fechaDia4 == reserva.fechaReserva && reserva.medioReserva == 'gmg') {
-            dia4Guia++;
-          } else if (fechaDia4 == reserva.fechaReserva && reserva.medioReserva != 'gmg') {
-            dia4Manual++;
-          }
-          if (fechaDia5 == reserva.fechaReserva && reserva.medioReserva == 'gmg') {
-            dia5Guia++;
-          } else if (fechaDia5 == reserva.fechaReserva && reserva.medioReserva != 'gmg') {
-            dia5Manual++;
-          }
-          if (fechaDia6 == reserva.fechaReserva && reserva.medioReserva == 'gmg') {
-            dia6Guia++;
-          } else if (fechaDia6 == reserva.fechaReserva && reserva.medioReserva != 'gmg') {
-            dia6Manual++;
-          }
-          if (fechaDia7 == reserva.fechaReserva && reserva.medioReserva == 'gmg') {
-            dia7Guia++;
-          } else if (fechaDia7 == reserva.fechaReserva && reserva.medioReserva != 'gmg') {
-            dia7Manual++;
-          }
-
-        });
+      _.each(reservasLocal, function(local,index) {
+        if (index == idLocal) {
+            _.each(local, function(reserva) {
+              if (fechaDia1.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva == 'gmg') {
+                dia1Guia++;
+              } else if (fechaDia1.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva != 'gmg') {
+                dia1Manual++;
+              }
+              if (fechaDia2.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva == 'gmg') {
+                dia2Guia++;
+              } else if (fechaDia2.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva != 'gmg') {
+                dia2Manual++;
+              }
+              if (fechaDia3.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva == 'gmg') {
+                dia3Guia++;
+              } else if (fechaDia3.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva != 'gmg') {
+                dia3Manual++;
+              }
+              if (fechaDia4.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva == 'gmg') {
+                dia4Guia++;
+              } else if (fechaDia4.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva != 'gmg') {
+                dia4Manual++;
+              }
+              if (fechaDia5.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva == 'gmg') {
+                dia5Guia++;
+              } else if (fechaDia5.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva != 'gmg') {
+                dia5Manual++;
+              }
+              if (fechaDia6.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva == 'gmg') {
+                dia6Guia++;
+              } else if (fechaDia6.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva != 'gmg') {
+                dia6Manual++;
+              }
+              if (fechaDia7.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva == 'gmg') {
+                dia7Guia++;
+              } else if (fechaDia7.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva != 'gmg') {
+                dia7Manual++;
+              }
+            });
+        }
       });
       google.charts.load("current", {packages:['corechart', 'bar']});
       google.charts.setOnLoadCallback(drawChartProximasReservas);
@@ -409,7 +411,7 @@
     function drawChartProximasReservas() {
 
       var data = google.visualization.arrayToDataTable([
-        ['Proximos dias','Reservas de la guia', 'Reservas manuales', { role: 'annotation' } ],
+        ['Proximos dias','Reservas de la guia', 'Reservas manuales',{ role: 'style' } ],
         [fechaDia1, dia1Guia, dia1Manual, ''],
         [fechaDia2, dia2Guia, dia2Manual, ''],
         [fechaDia3, dia3Guia, dia3Manual, ''],
@@ -421,14 +423,15 @@
 
       var options = {
         isStacked: true,
-        height: 200,
+        bar: {groupWidth: '95%' },
         legend: {position: 'top', maxLines: 3},
-        vAxis: {
-          minValue: 0,
-          ticks: [0, .3, .6, .9, 1]
-        }
+        hAxis: {minValue: 0}
       };
     
-       var materialChart = new google.charts.Bar(document.getElementById('chartProximasReservas'));
-       materialChart.draw(data, options);
+
+      var chart = new google.visualization.ColumnChart(document.getElementById('chartProximasReservas'));
+      chart.draw(data, options);
+
+     //  var materialChart = new google.charts.Bar(document.getElementById('chartProximasReservas'));
+     //  materialChart.draw(data, options); 
      }
