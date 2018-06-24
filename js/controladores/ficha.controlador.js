@@ -526,7 +526,12 @@ function cargarPromociones(idLocal, modal, nombreNegocio, aceptaReserva){
        promociones = data;
         console.log(promociones);
         if(promociones.length != 0){
-          $('#listaPromociones').html('');
+          $('#contenedorListaPromociones').html('');
+          $('#contenedorListaPromociones').append(''+
+             '<h3>Reservá con</h3>'+
+                '<ul class="promocionesficha" id="listaPromociones">'+
+                '</ul>'+
+          '');
           _.each(promociones, function(promocion){
               $('#listaPromociones').append(''+
                  '<li class="etiquetapromoficha"><a ><img onclick="crearModal(\'' + promocion.idLocalPromocion+ '\',\'' + promocion.imagenWebPromocion+ '\',\'' + promocion.nombrePromocion+ '\',\'' + promocion.duracionDesdePromocion+ '\',\'' + promocion.duracionHastaPromocion+ '\',\'' + promocion.terminosCondicionesPromocion+ '\',\'' + nombreNegocio+ '\',\'' + aceptaReserva+ '\')" class="etiquetapromo" src="'+promocion.iconoPromocion+'"></a></li>'+
