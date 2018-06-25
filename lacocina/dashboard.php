@@ -331,7 +331,7 @@
                 <!--Grafico para Proximas Reservas - Google Charts. Column Charts Stacked-->
                 <div id="charts" class="modulo verde">
                     <h1><span>Reservas</span> para los proximos 7 dias</h1>
-                    <div id="chartProximasReservas"></div>
+                    <div id="chartProximasReservas" class="chart"></div>
 
                 </div>
             </div>

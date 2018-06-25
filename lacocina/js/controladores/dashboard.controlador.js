@@ -296,7 +296,7 @@
             var horariosDia = _.filter(horariosAtencion, {'diaSemanaHorarioApertura': diaSemana});
             var horarioManana = _.find(horariosDia, {'turnoHorarioApertura': 'manana'});
             var horarioTarde = _.find(horariosDia, {'turnoHorarioApertura': 'tarde'});
-            if (horarioManana || horarioTarde) {
+            if (horarioManana || horarioTarde || horarioManana === undefined || horarioTarde === undefined) {
 
               if ( horarioManana === undefined || horarioManana.horaInicioHorarioApertura == horarioManana.horaFinHorarioApertura) {
                 $('#' + diaSemana + ' td:nth-child(2)').addClass('cerrado').html('Cerrado');
@@ -411,7 +411,7 @@
     function drawChartProximasReservas() {
 
       var data = google.visualization.arrayToDataTable([
-        ['Proximos dias','Reservas de la guia', 'Reservas manuales',{ role: 'style' } ],
+        ['Proximos dias','Reservas de la guia', 'Reservas manuales',{ role: 'annotation' } ],
         [fechaDia1, dia1Guia, dia1Manual, ''],
         [fechaDia2, dia2Guia, dia2Manual, ''],
         [fechaDia3, dia3Guia, dia3Manual, ''],
@@ -424,14 +424,11 @@
       var options = {
         isStacked: true,
         bar: {groupWidth: '95%' },
+        colors:['#43af98','#7fc7b9'],
         legend: {position: 'top', maxLines: 3},
         hAxis: {minValue: 0}
       };
     
-
       var chart = new google.visualization.ColumnChart(document.getElementById('chartProximasReservas'));
       chart.draw(data, options);
-
-     //  var materialChart = new google.charts.Bar(document.getElementById('chartProximasReservas'));
-     //  materialChart.draw(data, options); 
      }
