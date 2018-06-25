@@ -17,6 +17,7 @@
              promocionesActivas(idLocal);
              horariosAtencion(idLocal);
              listadoProximas();
+             buscarCalificaciones(idLocal);
         });     
     }
 
@@ -105,6 +106,7 @@
       promocionesActivas(idLocal);
       horariosAtencion(idLocal);
       listadoProximas();
+      buscarCalificaciones(idLocal);
     }
 
     $("#formNegocio, #formNegocio2").click(function() {
@@ -428,7 +430,37 @@
         legend: {position: 'top', maxLines: 3},
         hAxis: {minValue: 0}
       };
-    
       var chart = new google.visualization.ColumnChart(document.getElementById('chartProximasReservas'));
       chart.draw(data, options);
      }
+
+     function buscarCalificaciones(idLocal) {
+      if (_.isUndefined(server)) {
+        $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
+        });
+      }
+      $.ajax({
+        url: server + '/api/v1/admin/evaluacionesLocal?id=' + idLocal,
+        type: 'GET',
+        dataType: "json",
+        crossDomain: true,
+        contentType: "application/json",
+        success: function (data) {
+          if (_.isEmpty(data)){
+          } else {
+            renderCalificaciones(data)
+          }
+    
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+
+        },
+        headers: {
+          Authorization: 'gmgAuth ' + jwt
+        }
+      });
+    }
+
+    function renderCalificaciones(calificaciones) {
+
+    }
