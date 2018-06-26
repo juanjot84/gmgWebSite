@@ -3,6 +3,7 @@
         session_start();
 
         $idNegocio = $_SESSION['idNegocio'];
+        $jwt = $_SESSION['jwt'];
         $tipoUsuario = $_SESSION['tipoUsuario'];
         $nombreUsuario = $_SESSION['nombreUsuario'];
         $apellidoUsuario = $_SESSION['apellidoUsuario'];
@@ -64,6 +65,7 @@
     <header>
         <div class="container">
         <input type="text" name="idNegocio" id="idNegocio" value="<?php  error_reporting(E_ERROR); echo $idNegocio; ?>" style="display:none">
+        <input type="text" name="jwt" id="jwt" value="<?php error_reporting(E_ERROR); echo $jwt; ?>" class="hidden">
             <!--Barra de navegacion Full Size-->
             <nav class="navbar navbar-expand-md navbar-dark fixed-top">
 
@@ -593,6 +595,10 @@
             e.preventDefault();
             $("#sidebar-wrapper").toggleClass("active");
         }); 
+    </script>
+
+    <script>
+      setJWT('<?php echo $jwt; ?>', '<?php echo $idLocal; ?>');
     </script>
 
     <script>

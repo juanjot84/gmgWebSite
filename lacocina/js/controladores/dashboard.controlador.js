@@ -1,4 +1,4 @@
-    
+    var jwt;
     var idLocal = '';
     var idContactoLocal = '';
     var dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabados", "Domingos", "Feriados"];
@@ -6,12 +6,23 @@
     var dia1Manual = 0; var dia2Manual = 0; var dia3Manual = 0; var dia4Manual = 0; var dia5Manual = 0; var dia6Manual = 0; var dia7Manual = 0;
     var fechaDia1 = ''; var fechaDia2 = ''; var fechaDia1 = ''; var fechaDia3 = ''; var fechaDia4 = ''; var fechaDia5 = ''; var fechaDia6 = ''; var fechaDia7 = ''; 
 
+    function setJWT() {
+      var jwtToken = $("#jwt").val();
+      $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
+        if (_.isNil(jwtToken) || _.isEmpty(jwtToken)) {
+
+        } else {
+          jwt = jwtToken;
+        }
+      });
+    }
+
     function iniciar(idNegocio, local) {
         $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
              if (local != '') {
               idLocal = local;
              }
-
+             setJWT();
              listadoLocales(idNegocio, idLocal);
              reservasHoy();
              promocionesActivas(idLocal);
