@@ -286,6 +286,7 @@
        } else {
          unaSolaProm = 'promociones';
        }
+       $("#cantidadPromociones").html('');
        $("#cantidadPromociones").append( ''+contProm+' '+unaSolaProm+'');
     }
 
@@ -447,31 +448,102 @@
 
      function buscarCalificaciones(idLocal) {
       if (_.isUndefined(server)) {
-        $.getScript("js/controladores/server.js", function (data, textStatus, jqxhr) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
         });
       }
-      $.ajax({
-        url: server + '/api/v1/admin/evaluacionesLocal?id=' + idLocal,
-        type: 'GET',
-        dataType: "json",
-        crossDomain: true,
-        contentType: "application/json",
-        success: function (data) {
-          if (_.isEmpty(data)){
-          } else {
-            renderCalificaciones(data)
+        var idNegocio = $('#idNegocio').val();
+        $('.container.negocios').html('');
+        $('#loading').html('<img class="img-responsive" src="imgs/loading.gif">');
+        $.ajax({
+            url: server + '/api/v1/admin/calificacionLocal?id='+ idLocal +"",
+            type: 'GET',
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+              renderCalificaciones(data);
+          },
+          error:function(jqXHR,textStatus,errorThrown)
+          {
+              $('#target').append("jqXHR: "+jqXHR);
+              $('#target').append("textStatus: "+textStatus);
+              $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
           }
-    
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-
-        },
-        headers: {
-          Authorization: 'gmgAuth ' + jwt
-        }
       });
     }
 
     function renderCalificaciones(calificaciones) {
+      var contCalificaciones = 0;
+      var contPromedio = 0;
+      var contAmbiente = 0;
+      var contAtención = 0;
+      var contComida = 0;
+      _.each(calificaciones, function(calificacion) {
+        var aux = 0;
+        contCalificaciones++;
+        aux = contAmbiente;
+        contAmbiente = aux + calificacion.puntajeAmbienteEvaluacion;
+        aux = contAtención;
+        contAtención = aux + calificacion.puntajeAtencionEvaluacion;
+        aux = contComida;
+        contComida = aux + calificacion.puntajeComidaEvaluacion;
+        aux = (contAmbiente+contAtención+contComida)/3;
+        contPromedio = aux;
+      });
+    
+      var aux = 0;
+      var aux2 = 0;
+      if (contAmbiente != 0) {
+        aux2 = contAmbiente/contCalificaciones;
+        aux = ((contAmbiente/contCalificaciones) * 100)/5;
+        contAmbiente = aux;
+      }
+      $('#barraLugar').html('');
+      $('#barraLugar').append(''+
+       '<div id="barra-lugar" class="progress-bar" role="progressbar" style="width: '+contAmbiente+'%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">'+aux2.toFixed(1)+'</div>'+
+      '');
+
+      if (contAtención != 0) {
+        aux2 = contAtención/contCalificaciones;
+        aux = ((contAtención/contCalificaciones) * 100)/5;
+        contAtención = aux;
+      }
+      $('#barraAtencion').html('');
+      $('#barraAtencion').append(''+
+      '<div id="barra-atencion" class="progress-bar" role="progressbar" style="width: '+contAtención+'%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">'+aux2.toFixed(1)+'</div>'+
+     '');
+
+      if (contComida != 0) {
+        aux2 = contComida/contCalificaciones;
+        aux = ((contComida/contCalificaciones) * 100)/5;
+        contComida = aux;
+      }
+      $('#barraComida').html('');
+      $('#barraComida').append(''+
+      '<div id="barra-comida" class="progress-bar" role="progressbar" style="width: '+contComida+'%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">'+aux2.toFixed(1)+'</div>'+
+     '');
+
+      if (contPromedio != 0) {
+        aux = contPromedio/contCalificaciones;
+        contPromedio = aux;
+      }
+      $('#estrellasCalificacion').html('');
+      $('#estrellasCalificacion').append(''+
+      '<label>'+contPromedio.toFixed(1)+'</label>'+
+      '<input id="radio1" type="radio" name="estrellas" value="5">'+
+      '<label for="radio1">★</label>'+
+      '<input id="radio2" type="radio" name="estrellas" value="4">'+
+      '<label for="radio2">★</label>'+
+      '<input id="radio3" type="radio" name="estrellas" value="3">'+
+      '<label for="radio3">★</label>'+
+      '<input id="radio4" type="radio" name="estrellas" value="2">'+
+      '<label for="radio4">★</label>'+
+      '<input id="radio5" type="radio" name="estrellas" value="1">'+
+      '<label for="radio5">★</label>'+
+     '');
+      
+
+
+
 
     }

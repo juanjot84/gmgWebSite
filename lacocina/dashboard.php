@@ -65,7 +65,7 @@
     <header>
         <div class="container">
         <input type="text" name="idNegocio" id="idNegocio" value="<?php  error_reporting(E_ERROR); echo $idNegocio; ?>" style="display:none">
-        <input type="text" name="jwt" id="jwt" value="<?php error_reporting(E_ERROR); echo $jwt; ?>" class="hidden">
+        <input type="text" name="jwt" id="jwt" value="<?php error_reporting(E_ERROR); echo $jwt; ?>" style="display:none">
             <!--Barra de navegacion Full Size-->
             <nav class="navbar navbar-expand-md navbar-dark fixed-top">
 
@@ -415,29 +415,18 @@
                         </div>
                         <div class="col-md-6">
                             <form>
-                                <p class="clasificacion">
-                                    <label>4,5</label>
-                                    <input id="radio1" type="radio" name="estrellas" value="5">
-                                    <label for="radio1">★</label>
-                                    <input id="radio2" type="radio" name="estrellas" value="4">
-                                    <label for="radio2">★</label>
-                                    <input id="radio3" type="radio" name="estrellas" value="3">
-                                    <label for="radio3">★</label>
-                                    <input id="radio4" type="radio" name="estrellas" value="2">
-                                    <label for="radio4">★</label>
-                                    <input id="radio5" type="radio" name="estrellas" value="1">
-                                    <label for="radio5">★</label>
-                                   
+                                <p class="clasificacion" id="estrellasCalificacion">
+        
                                 </p>
                             </form>
                         </div>
                         
                     </div>
-                    <div class="row">
+                    <div class="row" id="barrasCalificacion">
                         <div class="col-md-12">
                             <h6>Atencion</h6>
-                            <div class="progress">
-                                <div id="barra-atencion" class="progress-bar" role="progressbar" style="width: 87%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">4,5</div>
+                            <div class="progress" id="barraAtencion">
+                                
                             </div>
                         </div>
 
@@ -445,8 +434,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h6>Lugar</h6>
-                            <div class="progress">
-                                <div id="barra-lugar" class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">4</div>
+                            <div class="progress" id="barraLugar">
+                                
                             </div>
                         </div>
 
@@ -454,8 +443,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h6>Comida</h6>
-                            <div class="progress">
-                                <div id="barra-comida" class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">4</div>
+                            <div class="progress" id="barraComida">
+                                
                             </div>
                         </div>
 
