@@ -89,9 +89,9 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-
-                        <img src="img/LogoResto.png" class="web">
-
+                      <div id="logoNegocio">
+                        
+                      </div>
                         <a id="menu-toggle" href="#" class="btn btn-primary btn-lg toggle"><i class="fa"><img src="img/iconos/cog.svg"  title="imagen SVG" class="imgSvg"/></i></a>
                         <div id="sidebar-wrapper">
                             <ul class="sidebar-nav">

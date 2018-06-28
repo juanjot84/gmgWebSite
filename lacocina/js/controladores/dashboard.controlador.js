@@ -23,6 +23,7 @@
               idLocal = local;
              }
              setJWT();
+             datosNegocio(idNegocio);
              listadoLocales(idNegocio, idLocal);
              reservasHoy();
              promocionesActivas(idLocal);
@@ -32,13 +33,44 @@
         });     
     }
 
+    function datosNegocio(idNegocio) {
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }
+        var idNegocio = $('#idNegocio').val();
+        $("#logoNegocio").html('');
+        $('#loading').html('<img class="img-responsive" src="imgs/loading.gif">');
+        $.ajax({
+            url: server + '/api/v1/admin/negocio?id='+ idNegocio +"",
+            type: 'GET',
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+              var iconoNegocio = '';
+              if (data.urlIconoNegocio != "") {
+                iconoNegocio = data.urlIconoNegocio;
+              }
+              $("#logoNegocio").append(''+
+                  '<img src="'+iconoNegocio+'" class="web">'+
+              '');
+            },
+            error:function(jqXHR,textStatus,errorThrown)
+            {
+                $('#target').append("jqXHR: "+jqXHR);
+                $('#target').append("textStatus: "+textStatus);
+                $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+            }
+      });
+    }
+
     function listadoLocales(idNegocio, local) {
           idLocal = local;
           if (_.isUndefined(server)) {
             $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
             });
           }
-
           var consulta = JSON.stringify({
             "idNegocio": idNegocio
           });
