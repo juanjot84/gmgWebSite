@@ -390,6 +390,8 @@
           },
           error:function(jqXHR,textStatus,errorThrown)
           {
+              var data = {};
+              calcularReservas(data);
               $('#target').append("jqXHR: "+jqXHR);
               $('#target').append("textStatus: "+textStatus);
               $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
@@ -401,50 +403,64 @@
       dia1Guia = 0; dia2Guia = 0; dia3Guia = 0; dia4Guia = 0; dia5Guia = 0; dia6Guia = 0; dia7Guia = 0;
       dia1Manual = 0; dia2Manual = 0; dia3Manual = 0; dia4Manual = 0; dia5Manual = 0; dia6Manual = 0; dia7Manual = 0; 
       var f = new Date();
-      fechaDia1 = f.getDate() +1 + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
-      fechaDia2 = f.getDate() +2 + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
-      fechaDia3 = f.getDate() +3 + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
-      fechaDia4 = f.getDate() +4 + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
-      fechaDia5 = f.getDate() +5 + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
-      fechaDia6 = f.getDate() +6 + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
-      fechaDia7 = f.getDate() +7 + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+      f.setDate(f.getDate() + 1);
+      fechaDia1 = f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+      f.setDate(f.getDate() + 1);
+      fechaDia2 = f.getDate()+ "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+      f.setDate(f.getDate() + 1);
+      fechaDia3 = f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+      f.setDate(f.getDate() + 1);
+      fechaDia4 = f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+      f.setDate(f.getDate() + 1);
+      fechaDia5 = f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+      f.setDate(f.getDate() + 1);
+      fechaDia6 = f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+      f.setDate(f.getDate() + 1);
+      fechaDia7 = f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
 
       _.each(reservasLocal, function(local,index) {
         if (index == idLocal) {
             _.each(local, function(reserva) {
-              if (fechaDia1.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva == 'gmg') {
+              var fechaReserva = '';
+              if (reserva.fechaReserva.substr(0,1) == '0') {
+                fechaReserva = reserva.fechaReserva.substr(1,2);
+              } else {
+                fechaReserva = reserva.fechaReserva.substr(0,2);
+              }
+
+              if (fechaDia1.substr(0,2) == fechaReserva && reserva.medioReserva == 'gmg') {
                 dia1Guia++;
-              } else if (fechaDia1.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva != 'gmg') {
+              } else if (fechaDia1.substr(0,2) == fechaReserva && reserva.medioReserva != 'gmg') {
                 dia1Manual++;
               }
-              if (fechaDia2.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva == 'gmg') {
+              if (fechaDia2.substr(0,2) == fechaReserva && reserva.medioReserva == 'gmg') {
                 dia2Guia++;
-              } else if (fechaDia2.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva != 'gmg') {
+              } else if (fechaDia2.substr(0,2) == fechaReserva && reserva.medioReserva != 'gmg') {
                 dia2Manual++;
               }
-              if (fechaDia3.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva == 'gmg') {
+              if (fechaDia3.substr(0,2) == fechaReserva && reserva.medioReserva == 'gmg') {
                 dia3Guia++;
-              } else if (fechaDia3.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva != 'gmg') {
+              } else if (fechaDia3.substr(0,2) == fechaReserva && reserva.medioReserva != 'gmg') {
                 dia3Manual++;
               }
-              if (fechaDia4.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva == 'gmg') {
+              if (fechaDia4.substr(0,2) == fechaReserva && reserva.medioReserva == 'gmg') {
                 dia4Guia++;
-              } else if (fechaDia4.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva != 'gmg') {
+              } else if (fechaDia4.substr(0,2) == fechaReserva && reserva.medioReserva != 'gmg') {
                 dia4Manual++;
               }
-              if (fechaDia5.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva == 'gmg') {
+              if (fechaDia5.substr(0,2) == fechaReserva && reserva.medioReserva == 'gmg') {
                 dia5Guia++;
-              } else if (fechaDia5.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva != 'gmg') {
+              } else if (fechaDia5.substr(0,2) == fechaReserva && reserva.medioReserva != 'gmg') {
                 dia5Manual++;
               }
-              if (fechaDia6.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva == 'gmg') {
+              if (fechaDia6.substr(0,2) == fechaReserva && reserva.medioReserva == 'gmg') {
                 dia6Guia++;
-              } else if (fechaDia6.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva != 'gmg') {
+              } else if (fechaDia6.substr(0,2) == fechaReserva && reserva.medioReserva != 'gmg') {
                 dia6Manual++;
               }
-              if (fechaDia7.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva == 'gmg') {
+              if (fechaDia7.substr(0,2) == fechaReserva && reserva.medioReserva == 'gmg') {
                 dia7Guia++;
-              } else if (fechaDia7.substr(0,2) == reserva.fechaReserva.substr(0,2) && reserva.medioReserva != 'gmg') {
+              } else if (fechaDia7.substr(0,2) == fechaReserva && reserva.medioReserva != 'gmg') {
                 dia7Manual++;
               }
             });
@@ -472,7 +488,8 @@
         bar: {groupWidth: '95%' },
         colors:['#43af98','#7fc7b9'],
         legend: {position: 'top', maxLines: 3},
-        hAxis: {minValue: 0}
+        hAxis: {minValue: 0},
+        vAxis: {minValue: 0}
       };
       var chart = new google.visualization.ColumnChart(document.getElementById('chartProximasReservas'));
       chart.draw(data, options);
