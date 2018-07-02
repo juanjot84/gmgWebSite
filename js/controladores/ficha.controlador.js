@@ -329,20 +329,30 @@ function mostrarHorarioApertura(local){
     var horariosDia = _.filter(local.idHorarioApertura, {'diaSemanaHorarioApertura': dia});
 
     var dataDia = $('<td>').text(dia);
-    var horarios = 'Cerrado';
+    var horarios = '';
     var cerrado = true;
     if (horariosDia.length) {
       cerrado = false;
       var horarioManana = _.find(horariosDia, {'turnoHorarioApertura': 'manana'});
       var horarioTarde = _.find(horariosDia, {'turnoHorarioApertura': 'tarde'});
+      if (horarioManana && _.get(horarioManana, 'horaInicioHorarioApertura') !== _.get(horarioManana, 'horaFinHorarioApertura')){
+        horarios +=  _.get(horarioManana, 'horaInicioHorarioApertura') + ' a ' + _.get(horarioManana, 'horaFinHorarioApertura');
+        if( new Date().getDay() === index){
+          horaHoy = _.get(horarioManana, 'horaInicioHorarioApertura');
+        }
+      }
 
-      horarios = horarioManana.horaInicioHorarioApertura + ' a ' + horarioManana.horaFinHorarioApertura;
-      if( new Date().getDay() === index){
-        horaHoy = horarioManana.horaInicioHorarioApertura;
+      if (horarioTarde && _.get(horarioTarde, 'horaInicioHorarioApertura') !== _.get(horarioTarde, 'horaFinHorarioApertura')){
+        if (!_.isEmpty(horarios)){
+            horarios += ' - ';
+        }
+        horarios += _.get(horarioTarde, 'horaInicioHorarioApertura') + ' a ' + _.get(horarioTarde, 'horaFinHorarioApertura');
+        if( new Date().getDay() === index && _.isEmpty(horaHoy)){
+          horaHoy = _.get(horarioTarde, 'horaInicioHorarioApertura');
+        }
       }
-      if (horarioTarde){
-        horarios += ' - ' +  horarioTarde.horaInicioHorarioApertura + ' a ' + horarioTarde.horaFinHorarioApertura;
-      }
+    } else {
+      horarios = 'Cerrado';
     }
 
     var dataHorarios = $('<td>').addClass(cerrado ? 'cerrado' : '').text(horarios);
@@ -352,7 +362,7 @@ function mostrarHorarioApertura(local){
   });
 
   var a = $('<a>').attr('href', '#').attr('data-toggle', 'popover').attr('data-placement', 'bottom').attr('data-content', table.html()).html('Ver Horarios');
-  var span = $('<span />').append('Abre a las ' + horaHoy + '\&nbsp;' );
+  var span = horaHoy ?  $('<span />').append('Abre a las ' + horaHoy + '\&nbsp;' ) : $('<span />').append('Hoy cerrado \&nbsp;' );
   span.append(a);
 
   //var html = ;
