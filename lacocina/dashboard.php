@@ -51,11 +51,12 @@
         <script src=" https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js" crossorigin="anonymous"></script>
         <script src="js/comportamientos.js"></script>
 
-                <!-- Charts -->
-                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <!-- Charts -->
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/heatmap.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
-
-        
     </head>
 
     <body>
@@ -402,7 +403,8 @@
             <div class="col-lg-4">
                 <div id="UltimasReservas" class="modulo naranja">
                     <h1><span>Reservas</span> de los ultimos 7 dias</h1>
-                    <img src="img/07-Modulo.jpg" class="img-fluid">
+                    <div id="mapaCalor" style="height: 100%; width: 100%; margin: 0 auto"></div>
+                  <!--  <img src="img/07-Modulo.jpg" class="img-fluid"> -->
                 </div>
             </div>
             <div class="col-lg-4">
