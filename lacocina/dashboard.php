@@ -132,7 +132,7 @@
                                             </span></a>
                                 </li>
                                 <li>
-                                    <a href="tutoriales.html" class="hvr-bounce-to-left"><i class="fa"><img src="img/iconos/play.svg"  title="imagen SVG" class="imgSvg"/></i>
+                                    <a href="tutoriales.php" class="hvr-bounce-to-left"><i class="fa"><img src="img/iconos/play.svg"  title="imagen SVG" class="imgSvg"/></i>
                                             <span class="nav-text">
                                               Tutoriales
                                             </span></a>
@@ -276,7 +276,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="tutoriales.html"><i class="fa fa-play"></i>
+                            <a href="tutoriales.php"><i class="fa fa-play"></i>
                                 <span class="nav-text">
                                 Tutoriales
                                 </span>
@@ -334,7 +334,7 @@
                 <!--Grafico para Proximas Reservas - Google Charts. Column Charts Stacked-->
                 <div id="charts" class="modulo verde">
                     <h1><span>Reservas</span> para los proximos 7 dias</h1>
-                    <div id="chartProximasReservas" class="chart"></div>
+                    <div id="chartProximasReservas" style="width: 100%; "></div>
 
                 </div>
             </div>

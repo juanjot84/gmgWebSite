@@ -34,6 +34,10 @@
         });     
     }
 
+    $(window).resize(function(){
+      listadoProximas();
+    });
+
     function datosNegocio(idNegocio) {
       if (_.isUndefined(server)) {
         $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
@@ -486,6 +490,7 @@
       ]); 
 
       var options = {
+        width: "75%",
         isStacked: true,
         bar: {groupWidth: '95%' },
         colors:['#43af98','#7fc7b9'],
@@ -598,12 +603,23 @@
 
 
       Highcharts.chart('mapaCalor', {
-
+        plotOptions: {
+          series: {
+            
+          },
+          heatmap: {
+            colsize:1,
+            rowsize:0.1
+          }
+      },
         chart: {
             type: 'heatmap',
             marginTop: 5,
             marginBottom: 10,
-            plotBorderWidth: 1
+            plotBorderWidth: 1,
+            height: 200,
+            spacingBottom:1,
+            spacingTop:1
         },
   
         title: {
