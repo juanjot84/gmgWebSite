@@ -231,7 +231,7 @@ include("includes/head.php"); ?>
                     <!-- Elegir horario -->
                     <div class="form-group">
                       <label for="sel1">Duración en minutos:</label>
-                      <input id="duracionReservaTarde" name="" type="number" min="0" step="30" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3"">
+                      <input id="duracionReservaTarde" name="" type="number" min="0" step="30" class="form-control" placeholder="Duración de Reserva" aria-describedby="sizing-addon3">
                     </div>
                     <!-- Fin Elegir horario -->
                   </div>
