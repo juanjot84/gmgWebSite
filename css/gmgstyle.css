@@ -97,8 +97,8 @@ header {
     -webkit-transition:all .2s ease-in;
     color: #fff !important;
 
-    background-color: #2cbdbe!important;
-    border-color: #2cbdbe!important;
+    background-color: #f8981d!important;
+    border-color: #f8981d!important;
     /* MAGENTA
     background-color: #da3743!important;
     border-color: #da3743!important;*/
@@ -119,8 +119,8 @@ header {
 .btn-xl:hover,
 .open .dropdown-toggle.btn-xl {
     color: #fff !important;
-    background-color: #019192!important;
-    border-color: #019192!important;
+    background-color: #de8410!important;
+    border-color: #de8410!important;
 }
 
 .btn-info {
@@ -503,7 +503,7 @@ i.fa.fa-globe.redesficha:hover {
     position: fixed;
     width: 100%;
     margin-top: 2%;
-    background: #2cbdbe;
+    background: #f8981d;
     z-index: 0;
     height: 40px;
     color: #fff;
@@ -517,7 +517,7 @@ i.fa.fa-globe.redesficha:hover {
 .verreservar {
     display: block !important;
     margin-top: 85px;
-    border-top: 2px solid #2cbdbe;
+    border-top: 2px solid #f8981d;
     z-index: 20;
     transition: all .6s ease-in-out;
 }
