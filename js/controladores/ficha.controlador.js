@@ -284,7 +284,7 @@ function buscarFavoritos(local){
 
       $("#iconoFavorito").append('<h3 class="titulo"><span id="nombreNegocio">'+local.idNegocio.nombreNegocio+'</span>  <span id="bajadaNegocio">'+bajadaNegocio+'</span>'+
       '<i id="corazon" style="cursor:pointer;" class="'+iconoCorazon+'" aria-hidden="true" onClick="editarFavorito(\'' + local._id + '\',\'' + idFavorito + '\')"></i></h3>'+
-      '<p ><i class="fa fa-map-marker iconoficha" aria-hidden="true"></i> <span id="polo">' + nombrePolo + ' |  <i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' +tipoCocina +'</span></p>');
+      '<p ><i class="fa fa-map-marker iconoficha" aria-hidden="true"></i> <span id="polo">' + nombrePolo + '</span> | <i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' +tipoCocina +'</span></p>');
 
      },
      error:function(jqXHR,textStatus,errorThrown)
@@ -292,11 +292,23 @@ function buscarFavoritos(local){
       var iconoCorazon = 'favoritosfichagris fa fa-heart';
       $("#iconoFavorito").append('<h3 class="titulo"><span id="nombreNegocio">'+local.idNegocio.nombreNegocio+'</span>  <span id="bajadaNegocio">'+bajadaNegocio+'</span>'+
       '<i id="corazon" style="cursor:pointer;" class="'+iconoCorazon+'" aria-hidden="true" ></i></h3>'+
-      '<p ><i class="fa fa-map-marker iconoficha" aria-hidden="true"></i> <span id="polo">' + nombrePolo + ' |  <i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' +tipoCocina +'</span></p>');
+      '<p >' +
+        '<i class="fa fa-map-marker iconoficha" aria-hidden="true"></i> <span id="polo">' + nombrePolo + ' </span>|  ' +
+        '<i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' +tipoCocina +'</span>' +
+          mostrarHorarioApertura(local) +
+       '</p>');
+
+       // $('[data-toggle="tooltip"]').tooltip();
+       $('[data-toggle="popover"]').popover({
+           placement:"bottom",
+           html:true,
+           trigger:"focus",
+           animation:true,
+       });
 
          $('#target').append("jqXHR: "+jqXHR);
-         $('#target').append("textStatus: "+textStatus);
-         $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+       $('#target').append("textStatus: "+textStatus);
+       $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
      },
      headers: {
          Authorization: 'JWT ' + jwt
@@ -304,6 +316,49 @@ function buscarFavoritos(local){
  });}
 }
 
+function mostrarHorarioApertura(local){
+  var separador = '<i class="fa fa-clock-o iconoficha iconoficha-cerrado" aria-hidden="true"></i>';
+  var dias = ["Domingos", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabados", "Feriados"];
+  var horaHoy = '';
+
+
+  var table = $('<table>');
+  table.append( '<table> <tr><th>Dias</th><th>Horarios</th></tr>' );
+
+  _.each(dias, function(dia, index ){
+    var horariosDia = _.filter(local.idHorarioApertura, {'diaSemanaHorarioApertura': dia});
+
+    var dataDia = $('<td>').text(dia);
+    var horarios = 'Cerrado';
+    var cerrado = true;
+    if (horariosDia.length) {
+      cerrado = false;
+      var horarioManana = _.find(horariosDia, {'turnoHorarioApertura': 'manana'});
+      var horarioTarde = _.find(horariosDia, {'turnoHorarioApertura': 'tarde'});
+
+      horarios = horarioManana.horaInicioHorarioApertura + ' a ' + horarioManana.horaFinHorarioApertura;
+      if( new Date().getDay() === index){
+        horaHoy = horarioManana.horaInicioHorarioApertura;
+      }
+      if (horarioTarde){
+        horarios += ' - ' +  horarioTarde.horaInicioHorarioApertura + ' a ' + horarioTarde.horaFinHorarioApertura;
+      }
+    }
+
+    var dataHorarios = $('<td>').addClass(cerrado ? 'cerrado' : '').text(horarios);
+    var row = $('<tr>').append(dataDia).append(dataHorarios);
+    table.append(row);
+    table.append('</table >')
+  });
+
+  var a = $('<a>').attr('href', '#').attr('data-toggle', 'popover').attr('data-placement', 'bottom').attr('data-content', table.html()).html('Ver Horarios');
+  var span = $('<span />').append('Abre a las ' + horaHoy + '\&nbsp;' );
+  span.append(a);
+
+  //var html = ;
+
+  return separador + span.html();
+}
 
 function mostrarModalLogin(){
   $("#botonLogin").attr("href", 'login.php?redirect=' + encodeURIComponent(window.location.href));

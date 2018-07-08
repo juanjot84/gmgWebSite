@@ -60,6 +60,8 @@ session_start();
             }
         </style>
         
+        <script>document.addEventListener("touchstart", function() {},false);</script>
+        
     </head>
 
     <body id="page-top" class="index">
