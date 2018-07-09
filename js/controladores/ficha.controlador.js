@@ -22,9 +22,18 @@ function getDetalleLocal(idLocal, modal) {
       crossDomain: true,
       contentType: "application/json",
       success: function (data) {
-        buscarSugeridos();
+        buscarSugeridos(data.localPremium);
         locales = data;
-        popularLocal(data);
+        if (data.localPremium) {
+          $("#fichaPremium").show();
+          $("#map").show();
+          $("#sugeridosPremium").show();
+          popularLocal(data);
+        } else {
+          $("#fichaBase").show();
+          popularFichaBase(data);
+        }
+        
         //if (!_.isNil(modal) && !_.isEmpty(modal)) {
         //  mostrarModalLocal(data._id, modal);
         //}
@@ -88,6 +97,27 @@ function buscar(parametro, filtro) {
 function getTituloBusqueda(parametro, filtro) {
   var titulo = $("#labelRestaurantesBusquedas");
   titulo.text('Restaurantes para la búsqueda "' + parametro + '"');
+}
+
+function popularFichaBase(local) {
+
+  $('#nombreNegocio').text(local.idNegocio.nombreNegocio);
+  $("#imagenLocal").attr('src', local.fotoPrincipalLocal);
+
+  var bajadaNegocio = '';
+  var raya = ' | ';
+  if (local.idNegocio.bajadaNegocio.length > 2) {
+    bajadaNegocio = raya + local.idNegocio.bajadaNegocio;
+  }
+  $("#bajadaNegocio").text(bajadaNegocio);
+  $("#datosContacto").append(''+
+    '<li style="padding-top: 5%;">'+
+       '<p class="textodatosficha"><i class="fa fa-map-marker datosficha" aria-hidden="true"></i> <span id="direccionLocal">'+ local.calleLocal +' '+ local.alturaLocal +'</span></p>'+
+    '</li>'+
+    '<li>'+
+       '<p class="textodatosficha"><i class="fa fa-phone datosficha" aria-hidden="true"></i><span id="telefonoLocal">' + local.telContacto + '</span> </p>'+
+    '</li>'+
+  '');
 }
 
 function popularLocal(local) {
@@ -474,20 +504,20 @@ function toggleBounce() {
   }
 }
 
-function buscarSugeridos() {
+function buscarSugeridos(premium) {
   if (_.isUndefined(server)) {
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     });
   }
   $.ajax({
-    url: server + '/api/v1/admin/locales',
+    url: server + '/api/v1/admin/localesAceptanReservas',
     type: 'GET',
 
     dataType: "json",
     crossDomain: true,
     contentType: "application/json",
     success: function (data) {
-      renderSugeridos(data);
+      renderSugeridos(data, premium);
     },
     error: function (jqXHR, textStatus, errorThrown) {
       $('#target').append("jqXHR: " + jqXHR);
@@ -497,21 +527,33 @@ function buscarSugeridos() {
   });
 }
 
-function renderSugeridos(locales){
-  $('.container.sugeridos').html('');
-  contSugeridos = 1;
+function renderSugeridos(locales, premium){
 
-
-_.each(locales, function(local){
-  if(contSugeridos < 7){
-  $('.container.sugeridos').append('' +
-    '<div class="col-md-2 ">' +
-    '    <div class="centraimagensugeridos"><a href="ficha.php?id=' + local._id + '"><img  class="sugeridos img-responsive" src="' +  local.fotoPrincipalLocal + '"> </a></div>' +
-    '    <h2 class="titulosugerencia2">' + local.idNegocio.nombreNegocio + '</h2>' +
-    '</div>');
-    contSugeridos++;
+  if (premium) {
+      $('.container.sugeridos').html('');
+      contSugeridos = 1;
+    _.each(locales, function(local){
+      if(contSugeridos < 7){
+      $('.container.sugeridos').append('' +
+        '<div class="col-md-2 ">' +
+        '    <div class="centraimagensugeridos"><a href="ficha.php?id=' + local._id + '"><img  class="sugeridos img-responsive" src="' +  local.fotoPrincipalLocal + '"> </a></div>' +
+        '    <h2 class="titulosugerencia2">' + local.local.nombreNegocio + '</h2>' +
+        '</div>');
+        contSugeridos++;
+      }
+    });
+  } else {
+    $('#containerSugBase').html('');
+  _.each(locales, function(local){
+    $('#containerSugBase').append('' +
+        '<div class="col-md-2 ">'+
+        '<div class="centraimagensugeridos"><a href="ficha.php?id=' + local._id + '"><img class="sugeridos img-responsive" src="' +  local.fotoPrincipalLocal + '"> </a></div>'+
+        '<h2 class="titulosugerencia2">' + local.local.nombreNegocio + '</h2>'+
+        '</div>');
+  });
   }
-});
+
+
 }
 
 function cargarPromociones(idLocal, modal, nombreNegocio, aceptaReserva){
