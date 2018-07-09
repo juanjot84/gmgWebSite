@@ -24,7 +24,9 @@ header {
     margin: 0 0 20px 0
 }
 
-
+p{
+    font-size: 11px
+}
 
 h1 {
 
@@ -38,6 +40,12 @@ h3 {
     color: #fff;
     margin: 0 25%;
     font-size: 16px
+}
+
+
+h4 {
+   font-size: 14px; 
+    margin:0 0 15px 0
 }
 
 .mobile {
@@ -536,7 +544,7 @@ nav.main-menu li.active > a,
     }
 
 .promo h5 {
-    font-size: 13px;
+    font-size: 11px;
     font-weight: bold!important;
     padding:18px 0 0 0;
     line-height: 0;
@@ -719,6 +727,12 @@ table {
 }
 
 
+#reservas .modulo, #Configurarreservas .modulo, #promociones .modulo, #descuentos .modulo, #calificaciones .modulo,  #imagenes .modulo, #AdminNegocio .modulo, #TipoNegocio .modulo{
+    height: auto;
+    margin: 0 0 20px 0
+}
+
+
 /*************************************************************Colores para los Modulos*/
 
 /*Modulos Naranjas*/
@@ -746,15 +760,6 @@ table {
     border-color: #f8981d
 }
 
-.naranja .btn {
-        background-color: #f8981d;
-    border-color: #f8981d;
-}
-
-.naranja .btn:hover {
-        background-color: #cd7300;
-    border-color: #cd7300;
-}
 
 /*Modulos Celestes*/
 
@@ -783,16 +788,7 @@ table {
 }
 
 
-.celeste .btn {
-        background-color: #62d1f3;
-    border-color: #62d1f3;
-}
 
-
-.celeste .btn:hover {
-        background-color: #00a5d7;
-    border-color: #00a5d7;
-}
 
 /*Modulos Rosas*/
 
@@ -819,16 +815,6 @@ table {
     border-color: #fc6180
 }
 
-.rosado .btn {
-        background-color: #fc6180;
-    border-color: #fc6180;
-}
-
-
-.rosado .btn:hover {
-        background-color: #ff0033;
-    border-color: #ff0033;
-}
 
 
 /*Modulos verdes*/
@@ -856,16 +842,6 @@ table {
     border-color: #149b7e
 }
 
-.verde .btn {
-        background-color: #149b7e;
-    border-color: #149b7e;
-}
-
-
-.verde .btn:hover {
-        background-color: #027d63;
-    border-color: #027d63;
-}
 
 
 /************************************Modulos - Elementos especificos*/
@@ -909,7 +885,7 @@ table {
 
 }
 
-/*Reservas para hoy*/
+
 
 
 
@@ -1110,14 +1086,7 @@ footer ul.quicklinks {
     margin:0 0 20px 0
 }
 
-#btn-ReservaManual .btn {
-    
-}
 
-#reservas .modulo {
-    height: auto;
-    margin: 0 0 20px 0
-}
 
 #reservas {
     min-height: 700px
@@ -1196,20 +1165,20 @@ footer ul.quicklinks {
     font-size: 11px
 }
 
-#reservas h6 {
+#reservas h6, #calificaciones h6  {
     font-size: 13px;
     color: #f8981d;
     font-weight: bold;
     margin: 10px 0 5px 0
 }
 
-#reservas .content-collapse {
+.content-collapse {
     margin: 0;
     padding: 5px 0;
     background-color: #f1f1f1
 }
 
-#reservas .fa {
+#reservas .fa, #calificaciones .fa {
     display: inline-block;
     width: 15px;
     height: auto;
@@ -1358,7 +1327,7 @@ p.detalleReservas {
 }
 
 .alturaReservas {
-    height: 496px!important
+    min-height: 496px!important
 }
 
 
@@ -1389,7 +1358,8 @@ input[type="checkbox"], input[type="radio"]{
 
 .form-check .label-text {
     color: #73879c;
-    margin:0 5px 0 0
+    margin:0 5px 0 0;
+    
 }
 
 /*Check box*/
@@ -1440,7 +1410,7 @@ input[type="radio"] + .label-text:before{
 	margin-right: 5px;
 }
 
-.naranja input[type="radio"]:checked + .label-text:before{
+input[type="radio"]:checked + .label-text:before{
 	content: "\f192";
 	color: #f8981d;
 	animation: effect 250ms ease-in;
@@ -1573,8 +1543,11 @@ select.form-control {
 
 /*****/
 #Configurarreservas .modulo {
-    height: auto
+    height: auto;
+    
 }
+
+
 
 #Configurarreservas table span {
     display: inline
@@ -1590,7 +1563,8 @@ select.form-control {
 }
 
 .rs-container {
-    width: 90%
+    width: 90%;
+    float: left
 }
 
 .rs-tooltip {
@@ -1604,12 +1578,378 @@ select.form-control {
     
 }
 
-/*Sliders Dobles*/
 
-#Configurarreservas .slider {
-    width: 20%
+
+#Configurarreservas .labelActivo {
+    float: left;
+    
 }
 
-/***********/
+.diasemana {
+    border-bottom: 1px solid #dee2e6;
+    padding:10px 0;
+    font-size:12px;
+    font-weight: bold
+}
 
+.turnosMobiles {display:none}
+
+.cabecerareservas {
+    border-bottom: 2px solid #dee2e6;
+    font-size:12px;
+    font-weight: bold;
+        padding:10px 0;
+}
+
+.anticipacion {
+    margin:20px 0 0 0
+}
+
+.anticipacion .rs-container {
+    width: 100%
+}
+
+onoffswitch3
+{
+    position: relative; width: 200px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+
+.onoffswitch3-checkbox {
+    display: none;
+}
+
+.onoffswitch3-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 0px solid #999999; border-radius: 0px;
+}
+
+.onoffswitch3-inner {
+    display: block; width: 200%; margin-left: -100%;
+    -moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
+    -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch3-inner > span {
+    display: block; float: left; position: relative; width: 50%; height: 30px; padding: 0; line-height: 30px;
+    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+.onoffswitch3-inner .onoffswitch3-active {
+    padding-left: 10px;
+    background-color: #EEEEEE; color: #FFFFFF;
+}
+
+.onoffswitch3-inner .onoffswitch3-inactive {
+    padding-right: 10px;
+    background-color: #EEEEEE; color: #FFFFFF;
+    text-align: right;
+}
+
+.onoffswitch3-switch {
+    display: block; width: 50%; margin: 0px; text-align: center; 
+    border: 0px solid #999999;border-radius: 0px; 
+    position: absolute; top: 0; bottom: 0;
+}
+.onoffswitch3-active .onoffswitch3-switch {
+    background: #149b7e; left: 0; color:#fff
+}
+.onoffswitch3-inactive .onoffswitch3-switch {
+    background: #A1A1A1; right: 0;color:#fff
+}
+.onoffswitch3-checkbox:checked + .onoffswitch3-label .onoffswitch3-inner {
+    margin-left: 0;
+}
+
+/*****************************Promociones*/
+
+.colorPromocion {
+        font-size: 12px!important;
+        color: #a6a6a6;
+        margin:40px 0 0 0
+}
+
+
+.row-promociones {
+    border-bottom:1px solid #f1f1f1;
+    
+        padding:40px 0
+}
+
+.promocion-titulos-switch {
+    font-size: 12px;
+    margin:20px 0 5px 0
+}
+
+/*seleccionar color*/
+.switch {
+    width: 100%;
+    height: 36px;
+    background: white;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+   
+}
+
+.switch > span {
+    position: absolute;
+    font-size: 12px;
+    width: 100%;
+    
+    color: #a6a6a6;
+    text-align: center;
+    left: 0;
+    cursor: default;
+}
+
+
+.slide-2 {
+    line-height: 40px;
+    width: 100%;
+    height: 36px;
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+    
+    font-size: 12px;
+    z-index: 1000;
+    background: #fff;
+    transition: left .7s;
+    top:0;
+    -webkit-transition:all 1s ease;
+    -moz-transition:all 1s ease;
+    -ms-transition:all 1s ease;
+    -o-transition:all 1s ease;
+    transition:all 1s ease;
+}
+.slide-2.open {
+    top: -100%;
+}
+
+.up {
+    width: 20px
+}
+
+.color-selected {
+    
+    width: 20px;
+    position: absolute;
+   
+}
+
+.color-bar-2 { 
+    width: 100%;
+    height: 36px;
+    float: left;
+    background: #fff;
+    padding-top: 6px;
+    padding-left: 12px;
+}
+.close-2 {
+   
+    margin-top: 2px;
+    margin-right: 10px;
+    font-size: 18px;
+    color: #000;
+    font-weight: bold;
+   
+}
+.close-2:hover, .close-2:focus{
+    text-decoration: none;
+    color: #000;
+    opacity: .5;
+}
+
+.tab-2 {
+    width: 40px;
+    height: 36px;
+    background: orange;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0px 0px 0px 0px;
+    color: #fff;
+}
+
+
+.color-bar {
+    width: 300px;
+    height: 36px;
+    float: left;
+    background: #fff;
+    padding-top: 6px;
+    padding-left: 12px;
+}
+.slide-select.open {
+    left: 0;
+}
+.color-list {
+    display: inline-block;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    margin-right: 2px;
+    position: relative;
+    color: ;
+}
+.color-list > span {
+    color: #fff;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    
+    left: 0;
+}
+.red {
+    background: rgb(220, 81, 84);
+}
+.green {
+    background: #21aaa3;
+}
+.purple {
+    background: #b062b2;
+}
+.blue {
+    background: rgb(106, 161, 195);
+}
+.black {
+    background: rgb(68, 68, 68);
+}
+.orange {
+    background: #ec8b00;
+}
+.pink {
+    background: #fc6180;
+}
+.malbec {
+    background: #a6193c
+}
+.close {
+    float: right;
+    margin-top: 2px;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+
+#promociones .rs-container {
+    float: none
+}
+
+#promociones .form-check {
+   
+    border-bottom:none;
+   
+}
+
+.cargaImagenes {
+    font-size: 11px
+}
+
+
+.btnSubirIMagen {
+    width: 85%;
+    font-size: 11px
+}
+
+.previewIcono {
+    width: 25px
+}
+.preview {
+    width: 100%
+}
+
+.daterange {
+    font-size:11px;
+    padding: 5px;
+    width: 100%;
+    border:none;
+    border-bottom: 1px solid #999999
+}
+
+/***********************************Descuentos y Promociones*/
+
+
+#descuentos .imgSvg {
+    margin:0 5px 0 0
+}
+
+.trash {
+    width:15px
+}
+
+/*********************************CAlificaciones*/
+
+.estrella {
+    font-size: 60px!important
+}
+
+#calificaciones p.clasificacion {
+    text-align: left
+}
+
+.comentario {
+    font-style: italic
+}
+
+.respuesta {
+    font-style: normal;
+    padding: 0 0 0 30px;
+    border-left:3px solid #e3e3e3
+}
+
+
+
+#calificaciones span {
+    font-weight: bold
+}
+
+.nuevo {
+    color:#c92e5a!important
+}
+
+.respondido {
+    color:#149b7e!important
+}
+
+#calificaciones .form-check {
+    font-weight: normal!important;
+    border: none!important;
+   
+}
+
+#calificaciones .label-text {
+    font-size: 12px
+}
+
+/********************IMagenes*/
+
+#imagenes .iconosImagenes {
+    
+    margin:10px 10px 0 0
+}
+
+/**********Administrar Negocios*/
+
+#AdminNegocio .form-check {
+    margin:20px 0 0 0;
+    border:none
+}
+
+
+#AdminNegocio .labelActivo {
+    
+}
+
+/******************Tipo de negocio*/
+
+#TipoNegocio .imgSvg {
+    margin: 0 20px 0 0
+}
+
+#TipoNegocio .labelActivo span {
+    font-size: 12px
+}
 

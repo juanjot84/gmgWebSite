@@ -9,7 +9,7 @@
     <link rel="icon" href="../../../../favicon.ico">
 
     <title>La Cocina - Dashboard</title>
-    
+
     <!--Preloader-->
     <script src="js/pace.js"></script>
     <link rel="stylesheet" href="css/pace.css">
@@ -22,20 +22,25 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 
     <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/rSlider.min.css">
     <link href="css/lacocina.css" rel="stylesheet">
+    <link href="css/forms.css" rel="stylesheet">
 
     <link href="css/mobile.css" rel="stylesheet">
 
 
     <link rel="stylesheet" href="css/barras.css">
-    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="css/superadminMenu.css">
+    
+   
+
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="js/ProximasReservas.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/comportamientos.js"></script>
 
 
+    <script src="js/rSlider.min.js"></script>
 
 
 
@@ -71,12 +76,12 @@
                                 <a class="dropdown-item" href="#">Aristides Villanueva</a>
                             </div>
                         </div>
-                        
+
                     </div>
                     <div class="col-xs-5 mobile">
-                       <img src="img/LogoResto.png">
+                        <img src="img/LogoResto.png">
                     </div>
-                   
+
 
 
                     <div class="col-md-4 web">
@@ -241,9 +246,570 @@
     <!--Fin CAbecera para Mobiles-->
 
 
-    <main id="reservas" role="main" class="container">
+    <main id="Configurarreservas" role="main" class="container">
 
-  
+        <form>
+
+            <div class="row">
+                <div class="col-lg-4 ">
+                    <div class="modulo rosado fijo">
+                        <h1>Acepta reservas</h1>
+
+                        <div class="onoffswitch3">
+                            <input type="checkbox" name="onoffswitch3" class="onoffswitch3-checkbox" id="myonoffswitch3" checked>
+                            <label class="onoffswitch3-label" for="myonoffswitch3">
+        <span class="onoffswitch3-inner">
+            <span class="onoffswitch3-active"><span class="onoffswitch3-switch">Si </span></span>
+            <span class="onoffswitch3-inactive"><span class="onoffswitch3-switch">No </span></span>
+        </span>
+    </label>
+                        </div>
+                    </div>
+                    
+                    <div id="HorariosAtencion" class="modulo celeste fijo">
+                    <h1><span>Horarios</span> de Atención <span class="ver"><a href="#">  - Configurar </a></span></h1>
+
+                    
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Dia</th>
+                                    <th scope="col">Turno 1</th>
+                                    <th scope="col">Turno 2</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Lunes</th>
+                                    <td>09:30 a 13:30</td>
+                                    <td>21 a 01:30</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Martes</th>
+                                    <td>09:30 a 13:30</td>
+                                    <td>21 a 01:30</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Miercoles</th>
+                                    <td>09:30 a 13:30</td>
+                                    <td>21 a 01:30</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Jueves</th>
+                                    <td>09:30 a 13:30</td>
+                                    <td>21 a 01:30</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Viernes</th>
+                                    <td>09:30 a 13:30</td>
+                                    <td>21 a 01:30</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Sábado</th>
+                                    <td>09:30 a 13:30</td>
+                                    <td>21 a 01:30</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Domingo</th>
+                                    <td class="cerrado">Cerrado</td>
+                                    <td>21 a 01:30</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Feriados</th>
+                                    <td class="cerrado">Cerrado</td>
+                                    <td class="cerrado">Cerrado</td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    
+                </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="modulo verde">
+
+                        <h1>Horarios de Reservas</h1>
+                        <form action="#" method="post" autocomplete="off">
+                            <div class="row cabecerareservas">
+                                <div class="col-lg-2">Dia</div>
+                                <div class="col-lg-5">Turno 1</div>
+                                <div class="col-lg-5">Turno 2</div>
+                            </div>
+                            <!--Lunes-->
+                            <div class="row diasemana">
+                                <div class="col-lg-2">Lunes</div>
+                                <div class="col-lg-5">
+                                    <div class="row">
+                                        <h6 class="turnosMobiles">Turno 1</h6>
+                                        <label class="labelActivo"><input type="checkbox" name="lunest1" checked> <span class="label-text"> </span></label><input type="text" id="horaLunest1" class="slider">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-6">
+                                            <div class="form-element form-input">
+                                                <input id="cubiertosLunt1" class="form-element-field" placeholder="disponibles" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Cubiertos</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-6">
+                                            <div class="form-element form-input">
+                                                <input id="duracionLunT1" class="form-element-field" placeholder="de la reserva" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Duración </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="row">
+                                        <h6 class="turnosMobiles">Turno 2</h6>
+                                        <label class="labelActivo"><input type="checkbox" name="lunest2" checked> <span class="label-text"> </span></label><input type="text" id="horaLunest2" class="slider">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-6">
+                                            <div class="form-element form-input">
+                                                <input id="cubiertosLunt2" class="form-element-field" placeholder="disponibles" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Cubiertos</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-6">
+                                            <div class="form-element form-input">
+                                                <input id="duracionLunT2" class="form-element-field" placeholder="de la reserva" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Duración </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Fin Lunes-->
+
+
+                            <!--MArtes-->
+                            <div class="row diasemana">
+                                <div class="col-lg-2">Martes</div>
+                                <div class="col-lg-5">
+                                    <div class="row">
+                                        <h6 class="turnosMobiles">Turno 1</h6>
+                                        <label class="labelActivo"><input type="checkbox" name="Martest1" checked> <span class="label-text"> </span></label><input type="text" id="horaMartest1" class="slider">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="cubiertosMartest1" class="form-element-field" placeholder="disponibles" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Cubiertos</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="duracionMartesT1" class="form-element-field" placeholder="de la reserva" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Duración </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="row">
+                                        <h6 class="turnosMobiles">Turno 2</h6>
+                                        <label class="labelActivo"><input type="checkbox" name="Martest2" checked> <span class="label-text"> </span></label><input type="text" id="horaMartest2" class="slider">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="cubiertosMartest2" class="form-element-field" placeholder="disponibles" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Cubiertos</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="duracionMartesT2" class="form-element-field" placeholder="de la reserva" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Duración </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Fin Lunes-->
+
+                            <!--Miercoles-->
+                            <div class="row diasemana">
+                                <div class="col-lg-2">Miercoles</div>
+                                <div class="col-lg-5">
+                                    <div class="row">
+                                        <h6 class="turnosMobiles">Turno 1</h6>
+                                        <label class="labelActivo"><input type="checkbox" name="Miercolest1" checked> <span class="label-text"> </span></label><input type="text" id="horaMiercolest1" class="slider">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="cubiertosMiercolest1" class="form-element-field" placeholder="disponibles" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Cubiertos</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="duracionMiercolesT1" class="form-element-field" placeholder="de la reserva" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Duración </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="row">
+                                        <h6 class="turnosMobiles">Turno 2</h6>
+                                        <label class="labelActivo"><input type="checkbox" name="Miercolest2" checked> <span class="label-text"> </span></label><input type="text" id="horaMiercolest2" class="slider">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="cubiertosMiercolest2" class="form-element-field" placeholder="disponibles" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Cubiertos</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="duracionMiercolesT2" class="form-element-field" placeholder="de la reserva" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Duración </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Fin Miercoles-->
+
+                            <!--Jueves-->
+                            <div class="row diasemana">
+                                <div class="col-lg-2">Jueves</div>
+                                <div class="col-lg-5">
+                                    <div class="row">
+                                        <h6 class="turnosMobiles">Turno 1</h6>
+                                        <label class="labelActivo"><input type="checkbox" name="Juevest1" checked> <span class="label-text"> </span></label><input type="text" id="horaJuevest1" class="slider">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="cubiertosJuevest1" class="form-element-field" placeholder="disponibles" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Cubiertos</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="duracionJuevesT1" class="form-element-field" placeholder="de la reserva" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Duración </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="row">
+                                        <h6 class="turnosMobiles">Turno 2</h6>
+                                        <label class="labelActivo"><input type="checkbox" name="Juevest2" checked> <span class="label-text"> </span></label><input type="text" id="horaJuevest2" class="slider">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="cubiertosJuevest2" class="form-element-field" placeholder="disponibles" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Cubiertos</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="duracionJuevesT2" class="form-element-field" placeholder="de la reserva" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Duración </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Fin Jueves-->
+
+                            <!--Viernes-->
+                            <div class="row diasemana">
+                                <div class="col-lg-2">Viernes</div>
+                                <div class="col-lg-5">
+                                    <div class="row">
+                                        <h6 class="turnosMobiles">Turno 1</h6>
+                                        <label class="labelActivo"><input type="checkbox" name="Viernest1" checked> <span class="label-text"> </span></label><input type="text" id="horaViernest1" class="slider">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="cubiertosViernest1" class="form-element-field" placeholder="disponibles" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Cubiertos</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="duracionViernesT1" class="form-element-field" placeholder="de la reserva" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Duración </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="row">
+                                        <h6 class="turnosMobiles">Turno 2</h6>
+                                        <label class="labelActivo"><input type="checkbox" name="Viernest2" checked> <span class="label-text"> </span></label><input type="text" id="horaViernest2" class="slider">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="cubiertosViernest2" class="form-element-field" placeholder="disponibles" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Cubiertos</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="duracionViernesT2" class="form-element-field" placeholder="de la reserva" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Duración </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Fin Viernes-->
+
+                            <!--Sábado-->
+                            <div class="row diasemana">
+                                <div class="col-lg-2">Sábado</div>
+                                <div class="col-lg-5">
+                                    <div class="row">
+                                        <h6 class="turnosMobiles">Turno 1</h6>
+                                        <label class="labelActivo"><input type="checkbox" name="Sabadot1" checked> <span class="label-text"> </span></label><input type="text" id="horaSabadot1" class="slider">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="cubiertosSabadot1" class="form-element-field" placeholder="disponibles" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Cubiertos</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="duracionSabadoT1" class="form-element-field" placeholder="de la reserva" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Duración </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="row">
+                                        <h6 class="turnosMobiles">Turno 2</h6>
+                                        <label class="labelActivo"><input type="checkbox" name="Sabadot2" checked > <span class="label-text"> </span></label><input type="text" id="horaSabadot2" class="slider">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="cubiertosSabadot2" class="form-element-field" placeholder="disponibles" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Cubiertos</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="duracionSabadoT2" class="form-element-field" placeholder="de la reserva" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Duración </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Fin Sabado-->
+
+                            <!--Domingo-->
+                            <div class="row diasemana">
+                                <div class="col-lg-2">Domingo</div>
+                                <div class="col-lg-5">
+                                    <div class="row">
+                                        <h6 class="turnosMobiles">Turno 1</h6>
+                                        <label class="labelActivo"><input type="checkbox" name="Domingot1" > <span class="label-text"> </span></label><input type="text" id="horaDomingot1" class="slider">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="cubiertosSDomingot1" class="form-element-field" placeholder="disponibles" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Cubiertos</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="duracionDomingoT1" class="form-element-field" placeholder="de la reserva" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Duración </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="row">
+                                        <h6 class="turnosMobiles">Turno 2</h6>
+                                        <label class="labelActivo"><input type="checkbox" name="Domingot2" checked> <span class="label-text"> </span></label><input type="text" id="horaDomingot2" class="slider">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="cubiertosDomingot2" class="form-element-field" placeholder="disponibles" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Cubiertos</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="duracionDomingoT2" class="form-element-field" placeholder="de la reserva" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Duración </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Fin Domingo-->
+
+
+                            <!--Feriados-->
+                            <div class="row diasemana">
+                                <div class="col-lg-2">Feriados</div>
+                                <div class="col-lg-5">
+                                    <div class="row">
+                                        <h6 class="turnosMobiles">Turno 1</h6>
+                                        <label class="labelActivo"><input type="checkbox" name="Feriadost1" > <span class="label-text"> </span></label><input type="text" id="horaFeriadot1" class="slider">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="cubiertosFeriadost1" class="form-element-field" placeholder="disponibles" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Cubiertos</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="duracionFeriadoT1" class="form-element-field" placeholder="de la reserva" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Duración </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="row">
+                                        <h6 class="turnosMobiles">Turno 2</h6>
+                                        <label class="labelActivo"><input type="checkbox" name="Feriadost2" > <span class="label-text"> </span></label><input type="text" id="horaFeriadot2" class="slider">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="cubiertosFeriadot2" class="form-element-field" placeholder="disponibles" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Cubiertos</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-element form-input">
+                                                <input id="duracionFeriadoT2" class="form-element-field" placeholder="de la reserva" type="input" required="" value="">
+                                                <div class="form-element-bar"></div>
+                                                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Duración </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Fin Feriado-->
+
+                
+                            <div class="row anticipacion">
+                                <div class="col-lg-6">
+
+                                    <h1>Anticipación para hacer una reserva</h1>
+                                    <input type="text" id="anticipacion" class="slider">
+
+
+                                </div>
+                                <div class="col-lg-6">
+
+                                    <h1>Anticipación para cancelar una reserva</h1>
+                                    <input type="text" id="cancelacion" class="slider">
+
+                                </div>
+
+                            </div>
+                            <div class="row anticipacion">
+                                <div class="col-lg-12">
+                                    <h1>Dias que no se recibirán reservas</h1>
+                                    <table id="calendar">
+                                        <caption></caption>
+                                        <thead>
+                                            <tr>
+                                                <th>Lun</th>
+                                                <th>Mar</th>
+                                                <th>Mie</th>
+                                                <th>Jue</th>
+                                                <th>Vie</th>
+                                                <th>Sab</th>
+                                                <th>Dom</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            
+                            <button type="button" class="btn btn-primary btn-block ">Guardar Cambios</button>
+                        </form>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+
+        </form>
     </main>
     <footer>
         <div class="container">
@@ -282,6 +848,49 @@
             </div>
 
         </div>
+        <div class="container superadmin">
+          <nav class="navbar fixed-bottom navbar-light bg-dark">
+        <ul class="nav">
+                <li>
+                  <a href="negocios.html">Negocios</a>
+           
+                </li>
+                <li>
+                  <a href="tipo-de-negocio.html">Tipo de negocio</a>
+                </li>
+                <li>
+                  <a href="regiones.html" role="button" aria-haspopup="true" aria-expanded="false">Regiones</a>
+                </li>
+                <li>
+                  <a href="polos-gastronomicos.html" role="button" aria-haspopup="true" aria-expanded="false">Polos</a>
+                </li>
+                <li>
+                  <a href="tipo-de-cocina.html" role="button" aria-haspopup="true" aria-expanded="false">Cocina</a>
+                </li>
+                <li>
+                  <a href="especialidades.html" role="button" aria-haspopup="true" aria-expanded="false">Especialidades</a>
+                </li>
+                <li>
+                  <a href="ocasiones.html" role="button" aria-haspopup="true" aria-expanded="false">Ocasiones</a>
+                </li>
+                <li>
+                  <a href="servicios.html" role="button" aria-haspopup="true" aria-expanded="false">Servicios</a>
+                </li>
+                <li>
+                  <a href="medio-de-pago.html" role="button" aria-haspopup="true" aria-expanded="false">Formas de pago</a>
+                </li>
+                <li>
+                  <a href="nivel-de-precio.php" role="button" aria-haspopup="true" aria-expanded="false">Precio</a>
+                </li>
+                
+                <li>
+                  <a href="promociones.html">Promociones</a>
+                </li>
+         
+              </ul>
+  
+    </nav>
+    </div>
     </footer>
 
 
@@ -292,10 +901,15 @@
     <!-- Placed at the end of the document so the pages load faster -->
 
 
+
     <script>
         window.jQuery || document.write('<script src="js/jquery-slim.min.js"><\/script>')
 
     </script>
+
+
+
+
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 
     <script>
@@ -326,6 +940,8 @@
 
     </script>
     <script src="js/calendario.js"></script>
+    <script src="js/comportamientos.js"></script>
+
 </body>
 
 </html>

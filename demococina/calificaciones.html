@@ -9,7 +9,7 @@
     <link rel="icon" href="../../../../favicon.ico">
 
     <title>La Cocina - Dashboard</title>
-    
+
     <!--Preloader-->
     <script src="js/pace.js"></script>
     <link rel="stylesheet" href="css/pace.css">
@@ -29,6 +29,8 @@
 
     <link rel="stylesheet" href="css/barras.css">
     <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="css/superadminMenu.css">
+    <link rel="stylesheet" href="css/forms.css">
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="js/ProximasReservas.js"></script>
@@ -71,12 +73,12 @@
                                 <a class="dropdown-item" href="#">Aristides Villanueva</a>
                             </div>
                         </div>
-                        
+
                     </div>
                     <div class="col-xs-5 mobile">
-                       <img src="img/LogoResto.png">
+                        <img src="img/LogoResto.png">
                     </div>
-                   
+
 
 
                     <div class="col-md-4 web">
@@ -197,7 +199,7 @@
                     </a>
 
                     </li>
-                    <li >
+                    <li>
                         <a href="horarios.html" class="hvr-bounce-to-right">
                         <i class="fa"><img src="img/iconos/clock.svg"  title="imagen SVG" class="imgSvg"/></i>
                         <span class="nav-text">
@@ -241,9 +243,563 @@
     <!--Fin CAbecera para Mobiles-->
 
 
-    <main id="reservas" role="main" class="container">
+    <main id="calificaciones" role="main" class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div id="calificaciones" class="modulo rosado">
+                    <h1><span>Calificacion General</span></h1>
 
-  
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <form>
+                                <p class="clasificacion">
+                                    <label>4,5</label>
+                                    <input id="radio1" type="radio" name="estrellas" value="5">
+                                    <label for="radio1" class="estrella">★</label>
+                                    <input id="radio2" type="radio" name="estrellas" value="4">
+                                    <label for="radio2" class="estrella">★</label>
+                                    <input id="radio3" type="radio" name="estrellas" value="3">
+                                    <label for="radio3" class="estrella">★</label>
+                                    <input id="radio4" type="radio" name="estrellas" value="2">
+                                    <label for="radio4" class="estrella">★</label>
+                                    <input id="radio5" type="radio" name="estrellas" value="1">
+                                    <label for="radio5" class="estrella">★</label>
+
+                                </p>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h6>Atencion</h6>
+                            <div class="progress">
+                                <div id="barra-atencion" class="progress-bar" role="progressbar" style="width: 87%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">4,5</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h6>Lugar</h6>
+                            <div class="progress">
+                                <div id="barra-lugar" class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">4</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h6>Comida</h6>
+                            <div class="progress">
+                                <div id="barra-comida" class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">4</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="modulo naranja">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+
+                                <th scope="col" class="col10">Fecha</th>
+                                <th scope="col" class="col35">Nombre</th>
+
+
+                                <th scope="col" class="col13">Calificacion General</th>
+                                <th scope="col" class="col3"> </th>
+
+
+                            </tr>
+                        </thead>
+                    </table>
+
+                    <div id="accordion">
+                        <div class="card">
+                            <div class="card-header" id="heading100">
+
+
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+
+                                            <th scope="col" class="col10"><a class="" data-toggle="collapse" data-target="#collapse100" aria-expanded="true" aria-controls="collapse100">23/05/18 <br><span>14:30 hs</span></a></th>
+                                            <th scope="col" class="col35"><a class="" data-toggle="collapse" data-target="#collapse100" aria-expanded="true" aria-controls="collapse100">Ariel Karlen <br>
+                                            <span class="nuevo">Nuevo</span> | <span class="nuevo">Sin responder</span>
+                                            </a></th>
+
+
+                                            <th scope="col" class="col13">
+                                                <h5>4,5</h5>
+                                            </th>
+                                            <th scope="col" class="col3"><a class="" data-toggle="collapse" data-target="#collapse100" aria-expanded="true" aria-controls="collapse100"><i class="fa fa-eye" aria-hidden="true"></i> </a></th>
+
+                                        </tr>
+                                    </thead>
+                                </table>
+
+
+                            </div>
+
+                            <div id="collapse100" class="collapse content-collapse " aria-labelledby="heading100" data-parent="#accordion">
+                                <div class="row padding-reservas ">
+                                    <div class="col-md-4">
+                                        <h6>Datos del Cliente</h6>
+                                        <p><i class="fa fa-mobile " aria-hidden="true"></i> 2615440633</p>
+                                        <p><i class="fa fa-envelope-o " aria-hidden="true"></i> arielkarlen@gmail.com</p>
+                                    </div>
+                                    <div class="col-md-4">
+
+
+                                        <h6>Calificacion</h6>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h6>Atencion</h6>
+                                                <div class="progress">
+                                                    <div id="barra-atencion" class="progress-bar" role="progressbar" style="width: 87%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">4,5</div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h6>Lugar</h6>
+                                                <div class="progress">
+                                                    <div id="barra-lugar" class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">4</div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h6>Comida</h6>
+                                                <div class="progress">
+                                                    <div id="barra-comida" class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">4</div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-4">
+
+                                        <h6>Comentarios</h6>
+                                        <p class="comentario">Un excelente lugar. El mozo que nos atendió (Pablo) fue excelente. La calidad de la comida muy buena, los precios estan bien, y con el descuento se hace ahún mejor. La carta de vinos individuales podría ser mas variada, pero sirven cerveza artesanal. Es la 2da vez que los visitamos, y vamos a repetir. Mención especial para los postres y helados, de excelente calidad y cantidad</p>
+                                    </div>
+
+                                </div>
+                                <div class="row  padding-reservas ">
+                                    
+                                    <div class="col-md-8"><div class="form-element form-textarea">
+            <textarea id="field-3naeph-0f3yuw-x153ph-dzmahy-qhkmgm" class="form-element-field" placeholder="Ingrese aqui su respuesta" aria-describedby="sizing-addon4"></textarea>
+            <div class="form-element-bar"></div>
+            <label class="form-element-label" for="field-3naeph-0f3yuw-x153ph-dzmahy-qhkmgm">Responder</label>
+
+        </div></div>
+                                    <div class="col-md-4">
+                                    
+                                    <div class="form-check">
+                                        <label><input type="radio" name="radio" checked="" value="facebook"> <span class="label-text">Público  |</span></label>
+                                        <label><input type="radio" name="radio"> <span class="label-text">Privado</span></label>
+                                        
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-sm">Enviar</button>
+                                    
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="heading101">
+
+
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+
+                                            <th scope="col" class="col10"><a class="" data-toggle="collapse" data-target="#collapse101" aria-expanded="false" aria-controls="collapse101">23/05/18<br><span>14:30 hs</span></a></th>
+                                            <th scope="col" class="col35"><a class="" data-toggle="collapse" data-target="#collapse101" aria-expanded="false" aria-controls="collapse101">Martin Boggio<br><span class="nuevo">Nuevo</span> | <span class="nuevo">Sin responder</span></a></th>
+
+                                            <th scope="col" class="col13"><h5>5</h5></th>
+                                            <th scope="col" class="col3"><a class="" data-toggle="collapse" data-target="#collapse101" aria-expanded="false" aria-controls="collapse101"><i class="fa fa-eye" aria-hidden="true"></i></a></th>
+
+
+                                        </tr>
+                                    </thead>
+                                </table>
+
+
+                            </div>
+                            <div id="collapse101" class="content-collapse collapse " aria-labelledby="heading101" data-parent="#accordion" style="">
+                                <div class="row padding-reservas ">
+                                    <div class="col-md-4">
+                                        <h6>Datos del Cliente</h6>
+                                        <p><i class="fa fa-mobile " aria-hidden="true"></i> 2615440633</p>
+                                        <p><i class="fa fa-envelope-o " aria-hidden="true"></i> arielkarlen@gmail.com</p>
+                                    </div>
+                                    <div class="col-md-4">
+
+
+                                        <h6>Calificacion</h6>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h6>Atencion</h6>
+                                                <div class="progress">
+                                                    <div id="barra-atencion" class="progress-bar" role="progressbar" style="width: 87%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">4,5</div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h6>Lugar</h6>
+                                                <div class="progress">
+                                                    <div id="barra-lugar" class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">4</div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h6>Comida</h6>
+                                                <div class="progress">
+                                                    <div id="barra-comida" class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">4</div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-4">
+
+                                        <h6>Comentarios</h6>
+                                        <p class="comentario">Fui con dos de mis hijas , pedimos parrillada para dos y verdaderamente era para cuatro. El mozo súper atento , nos dio alternativa de modificar algún corte de la parrillada , ejemplo , no chinchulin ,cambiar por entraña. Todo bien</p>
+                                    </div>
+
+                                </div>
+                                <div class="row  padding-reservas ">
+                                    
+                                    <div class="col-md-8"><div class="form-element form-textarea">
+            <textarea id="field-3naeph-0f3yuw-x153ph-dzmahy-qhkmgm" class="form-element-field" placeholder="Ingrese aqui su respuesta" aria-describedby="sizing-addon4"></textarea>
+            <div class="form-element-bar"></div>
+            <label class="form-element-label" for="field-3naeph-0f3yuw-x153ph-dzmahy-qhkmgm">Responder</label>
+
+        </div></div>
+                                    <div class="col-md-4">
+                                    
+                                    <div class="form-check">
+                                        <label><input type="radio" name="radio101" checked="" value="facebook"> <span class="label-text">Público  |</span></label>
+                                        <label><input type="radio" name="radio101"> <span class="label-text">Privado</span></label>
+                                        
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-sm">Enviar</button>
+                                    
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="heading102">
+
+
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+
+                                            <th scope="col" class="col10"><a class="" data-toggle="collapse" data-target="#collapse102" aria-expanded="false" aria-controls="collapse102">24/05/18<br><span>14:30 hs</span></a></th>
+                                            <th scope="col" class="col35"><a class="" data-toggle="collapse" data-target="#collapse102" aria-expanded="false" aria-controls="collapse102">Rocio Lopez<br><span class="nuevo">Sin responder</span></a></th>
+
+                                            <th scope="col" class="col13"><h5>4</h5></th>
+                                            <th scope="col" class="col3"><a class="" data-toggle="collapse" data-target="#collapse102" aria-expanded="false" aria-controls="collapse102"><i class="fa fa-eye" aria-hidden="true"></i></a></th>
+
+                                        </tr>
+                                    </thead>
+                                </table>
+
+
+                            </div>
+                            <div id="collapse102" class="content-collapse collapse" aria-labelledby="heading102" data-parent="#accordion" style="">
+                                <div class="row padding-reservas ">
+                                    <div class="col-md-4">
+                                        <h6>Datos del Cliente</h6>
+                                        <p><i class="fa fa-mobile " aria-hidden="true"></i> 2615440633</p>
+                                        <p><i class="fa fa-envelope-o " aria-hidden="true"></i> arielkarlen@gmail.com</p>
+                                    </div>
+                                    <div class="col-md-4">
+
+
+                                        <h6>Calificacion</h6>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h6>Atencion</h6>
+                                                <div class="progress">
+                                                    <div id="barra-atencion" class="progress-bar" role="progressbar" style="width: 87%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">4,5</div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h6>Lugar</h6>
+                                                <div class="progress">
+                                                    <div id="barra-lugar" class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">4</div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h6>Comida</h6>
+                                                <div class="progress">
+                                                    <div id="barra-comida" class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">4</div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-4">
+
+                                        <h6>Comentarios</h6>
+                                        <p class="comentario">El lugar es muy agradable. La atención es excelente y nos asesoraron muy bien sobre los platos, que compartimos. Excelente la calidad de la carne. Muy recomendable. El ojo de bife es riquísimo y para compartir</p>
+                                    </div>
+
+                                </div>
+                                <div class="row  padding-reservas ">
+                                    
+                                    <div class="col-md-8"><div class="form-element form-textarea">
+            <textarea id="field-3naeph-0f3yuw-x153ph-dzmahy-qhkmgm" class="form-element-field" placeholder="Ingrese aqui su respuesta" aria-describedby="sizing-addon4"></textarea>
+            <div class="form-element-bar"></div>
+            <label class="form-element-label" for="field-3naeph-0f3yuw-x153ph-dzmahy-qhkmgm">Responder</label>
+
+        </div></div>
+                                    <div class="col-md-4">
+                                    
+                                    <div class="form-check">
+                                        <label><input type="radio" name="radio102" checked="" value="facebook"> <span class="label-text">Público  |</span></label>
+                                        <label><input type="radio" name="radio102"> <span class="label-text">Privado</span></label>
+                                        
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-sm">Enviar</button>
+                                    
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="card-header" id="heading103">
+
+
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+
+                                            <th scope="col" class="col10"><a class="" data-toggle="collapse" data-target="#collapse103" aria-expanded="false" aria-controls="collapse103">24/05/18<br><span class="hora">16:00 hs</span></a></th>
+                                            <th scope="col" class="col35"><a class="" data-toggle="collapse" data-target="#collapse103" aria-expanded="false" aria-controls="collapse103">Esteban Valenzuela<br><span class="respondido">Respondido</span></a></th>
+
+                                            <th scope="col" class="col13"><h5>4,5</h5></th>
+                                            <th scope="col" class="col3"><a class="" data-toggle="collapse" data-target="#collapse103" aria-expanded="false" aria-controls="collapse103"><i class="fa fa-eye" aria-hidden="true"></i></a></th>
+
+
+                                        </tr>
+                                    </thead>
+                                </table>
+
+
+                            </div>
+                            <div id="collapse103" class="content-collapse collapse " aria-labelledby="heading103" data-parent="#accordion" style="">
+                                <div class="row padding-reservas ">
+                                    <div class="col-md-4">
+                                        <h6>Datos del Cliente</h6>
+                                        <p><i class="fa fa-mobile " aria-hidden="true"></i> 2615440633</p>
+                                        <p><i class="fa fa-envelope-o " aria-hidden="true"></i> arielkarlen@gmail.com</p>
+                                    </div>
+                                    <div class="col-md-4">
+
+
+                                        <h6>Calificacion</h6>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h6>Atencion</h6>
+                                                <div class="progress">
+                                                    <div id="barra-atencion" class="progress-bar" role="progressbar" style="width: 87%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">4,5</div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h6>Lugar</h6>
+                                                <div class="progress">
+                                                    <div id="barra-lugar" class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">4</div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h6>Comida</h6>
+                                                <div class="progress">
+                                                    <div id="barra-comida" class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">4</div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-4">
+
+                                        <h6>Comentarios</h6>
+                                        <p class="comentario">Si bien comimos riquísimo, nos asombró el precio de los platos. Creo q la app se queda muy corta con los 350 x persona ya que un bife de chorizo sin acompañamiento ya sale 340... De todas maneras la carne estuvo excelente: pedimos una porción de mollejas (barbaras) y un sándwich de lomito pa compartir. Todo de diez. El lugar y la atención muy buena</p>
+                                        <p class="respuesta"><span>Respuesta: </span>Muchas gracias Esteban por sus comentarios. Tendremos en cuenta estos detalles. Esperamos vuelva pronto</p>
+                                    </div>
+
+                                </div>
+                                <div class="row  padding-reservas ">
+                                    
+                                    <div class="col-md-8"><div class="form-element form-textarea">
+            <textarea id="field-3naeph-0f3yuw-x153ph-dzmahy-qhkmgm" class="form-element-field" placeholder="Ingrese aqui su respuesta" aria-describedby="sizing-addon4"></textarea>
+            <div class="form-element-bar"></div>
+            <label class="form-element-label" for="field-3naeph-0f3yuw-x153ph-dzmahy-qhkmgm">Responder</label>
+
+        </div></div>
+                                    <div class="col-md-4">
+                                    
+                                    <div class="form-check">
+                                        <label><input type="radio" name="radio103" checked="" value="facebook"> <span class="label-text">Público  |</span></label>
+                                        <label><input type="radio" name="radio103"> <span class="label-text">Privado</span></label>
+                                        
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-sm">Enviar</button>
+                                    
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="card-header" id="heading104">
+
+
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+
+                                            <th scope="col" class="col10"><a class="" data-toggle="collapse" data-target="#collapse104" aria-expanded="false" aria-controls="collapse104">24/05/18<br><span>22:30hs</span></a></th>
+                                            <th scope="col" class="col35"><a class="" data-toggle="collapse" data-target="#collapse104" aria-expanded="false" aria-controls="collapse104">Sebastian Alcaraz<br><span class="respondido">Respondido</span></a></th>
+
+                                            <th scope="col" class="col13"><h5>5</h5></th>
+                                            <th scope="col" class="col3"><a class="" data-toggle="collapse" data-target="#collapse104" aria-expanded="false" aria-controls="collapse104"><i class="fa fa-eye" aria-hidden="true"></i></a></th>
+
+
+                                        </tr>
+                                    </thead>
+                                </table>
+
+
+                            </div>
+                           <div id="collapse104" class="content-collapse collapse " aria-labelledby="heading104" data-parent="#accordion" style="">
+                                <div class="row padding-reservas ">
+                                    <div class="col-md-4">
+                                        <h6>Datos del Cliente</h6>
+                                        <p><i class="fa fa-mobile " aria-hidden="true"></i> 2615440633</p>
+                                        <p><i class="fa fa-envelope-o " aria-hidden="true"></i> arielkarlen@gmail.com</p>
+                                    </div>
+                                    <div class="col-md-4">
+
+
+                                        <h6>Calificacion</h6>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h6>Atencion</h6>
+                                                <div class="progress">
+                                                    <div id="barra-atencion" class="progress-bar" role="progressbar" style="width: 87%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">4,5</div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h6>Lugar</h6>
+                                                <div class="progress">
+                                                    <div id="barra-lugar" class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">4</div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h6>Comida</h6>
+                                                <div class="progress">
+                                                    <div id="barra-comida" class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">4</div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-4">
+
+                                        <h6>Comentarios</h6>
+                                        <p class="comentario">Todo bien. Igual esperaba mejor gusto de la comida</p>
+                                        <p class="respuesta"><span>Respuesta: </span>Muchas gracias por su visita. Tendremos en cuenta sus comentarios</p>
+                                    </div>
+
+                                </div>
+                                <div class="row  padding-reservas ">
+                                    
+                                    <div class="col-md-8"><div class="form-element form-textarea">
+            <textarea id="field-3naeph-0f3yuw-x153ph-dzmahy-qhkmgm" class="form-element-field" placeholder="Ingrese aqui su respuesta" aria-describedby="sizing-addon4"></textarea>
+            <div class="form-element-bar"></div>
+            <label class="form-element-label" for="field-3naeph-0f3yuw-x153ph-dzmahy-qhkmgm">Responder</label>
+
+        </div></div>
+                                    <div class="col-md-4">
+                                    
+                                    <div class="form-check">
+                                        <label><input type="radio" name="radio104" checked="" value="facebook"> <span class="label-text">Público  |</span></label>
+                                        <label><input type="radio" name="radio104"> <span class="label-text">Privado</span></label>
+                                        
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-sm">Enviar</button>
+                                    
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-end pagination-sm">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">«</span>
+        <span class="sr-only">Previous</span>
+      </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">»</span>
+        <span class="sr-only">Next</span>
+      </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+
+        </div>
+
     </main>
     <footer>
         <div class="container">
@@ -281,6 +837,49 @@
                 </div>
             </div>
 
+        </div>
+        <div class="container superadmin">
+            <nav class="navbar fixed-bottom navbar-light bg-dark">
+                <ul class="nav">
+                    <li>
+                        <a href="negocios.html">Negocios</a>
+
+                    </li>
+                    <li>
+                        <a href="tipo-de-negocio.html">Tipo de negocio</a>
+                    </li>
+                    <li>
+                        <a href="regiones.html" role="button" aria-haspopup="true" aria-expanded="false">Regiones</a>
+                    </li>
+                    <li>
+                        <a href="polos-gastronomicos.html" role="button" aria-haspopup="true" aria-expanded="false">Polos</a>
+                    </li>
+                    <li>
+                        <a href="tipo-de-cocina.html" role="button" aria-haspopup="true" aria-expanded="false">Cocina</a>
+                    </li>
+                    <li>
+                        <a href="especialidades.html" role="button" aria-haspopup="true" aria-expanded="false">Especialidades</a>
+                    </li>
+                    <li>
+                        <a href="ocasiones.html" role="button" aria-haspopup="true" aria-expanded="false">Ocasiones</a>
+                    </li>
+                    <li>
+                        <a href="servicios.html" role="button" aria-haspopup="true" aria-expanded="false">Servicios</a>
+                    </li>
+                    <li>
+                        <a href="medio-de-pago.html" role="button" aria-haspopup="true" aria-expanded="false">Formas de pago</a>
+                    </li>
+                    <li>
+                        <a href="nivel-de-precio.php" role="button" aria-haspopup="true" aria-expanded="false">Precio</a>
+                    </li>
+
+                    <li>
+                        <a href="promociones.html">Promociones</a>
+                    </li>
+
+                </ul>
+
+            </nav>
         </div>
     </footer>
 

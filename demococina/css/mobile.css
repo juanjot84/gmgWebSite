@@ -140,4 +140,37 @@ nav.main-menu.expanded{
     .margin-stats {
         margin-right:10%!important
     }
+    
+    .cabecerareservas {
+        display:none
+    }
+    
+    .turnosMobiles {
+        font-size: 11px;
+        font-weight: bold;
+        margin:0 10px 0 0;
+        display: block
+    }
+    .col-lg-2 {
+        margin: 0 0 10px 0
+    }
+    
+    .promo {
+        margin:0 0 20px 0
+    }
+    
+    .promo h5 {
+        margin-left: 20px
+    }
+    .promo h6 {
+        margin-left: 20px
+    }
+    
+    .cargaImagenes {
+        margin-top:20px
+    }
+    
+    #fechas {
+        margin-bottom: 20px
+    }
 }

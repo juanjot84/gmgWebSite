@@ -23,6 +23,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/lacocina.css" rel="stylesheet">
+    <link href="css/forms.css" rel="stylesheet">
 
     <link href="css/mobile.css" rel="stylesheet">
 
@@ -34,7 +35,7 @@
     <script type="text/javascript" src="js/ProximasReservas.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/comportamientos.js"></script>
-
+    <link rel="stylesheet" href="css/superadminMenu.css"> 
 
 
 
@@ -256,7 +257,7 @@
 
 
 
-                        <form>
+                        <form autocomplete="off">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <p>Seleccione el medio de origen de la reserva</p>
@@ -272,17 +273,31 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-4">
-                                    <label>Nombre y apellido</label>
-                                    <input id="nombrePersona" name="nombrePersona" type="text" class="form-control" placeholder="" aria-describedby="sizing-addon3">
-                                    <label>Teléfono</label>
-                                    <input id="telefono" name="telefono" type="text" class="form-control" placeholder="" aria-describedby="sizing-addon3">
-                                    <label>E-mail</label>
-                                    <input id="email" name="email" type="text" class="form-control" placeholder="" aria-describedby="sizing-addon3">
+                                    <div class="form-element form-input">
+            <input id="nombre" class="form-element-field" placeholder="Ingrese nombre y apellido completo" type="input" required="">
+            <div class="form-element-bar"></div>
+            <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Nombre y Apellido</label>
+        </div>
+                                    <div class="form-element form-input">
+            <input id="telefono" class="form-element-field" placeholder="Ingrese telefono movil o fijo" type="input" required="">
+            <div class="form-element-bar"></div>
+            <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Teléfono</label>
+        </div>
+                <div class="form-element form-input">
+            <input id="e-mail" class="form-element-field" placeholder="e-mail del comensal" type="input" required="">
+            <div class="form-element-bar"></div>
+            <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">E-mail</label>
+        </div>
+                 
+                                   
                                 </div>
                                 <div class="col-lg-4">
-                                    <label for="selectAdulto">¿Para cuántos adultos? </label>
-                                    <select class="form-control" id="selectAdulto">
-                                          <option value="1">1 adulto</option>
+                                   
+                                   
+                                   <div class="form-element form-select">
+            <select id="adultos" class="form-element-field">
+               
+                <option value="1">1 adulto</option>
                                           <option value="2">2 adultos</option>
                                           <option value="3">3 adultos</option>
                                           <option value="4">4 adultos</option>
@@ -302,11 +317,18 @@
                                           <option value="18">18 adultos</option>
                                           <option value="19">19 adultos</option>
                                           <option value="20">20 adultos</option>
-                                        <option value="0">21 adultos</option>
-                                    </select>
-                                    <label for="selectNino">¿Para cuántos niños?</label>
-                                    <select class="form-control" id="selectNino">
-                                     <option value="0">0 niño</option>
+                                        <option value="0">21 adultos</option>>
+            </select>
+            <div class="form-element-bar"></div>
+            <label class="form-element-label" for="field-be1h8i-ll2hpg-q4efzm-nfjj1e-udkw5r">¿Para cuántos adultos?</label>
+        </div>
+                                   
+                                   
+                                   
+                                   <div class="form-element form-select">
+            <select id="ninios" class="form-element-field">
+               
+                <option value="0">0 niño</option>
                                       <option value="1">1 niño</option>
                                       <option value="2">2 niños</option>
                                       <option value="3">3 niños</option>
@@ -328,15 +350,31 @@
                                       <option value="19">19 niños</option>
                                       <option value="20">20 niños</option>
                                       <option value="0">21 niños o más</option>
-                                    </select>
-                                    <label for="selectDia">¿Qué día?</label>
-                                    <select class="form-control" id="selectDia">
-            <option disabled="disabled" selected="selected" value="value"></option><option value="01/06/2018" descuento="">Viernes 01 </option><option value="02/06/2018" descuento="">Sabados 02 </option><option value="03/06/2018" descuento="">Domingos 03 </option><option value="04/06/2018" descuento="10">Lunes 04 10</option><option value="05/06/2018" descuento="">Martes 05 </option><option value="06/06/2018" descuento="">Miercoles 06 </option><option value="07/06/2018" descuento="">Jueves 07 </option><option value="08/06/2018" descuento="">Viernes 08 </option><option value="09/06/2018" descuento="">Sabados 09 </option><option value="10/06/2018" descuento="">Domingos 10 </option><option value="11/06/2018" descuento="10">Lunes 11 10</option><option value="12/06/2018" descuento="">Martes 12 </option><option value="13/06/2018" descuento="">Miercoles 13 </option><option value="14/06/2018" descuento="">Jueves 14 </option><option value="15/06/2018" descuento="">Viernes 15 </option><option value="16/06/2018" descuento="">Sabados 16 </option><option value="17/06/2018" descuento="">Domingos 17 </option><option value="18/06/2018" descuento="10">Lunes 18 10</option><option value="19/06/2018" descuento="">Martes 19 </option><option value="20/06/2018" descuento="">Miercoles 20 </option><option value="21/06/2018" descuento="">Jueves 21 </option><option value="22/06/2018" descuento="">Viernes 22 </option><option value="23/06/2018" descuento="">Sabados 23 </option><option value="24/06/2018" descuento="">Domingos 24 </option><option value="25/06/2018" descuento="10">Lunes 25 10</option><option value="26/06/2018" descuento="">Martes 26 </option><option value="27/06/2018" descuento="">Miercoles 27 </option><option value="28/06/2018" descuento="">Jueves 28 </option><option value="29/06/2018" descuento="">Viernes 29 </option><option value="30/06/2018" descuento="">Sabados 30 </option></select>
-
+            </select>
+            <div class="form-element-bar"></div>
+            <label class="form-element-label" for="field-be1h8i-ll2hpg-q4efzm-nfjj1e-udkw5r">¿Para cuántos niños?</label>
+        </div>
+                                   
+                                    <div class="form-element form-select">
+            <select id="dia" class="form-element-field">
+               
+                
+                                      <option disabled="disabled" selected="selected" value="value"></option><option value="01/06/2018" descuento="">Viernes 01 </option><option value="02/06/2018" descuento="">Sabados 02 </option><option value="03/06/2018" descuento="">Domingos 03 </option><option value="04/06/2018" descuento="10">Lunes 04 10</option><option value="05/06/2018" descuento="">Martes 05 </option><option value="06/06/2018" descuento="">Miercoles 06 </option><option value="07/06/2018" descuento="">Jueves 07 </option><option value="08/06/2018" descuento="">Viernes 08 </option><option value="09/06/2018" descuento="">Sabados 09 </option><option value="10/06/2018" descuento="">Domingos 10 </option><option value="11/06/2018" descuento="10">Lunes 11 10</option><option value="12/06/2018" descuento="">Martes 12 </option><option value="13/06/2018" descuento="">Miercoles 13 </option><option value="14/06/2018" descuento="">Jueves 14 </option><option value="15/06/2018" descuento="">Viernes 15 </option><option value="16/06/2018" descuento="">Sabados 16 </option><option value="17/06/2018" descuento="">Domingos 17 </option><option value="18/06/2018" descuento="10">Lunes 18 10</option><option value="19/06/2018" descuento="">Martes 19 </option><option value="20/06/2018" descuento="">Miercoles 20 </option><option value="21/06/2018" descuento="">Jueves 21 </option><option value="22/06/2018" descuento="">Viernes 22 </option><option value="23/06/2018" descuento="">Sabados 23 </option><option value="24/06/2018" descuento="">Domingos 24 </option><option value="25/06/2018" descuento="10">Lunes 25 10</option><option value="26/06/2018" descuento="">Martes 26 </option><option value="27/06/2018" descuento="">Miercoles 27 </option><option value="28/06/2018" descuento="">Jueves 28 </option><option value="29/06/2018" descuento="">Viernes 29 </option><option value="30/06/2018" descuento="">Sabados 30 </option>
+            </select>
+            <div class="form-element-bar"></div>
+            <label class="form-element-label" for="field-be1h8i-ll2hpg-q4efzm-nfjj1e-udkw5r">¿Qué día?</label>
+        </div>
+                  
                                 </div>
                                 <div class="col-lg-4">
-                                    <label for="selectNino">Observación:</label>
-                                    <textarea id="observacionPersona" name="observacionPersona" type="text" class="form-control" placeholder="" aria-describedby="sizing-addon3" ></textarea>
+                                   
+                                   <div class="form-element form-textarea">
+            <textarea id="field-3naeph-0f3yuw-x153ph-dzmahy-qhkmgm" class="form-element-field" placeholder="Ingrese aqui los pedidos especiales del cliente"  aria-describedby="sizing-addon4"></textarea>
+            <div class="form-element-bar"></div>
+            <label class="form-element-label" for="field-3naeph-0f3yuw-x153ph-dzmahy-qhkmgm">Observaciones</label>
+
+        </div>
+                                    
                                     
                                     <button type="button" class="btn btn-primary btn-block ">Hacer Reserva</button>
                                 </div>
@@ -1226,6 +1264,49 @@
             </div>
 
         </div>
+        <div class="container superadmin">
+          <nav class="navbar fixed-bottom navbar-light bg-dark">
+        <ul class="nav">
+                <li>
+                  <a href="negocios.html">Negocios</a>
+           
+                </li>
+                <li>
+                  <a href="tipo-de-negocio.html">Tipo de negocio</a>
+                </li>
+                <li>
+                  <a href="regiones.html" role="button" aria-haspopup="true" aria-expanded="false">Regiones</a>
+                </li>
+                <li>
+                  <a href="polos-gastronomicos.html" role="button" aria-haspopup="true" aria-expanded="false">Polos</a>
+                </li>
+                <li>
+                  <a href="tipo-de-cocina.html" role="button" aria-haspopup="true" aria-expanded="false">Cocina</a>
+                </li>
+                <li>
+                  <a href="especialidades.html" role="button" aria-haspopup="true" aria-expanded="false">Especialidades</a>
+                </li>
+                <li>
+                  <a href="ocasiones.html" role="button" aria-haspopup="true" aria-expanded="false">Ocasiones</a>
+                </li>
+                <li>
+                  <a href="servicios.html" role="button" aria-haspopup="true" aria-expanded="false">Servicios</a>
+                </li>
+                <li>
+                  <a href="medio-de-pago.html" role="button" aria-haspopup="true" aria-expanded="false">Formas de pago</a>
+                </li>
+                <li>
+                  <a href="nivel-de-precio.php" role="button" aria-haspopup="true" aria-expanded="false">Precio</a>
+                </li>
+                
+                <li>
+                  <a href="promociones.html">Promociones</a>
+                </li>
+         
+              </ul>
+  
+    </nav>
+    </div>
     </footer>
 
 
