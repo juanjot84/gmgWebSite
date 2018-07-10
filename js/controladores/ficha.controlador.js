@@ -563,7 +563,7 @@ function renderSugeridos(locales, premium){
               '</div>'   
         );
         contSugeridos++;
-        if (contSugeridos == 6) {
+        if (contSugeridos == 7) {
           contSugeridos = 1;
           idSugerido++;
         }
