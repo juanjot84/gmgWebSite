@@ -9,9 +9,14 @@ $jwt = $_SESSION['jwt'];
 if (!$_SESSION) {
        header('Location: index.php');
 } else {
-    if ($tipoUsuario == 'usuarioNegocio'  or $tipoUsuario == 'superAdmin') {
+    if ($tipoUsuario == 'usuarioNegocio') {
         
-    } else {
+    } else if ($tipoUsuario == 'superAdmin') {
+
+      $idNegocio = $_GET['idNegocio'];
+      $_SESSION['idNegocio'] = $idNegocio;
+    }
+    else {
         header('Location: index.php');
     }
 }
@@ -20,7 +25,7 @@ if (!$_SESSION) {
 
 <?php  
 error_reporting(E_ERROR);  
-   $idNegocio = $_GET['idNegocio'];
+  // $idNegocio = $_GET['idNegocio'];
 ?>
 
 <?php 

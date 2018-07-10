@@ -15,7 +15,7 @@ function dibujarListadoGrupos() {
       $('#listadoGrupos').html('');
       $('#loading').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span>');       
       $.ajax({
-          url: server + '/api/v1/admin/agrupadorLocales',
+          url: server + '/api/v1/admin/agrupadores',
           type: 'GET',
           dataType: "json",
           crossDomain: true,
@@ -318,7 +318,7 @@ function dibujarListadoGrupos() {
       $('#listadoLocales').html('');
       $('#loading').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span>');       
       $.ajax({
-          url: server + '/api/v1/admin/agrupadorLocales?id='+idGrupo+"",
+          url: server + '/api/v1/admin/agrupadores?id='+idGrupo+"",
           type: 'GET',
           dataType: "json",
           crossDomain: true,

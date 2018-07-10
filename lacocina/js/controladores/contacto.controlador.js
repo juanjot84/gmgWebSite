@@ -272,6 +272,9 @@ function caracteresCorreoValido(email){
 }
 
 function volverPanelLocal(){
+   
+  var tipoUsuario = $("#tipoUsuario").val();
+
   if (_.isUndefined(server)) {
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     });
@@ -294,9 +297,14 @@ function volverPanelLocal(){
     success: function (data) {
       var local = data;
       var idNegocio = local.idNegocio._id;
-      var url = "../lacocina/panel-locales.php?idLocal="+ idLocal+"&idNegocio="+idNegocio+"";
-      $(location).attr('href',url);
 
+      if (tipoUsuario == 'superAdmin') {
+        var url = "../lacocina/panel-locales.php?idLocal="+ idLocal+"&idNegocio="+idNegocio+"";
+        $(location).attr('href',url);
+      } else if (tipoUsuario == 'usuarioNegocio') {
+        var url = "dashboard.php";
+        $(location).attr('href',url);
+      }
     },
     error:function(jqXHR,textStatus,errorThrown)
     {

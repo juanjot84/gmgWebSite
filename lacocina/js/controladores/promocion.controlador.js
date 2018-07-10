@@ -458,6 +458,7 @@
       "nombrePromocion": $("#nombrePromocion").val(),
       "nombreCortoPromocion": $("#nombreCortoPromocion").val(),
       "colorPromocion" : $("#colorPromocion").val(),
+      "colorSecundarioPromocion" : $("#colorsecundarioPromocion").val(),
       "comisionPromocion": porcentaje,
       "impactaEnReserva": impactaEnReserva,
       "tipoVoucher": tipoVoucher,
@@ -536,6 +537,7 @@
           $("#nombrePromocion").val(promocion.nombrePromocion);
           $("#nombreCortoPromocion").val(promocion.nombreCortoPromocion);
           $("#colorPromocion").val(promocion.colorPromocion);
+          $("#colorsecundarioPromocion").val(promocion.colorSecundarioPromocion);
           var comisionPromocion = promocion.comisionPromocion;
           if (comisionPromocion != 0) {
             $("input[name=radioComision][value=porcentaje]").prop("checked",true);
@@ -861,6 +863,7 @@
     $('input[type="text"]').val('');
     $('input[type="number"]').val(0);
     $("#colorPromocion").val('');
+    $("#colorSecundarioPromocion").val('');
     $("#listaComision").html('');
     $("#tablaRangos").hide();
     $("#terminosCondiciones").val('');

@@ -60,6 +60,7 @@ error_reporting(E_ERROR);
     </div>
     <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
     <input type="text" name="idLocal" id="idLocal" value="<?php echo $idLocal; ?>" class="hidden">
+    <input type="text" name="tipoUsuario" id="tipoUsuario" value="<?php echo $tipoUsuario; ?>" class="hidden">
 
       <div class="panel-heading tituloseccion">Galería</div>
 

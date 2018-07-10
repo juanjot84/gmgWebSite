@@ -79,6 +79,9 @@
                 <li>
                   <a href="promociones.php" role="button" aria-haspopup="true" aria-expanded="false">Promociones<span class="caret"></span></a>
                 </li>
+                <li>
+                  <a href="agrupar-locales.php" role="button" aria-haspopup="true" aria-expanded="false">Agrupador Locales<span class="caret"></span></a>
+                </li>
            <!--     <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Restaurants<span class="caret"></span></a>
                   <ul class="dropdown-menu">
