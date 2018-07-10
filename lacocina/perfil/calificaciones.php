@@ -42,6 +42,7 @@ error_reporting(E_ERROR);
 
     <input type="text" name="idNegocio" id="idNegocio" value="<?php error_reporting(E_ERROR); echo $idNegocio; ?>" class="hidden">
     <input type="text" name="idLocal" id="idLocal" value="<?php error_reporting(E_ERROR); echo $idLocal; ?>" class="hidden">
+    <input type="text" name="tipoUsuario" id="tipoUsuario" value="<?php error_reporting(E_ERROR); echo $tipoUsuario; ?>" class="hidden">
     <div class="container-fluid" style="min-height: 65vh; padding-top: 3%;">
       <div class="row">
         <div class="container" style="min-height: 65vh;">

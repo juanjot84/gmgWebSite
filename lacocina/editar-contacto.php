@@ -21,6 +21,7 @@ if (!$_SESSION) {
 error_reporting(E_ERROR);
    $idLocal = $_GET['idLocal'];
    $idContacto = $_GET['idContacto'];
+   $_SESSION['idLocal'] = $idLocal;
 ?>
 
 <?php 
@@ -68,6 +69,7 @@ error_reporting(E_ERROR);
               <input type="text" name="idLocalRecibido" id="idLocalRecibido" value="<?php  error_reporting(E_ERROR); echo $idLocal; ?>" class="hidden">
               <input type="text" name="idContacto" id="idContacto" class="hidden">
               <input type="text" name="idNegocioCreado" id="idNegocioCreado" value="<?php echo $idNegocio; ?>" class="hidden">
+              <input type="text" name="tipoUsuario" id="tipoUsuario" value="<?php echo $tipoUsuario; ?>" class="hidden">
 
           <h5 class="titulosalta"> Nombre</h5>
             

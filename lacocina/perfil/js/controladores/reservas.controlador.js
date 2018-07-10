@@ -941,6 +941,9 @@ function ocultarPestaña(pest,pest1, pest2){
 }
 
 function volverPanelLocal(){
+   
+  var tipoUsuario = $("#tipoUsuario").val();
+
   if (_.isUndefined(server)) {
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     });
@@ -956,9 +959,15 @@ function volverPanelLocal(){
             crossDomain: true,
             contentType:"application/json",
             success: function (data) {
-               var idNegocio = data.idNegocio._id;
-               var url = "../panel-locales.php?idLocal="+ localEditado+"&idNegocio="+ idNegocio +"";
-               $(location).attr('href',url);
+
+              if (tipoUsuario == 'superAdmin') {
+                var idNegocio = data.idNegocio._id;
+                var url = "../panel-locales.php?idLocal="+ localEditado+"&idNegocio="+ idNegocio +"";
+                $(location).attr('href',url);
+              } else if (tipoUsuario == 'usuarioNegocio') {
+                var url = "../dashboard.php";
+                $(location).attr('href',url);
+              }
             } 
     });
 }

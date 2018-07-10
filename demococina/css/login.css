@@ -1,0 +1,152 @@
+body {
+    font-family: "Roboto", sans-serif;
+    color: #73879c;
+}
+
+.login-block {
+    background: #f1f1f1;
+   
+    float: left;
+    width: 100%;
+    padding: 50px 0;
+}
+
+.login-block span {
+    color:#f8981d
+}
+
+.banner-sec {
+    
+    background-size: cover;
+    min-height: 500px;
+    border-radius: 0 10px 10px 0;
+    padding: 0;
+}
+
+.container {
+    background: #fff;
+    border-radius: 10px;
+  box-shadow: 0 1px 1px 0 rgba(60,64,67,.08), 0 1px 3px 1px rgba(60,64,67,.16);
+    transition: box-shadow 135ms cubic-bezier(.4,0,.2,1);
+       
+}
+
+.carousel-inner {
+    border-radius: 0 10px 10px 0;
+}
+
+.carousel-caption {
+    text-align: left;
+    left: 5%;
+}
+
+.login-sec {
+    padding: 0;
+    position: relative;
+}
+
+.cabecera-login {
+    background-color: #000;
+    border-radius: 10px 0 0 0;
+    padding: 20px;
+    margin:0 0 20px 0
+}
+
+.contenido {
+    padding: 0 20px 
+}
+
+.login-sec .copy-text {
+   
+    font-size: 13px;
+    text-align: center;
+    padding:0 0 10px 0
+}
+
+.login-sec .copy-text i {
+    color: #FEB58A;
+}
+
+
+.login-sec h2 {
+    margin-bottom: 30px;
+    font-size: 14px;
+    color: #f8981d;
+
+}
+
+.btn-login {
+    background: #f8981d;
+    color: #fff;
+    font-weight: 600;
+}
+
+.banner-text {
+   
+    position: absolute;
+    bottom: 40px;
+    padding-left: 20px;
+}
+
+.banner-text h2 {
+    color: #fff;
+    font-weight: 600;
+}
+
+.banner-text h2:after {
+    content: " ";
+    width: 100px;
+    height: 5px;
+    background: #FFF;
+    display: block;
+    margin-top: 20px;
+    border-radius: 3px;
+}
+
+.banner-text p {
+    color: #fff;
+}
+
+.form-control {
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+}
+
+.form-control:focus {
+    background-color: aqua
+}
+
+.registrar {
+    padding:20px 0 0 0;
+    border-top:1px solid #000;
+    margin: 40px 0 0 0
+}
+
+p {
+    font-size: 12px;
+}
+
+a:link {
+    color:#fc6180;
+    text-decoration: none
+}
+
+a:hover {
+    
+    text-decoration: underline
+}
+
+a:visited {
+    color:#fc6180;
+    text-decoration: none
+}
+
+.version {
+    display:none;
+    font-size:9px!important;
+   
+}

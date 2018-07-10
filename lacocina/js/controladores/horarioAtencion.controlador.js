@@ -372,10 +372,16 @@ function volverPanelLocal() {
     crossDomain: true,
     contentType: "application/json",
     success: function (data) {
-      var local = data;
-      var idNegocio = local.idNegocio._id;
-      var url = "../lacocina/panel-locales.php?idLocal=" + idLocal + "&idNegocio=" + idNegocio + "";
-      $(location).attr('href', url);
+      var tipoUsuario = $("#tipoUsuario").val();
+      if (tipoUsuario == 'superAdmin') {
+        var local = data;
+        var idNegocio = local.idNegocio._id;
+        var url = "../lacocina/panel-locales.php?idLocal=" + idLocal + "&idNegocio=" + idNegocio + "";
+        $(location).attr('href', url);
+      } else if (tipoUsuario == 'usuarioNegocio') {
+        var url = "dashboard.php";
+        $(location).attr('href',url);
+      }
 
     },
     error: function (jqXHR, textStatus, errorThrown) {
