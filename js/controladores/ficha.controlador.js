@@ -542,14 +542,33 @@ function renderSugeridos(locales, premium){
           }
         });
   } else {
-    $('#containerSugBase').html('');
-  _.each(locales, function(local){
-    $('#containerSugBase').append('' +
-        '<div class="col-md-2 ">'+
-        '<div class="centraimagensugeridos"><a href="ficha.php?id=' + local._id + '"><img class="sugeridos img-responsive" src="' +  _.get(local, 'fotoPrincipalLocal') + '"> </a></div>'+
-        '<h2 class="titulosugerencia2">' + _.get(local, 'local.nombreNegocio') + '</h2>'+
-        '</div>');
-  });
+    $('#sugeridosBase').html('');
+      var idSugerido = 1;
+      var contSugeridos = 1;
+
+      _.each(locales, function(local){
+        
+        if (contSugeridos == 1) {
+          $("#sugeridosBase").append('' +
+          '<div id="container'+idSugerido+'" class="container sugeridos sugeridosFichaBAse">'+
+          '</div>'
+          );
+          
+        } 
+        $("#container"+ idSugerido).append('' +
+              '<div class="col-md-2 ">'+
+                  '<div class="centraimagensugeridos"><a href="ficha.php?id=' + local._id + '"><img class="sugeridos img-responsive" src="' +  _.get(local, 'fotoPrincipalLocal') + '"> </a>'+
+                  '</div>'+
+                      '<h2 class="titulosugerencia2">' + _.get(local, 'local.nombreNegocio') + '</h2>'+
+              '</div>'   
+        );
+        contSugeridos++;
+        if (contSugeridos == 6) {
+          contSugeridos = 1;
+          idSugerido++;
+        }
+
+      });
   }
 
 

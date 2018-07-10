@@ -279,7 +279,7 @@ session_start();
                             <h2 class="titulosugerencia1">RESTAURANTES QUE ACEPTAN RESERVAS:</h2>
                         </div>
                     </div>
-                    <div id="containerSugBase" class="container sugeridos sugeridosFichaBAse">
+                    <div id="sugeridosBase">
 
                     </div>
                 </section>
