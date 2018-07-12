@@ -50,37 +50,36 @@
     }
   }
 ?>
-  <!-- Navigation -->
-  <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header page-scroll">
-          <a  href="index.php"><img  id="LogoMobile" class="logoweb" src="img/logo-gmg.png"></a>
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <a href="index.php"><img  id="LogoMobile" class="logoweb" src="img/logo-gmg.png"></a>
 
-        
-           <form id="buscador"class="buscadorresultados" action="resultados-busqueda.php" method="post">
-            <div class="input-group">
-              <input type="text" class="form-control buscadornav2" placeholder="Buscá por nombre, zona o tipo de cocina" name="parametro">
+
+                <form id="buscador" class="buscadorresultados" action="resultados-busqueda.php" method="post">
+                    <div class="input-group">
+              <input type="search" class="form-control buscadornav2" placeholder="Buscá por nombre, zona o tipo de cocina" name="parametro">
             </div>
-            <span class="input-group-btn">
-              <button type="submit" class="btn btn-default btnbuscarnav2"><i class="fa fa-search" aria-hidden="true"></i></button>
-            </span>
-            
-          </form>
-          <img id="loguito" src="img/IconoGMGMobile.png" alt="">
-      </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right acceder-pc">
 
-          <li class="hidden">
-            <a href="#page-top"></a>
-          </li>
-          <?php echo $check_login; ?>
-        </ul>
-      </div>
-      <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-  </nav>
+
+                </form>
+                <img id="loguito" src="img/IconoGMGMobile.png" alt="">
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right acceder-pc">
+
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <?php echo $check_login; ?>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>

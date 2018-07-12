@@ -245,14 +245,14 @@ session_start();
                         <p>RESERVAR</p>
                     </a>
                     <div class="container ficha" style="">
-                        <div class="row" style="margin: 10% 0 5% 0;">
+                        <div class="row">
                             <div class="col-sm-12 col-md-6 text-left texto-ficha">
                                 <div class="row">
                                     <div id="iconoFavorito" class="col-sm-10 col-md-8">
                                         <h3 class="titulo"><span id="nombreNegocio"></span> <span id="bajadaNegocio"> </span></h3>
                                     </div>
                                 </div>
-                                <img id="imagenLocal" src="" class="img-responsive">
+                                <img id="imagenLocal" src="" class="img-responsive imgFichaBAse">
                                 <ul style="list-style: none;" id="datosContacto">
 
                                 </ul>
@@ -261,7 +261,7 @@ session_start();
                                 <!--Estructura para publicidad-->
                                 <div class="row publiFichaBase">
                                     <div class="col-md-2"></div>
-                                    <div class="col-md-8"><img src="img/publidemos/ZueloFichaBase.jpg" alt="" class="img-resposive"></div>
+                                    <div class="col-md-8" ><img src="img/publidemos/ZueloFichaBase.jpg" alt="" class="img-resposive"></div>
                                     <div class="col-md-2"></div>
 
                                 </div>
@@ -392,7 +392,32 @@ session_start();
             $("#wrapper").toggleClass("toggled");
         });
         </script>
-
+       
+<!-- Script para mostrar y ocultar Logo en mobiles-->
+<script>
+if ( $(window).innerWidth() < 800 ) {
+var lastScrollTop = 0;
+$(window).scroll(function(event){
+   var st = $(this).scrollTop();
+   if (st > lastScrollTop){
+       // downscroll code
+       document.getElementById("LogoMobile").style.display = "none";
+       document.getElementById("buscador").style.marginTop = "40px";
+       document.getElementById("nav-icon3").style.top = "20px";
+       document.getElementById("loguito").style.display = "inline"
+   } else {
+      // upscroll code
+      document.getElementById("LogoMobile").style.display = "inline";
+       document.getElementById("buscador").style.marginTop = "0px";
+       document.getElementById("nav-icon3").style.top = "0px";
+       document.getElementById("loguito").style.display = "none"
+   }
+   lastScrollTop = st;
+});
+}
+    </script>
+    
+    <!-- Script para mostrar y ocultar Logo en mobiles-->
 
     </body>
 
