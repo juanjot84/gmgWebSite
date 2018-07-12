@@ -103,6 +103,7 @@
   <?php include("includes/soportezen.php"); ?>
 
   <link rel="stylesheet" href="css/jQuery.verticalCarousel.css">
+  
 
 </head>
 
@@ -146,7 +147,7 @@ if (empty($promocion)) $promocion = '';
 
           <?php
           error_reporting(E_ERROR);
-          include("includes/nav.php");
+          include("includes/navDos.php");
            ?>
 
           <!-- Header -->
@@ -255,4 +256,26 @@ if (empty($promocion)) $promocion = '';
 
 </body>
 
+<!--Nav1-->
+<script>
+
+if ( $(window).innerWidth() < 800 ) {
+var lastScrollTop = 0;
+$(window).scroll(function(event){
+   var st = $(this).scrollTop();
+   if (st > lastScrollTop){
+       // downscroll code
+       document.getElementById("LogoMobile").style.display = "none";
+        document.getElementById("loguito").style.display = "inline"
+   } else {
+      // upscroll code
+      document.getElementById("LogoMobile").style.display = "inline";
+       document.getElementById("loguito").style.display = "none"
+   }
+   lastScrollTop = st;
+});
+}
+
+    </script>
+<!--Fin Nav1-->
 </html>

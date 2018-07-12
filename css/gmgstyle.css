@@ -13,6 +13,8 @@ header {
     color: #fff;
 }
 
+
+
 .fondoficha {
     background-image: none !important;
     background-color: #fff;
@@ -57,6 +59,8 @@ header {
 .logoweb {
     margin-top: -25px
 }
+
+
 
 .nombreusuarionav {
     margin-top: -18px;
@@ -1350,9 +1354,39 @@ ul.promosvertical.vc_list {
     .altoocasiones {
         width: 750px;
     }
+    
+    
     .buscadorresultados {
-        display: none;
+        margin:10px 0 0 70px
     }
+    
+    .resultadosbusqueda  {
+       margin-top:50px
+    }
+    
+   
+    .intro-text {
+        margin-top: 0!important
+    }
+    
+    .page-scroll {
+        background-color: #ffff00 
+    }
+    
+    #menu-toggle {
+        top: -10px
+    }
+    
+    
+    input.form-control.buscadornav2 {
+        width: 170px;
+        
+    }
+    
+    .navbar-custom {
+        height: auto
+    }
+    
     .menufooter {
         text-align: center;
     }
@@ -1703,3 +1737,44 @@ button.btn.btn-default.btnbuscar:hover {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%)
 }
+
+
+
+.sugeridosBase {
+    margin-top: -60px
+}
+
+.publiFichaBase {
+    margin:56px 0 0 0
+}
+
+.imgFichaBAse {
+    margin:30px 0 0 0
+}
+
+#fichaBase div#iconoFavorito {
+    min-height: 0
+}
+
+.sugeridosFichaBAse {
+    margin-bottom: 20px
+}
+
+ul#datosContacto li {
+    padding-top: 0!important
+}
+
+/*Nav*/
+
+#loguito {
+     top: -10px;
+    position: relative;
+    margin:0 0 0 10px;
+    display:none
+   
+}
+
+/*Nav2*/
+
+
+
