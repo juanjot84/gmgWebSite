@@ -221,6 +221,11 @@ function popularLocal(local) {
   $('#nivelPrecio').append('<span style="color: #cbcbcb">'+labelGrises+'</span>');
   $('#descripcionNegocio').text(local.idNegocio.descripcionNegocio);
   $("#cartaLocal").attr('href', carta);
+  if(carta.length < 2){
+    $('#cartaLocal').hide();
+  }else{
+    $('#cartaLocal').attr('href', carta);
+  }
   if(facebook.length < 2){
     $('#facebookNegocio').hide();
   }else{
