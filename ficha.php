@@ -10,7 +10,7 @@ session_start();
       if (empty($modal)) $modal = '';
 
 ?>
-    
+
     <!DOCTYPE html>
     <html lang="es">
 
@@ -24,7 +24,7 @@ session_start();
 
         <title>Ficha - Guía Mendoza Gourmet</title>
 
-        <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+        <link rel="shortcut icon" type="image/png" href="favicon.png" />
 
         <!-- Bootstrap Core CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -42,15 +42,15 @@ session_start();
         <link href="css/simple-sidebar.css" rel="stylesheet">
 
         <!-- ANALYTICS -->
-         <?php include("includes/analytics.php"); ?>
+        <?php include("includes/analytics.php"); ?>
         <!-- SMARTLOOK -->
-           <?php include("includes/smartlook.php"); ?>
+        <?php include("includes/smartlook.php"); ?>
         <!-- FIN SMARTLOOK -->
 
         <?php include("includes/soportezen.php"); ?>
 
         <style type="text/css">
-            @media only screen and (max-width : 425px) {
+            @media only screen and (max-width: 425px) {
                 img.logoweb {
                     max-width: 230px;
                     float: left;
@@ -58,10 +58,14 @@ session_start();
                     padding-top: 8px;
                 }
             }
+
         </style>
-        
-        <script>document.addEventListener("touchstart", function() {},false);</script>
-        
+
+        <script>
+            document.addEventListener("touchstart", function() {}, false);
+
+        </script>
+
     </head>
 
     <body id="page-top" class="index">
@@ -74,13 +78,13 @@ session_start();
             ?>
 
             <div id="page-content-wrapper">
-                 
+
                 <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">
                     <div id="nav-icon3">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                      <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
                 </a>
 
@@ -89,26 +93,28 @@ session_start();
                   include("includes/nav.php");
                  ?>
                 <div id="fichaPremium" style="display:none">
-                        <!-- Header -->
-                        <header class="fondoficha">
-                            <center><div id="loading"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span></div></center>
+                    <!-- Header -->
+                    <header class="fondoficha">
+                        <center>
+                            <div id="loading"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span></div>
+                        </center>
 
-                            <a id="myP" class="reservarfijo" href="#" class="page-scroll btn btn-xl" >
-                                <p>RESERVAR</p>
-                            </a>
+                        <a id="myP" class="reservarfijo" href="#" class="page-scroll btn btn-xl">
+                            <p>RESERVAR</p>
+                        </a>
 
-                            <div class="container ficha" style="display:none">
-                                <div class="row" style="margin: 10% 0 5% 0;">
-                                    <div class="col-sm-12 col-md-8 text-left texto-ficha">
-                                        <div class="row">
-                                            <div id="iconoFavorito" class="col-sm-10 col-md-8">
-
-                                            </div>
-                                            <div class="col-sm-2 col-md-4 text-center precioficha">
-                                                <p id="nivelPrecio"></p>
-                                            </div>
+                        <div class="container ficha" style="display:none">
+                            <div class="row" style="margin: 10% 0 5% 0;">
+                                <div class="col-sm-12 col-md-8 text-left texto-ficha">
+                                    <div class="row">
+                                        <div id="iconoFavorito" class="col-sm-10 col-md-8">
 
                                         </div>
+                                        <div class="col-sm-2 col-md-4 text-center precioficha">
+                                            <p id="nivelPrecio"></p>
+                                        </div>
+
+                                    </div>
 
                                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
                                         <!-- Indicators -->
@@ -129,114 +135,114 @@ session_start();
                                             <span class="glyphicon glyphicon-chevron-right"></span>
                                             <span class="sr-only">Next</span>
                                         </a>
-                                        </div>
                                     </div>
-                                    <input type="text" name="jwtU" id="jwtU" value="<?php  error_reporting(E_ERROR); echo $jwt; ?>" class="hidden">
-                                    <input type="text" name="idUsuarioReserva" id="idUsuarioReserva" value="<?php  error_reporting(E_ERROR); echo $idUsuarioReserva; ?>" class="hidden">
-                                    <div class="col-sm-12 col-md-4 text-justify texto-ficha">
-                                        <a href="#" class="page-scroll btn btn-xl" style="width: 100%; margin-top: 8%; margin-bottom: 4.9%;" id="reservar">RESERVAR</a>
-                                        <p class="textoreserva" id="descripcionNegocio"></p>
+                                </div>
+                                <input type="text" name="jwtU" id="jwtU" value="<?php  error_reporting(E_ERROR); echo $jwt; ?>" class="hidden">
+                                <input type="text" name="idUsuarioReserva" id="idUsuarioReserva" value="<?php  error_reporting(E_ERROR); echo $idUsuarioReserva; ?>" class="hidden">
+                                <div class="col-sm-12 col-md-4 text-justify texto-ficha">
+                                    <a href="#" class="page-scroll btn btn-xl" style="width: 100%; margin-top: 8%; margin-bottom: 4.9%;" id="reservar">RESERVAR</a>
+                                    <p class="textoreserva" id="descripcionNegocio"></p>
 
-                                        <ul style="list-style: none;">
-                                            <li>
-                                                <p style="text-align: center;">
+                                    <ul style="list-style: none;">
+                                        <li>
+                                            <p style="text-align: center;">
                                                 <a id="facebookNegocio" href="#" target="_blank"><i class="fa fa-facebook redesficha" aria-hidden="true"></i></a>
                                                 <a id="twitterNegocio" href="#" target="_blank"><i class="fa fa-twitter redesficha" aria-hidden="true"></i></a>
                                                 <a id="instagramNegocio" href="#" target="_blank"><i class="fa fa-instagram redesficha" aria-hidden="true"></i></a>
                                                 <a id="tripadvisorNegocio" href="#" target="_blank"><i class="fa fa-tripadvisor redesficha" aria-hidden="true"></i></a>
                                                 <a id="paginaNegocio" href="#" target="_blank"><i class="fa fa-globe redesficha" aria-hidden="true"></i></a>
-                                                </p>
-                                            </li>
-                                            <li style="padding-top: 5%;">
-                                                <p class="textodatosficha"><i class="fa fa-map-marker datosficha" aria-hidden="true"></i> <span id="direccionLocal"></span></p>
-                                            </li>
-                                            <li>
-                                                <p class="textodatosficha"><i class="fa fa-phone datosficha" aria-hidden="true"></i><span id="telefonoLocal"></span> </p>
-                                            </li>
-                                            <li>
-                                                <p class="textodatosficha"><i class="fa fa-envelope-o datosficha" aria-hidden="true"></i><span id="mailLocal"></span> </p>
-                                            </li>
-                                            <li>
-                                                <p class="textodatosficha"><i class="fa fa-usd datosficha" aria-hidden="true"></i><span id="medioPago"></span></p>
-                                            </li>
-                                            <li>
-                                                <p class="textodatosficha"><a id="cartaLocal" style="color: #777;" href="" target="_blank"><i class="fa fa-file-text-o datosficha" aria-hidden="true"></i> <span id="vercarta">Ver carta</span></a></p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
+                                            </p>
+                                        </li>
+                                        <li style="padding-top: 5%;">
+                                            <p class="textodatosficha"><i class="fa fa-map-marker datosficha" aria-hidden="true"></i> <span id="direccionLocal"></span></p>
+                                        </li>
+                                        <li>
+                                            <p class="textodatosficha"><i class="fa fa-phone datosficha" aria-hidden="true"></i><span id="telefonoLocal"></span> </p>
+                                        </li>
+                                        <li>
+                                            <p class="textodatosficha"><i class="fa fa-envelope-o datosficha" aria-hidden="true"></i><span id="mailLocal"></span> </p>
+                                        </li>
+                                        <li>
+                                            <p class="textodatosficha"><i class="fa fa-usd datosficha" aria-hidden="true"></i><span id="medioPago"></span></p>
+                                        </li>
+                                        <li>
+                                            <p class="textodatosficha"><a id="cartaLocal" style="color: #777;" href="" target="_blank"><i class="fa fa-file-text-o datosficha" aria-hidden="true"></i> <span id="vercarta">Ver carta</span></a></p>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
 
-                            <div class="container text-center" style="display: flex;" id="contenedorListaPromociones">
-
-                            </div>
-
-                            <div class="modal fade" id="modalPromocion" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                            <div class="modal-dialog">
-                            <!-- ESTO VA EN UN MODAL AL HACER CLICK EN UNA PROMO-->
-                            <div class="container modalpromoficha">
-                                <div class="row text-center headermodalpromoficha">
-                                    <div class="col-md-6">
-                                        <img class="img-responsive imgspromoficha" id="fotoPromo">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h2 id="nombrePromo" class="nombrePromocion"></h2>                                
-                                    </div>
-                                </div>
-                                <div class="separador"></div>
-                                <div id="opcionMenu"></div>
-                                <div>
-                                    <a href="reserva.php?id=<?php  error_reporting(E_ERROR); echo $idLocal; ?>" class="page-scroll btn btn-xl" style="width: 100%; margin-top: 2%; margin-bottom: 4%;" id="reservarBoton">RESERVAR</a>
-                                </div>
-                                <div>Promoción válida desde <span id="fechaInicioPromo">00-00</span> hasta <span id="fechaFinPromo">00-00</span></div>
-                                <div class="tycmenupromos">
-                                    <h3>Términos y condiciones</h3>
-                                    <p id="terminos"></p>
-                                </div>
-                            </div>
-                                <!-- FIN MODAL -->
-                            </div>
-                            </div>
-
-
-                            <section style="padding: 0 0 3% 0 !important;">
-                                <div class="container text-center">
-                                    <h3>Servicios</h3>
-                                    <div class="row servicios">
-
-                                    </div>
-                                </div>
-                            </section>
-
-                            <!-- MAPA -->
-                            <div class="container">
-                                <div class="row">
-                                    <div id="map" style="display:none"></div>
-                                </div>
-                            </div>
-                        </header>
-
-                        <!-- Novedades -->
-                        <section id="sugeridosPremium" style="display:none">
-                                <div class="row">
-                                    <div class="col-lg-12 text-center">
-                                        <!-- <h2 class="section-heading">Restaurantes Sugeregidos</h2> -->
-                                        <h2 class="titulosugerencia1">Podes reservar en:</h2>
-                                    </div>
-                                </div>
-                            <div class="container sugeridos">
-                                <div class="row sugeridos">
-
-                                </div>
-                            </div>
-                        </section>
+                        </div>
                 </div>
 
-                <div id="fichaBase" style="display:none">
+                <div class="container text-center" style="display: flex;" id="contenedorListaPromociones">
 
-                                    <!-- Header -->
+                </div>
+
+                <div class="modal fade" id="modalPromocion" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <!-- ESTO VA EN UN MODAL AL HACER CLICK EN UNA PROMO-->
+                        <div class="container modalpromoficha">
+                            <div class="row text-center headermodalpromoficha">
+                                <div class="col-md-6">
+                                    <img class="img-responsive imgspromoficha" id="fotoPromo">
+                                </div>
+                                <div class="col-md-6">
+                                    <h2 id="nombrePromo" class="nombrePromocion"></h2>
+                                </div>
+                            </div>
+                            <div class="separador"></div>
+                            <div id="opcionMenu"></div>
+                            <div>
+                                <a href="reserva.php?id=<?php  error_reporting(E_ERROR); echo $idLocal; ?>" class="page-scroll btn btn-xl" style="width: 100%; margin-top: 2%; margin-bottom: 4%;" id="reservarBoton">RESERVAR</a>
+                            </div>
+                            <div>Promoción válida desde <span id="fechaInicioPromo">00-00</span> hasta <span id="fechaFinPromo">00-00</span></div>
+                            <div class="tycmenupromos">
+                                <h3>Términos y condiciones</h3>
+                                <p id="terminos"></p>
+                            </div>
+                        </div>
+                        <!-- FIN MODAL -->
+                    </div>
+                </div>
+
+
+                <section style="padding: 0 0 3% 0 !important;">
+                    <div class="container text-center">
+                        <h3>Servicios</h3>
+                        <div class="row servicios">
+
+                        </div>
+                    </div>
+                </section>
+
+                <!-- MAPA -->
+                <div class="container">
+                    <div class="row">
+                        <div id="map" style="display:none"></div>
+                    </div>
+                </div>
+                </header>
+
+                <!-- Novedades -->
+                <section id="sugeridosPremium" style="display:none">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <!-- <h2 class="section-heading">Restaurantes Sugeregidos</h2> -->
+                            <h2 class="titulosugerencia1">Podes reservar en:</h2>
+                        </div>
+                    </div>
+                    <div class="container sugeridos">
+                        <div class="row sugeridos">
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="fichaBase" style="display:none">
+
+                <!-- Header -->
                 <header class="fondoficha">
                     <center>
                         <div id="loading" style="display: none;"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span></div>
@@ -261,7 +267,14 @@ session_start();
                                 <!--Estructura para publicidad-->
                                 <div class="row publiFichaBase">
                                     <div class="col-md-2"></div>
-                                    <div class="col-md-8" ><img src="img/publidemos/ZueloFichaBase.jpg" alt="" class="img-resposive"></div>
+                                    <div class="col-md-8">
+                                        <!--img src="img/publidemos/ZueloFichaBase.jpg" alt="" class="img-resposive"-->
+
+
+                                        <!-- Revive Adserver Etiqueta JS asincrónica - Generated with Revive Adserver v4.1.3 -->
+                                        <ins data-revive-zoneid="3" data-revive-id="6a42b0d4b55d90b58eb8e42f829d9ed3"></ins>
+                                        <script async src="//adserver.guiamendozagourmet.com/www/delivery/asyncjs.php"></script>
+                                    </div>
                                     <div class="col-md-2"></div>
 
                                 </div>
@@ -284,43 +297,43 @@ session_start();
                     </div>
                 </section>
 
-                </div>
+            </div>
 
-                <!-- Publicidad -->
-                <section style="padding: 0px 0 !important;">
-                    <div class="container-fluid fondopubli">
-                        <div class="row">
-                            <div class="col-lg-12 text-center">
+            <!-- Publicidad -->
+            <section style="padding: 0px 0 !important;">
+                <div class="container-fluid fondopubli">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
 
-                            </div>
                         </div>
                     </div>
-                </section>
-
-                <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h3>No has iniciado sesión</h3>
-                    </div>
-                    <div class="modal-body">
-                      <h5>Por favor, inicie sesión para continuar</h5>
-
-                    </div>
-                    <div class="modal-footer">
-                      <a href="login.php" data-confirm="modal" class="btn btn-info" id="botonLogin">Iniciar sesión</a>
-                      <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
-                    </div>
-                  </div>
                 </div>
-               </div>
+            </section>
 
-               <?php 
+            <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h3>No has iniciado sesión</h3>
+                        </div>
+                        <div class="modal-body">
+                            <h5>Por favor, inicie sesión para continuar</h5>
+
+                        </div>
+                        <div class="modal-footer">
+                            <a href="login.php" data-confirm="modal" class="btn btn-info" id="botonLogin">Iniciar sesión</a>
+                            <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <?php 
                  error_reporting(E_ERROR);
                  include("includes/footer.php");
                ?>
-            </div>
+        </div>
         </div>
 
         <!-- jQuery -->
@@ -339,14 +352,14 @@ session_start();
         <!-- Theme JavaScript -->
         <script src="js/agency.min.js"></script>
 
-        <script  src=" https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"
-        crossorigin="anonymous"></script>
+        <script src=" https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js" crossorigin="anonymous"></script>
 
         <!-- Tooltip -->
         <script>
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();
-        });
+            $(document).ready(function() {
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+
         </script>
 
         <!-- Funciones de Barra JavaScript -->
@@ -355,22 +368,25 @@ session_start();
         <!-- Funciones de Local JavaScript -->
         <script src="js/controladores/ficha.controlador.js"></script>
         <script>
-          obtenerListadoTiposNegocio();
-          getDetalleLocal('<?php echo $idLocal; ?>', '<?php echo $modal; ?>');
+            obtenerListadoTiposNegocio();
+            getDetalleLocal('<?php echo $idLocal; ?>', '<?php echo $modal; ?>');
 
         </script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHhrWZLpRB2OO1JJEU3Ls9FpfZzbXaQ-A"></script>
 
         <script>
-        window.onscroll = function() {myFunction()};
+            window.onscroll = function() {
+                myFunction()
+            };
 
-        function myFunction() {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                document.getElementById("myP").className = "reservarfijo verreservar";
-            } else {
-                document.getElementById("myP").className = "";
+            function myFunction() {
+                if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                    document.getElementById("myP").className = "reservarfijo verreservar";
+                } else {
+                    document.getElementById("myP").className = "";
+                }
             }
-        }
+
         </script>
 
         <!-- Menu lateral -->
@@ -378,46 +394,49 @@ session_start();
 
         <!-- Animacion boton cerrar menú lateral -->
         <script type="text/javascript">
-          $(document).ready(function(){
-            $('#nav-icon3').click(function(){
-              $(this).toggleClass('open');
+            $(document).ready(function() {
+                $('#nav-icon3').click(function() {
+                    $(this).toggleClass('open');
+                });
             });
-          });
+
         </script>
 
         <!-- Menu Toggle Script -->
         <script>
-        $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
+            $("#menu-toggle").click(function(e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+
         </script>
-       
-<!-- Script para mostrar y ocultar Logo en mobiles-->
-<script>
-if ( $(window).innerWidth() < 800 ) {
-var lastScrollTop = 0;
-$(window).scroll(function(event){
-   var st = $(this).scrollTop();
-   if (st > lastScrollTop){
-       // downscroll code
-       document.getElementById("LogoMobile").style.display = "none";
-       document.getElementById("buscador").style.marginTop = "40px";
-       document.getElementById("nav-icon3").style.top = "20px";
-       document.getElementById("loguito").style.display = "inline"
-   } else {
-      // upscroll code
-      document.getElementById("LogoMobile").style.display = "inline";
-       document.getElementById("buscador").style.marginTop = "0px";
-       document.getElementById("nav-icon3").style.top = "0px";
-       document.getElementById("loguito").style.display = "none"
-   }
-   lastScrollTop = st;
-});
-}
-    </script>
-    
-    <!-- Script para mostrar y ocultar Logo en mobiles-->
+
+        <!-- Script para mostrar y ocultar Logo en mobiles-->
+        <script>
+            if ($(window).innerWidth() < 800) {
+                var lastScrollTop = 0;
+                $(window).scroll(function(event) {
+                    var st = $(this).scrollTop();
+                    if (st > lastScrollTop) {
+                        // downscroll code
+                        document.getElementById("LogoMobile").style.display = "none";
+                        document.getElementById("buscador").style.marginTop = "40px";
+                        document.getElementById("nav-icon3").style.top = "20px";
+                        document.getElementById("loguito").style.display = "inline"
+                    } else {
+                        // upscroll code
+                        document.getElementById("LogoMobile").style.display = "inline";
+                        document.getElementById("buscador").style.marginTop = "0px";
+                        document.getElementById("nav-icon3").style.top = "0px";
+                        document.getElementById("loguito").style.display = "none"
+                    }
+                    lastScrollTop = st;
+                });
+            }
+
+        </script>
+
+        <!-- Script para mostrar y ocultar Logo en mobiles-->
 
     </body>
 
