@@ -22,9 +22,18 @@ function getDetalleLocal(idLocal, modal) {
       crossDomain: true,
       contentType: "application/json",
       success: function (data) {
-        buscarSugeridos();
+        buscarSugeridos(data.localPremium);
         locales = data;
-        popularLocal(data);
+        if (data.localPremium) {
+          $("#fichaPremium").show();
+          $("#map").show();
+          $("#sugeridosPremium").show();
+          popularLocal(data);
+        } else {
+          $("#fichaBase").show();
+          popularFichaBase(data);
+        }
+        
         //if (!_.isNil(modal) && !_.isEmpty(modal)) {
         //  mostrarModalLocal(data._id, modal);
         //}
@@ -88,6 +97,27 @@ function buscar(parametro, filtro) {
 function getTituloBusqueda(parametro, filtro) {
   var titulo = $("#labelRestaurantesBusquedas");
   titulo.text('Restaurantes para la búsqueda "' + parametro + '"');
+}
+
+function popularFichaBase(local) {
+
+  $('#nombreNegocio').text(local.idNegocio.nombreNegocio);
+  $("#imagenLocal").attr('src', local.fotoPrincipalLocal);
+
+  var bajadaNegocio = '';
+  var raya = ' | ';
+  if (local.idNegocio.bajadaNegocio.length > 2) {
+    bajadaNegocio = raya + local.idNegocio.bajadaNegocio;
+  }
+  $("#bajadaNegocio").text(bajadaNegocio);
+  $("#datosContacto").append(''+
+    '<li style="padding-top: 5%;">'+
+       '<p class="textodatosficha"><i class="fa fa-map-marker datosficha" aria-hidden="true"></i> <span id="direccionLocal">'+ local.calleLocal +' '+ local.alturaLocal +'</span></p>'+
+    '</li>'+
+    '<li>'+
+       '<p class="textodatosficha"><i class="fa fa-phone datosficha" aria-hidden="true"></i><span id="telefonoLocal">' + local.telContacto + '</span> </p>'+
+    '</li>'+
+  '');
 }
 
 function popularLocal(local) {
@@ -191,6 +221,11 @@ function popularLocal(local) {
   $('#nivelPrecio').append('<span style="color: #cbcbcb">'+labelGrises+'</span>');
   $('#descripcionNegocio').text(local.idNegocio.descripcionNegocio);
   $("#cartaLocal").attr('href', carta);
+  if(carta.length < 2){
+    $('#cartaLocal').hide();
+  }else{
+    $('#cartaLocal').attr('href', carta);
+  }
   if(facebook.length < 2){
     $('#facebookNegocio').hide();
   }else{
@@ -329,30 +364,44 @@ function mostrarHorarioApertura(local){
     var horariosDia = _.filter(local.idHorarioApertura, {'diaSemanaHorarioApertura': dia});
 
     var dataDia = $('<td>').text(dia);
-    var horarios = '';
+    var horarios = 'Cerrado';
     var cerrado = true;
     if (horariosDia.length) {
       cerrado = false;
       var horarioManana = _.find(horariosDia, {'turnoHorarioApertura': 'manana'});
       var horarioTarde = _.find(horariosDia, {'turnoHorarioApertura': 'tarde'});
-      if (horarioManana && _.get(horarioManana, 'horaInicioHorarioApertura') !== _.get(horarioManana, 'horaFinHorarioApertura')){
-        horarios +=  _.get(horarioManana, 'horaInicioHorarioApertura') + ' a ' + _.get(horarioManana, 'horaFinHorarioApertura');
-        if( new Date().getDay() === index){
-          horaHoy = _.get(horarioManana, 'horaInicioHorarioApertura');
-        }
+      var aperturaManana = '00:00';
+      var horaFinManana = '00:00';
+      if (horarioManana == undefined) {
+        aperturaManana = '00:00';
+      } else {
+        aperturaManana = horarioManana.horaInicioHorarioApertura;
+      }
+      if (horarioManana == undefined) {
+        horaFinManana = '00:00';
+      } else {
+        horaFinManana = horarioManana.horaFinHorarioApertura;
       }
 
-      if (horarioTarde && _.get(horarioTarde, 'horaInicioHorarioApertura') !== _.get(horarioTarde, 'horaFinHorarioApertura')){
-        if (!_.isEmpty(horarios)){
-            horarios += ' - ';
-        }
-        horarios += _.get(horarioTarde, 'horaInicioHorarioApertura') + ' a ' + _.get(horarioTarde, 'horaFinHorarioApertura');
-        if( new Date().getDay() === index && _.isEmpty(horaHoy)){
-          horaHoy = _.get(horarioTarde, 'horaInicioHorarioApertura');
-        }
+      horarios = aperturaManana + ' a ' + horaFinManana;
+      if( new Date().getDay() === index){
+        horaHoy = horarioManana.horaInicioHorarioApertura;
       }
-    } else {
-      horarios = 'Cerrado';
+      if (horarioTarde){
+        var aperturaTarde = '00:00';
+        var horaFinTarde = '00:00';
+        if (horarioTarde == undefined) {
+          aperturaTarde = '00:00';
+        } else {
+          aperturaTarde = horarioTarde.horaInicioHorarioApertura;
+        }
+        if (horarioTarde == undefined) {
+          horaFinTarde = '00:00';
+        } else {
+          horaFinTarde = horarioTarde.horaFinHorarioApertura;
+        }
+        horarios += ' - ' +  aperturaTarde + ' a ' + horaFinTarde;
+      }
     }
 
     var dataHorarios = $('<td>').addClass(cerrado ? 'cerrado' : '').text(horarios);
@@ -362,7 +411,7 @@ function mostrarHorarioApertura(local){
   });
 
   var a = $('<a>').attr('href', '#').attr('data-toggle', 'popover').attr('data-placement', 'bottom').attr('data-content', table.html()).html('Ver Horarios');
-  var span = horaHoy ?  $('<span />').append('Abre a las ' + horaHoy + '\&nbsp;' ) : $('<span />').append('Hoy cerrado \&nbsp;' );
+  var span = $('<span />').append('Abre a las ' + horaHoy + '\&nbsp;' );
   span.append(a);
 
   //var html = ;
@@ -484,20 +533,20 @@ function toggleBounce() {
   }
 }
 
-function buscarSugeridos() {
+function buscarSugeridos(premium) {
   if (_.isUndefined(server)) {
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     });
   }
   $.ajax({
-    url: server + '/api/v1/admin/locales',
+    url: server + '/api/v1/admin/localesAceptanReservas',
     type: 'GET',
 
     dataType: "json",
     crossDomain: true,
     contentType: "application/json",
     success: function (data) {
-      renderSugeridos(data);
+      renderSugeridos(data, premium);
     },
     error: function (jqXHR, textStatus, errorThrown) {
       $('#target').append("jqXHR: " + jqXHR);
@@ -507,21 +556,51 @@ function buscarSugeridos() {
   });
 }
 
-function renderSugeridos(locales){
-  $('.container.sugeridos').html('');
-  contSugeridos = 1;
+function renderSugeridos(locales, premium){
+  if (premium) {
+      $('.container.sugeridos').html('');
+      contSugeridos = 1;
+        _.each(locales, function(local){
+          if(contSugeridos < 7){
+          $('.container.sugeridos').append('' +
+            '<div class="col-md-2 ">' +
+            '    <div class="centraimagensugeridos"><a href="ficha.php?id=' + local._id + '"><img  class="sugeridos img-responsive" src="' +  _.get(local, 'fotoPrincipalLocal') + '"> </a></div>' +
+            '    <h2 class="titulosugerencia2">' + _.get(local, 'local.nombreNegocio') + '</h2>' +
+            '</div>');
+            contSugeridos++;
+          }
+        });
+  } else {
+    $('#sugeridosBase').html('');
+      var idSugerido = 1;
+      var contSugeridos = 1;
 
+      _.each(locales, function(local){
+        
+        if (contSugeridos == 1) {
+          $("#sugeridosBase").append('' +
+          '<div id="container'+idSugerido+'" class="container sugeridos sugeridosFichaBAse">'+
+          '</div>'
+          );
+          
+        } 
+        $("#container"+ idSugerido).append('' +
+              '<div class="col-md-2 ">'+
+                  '<div class="centraimagensugeridos"><a href="ficha.php?id=' + local._id + '"><img class="sugeridos img-responsive" src="' +  _.get(local, 'fotoPrincipalLocal') + '"> </a>'+
+                  '</div>'+
+                      '<h2 class="titulosugerencia2">' + _.get(local, 'local.nombreNegocio') + '</h2>'+
+              '</div>'   
+        );
+        contSugeridos++;
+        if (contSugeridos == 7) {
+          contSugeridos = 1;
+          idSugerido++;
+        }
 
-_.each(locales, function(local){
-  if(contSugeridos < 7){
-  $('.container.sugeridos').append('' +
-    '<div class="col-md-2 ">' +
-    '    <div class="centraimagensugeridos"><a href="ficha.php?id=' + local._id + '"><img  class="sugeridos img-responsive" src="' +  local.fotoPrincipalLocal + '"> </a></div>' +
-    '    <h2 class="titulosugerencia2">' + local.idNegocio.nombreNegocio + '</h2>' +
-    '</div>');
-    contSugeridos++;
+      });
   }
-});
+
+
 }
 
 function cargarPromociones(idLocal, modal, nombreNegocio, aceptaReserva){
@@ -667,4 +746,3 @@ function dibujarListaOpciones(opcionesMenu){
   $("#modalPromocion").modal();
 
 }
-
