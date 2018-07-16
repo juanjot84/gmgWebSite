@@ -280,7 +280,7 @@ $('#paginaNegocio').attr('href', web);
   _.each(local.idMedioPago, function (medioPago) {
     mediosPago += medioPago.descripcionMedioPago + coma;
   });
-  //cargarPromociones(local._id, '', local.idNegocio.nombreNegocio, local.aceptaReservaNegocio);
+  cargarPromociones(local._id, '', local.idNegocio.nombreNegocio, local.aceptaReservaNegocio);
   $('#medioPago').text(mediosPago);
   dibujarServicios(local.idServicio);
   var coordenadas = {lng: local.longitudLocal, lat: local.latitudLocal};
