@@ -370,13 +370,37 @@ function mostrarHorarioApertura(local){
       cerrado = false;
       var horarioManana = _.find(horariosDia, {'turnoHorarioApertura': 'manana'});
       var horarioTarde = _.find(horariosDia, {'turnoHorarioApertura': 'tarde'});
+      var aperturaManana = '00:00';
+      var horaFinManana = '00:00';
+      if (horarioManana == undefined) {
+        aperturaManana = '00:00';
+      } else {
+        aperturaManana = horarioManana.horaInicioHorarioApertura;
+      }
+      if (horarioManana == undefined) {
+        horaFinManana = '00:00';
+      } else {
+        horaFinManana = horarioManana.horaFinHorarioApertura;
+      }
 
-      horarios = horarioManana.horaInicioHorarioApertura + ' a ' + horarioManana.horaFinHorarioApertura;
+      horarios = aperturaManana + ' a ' + horaFinManana;
       if( new Date().getDay() === index){
         horaHoy = horarioManana.horaInicioHorarioApertura;
       }
       if (horarioTarde){
-        horarios += ' - ' +  horarioTarde.horaInicioHorarioApertura + ' a ' + horarioTarde.horaFinHorarioApertura;
+        var aperturaTarde = '00:00';
+        var horaFinTarde = '00:00';
+        if (horarioTarde == undefined) {
+          aperturaTarde = '00:00';
+        } else {
+          aperturaTarde = horarioTarde.horaInicioHorarioApertura;
+        }
+        if (horarioTarde == undefined) {
+          horaFinTarde = '00:00';
+        } else {
+          horaFinTarde = horarioTarde.horaFinHorarioApertura;
+        }
+        horarios += ' - ' +  aperturaTarde + ' a ' + horaFinTarde;
       }
     }
 
@@ -722,4 +746,3 @@ function dibujarListaOpciones(opcionesMenu){
   $("#modalPromocion").modal();
 
 }
-
