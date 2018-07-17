@@ -1612,6 +1612,7 @@ button.btn.btn-default.btnbuscar:hover {
     background-color: #000;
 }
 
+
 .descargate h1 {
     font-size: 14px;
     color:#fff;
@@ -1775,6 +1776,15 @@ ul#datosContacto li {
 }
 
 
+.sugeridosIndex h1 {
+    font-size: 36px;
+    margin:0 0 20px 0
+}
+
+section h2.section-heading {
+    font-size: 30px!important;
+    text-transform: none!important
+}
 
 
 

@@ -386,12 +386,124 @@
                 </div>
             </header>
 
+            <section class="sugeridosIndex">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <!-- <h2 class="section-heading">Restaurantes Sugeregidos</h2> -->
+                        <h1>Restaurantes que aceptan reservas. </h1>
+                        <h2 class="section-heading">Reservá en un click!</h2>
+                    </div>
+                </div>
+                <div id="sugeridosBase">
+                    <div id="container1" class="container sugeridos sugeridosFichaBAse">
+                        <div class="col-md-2 ">
+                            <div class="centraimagensugeridos"><a href="ficha.php?id=5a6a55169e5c83cf2c9cf885"><img class="sugeridos img-responsive" src="https://guiamendozagourmet.com/img-locales/5a6a55169e5c83cf2c9cf8855a6a55281bbf6.jpg"> </a></div>
+                            <h2 class="titulosugerencia2">Restaurant Diplomatic</h2>
+                        </div>
+                        <div class="col-md-2 ">
+                            <div class="centraimagensugeridos"><a href="ficha.php?id=5a8b6f68f3afc71b294c3432"><img class="sugeridos img-responsive" src="https://guiamendozagourmet.com/img-locales/5a8b6f68f3afc71b294c34325a987c87b0114.jpg"> </a></div>
+                            <h2 class="titulosugerencia2">Rincón de López</h2>
+                        </div>
+                        <div class="col-md-2 ">
+                            <div class="centraimagensugeridos"><a href="ficha.php?id=5ace5115dd0f628d2d7df6a3"><img class="sugeridos img-responsive" src="https://guiamendozagourmet.com/img-locales/5ace5115dd0f628d2d7df6a35ace54a5dbfc4.jpg"> </a></div>
+                            <h2 class="titulosugerencia2">Gasparetto</h2>
+                        </div>
+                        <div class="col-md-2 ">
+                            <div class="centraimagensugeridos"><a href="ficha.php?id=5a97447434c22d0a6cbb40f1"><img class="sugeridos img-responsive" src="https://guiamendozagourmet.com/img-locales/5a97447434c22d0a6cbb40f15a98726c887cb.jpg"> </a></div>
+                            <h2 class="titulosugerencia2">Don Mario</h2>
+                        </div>
+                        <div class="col-md-2 ">
+                            <div class="centraimagensugeridos"><a href="ficha.php?id=5abaa7ffc00642a35a83adcd"><img class="sugeridos img-responsive" src="https://guiamendozagourmet.com/img-locales/5abaa7ffc00642a35a83adcd5abaa83f3faee.jpg"> </a></div>
+                            <h2 class="titulosugerencia2">Gaia</h2>
+                        </div>
+                        <div class="col-md-2 ">
+                            <div class="centraimagensugeridos"><a href="ficha.php?id=5a6ba48cb7d8e7ef1b0b2c20"><img class="sugeridos img-responsive" src="https://guiamendozagourmet.com/img-locales/5a6ba48cb7d8e7ef1b0b2c205ad222efb3de3.jpg"> </a></div>
+                            <h2 class="titulosugerencia2">Bistro M</h2>
+                        </div>
+                    </div>
+                    <div id="container2" class="container sugeridos sugeridosFichaBAse">
+                        <div class="col-md-2 ">
+                            <div class="centraimagensugeridos"><a href="ficha.php?id=5a9878ca34c22d0a6cbb4122"><img class="sugeridos img-responsive" src="https://guiamendozagourmet.com/img-locales/5a9878ca34c22d0a6cbb41225a98789ce71de.jpg"> </a></div>
+                            <h2 class="titulosugerencia2">Don Mario</h2>
+                        </div>
+                        <div class="col-md-2 ">
+                            <div class="centraimagensugeridos"><a href="ficha.php?id=5a1ca02af5b9bd807f8483d0"><img class="sugeridos img-responsive" src="https://guiamendozagourmet.com/img-locales/5a1ca02af5b9bd807f8483d05a6ddd360cb5b.jpg"> </a></div>
+                            <h2 class="titulosugerencia2">Sabores del Perú</h2>
+                        </div>
+                        <div class="col-md-2 ">
+                            <div class="centraimagensugeridos"><a href="ficha.php?id=5ace57ad022d4f094538f0eb"><img class="sugeridos img-responsive" src="https://guiamendozagourmet.com/img-locales/5ace57ad022d4f094538f0eb5ace58ae9b5bc.jpg"> </a></div>
+                            <h2 class="titulosugerencia2">Urban</h2>
+                        </div>
+                        <div class="col-md-2 ">
+                            <div class="centraimagensugeridos"><a href="ficha.php?id=5a78ddbf095679d2098850a2"><img class="sugeridos img-responsive" src="https://guiamendozagourmet.com/img-locales/5a78ddbf095679d2098850a25b2fbd0bc4880.jpg"> </a></div>
+                            <h2 class="titulosugerencia2">Torito</h2>
+                        </div>
+                        <div class="col-md-2 ">
+                            <div class="centraimagensugeridos"><a href="ficha.php?id=59e8eecc0baf662100208944"><img class="sugeridos img-responsive" src="https://guiamendozagourmet.com/img-locales/59e8eecc0baf6621002089445a0b0bafe18bf.jpg"> </a></div>
+                            <h2 class="titulosugerencia2">Fuente y Fonda</h2>
+                        </div>
+                        <div class="col-md-2 ">
+                            <div class="centraimagensugeridos"><a href="ficha.php?id=5a6bab55b7d8e7ef1b0b2c43"><img class="sugeridos img-responsive" src="https://guiamendozagourmet.com/img-locales/5a6bab55b7d8e7ef1b0b2c435a6bad046d2c5.jpg"> </a></div>
+                            <h2 class="titulosugerencia2">Grill Q</h2>
+                        </div>
+                    </div>
+                    <div id="container3" class="container sugeridos sugeridosFichaBAse">
+                        <div class="col-md-2 ">
+                            <div class="centraimagensugeridos"><a href="ficha.php?id=5a908d8f1d4f19e33eda1f32"><img class="sugeridos img-responsive" src="https://guiamendozagourmet.com/img-locales/5a908d8f1d4f19e33eda1f325a946d7b4c13b.jpg"> </a></div>
+                            <h2 class="titulosugerencia2">Gran Hotel Potrerillos</h2>
+                        </div>
+                        <div class="col-md-2 ">
+                            <div class="centraimagensugeridos"><a href="ficha.php?id=5afc25796e67dede6bbc3aa6"><img class="sugeridos img-responsive" src="https://guiamendozagourmet.com/img-locales/5afc25796e67dede6bbc3aa65afc27f428376.jpg"> </a></div>
+                            <h2 class="titulosugerencia2">Mirador</h2>
+                        </div>
+                        <div class="col-md-2 ">
+                            <div class="centraimagensugeridos"><a href="ficha.php?id=5b0fea6a2be969fa7d94019d"><img class="sugeridos img-responsive" src="https://guiamendozagourmet.com/img-locales/5b0fea6a2be969fa7d94019d5b0fec08b1bab.jpg"> </a></div>
+                            <h2 class="titulosugerencia2">Asador Don Manuel</h2>
+                        </div>
+                        <div class="col-md-2 ">
+                            <div class="centraimagensugeridos"><a href="ficha.php?id=59e904b821b6e72100911cca"><img class="sugeridos img-responsive" src="http://guiamendozagourmet.com/img-locales/59e904b821b6e72100911cca5a1427156b42b.jpg"> </a></div>
+                            <h2 class="titulosugerencia2">Bardot</h2>
+                        </div>
+                        <div class="col-md-2 ">
+                            <div class="centraimagensugeridos"><a href="ficha.php?id=5ac76c9b5017ead5257f6477"><img class="sugeridos img-responsive" src="https://guiamendozagourmet.com/img-locales/5ac76c9b5017ead5257f64775ac79897687a3.jpg"> </a></div>
+                            <h2 class="titulosugerencia2">Deziro Sushi</h2>
+                        </div>
+                        <div class="col-md-2 ">
+                            <div class="centraimagensugeridos"><a href="ficha.php?id=5a84be07128103ac7a1a66d7"><img class="sugeridos img-responsive" src="https://guiamendozagourmet.com/img-locales/5a84be07128103ac7a1a66d75a84bee638864.jpg"> </a></div>
+                            <h2 class="titulosugerencia2">Gingger</h2>
+                        </div>
+                    </div>
+                    <div id="container4" class="container sugeridos sugeridosFichaBAse">
+                        <div class="col-md-2 ">
+                            <div class="centraimagensugeridos"><a href="ficha.php?id=5b1a9881a181f2fe5fc33717"><img class="sugeridos img-responsive" src="https://guiamendozagourmet.com/img-locales/5b1a9881a181f2fe5fc337175b21bf18931dc.jpg"> </a></div>
+                            <h2 class="titulosugerencia2">Rogelio</h2>
+                        </div>
+                        <div class="col-md-2 ">
+                            <div class="centraimagensugeridos"><a href="ficha.php?id=5b3e6c135172623f23e549ef"><img class="sugeridos img-responsive" src="https://guiamendozagourmet.com/img-locales/5b3e6c135172623f23e549ef5b3e6dd8d9a82.jpg"> </a></div>
+                            <h2 class="titulosugerencia2">El Palenque</h2>
+                        </div>
+                        <div class="col-md-2 ">
+                            <div class="centraimagensugeridos"><a href="ficha.php?id=5ac4f18e88e55a00782a893b"><img class="sugeridos img-responsive" src="https://guiamendozagourmet.com/img-locales/5ac4f18e88e55a00782a893b5ac51cbc1ddff.jpg"> </a></div>
+                            <h2 class="titulosugerencia2">Anna Bistró</h2>
+                        </div>
+                        <div class="col-md-2 ">
+                            <div class="centraimagensugeridos"><a href="ficha.php?id=5ac39eece4fdbb456384fb92"><img class="sugeridos img-responsive" src="https://guiamendozagourmet.com/img-locales/5ac39eece4fdbb456384fb925ac3ccefae2d5.jpg"> </a></div>
+                            <h2 class="titulosugerencia2">Don Aldo</h2>
+                        </div>
+                        <div class="col-md-2 ">
+                            <div class="centraimagensugeridos"><a href="ficha.php?id=5ab265230b7fee4a54b155e0"><img class="sugeridos img-responsive" src="https://guiamendozagourmet.com/img-locales/5ab265230b7fee4a54b155e05ab266c48acf3.jpg"> </a></div>
+                            <h2 class="titulosugerencia2">Cielito </h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Ocasiones -->
             <section id="portfolio" class="bg-light-gray">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 text-center">
-                            <h2 class="section-heading">Ocasiones</h2>
+                            <h2 class="section-heading">¿Cuál es tu excusa?</h2>
 
                         </div>
                     </div>
@@ -459,7 +571,7 @@
             <!-- ELEGÍ TU COCINA -->
             <section id="team" class="bg-light-gray">
 
-                <h2 style="text-align: center; margin-bottom: 2%;" class="section-heading">Elegí tu cocina</h2>
+                <h2 style="text-align: center; margin-bottom: 2%;" class="section-heading">Elegí la cocina que más te gusta</h2>
 
                 <div class="container tipoCocinas">
 
