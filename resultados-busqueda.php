@@ -147,7 +147,7 @@ if (empty($promocion)) $promocion = '';
 
           <?php
           error_reporting(E_ERROR);
-          include("includes/navDos.php");
+          include("includes/nav.php");
            ?>
 
           <!-- Header -->

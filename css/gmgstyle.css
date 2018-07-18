@@ -1340,6 +1340,10 @@ ul.promosvertical.vc_list {
         max-width: 560px !important;
         margin-top: 35% !important;
     }
+    
+    #login {
+        margin-top:50px
+    }
 
 }
 

@@ -67,7 +67,7 @@
             </span>
             
           </form>
-          <img id="loguito" src="img/IconoGMGMobile.png" alt="">
+          <!--img id="loguito" src="img/IconoGMGMobile.png" alt=""-->
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
