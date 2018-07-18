@@ -385,7 +385,9 @@ function mostrarHorarioApertura(local){
 
       horarios = aperturaManana + ' a ' + horaFinManana;
       if( new Date().getDay() === index){
-        horaHoy = horarioManana.horaInicioHorarioApertura;
+        if (horarioManana != undefined) {
+          horaHoy = horarioManana.horaInicioHorarioApertura;
+        }
       }
       if (horarioTarde){
         var aperturaTarde = '00:00';
