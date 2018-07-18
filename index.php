@@ -386,6 +386,19 @@
                 </div>
             </header>
 
+            <section class="sugeridosIndex">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <!-- <h2 class="section-heading">Restaurantes Sugeregidos</h2> -->
+                        <h1>Restaurantes que aceptan reservas. </h1>
+                        <h2 class="section-heading">Reservá en un click!</h2>
+                    </div>
+                </div>
+                <div id="sugeridosBase">
+
+                </div>
+            </section>
+
             <!-- Ocasiones -->
             <section id="portfolio" class="bg-light-gray">
                 <div class="container">

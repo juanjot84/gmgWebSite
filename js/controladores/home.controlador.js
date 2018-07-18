@@ -14,6 +14,7 @@ function obtenerListadoCocinas() {
           _.each(data, function(cocinas){
             renderTipoCocina(cocinas);
           });
+          buscarSugeridos();
           obtenerListadoOcasiones();
           obtenerListadoPolos();
       },
@@ -35,6 +36,61 @@ function renderTipoCocina(cocina){
         '<h4 class="titulotipococina" style="text-transform: none;">' + cocina.nombreTipoCocina+ '</h4> ' +
       '</div>' +
     '</a>');
+}
+
+function buscarSugeridos() {
+  if (_.isUndefined(server)) {
+    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+    });
+  }
+  $.ajax({
+    url: server + '/api/v1/admin/localesAceptanReservas',
+    type: 'GET',
+
+    dataType: "json",
+    crossDomain: true,
+    contentType: "application/json",
+    success: function (data) {
+      renderSugeridos(data);
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      $('#target').append("jqXHR: " + jqXHR);
+      $('#target').append("textStatus: " + textStatus);
+      $('#target').append("You can not send Cross Domain AJAX requests: " + errorThrown);
+    }
+  });
+}
+
+function renderSugeridos(locales){
+
+    $('#sugeridosBase').html('');
+      var idSugerido = 1;
+      var contSugeridos = 1;
+
+      _.each(locales, function(local){
+        if (contSugeridos == 1) {
+          $("#sugeridosBase").append('' +
+          '<div id="container'+idSugerido+'" class="container sugeridos sugeridosFichaBAse">'+
+          '</div>'
+          );
+        } 
+        $("#container"+ idSugerido).append('' +
+              '<div class="col-md-2 ">'+
+                  '<div class="centraimagensugeridos"><a href="ficha.php?id=' + local._id + '"><img class="sugeridos img-responsive" src="' +  _.get(local, 'fotoPrincipalLocal') + '"> </a>'+
+                  '</div>'+
+                      '<h2 class="titulosugerencia2">' + _.get(local, 'local.nombreNegocio') + '</h2>'+
+              '</div>'   
+        );
+        contSugeridos++;
+        if (contSugeridos == 7) {
+          contSugeridos = 1;
+          idSugerido++;
+        }
+
+      });
+  
+
+
 }
 
 function buscarCocina(idCocina) {
@@ -60,3 +116,5 @@ var redirect = function(url, method, filtro, idParam) {
 
   form.submit();
 };
+
+
