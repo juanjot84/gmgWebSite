@@ -772,8 +772,7 @@ a.forgot-password:hover {
     object-fit: cover;
     object-position: center;
     overflow: hidden;
-    height: 90px;
-    width: 190px;
+   
     padding: 0 5%;
 }
 
@@ -1278,13 +1277,13 @@ ul.promosvertical.vc_list {
         object-fit: cover;
         object-position: center;
         overflow: hidden;
-        height: 75px;
-        width: 135px;
+        
         padding: 0 0%;
     }
     .titulosugerencia2 {
         font-size: 14px;
         text-align: center;
+        margin:10px 0 20px 0
     }
     h3.titulo {
         font-size: 22px;
@@ -1447,8 +1446,7 @@ ul.promosvertical.vc_list {
         object-fit: cover;
         object-position: center;
         overflow: hidden;
-        height: 75px;
-        width: 135px;
+        
         padding: 0 0%;
         margin: 0 auto;
     }
