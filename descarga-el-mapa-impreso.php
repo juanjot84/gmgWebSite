@@ -55,35 +55,26 @@
 <body id="page-top" class="index">
 
      <!-- Navigation -->
-  <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header page-scroll">
-        <a  href="index.php"><img class="logoweb" src="img/logo-gmg.png"></a>
+   <?php 
+                
+                include("includes/menulateral.php");
+            ?>
 
-        <form class="buscadorresultados" action="resultados-busqueda.php" method="post">
-            <div class="input-group">
-              <input type="text" class="form-control buscadornav2" placeholder="Buscá por nombre, zona o tipo de cocina" name="parametro">
-            </div>
-            <span class="input-group-btn">
-              <button type="submit" class="btn btn-default btnbuscarnav2"><i class="fa fa-search" aria-hidden="true"></i></button>
-            </span>
-          </form>
-      </div>
+            <div id="page-content-wrapper">
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right acceder-pc">
+                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">
+                    <div id="nav-icon3">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </a>
 
-          <li class="hidden">
-            <a href="#page-top"></a>
-          </li>
-          <li class="acceder-mobile"><a href="login.php"><i class="fa fa-user" aria-hidden="true"></i> ACCEDER</a></li>        </ul>
-      </div>
-      <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-  </nav>
+                <?php 
+                  error_reporting(E_ERROR);
+                  include("includes/nav.php");
+                 ?>
 
 
   <!-- Texto Politicas -->
@@ -94,21 +85,21 @@
           <h2 class="section-heading">Descargá el mapa impreso</h2>
         </div>
       </div>
-      <div class="row">
+      <div class="row ">
         <div class="col-lg-4 text-center">
-          <h3 class="elegimapa">#3 / CIUDAD • GRAN MENDOZA / 2018-19</h3>
-          <a target="_blank" href=MapaGMG-Ciudad-3.pdf"><img class="descarga-mapa" src="img/tapas-mapas/ed-03-Ciudad.jpg">
-          <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</a></h3>
+          <h3 class="elegimapa">#4 / CIUDAD • CHACRAS DE CORIA / 2018</h3>
+          <a target="_blank" href="mapas/ed4CiudadGranMendoza.pdf"><img class="descarga-mapa" src="img/tapas-mapas/Ed04Ciudad.jpg">
+          <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h3></a>
         </div>
         <div class="col-lg-4 text-center">
-          <h3 class="elegimapa">#3 / CIUDAD • PALMARES / 2018-19</h3>
-          <a target="_blank" href="MapaGMG-ChacrasPalmares-3.pdf"><img class="descarga-mapa" src="img/tapas-mapas/ed-03-ChacrasPalmares.jpg">
-          <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</a></h3>
+          <h3 class="elegimapa">#4 / GRAN MENDOZA / 2018</h3>
+          <a target="_blank" href="mapas/ed4GranMendoza.pdf"><img class="descarga-mapa" src="img/tapas-mapas/Ed04GranMendoza.jpg">
+          <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h3></a>
         </div>
         <div class="col-lg-4 text-center">
-          <h3 class="elegimapa">#3 / LUJÁN DE CUYO • MAIPÚ / 2018-19</h3>
-          <a target="_blank" href="MapaGMG-MaipuLujanValleUco-3.pdf"><img class="descarga-mapa" src="img/tapas-mapas/ed-03-MaipuLujanValleUco.jpg">
-          <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</a></h3>
+          <h3 class="elegimapa">#4 / LUJÁN DE CUYO • MAIPÚ • VALLE DE UCO/ 2018-19</h3>
+          <a target="_blank" href="mapas/ed4LujanMaipuValledeUco.pdf"><img class="descarga-mapa" src="img/tapas-mapas/Ed04MaipuLujan.jpg">
+          <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h3></a>
         </div>
       </div>
       <div class="row">
@@ -116,14 +107,31 @@
       </div>
       <div class="row anteriores">
         <div class="col-lg-4 text-center">
-          <h4>#2 / CIUDAD • PALMARES / 2017-18</h4>
-          <a target="_blank" href="MapaGMG-Ciudad-Palmares-2.pdf"><img class="descarga-mapa" src="img/tapas-mapas/tapa-002.jpg">
-          <h4 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</a></h4>
+          <h3 class="elegimapa">#3 / CIUDAD • GRAN MENDOZA / 2018</h3>
+          <a target="_blank" href="mapas/ed3GranMendozaCiudad.pdf"><img class="descarga-mapa" src="img/tapas-mapas/Ed03Ciudad.jpg">
+          <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h3></a>
         </div>
         <div class="col-lg-4 text-center">
-          <h4>#2 / LUJÁN DE CUYO • MAIPÚ / 2017-18</h2>
-          <a target="_blank" href="MapaGMG-Lujan-de-Cuyo-Maipu.pdf"><img class="descarga-mapa" src="img/tapas-mapas/tapa-003.jpg">
-          <h4 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</a></h4>
+          <h3 class="elegimapa">#3 / CIUDAD • PALMARES / 2018</h3>
+          <a target="_blank" href="mapas/ed3CiudadPAlmares.pdf"><img class="descarga-mapa" src="img/tapas-mapas/Ed03Chacras.jpg">
+          <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h3></a>
+        </div>
+        <div class="col-lg-4 text-center">
+          <h3 class="elegimapa">#3 / LUJÁN DE CUYO • MAIPÚ • VALLE DE UCO/ 2018</h3>
+          <a target="_blank" href="mapas/ed3MaipuLujanValleUco3.pdf"><img class="descarga-mapa" src="img/tapas-mapas/Ed03MaipuLujan.jpg">
+          <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h3></a>
+        </div>
+      </div>
+      <div class="row anteriores">
+        <div class="col-lg-4 text-center">
+          <h4>#2 / CIUDAD • PALMARES / 2017-18</h4>
+          <a target="_blank" href="mapas/ed2CiudadPalmares.pdf"><img class="descarga-mapa" src="img/tapas-mapas/tapa-002.jpg">
+          <h4 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h4></a>
+        </div>
+        <div class="col-lg-4 text-center">
+          <h4>#2 / LUJÁN DE CUYO • MAIPÚ / 2017-18</h4>
+          <a target="_blank" href="mapas/ed2LujanMaipu.pdf"><img class="descarga-mapa" src="img/tapas-mapas/tapa-003.jpg">
+          <h4 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h4></a>
         </div>
         
       </div>
@@ -132,8 +140,8 @@
     
         <div class="col-lg-4 text-center">
           <h3 class="elegimapa">#1 / CIUDAD • PALMARES / 2017</h3>
-          <a target="_blank" href="MapaGMG-Ciudad-Palmares.pdf"><img class="descarga-mapa" src="img/tapas-mapas/tapa-001.jpg">
-          <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</a></h3>
+          <a target="_blank" href="mapas/ed1CiudadPAlmares.pdf"><img class="descarga-mapa" src="img/tapas-mapas/tapa-001.jpg">
+          <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h3></a>
         </div>
       </div>
 
@@ -228,6 +236,33 @@
     obtenerListadoCocinas();
 
   </script>
+  
+   <!-- Script para mostrar y ocultar Logo en mobiles-->
+        <script>
+            if ($(window).innerWidth() < 800) {
+                var lastScrollTop = 0;
+                $(window).scroll(function(event) {
+                    var st = $(this).scrollTop();
+                    if (st > lastScrollTop) {
+                        // downscroll code
+                        document.getElementById("LogoMobile").style.display = "none";
+                        document.getElementById("buscador").style.marginTop = "40px";
+                        document.getElementById("nav-icon3").style.top = "20px";
+                        document.getElementById("loguito").style.display = "inline"
+                    } else {
+                        // upscroll code
+                        document.getElementById("LogoMobile").style.display = "inline";
+                        document.getElementById("buscador").style.marginTop = "0px";
+                        document.getElementById("nav-icon3").style.top = "0px";
+                        document.getElementById("loguito").style.display = "none"
+                    }
+                    lastScrollTop = st;
+                });
+            }
+
+        </script>
+
+        <!-- Script para mostrar y ocultar Logo en mobiles-->
 
 </body>
 
