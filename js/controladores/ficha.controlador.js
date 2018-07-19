@@ -619,7 +619,7 @@ function cargarPromociones(idLocal, modal, nombreNegocio, aceptaReserva){
         if(promociones.length != 0){
           $('#contenedorListaPromociones').html('');
           $('#contenedorListaPromociones').append(''+
-             '<h3>Reservá con</h3>'+
+             '<h3>Reservá para</h3>'+
                 '<ul class="promocionesficha" id="listaPromociones">'+
                 '</ul>'+
           '');
