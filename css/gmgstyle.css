@@ -275,6 +275,7 @@ h3.section-heading {
 
 input.form-control {
     padding: 5% 2%;
+    z-index: 500;
 }
 
 input.form-control.perfil {
@@ -1789,4 +1790,153 @@ section h2.section-heading {
 }
 
 
+#wrapper {
 
+}
+#snow div {
+
+  -webkit-animation-name: nieve, copos;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: normal;
+  -webkit-animation-timing-function: ease-in;
+   
+}
+.copos {
+  color: #68bcbc;
+  font-size: 1em;
+  position: absolute;
+   font-weight: bolder
+    
+}
+.copos.f1 {
+  left: 700px;
+  -webkit-animation-duration: 5s;
+    
+}
+.copos.f2 {
+  font-size: 5em;
+  left: 850px;
+  -webkit-animation-duration: 7s;
+    z-index: 10
+}
+.copos.f3 {
+  left: 1050px;
+  -webkit-animation-duration: 8s;
+    font-size: 20px;
+}
+.copos.f4 {
+  font-size: 1.5em;
+  left: 120px;
+  -webkit-animation-duration: 6s;
+     z-index: 10
+}
+
+
+
+.copos.f5 {
+  font-size: 100px;
+  left: 350px;
+  -webkit-animation-duration: 6s;
+    
+}
+
+.copos.f6 {
+  font-size: 50px;
+  left: 1200px;
+  -webkit-animation-duration: 5s;
+}
+
+.copos.f7 {
+  font-size: 20px;
+  left: 220px;
+  -webkit-animation-duration: 5s;
+    z-index: 10
+}
+
+.copos.f8 {
+  font-size: 35px;
+  left: 620px;
+  -webkit-animation-duration: 8s;
+    z-index: 10
+    
+}
+
+.copos.f9 {
+  font-size: 35px;
+  left: 980px;
+  -webkit-animation-duration: 6s;
+    z-index: 10
+}
+
+
+
+@-moz-keyframes nieve {
+  from {
+    top: -10px;
+  }
+  to {
+    top: 720px;
+  }
+}
+@-webkit-keyframes nieve {
+  from {
+    top: -10px;
+  }
+  to {
+    top: 700px;
+  }
+}
+@-o-keyframes nieve {
+  from {
+    top: -10px;
+  }
+  to {
+    top: 700px;
+  }
+}
+@keyframes nieve {
+  from {
+    top: -10px;
+  }
+  to {
+    top: 700px;
+  }
+}
+
+
+@-moz-keyframes copos {
+  0% {
+    transform: rotate(-180deg) translate(0px, 0px);
+  }
+  100% {
+    transform: rotate(180deg) translate(10px, 75px);
+  }
+}
+@-webkit-keyframes copos {
+  0% {
+    transform: rotate(-180deg) translate(0px, 0px);
+  }
+  100% {
+    transform: rotate(180deg) translate(10px, 75px);
+  }
+}
+@-o-keyframes copos {
+  0% {
+    transform: rotate(-180deg) translate(0px, 0px);
+  }
+  100% {
+    transform: rotate(180deg) translate(10px, 75px);
+  }
+}
+@keyframes copos {
+  0% {
+    transform: rotate(-180deg) translate(0px, 0px);
+  }
+  100% {
+    transform: rotate(180deg) translate(10px, 75px);
+  }
+}
+
+.img-reserva {
+    z-index: 20
+}
