@@ -33,6 +33,7 @@ header {
     background-color: #ffff00 !important;
     padding: 0;
     height: auto;
+    z-index: 5
 }
 
 .navbar-brand {
@@ -1794,7 +1795,8 @@ section h2.section-heading {
 
 }
 #snow div {
-
+    
+    
   -webkit-animation-name: nieve, copos;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-direction: normal;
@@ -1938,5 +1940,5 @@ section h2.section-heading {
 }
 
 .img-reserva {
-    z-index: 20
+    z-index: 20!important
 }
