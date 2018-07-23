@@ -255,10 +255,13 @@
 
     <link rel="stylesheet" href="smartbanner/jquery.smartbanner.css" type="text/css" media="screen">
     <script src="smartbanner/jquery.smartbanner.js"></script>
+    
+    
+
 
 </head>
 
-<body id="page-top" class="index">
+<body id="page-top" class="index" onload="aleatorio()">
 
     <script type='text/javascript' src='js/jquery.smartbanner.js'></script>
     <script type="text/javascript">
@@ -330,11 +333,22 @@
 
             <!-- Header -->
             <header>
-                <div class="container">
+                <div class="container" id="wrapper">
+                   <div class="snow" id="snow">
+    <div class="copos f1">&#10053</div>
+    <div class="copos f2">&#10052</div>
+    <div class="copos f3">&#10053</div>
+    <div class="copos f4">&#10052</div>
+    <div class="copos f5">&#10052</div>
+    <div class="copos f6">&#10052</div>
+    <div class="copos f7">&#10053</div>
+    <div class="copos f8">&#10052</div>
+    <div class="copos f9">&#10052</div>
+  </div>
                     <div class="row">
                         <div class="col-md-6 intro-text" style="margin-top: 5%;">
 
-                            <img class="img-responsive" style="margin: 0 auto;" src="img/reserva.png">
+                            <img class="img-responsive img-reserva" style="margin: 0 auto;" src="img/reserva.png">
                             <!-- <div class="intro-heading">RESERVÁ TU LUGAR</div>
                   <div class="intro-lead-in">Buscá <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Elegí <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Reservá <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> ES GRATIS!!</div>
                   <a href="#" class="page-scroll btn btn-xl">CÓMO FUNCIONA</a> -->
@@ -380,7 +394,7 @@
 
                         </div>
                         <div class="col-md-6 intro-text">
-                            <img style="margin: 0 auto;" class="img-responsive" src="img/cortes.png">
+                            <img style="margin: 0 auto;" class="img-responsive" src="img/FrontEd4.png" >
                         </div>
                     </div>
                 </div>
@@ -592,7 +606,14 @@
 
     <script src="assets/js/google-code-prettify/prettify.js"></script>
     <script src="assets/js/application.js"></script>
-
+        
+        <!--PLugin de Nieve
+        
+        <script src="js/jquery.snow.min.1.0.js"></script>
+        <script>
+$(document).ready( function(){ $.fn.snow();
+});
+</script>-->
 
 </body>
 

@@ -96,9 +96,12 @@
       </div>
       <div class="row">
         <div class="col-lg-4 text-center">
-          <h3 class="elegimapa">#3 / CIUDAD • GRAN MENDOZA / 2018-19</h3>
-          <a target="_blank" href=MapaGMG-Ciudad-3.pdf"><img class="descarga-mapa" src="img/tapas-mapas/ed-03-Ciudad.jpg">
-          <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</a></h3>
+          
+          <h3 class="elegimapa"> 2018</h3>
+          <h3 class="elegimapa">#4 / CIUDAD • CHACRAS DE CORIA</h3>
+          
+          <a target="_blank" href="mapas/ed4CiudadGranMendoza.pdf"><img class="descarga-mapa" src="img/tapas-mapas/Ed04Ciudad.jpg">
+          <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h3></a>
         </div>
         <div class="col-lg-4 text-center">
           <h3 class="elegimapa">#3 / CIUDAD • PALMARES / 2018-19</h3>
