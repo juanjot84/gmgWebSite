@@ -62,17 +62,23 @@
 
   <section class="ventajasbkg">
     <div class="container">
+     <div class="row">
+         <div class="col-md-12"><div class="sumate"><img src="img/sumate.png"></div></div>
+     </div>
       <div class="row">
           <div class="col-md-6"> 
-            <div class="sumate"><img src="img/sumate.png"></div>
-            <iframe width="100%" height="315" src="https://www.youtube.com/embed/BU5TUU0LBwQ?rel=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+            
+            <!--iframe width="100%" height="315" src="https://www.youtube.com/embed/BU5TUU0LBwQ?rel=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe-->
+            <ul class="listadoventajas">
+               <li><i class="fa fa-users" aria-hidden="true"></i> <span class="textoventajas"> Menor RRHH dedicados a tomar reservas</span></li>
+                <li><i class="fa fa-pie-chart" aria-hidden="true"></i> <span class="textoventajas"> Mayor rendimiento de cupos de reservas</span></li>
+                <li><i class="fa fa-magic" aria-hidden="true"></i> <span class="textoventajas"> Administración simple de todas las reservas</span></li>
+              </ul>
           </div>
           <div class="col-md-6">
             <div class="ventajas">
               <ul class="listadoventajas">
-                <li><i class="fa fa-users" aria-hidden="true"></i> <span class="textoventajas"> Menor RRHH dedicados a tomar reservas</span></li>
-                <li><i class="fa fa-pie-chart" aria-hidden="true"></i> <span class="textoventajas"> Mayor rendimiento de cupos de reservas</span></li>
-                <li><i class="fa fa-magic" aria-hidden="true"></i> <span class="textoventajas"> Administración simple de todas las reservas</span></li>
+                
                 <li><i class="fa fa-calendar" aria-hidden="true"></i> <span class="textoventajas"> Sistema automático 24/7</span></li>
                 <li><i class="fa fa-cutlery" aria-hidden="true"></i> <span class="textoventajas"> Automatización de cubiertos disponibles</span></li>
                 <li><i class="fa fa-area-chart" aria-hidden="true"></i> <span class="textoventajas"> Reporte mensual de estadísticas</span></li>
