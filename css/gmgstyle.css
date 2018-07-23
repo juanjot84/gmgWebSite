@@ -842,10 +842,6 @@ a.forgot-password:hover {
     height: 400px;
 }
 
-.h2.tituloocasiones.section-heading {
-    font-size: 1.4em;
-    margin-top: 4%;
-}
 
 
 .botonmanito {
@@ -1789,6 +1785,13 @@ section h2.section-heading {
     font-size: 30px!important;
     text-transform: none!important
 }
+
+
+h2.tituloocasiones.section-heading {
+    font-size: 20px!important;
+    margin-top: 4%;
+}
+
 
 
 #wrapper {
