@@ -1757,7 +1757,7 @@ section h2.section-heading {
 
 }
 #snow div {
-
+   
   -webkit-animation-name: nieve, copos;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-direction: normal;
@@ -1835,7 +1835,7 @@ section h2.section-heading {
 
 @-moz-keyframes nieve {
   from {
-    top: -10px;
+    top: -60px;
   }
   to {
     top: 720px;
@@ -1843,7 +1843,7 @@ section h2.section-heading {
 }
 @-webkit-keyframes nieve {
   from {
-    top: -10px;
+    top: -70px;
   }
   to {
     top: 700px;
@@ -1851,7 +1851,7 @@ section h2.section-heading {
 }
 @-o-keyframes nieve {
   from {
-    top: -10px;
+    top: -70px;
   }
   to {
     top: 700px;
@@ -1859,7 +1859,7 @@ section h2.section-heading {
 }
 @keyframes nieve {
   from {
-    top: -10px;
+    top: -70px;
   }
   to {
     top: 700px;
@@ -1872,7 +1872,7 @@ section h2.section-heading {
     transform: rotate(-180deg) translate(0px, 0px);
   }
   100% {
-    transform: rotate(180deg) translate(10px, 75px);
+    transform: rotate(180deg) translate(10px, 100px);
   }
 }
 @-webkit-keyframes copos {
@@ -1880,7 +1880,7 @@ section h2.section-heading {
     transform: rotate(-180deg) translate(0px, 0px);
   }
   100% {
-    transform: rotate(180deg) translate(10px, 75px);
+    transform: rotate(180deg) translate(10px, 100px);
   }
 }
 @-o-keyframes copos {
@@ -1888,7 +1888,7 @@ section h2.section-heading {
     transform: rotate(-180deg) translate(0px, 0px);
   }
   100% {
-    transform: rotate(180deg) translate(10px, 75px);
+    transform: rotate(180deg) translate(10px, 100px;
   }
 }
 @keyframes copos {
