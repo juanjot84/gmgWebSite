@@ -1142,6 +1142,10 @@ input#login-submit:hover {
         max-width: 330px;
         margin-top: 100%;
     }
+    
+     #contentReservas {
+        margin-top:150px
+    }
 
 
 }
