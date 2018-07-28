@@ -99,7 +99,7 @@ $idLocal = $_GET["id"];
           <div id="contentReservas" class="container reservafront" >
             <div class="row">
               <div class="col-md-12">
-                <h3 class="titulo" style="margin:110px 0 40px 0"></h3>
+                <h3 class="titulo"></h3>
                 <p></p>
               </div>
             </div>
