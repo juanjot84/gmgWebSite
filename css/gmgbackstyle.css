@@ -1443,6 +1443,11 @@ h5.opcionmenureserva {
         list-style: none;
         text-align: left;
     }
+    
+    #politicas { 
+    margin:120px 0 0 0}
+    
+    
 }
 
 /**************************Estilos Nuevos*/

@@ -43,6 +43,8 @@
             </li>
             <li><a target="_blank" href="https://www.instagram.com/guiamendozagourmet"><i class="fa fa-instagram"></i></a>
             </li>
+            <li><a target="_blank" href="mailto:hola@guiamendozagourmet.com" data-toggle="tooltip" title="hola@guiamendozagourmet.com"><i class="fa fa-envelope"></i></a>
+            </li>
           </ul>
 
           <ul class="list-inline quicklinks">
