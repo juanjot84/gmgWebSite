@@ -412,4 +412,3 @@ $idLocal = $_GET["id"];
 </body>
 
 </html>
-contentReservas

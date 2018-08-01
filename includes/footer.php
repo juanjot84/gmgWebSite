@@ -23,7 +23,7 @@
           </div>
           
           <!-- <p><a style="color: #000;" href="faqs.php">Preguntas frecuentes</a></p> -->
-          <p><a style="color: #000; font-weight: bold; text-transform: uppercase; font-size: 1.2em;" target="_blank" href="descarga-el-mapa-impreso.php"><i class="fa fa-map-o" aria-hidden="true"></i></i> Descargá el mapa impreso</a></p>
+          <p><a style="color: #000; font-weight: bold; text-transform: uppercase; font-size: 1.2em;" target="_blank" href="descarga-el-mapa-impreso.php"><i class="fa fa-map-o" aria-hidden="true"></i>Descargá el mapa impreso</a></p>
         </div>
         <div class="col-md-4 menufooter">
         
