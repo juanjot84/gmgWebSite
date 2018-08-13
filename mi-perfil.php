@@ -123,11 +123,11 @@
           </div>
         </div>
         <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
+          <!--div class="col-sm-offset-2 col-sm-10">
             <div class="checkbox">
               <label><input type="checkbox" id="aceptoTerminos"> Acepto los términos y condiciones.<a target="_blank" style="color: #ababab;" href="condiciones-de-uso.php"> Ver.</a></label>
             </div>
-          </div>
+          </div-->
         </div>   
       </div>
     </div>
