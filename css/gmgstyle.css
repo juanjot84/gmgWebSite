@@ -1511,6 +1511,9 @@ ul.promosvertical.vc_list {
     #seccion-especiales {
         display: none;
     }
+    
+
+    
 
 }
 
@@ -1801,6 +1804,97 @@ h2.tituloocasiones.section-heading {
 #wrapper {
 
 }
+
+
+
+/******************Copitos*/
+
+
+@media only screen and (max-width: 760px) { 
+
+
+          .copos.f1 {
+  left: 100px!important;
+  -webkit-animation-duration: 5s;
+              
+          
+    
+}
+.copos.f2 {
+  font-size: 5em;
+  left: 240px!important;
+  -webkit-animation-duration: 7s;
+    z-index: 10;
+    
+    
+}
+.copos.f3 {
+  left: 50px;!important;
+  -webkit-animation-duration: 8s;
+    font-size: 20px;
+   
+}
+.copos.f4 {
+  font-size: 1.5em;
+  left: 120px;!important;
+  -webkit-animation-duration: 6s;
+     z-index: 10;
+   
+}
+
+
+
+.copos.f5 {
+  font-size: 40px!important;
+  left: 50px!important;
+  -webkit-animation-duration: 6s;
+   
+   
+    
+}
+
+.copos.f6 {
+  font-size: 50px;
+  left: 200px!important;
+  -webkit-animation-duration: 5s;
+    
+    
+}
+
+.copos.f7 {
+  font-size: 20px;
+  left: 280px;!important;
+  -webkit-animation-duration: 5s;
+    z-index: 10;
+   
+}
+
+.copos.f8 {
+  font-size: 35px;
+  left: 20px!important;
+  -webkit-animation-duration: 8s;
+    z-index: 10;
+   
+    
+}
+
+.copos.f9 {
+  font-size: 35px;
+  left: 80px!important;
+  -webkit-animation-duration: 6s;
+    z-index: 10;
+    
+    
+}
+
+
+
+    
+}
+
+
+
+
 #snow div {
    
   -webkit-animation-name: nieve, copos;
@@ -1813,7 +1907,8 @@ h2.tituloocasiones.section-heading {
   color: #68bcbc;
   font-size: 1em;
   position: absolute;
-   font-weight: bolder
+   font-weight: bolder;
+    
     
 }
 .copos.f1 {
@@ -1856,7 +1951,7 @@ h2.tituloocasiones.section-heading {
 
 .copos.f7 {
   font-size: 20px;
-  left: 220px;
+  left: 80px;
   -webkit-animation-duration: 5s;
     z-index: 10
 }
@@ -1948,3 +2043,12 @@ h2.tituloocasiones.section-heading {
 .img-reserva {
     z-index: 20!important
 }
+
+
+    
+
+
+
+
+
+
