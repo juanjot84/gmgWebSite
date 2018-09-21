@@ -255,8 +255,8 @@
 
     <link rel="stylesheet" href="smartbanner/jquery.smartbanner.css" type="text/css" media="screen">
     <script src="smartbanner/jquery.smartbanner.js"></script>
-    
-    
+
+
 
 
 </head>
@@ -334,7 +334,7 @@
             <!-- Header -->
             <header>
                 <div class="container" id="wrapper">
-                   <div class="snow" id="snow">
+                    <!--div class="snow" id="snow">
     <div class="copos f1">&#10053</div>
     <div class="copos f2">&#10052</div>
     <div class="copos f3">&#10053</div>
@@ -344,7 +344,23 @@
     <div class="copos f7">&#10053</div>
     <div class="copos f8">&#10052</div>
     <div class="copos f9">&#10052</div>
-  </div>
+  </div-->
+
+                    <div class="snow" id="snow">
+                        <div class="copos f1"><img src="img/Flores/flor01.png" alt=""></div>
+                        <div class="copos f2"><img src="img/Flores/flor02.png" alt=""></div>
+                        <div class="copos f3"><img src="img/Flores/flor03.png" alt=""></div>
+                        <div class="copos f4"><img src="img/Flores/flor04.png" alt=""></div>
+                        <div class="copos f5"><img src="img/Flores/flor05.png" alt=""></div>
+                        <div class="copos f6"><img src="img/Flores/flor06.png" alt=""></div>
+                        <div class="copos f7"><img src="img/Flores/flor07.png" alt=""></div>
+                        <div class="copos f8"><img src="img/Flores/flor08.png" alt=""></div>
+                        <div class="copos f9"><img src="img/Flores/flor08.png" alt=""></div>
+                    </div>
+
+
+
+
                     <div class="row">
                         <div class="col-md-6 intro-text" style="margin-top: 5%;">
 
@@ -394,7 +410,7 @@
 
                         </div>
                         <div class="col-md-6 intro-text">
-                            <img style="margin: 0 auto;" class="img-responsive" src="img/FrontEd4.png" >
+                            <img style="margin: 0 auto;" class="img-responsive" src="img/FrontEd4.png">
                         </div>
                     </div>
                 </div>
@@ -606,8 +622,8 @@
 
     <script src="assets/js/google-code-prettify/prettify.js"></script>
     <script src="assets/js/application.js"></script>
-        
-        <!--PLugin de Nieve
+
+    <!--PLugin de Nieve
         
         <script src="js/jquery.snow.min.1.0.js"></script>
         <script>

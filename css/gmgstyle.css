@@ -1816,6 +1816,7 @@ h2.tituloocasiones.section-heading {
           .copos.f1 {
   left: 100px!important;
   -webkit-animation-duration: 5s;
+             
               
           
     
@@ -1825,18 +1826,18 @@ h2.tituloocasiones.section-heading {
   left: 240px!important;
   -webkit-animation-duration: 7s;
     z-index: 10;
-    
+   
     
 }
 .copos.f3 {
-  left: 50px;!important;
+  left: 50px!important;
   -webkit-animation-duration: 8s;
     font-size: 20px;
-   
+ 
 }
 .copos.f4 {
   font-size: 1.5em;
-  left: 120px;!important;
+  left: 120px!important;
   -webkit-animation-duration: 6s;
      z-index: 10;
    
@@ -1848,7 +1849,7 @@ h2.tituloocasiones.section-heading {
   font-size: 40px!important;
   left: 50px!important;
   -webkit-animation-duration: 6s;
-   
+  
    
     
 }
@@ -1858,15 +1859,15 @@ h2.tituloocasiones.section-heading {
   left: 200px!important;
   -webkit-animation-duration: 5s;
     
-    
+   
 }
 
 .copos.f7 {
   font-size: 20px;
-  left: 280px;!important;
+  left: 280px!important;
   -webkit-animation-duration: 5s;
     z-index: 10;
-   
+  
 }
 
 .copos.f8 {
@@ -1884,7 +1885,7 @@ h2.tituloocasiones.section-heading {
   -webkit-animation-duration: 6s;
     z-index: 10;
     
-    
+   
 }
 
 
