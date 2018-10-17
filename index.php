@@ -261,7 +261,7 @@
 
 </head>
 
-<body id="page-top" class="index" onload="aleatorio()">
+
 
     <script type='text/javascript' src='js/jquery.smartbanner.js'></script>
     <script type="text/javascript">
@@ -333,6 +333,14 @@
 
             <!-- Header -->
             <header>
+               <body id="page-top" class="index" onload="aleatorio()">
+               
+               
+      
+               
+    <video id="videoFondo" playsinline autoplay muted loop >
+  <source src="videos/VideoBackground.mp4" type="video/mp4" />
+</video>
                 <div class="container" id="wrapper">
                     <!--div class="snow" id="snow">
     <div class="copos f1">&#10053</div>
@@ -344,7 +352,7 @@
     <div class="copos f7">&#10053</div>
     <div class="copos f8">&#10052</div>
     <div class="copos f9">&#10052</div>
-  </div-->
+  </div>
 
                     <div class="snow" id="snow">
                         <div class="copos f1"><img src="img/Flores/flor01.png" alt=""></div>
@@ -356,7 +364,7 @@
                         <div class="copos f7"><img src="img/Flores/flor07.png" alt=""></div>
                         <div class="copos f8"><img src="img/Flores/flor08.png" alt=""></div>
                         <div class="copos f9"><img src="img/Flores/flor08.png" alt=""></div>
-                    </div>
+                    </div-->
 
 
 
@@ -410,7 +418,7 @@
 
                         </div>
                         <div class="col-md-6 intro-text">
-                            <img style="margin: 0 auto;" class="img-responsive" src="img/FrontEd4.png">
+                            <img style="margin: 0 auto;" class="img-responsive" src="img/FrontEd5.png">
                         </div>
                     </div>
                 </div>
@@ -630,6 +638,8 @@
 $(document).ready( function(){ $.fn.snow();
 });
 </script>-->
+
+
 
 </body>
 

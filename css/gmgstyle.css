@@ -1807,7 +1807,7 @@ h2.tituloocasiones.section-heading {
 
 
 
-/******************Copitos*/
+/******************Copitos
 
 
 @media only screen and (max-width: 760px) { 
@@ -2046,10 +2046,63 @@ h2.tituloocasiones.section-heading {
 }
 
 
+
+/***************Video Background*/
+
+#videoFondo {
+    min-width: 100%;!important ;   
+      min-height: 100%;!important ;   
+      width: auto;!important ;   
+      height: auto;!important ;   
+     position: fixed!important ;   
+      top: 50%;!important ;   
+  left: 50%;!important ;   
+  transform: translateX(-50%) translateY(-50%); !important ;   
+ z-index: -100;!important ;   
+ background-size: cover;!important ;   
+    background-color: #e3e3e3!important ;   
+ 
+}
+
+header {
+    background-color: transparent!important
+}
+
+.container-fluid, #about, .sugeridosIndex {
+    background-color: #fff
+}
+
+
+
+@media only screen
+  and (min-device-width: 320px) 
+  and (max-device-width: 736px)
+{
+    
+ #videoFondo {
+        display: none
+    }
+    
+    header {
+    background-color: #ffff00!important;
+        background-image: url(../img/BackMoviles.png)!important;
+}
+    
+    
+
+    
+}
+
+/*
+
+@media only screen and (max-width: 760px) { 
+    
     
 
 
 
+ 
+}*/
 
 
 
