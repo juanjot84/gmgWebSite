@@ -17,7 +17,7 @@ header {
 
 .fondoficha {
     background-image: none !important;
-    background-color: #fff;
+    background-color: #fff!important;
     text-align: center;
     color: #fff;
 }
