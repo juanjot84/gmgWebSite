@@ -241,7 +241,7 @@
         <div class="row">
             <!--Accesos directos-->
             <div class="col-lg-4">
-                <div class="modulo" id="acceso">
+                <div class="modulo ajusteModulo" id="acceso">
 
                     <h1>Accesos directos</h1>
                     <ul id="accesosdirectos">
@@ -294,7 +294,7 @@
             </div>
             <!--Reservas para hoy-->
             <div class="col-lg-4">
-                <div id="reservasparahoy" class="modulo celeste">
+                <div id="reservasparahoy" class="modulo ajusteModulo celeste">
                     <h1> Hay <span id="cantidadReservas"> </span> para hoy <span class="ver"><a id="formReservas2" href="#">  - Ver todas </a></span> </h1>
 
                     <div class="content content mCustomScrollbar  mCS-autoHide">
@@ -315,7 +315,7 @@
             </div>
             <!--Promociones Activas-->
             <div class="col-lg-4">
-                <div id="promocionesActivas" class="modulo rosado">
+                <div id="promocionesActivas" class="modulo ajusteModulo rosado">
                     <h1> Hay <span id="cantidadPromociones"> </span> activas <span class="ver"><a id="formPromLocal2" href="#">  - Ver todas </a></span>   </h1>
                     <div id="listaPromociones" class="content content mCustomScrollbar  mCS-autoHide">
 
@@ -326,8 +326,10 @@
 
         <div class="row">
             <div class="col-lg-4">
-                <div id="publicidad" class="modulo rosado">
-                    <img src="img/zuelo.jpg" class="img-fluid">
+                <div id="publicidad" class="modulo ajusteModulo rosado">
+                      <!-- Revive Adserver Etiqueta JS asincrónica - Generated with Revive Adserver v4.1.3 -->
+<ins data-revive-zoneid="4" data-revive-id="6a42b0d4b55d90b58eb8e42f829d9ed3"></ins>
+<script async src="//adserver.guiamendozagourmet.com/www/delivery/asyncjs.php"></script>
                 </div>
             </div>
             <div class="col-lg-8">
@@ -342,7 +344,7 @@
         </div>
         <div class="row">
             <div class="col-lg-4">
-                <div id="HorariosAtencion" class="modulo celeste">
+                <div id="HorariosAtencion" class="modulo ajusteModulo celeste">
                     <h1><span>Horarios</span> de Atención <span class="ver"><a id="formHorarioAtencion2" href="#">  - Configurar </a></span></h1>
 
                     <div class="content content mCustomScrollbar  mCS-autoHide">
@@ -401,12 +403,14 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <div id="UltimasReservas" class="modulo naranja">
-                <!--  PUBLICIDAD AQUI   -->
+                <div id="tips" class="modulo ajusteModulo naranja">
+              <!-- Revive Adserver Etiqueta JS asincrónica - Generated with Revive Adserver v4.1.3 -->
+        <ins data-revive-zoneid="5" data-revive-id="6a42b0d4b55d90b58eb8e42f829d9ed3"></ins>
+        <script async src="//adserver.guiamendozagourmet.com/www/delivery/asyncjs.php"></script>
                 </div>
             </div>
             <div class="col-lg-4">
-                <div id="calificaciones" class="modulo rosado">
+                <div id="calificaciones" class="modulo ajusteModulo rosado">
                     <h1><span>Calificaciones</span></h1>
                     
                     <div class="row">
