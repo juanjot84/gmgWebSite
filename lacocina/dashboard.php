@@ -402,9 +402,7 @@
             </div>
             <div class="col-lg-4">
                 <div id="UltimasReservas" class="modulo naranja">
-                    <h1><span>Reservas</span> de los ultimos 7 dias</h1>
-                    <div id="mapaCalor" style="height: 100%; width: 100%; margin: 0 auto"></div>
-                  <!--  <img src="img/07-Modulo.jpg" class="img-fluid"> -->
+                <!--  PUBLICIDAD AQUI   -->
                 </div>
             </div>
             <div class="col-lg-4">
