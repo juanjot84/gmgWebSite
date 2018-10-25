@@ -182,37 +182,41 @@ function renderReservas(reservasLocal){
           if (reserva.medioReserva == 'gmg'){
             medioDeReserva = '<img title="Medio de reserva" src="imgs/guia.png" aria-hidden="true">';
             ocultarEliminar = 'style="display:none"';
-          } else if(reserva.medioReserva == 'facebook'){
+          }else if(reserva.medioReserva == 'facebook'){
             medioDeReserva = '<i title="Medio de reserva" class="fa fa-facebook" aria-hidden="true"></i>';
-          } else if(reserva.medioReserva == 'instagram'){
+          }else if(reserva.medioReserva == 'instagram'){
             medioDeReserva = '<i title="Medio de reserva" class="fa fa-instagram" aria-hidden="true"></i>';
-          } else if(reserva.medioReserva == 'phone'){
+          }else if(reserva.medioReserva == 'phone'){
             medioDeReserva = '<i title="Medio de reserva" class="fa fa-phone" aria-hidden="true"></i>';
-          } else if(reserva.medioReserva == 'whatsapp'){
+          }else if(reserva.medioReserva == 'whatsapp'){
             medioDeReserva = '<i title="Medio de reserva" class="fa fa-whatsapp" aria-hidden="true"></i>';
-          } else if(reserva.medioReserva == 'mail'){
+          }else if(reserva.medioReserva == 'mail'){
             medioDeReserva = '<i title="Medio de reserva" class="fa fa-envelope-o" aria-hidden="true"></i>'; 
-          } else{
+          }else{
               medioDeReserva = '<i title="Medio de reserva" class="fa fa-globe" aria-hidden="true"></i>';
           }
 
-          if(reserva.estadoReserva =="cumplida"){
+          if(reserva.estadoReserva =="pendiente"){
             clasificar = '<td class="columsietepchon"><ul style="list-style: none; display: inline-flex;"><li><button title="Marcar como NO vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', false)"><i class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></button></li><li><button title="Marcar como SI vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', true)"><i class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></button></li></ul></td>';
-          } else if(reserva.estadoReserva =="vencida"){
+          }else if(reserva.estadoReserva =="cumplida"){
+            clasificar = '<td class="columsietepchon"><ul style="list-style: none; display: inline-flex;"><li><button title="Marcar como NO vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', false)"><i class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></button></li><li><button title="Marcar como SI vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', true)"><i class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></button></li></ul></td>';
+          }else if(reserva.estadoReserva =="vencida"){
             clasificar = '<td class="columsietepchon"><i title="No Vino" class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></td>';
-          } else if(reserva.estadoReserva =="confirmada"){
+          }else if(reserva.estadoReserva =="confirmada"){
             clasificar = '<td class="columsietepchon"><i title="Vino" class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
-          } else if(reserva.estadoReserva =="Cancelada"){
+          }else if(reserva.estadoReserva =="Cancelada"){
             clasificar = '<td class="columsietepchon"><i title="Cancelada" class="fa fa-ban" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></td>';
             ocultarEliminar = 'style="display:none"';
-          } else if(reserva.estadoReserva =="Calificada"){
+          }else if(reserva.estadoReserva =="Calificada"){
             clasificar = '<td class="columsietepchon"><i title="Vino y Calificó" class="fa fa-check-square-o" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
           }
 
           var observacion = '';
-          if (_.isUndefined(reserva.comentarioUsuarioReserva) || _.isNil(reserva.comentarioUsuarioReserva) || _.isEmpty(reserva.comentarioUsuarioReserva)) {
+          if(typeof(reserva.comentarioUsuarioReserva) == "undefined"){
             observacion = '';
-          } else{
+          }else if(reserva.comentarioUsuarioReserva == null){
+            observacion = '';
+          }else{
             observacion = reserva.comentarioUsuarioReserva;
           }
 
