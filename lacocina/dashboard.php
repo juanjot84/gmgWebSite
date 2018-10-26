@@ -344,7 +344,57 @@
         </div>
         <div class="row">
             <div class="col-lg-4">
-                <div id="HorariosAtencion" class="modulo ajusteModulo celeste">
+                   
+                   <div id="calificaciones" class="modulo ajusteModulo rosado">
+                    <h1><span>Calificaciones</span></h1>
+                    
+                    <div class="row">
+                        <div class="col-md-6" >
+                            <p class="general">Calificacion General</p>
+                        </div>
+                        <div class="col-md-6">
+                            <form>
+                                <p class="clasificacion" id="estrellasCalificacion">
+        
+                                </p>
+                            </form>
+                        </div>
+                        
+                    </div>
+                    <div class="row" id="barrasCalificacion">
+                        <div class="col-md-12">
+                            <h6>Atencion</h6>
+                            <div class="progress" id="barraAtencion">
+                                
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h6>Lugar</h6>
+                            <div class="progress" id="barraLugar">
+                                
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h6>Comida</h6>
+                            <div class="progress" id="barraComida">
+                                
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-4">
+               
+               
+               <div id="HorariosAtencion" class="modulo ajusteModulo celeste">
                     <h1><span>Horarios</span> de Atención <span class="ver"><a id="formHorarioAtencion2" href="#">  - Configurar </a></span></h1>
 
                     <div class="content content mCustomScrollbar  mCS-autoHide">
@@ -401,64 +451,24 @@
                         </table>
                     </div>
                 </div>
+               
+              
             </div>
             <div class="col-lg-4">
-                <div id="tips" class="modulo ajusteModulo naranja">
+                
+                   <div id="tips" class="modulo ajusteModulo naranja">
               <!-- Revive Adserver Etiqueta JS asincrónica - Generated with Revive Adserver v4.1.3 -->
         <ins data-revive-zoneid="5" data-revive-id="6a42b0d4b55d90b58eb8e42f829d9ed3"></ins>
         <script async src="//adserver.guiamendozagourmet.com/www/delivery/asyncjs.php"></script>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <div id="calificaciones" class="modulo ajusteModulo rosado">
-                    <h1><span>Calificaciones</span></h1>
-                    
-                    <div class="row">
-                        <div class="col-md-6" >
-                            <p class="general">Calificacion General</p>
-                        </div>
-                        <div class="col-md-6">
-                            <form>
-                                <p class="clasificacion" id="estrellasCalificacion">
-        
-                                </p>
-                            </form>
-                        </div>
-                        
-                    </div>
-                    <div class="row" id="barrasCalificacion">
-                        <div class="col-md-12">
-                            <h6>Atencion</h6>
-                            <div class="progress" id="barraAtencion">
-                                
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h6>Lugar</h6>
-                            <div class="progress" id="barraLugar">
-                                
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h6>Comida</h6>
-                            <div class="progress" id="barraComida">
-                                
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
+                   
+                  
             </div>
         </div>
         
-        <div class="row">
+      
+        <!-- Slider de Proveedores
+           <div class="row">
             <div class="col-md-12">
                 <div class="slider">
 	<div class="slide-track">
@@ -508,7 +518,7 @@
 </div>
             </div>
             
-        </div>
+        </div-->
     </main>
     <footer>
         <div class="container">
