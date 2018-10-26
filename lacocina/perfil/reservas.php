@@ -4,7 +4,7 @@ session_start();
 
 $idNegocio = $_SESSION['idNegocio'];
 $tipoUsuario = $_SESSION['tipoUsuario'];
-$idLocal  = $_SESSION['idLocal'];
+$idLocal = $_GET['id'];
 $jwt = $_SESSION['jwt'];
 
 if (!$_SESSION) {

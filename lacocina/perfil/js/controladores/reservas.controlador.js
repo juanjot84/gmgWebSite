@@ -26,11 +26,11 @@ function obtenerListado() {
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     });
   }
-    var idNegocio = $('#idNegocio').val();
+    var idLocal = $('#idLocal').val();
     $('.container.negocios').html('');
     $('#loading').html('<img class="img-responsive" src="imgs/loading.gif">');
     $.ajax({
-        url: server + '/api/v1/admin/ReservasHoyNegocio?id='+ idNegocio +"",
+        url: server + '/api/v1/admin/ReservasHoyNegocio?id='+ idLocal +"",
         type: 'GET',
         dataType: "json",
         crossDomain: true,
@@ -58,11 +58,11 @@ function listadoProximas(){
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     });
   }
-    var idNegocio = $('#idNegocio').val();
+    var idLocal = $('#idLocal').val();
     $('.container.negocios').html('');
     $('#loading').html('<img class="img-responsive" src="imgs/loading.gif">');
     $.ajax({
-        url: server + '/api/v1/admin/reservasPendienteNegocio?id='+ idNegocio +"",
+        url: server + '/api/v1/admin/reservasPendienteNegocio?id='+ idLocal +"",
         type: 'GET',
         dataType: "json",
         crossDomain: true,
@@ -84,11 +84,11 @@ function listadoHistorico(){
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     });
   }
-    var idNegocio = $('#idNegocio').val();
+    var idLocal = $('#idLocal').val();
     $('.container.negocios').html('');
     $('#loading').html('<img class="img-responsive" src="imgs/loading.gif">');
     $.ajax({
-        url: server + '/api/v1/admin/reservasPasadasNegocio?id='+ idNegocio +"",
+        url: server + '/api/v1/admin/reservasPasadasNegocio?id='+ idLocal +"",
         type: 'GET',
         dataType: "json",
         crossDomain: true,

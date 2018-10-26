@@ -174,7 +174,7 @@
     });
 
     $("#formReservas, #formReservas2").click(function() {
-      var url = "perfil/reservas.php";
+      var url = "perfil/reservas.php?id="+idLocal+"";
       $(location).attr('href',url);
     });
 
@@ -218,7 +218,7 @@
         $('.container.negocios').html('');
         $('#loading').html('<img class="img-responsive" src="imgs/loading.gif">');
         $.ajax({
-            url: server + '/api/v1/admin/ReservasHoyNegocio?id='+ idNegocio +"",
+            url: server + '/api/v1/admin/ReservasHoyNegocio?id='+ idLocal +"",
             type: 'GET',
             dataType: "json",
             crossDomain: true,
@@ -384,7 +384,7 @@
         $('.container.negocios').html('');
         $('#loading').html('<img class="img-responsive" src="imgs/loading.gif">');
         $.ajax({
-            url: server + '/api/v1/admin/reservasPendienteNegocio?id='+ idNegocio +"",
+            url: server + '/api/v1/admin/reservasPendienteNegocio?id='+ idLocal +"",
             type: 'GET',
             dataType: "json",
             crossDomain: true,
