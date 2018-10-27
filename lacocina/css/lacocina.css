@@ -1631,3 +1631,7 @@ select.form-control {
 .row2 {
     margin:0 !important;
   }
+
+
+.container {
+    max-width: 1100px;
