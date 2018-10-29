@@ -10,10 +10,10 @@ function setJWT(jwtToken){
     jwt = jwtToken;
     var tipoUsuario = $("#tipoUsuario").val();
     $("#botones").html('');
-    if(tipoUsuario == 'usuarioNegocio'){
+    if(tipoUsuario == 'usuarioNegocio') {
       $("#botones").append('<button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>'+
       '<a href="reserva.php" class="botonagregarnuevo btn btn-default" type="button" style="padding: 17px;"><i class="fa fa-plus-square-o" aria-hidden="true"></i> CREAR RESERVA</a>');
-    }else if(tipoUsuario == 'superAdmin'){
+    } else if(tipoUsuario == 'superAdmin') {
       $("#botones").append('<button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>');
     }
     obtenerListado(); 
@@ -116,15 +116,15 @@ function renderReservas(reservasLocal){
       
       var calle;
       var altura;
-      if(typeof(local[0].calleLocal) == "undefined"){
+      if(typeof(local[0].calleLocal) == "undefined") {
         calle = '';
-      }else {
+      } else {
         calle = local[0].calleLocal;
       }
 
-      if(typeof(local[0].alturaLocal) == "undefined"){
+      if(typeof(local[0].alturaLocal) == "undefined") {
         altura = '';
-      }else {
+      } else {
         altura = local[0].alturaLocal;
       }
       $('.container.locales').append(''+
@@ -158,9 +158,9 @@ function renderReservas(reservasLocal){
          var fecha = '';
 
 
-        _.each(local, function(reserva){
+        _.each(local, function(reserva) {
 
-          if(fecha != reserva.fechaReserva){
+          if(fecha != reserva.fechaReserva) {
             fecha = reserva.fechaReserva;
             conteinReservas++;
             $('.container.'+contLocales).append(''+
@@ -179,64 +179,64 @@ function renderReservas(reservasLocal){
           var editar = 'editar';
           var clasificar = '<td class="columsietepchon"></td>';
 
-          if (reserva.medioReserva == 'gmg'){
+          if (reserva.medioReserva == 'gmg') {
             medioDeReserva = '<img title="Medio de reserva" src="imgs/guia.png" aria-hidden="true">';
             ocultarEliminar = 'style="display:none"';
-          }else if(reserva.medioReserva == 'facebook'){
+          } else if(reserva.medioReserva == 'facebook') {
             medioDeReserva = '<i title="Medio de reserva" class="fa fa-facebook" aria-hidden="true"></i>';
-          }else if(reserva.medioReserva == 'instagram'){
+          } else if(reserva.medioReserva == 'instagram') {
             medioDeReserva = '<i title="Medio de reserva" class="fa fa-instagram" aria-hidden="true"></i>';
-          }else if(reserva.medioReserva == 'phone'){
+          } else if(reserva.medioReserva == 'phone') {
             medioDeReserva = '<i title="Medio de reserva" class="fa fa-phone" aria-hidden="true"></i>';
-          }else if(reserva.medioReserva == 'whatsapp'){
+          } else if(reserva.medioReserva == 'whatsapp') {
             medioDeReserva = '<i title="Medio de reserva" class="fa fa-whatsapp" aria-hidden="true"></i>';
-          }else if(reserva.medioReserva == 'mail'){
+          } else if(reserva.medioReserva == 'mail') {
             medioDeReserva = '<i title="Medio de reserva" class="fa fa-envelope-o" aria-hidden="true"></i>'; 
-          }else{
+          } else {
               medioDeReserva = '<i title="Medio de reserva" class="fa fa-globe" aria-hidden="true"></i>';
           }
 
-          if(reserva.estadoReserva =="pendiente"){
+          if(reserva.estadoReserva =="pendiente") {
             clasificar = '<td class="columsietepchon"><ul style="list-style: none; display: inline-flex;"><li><button title="Marcar como NO vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', false)"><i class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></button></li><li><button title="Marcar como SI vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', true)"><i class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></button></li></ul></td>';
-          }else if(reserva.estadoReserva =="cumplida"){
+          } else if(reserva.estadoReserva =="cumplida") {
             clasificar = '<td class="columsietepchon"><ul style="list-style: none; display: inline-flex;"><li><button title="Marcar como NO vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', false)"><i class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></button></li><li><button title="Marcar como SI vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', true)"><i class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></button></li></ul></td>';
-          }else if(reserva.estadoReserva =="vencida"){
+          } else if(reserva.estadoReserva =="vencida") {
             clasificar = '<td class="columsietepchon"><i title="No Vino" class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></td>';
-          }else if(reserva.estadoReserva =="confirmada"){
+          } else if(reserva.estadoReserva =="confirmada") {
             clasificar = '<td class="columsietepchon"><i title="Vino" class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
-          }else if(reserva.estadoReserva =="Cancelada"){
+          } else if(reserva.estadoReserva =="Cancelada") {
             clasificar = '<td class="columsietepchon"><i title="Cancelada" class="fa fa-ban" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></td>';
             ocultarEliminar = 'style="display:none"';
-          }else if(reserva.estadoReserva =="Calificada"){
+          } else if(reserva.estadoReserva =="Calificada") {
             clasificar = '<td class="columsietepchon"><i title="Vino y Calificó" class="fa fa-check-square-o" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
           }
 
           var observacion = '';
-          if(typeof(reserva.comentarioUsuarioReserva) == "undefined"){
+          if(typeof(reserva.comentarioUsuarioReserva) == "undefined") {
             observacion = '';
-          }else if(reserva.comentarioUsuarioReserva == null){
+          } else if(reserva.comentarioUsuarioReserva == null) {
             observacion = '';
-          }else{
+          } else {
             observacion = reserva.comentarioUsuarioReserva;
           }
 
           var promocionReserva = "";
-          if(typeof(reserva.idLocalPromocion) == "undefined"){
+          if(typeof(reserva.idLocalPromocion) == "undefined") {
             promocionReserva ='<td class="centrarbotaccion"><i class="fa fa-exclamation-triangle alertareservas hidden"></i></td>';
-          }else {
+          } else {
             promocionReserva = '<td class="centrarbotaccion"><i class="fa fa-exclamation-triangle alertareservas"></i></td>';
           }
           var opcionesMenu = "";
-          if(reserva.opcionReservada != []){
+          if(reserva.opcionReservada != []) {
             opcionesMenu = reserva.opcionReservada;
           }
           var nombrePromocion = "";
-          if(typeof(reserva.nombrePromocion) != "undefined"){
+          if(typeof(reserva.nombrePromocion) != "undefined") {
             nombrePromocion = '<h4 class="elegiopcionreserva">'+reserva.nombrePromocion+'</h4>';
           }
   
           var iconoPromocion = "";
-          if( typeof(reserva.iconoPromocion) != "undefined"){
+          if( typeof(reserva.iconoPromocion) != "undefined") {
             iconoPromocion = '<a href="#"><img class="etiquetapromo" src="'+reserva.iconoPromocion+'"></a>';
           }
 
@@ -321,9 +321,9 @@ function renderReservas(reservasLocal){
           '');
 
           _.each(opcionesMenu, function(opcion){
-            if(opcion.cantidad == null){
+            if(opcion.cantidad == null) {
 
-            }else{
+            } else {
               $("#contMenu"+collapseReserva).append(''+
            
               '<div class="row separamenues">'+
@@ -356,7 +356,7 @@ function renderReservasProximas(reservasLocal){
   var collapseReserva = 9999998;
   var conteinReservas = 99998;
   var ad = 357;
-   _.each(reservasLocal, function(local,index){
+   _.each(reservasLocal, function(local,index) {
 
      $('.container.proximas').append(''+
          '<div class="panel panel-default">'+
@@ -388,9 +388,9 @@ function renderReservasProximas(reservasLocal){
 
         var fecha = '';
 
-       _.each(local, function(reserva){
+       _.each(local, function(reserva) {
 
-         if(fecha != reserva.fechaReserva){
+         if(fecha != reserva.fechaReserva) {
            fecha = reserva.fechaReserva;
            conteinReservas++;
            $('.container.'+contLocales+ad).append(''+
@@ -407,49 +407,49 @@ function renderReservasProximas(reservasLocal){
          var cancelar = 'cancelar';
          var editar = 'editar';
 
-         if (reserva.medioReserva == 'gmg'){
+         if (reserva.medioReserva == 'gmg') {
           medioDeReserva = '<img title="Medio de reserva" src="imgs/guia.png" aria-hidden="true">';
           ocultarEliminar = 'style="display:none"';
-        }else if(reserva.medioReserva == 'facebook'){
+        } else if(reserva.medioReserva == 'facebook') {
           medioDeReserva = '<i title="Medio de reserva" class="fa fa-facebook" aria-hidden="true"></i>';
-        }else if(reserva.medioReserva == 'instagram'){
+        } else if(reserva.medioReserva == 'instagram') {
           medioDeReserva = '<i title="Medio de reserva" class="fa fa-instagram" aria-hidden="true"></i>';
-        }else if(reserva.medioReserva == 'phone'){
+        } else if(reserva.medioReserva == 'phone') {
           medioDeReserva = '<i title="Medio de reserva" class="fa fa-phone" aria-hidden="true"></i>';
-        }else if(reserva.medioReserva == 'whatsapp'){
+        } else if(reserva.medioReserva == 'whatsapp') {
           medioDeReserva = '<i title="Medio de reserva" class="fa fa-whatsapp" aria-hidden="true"></i>';
-        }else if(reserva.medioReserva == 'mail'){
+        } else if(reserva.medioReserva == 'mail') {
           medioDeReserva = '<i title="Medio de reserva" class="fa fa-envelope-o" aria-hidden="true"></i>'; 
-        }else{
+        } else {
             medioDeReserva = '<i title="Medio de reserva" class="fa fa-globe" aria-hidden="true"></i>';
         }
 
         var observacion = '';
-        if(typeof(reserva.comentarioUsuarioReserva) == "undefined"){
+        if(typeof(reserva.comentarioUsuarioReserva) == "undefined") {
           observacion = '';
-        }else if(reserva.comentarioUsuarioReserva == null){
+        } else if(reserva.comentarioUsuarioReserva == null) {
           observacion = '';
-        }else{
+        } else {
           observacion = reserva.comentarioUsuarioReserva;
         }
         
         var promocionReserva = "";
-        if(typeof(reserva.idLocalPromocion) == "undefined"){
+        if(typeof(reserva.idLocalPromocion) == "undefined") {
           promocionReserva ='<td class="centrarbotaccion"><i class="fa fa-exclamation-triangle alertareservas hidden"></i></td>';
-        }else {
+        } else {
           promocionReserva = '<td class="centrarbotaccion"><i class="fa fa-exclamation-triangle alertareservas"></i></td>';
         }
         var opcionesMenu = "";
-        if(reserva.opcionReservada != []){
+        if(reserva.opcionReservada != []) {
           opcionesMenu = reserva.opcionReservada;
         }
         var nombrePromocion = "";
-        if(typeof(reserva.nombrePromocion) != "undefined"){
+        if(typeof(reserva.nombrePromocion) != "undefined") {
           nombrePromocion = '<h4 class="elegiopcionreserva">'+reserva.nombrePromocion+'</h4>';
         }
 
         var iconoPromocion = "";
-        if( typeof(reserva.iconoPromocion) != "undefined"){
+        if( typeof(reserva.iconoPromocion) != "undefined") {
           iconoPromocion = '<a href="#"><img class="etiquetapromo" src="'+reserva.iconoPromocion+'"></a>';
         }
 
@@ -531,9 +531,9 @@ function renderReservasProximas(reservasLocal){
          '');
 
          _.each(opcionesMenu, function(opcion){
-          if(opcion.cantidad == null){
+          if(opcion.cantidad == null) {
 
-          }else{
+          } else {
             $("#contMenu"+collapseReserva).append(''+
          
             '<div class="row separamenues">'+
@@ -561,7 +561,7 @@ function renderReservasProximas(reservasLocal){
    $('#loading').hide();
 }
 
-function informarAsistencia(idReserva, asistencia){
+function informarAsistencia(idReserva, asistencia) {
   if (_.isUndefined(server)) {
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     });
@@ -595,14 +595,14 @@ function informarAsistencia(idReserva, asistencia){
   });
 }
 
-function renderReservasHistorico(reservasLocal){
+function renderReservasHistorico(reservasLocal) {
   $('.container.historial').html('');
   var cantLocales = _.size(reservasLocal);
   var contLocales = 1;
   var collapseReserva = 9799998;
   var conteinReservas = 97998;
   var ad = 951;
-   _.each(reservasLocal, function(local,index){
+   _.each(reservasLocal, function(local,index) {
 
      $('.container.historial').append(''+
          '<div class="panel panel-default">'+
@@ -634,7 +634,7 @@ function renderReservasHistorico(reservasLocal){
 
         var fecha = '';
 
-       _.each(local, function(reserva){
+       _.each(local, function(reserva) {
 
          if(fecha != reserva.fechaReserva){
            fecha = reserva.fechaReserva;
@@ -654,72 +654,72 @@ function renderReservasHistorico(reservasLocal){
          var editar = 'editar';
          var clasificar = '<td class="columsietepchon"></td>';
 
-         if (reserva.medioReserva == 'gmg'){
+         if (reserva.medioReserva == 'gmg') {
           medioDeReserva = '<img title="Medio de reserva" src="imgs/guia.png" aria-hidden="true">';
           ocultarEliminar = 'style="display:none"';
-        }else if(reserva.medioReserva == 'facebook'){
+        } else if(reserva.medioReserva == 'facebook') {
           medioDeReserva = '<i title="Medio de reserva" class="fa fa-facebook" aria-hidden="true"></i>';
           ocultarEliminar = 'style="display:none"';
-        }else if(reserva.medioReserva == 'instagram'){
+        } else if(reserva.medioReserva == 'instagram') {
           medioDeReserva = '<i title="Medio de reserva" class="fa fa-instagram" aria-hidden="true"></i>'; 
           ocultarEliminar = 'style="display:none"';
-        }else if(reserva.medioReserva == 'phone'){
+        } else if(reserva.medioReserva == 'phone') {
           medioDeReserva = '<i title="Medio de reserva" class="fa fa-phone" aria-hidden="true"></i>'; 
           ocultarEliminar = 'style="display:none"';
-        }else if(reserva.medioReserva == 'whatsapp'){
+        } else if(reserva.medioReserva == 'whatsapp') {
           medioDeReserva = '<i title="Medio de reserva" class="fa fa-whatsapp" aria-hidden="true"></i>'; 
           ocultarEliminar = 'style="display:none"';
-        }else if(reserva.medioReserva == 'mail'){
+        } else if(reserva.medioReserva == 'mail') {
           medioDeReserva = '<i title="Medio de reserva" class="fa fa-envelope-o" aria-hidden="true"></i>'; 
           ocultarEliminar = 'style="display:none"';
-        }else{
+        } else {
             medioDeReserva = '<i title="Medio de reserva" class="fa fa-globe" aria-hidden="true"></i>'; 
             ocultarEliminar = 'style="display:none"';
         }
 
 
 
-        if(reserva.estadoReserva =="cumplida"){
+        if(reserva.estadoReserva =="cumplida") {
           clasificar = '<td class="columsietepchon"><ul style="list-style: none; display: inline-flex;"><li><button title="Marcar como NO vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', false)"><i class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></button></li><li><button title="Marcar como SI vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', true)"><i class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></button></li></ul></td>';
-        }else if(reserva.estadoReserva =="vencida"){
+        } else if(reserva.estadoReserva =="vencida") {
           clasificar = '<td class="columsietepchon"><i title="No Vino" class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></td>';
-        }else if(reserva.estadoReserva =="confirmada"){
+        } else if(reserva.estadoReserva =="confirmada") {
           clasificar = '<td class="columsietepchon"><i title="Vino" class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
-        }else if(reserva.estadoReserva =="Cancelada"){
+        } else if(reserva.estadoReserva =="Cancelada") {
           clasificar = '<td class="columsietepchon"><i title="Cancelada" class="fa fa-ban" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></td>';
           ocultarEliminar = 'style="display:none"';
-        }else if(reserva.estadoReserva =="Calificada"){
+        } else if(reserva.estadoReserva =="Calificada") {
           clasificar = '<td class="columsietepchon"><i title="Vino y Calificó" class="fa fa-check-square-o" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></td>';
-        }else if(reserva.estadoReserva =="pendiente"){
+        } else if(reserva.estadoReserva =="pendiente") {
           clasificar = '<td class="columsietepchon"><ul style="list-style: none; display: inline-flex;"><li><button title="Marcar como NO vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', false)"><i class="fa fa-times" style=" font-size: 1.4em; color: #d20000;" aria-hidden="true"></i></button></li><li><button title="Marcar como SI vino" class="btn btn-default botaccion" onclick="informarAsistencia(\'' + reserva.idReserva + '\', true)"><i class="fa fa-check" style=" font-size: 1.4em; color: #0c9424;" aria-hidden="true"></i></button></li></ul></td>';
         }
 
         var observacion = '';
-        if(typeof(reserva.comentarioUsuarioReserva) == "undefined"){
+        if(typeof(reserva.comentarioUsuarioReserva) == "undefined") {
           observacion = '';
-        }else if(reserva.comentarioUsuarioReserva == null){
+        } else if(reserva.comentarioUsuarioReserva == null) {
           observacion = '';
-        }else{
+        } else {
           observacion = reserva.comentarioUsuarioReserva;
         }
 
         var promocionReserva = "";
-        if(typeof(reserva.idLocalPromocion) == "undefined"){
+        if(typeof(reserva.idLocalPromocion) == "undefined") {
           promocionReserva ='<td class="centrarbotaccion"><i class="fa fa-exclamation-triangle alertareservas hidden"></i></td>';
-        }else {
+        } else {
           promocionReserva = '<td class="centrarbotaccion"><i class="fa fa-exclamation-triangle alertareservas"></i></td>';
         }
         var opcionesMenu = "";
-        if(reserva.opcionReservada != []){
+        if(reserva.opcionReservada != []) {
           opcionesMenu = reserva.opcionReservada;
         }
         var nombrePromocion = "";
-        if(typeof(reserva.nombrePromocion) != "undefined"){
+        if(typeof(reserva.nombrePromocion) != "undefined") {
           nombrePromocion = '<h4 class="elegiopcionreserva">'+reserva.nombrePromocion+'</h4>';
         }
 
         var iconoPromocion = "";
-        if( typeof(reserva.iconoPromocion) != "undefined"){
+        if( typeof(reserva.iconoPromocion) != "undefined") {
           iconoPromocion = '<a href="#"><img class="etiquetapromo" src="'+reserva.iconoPromocion+'"></a>';
         }
 
@@ -801,10 +801,10 @@ function renderReservasHistorico(reservasLocal){
                '</div>'+
          '');
 
-         _.each(opcionesMenu, function(opcion){
-          if(opcion.cantidad == null){
+         _.each(opcionesMenu, function(opcion) {
+          if(opcion.cantidad == null) {
 
-          }else{
+          } else {
             $("#contMenu"+collapseReserva).append(''+
          
             '<div class="row separamenues">'+
@@ -830,8 +830,8 @@ function renderReservasHistorico(reservasLocal){
    $('#loading').hide();
 }
 
-function mostrarModal(idModal,accion){
-  if(accion == 'cancelar'){
+function mostrarModal(idModal,accion) {
+  if(accion == 'cancelar') {
      cancelar = 'cancelar';
      $('#titulo'+idModal).append('Cancelar Reserva');
      $('#botonGuardar'+idModal).html('');
@@ -841,7 +841,7 @@ function mostrarModal(idModal,accion){
      $( "#fechaRe"+idModal).prop( "disabled", true );
      $( "#horaRe"+idModal).prop( "disabled", true );
      $("#modal"+idModal).modal("show");
-  }else if(accion == 'editar'){
+  } else if(accion == 'editar') {
      cancelar = 'editar';
      $('#botonGuardar'+idModal).html('');
      $('#botonGuardar'+idModal).val(cancelar);
@@ -855,17 +855,17 @@ function mostrarModal(idModal,accion){
   }
 }
 
-function accion(idModal,accion){
-    if(accion == 'cancelar'){
+function accion(idModal,accion) {
+    if(accion == 'cancelar') {
        var idReserva = $("#id"+idModal).val();
        cancelarReserva(idReserva, idModal);
-    }else if(accion == 'editar'){
+    } else if(accion == 'editar') {
        var idReserva = $("#id"+idModal).val();
        editarReserva(idReserva, idModal);
     }
 }
 
-function cancelarReserva(idReserva, idModal){
+function cancelarReserva(idReserva, idModal) {
   if (_.isUndefined(server)) {
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     });
@@ -898,7 +898,7 @@ function cancelarReserva(idReserva, idModal){
   });
 }
 
-function editarReserva(idReserva, idModal){
+function editarReserva(idReserva, idModal) {
   if (_.isUndefined(server)) {
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     });
@@ -938,13 +938,13 @@ function editarReserva(idReserva, idModal){
 
 }
 
-function ocultarPestaña(pest,pest1, pest2){
+function ocultarPestaña(pest,pest1, pest2) {
   $('#'+pest1).hide();
   $('#'+pest2).hide();
   $('#'+pest).show();
 }
 
-function volverPanelLocal(){
+function volverPanelLocal() {
    
   var tipoUsuario = $("#tipoUsuario").val();
 
