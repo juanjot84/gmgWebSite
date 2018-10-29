@@ -125,12 +125,12 @@
                                               Datos de Contacto
                                             </span></a>
                                 </li>
-                                <li>
+                                <!--li>
                                     <a href="proveedores.pdf" class="hvr-bounce-to-left"><i class="fa"><img src="img/iconos/list.svg"  title="imagen SVG" class="imgSvg"/></i>
                                             <span class="nav-text">
                                               Lista de Proveedores
                                             </span></a>
-                                </li>
+                                </li-->
                                 <li>
                                     <a href="tutoriales.php" class="hvr-bounce-to-left"><i class="fa"><img src="img/iconos/play.svg"  title="imagen SVG" class="imgSvg"/></i>
                                             <span class="nav-text">
@@ -268,13 +268,13 @@
                             </a>
                         </li>
                         
-                         <li>
+                         <!--li>
                             <a href="tutoriales.html"><i class="fa fa-list"></i>
                                 <span class="nav-text">
                                 Lista de Proveedores
                                 </span>
                             </a>
-                        </li>
+                        </li-->
                         <li>
                             <a href="tutoriales.php"><i class="fa fa-play"></i>
                                 <span class="nav-text">
@@ -363,7 +363,7 @@
                     </div>
                     <div class="row" id="barrasCalificacion">
                         <div class="col-md-12">
-                            <h6>Atencion</h6>
+                            <h6>Atención</h6>
                             <div class="progress" id="barraAtencion">
                                 
                             </div>
