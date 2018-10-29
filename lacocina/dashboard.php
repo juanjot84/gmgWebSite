@@ -125,12 +125,12 @@
                                               Datos de Contacto
                                             </span></a>
                                 </li>
-                                <li>
+                                <!--li>
                                     <a href="proveedores.pdf" class="hvr-bounce-to-left"><i class="fa"><img src="img/iconos/list.svg"  title="imagen SVG" class="imgSvg"/></i>
                                             <span class="nav-text">
                                               Lista de Proveedores
                                             </span></a>
-                                </li>
+                                </li-->
                                 <li>
                                     <a href="tutoriales.php" class="hvr-bounce-to-left"><i class="fa"><img src="img/iconos/play.svg"  title="imagen SVG" class="imgSvg"/></i>
                                             <span class="nav-text">
@@ -241,7 +241,7 @@
         <div class="row">
             <!--Accesos directos-->
             <div class="col-lg-4">
-                <div class="modulo" id="acceso">
+                <div class="modulo ajusteModulo" id="acceso">
 
                     <h1>Accesos directos</h1>
                     <ul id="accesosdirectos">
@@ -268,13 +268,13 @@
                             </a>
                         </li>
                         
-                         <li>
+                         <!--li>
                             <a href="tutoriales.html"><i class="fa fa-list"></i>
                                 <span class="nav-text">
                                 Lista de Proveedores
                                 </span>
                             </a>
-                        </li>
+                        </li-->
                         <li>
                             <a href="tutoriales.php"><i class="fa fa-play"></i>
                                 <span class="nav-text">
@@ -294,7 +294,7 @@
             </div>
             <!--Reservas para hoy-->
             <div class="col-lg-4">
-                <div id="reservasparahoy" class="modulo celeste">
+                <div id="reservasparahoy" class="modulo ajusteModulo celeste">
                     <h1> Hay <span id="cantidadReservas"> </span> para hoy <span class="ver"><a id="formReservas2" href="#">  - Ver todas </a></span> </h1>
 
                     <div class="content content mCustomScrollbar  mCS-autoHide">
@@ -315,7 +315,7 @@
             </div>
             <!--Promociones Activas-->
             <div class="col-lg-4">
-                <div id="promocionesActivas" class="modulo rosado">
+                <div id="promocionesActivas" class="modulo ajusteModulo rosado">
                     <h1> Hay <span id="cantidadPromociones"> </span> activas <span class="ver"><a id="formPromLocal2" href="#">  - Ver todas </a></span>   </h1>
                     <div id="listaPromociones" class="content content mCustomScrollbar  mCS-autoHide">
 
@@ -326,8 +326,10 @@
 
         <div class="row">
             <div class="col-lg-4">
-                <div id="publicidad" class="modulo rosado">
-                    <img src="img/zuelo.jpg" class="img-fluid">
+                <div id="publicidad" class="modulo ajusteModulo rosado">
+                      <!-- Revive Adserver Etiqueta JS asincrónica - Generated with Revive Adserver v4.1.3 -->
+<ins data-revive-zoneid="4" data-revive-id="6a42b0d4b55d90b58eb8e42f829d9ed3"></ins>
+<script async src="//adserver.guiamendozagourmet.com/www/delivery/asyncjs.php"></script>
                 </div>
             </div>
             <div class="col-lg-8">
@@ -342,7 +344,57 @@
         </div>
         <div class="row">
             <div class="col-lg-4">
-                <div id="HorariosAtencion" class="modulo celeste">
+                   
+                   <div id="calificaciones" class="modulo ajusteModulo rosado">
+                    <h1><span>Calificaciones</span></h1>
+                    
+                    <div class="row">
+                        <div class="col-md-6" >
+                            <p class="general">Calificacion General</p>
+                        </div>
+                        <div class="col-md-6">
+                            <form>
+                                <p class="clasificacion" id="estrellasCalificacion">
+        
+                                </p>
+                            </form>
+                        </div>
+                        
+                    </div>
+                    <div class="row" id="barrasCalificacion">
+                        <div class="col-md-12">
+                            <h6>Atención</h6>
+                            <div class="progress" id="barraAtencion">
+                                
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h6>Lugar</h6>
+                            <div class="progress" id="barraLugar">
+                                
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h6>Comida</h6>
+                            <div class="progress" id="barraComida">
+                                
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-4">
+               
+               
+               <div id="HorariosAtencion" class="modulo ajusteModulo celeste">
                     <h1><span>Horarios</span> de Atención <span class="ver"><a id="formHorarioAtencion2" href="#">  - Configurar </a></span></h1>
 
                     <div class="content content mCustomScrollbar  mCS-autoHide">
@@ -399,64 +451,24 @@
                         </table>
                     </div>
                 </div>
+               
+              
             </div>
             <div class="col-lg-4">
-                <div id="UltimasReservas" class="modulo naranja">
-                    <h1><span>Reservas</span> de los ultimos 7 dias</h1>
-                    <div id="mapaCalor" style="height: 100%; width: 100%; margin: 0 auto"></div>
-                  <!--  <img src="img/07-Modulo.jpg" class="img-fluid"> -->
+                
+                   <div id="tips" class="modulo ajusteModulo naranja">
+              <!-- Revive Adserver Etiqueta JS asincrónica - Generated with Revive Adserver v4.1.3 -->
+        <ins data-revive-zoneid="5" data-revive-id="6a42b0d4b55d90b58eb8e42f829d9ed3"></ins>
+        <script async src="//adserver.guiamendozagourmet.com/www/delivery/asyncjs.php"></script>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <div id="calificaciones" class="modulo rosado">
-                    <h1><span>Calificaciones</span></h1>
-                    
-                    <div class="row">
-                        <div class="col-md-6" >
-                            <p class="general">Calificacion General</p>
-                        </div>
-                        <div class="col-md-6">
-                            <form>
-                                <p class="clasificacion" id="estrellasCalificacion">
-        
-                                </p>
-                            </form>
-                        </div>
-                        
-                    </div>
-                    <div class="row" id="barrasCalificacion">
-                        <div class="col-md-12">
-                            <h6>Atencion</h6>
-                            <div class="progress" id="barraAtencion">
-                                
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h6>Lugar</h6>
-                            <div class="progress" id="barraLugar">
-                                
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h6>Comida</h6>
-                            <div class="progress" id="barraComida">
-                                
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
+                   
+                  
             </div>
         </div>
         
-        <div class="row">
+      
+        <!-- Slider de Proveedores
+           <div class="row">
             <div class="col-md-12">
                 <div class="slider">
 	<div class="slide-track">
@@ -506,7 +518,7 @@
 </div>
             </div>
             
-        </div>
+        </div-->
     </main>
     <footer>
         <div class="container">

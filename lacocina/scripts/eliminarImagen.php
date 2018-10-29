@@ -12,4 +12,5 @@ if (file_exists($directorio.$nombreArchivo)) {
     echo "borrado";
 }
 
+
 ?>

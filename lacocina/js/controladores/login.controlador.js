@@ -16,13 +16,6 @@ function iniciar(accion) {
   });
 }
 
-
-$(".forgot-password").click(function(){
-    $("#login-form").hide();
-    $("#olvido-contrasena").show();
-
-});
-
 function login() {
   var overlay = jQuery('<div id="overlay"><center><div id="loading"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span></div></center> </div>');
   overlay.appendTo(document.body);
@@ -143,49 +136,4 @@ function caracteresCorreoValido(email) {
   } else {
     return false;
   }
-}
-
-function recuperar() {
-  var emailUsuario = $("#recuperarEmailUsuario").val().toLowerCase().split(' ').join('');
-  if ( emailUsuario ) {
-    var overlay = jQuery('<div id="overlay"><center><div id="loading"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span></div></center> </div>');
-    overlay.appendTo(document.body);
-    if (_.isUndefined(server)) {
-        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
-        });
-    }
-    if (!disabled){
-        disabled = true;
-        $('#login-submit').attr('disabled','disabled');
-        var login = JSON.stringify({
-            "email": emailUsuario
-        });
-        $.ajax({
-            url: server + '/api/v1/admin/olvide_pass_usuarioNegocio',
-            type: "POST",
-
-            dataType: "json",
-            crossDomain: true,
-            contentType:"application/json",
-            success: function (data) {
-                $('#overlay').remove();
-                $('#mensaje').html(data);
-
-            },
-            error:function(jqXHR,textStatus,errorThrown){
-                $('#overlay').remove();
-                $('#login-submit').removeAttr('disabled');
-                disabled = false;
-                $('#passwordUsuarioAlert').remove();
-                $("#passwordUsuario").parent().after('<span id="passwordUsuarioAlert" style="color:red"> Usuario / contraseña incorrecto</span>');
-                $("#emailUsuario").addClass('alert-danger');
-                $("#passwordUsuario").addClass('alert-danger');
-            },
-            data: login
-        });
-    }
-  } else {
-      $('#mensaje').html('Por favor ingrese el mail del Usuario');
-  }
-
 }

@@ -39,6 +39,8 @@ error_reporting(E_ERROR);
     }
 ?>
 
+<input type="text" name="tipoUs" id="tipoUs" value="<?php echo $tipoUsuario; ?>" class="hidden">
+
             <section class="tutoriales">
                 <div class="container">
                     <div class="row">
@@ -150,7 +152,7 @@ error_reporting(E_ERROR);
                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
                         <div class="input-group" style="margin:10px 0 0 0">
                             <span class="input-group-btn">
-                              <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
+                              <button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelNegocio()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>
                             </span>
                         </div>
 
@@ -169,6 +171,10 @@ error_reporting(E_ERROR);
 
             <!-- jQuery -->
             <script src="../vendor/jquery/jquery.min.js"></script>
+
+            <!-- Funciones de Tutoriales JavaScript -->
+            <script src="js/controladores/tutoriales.controlador.js"></script>
+
             <!-- Bootstrap Core JavaScript -->
             <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
             <!-- Plugin JavaScript -->

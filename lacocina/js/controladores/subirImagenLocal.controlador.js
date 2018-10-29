@@ -184,7 +184,7 @@ function eliminarImagen(urlImagen){
        var imagenesGuardadas = data.fotoLocal;
 
         var largoString = urlImagen.length;
-        var nombreImagen = urlImagen.substr(42, largoString);
+        var nombreImagen = urlImagen.substr(43, largoString);
         var index = imagenesGuardadas.indexOf(urlImagen);
         var parametros = {
                 "nombreArchivo" : nombreImagen,
