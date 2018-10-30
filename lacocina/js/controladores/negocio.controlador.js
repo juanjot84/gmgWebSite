@@ -511,7 +511,6 @@ $('#mdlImgMenu').on('show.bs.modal', function (event) {
          addRemoveLinks: true,
          paramName: "konostech",
          maxFilesize: 20, // MB
-         resizeWidth: 180,
          acceptedFiles: '.png',
          dictRemoveFile: "Eliminar",
          maxFiles: 1,
