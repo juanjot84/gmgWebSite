@@ -541,10 +541,13 @@ nav.main-menu li.active > a,
     font-weight: bold!important;
     }
 
+.promo .col-md-6 {
+    padding:10px 0 0 10px
+}
+
 .promo h5 {
     font-size: 12px;
     font-weight: bold!important;
-    padding:18px 0 0 0;
     
     color: #414141
 }
