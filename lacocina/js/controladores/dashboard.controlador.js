@@ -55,10 +55,11 @@
               var iconoNegocio = '';
               if (data.urlIconoNegocio != "") {
                 iconoNegocio = data.urlIconoNegocio;
+                $("#logoNegocio").append(''+
+                   '<img src="'+iconoNegocio+'" class="web">'+
+                '');
               }
-              $("#logoNegocio").append(''+
-                  '<img src="'+iconoNegocio+'" class="web">'+
-              '');
+
             },
             error:function(jqXHR,textStatus,errorThrown)
             {
