@@ -303,8 +303,8 @@
         if (promocion.iconoPromocion != '' || promocion.iconoPromocion != undefined ) {
           iconoPromocion ='<img src="'+ promocion.iconoPromocion + '" class="img-fluid" alt="">';
         }
-        if (promocion.nombreCortoPromocion != '' || promocion.nombreCortoPromocion != undefined) {
-          nombreCorto = promocion.nombreCortoPromocion;
+        if (promocion.nombrePromocion != '' || promocion.nombrePromocion != undefined) {
+          nombreCorto = promocion.nombrePromocion;
         }
          $('#listaPromociones').append(''+
             '<div class="row promo">'+                    
