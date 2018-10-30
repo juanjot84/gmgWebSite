@@ -525,11 +525,12 @@ nav.main-menu li.active > a,
 .promo  {
     color:#fff;
     border-radius: 25px;
+    width: 100%;
     
 }
 
 .img-fluid {
-    width: auto;
+    width: 100%;
     margin:5px 0 0 0
 }
 
