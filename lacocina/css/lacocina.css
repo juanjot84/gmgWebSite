@@ -24,7 +24,9 @@ header {
     margin: 0 0 20px 0
 }
 
-
+#logoNegocio img {
+    width: 120px
+}
 
 h1 {
 
