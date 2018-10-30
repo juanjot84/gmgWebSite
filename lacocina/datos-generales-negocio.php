@@ -71,35 +71,35 @@ error_reporting(E_ERROR);
 
              <h5 class="titulosalta"> Nombre del Negocio</h5>
  
-              <p><div class="input-group input-group-sm">
+              <div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
                 <input id="nombreNegocio" name="nombreNegocio" type="text" class="form-control" placeholder="Nombre del Negocio" aria-describedby="sizing-addon3" onfocus="limpiar('nombreNegocio')" required>
-              </div></p>
+              </div>
 
               <h5 class="titulosalta"> Tipo de Negocio</h5>
  
-               <p><div class="input-group input-group-sm">
+               <div class="input-group input-group-sm">
                     <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
                     <select id="tipoNegocio" name="tipoNegocio" class="form-control" onfocus="limpiar('tipoNegocio')" required ></select>
-              </div></p>
+              </div>
 
               <h5 class="titulosalta"> Negocio Destacado</h5>
 
-              <p>
+             
                 <label class="radio-inline"><input type="radio" name="destacadoNegocio" id="destacadoNegocio-true" value="true" >Si</label>
                 <label class="radio-inline"><input type="radio" name="destacadoNegocio" id="destacadoNegocio-false" value="false" checked="checked" >No</label>
-              </p>
+              
 
               <h5 class="titulosalta"> Bajada Negocio</h5>
  
-              <p><div class="input-group input-group-sm">
+              <div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
                 <input id="bajadaNegocio" name="bajadaNegocio" type="text" class="form-control" placeholder="Bajada del Negocio" aria-describedby="sizing-addon3" onfocus="limpiar('bajadaNegocio')" required>
-              </div></p>
+              </div>
 
               <h4 class="titulocargamenu"> Logo de Negocio</h4>
 
-              <p><div class="input-group input-group-sm">
+             <div class="input-group input-group-sm">
                 <div class="input-group">
                   <span class="input-group-btn">
                     <button class="btn btn-default" type="button" style="padding: 17px;" data-toggle="modal"  data-target="#mdlImgMenu"><i class="fa fa-plus-square-o" aria-hidden="true"></i> CARGAR LOGO</button>
@@ -109,36 +109,36 @@ error_reporting(E_ERROR);
 
                 </div>
                   <input type="text" id="logoNegocio" style="display:none"/> 
-                </div></p>
+                </div>
 
               <h5 class="titulosalta"> Página web del negocio</h5>
 
-              <p><div class="input-group input-group-sm">
+             <div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-globe" aria-hidden="true"></i></span>
                 <input id="webNegocio" name="webNegocio" type="text" class="form-control" placeholder="http://..." aria-describedby="sizing-addon3">
-              </div></p>
+              </div>
 
               <h5 class="titulosalta"> Datos de contacto de redes sociales</h5>
 
-              <p><div class="input-group input-group-sm">
+              <div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-facebook-official" aria-hidden="true"></i></span>
                 <input id="facebookNegocio" name="facebookNegocio" type="text" class="form-control" placeholder="Facebook del Negocio" aria-describedby="sizing-addon3">
-              </div></p>
+              </div>
 
-              <p><div class="input-group input-group-sm">
+              <div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-instagram" aria-hidden="true"></i></span>
                 <input id="instagramNegocio" name="instagramNegocio" type="text" class="form-control" placeholder="Instagram del Negocio" aria-describedby="sizing-addon3">
-              </div></p>
+              </div>
 
-             <p><div class="input-group input-group-sm">
+             <div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-twitter" aria-hidden="true"></i></span>
                 <input id="twitterNegocio" name="twitterNegocio" type="text" class="form-control" placeholder="Twitter del Negocio" aria-describedby="sizing-addon3">
-              </div></p>
+              </div>
 
-              <p><div class="input-group input-group-sm">
+              <div class="input-group input-group-sm">
                 <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-tripadvisor" aria-hidden="true"></i></span>
                 <input id="tripadvisorNegocio" name="tripadvisorNegocio" type="text" class="form-control" placeholder="Tripadvisor del Negocio" aria-describedby="sizing-addon3">
-              </div></p>
+              </div>
  
                <h5 class="titulosalta"> Descripción</h5>
 
@@ -147,7 +147,7 @@ error_reporting(E_ERROR);
                             <div class="form-group">
                               <label for="comment">Descripción:</label>
                               <textarea class="form-control" rows="5" onKeyDown="validarCantidadCaracteres('descripcionNegocio','descripcionNegociolength',500);" id="descripcionNegocio" name="descripcionNegocio"></textarea>
-                               <input style="border:none; color:red;font-size:12pt;font-style:italic;" readonly="readonly" type="text" id='descripcionNegociolength' name="descripcionNegociolength" size="3" maxlength="3" value="500" /> caracteres restantes</i>
+                               <input style="border:none; color:red;font-size:12pt;font-style:italic;" readonly="readonly" type="text" id='descripcionNegociolength' name="descripcionNegociolength" size="3" maxlength="3" value="500" /> caracteres restantes
                             </div>
 
               <h5 class="titulosalta"> Palabras de búsqueda</h5>

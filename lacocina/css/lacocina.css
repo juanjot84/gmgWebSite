@@ -25,7 +25,9 @@ header {
 }
 
 #logoNegocio img {
-    width: 120px
+    width: 120px;
+    -webkit-filter: invert(1) hue-rotate(180deg) contrast(2);
+	filter: invert(1) hue-rotate(180deg) contrast(2);
 }
 
 h1 {
