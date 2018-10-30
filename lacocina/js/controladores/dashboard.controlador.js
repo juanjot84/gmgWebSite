@@ -178,6 +178,12 @@
       $(location).attr('href',url);
     });
 
+    $("#formDatosSucursal").click(function() {
+      var idNegocio = $("#idNegocio").val();
+      var url = "datos-generales-local.php?idLocal="+idLocal+"&idNegocio="+idNegocio+"";
+      $(location).attr('href',url);
+    });
+
     $("#formConfigReservas").click(function() {
       var url = "editar-cubiertos.php?idLocal="+idLocal+"";
       $(location).attr('href',url);
