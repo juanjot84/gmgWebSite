@@ -704,15 +704,8 @@ function buscarTipoNegocio(accion){
             crossDomain: true,
             contentType:"application/json",
             success: function (data) {
-
-              var resultado = data;
-              var localCreado =  resultado._id;
-              var idNegocio = $("#idNegocio").val();
-
-              var url = "../lacocina/panel-locales.php?idLocal="+ localCreado+"&idNegocio="+idNegocio+""; 
-              $(location).attr('href',url);
-
-                $("#formularioLocal :input").val('');         
+              volverPanelLocal();
+              $("#formularioLocal :input").val('');         
             },
             error:function(jqXHR,textStatus,errorThrown)
             {
@@ -899,13 +892,6 @@ function caracteresCorreoValido(email){
       hayError = true;      
     }
 }
-/*
-function volverPanelLocal(){
-    var localEditado = $("#idLocalRecibido").val();
-    var idNegocio = $("#idNegocio").val(); 
-    var url = "../lacocina/panel-locales.php?idLocal="+ localEditado+"&idNegocio="+ idNegocio +"";
-    $(location).attr('href',url);
-} */
 
 function volverPanelLocal(){
   if (_.isUndefined(server)) {
