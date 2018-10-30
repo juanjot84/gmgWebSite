@@ -97,7 +97,7 @@ error_reporting(E_ERROR);
                 <input id="bajadaNegocio" name="bajadaNegocio" type="text" class="form-control" placeholder="Bajada del Negocio" aria-describedby="sizing-addon3" onfocus="limpiar('bajadaNegocio')" required>
               </div>
 
-              <h4 class="titulocargamenu"> Logo de Negocio</h4>
+              <h5 class="titulosalta"> Logo de Negocio</h5>
 
              <div class="input-group input-group-sm">
                 <div class="input-group">
