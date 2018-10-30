@@ -222,7 +222,7 @@ include("includes/nav.php"); ?>
 
               <h5 class="titulosalta" id="tituloPolo"> Modalidad de Cobro</h5>
 
-                <p>
+                
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
                     <select id="modalidadCobro" name="modalidadCobro" class="form-control"  required>
@@ -232,25 +232,27 @@ include("includes/nav.php"); ?>
                        <option value="sin_comision">sin comision</option>
                     </select>
                   </div>
-                </p>
+                
 
               <h5 class="titulosalta"> Cargar ícono de la promoción</h5>
+              <p style="font-size:11px; color:#9f9f9f">Tamaño: 80x36px. Formato: png</p>
 
-              <p><div class="input-group input-group-sm">
+              <div class="input-group input-group-sm">
               <div class="input-group">
                       <span class="input-group-btn">
                         <button class="btn btn-default" type="button" style="padding: 17px;" data-toggle="modal"  data-target="#mdlArchivos"><i class="fa fa-plus-square-o" aria-hidden="true"></i> CARGAR ICONO</button>
                       </span>
+                      
               </div>
               <div id="contenedorImagenes">
 
               </div>
               <input type="text" id="iconoPromocion" style="display:none"/> 
-              </div></p>
+              </div>
 
               <h5 class="titulosalta"> Cargar imagen de la promoción para Web</h5>
-
-              <p><div class="input-group input-group-sm">
+                <p style="font-size:11px; color:#9f9f9f">Tamaño: 260x149px. Formato: jpg</p>
+              <div class="input-group input-group-sm">
               <div class="input-group">
                       <span class="input-group-btn">
                         <button class="btn btn-default" type="button" style="padding: 17px;" data-toggle="modal"  data-target="#mdlImgWeb"><i class="fa fa-plus-square-o" aria-hidden="true"></i> CARGAR IMAGEN WEB</button>
@@ -260,11 +262,12 @@ include("includes/nav.php"); ?>
 
               </div>
               <input type="text" id="imgPromocionWeb" style="display:none"/> 
-              </div></p>
+              </div>
 
               <h5 class="titulosalta"> Cargar imagen de la promoción para App</h5>
+              <p style="font-size:11px; color:#9f9f9f">Tamaño: 150x50px. Formato: jpg</p>
 
-              <p><div class="input-group input-group-sm">
+              <div class="input-group input-group-sm">
               <div class="input-group">
                       <span class="input-group-btn">
                         <button class="btn btn-default" type="button" style="padding: 17px;" data-toggle="modal"  data-target="#mdlImgApp"><i class="fa fa-plus-square-o" aria-hidden="true"></i> CARGAR IMAGEN APP</button>
@@ -274,7 +277,7 @@ include("includes/nav.php"); ?>
 
               </div>
               <input type="text" id="imgPromocionApp" style="display:none"/> 
-              </div></p>
+              </div>
 
               <h5 class="titulosalta"> Duración de la promoción</h5>
 
