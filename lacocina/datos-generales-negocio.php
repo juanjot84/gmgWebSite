@@ -97,6 +97,20 @@ error_reporting(E_ERROR);
                 <input id="bajadaNegocio" name="bajadaNegocio" type="text" class="form-control" placeholder="Bajada del Negocio" aria-describedby="sizing-addon3" onfocus="limpiar('bajadaNegocio')" required>
               </div></p>
 
+              <h4 class="titulocargamenu"> Logo de Negocio</h4>
+
+              <p><div class="input-group input-group-sm">
+                <div class="input-group">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" style="padding: 17px;" data-toggle="modal"  data-target="#mdlImgMenu"><i class="fa fa-plus-square-o" aria-hidden="true"></i> CARGAR LOGO</button>
+                  </span>
+                </div>
+                <div id="contenedorImagenWeb">
+
+                </div>
+                  <input type="text" id="logoNegocio" style="display:none"/> 
+                </div></p>
+
               <h5 class="titulosalta"> Página web del negocio</h5>
 
               <p><div class="input-group input-group-sm">
@@ -168,6 +182,26 @@ error_reporting(E_ERROR);
 
         </div>
     </div>
+
+    <!-- Modal imagen web -->
+        <div id="mdlImgMenu" class="modal fade">
+        <div class="modal-dialog" style="width: 65%;">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Subir Logo del Negocio</h4>
+            </div>
+            <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12" id="formDropZone1"></div>
+            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
     
     
     <?php 
@@ -190,6 +224,9 @@ error_reporting(E_ERROR);
 
     <!-- Funciones de Negocio JavaScript -->
     <script src="js/controladores/negocio.controlador.js"></script>
+
+    <script src="js/dropzone.js"></script>
+    <link rel="stylesheet" href="css/dropzone.css"> 
 
     <!-- Theme JavaScript -->
     <script src="../js/agency.min.js"></script>
