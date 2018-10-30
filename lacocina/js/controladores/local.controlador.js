@@ -899,12 +899,47 @@ function caracteresCorreoValido(email){
       hayError = true;      
     }
 }
-
+/*
 function volverPanelLocal(){
     var localEditado = $("#idLocalRecibido").val();
     var idNegocio = $("#idNegocio").val(); 
     var url = "../lacocina/panel-locales.php?idLocal="+ localEditado+"&idNegocio="+ idNegocio +"";
     $(location).attr('href',url);
+} */
+
+function volverPanelLocal(){
+  if (_.isUndefined(server)) {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      });
+  }
+    var idLocal = $("#idLocalRecibido").val();
+      $('#target').html('obteniendo...');
+      $.ajax({
+        url: server + '/api/v1/admin/locales?id='+ idLocal +"",
+              type: 'GET',  
+              dataType: "json",
+              crossDomain: true,
+              contentType:"application/json",
+              success: function (data) {
+              var tipoUsuario = $("#tipoUs").val();
+              if (tipoUsuario == 'superAdmin') {
+                var local = data;
+                var idNegocio = local.idNegocio._id;
+                var url = "../lacocina/panel-locales.php?idLocal=" + idLocal + "&idNegocio=" + idNegocio + "";
+                $(location).attr('href', url);
+              } else if (tipoUsuario == 'usuarioNegocio') {
+                var url = "dashboard.php";
+                $(location).attr('href',url);
+              }
+
+            },
+            error:function(jqXHR,textStatus,errorThrown)
+            {
+                $('#target').append("jqXHR: "+jqXHR);
+                $('#target').append("textStatus: "+textStatus);
+                $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+            },
+      });
 }
 
 function volverPanelNegocio(){

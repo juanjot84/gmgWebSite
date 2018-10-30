@@ -525,7 +525,13 @@ nav.main-menu li.active > a,
 .promo  {
     color:#fff;
     border-radius: 25px;
-    margin: 0 0 20px 0
+    width: 100%;
+    
+}
+
+.img-fluid {
+    width: 100%;
+    margin:5px 0 0 0
 }
 
 .promo p {
@@ -535,11 +541,14 @@ nav.main-menu li.active > a,
     font-weight: bold!important;
     }
 
+.promo .col-md-6 {
+    padding:10px 0 0 10px
+}
+
 .promo h5 {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: bold!important;
-    padding:18px 0 0 0;
-    line-height: 0;
+    
     color: #414141
 }
 
@@ -1635,3 +1644,9 @@ select.form-control {
 
 .container {
     max-width: 1100px;
+
+}
+
+.descripcionImagenes {
+    font-size: 11px
+}

@@ -131,6 +131,10 @@ function cargarFormEditar(idNegocio) {
         $("#descripcionNegocio").val(negocio.descripcionNegocio);
         $("input[name=destacadoNegocio][value=" + negocio.destacadoNegocio + "]").prop("checked", true);
         $("#bajadaNegocio").val(negocio.bajadaNegocio);
+        if(negocio.urlIconoNegocio != '') {
+          $("#logoNegocio").val(negocio.urlIconoNegocio);
+          dibujarImagen(negocio.urlIconoNegocio, 'contenedorImagenWeb');
+        }
         $("#webNegocio").val(negocio.webNegocio);
         $("#tagsNegocio").val(negocio.tagsNegocio);
         $("#tripadvisorNegocio").val(negocio.tripadvisorNegocio);
@@ -165,6 +169,7 @@ function actualizarNegocio(accion, tipoUsuario) {
     "destacadoNegocio": $('input[name=destacadoNegocio]:checked', '#formularioEditar').val(),
     "idTipoNegocio": $("#tipoNegocio").val(),
     "bajadaNegocio": $("#bajadaNegocio").val(),
+    "urlIconoNegocio": $("#logoNegocio").val(),
     "webNegocio": $("#webNegocio").val(),
     "tagsNegocio": $("#tagsNegocio").val(),
     "tripadvisorNegocio": $("#tripadvisorNegocio").val(),
@@ -185,9 +190,7 @@ function actualizarNegocio(accion, tipoUsuario) {
       var negocioCreado = resultado._id;
 
       if (accion == 'editar' && tipoUsuario == 'usuarioNegocio') {
-        var url = "../lacocina/perfil/mi-perfil.php?idNegocio=" + idNegocio + "";
-        $(location).attr('href', url);
-        $("#formularioAgregar :input").val('');
+        volverPanelNegocio();
       } else {
         var url = "../lacocina/panel-negocio.php?idNegocio=" + negocioCreado + "";
         $(location).attr('href', url);
@@ -214,6 +217,10 @@ function mostrar(idNegocio) {
     $("#descripcionNegocio").val(negocio.descripcionNegocio);
     $("input[name=destacadoNegocio][value=" + negocio.destacadoNegocio + "]").prop("checked", true);
     $("#bajadaNegocio").val(negocio.bajadaNegocio);
+    if(negocio.urlIconoNegocio != '') {
+      $("#logoNegocio").val(negocio.urlIconoNegocio);
+      dibujarImagen(negocio.urlIconoNegocio, 'contenedorImagenWeb');
+    }
     $("#webNegocio").val(negocio.webNegocio);
     $("#tagsNegocio").val(negocio.tagsNegocio);
     $("#tripadvisorNegocio").val(negocio.tripadvisorNegocio);
@@ -341,6 +348,7 @@ function send() {
     "destacadoNegocio": $('input[name=destacadoNegocio]:checked', '#formularioAgregar').val(),
     "idTipoNegocio": $("#tipoNegocio").val(),
     "bajadaNegocio": $("#bajadaNegocio").val(),
+    "urlIconoNegocio": $("#logoNegocio").val(),
     "webNegocio": $("#webNegocio").val(),
     "tagsNegocio": $("#tagsNegocio").val(),
     "tripadvisorNegocio": $("#tripadvisorNegocio").val(),
@@ -467,4 +475,91 @@ function validarCantidadCaracteres(campoValidar, cnt, maxlimit){
   } else {
     campoCantidad.val(maxlimit - campo.val().length);
   }
+}
+
+function eliminarImgMenu(nombreimgweb){
+  if (_.isUndefined(server)) {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      });
+    }
+    var largoString = nombreimgweb.length;
+    var nombreImgWeb = nombreimgweb.substr(38, largoString);
+    var parametros = {
+            "nombreArchivo" : nombreImgWeb,
+    };
+    $.ajax({
+            data:  parametros, 
+            url:   'scripts/eliminarIconoNegocio.php', 
+            type:  'post', 
+            success:  function (response) {
+                $('#contenedorImagenWeb').html('');
+                $('#logoNegocio').val('');
+                             
+            }
+    });
+}
+
+$('#mdlImgMenu').on('show.bs.modal', function (event) {
+  $("#formDropZone1").html('');
+  $("#formDropZone1").append("<form id='dZUpload1' class='dropzone borde-dropzone' style='cursor: pointer;'>"+
+                            "<div class='dz-default dz-message text-center'>"+
+                              "<span><h2>Arrastra la imagen aquí</h2></span><br>"+
+                            "<p>(o Click para seleccionar)</p>"+
+                            "</div></form>");
+       myAwesomeDropzone1 = {
+         url: "scripts/mainIconoNegocio.php",
+         addRemoveLinks: true,
+         paramName: "konostech",
+         maxFilesize: 20, // MB
+         resizeWidth: 180,
+         acceptedFiles: '.png',
+         dictRemoveFile: "Eliminar",
+         maxFiles: 1,
+         success: function (file, response) {           
+             var imgWebName = response;
+              nombreImgWeb = imgWebName.trim();
+             var imgWebVieja = $("#logoNegocio").val();
+             if(imgWebVieja != ''){
+               var accion = 'vieja';
+               eliminarImgMenu(imgWebVieja);
+              $('#contenedorImagenWeb').html('');
+             } 
+             $("#logoNegocio").val(nombreImgWeb);
+             $('#contenedorImagenWeb').append(  '<br>' +
+             '<li class="miniaturas-orden">'+
+                '<a href="#">'+
+                  '<img class="miniatura-galeria" src="'+nombreImgWeb+'">'+
+                '</a>'+
+               '<br>'+
+               '<button title="Eliminar" onClick="eliminarImgMenu(\'' + nombreImgWeb + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i></button> '+
+             '</li>'+
+         '');
+             file.previewElement.classList.add("dz-success"); 
+         },
+         error: function (file, response) {
+           file.previewElement.classList.add("dz-error");
+           myDropzone1.removeFile(file);
+         }
+         
+       } // FIN myAwesomeDropzone
+
+       var myDropzone1 = new Dropzone("#dZUpload1", myAwesomeDropzone1);    
+       myDropzone1.on("complete", function(file) {
+          if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {  
+         } else {
+           console.log('todavia hay archivos subiendose ');
+         }
+       });
+ });
+
+ function dibujarImagen(dirImagen, contenedor){
+  $('#'+contenedor).append(  '<br>' +
+  '<li class="miniaturas-orden">'+
+     '<a href="#">'+
+       '<img class="miniatura-galeria" src="'+dirImagen+'">'+
+     '</a>'+
+    '<br>'+
+    '<button title="Eliminar" onClick="eliminarImgMenu(\'' + dirImagen + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i></button> '+
+  '</li>'+
+'');
 }

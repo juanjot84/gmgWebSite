@@ -163,7 +163,18 @@
                     </a>
 
                     </li>
-                    <li>
+                    
+                       <li>
+                        <a id="formDatosSucursal" href="#" class="hvr-bounce-to-right">
+                         <i class="fa"><img src="img/iconos/cog.svg"  title="imagen SVG" class="imgSvg"/></i>
+                        <span class="nav-text">
+                            Datos de Sucursal
+                        </span>
+                    </a>
+
+                    </li>
+                       
+                       <li>
                         <a id="formReservas" href="#" class="hvr-bounce-to-right">
                          <i class="fa"><img src="img/iconos/check.svg"  title="imagen SVG" class="imgSvg"/></i>
                         <span class="nav-text">

@@ -178,6 +178,12 @@
       $(location).attr('href',url);
     });
 
+    $("#formDatosSucursal").click(function() {
+      var idNegocio = $("#idNegocio").val();
+      var url = "datos-generales-local.php?idLocal="+idLocal+"&idNegocio="+idNegocio+"";
+      $(location).attr('href',url);
+    });
+
     $("#formConfigReservas").click(function() {
       var url = "editar-cubiertos.php?idLocal="+idLocal+"";
       $(location).attr('href',url);
@@ -297,8 +303,8 @@
         if (promocion.iconoPromocion != '' || promocion.iconoPromocion != undefined ) {
           iconoPromocion ='<img src="'+ promocion.iconoPromocion + '" class="img-fluid" alt="">';
         }
-        if (promocion.nombreCortoPromocion != '' || promocion.nombreCortoPromocion != undefined) {
-          nombreCorto = promocion.nombreCortoPromocion;
+        if (promocion.nombrePromocion != '' || promocion.nombrePromocion != undefined) {
+          nombreCorto = promocion.nombrePromocion;
         }
          $('#listaPromociones').append(''+
             '<div class="row promo">'+                    
