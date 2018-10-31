@@ -1,21 +1,24 @@
+<?php 
+error_reporting(E_ERROR);
+session_start();
+
+$tipoUsuario = $_SESSION['tipoUsuario'];
+
+
+if (!$_SESSION) {
+       header('Location: index.php');
+} else {
+    if ($tipoUsuario == 'superAdmin') {
+        
+    } else {
+        header('Location: index.php');
+    }
+}
+
+?>
 
 <?php 
 error_reporting(E_ERROR);
-
-session_start();
-$tipoUsuario = $_SESSION['tipoUsuario'];
-
-if (!$_SESSION) {
-  header('Location: index.php');
-} else {
-if ($tipoUsuario == 'superAdmin') {
-   
-} else {
-   header('Location: index.php');
-}
-}
-
-
 include("includes/head.php"); ?>
 
 <body id="page-top" class="index">
@@ -705,13 +708,14 @@ $(function() {
 <!-- Slider Range -->
 
 <script>
+/*
   var slider = document.getElementById("myRange");
   var output = document.getElementById("demo");
   output.innerHTML = slider.value;
 
   slider.oninput = function() {
     output.innerHTML = this.value;
-  }
+  } */
 </script>
 
 
