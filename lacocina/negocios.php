@@ -89,6 +89,20 @@ include("includes/nav.php"); ?>
                 <input id="bajadaNegocio" name="bajadaNegocio" type="text" class="form-control" placeholder="Bajada del Negocio" aria-describedby="sizing-addon3" onfocus="limpiar('bajadaNegocio')" required>
               </div></p>
 
+              <h5 class="titulosalta"> Logo de Negocio</h5>
+
+              <div class="input-group input-group-sm">
+              <div class="input-group">
+                <span class="input-group-btn">
+                <button class="btn btn-default" type="button" style="padding: 17px;" data-toggle="modal"  data-target="#mdlImgMenu"><i class="fa fa-plus-square-o" aria-hidden="true"></i> CARGAR LOGO</button>
+                </span>
+              </div>
+              <div id="contenedorImagenWeb">
+
+              </div>
+                <input type="text" id="logoNegocio" style="display:none"/> 
+              </div>
+
               <h5 class="titulosalta"> Página web del negocio</h5>
 
               <p><div class="input-group input-group-sm">
@@ -185,23 +199,43 @@ include("includes/nav.php"); ?>
    </div>
 </div>
 
-<div class="modal fade" id="mostrarmodal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-   <div class="modal-dialog">
-      <div class="modal-content">
-         <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h3>ATENCIÓN</h3>
-     </div>
-         <div class="modal-body">
-            <h5>Está por eliminar un restaurante y toda la información asociada al mismo</h5>
-     </div>
-         <div class="modal-footer">
-        <a href="#" data-dismiss="modal" class="btn btn-danger">Cancelar</a>
-        <a onClick="eliminar()" data-dismiss="modal" class="btn btn-danger">Aceptar</a>
-     </div>
-      </div>
-   </div>
-</div>
+    <div class="modal fade" id="mostrarmodal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>ATENCIÓN</h3>
+        </div>
+            <div class="modal-body">
+                <h5>Está por eliminar un restaurante y toda la información asociada al mismo</h5>
+        </div>
+            <div class="modal-footer">
+            <a href="#" data-dismiss="modal" class="btn btn-danger">Cancelar</a>
+            <a onClick="eliminar()" data-dismiss="modal" class="btn btn-danger">Aceptar</a>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Modal imagen web -->
+    <div id="mdlImgMenu" class="modal fade">
+        <div class="modal-dialog" style="width: 65%;">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Subir Logo del Negocio</h4>
+            </div>
+            <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12" id="formDropZone1"></div>
+            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
 
     
     <?php 
@@ -224,6 +258,9 @@ include("includes/nav.php"); ?>
 
     <!-- Funciones de Negocio JavaScript -->
     <script src="js/controladores/negocio.controlador.js"></script>
+
+    <script src="js/dropzone.js"></script>
+    <link rel="stylesheet" href="css/dropzone.css"> 
 
     <!-- Theme JavaScript -->
     <script src="../js/agency.min.js"></script>
