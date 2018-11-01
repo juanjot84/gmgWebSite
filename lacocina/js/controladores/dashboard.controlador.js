@@ -53,7 +53,7 @@
             contentType:"application/json",
             success: function (data) {
               var iconoNegocio = '';
-              if (data.urlIconoNegocio != "") {
+              if (data.urlIconoNegocio != "" && typeof(data.urlIconoNegocio) != "undefined") {
                 iconoNegocio = data.urlIconoNegocio;
                 $("#logoNegocio").append(''+
                    '<img src="'+iconoNegocio+'" class="web">'+
