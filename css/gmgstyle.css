@@ -1537,6 +1537,20 @@ ul.promosvertical.vc_list {
     width: 50%
 }
 
+
+.anteriores h4 {
+    
+    font-size: 13px    
+}
+
+
+h4.tituloAnteriores {
+   margin:20px 0;
+    font-size: 18px  
+}
+
+
+
 .modal-body {
     padding: 0!important
 }
