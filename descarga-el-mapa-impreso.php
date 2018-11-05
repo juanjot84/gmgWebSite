@@ -109,7 +109,7 @@
        <div class="row anteriores">
        <h4 class="tituloAnteriores">#4 - 2018</h4>
         <div class="col-lg-4 text-center">
-          <h4>CIUDAD • CHACRAS DE CORIA 8</h4>
+          <h4>CIUDAD • CHACRAS DE CORIA</h4>
           <a target="_blank" href="mapas/mapas/ed4CiudadGranMendoza.pdf"><img class="descarga-mapa" src="img/tapas-mapas/Ed04Ciudad.jpg">
           <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h3></a>
         </div>
@@ -160,7 +160,7 @@
           
           <h4>LUJÁN DE CUYO • MAIPÚ </h4>
           <a target="_blank" href="mapas/ed2LujanMaipu.pdf"><img class="descarga-mapa" src="img/tapas-mapas/tapa-003.jpg">
-          <h4 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h4></a>
+          <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h3></a>
         </div>
         
       </div>
