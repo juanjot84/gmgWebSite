@@ -491,6 +491,18 @@ i.fa.fa-globe.redesficha:hover {
     font-size: 13px;
 }
 
+.textodatosficha a{
+    color:#f8981d!important
+}
+
+.textodatosficha a:visited{
+    color:#f8981d!important
+}
+
+#telefonoLocal {
+    margin: 0 0 0 30px
+}
+
 .iconoficha {
     color: #f8981d;
     margin-left: 1%;
@@ -526,6 +538,7 @@ i.fa.fa-globe.redesficha:hover {
     border-top: 2px solid #f8981d;
     z-index: 20;
     transition: all .6s ease-in-out;
+    bottom: 0px
 }
 
 div#iconoFavorito {
