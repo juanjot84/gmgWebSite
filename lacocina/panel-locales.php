@@ -61,7 +61,7 @@ error_reporting(E_ERROR);
          <div id="menuGeneral">   
             <div class="row text-center">
                 <div class="col-md-4 botonmanito" id="reservasRealizadas" style="display: none">
-                    <a class="sombrabotonpanel" href="perfil/reservas.php"><div style="font-size: 1.5em;">
+                    <a class="sombrabotonpanel" onclick="verReservas()"><div style="font-size: 1.5em;">
                         <span style="font-size: 2.5em; padding: 5%;" class="glyphicon glyphicon-ok" aria-hidden="true"></span><br>
                         VER RESERVAS REALIZADAS
                     </div></a>
