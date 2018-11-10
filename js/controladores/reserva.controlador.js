@@ -432,8 +432,7 @@ function mostrarDetalleReserva(idReserva, calificar){
     dataType: "json",
     crossDomain: true,
     contentType: "application/json",
-    success: function (data) {
-      reserva = data[0];
+    success: function (reserva) {
       $("#detallesReserva").modal("show");
       $("#botonCancelar").attr("onclick", "cancelarReserva('" + idReserva +"')");
       $("#detalleReservaBotonCancelar").attr("onclick", "cancelarReserva('" + idReserva +"')");
