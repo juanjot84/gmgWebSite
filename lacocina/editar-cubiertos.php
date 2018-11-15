@@ -104,29 +104,63 @@ include("includes/head.php"); ?>
 
           <!-- <h5 class="titulosalta"> Abierto</h5> -->
 
-          <div class="row cuadroantipacion text-center">
-            <div class="col-md-6">
-               
-              <label class="titulohorarioatencion">Anticipación para <strong class="naranja">hacer</strong> una reserva.</label>
-              <span class="valorrecomendado">Valor recomendado: 1</span>
-              <div class="slidecontainer">
-                <p class="horasanticipacion">Horas: <span id="demo"></span></p>
-                <input type="range" min="0" max="48" value="0" class="slider1" id="myRange" onchange="actualizarMargen('myRange')">
-              </div>
-
-            </div>
-            <div class="col-md-6">
-
-
-              <label class="titulohorarioatencion">Anticipación para <strong class="naranja">cancelar</strong> una reserva.</label>
-              <span class="valorrecomendado">Valor recomendado: 2</span>
-              <div class="slidecontainer">
-                <p class="horasanticipacion">Horas: <span id="demo2"></span></p>
-                <input type="range" min="0" max="48" value="1" class="slider1" id="myRange2" onchange="actualizarMargen('myRange2')">
-              </div>
-
-            </div>
-          </div>
+                    <div class="row cuadroantipacion text-center">
+                        <div class="col-md-6">
+                            <h5 class="titulosalta">ANTICIPACION</h5>
+                            <label class="titulohorarioatencion">Para <strong class="naranja">hacer</strong> una reserva.</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <p class="horasanticipacion">Horas: <span id="demo"></span></p>
+                                    <span class="valorrecomendado">Valor recomendado: 1</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="range" min="0" max="48" value="0" class="slider1" id="myRange" onchange="actualizarMargen('myRange')">
+                                </div>
+                            </div>
+                            <label class="titulohorarioatencion">Para <strong class="naranja">cancelar</strong> una reserva.</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <p class="horasanticipacion">Horas: <span id="demo2"></span></p>
+                                    <span class="valorrecomendado">Valor recomendado: 1</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="range" min="0" max="48" value="0" class="slider1" id="myRange2" onchange="actualizarMargen('myRange2')">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="titulosalta">COMENSALES POR RESERVA</h5>
+                            <label class="titulohorarioatencion"><strong class="naranja">Adultos</strong> por reserva.</label>
+                            <div class="row comensales">
+                                <div class="col-md-4">
+                                  <p>Entre <span id="amin"></span> y <span id="amax"><span></p>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="range-slider">
+                                        <input value="1" min="1" max="10" step="1" type="range" id="myRange3" onchange="actualizarMargen('myRange3')">
+                                        <input value="2" min="1" max="10" step="1" type="range" id="myRange4" class="sliderInferior" onchange="actualizarMargen('myRange4')">
+                                    </div>  
+                                </div> 
+                            </div>
+                            
+                            <label class="titulohorarioatencion" style="margin: 50px 0 0 0"><strong class="naranja">Niños</strong> por reserva.</label>
+                            <div class="row comensales" >
+                                <div class="col-md-4"> 
+                                  <p>Entre <span id="mmin"></span> y <span id="mmax"><span></p>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="range-slider">
+                                        <input value="0" min="0" max="10" step="1" type="range" id="myRange5" onchange="actualizarMargen('myRange5')">
+                                        <input value="2" min="0" max="10" step="1" type="range" id="myRange6" class="sliderInferior" onchange="actualizarMargen('myRange6')">
+                                    </div>
+                                    <div class="checkbox-inline" style="margin: 30px 0 0 0">
+                                    <label><input type="checkbox" value="NoNinios">No se Aceptan Niños</label>
+                                </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
 
           <div class="cuadrohorarios">
 
@@ -534,6 +568,41 @@ include("includes/head.php"); ?>
   </script>
 
   <!-- End Slider Range -->
+
+    <!-- Script para los sliders dobles-->
+    <script>
+        function getVals() {
+            // Get slider values
+            var parent = this.parentNode;
+            var slides = parent.getElementsByTagName("input");
+            var slide1 = parseFloat(slides[0].value);
+            var slide2 = parseFloat(slides[1].value);
+            // Neither slider will clip the other, so make sure we determine which is larger
+            if (slide1 > slide2) {
+                var tmp = slide2;
+                slide2 = slide1;
+                slide1 = tmp;
+            }
+            var displayElement = parent.getElementsByClassName("rangeValues")[0];
+            displayElement.innerHTML = "<p>Entre <span>" + slide1 + "</span> y <span>" + slide2 + "<span></p>";
+        }
+        window.onload = function() {
+            // Initialize Sliders
+            var sliderSections = document.getElementsByClassName("range-slider");
+            for (var x = 0; x < sliderSections.length; x++) {
+                var sliders = sliderSections[x].getElementsByTagName("input");
+                for (var y = 0; y < sliders.length; y++) {
+                    if (sliders[y].type === "range") {
+                        sliders[y].oninput = getVals;
+                        // Manually trigger event first time to display values
+                        sliders[y].oninput();
+                    }
+                }
+            }
+        }
+
+    </script>
+
 
   <script>
    var today = new Date();
