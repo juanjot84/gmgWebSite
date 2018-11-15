@@ -8,19 +8,16 @@ var jwt;
 var horaSeleccionada;
 var idLocal;
 
-$('#selectDia, #selectAdulto, #selectNino ').change( function (){
+$('#selectDia, #selectAdulto, #selectNino ').change( function () {
   $('.horas').hide();
   $('#noHorario').hide();
-  if ($('#selectDia').val()){
-    idLocal = $('#selectLocal').val();
+  if ($('#selectDia').val()) {
+    idLocal = $('#idLocal').val();
     buscarHorarios();
   }
 });
 
 
-
-//Funcion principal
-//TODO: buscar datos del local
 function getOpcionesReservaLocal(idLocal) {
   if (_.isUndefined(server)) {
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
@@ -34,7 +31,7 @@ function getOpcionesReservaLocal(idLocal) {
         contentType:"application/json",
         success: function (data) {
           $('.titulo').text(data.idNegocio.nombreNegocio + " | " + data.idNegocio.bajadaNegocio);
-          $('#direccionLocal').text(data.calleLocal + espacio + data.alturaLocal + coma + data.idLocalidad.nombreLocalidad);
+          $('#direccionLocal').text(data.calleLocal + espacio + data.alturaLocal);
           var inicAdult = data.minimoAdultos;
           var maxAdult = data.maximoAdultos;
           var inicMen = data.minimoMenores;
@@ -42,12 +39,12 @@ function getOpcionesReservaLocal(idLocal) {
           var s = '';
           $("#selectAdulto").html('');
           for (inicAdult = 0; inicAdult <= maxAdult; inicAdult++) { 
-            if(inicAdult != 1) {s='s'} else { s = ''};
+            if (inicAdult != 1) { s='s' } else { s = ''};
             $("#selectAdulto").append("<option value="+inicAdult+">"+inicAdult+" adulto"+ s +"</option>");
           }
           $("#selectNino").html('');
           for (inicMen; inicMen <= maxMen; inicMen++) {
-            if(inicMen != 1) {s='s'} else { s = ''};
+            if (inicMen != 1) { s='s' } else { s = '' };
             $("#selectNino").append("<option value="+inicMen+">"+inicMen+" niño"+ s +"</option>");
           }
       },
@@ -58,7 +55,7 @@ function getOpcionesReservaLocal(idLocal) {
           $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
       }
   });
-    // $('.container.ficha').html('');
+    
     $('#target').html('obteniendo...');
     var horarios = $.ajax({
       url: server + '/api/v1/admin/reservaDias?id=' + idLocal,
@@ -80,29 +77,29 @@ function getOpcionesReservaLocal(idLocal) {
 
 }
 
-function setJWT(jwtToken){
+function setJWT(jwtToken) {
   $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
   idLocal = local;
   if (_.isNil(jwtToken) || _.isEmpty(jwtToken)) {
     mostrarModalLogin();
   } else {
     jwt = jwtToken;
-    if (!_.isNil(local)){
-      getOpcionesReservaLocal(idLocal);
+    if (!_.isNil(local)) {
+      getOpcionesReservaLocal($('#idLocal').val());
     } else  {
       getMisReservas();
     }
   }
-  obtenerListado();
+ getOpcionesReservaLocal($('#idLocal').val());
 });
 }
 
-function mostrarModalLogin(){
+function mostrarModalLogin() {
   $("#botonLogin").attr("href", 'login.php?redirect=' + encodeURIComponent(window.location.href));
   $("#mostrarmodal").modal("show");
 }
 
-function isLoggedIn(){
+function isLoggedIn() {
   if (_.isNil(jwt)) {
     return false;
   } else {
@@ -118,7 +115,7 @@ function buscarHorarios() {
   $('.horas').hide();
   $('#noHorario').hide();
   var data = {
-    'idLocal': $('#selectLocal').val(),
+    'idLocal': $('#idLocal').val(),
     'fechaReserva': $('#selectDia').val(),
     'cubiertosAdultosReservados': $('#selectAdulto').val(),
     'cubiertosMenoresReservados': $('#selectNino').val()
@@ -148,7 +145,7 @@ function buscarHorarios() {
 
 function popularOpcionesReserva(opciones) {
     $('<option>').attr('disabled','disabled').attr('selected','selected').attr('value', 'value').text('').appendTo('#selectDia');
-  _.each(opciones, function (opcion, index){
+  _.each(opciones, function (opcion, index) {
     var datosDia = '';
     // if (index == 0) datosDia += 'Hoy ' + espacio;
     // if (index == 1) datosDia += 'Mañana ' + espacio;
@@ -163,14 +160,14 @@ function popularOpcionesReserva(opciones) {
 
 function mostrarHoras(horas) {
   $('#selecHoras').html('');
-  _.each(horas, function (hora){
+  _.each(horas, function (hora) {
     var li = $('<li>').val(hora.valor).text(hora.key);
     $('#selecHoras').append('<li class="selechora" value="' + hora.valor + '"  onClick="seleccionarHora(\'' + hora.key + '\')"><button class="botonhorareserva">' + hora.key + '</button></li>');
   })
   $('.horas').show();
 }
 
-function seleccionarHora(hora){
+function seleccionarHora(hora) {
   horaSeleccionada = hora;
 }
 
@@ -230,7 +227,7 @@ function confirmarReserva() {
   });
 }
 
-function getMisReservas(){
+function getMisReservas() {
   if (_.isUndefined(server)) {
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     });
@@ -256,11 +253,11 @@ function getMisReservas(){
   });
 }
 
-function renderMisReservas(reservas){
+function renderMisReservas(reservas) {
   $('.container.mis-reservas').html('');
   $('.container.mis-reservas').append('<div class="row"><div class="col-lg-12 text-center"><h2 class="section-heading">Mis reservas</h2></div></div>');
 
-  _.each(reservas, function(reserva){
+  _.each(reservas, function(reserva) {
     $('.container.mis-reservas').append(  '' +
       '<div class="row" style="padding-top: 5%;color: #252525;border-bottom: 1px solid #e3e3e3;padding-bottom: 2%;">' +
       ' <div class="col-md-3"><img class="img-responsive" src="' + reserva.idLocal.idNegocio.urlIconoNegocio + '">' +
@@ -286,51 +283,7 @@ function renderMisReservas(reservas){
 
 }
 
-function obtenerListado() {
-  if (_.isUndefined(server)) {
-    $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
-    });
-  }
-        $('#selectLocal').html('');
-        $('#target').html('obteniendo...');       
-        $.ajax({
-            url: server + '/api/v1/admin/locales',
-            type: 'GET',
-            
-            dataType: "json",
-            crossDomain: true,
-            contentType:"application/json",
-            success: function (data) {
-                locales = data;
-                var idNegocioRecibido = $('#idNegocio').val();  
-                var count = 0;;     
-              _.each(data, function(local){
-               if(local.idNegocio._id == idNegocioRecibido){
-                count++;
-                var disabled = data.length 
-                  $('#selectLocal').append('' + 
-                    '<option value="'+ local._id +'">'+local.idNegocio.nombreNegocio+' de calle:  '+local.calleLocal+' ( '+local.alturaLocal+' )</option>'+
-                    '');
-                 }            
-              });
-              if (count == 1){
-                 $('#selectLocal').attr('disabled', 'disabled');
-                 idLocal = $('#selectLocal').val();
-                 getOpcionesReservaLocal(idLocal)
-              }
-                
-
-          },
-          error:function(jqXHR,textStatus,errorThrown)
-          {
-              $('#target').append("jqXHR: "+jqXHR);
-              $('#target').append("textStatus: "+textStatus);
-              $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
-          },
-      });
-}
-
-function volverReservas(){
-  var url = "reservas.php";
+function volverReservas() {
+  var url = "reservas.php?id="+ $('#idLocal').val() +"";
   $(location).attr('href',url);
 }

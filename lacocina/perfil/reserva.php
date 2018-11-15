@@ -1,6 +1,7 @@
 <?php 
 error_reporting(E_ERROR);
 session_start();
+    $idLocal = $_GET['id'];
     $idNegocio = $_SESSION['idNegocio'];
     $tipoUsuario = $_SESSION['tipoUsuario'];
 
@@ -70,6 +71,7 @@ error_reporting(E_ERROR);
 <div class="container" style="padding-top: 2%; min-height: 60vh;">
 
   <input type="text" name="idNegocio" id="idNegocio" value="<?php error_reporting(E_ERROR); echo $idNegocio; ?>" class="hidden">
+  <input type="text" name="idLocal" id="idLocal" value="<?php error_reporting(E_ERROR); echo $idLocal; ?>" class="hidden">
     <div class="row">
       <div class="col-md-2">
         <div class="input-group">
@@ -79,9 +81,7 @@ error_reporting(E_ERROR);
         </div>
       </div>
       <div class="col-md-4">
-          <select class="form-control" id="selectLocal">
 
-          </select>
       </div>
     </div></br>
 

@@ -12,7 +12,7 @@ function setJWT(jwtToken){
     $("#botones").html('');
     if(tipoUsuario == 'usuarioNegocio') {
       $("#botones").append('<button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>'+
-      '<a href="reserva.php" class="botonagregarnuevo btn btn-default" type="button" style="padding: 17px;"><i class="fa fa-plus-square-o" aria-hidden="true"></i> CREAR RESERVA</a>');
+      '<a onClick="irCrearReserva()" class="botonagregarnuevo btn btn-default" type="button" style="padding: 17px;"><i class="fa fa-plus-square-o" aria-hidden="true"></i> CREAR RESERVA</a>');
     } else if(tipoUsuario == 'superAdmin') {
       $("#botones").append('<button id="botonVolver" class="btn btn-default" type="button" style="padding: 17px;" onClick="volverPanelLocal()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button>');
     }
@@ -942,6 +942,12 @@ function ocultarPestaña(pest,pest1, pest2) {
   $('#'+pest1).hide();
   $('#'+pest2).hide();
   $('#'+pest).show();
+}
+
+function irCrearReserva() {
+  var localEditado = $("#idLocal").val();
+  var url = "reserva.php?id="+ localEditado+"";
+  $(location).attr('href',url);
 }
 
 function volverPanelLocal() {
