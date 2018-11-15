@@ -122,27 +122,7 @@ error_reporting(E_ERROR);
           <div class="form-group">
             <label for="selectAdulto">¿Para cuántos adultos? </label>
             <select class="form-control" id="selectAdulto">
-              <option value="1">1 adulto</option>
-              <option value="2">2 adultos</option>
-              <option value="3">3 adultos</option>
-              <option value="4">4 adultos</option>
-              <option value="5">5 adultos</option>
-              <option value="6">6 adultos</option>
-              <option value="7">7 adultos</option>
-              <option value="8">8 adultos</option>
-              <option value="9">9 adultos</option>
-              <option value="10">10 adultos</option>
-              <option value="11">11 adultos</option>
-              <option value="12">12 adultos</option>
-              <option value="13">13 adultos</option>
-              <option value="14">14 adultos</option>
-              <option value="15">15 adultos</option>
-              <option value="16">16 adultos</option>
-              <option value="17">17 adultos</option>
-              <option value="18">18 adultos</option>
-              <option value="19">19 adultos</option>
-              <option value="20">20 adultos</option>
-              <option value="0">21 adultos o más</option>
+
             </select>
           </div>
         </p>
@@ -152,28 +132,7 @@ error_reporting(E_ERROR);
           <div class="form-group">
             <label for="selectNino">¿Para cuántos niños?</label>
             <select class="form-control" id="selectNino">
-             <option value="0">0 niño</option>
-              <option value="1">1 niño</option>
-              <option value="2">2 niños</option>
-              <option value="3">3 niños</option>
-              <option value="4">4 niños</option>
-              <option value="5">5 niños</option>
-              <option value="6">6 niños</option>
-              <option value="7">7 niños</option>
-              <option value="8">8 niños</option>
-              <option value="9">9 niños</option>
-              <option value="10">10 niños</option>
-              <option value="11">11 niños</option>
-              <option value="12">12 niños</option>
-              <option value="13">13 niños</option>
-              <option value="14">14 niños</option>
-              <option value="15">15 niños</option>
-              <option value="16">16 niños</option>
-              <option value="17">17 niños</option>
-              <option value="18">18 niños</option>
-              <option value="19">19 niños</option>
-              <option value="20">20 niños</option>
-              <option value="0">21 niños o más</option>
+
             </select>
           </div>
         </p>

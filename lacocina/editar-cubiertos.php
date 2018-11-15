@@ -154,7 +154,7 @@ include("includes/head.php"); ?>
                                         <input value="2" min="0" max="10" step="1" type="range" id="myRange6" class="sliderInferior" onchange="actualizarMargen('myRange6')">
                                     </div>
                                     <div class="checkbox-inline" style="margin: 30px 0 0 0">
-                                    <label><input type="checkbox" value="NoNinios">No se Aceptan Niños</label>
+                                 <!--   <label><input type="checkbox" value="NoNinios">No se Aceptan Niños</label> -->
                                 </div>
                                 </div>
                             </div>
