@@ -98,7 +98,7 @@
         </div>
        <div class="col-lg-4 text-center">
           <h3 class="elegimapa">LUJÁN DE CUYO • MAIPÚ • VALLE DE UCO</h3>
-          <a target="_blank" href="mapas/ed5LujanMaipuValledeUco.pdf"><img class="descarga-mapa" src="img/tapas-mapas/Ed04MaipuLujan.jpg">
+          <a target="_blank" href="mapas/ed5LujanMaipuValledeUco.pdf"><img class="descarga-mapa" src="img/tapas-mapas/Ed05LujanMaipuValledeUco.jpg">
           <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h3></a>
         </div>
       </div>
