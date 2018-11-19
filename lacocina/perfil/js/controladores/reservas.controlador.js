@@ -946,8 +946,7 @@ function ocultarPestaña(pest,pest1, pest2) {
 
 function irCrearReserva() {
   var localEditado = $("#idLocal").val();
-  var url = "reserva.php?id="+ localEditado+"";
-  $(location).attr('href',url);
+  $(location).attr('href',"reserva.php?id="+ localEditado+"");
 }
 
 function volverPanelLocal() {

@@ -41,15 +41,15 @@ function getOpcionesReservaLocal(idLocal) {
       var maxAdult = data.maximoAdultos;
       var inicMen = data.minimoMenores;
       var maxMen = data.maximoMenores;
-      var s = '';
+      var s = ''; //variable que se asigna la s a los valores que son en plural
       $("#selectAdulto").html('');
       for (inicAdult; inicAdult <= maxAdult; inicAdult++) {
-        if(inicAdult != 1) {s='s'} else { s = ''};
+        if(inicAdult != 1) { s='s'} else { s = ''} ;
         $("#selectAdulto").append("<option value="+inicAdult+">"+inicAdult+" adulto"+ s +"</option>");
       }
       $("#selectNino").html('');
       for (inicMen; inicMen <= maxMen; inicMen++) {
-        if(inicMen != 1) {s='s'} else { s = ''};
+        if(inicMen != 1) { s='s'} else { s = ''} ;
         $("#selectNino").append("<option value="+inicMen+">"+inicMen+" niño"+ s +"</option>");
       }
     },

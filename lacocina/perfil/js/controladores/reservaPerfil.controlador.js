@@ -80,17 +80,20 @@ function getOpcionesReservaLocal(idLocal) {
 function setJWT(jwtToken) {
   $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
   idLocal = local;
+  if (!idLocal) {
+    idLocal = $('#idLocal').val();
+    }
   if (_.isNil(jwtToken) || _.isEmpty(jwtToken)) {
     mostrarModalLogin();
   } else {
     jwt = jwtToken;
     if (!_.isNil(local)) {
-      getOpcionesReservaLocal($('#idLocal').val());
+      getOpcionesReservaLocal(idLocal);
     } else  {
       getMisReservas();
     }
   }
- getOpcionesReservaLocal($('#idLocal').val());
+ getOpcionesReservaLocal(idLocal);
 });
 }
 
@@ -115,7 +118,7 @@ function buscarHorarios() {
   $('.horas').hide();
   $('#noHorario').hide();
   var data = {
-    'idLocal': $('#idLocal').val(),
+    'idLocal': idLocal,
     'fechaReserva': $('#selectDia').val(),
     'cubiertosAdultosReservados': $('#selectAdulto').val(),
     'cubiertosMenoresReservados': $('#selectNino').val()
