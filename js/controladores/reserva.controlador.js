@@ -37,6 +37,21 @@ function getOpcionesReservaLocal(idLocal) {
     success: function (data) {
       $('.titulo').text(data.idNegocio.nombreNegocio + " | " + data.idNegocio.bajadaNegocio);
       $('#direccionLocal').text(data.calleLocal + espacio + data.alturaLocal);
+      var inicAdult = data.minimoAdultos;
+      var maxAdult = data.maximoAdultos;
+      var inicMen = data.minimoMenores;
+      var maxMen = data.maximoMenores;
+      var s = ''; //variable que se asigna la s a los valores que son en plural
+      $("#selectAdulto").html('');
+      for (inicAdult; inicAdult <= maxAdult; inicAdult++) {
+        if(inicAdult != 1) { s='s'} else { s = ''} ;
+        $("#selectAdulto").append("<option value="+inicAdult+">"+inicAdult+" adulto"+ s +"</option>");
+      }
+      $("#selectNino").html('');
+      for (inicMen; inicMen <= maxMen; inicMen++) {
+        if(inicMen != 1) { s='s'} else { s = ''} ;
+        $("#selectNino").append("<option value="+inicMen+">"+inicMen+" niño"+ s +"</option>");
+      }
     },
     error: function (jqXHR, textStatus, errorThrown) {
       $('#target').append("jqXHR: " + jqXHR);
