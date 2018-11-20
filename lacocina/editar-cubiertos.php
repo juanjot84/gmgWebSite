@@ -137,8 +137,8 @@ include("includes/head.php"); ?>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="range-slider">
-                                        <input value="1" min="1" max="10" step="1" type="range" id="myRange3" onchange="actualizarMargen('myRange3')">
-                                        <input value="2" min="1" max="10" step="1" type="range" id="myRange4" class="sliderInferior" onchange="actualizarMargen('myRange4')">
+                                        <input value="1" min="1" max="20" step="1" type="range" id="myRange3" onchange="actualizarMargen('myRange3')">
+                                        <input value="2" min="1" max="20" step="1" type="range" id="myRange4" class="sliderInferior" onchange="actualizarMargen('myRange4')">
                                     </div>  
                                 </div> 
                             </div>
