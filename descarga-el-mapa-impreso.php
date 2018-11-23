@@ -110,7 +110,7 @@
        <h4 class="tituloAnteriores">#4 - 2018</h4>
         <div class="col-lg-4 text-center">
           <h4>CIUDAD • CHACRAS DE CORIA</h4>
-          <a target="_blank" href="mapas/mapas/ed4CiudadGranMendoza.pdf"><img class="descarga-mapa" src="img/tapas-mapas/Ed04Ciudad.jpg">
+          <a target="_blank" href="mapas/ed4CiudadGranMendoza.pdf"><img class="descarga-mapa" src="img/tapas-mapas/Ed04Ciudad.jpg">
           <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h3></a>
         </div>
         <div class="col-lg-4 text-center">
@@ -120,7 +120,7 @@
         </div>
         <div class="col-lg-4 text-center">
           <h4>LUJÁN DE CUYO • MAIPÚ • VALLE DE UCO</h4>
-          <a target="_blank" href="ed4LujanMaipuValledeUco.pdf"><img class="descarga-mapa" src="img/tapas-mapas/Ed04MaipuLujan.jpg">
+          <a target="_blank" href="mapas/ed4LujanMaipuValledeUco.pdf"><img class="descarga-mapa" src="img/tapas-mapas/Ed04MaipuLujan.jpg">
           <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h3></a>
         </div>
       </div>
