@@ -37,7 +37,12 @@ function getOpcionesReservaLocal(idLocal) {
     success: function (data) {
       $('.titulo').text(data.idNegocio.nombreNegocio + " | " + data.idNegocio.bajadaNegocio);
       $('#direccionLocal').text(data.calleLocal + espacio + data.alturaLocal);
-      var inicAdult = parseInt(data.minimoAdultos);
+      var inicAdult;
+      if (typeof(data.minimoAdultos) == "undefined") {
+        inicAdult = 1;
+      } else {
+        inicAdult = parseInt(data.minimoAdultos);
+      }
       var maxAdult = parseInt(data.maximoAdultos);
       var inicMen = parseInt(data.minimoMenores);
       var maxMen = parseInt(data.maximoMenores);
