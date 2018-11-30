@@ -356,6 +356,59 @@
          });
   });
 
+  $('#mdMarcNormal').on('show.bs.modal', function (event) {
+    $("#formDropZone3").html('');
+    $("#formDropZone3").append("<form id='dZUpload2' class='dropzone borde-dropzone' style='cursor: pointer;'>"+
+                              "<div class='dz-default dz-message text-center'>"+
+                                "<span><h2>Arrastra la imagen aquí</h2></span><br>"+
+                              "<p>(o Click para seleccionar)</p>"+
+                              "</div></form>");
+         myAwesomeDropzone3 = {
+           url: "scripts/mainMarcNormal.php",
+           addRemoveLinks: true,
+           paramName: "konostech3",
+           maxFilesize: 20, // MB
+           acceptedFiles: '.png',
+           dictRemoveFile: "Eliminar",
+           maxFiles: 1,
+           success: function (file, response) {           
+               var imgAppName = response;
+                nombreImgApp = imgAppName.trim();
+               var imgAppVieja = $("#imgPromocionApp").val();
+               if (imgAppVieja != '') {
+                 var accion = 'vieja';
+                eliminarImgApp(imgAppVieja, accion);
+               } 
+               $("#imgPromocionApp").val(nombreImgApp);
+               $('#contenedorImagenApp').append(  '<br>' +
+               '<li class="miniaturas-orden">'+
+                  '<a href="#">'+
+                    '<img class="miniatura-galeria" src="'+nombreImgApp+'">'+
+                  '</a>'+
+                 '<br>'+
+                 '<button title="Eliminar" onClick="eliminarImgApp(\'' + nombreImgApp + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i></button> '+
+               '</li>'+
+           '');
+
+               file.previewElement.classList.add("dz-success");
+              
+           },
+           error: function (file, response) {
+             file.previewElement.classList.add("dz-error");
+             myDropzone2.removeFile(file);
+           }
+           
+         } // FIN myAwesomeDropzone
+
+         var myDropzone3 = new Dropzone("#dZUpload3", myAwesomeDropzone3);    
+         myDropzone3.on("complete", function(file) {
+            if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {  
+           } else {
+             console.log('todavia hay archivos subiendose ');
+           }
+         });
+  });
+
   function cargarFormCrear() {
      limpiarForm();
      dibujarListadoLocales();
