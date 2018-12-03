@@ -279,6 +279,36 @@ include("includes/nav.php"); ?>
               <input type="text" id="imgPromocionApp" style="display:none"/> 
               </div>
 
+              <h5 class="titulosalta"> Cargar marcador Normal de mapa para la promoción </h5>
+              <p style="font-size:11px; color:#9f9f9f">Tamaño: 1080x1080px. Formato: png</p>
+
+              <div class="input-group input-group-sm">
+              <div class="input-group">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" style="padding: 17px;" data-toggle="modal"  data-target="#mdMarcNormal"><i class="fa fa-plus-square-o" aria-hidden="true"></i> CARGAR MARCADOR NORMAL</button>
+                      </span>
+              </div>
+              <div id="contenedorMarcadorNormal">
+
+              </div>
+              <input type="text" id="marcadorPromocionNormal" style="display:none"/> 
+              </div>
+
+              <h5 class="titulosalta"> Cargar marcador Seleccionado de mapa para la promoción </h5>
+              <p style="font-size:11px; color:#9f9f9f">Tamaño: 1080x1080px. Formato: png</p>
+
+              <div class="input-group input-group-sm">
+              <div class="input-group">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" style="padding: 17px;" data-toggle="modal"  data-target="#mdMarcSeleccionado"><i class="fa fa-plus-square-o" aria-hidden="true"></i> CARGAR MARCADOR SELECCIONADO</button>
+                      </span>
+              </div>
+              <div id="contenedorMarcadorSeleccionado">
+
+              </div>
+              <input type="text" id="marcadorPromocionSeleccionado" style="display:none"/> 
+              </div>
+
               <h5 class="titulosalta"> Duración de la promoción</h5>
 
               <div class="row">
@@ -642,6 +672,46 @@ include("includes/nav.php"); ?>
             <div class="modal-body">
             <div class="row">
               <div class="col-md-12" id="formDropZone2"></div>
+            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- Modal marcador Normal -->
+        <div id="mdMarcNormal" class="modal fade">
+        <div class="modal-dialog" style="width: 65%;">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Subir Marcador normal para la Promoción</h4>
+            </div>
+            <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12" id="formDropZone3"></div>
+            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- Modal marcador Seleccionado -->
+            <div id="mdMarcSeleccionado" class="modal fade">
+        <div class="modal-dialog" style="width: 65%;">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Subir Marcador seleccionado para la Promoción</h4>
+            </div>
+            <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12" id="formDropZone4"></div>
             </div>
             </div>
             <div class="modal-footer">
