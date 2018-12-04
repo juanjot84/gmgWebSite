@@ -68,6 +68,17 @@ session_start();
             document.addEventListener("touchstart", function() {}, false);
 
         </script>
+        
+        
+        <script>function muestra_oculta(id){
+if (document.getElementById){ //se obtiene el id
+var el = document.getElementById(id); //se define la variable "el" igual a nuestro div
+el.style.display = (el.style.display == 'none') ? 'block' : 'none'; //damos un atributo display:none que oculta el div
+}
+}
+window.onload = function(){/*hace que se cargue la función lo que predetermina que div estará oculto hasta llamar a la función nuevamente*/
+muestra_oculta('contenido');/* "contenido_a_mostrar" es el nombre que le dimos al DIV */
+}</script>
 
     </head>
 
@@ -160,7 +171,9 @@ session_start();
                                             <p class="textodatosficha"><i class="fa fa-map-marker datosficha" aria-hidden="true"></i> <span id="direccionLocal"></span></p>
                                         </li>
                                         <li>
-                                            <p class="textodatosficha"><i class="fa fa-phone datosficha" aria-hidden="true"></i><span id="telefonoLocal"></span> </p>
+                                            
+                                            <p class="textodatosficha"><i class="fa fa-phone datosficha" aria-hidden="true"></i><a style='cursor: pointer;' onClick="muestra_oculta('contenido')" title="" >Ver Teléfono</a></p>
+                                            <div id="contenido"><p class="textodatosficha"><span id="telefonoLocal"></span> </p></div>
                                         </li>
                                         <li>
                                             <p class="textodatosficha"><i class="fa fa-envelope-o datosficha" aria-hidden="true"></i><span id="mailLocal"></span> </p>
