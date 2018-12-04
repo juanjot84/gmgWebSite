@@ -605,51 +605,129 @@
     var duracionPromocionDesde = duracionPromocion.substr(0,10);
     var duracionPromocionHasta = duracionPromocion.substr(13,10);
     var localesSeleccionados = [];
-    var seleccionados = $('input[name=localCheck]:checked');
-      _.each(seleccionados, function(item){ 
-        localesSeleccionados.push(item.value);
-    })
+    var marcadorNormal = $("#marcadorPromocionNormal").val();
+    var marcadorSeleccionado = $("#marcadorPromocionSeleccionado").val();
 
-    var promocion = JSON.stringify({
-      "nombrePromocion": $("#nombrePromocion").val(),
-      "nombreCortoPromocion": $("#nombreCortoPromocion").val(),
-      "colorPromocion" : $("#colorPromocion").val(),
-      "colorSecundarioPromocion" : $("#colorsecundarioPromocion").val(),
-      "comisionPromocion": porcentaje,
-      "impactaEnReserva": impactaEnReserva,
-      "tipoVoucher": tipoVoucher,
-      "voucherPrimerUso": voucherPrimerUso,
-      "horarioPromocion": horarioPromocion,
-      "promocionFlexible": promocionFlexible,
-      "modalidadCobro": $("#modalidadCobro").val(),
-      "imagenWebPromocion": $("#imgPromocionWeb").val(),
-      "imagenAppPromocion": $("#imgPromocionApp").val(),
-      "iconoPromocion": $("#iconoPromocion").val(),
-      "marcadorPromocionNormal": $("#marcadorPromocionNormal").val(),
-      "marcadorPromocionSeleccionado": $("#marcadorPromocionSeleccionado").val(),
-      "terminosCondicionesPromocion": $("#terminosCondiciones").val(),
-      "rangoPromocion": rangosComisiones,
-      "duracionDesdePromocion": duracionPromocionDesde,
-      "duracionHastaPromocion": duracionPromocionHasta,
-      "idLocal": localesSeleccionados
-    });
-    $('#target').html('sending..');
-    var queryParam = isNew  ? "": "?id=" + $("#idPromocion").val();
-    $.ajax({
-      url: server + '/api/v1/admin/promocion' + queryParam,
-      type: operacion,
-      dataType: "json",
-      crossDomain: true,
-      contentType:"application/json",
-      success: function (data) {
-        var idPromocion = data._id;
-        deshabitarHorariosPromocion(idPromocion);
-      },
-      error:function(jqXHR,textStatus,errorThrown)
-      {
-    },
-    data: promocion
-    });
+    if (marcadorNormal == "" || marcadorSeleccionado == "") {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {      
+            $.ajax({
+                url: server + '/api/v2/admin/configuraciones',
+                type: 'POST',
+                
+                dataType: "json",
+                crossDomain: true,
+                contentType:"application/json",
+                success: function (data) {
+                  _.each(data, function (configuracion) {
+                    marcadorNormal = configuracion.marcadorMapaNormal;
+                    marcadorSeleccionado = configuracion.marcadorMapaSeleccionado;
+                  });
+                  var seleccionados = $('input[name=localCheck]:checked');
+                  _.each(seleccionados, function(item){ 
+                    localesSeleccionados.push(item.value);
+                })
+            
+                var promocion = JSON.stringify({
+                  "nombrePromocion": $("#nombrePromocion").val(),
+                  "nombreCortoPromocion": $("#nombreCortoPromocion").val(),
+                  "colorPromocion" : $("#colorPromocion").val(),
+                  "colorSecundarioPromocion" : $("#colorsecundarioPromocion").val(),
+                  "comisionPromocion": porcentaje,
+                  "impactaEnReserva": impactaEnReserva,
+                  "tipoVoucher": tipoVoucher,
+                  "voucherPrimerUso": voucherPrimerUso,
+                  "horarioPromocion": horarioPromocion,
+                  "promocionFlexible": promocionFlexible,
+                  "modalidadCobro": $("#modalidadCobro").val(),
+                  "imagenWebPromocion": $("#imgPromocionWeb").val(),
+                  "imagenAppPromocion": $("#imgPromocionApp").val(),
+                  "iconoPromocion": $("#iconoPromocion").val(),
+                  "marcadorPromocionNormal": marcadorNormal,
+                  "marcadorPromocionSeleccionado": marcadorSeleccionado,
+                  "terminosCondicionesPromocion": $("#terminosCondiciones").val(),
+                  "rangoPromocion": rangosComisiones,
+                  "duracionDesdePromocion": duracionPromocionDesde,
+                  "duracionHastaPromocion": duracionPromocionHasta,
+                  "idLocal": localesSeleccionados
+                });
+                $('#target').html('sending..');
+                var queryParam = isNew  ? "": "?id=" + $("#idPromocion").val();
+                $.ajax({
+                  url: server + '/api/v1/admin/promocion' + queryParam,
+                  type: operacion,
+                  dataType: "json",
+                  crossDomain: true,
+                  contentType:"application/json",
+                  success: function (data) {
+                    var idPromocion = data._id;
+                    deshabitarHorariosPromocion(idPromocion);
+                  },
+                  error:function(jqXHR,textStatus,errorThrown)
+                  {
+                },
+                data: promocion
+                });
+
+              },
+              error:function(jqXHR,textStatus,errorThrown)
+              {
+                  $('#target').append("jqXHR: "+jqXHR);
+                  $('#target').append("textStatus: "+textStatus);
+                  $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+              },
+          });
+        });
+    } else {
+
+            var seleccionados = $('input[name=localCheck]:checked');
+            _.each(seleccionados, function(item){ 
+              localesSeleccionados.push(item.value);
+          })
+
+          var promocion = JSON.stringify({
+            "nombrePromocion": $("#nombrePromocion").val(),
+            "nombreCortoPromocion": $("#nombreCortoPromocion").val(),
+            "colorPromocion" : $("#colorPromocion").val(),
+            "colorSecundarioPromocion" : $("#colorsecundarioPromocion").val(),
+            "comisionPromocion": porcentaje,
+            "impactaEnReserva": impactaEnReserva,
+            "tipoVoucher": tipoVoucher,
+            "voucherPrimerUso": voucherPrimerUso,
+            "horarioPromocion": horarioPromocion,
+            "promocionFlexible": promocionFlexible,
+            "modalidadCobro": $("#modalidadCobro").val(),
+            "imagenWebPromocion": $("#imgPromocionWeb").val(),
+            "imagenAppPromocion": $("#imgPromocionApp").val(),
+            "iconoPromocion": $("#iconoPromocion").val(),
+            "marcadorPromocionNormal": marcadorNormal,
+            "marcadorPromocionSeleccionado": marcadorSeleccionado,
+            "terminosCondicionesPromocion": $("#terminosCondiciones").val(),
+            "rangoPromocion": rangosComisiones,
+            "duracionDesdePromocion": duracionPromocionDesde,
+            "duracionHastaPromocion": duracionPromocionHasta,
+            "idLocal": localesSeleccionados
+          });
+          $('#target').html('sending..');
+          var queryParam = isNew  ? "": "?id=" + $("#idPromocion").val();
+          $.ajax({
+            url: server + '/api/v1/admin/promocion' + queryParam,
+            type: operacion,
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+              var idPromocion = data._id;
+              deshabitarHorariosPromocion(idPromocion);
+            },
+            error:function(jqXHR,textStatus,errorThrown)
+            {
+          },
+          data: promocion
+          });
+
+    }
+
+
   }
 
   function deshabitarHorariosPromocion(idPromocion) {
@@ -676,6 +754,7 @@
     });
   
   }
+
 
   function editarPromocion(idPromocion) {
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
