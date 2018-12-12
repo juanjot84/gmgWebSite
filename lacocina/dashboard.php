@@ -77,8 +77,8 @@
                         </div>
                         
                     </div>
-                    <div class="col-xs-5 mobile">
-                       <img src="img/LogoResto.png">
+                    <div id="logoNegocio2" class="col-xs-5 mobile">
+                       
                     </div>
                    
                     <div class="col-md-4 web">
