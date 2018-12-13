@@ -995,14 +995,22 @@
               if (promocion.visible == false) {
                 estadoVisible = "fa fa-eye-slash";
               }
+              var f = new Date();
+              fecha = f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+              var fechaHoy = new Date(fecha);
+              var fechaFin = new Date(promocion.duracionHastaPromocion);
+              var colorAlerta = '';
+              if ( fechaHoy >  fechaFin ) {
+                  colorAlerta = 'style="color:red"';
+              } else {
+                  colorAlerta = '';
+              }
               $('#listadoPromociones').append('' +
-                '<tr class="text-center">'+
+                '<tr class="text-center" '+ colorAlerta +'>'+
                   '<td>'+contPromociones+'</td>'+
                   '<td>'+promocion.nombrePromocion+'</td>'+
-                  '<td>'+comision+'</td>'+
-                  '<td>-</td>'+
-                  '<td>-</td>'+
-                  '<td>-</td>'+
+                  '<td>'+promocion.duracionDesdePromocion+'</td>'+
+                  '<td>'+promocion.duracionHastaPromocion+'</td>'+
                   '<td class="centrarbotaccion">'+
                     '<button onclick="actualizarVisible(\'' + promocion._id + '\',\'' + promocion.visible + '\')" title="Activar / desactivar" class="btn btn-default botaccion" type="button">'+
                       '<i style="font-size: 1.5em;" class="'+estadoVisible+'" aria-hidden="true"></i>'+

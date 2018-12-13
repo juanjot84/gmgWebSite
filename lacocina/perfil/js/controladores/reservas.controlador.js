@@ -179,7 +179,9 @@ function renderReservas(reservasLocal){
           var editar = 'editar';
           var clasificar = '<td class="columsietepchon"></td>';
 
-          if (reserva.medioReserva == 'gmg') {
+          if (reserva.medioReserva == 'gmg' && tipoUsuario == 'superAdmin') {
+            medioDeReserva = '<img title="Medio de reserva" src="imgs/guia.png" aria-hidden="true">';
+          } else if (reserva.medioReserva == 'gmg' && tipoUsuario == 'usuarioNegocio') {
             medioDeReserva = '<img title="Medio de reserva" src="imgs/guia.png" aria-hidden="true">';
             ocultarEliminar = 'style="display:none"';
           } else if(reserva.medioReserva == 'facebook') {
@@ -407,18 +409,21 @@ function renderReservasProximas(reservasLocal){
          var cancelar = 'cancelar';
          var editar = 'editar';
 
-         if (reserva.medioReserva == 'gmg') {
+         if (reserva.medioReserva == 'gmg' && tipoUsuario == 'superAdmin') {
+          medioDeReserva = '<img title="Medio de reserva" src="imgs/guia.png" aria-hidden="true">';
+        } else if (reserva.medioReserva == 'gmg' && tipoUsuario == 'usuarioNegocio') {
           medioDeReserva = '<img title="Medio de reserva" src="imgs/guia.png" aria-hidden="true">';
           ocultarEliminar = 'style="display:none"';
-        } else if(reserva.medioReserva == 'facebook') {
+        } 
+        else if (reserva.medioReserva == 'facebook') {
           medioDeReserva = '<i title="Medio de reserva" class="fa fa-facebook" aria-hidden="true"></i>';
-        } else if(reserva.medioReserva == 'instagram') {
+        } else if (reserva.medioReserva == 'instagram') {
           medioDeReserva = '<i title="Medio de reserva" class="fa fa-instagram" aria-hidden="true"></i>';
-        } else if(reserva.medioReserva == 'phone') {
+        } else if (reserva.medioReserva == 'phone') {
           medioDeReserva = '<i title="Medio de reserva" class="fa fa-phone" aria-hidden="true"></i>';
-        } else if(reserva.medioReserva == 'whatsapp') {
+        } else if (reserva.medioReserva == 'whatsapp') {
           medioDeReserva = '<i title="Medio de reserva" class="fa fa-whatsapp" aria-hidden="true"></i>';
-        } else if(reserva.medioReserva == 'mail') {
+        } else if (reserva.medioReserva == 'mail') {
           medioDeReserva = '<i title="Medio de reserva" class="fa fa-envelope-o" aria-hidden="true"></i>'; 
         } else {
             medioDeReserva = '<i title="Medio de reserva" class="fa fa-globe" aria-hidden="true"></i>';

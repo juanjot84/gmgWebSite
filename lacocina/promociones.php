@@ -596,10 +596,8 @@ include("includes/nav.php"); ?>
                   <tr> 
                       <th>#</th>
                       <th style="text-align: center;">Nombre</th>
-                      <th style="text-align: center;">Porcentaje</th>
                       <th style="text-align: center;">Desde:</th>
                       <th style="text-align: center;">Hasta:</th>
-                      <th style="text-align: center;">Valor $</th>
                       <th style="text-align: center;">Visible</th>
                       <th style="text-align: center;">Acción</th>
                   </tr>
