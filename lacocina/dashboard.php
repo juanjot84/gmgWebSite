@@ -71,15 +71,22 @@
             <nav class="navbar navbar-expand-md navbar-dark fixed-top">
 
                 <div class="row">
-                    <div class="col-xs-5 mobile">
-                        <div id="navCel" class="dropdown">
+                      
+                      <div class="row">
+                          
+                          <div id="logoNegocio2" class="col-12 mobile ">
+                       
+                    </div>
+                      
+                       <div class="col-12 mobile ">
+                        <div id="navCel" class="dropdown ">
                            
                         </div>
                         
                     </div>
-                    <div id="logoNegocio2" class="col-xs-5 mobile">
-                       
-                    </div>
+                      </div>
+                      
+                  
                    
                     <div class="col-md-4 web">
                         <img src="img/logo-lacocina.png" class="mx-auto d-block ">
