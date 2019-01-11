@@ -319,7 +319,7 @@ function buscarFavoritos(local){
 
       $("#iconoFavorito").append('<h3 class="titulo"><span id="nombreNegocio">'+local.idNegocio.nombreNegocio+'</span>  <span id="bajadaNegocio">'+bajadaNegocio+'</span>'+
       '<i id="corazon" style="cursor:pointer;" class="'+iconoCorazon+'" aria-hidden="true" onClick="editarFavorito(\'' + local._id + '\',\'' + idFavorito + '\')"></i></h3>'+
-      '<p ><i class="fa fa-map-marker iconoficha" aria-hidden="true"></i> <span id="polo">' + nombrePolo + '</span> | <i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' +tipoCocina +'</span>'+
+      '<p ><i class="fa fa-map-marker iconoficha" aria-hidden="true"></i> <span id="polo">' + nombrePolo + '</span> | ' + getTipoNegocioSimbolo(local) + '<span class="tiponegocio">  ' +tipoCocina +'</span>'+
       mostrarHorarioApertura(local) +
       '</p>');
 
@@ -331,7 +331,8 @@ function buscarFavoritos(local){
       '<i id="corazon" style="cursor:pointer;" class="'+iconoCorazon+'" aria-hidden="true" ></i></h3>'+
       '<p >' +
         '<i class="fa fa-map-marker iconoficha" aria-hidden="true"></i> <span id="polo">' + nombrePolo + ' </span>|  ' +
-        '<i class="fa fa-cutlery iconoficha" aria-hidden="true"></i><span class="tiponegocio">  ' +tipoCocina +'</span>' +
+          getTipoNegocioSimbolo(local) +
+          '<span class="tiponegocio">  ' +tipoCocina +'</span>' +
           mostrarHorarioApertura(local) +
        '</p>');
 
@@ -351,6 +352,15 @@ function buscarFavoritos(local){
          Authorization: 'JWT ' + jwt
      }
  });}
+}
+
+function getTipoNegocioSimbolo(local) {
+  var tipoNegocio = _.find(tiposNegocios, {_id: local.idNegocio.idTipoNegocio});
+  
+  return tipoNegocio.nombreTipoNegocio === 'Restaurante' ?
+      '<i class="fa fa-cutlery iconoficha" aria-hidden="true"></i>'
+      : '<i class="fa fa-glass iconoficha" aria-hidden="true"></i>' ;
+  
 }
 
 function mostrarHorarioApertura(local){
