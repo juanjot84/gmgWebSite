@@ -1,3 +1,5 @@
+var tiposNegocios = [];
+
 function obtenerListadoTiposNegocio() {
   $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
     $('.container.ocasiones').html('');
@@ -9,6 +11,7 @@ function obtenerListadoTiposNegocio() {
         crossDomain: true,
         contentType:"application/json",
         success: function (data) {
+          tiposNegocios = data;
           renderMenu(data);
       },
       error:function(jqXHR,textStatus,errorThrown)
