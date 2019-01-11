@@ -2101,6 +2101,8 @@ header {
 
 
 
+
+
 @media only screen
   and (min-device-width: 320px) 
   and (max-device-width: 736px)
@@ -2122,14 +2124,33 @@ header {
 
 /*
 
-@media only screen and (max-width: 760px) { 
+/*****************BTN PARA IR A GOOGLE MAPS*/
+
+
+.btn-maps {
+    display: none
+}
+
+
+@media only screen
+  and (min-device-width: 320px) 
+  and (max-device-width: 736px)
+{
     
+   .btn-maps {
+    display: block
+}
     
+    a.btn-maps {
+        color:#000;
+        border:1px solid #f8981d;
+        text-align: center;
+        padding: 10px;
+        width: 50%;
+        margin: 10px auto 30px auto;
+        color:#fff;
+        background-color:#f8981d
+    } 
+}
 
-
-
- 
-}*/
-
-
-
+/*****************************************/
