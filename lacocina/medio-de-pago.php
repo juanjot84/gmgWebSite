@@ -1,0 +1,174 @@
+<?php 
+error_reporting(E_ERROR);
+session_start();
+
+$idNegocio = $_SESSION['idNegocio'];
+$tipoUsuario = $_SESSION['tipoUsuario'];
+
+
+if (!$_SESSION) {
+       header('Location: index.php');
+} else {
+    if ($tipoUsuario == 'superAdmin') {
+        
+    } else {
+        header('Location: index.php');
+    }
+}
+
+?>
+<?php 
+error_reporting(E_ERROR);
+include("includes/head.php"); ?>
+
+<body id="page-top" class="index">
+
+
+<?php 
+error_reporting(E_ERROR);
+include("includes/nav.php"); ?>
+
+<center><div id="loading"></div></center>
+
+<div class="container-fluid" style="padding: 1%; background: #fff; margin-top: -21px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+
+      </div>
+      <div class="col-md-6" style="text-align: right;">
+        <div class="input-group">
+          <span class="input-group-btn">
+            <button class="botonagregarnuevo btn btn-default" type="button" style="padding: 17px;" onClick="agregarMedioPago()"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVO</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+
+    <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+
+
+            <form action="" id="formularioAgregar" style="display:none">
+
+              <input type="text" name="idMedioPago" id="idMedioPago" class="hidden">
+            
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                <input id="nombreMedioPago" name="nombreMedioPago" type="text" class="form-control" placeholder="Nombre del Medio de pago" aria-describedby="sizing-addon3">
+              </div></p>
+            
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                <input id="descripcionMedioPago" name="descripcionMedioPago" type="text" class="form-control" placeholder="Descripción del Medio de pago" aria-describedby="sizing-addon3">
+              </div></p>
+
+             <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                <input id="iconoMedioPago" name="iconoMedioPago" type="text" class="form-control" placeholder="Nombre de Imagen del Medio de pago" aria-describedby="sizing-addon3">
+              </div></p>
+
+              <div class="input-group">
+                 <span class="input-group-btn">
+                  <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="send()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+                  <button id="botoncancelar" class="btn btn-default" type="button" style="padding: 17px;" onClick="cancelar()"><i class="fa fa-ban" aria-hidden="true"></i> Cancelar</button>
+                </span>
+              </div>
+            </form>
+
+                  <!-- Table -->
+                  <div class="panel-heading tituloseccion">Formas de pago</div>
+                    <table class="table">
+                        <thead class="titulotabla">
+                            <tr> 
+                                <th >#</th>
+                                    <th >Medio de pago</th>
+                                    <th style="text-align: left;">Icono de Medio de pago</th>
+                                    <th style="text-align: center;">Acción</th>
+                                </tr>
+                        </thead>
+                        <tbody id="listadoMedioPago">
+                           
+                        </tbody>
+                    </table>
+                    
+
+
+<div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>No se pudo eliminar El Medio de Pago</h3>
+     </div>
+         <div class="modal-body">
+            <h5>Este Medio de Pago tiene Locales asociados</h5>
+
+     </div>
+         <div class="modal-footer">
+        <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+     </div>
+      </div>
+   </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        
+    <?php 
+    error_reporting(E_ERROR);
+    include("includes/footer.php"); ?>
+    
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="../js/jqBootstrapValidation.js"></script>
+    <script src="../js/contact_me.js"></script>
+
+        <!-- Funciones de Servicios JavaScript -->
+    <script src="js/controladores/medioPago.controlador.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="../js/agency.min.js"></script>
+
+    <script type="text/javascript">
+        
+
+    $(function() {
+
+    $('#login-form-link').click(function(e) {
+        $("#login-form").delay(100).fadeIn(100);
+        $("#register-form").fadeOut(100);
+        $('#register-form-link').removeClass('active');
+        $(this).addClass('active');
+        e.preventDefault();
+    });
+    $('#register-form-link').click(function(e) {
+        $("#register-form").delay(100).fadeIn(100);
+        $("#login-form").fadeOut(100);
+        $('#login-form-link').removeClass('active');
+        $(this).addClass('active');
+        e.preventDefault();
+    });
+
+    });
+
+</script>
+
+</body>
+
+</html>

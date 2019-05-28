@@ -1,0 +1,400 @@
+
+    $(function() {
+
+        $('#login-form-link').click(function(e) {
+            $("#login-form").delay(100).fadeIn(100);
+            $("#register-form").fadeOut(100);
+            $('#register-form-link').removeClass('active');
+            $(this).addClass('active');
+            e.preventDefault();
+        });
+        $('#register-form-link').click(function(e) {
+            $("#register-form").delay(100).fadeIn(100);
+            $("#login-form").fadeOut(100);
+            $('#login-form-link').removeClass('active');
+            $(this).addClass('active');
+            e.preventDefault();
+        });
+    });
+
+    function iniciar(accion){
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        if(accion == 'locales'){
+          obtenerListado();
+        }else if(accion == 'panel'){
+          buscarTipoNegocio();
+          nombreLocal();
+        }
+      });
+    }
+
+    function buscarTipoNegocio(){
+      var idNegocio = $("#idNegocio").val();
+      $.ajax({
+       url: server + '/api/v1/admin/negocio?id='+ idNegocio +"",
+       type: 'GET',
+
+       dataType: "json",
+       crossDomain: true,
+       contentType:"application/json",
+       success: function (data) {
+         var negocio = data;
+         var tipoNegocio = negocio.idTipoNegocio.nombreTipoNegocio;
+         $("#menuGeneral").hide();
+         if(tipoNegocio != 'Restaurante'){
+           $("#columna2").show();
+           $("#datosSucursal").show();
+          $("#menuGeneral").show();
+          $("#columna1").show();
+          $("#cargarImagen").show();
+         }else{
+          $("#columna1").removeClass('col-md-offset-2');
+          $("#columna2").removeClass('col-md-offset-2');
+          $("#columna2").show();
+          $("#datosSucursal").show();
+          $("#columna1").show();
+          $("#reservasRealizadas").show();
+          $("#configReservas").show();
+          $("#descuentos").show();
+          $("#remarketing").show();
+          $("#calificaciones").show();
+          $("#menuGeneral").show();
+          $("#cargarImagen").show();
+          $("#promociones").show();
+         }
+
+       },
+       error:function(jqXHR,textStatus,errorThrown)
+       {
+         $('#target').append("jqXHR: "+jqXHR);
+         $('#target').append("textStatus: "+textStatus);
+         $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+       },
+     });
+
+   }
+
+    var idContacto;
+
+    function obtenerListado() {
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }
+        $('#listadoLocal').html('');
+        $('#target').html('obteniendo...');
+        $.ajax({
+            url: server + '/api/v1/admin/localesXNegocio?idNegocio=' + $('#idNegocio').val(),
+            type: 'GET',
+
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+                locales = data;
+                var idNegocioRecibido = $('#idNegocio').val();
+                var tipoUsuario = $("#tipoUs").val();
+                $('#cabeceraTablaNegocios').html('');
+            if(tipoUsuario=='superAdmin'){
+              $('#cabeceraTablaNegocios').append(''+
+               '<div class="panel-heading tituloseccion" style="display: none">Negocios</div>'+
+                   '<table class="table" >'+
+                        '<thead class="titulotabla">'+
+                            '<tr>'+
+                                '<th >#</th>'+
+                                    '<th >Nombre Negocio</th>'+
+                                    '<th >Dirección</th>'+
+                                    '<th style="text-align: center;">Precio</th>'+
+                                    '<th style="text-align: center;">Premium</th>'+
+                                    '<th style="text-align: center;">Acción</th>'+
+                                '</tr>'+
+                        '</thead>'+
+                        '<tbody id="listadoLocal">'+
+               '');
+              var premiumLocal;
+
+              _.each(data, function(local){
+                if(local.localPremium){
+                  premiumLocal='fa fa-check-circle';
+                }else{
+                  premiumLocal='fa fa-check-circle-o';
+                }
+
+                $('#listadoLocal').append(' <tr>' +
+                    '<th scope="row" style="font-size: 1.5em;">1</th>' +
+                    '<td>' +local.idNegocio.nombreNegocio+'</td><td>' + local.calleLocal+' ( '+local.alturaLocal+' )</td></td><td class="centrarbotdescado">$$$</td>'+
+                    '<td class="centrarbotdescado"><button title="Cambiar Destacado" onClick="actualizarPremium(\'' + local._id + '\',\''+local.localPremium+'\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="'+premiumLocal+'" aria-hidden="true"></i></button></td><td class="centrarbotaccion">' +
+                    '<button onClick="editarLocal(\'' + local._id + '\')" title="Editar" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-pencil-square-o" aria-hidden="true"></i></button> ' +
+                    '<button title="Eliminar" onClick="eliminar(\'' + local._id + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i> </button> ' +
+                    '</td> ' +
+                    '</tr>');
+
+              });
+              $('#cabeceraTablaNegocios').append(''+
+                      '</tbody>'+
+                    '</table>'+
+                  '<center><div id="loading"></div></center>'+
+                '');
+
+            }else{
+              _.each(data, function(local){
+                var longNivelPrecio = 0;
+                var label = '';
+                if(local.idNivelPrecio == null){
+                  longNivelPrecio = 0;
+                }else{
+                  longNivelPrecio = local.idNivelPrecio.label.length;
+                  label = local.idNivelPrecio.label;
+                }
+
+                var nivelGris = 5 - longNivelPrecio;
+                var labelGrises = '';
+                 for(i = 0; i < nivelGris; i++){
+                   labelGrises += '$'
+                 }
+                if(local.localPremium){
+                  premiumLocal = 'fa fa-check-circle';
+                }else{
+                  premiumLocal = 'fa fa-check-circle-o';
+                }
+                $('#estiloUsuarioNegocio').append(''+
+
+                  '<div class="col-md-4">'+
+                    '<div class="row">'+
+                      '<div class="col-md-12">'+
+                       '<img class="img-responsive imgeditsurcusal" src="'+local.fotoPrincipalLocal+'">'+
+                        '<p><span style="font-size: 1.5em;"><strong>'+local.nombreLocal+'</strong></p>'+
+                        '<p><i class="fa fa-map-marker iconoficha" aria-hidden="true"></i><span class="polo">'+local.calleLocal+' ( '+local.alturaLocal+' )</span></p>'+
+                        '<p>Nivel de precio: <strong style="letter-spacing: 1px;">'+label+'</strong><span style="color: #cbcbcb">'+labelGrises+'</span></p>'+
+                        '<p>Ficha premium <i class="'+premiumLocal+' iconoficha" aria-hidden="true"></i></p>'+
+                        '<p style="text-align: center;">'+
+                         '<button onClick="editarLocal(\'' + local._id + '\')" title="Editar" class="btn btn-default botaccion" type="button" style="border: 1px solid #e9e9e9;"><i style="font-size: 1.5em; vertical-align: middle;" class="fa fa-pencil-square-o" aria-hidden="true"></i> <strong>Editar sucursal</strong></button>'+
+                        '</p>'+
+                      '</div>'+
+                    '</div>'+
+                  '</div>'+
+
+                '');
+              });
+            }
+
+          },
+          error:function(jqXHR,textStatus,errorThrown)
+          {
+              $('#target').append("jqXHR: "+jqXHR);
+              $('#target').append("textStatus: "+textStatus);
+              $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+          },
+      });
+    }
+
+    function eliminar(idLocal){
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }
+
+      $.ajax({
+            url: server + '/api/v1/admin/locales?id=' + idLocal,
+            type: 'DELETE',
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+                  obtenerListado();
+             },
+            error:function(jqXHR,textStatus,errorThrown){
+              obtenerListado();
+            }
+      });
+    }
+
+    function crearLocal(){
+      var idNegocio = $("#idNegocio").val();
+      var url = "../lacocina/local.php?idNegocio="+idNegocio+"";
+      $(location).attr('href',url);
+    }
+
+    function cargarForm(formulario){
+      if(formulario == "local"){
+       var idLocal = $("#idLocal").val();
+       var idNegocio = $("#idNegocio").val();
+       var url = "../lacocina/datos-generales-local.php?idLocal="+ idLocal+"&idNegocio="+idNegocio+"";
+       $(location).attr('href',url);
+      }
+    }
+
+    function editarLocal(idLocal){
+       var idNegocio = $("#idNegocio").val();
+       var url = "../lacocina/panel-locales.php?idLocal="+idLocal+"&idNegocio="+idNegocio+"";
+       $(location).attr('href',url);
+    }
+
+    function verReservas(){
+      var idLocal = $("#idLocal").val();
+      var url = "perfil/reservas.php?id="+idLocal+"";
+      $(location).attr('href',url);
+   }
+
+    function cargarLocales(){
+       var idNegocio = $("#idNegocio").val();
+       var url = "../lacocina/locales.php?idNegocio="+idNegocio+"";
+       $(location).attr('href',url);
+    }
+
+    function volverPanelNegocio(){
+      var tipoUsuario = $("#tipoUs").val();
+      if(tipoUsuario == 'usuarioNegocio'){
+          var url = "../lacocina/perfil/mi-perfil.php";
+          $(location).attr('href',url);
+      }else if(tipoUsuario == 'superAdmin'){
+       var idNegocio = $("#idNegocio").val();
+       var url = "../lacocina/panel-negocio.php?idNegocio="+idNegocio+"";
+       $(location).attr('href',url);
+      }
+    }
+
+    function editarContacto(){
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }
+      var idLocal = $("#idLocal").val();
+      var idContacto
+
+        $('#target').html('obteniendo...');
+        $.ajax({
+            url: server + '/api/v1/admin/locales?id='+idLocal,
+            type: 'GET',
+
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+                locales = data;
+
+                if (typeof(locales.idContacto) == "undefined"){
+                  idContacto = 'creEd';
+               }else{
+                idContacto = locales.idContacto._id;
+               }
+                var url = "../lacocina/editar-contacto.php?idLocal="+idLocal+"&idContacto="+idContacto+"";
+                $(location).attr('href',url);
+          },
+          error:function(jqXHR,textStatus,errorThrown)
+          {
+              $('#target').append("jqXHR: "+jqXHR);
+              $('#target').append("textStatus: "+textStatus);
+              $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+          },
+      });
+    }
+
+    function nombreLocal(){
+      if (_.isUndefined(server)) {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+        });
+      }
+      var idLocal = $("#idLocal").val();
+
+        $('#target').html('obteniendo...');
+        $.ajax({
+            url: server + '/api/v1/admin/locales?id='+idLocal,
+            type: 'GET',
+
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+              var nombreLocal = data.nombreLocal;
+              $("#nombreLocalN").append('Sucursal: '+nombreLocal);
+          },
+          error:function(jqXHR,textStatus,errorThrown)
+          {
+              $('#target').append("jqXHR: "+jqXHR);
+              $('#target').append("textStatus: "+textStatus);
+              $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+          },
+      });
+    }
+
+    function editarDescuentos(){
+      var idLocal = $("#idLocal").val();
+      var url = "../lacocina/editar-descuentos.php?idLocal="+idLocal+"";
+      $(location).attr('href',url);
+    }
+
+    function editarCubiertos(){
+      var idLocal = $("#idLocal").val();
+      var url = "../lacocina/editar-cubiertos.php?idLocal="+idLocal+"";
+      $(location).attr('href',url);
+    }
+
+    function editarHorarios(){
+      var idLocal = $("#idLocal").val();
+      var url = "../lacocina/editar-horarios.php?idLocal="+idLocal+"";
+      $(location).attr('href',url);
+    }
+
+    function nuevoLocal(){
+        var negocioCreado = $("#idNegocio").val();
+        var url = "../lacocina/local.php?idNegocio="+ negocioCreado+"";
+        $(location).attr('href',url);
+    }
+    function cargarImagenes(){
+      var idLocal = $("#idLocal").val();
+       var url = "../lacocina/subir-imagen.php?idLocal="+idLocal+"";
+       $(location).attr('href',url);
+    }
+    function verCalificaciones(){
+      var idLocal = $("#idLocal").val();
+       var url = "../lacocina/perfil/calificaciones.php?idLocal="+idLocal+"";
+       $(location).attr('href',url);
+    }
+
+  function actualizarPremium(idLocal, valorActual){
+    if (_.isUndefined(server)) {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      });
+    }
+    var valorAActualizar;
+
+    if(valorActual == 'true'){
+      valorAActualizar = false;
+    }else{
+      valorAActualizar = true;
+    }
+
+    var campoAAcuatualizar = 'localPremium';
+
+    var promise = new Promise(function(resolve, reject) {
+    var nuevoCampo = {};
+    nuevoCampo[campoAAcuatualizar] = valorAActualizar;
+
+    $.ajax({
+      url: server + '/api/v1/admin/local?id=' + idLocal,
+      type: 'PUT',
+
+      dataType: "json",
+      crossDomain: true,
+      contentType: "application/json",
+      success: function (data) {
+        obtenerListado();
+        resolve(data);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        reject(errorThrown);
+      },
+      data: JSON.stringify(nuevoCampo)
+    });
+
+  });
+
+  return promise;
+}
+
+function cargarPromociones(){
+  var idLocal = $("#idLocal").val();
+  var url = "../lacocina/editar-promociones.php?idLocal="+idLocal+"";
+  $(location).attr('href',url);
+}

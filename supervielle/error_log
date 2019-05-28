@@ -1,0 +1,2 @@
+[10-Nov-2018 09:42:42 America/Chicago] PHP Warning:  session_start(): Cannot send session cookie - headers already sent by (output started at /home/demofj/public_html/supervielle/index.php:37) in /home/demofj/public_html/supervielle/index.php on line 60
+[10-Nov-2018 09:42:42 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/demofj/public_html/supervielle/index.php:37) in /home/demofj/public_html/supervielle/index.php on line 60

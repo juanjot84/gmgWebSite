@@ -1,0 +1,300 @@
+<?php 
+error_reporting(E_ERROR);
+session_start();
+
+$idNegocio = $_SESSION['idNegocio'];
+$tipoUsuario = $_SESSION['tipoUsuario'];
+
+
+if (!$_SESSION) {
+       header('Location: index.php');
+} else {
+    if ($tipoUsuario == 'superAdmin') {
+        
+    } else {
+        header('Location: index.php');
+    }
+}
+
+?>
+
+<?php 
+error_reporting(E_ERROR);
+include("includes/head.php"); ?>
+
+
+<body id="page-top" class="index">
+
+
+<?php 
+error_reporting(E_ERROR);
+include("includes/nav.php"); ?>
+
+<center><div id="loading"></div></center>
+
+    <div class="container-fluid" style="padding: 1%; background: #fff; margin-top: -21px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-6" style="text-align: right;">
+                    <div class="input-group">
+                      <span class="input-group-btn">
+                        <button class="botonagregarnuevo btn btn-default" type="button" style="padding: 17px;" onClick="agregarNegocio()"><i class="fa fa-plus-square-o" aria-hidden="true"></i> AGREGAR NUEVO</button>
+                      </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                 <!-- Table -->
+
+          <!-- Formulario de alta negocio -->
+            <form action="" id="formularioAgregar" style="display:none">
+
+            <h2 class="tituloseccion">Alta Negocio</h2>
+ 
+              <input type="text" name="idNegocio" id="idNegocio" class="hidden">
+
+             <h5 class="titulosalta"> Nombre del Negocio</h5>
+ 
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                <input id="nombreNegocio" name="nombreNegocio" type="text" class="form-control" placeholder="Nombre del Negocio" aria-describedby="sizing-addon3" onfocus="limpiar('nombreNegocio')" required>
+              </div></p>
+
+              <h5 class="titulosalta"> Tipo de Negocio</h5>
+ 
+               <p><div class="input-group input-group-sm">
+                    <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                    <select id="tipoNegocio" name="tipoNegocio" class="form-control" onfocus="limpiar('tipoNegocio')" required></select>
+              </div></p>
+
+              <h5 class="titulosalta"> Negocio Destacado</h5>
+
+              <p>
+                <label class="radio-inline"><input type="radio" name="destacadoNegocio" id="destacadoNegocio-true" value="true">Si</label>
+                <label class="radio-inline"><input type="radio" name="destacadoNegocio" id="destacadoNegocio-false" value="false" checked="checked">No</label>
+              </p>
+
+              <h5 class="titulosalta"> Bajada Negocio</h5>
+ 
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></span>
+                <input id="bajadaNegocio" name="bajadaNegocio" type="text" class="form-control" placeholder="Bajada del Negocio" aria-describedby="sizing-addon3" onfocus="limpiar('bajadaNegocio')" required>
+              </div></p>
+
+              <h5 class="titulosalta"> Logo de Negocio</h5>
+
+              <div class="input-group input-group-sm">
+              <div class="input-group">
+                <span class="input-group-btn">
+                <button class="btn btn-default" type="button" style="padding: 17px;" data-toggle="modal"  data-target="#mdlImgMenu"><i class="fa fa-plus-square-o" aria-hidden="true"></i> CARGAR LOGO</button>
+                </span>
+              </div>
+              <div id="contenedorImagenWeb">
+
+              </div>
+                <input type="text" id="logoNegocio" style="display:none"/> 
+              </div>
+
+              <h5 class="titulosalta"> Página web del negocio</h5>
+
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-globe" aria-hidden="true"></i></span>
+                <input id="webNegocio" name="webNegocio" type="text" class="form-control" placeholder="http://..." aria-describedby="sizing-addon3">
+              </div></p>
+
+              <h5 class="titulosalta"> Datos de contacto de redes sociales</h5>
+
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-facebook-official" aria-hidden="true"></i></span>
+                <input id="facebookNegocio" name="facebookNegocio" type="text" class="form-control" placeholder="Facebook del Negocio" aria-describedby="sizing-addon3">
+              </div></p>
+
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-instagram" aria-hidden="true"></i></span>
+                <input id="instagramNegocio" name="instagramNegocio" type="text" class="form-control" placeholder="Instagram del Negocio" aria-describedby="sizing-addon3">
+              </div></p>
+
+             <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-twitter" aria-hidden="true"></i></span>
+                <input id="twitterNegocio" name="twitterNegocio" type="text" class="form-control" placeholder="Twitter del Negocio" aria-describedby="sizing-addon3">
+              </div></p>
+
+              <p><div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-tripadvisor" aria-hidden="true"></i></span>
+                <input id="tripadvisorNegocio" name="tripadvisorNegocio" type="text" class="form-control" placeholder="Tripadvisor del Negocio" aria-describedby="sizing-addon3">
+              </div></p>
+ 
+               <h5 class="titulosalta"> Descripción</h5>
+
+                        <p>Texto con un máximo de 500 caracteres incluyendo espacios</p>
+
+                            <div class="form-group">
+                              <label for="comment">Descripción:</label>
+                              <textarea class="form-control" rows="5" id="descripcionNegocio" name="descripcionNegocio" onfocus="limpiar('descripcionNegocio')"></textarea>
+                            </div>
+
+              <h5 class="titulosalta"> Palabras de búsqueda</h5>
+
+                    <p>Cargar palabras claves, separadas por coma (,)</p>
+
+                            <div class="form-group">
+                              <label for="comment">Tags:</label>
+                              <textarea class="form-control" rows="5" id="tagsNegocio" name="tagsNegocio"></textarea>
+                            </div>
+
+              <div class="input-group">
+                 <span class="input-group-btn">
+                  <button id="botonGuardar" class="btn btn-default" type="button" style="padding: 17px;" onClick="validar('crear')"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar y Continuar</button>
+                  <button id="botoncancelar" class="btn btn-default" type="button" style="padding: 17px;" onClick="cancelar()"><i class="fa fa-ban" aria-hidden="true"></i> Cancelar</button>
+                </span>
+              </div>
+            </form>           
+                  <!-- Table -->
+                  <div id="cabeceraTablaNegocios">
+                   <div class="panel-heading tituloseccion" >Negocios</div>
+                    <table class="table">
+                        <thead class="titulotabla">
+                            <tr> 
+                                <th >#</th>
+                                    <th >Nombre</th>
+                                    <th style="text-align: center;">Destacado</th>
+                                    <th style="text-align: center;">Acepta reservas</th>
+                                    <th style="text-align: center;">Acción</th>
+                                </tr>
+                        </thead>
+                        <tbody id="listadoNegocios">
+
+                        </tbody>
+                    </table>
+                    
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>No se pudo eliminar el Negocio</h3>
+     </div>
+         <div class="modal-body">
+            <h5>Este negocio tiene locales asociados</h5>
+
+     </div>
+         <div class="modal-footer">
+        <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+     </div>
+      </div>
+   </div>
+</div>
+
+    <div class="modal fade" id="mostrarmodal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>ATENCIÓN</h3>
+        </div>
+            <div class="modal-body">
+                <h5>Está por eliminar un restaurante y toda la información asociada al mismo</h5>
+        </div>
+            <div class="modal-footer">
+            <a href="#" data-dismiss="modal" class="btn btn-danger">Cancelar</a>
+            <a onClick="eliminar()" data-dismiss="modal" class="btn btn-danger">Aceptar</a>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Modal imagen web -->
+    <div id="mdlImgMenu" class="modal fade">
+        <div class="modal-dialog" style="width: 65%;">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Subir Logo del Negocio</h4>
+            </div>
+            <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12" id="formDropZone1"></div>
+            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
+    
+    <?php 
+    error_reporting(E_ERROR);
+    include("includes/footer.php"); ?>
+    
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="../js/jqBootstrapValidation.js"></script>
+    <script src="../js/contact_me.js"></script>
+
+    <!-- Funciones de Negocio JavaScript -->
+    <script src="js/controladores/negocio.controlador.js"></script>
+
+    <script src="js/dropzone.js"></script>
+    <link rel="stylesheet" href="css/dropzone.css"> 
+
+    <!-- Theme JavaScript -->
+    <script src="../js/agency.min.js"></script>
+
+    <script type="text/javascript">
+        
+
+    $(function() {
+
+    $('#login-form-link').click(function(e) {
+        $("#login-form").delay(100).fadeIn(100);
+        $("#register-form").fadeOut(100);
+        $('#register-form-link').removeClass('active');
+        $(this).addClass('active');
+        e.preventDefault();
+    });
+    $('#register-form-link').click(function(e) {
+        $("#register-form").delay(100).fadeIn(100);
+        $("#login-form").fadeOut(100);
+        $('#login-form-link').removeClass('active');
+        $(this).addClass('active');
+        e.preventDefault();
+    });
+
+    });
+
+    $(function() {
+      var accion = 'crear';
+      iniciar(accion);
+    });
+
+
+</script>
+
+</body>
+
+</html>

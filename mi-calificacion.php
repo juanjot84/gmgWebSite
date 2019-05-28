@@ -1,0 +1,237 @@
+<?php session_start();
+    error_reporting(E_ERROR);
+    $jwt = $_SESSION['jwt'];
+    $idReserva = $_GET["id"];
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Guía Mendoza Gourmet</title>
+
+  <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Theme CSS -->
+  <link href="css/gmgstyle.css" rel="stylesheet">
+  <link href="css/agency.min.css" rel="stylesheet">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" integrity="sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY" crossorigin="anonymous"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
+  <![endif]-->
+
+  <!-- ANALYTICS -->
+     <?php include("includes/analytics.php"); ?>
+  <!-- SMARTLOOK -->
+     <?php include("includes/smartlook.php"); ?>
+  <!-- FIN SMARTLOOK -->
+
+  <!-- Facebook Pixel Code -->
+     <?php include("includes/pixelFace.php"); ?>
+  <!-- End Facebook Pixel Code -->
+
+  <?php include("includes/soportezen.php"); ?>
+
+  <style type="text/css">
+    .btn-link {
+        color: #f8981d;
+    }
+    .btn-link:hover {
+        color: #000;
+    }
+  </style>
+</head>
+
+<body id="page-top" class="index">
+
+
+  <?php 
+  error_reporting(E_ERROR);
+  include("includes/nav.php"); 
+  ?>
+
+
+  <!-- Header -->
+  <header>
+
+  </header>
+  <center><div id="loading"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br><span style="font-size: 12px;">Cargando...</span><span class="sr-only">Cargando...</span></div></center>
+
+  <div class="container miperfilusuario datosEvaluar" style="display:none">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2>Calificar mi experiencia</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <p>Hola <strong><span id="nombre"></span></strong>, contanos cómo te fue con tu reserva</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container datosEvaluar" style="display:none">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Califica el ambiente</h3>
+        <ul class="calificastars" id="ambiente">
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('ambiente', 1)"></i></button></li>
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('ambiente', 2)"></i></button></li>
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('ambiente', 3)"></i></button></li>
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('ambiente', 4)"></i></button></li>
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('ambiente', 5)"></i></button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Califica la comida</h3>
+        <ul class="calificastars" id="comida">
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('comida', 1)"></i></button></li>
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('comida', 2)"></i></button></li>
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('comida', 3)"></i></button></li>
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('comida', 4)"></i></button></li>
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('comida', 5)"></i></button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Califica la atención</h3>
+        <ul class="calificastars" id="atencion">
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('atencion', 1)"></i></button></li>
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('atencion', 2)"></i></button></li>
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('atencion', 3)"></i></button></li>
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('atencion', 4)"></i></button></li>
+          <li><button class="btn-link"><i class="fa fa-star-o" aria-hidden="true" onclick="calificar('atencion', 5)"></i></button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Deja un comentario</h3>
+        <div class="form-group">
+          <textarea class="form-control" rows="5" id="comment"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p>
+          <a href="#"  onClick="enviarCalificacion()" class="page-scroll btn btn-xl" style="max-width: 300px; margin: 5% 0;">ENVIAR</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h3>No has iniciado sesión</h3>
+        </div>
+        <div class="modal-body">
+          <h5>Por favor, inicie sesión para continuar</h5>
+
+        </div>
+        <div class="modal-footer">
+          <a href="login.php" data-confirm="modal" class="btn btn-info" id="botonLogin">Iniciar sesión</a>
+          <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="noReserva" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h3>No Existe la Reserva a calificar.</h3>
+        </div>
+        <div class="modal-body">
+          <h5>La reserva solicitada no exise o no esta disponible para ser calificada</h5>
+
+        </div>
+        <div class="modal-footer">
+          <a href="#" data-dismiss="modal" class="btn btn btn-xl" onclick="irPerfil()">Aceptar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="calificacionEnviada" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h3>Calificación enviada.</h3>
+        </div>
+        <div class="modal-body">
+          <h5>Su calificación han sido enviada correctamente</h5>
+
+        </div>
+        <div class="modal-footer">
+          <a href="#" data-dismiss="modal" class="btn btn btn-xl" onclick="irPerfil()">Aceptar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <?php
+  error_reporting(E_ERROR);
+  include("includes/footer.php");
+  ?>
+
+  <!-- jQuery -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <!-- Theme JavaScript -->
+  <script src="js/agency.min.js"></script>
+
+  <script  src=" https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"
+  crossorigin="anonymous"></script>
+
+  <script src="js/utils/jwt-decode.min.js"></script>
+  <!-- Funciones de perfil JavaScript -->
+  <script src="js/controladores/calificacion.controlador.js"></script>
+  <script>
+    setJWT('<?php echo $jwt; ?>', '<?php echo $idReserva; ?>');
+  </script>
+
+
+</body>
+
+</html>
+
