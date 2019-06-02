@@ -323,9 +323,15 @@ function buscarFavoritos(local){
       mostrarHorarioApertura(local) +
       '</p>');
 
+      $('[data-toggle="popover"]').popover({
+          placement:"bottom",
+          html:true,
+          trigger:"focus",
+          animation:true,
+      });
+
      },
-     error:function(jqXHR,textStatus,errorThrown)
-     {
+     error:function(jqXHR,textStatus,errorThrown) {
       var iconoCorazon = 'favoritosfichagris fa fa-heart';
       $("#iconoFavorito").append('<h3 class="titulo"><span id="nombreNegocio">'+local.idNegocio.nombreNegocio+'</span>  <span id="bajadaNegocio">'+bajadaNegocio+'</span>'+
       '<i id="corazon" style="cursor:pointer;" class="'+iconoCorazon+'" aria-hidden="true" ></i></h3>'+
