@@ -1,7 +1,0 @@
-[03-Jul-2017 10:31:40 America/Chicago] PHP Warning:  include(includes/nav.php): failed to open stream: No such file or directory in /home/gmg/public_html/gmg/index.php on line 159
-[03-Jul-2017 10:31:40 America/Chicago] PHP Warning:  include(includes/nav.php): failed to open stream: No such file or directory in /home/gmg/public_html/gmg/index.php on line 159
-[03-Jul-2017 10:31:40 America/Chicago] PHP Warning:  include(): Failed opening 'includes/nav.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home/gmg/public_html/gmg/index.php on line 159
-[04-Jul-2017 10:42:01 America/Chicago] PHP Parse error:  syntax error, unexpected '(', expecting variable (T_VARIABLE) or '$' in /home/gmg/public_html/gmg/index.php on line 101
-[25-Jun-2018 20:16:02 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/demofj/public_html/mis-favoritos.php:2) in /home/demofj/public_html/mis-favoritos.php on line 2
-[08-Nov-2018 19:26:31 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/demofj/public_html/mis-favoritos.php:2) in /home/demofj/public_html/mis-favoritos.php on line 2
-[08-Nov-2018 19:42:57 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/demofj/public_html/mis-favoritos.php:2) in /home/demofj/public_html/mis-favoritos.php on line 2
