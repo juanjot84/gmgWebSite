@@ -1,0 +1,27 @@
+
+/******************************MENU SUPER ADMIN*/
+
+Negocios: Listado de negocios
+Tipo de Negocio
+Regiones: Polos y regiones
+
+
+
+1. Configurar reservas
+
+1.1 Script de slider de horarios. Estan definidos en comportamientos.js
+1.2 Calendario. Esta definido en calendario.js
+
+
+
+2. Descuentos y promociones
+
+2.1 Script de slider de horarios. Estan definidos en comportamientos.js, es el mismo que para Configrar reservas.
+
+
+
+3. Promociones
+
+3.1 Script de slider de horarios. Estan definidos en comportamientos.js, es el mismo que para Configrar reservas.
+3.2 Carga de imagenes. Esta difinido en comportamientos.js. Seccion Carga de imagenes
+

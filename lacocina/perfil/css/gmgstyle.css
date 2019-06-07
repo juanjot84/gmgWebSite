@@ -1,0 +1,351 @@
+header {
+    background-image: none !important;
+    background-color: #ffff00;
+    text-align: center;
+    color: #fff;
+}
+
+.fondoficha {
+    background-image: none !important;
+    background-color: #fff;
+    text-align: center;
+    color: #fff;
+}
+
+.navbar-custom {
+    background-color: #ffff00 !important;
+    height: auto;
+}
+.navbar-brand {
+    padding: 0px 15px;
+    margin-top: -15px;
+}
+.navbar-custom .nav li a, .navbar-custom .navbar-toggle {
+    color: #111 !important;
+}
+.navbar-custom .nav li a:focus, .navbar-custom .nav li a:hover {
+    color: #7F7600 !important;
+    outline: 0;
+}
+.btn-xl {
+    color: #111 !important;
+    background-color: #ffff00 !important;
+    border-color: #ffff00 !important;
+    border-radius: 3px !important;
+    font-size: 16px !important;
+    padding: 8px 15px !important;
+}
+.btn-xl.active, .btn-xl:active, .btn-xl:focus, .btn-xl:hover, .open .dropdown-toggle.btn-xl {
+    color: #111 !important;
+    background-color: #E5D500;
+    border-color: #f6bf01;
+}
+
+.fondopubli {
+	background: url('../img/publicidad5.jpg') no-repeat;
+	background-size: cover;
+	min-height: 400px;
+}
+section {
+    padding: 60px 0 !important;
+}
+footer {
+    background: #111;
+    color: #fff;
+    padding: 5% 0 !important;
+}
+ul.social-buttons li a {
+    background-color: #444 !important;
+}
+ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
+    background-color: #ffff00 !important;
+    color: #111;
+}
+h3 {
+    text-transform: none !important;
+}
+.linkpolo {
+    text-decoration: none;
+    color: #111;
+}
+.linkpolo:hover {
+    text-decoration: none;
+    color: #777;
+}
+.linkpolo:active {
+    text-decoration: none;
+    color: #777;
+}
+a.active, a:active, a:focus, a:hover {
+    color: #777 !important;
+    text-decoration: none;
+}
+h3.section-heading {
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.intro-heading {
+    font-size: 55px !important;
+}
+.intro-lead-in {
+    font-size: 30px !important;
+    color: #000 !important;
+}
+input.form-control {
+    padding: 5% 2%;
+}
+header .intro-text .intro-heading {
+    margin-bottom: 0px !important;
+    color: #000 !important;
+}
+header .intro-text {
+    padding-top: 120px !important;
+    padding-bottom: 0px !important;
+}
+button.btn.btn-default.btnbuscar {
+    padding: 6px 10%;
+    background-color: #000000;
+    border-color: #000;
+    margin: 15px 0;
+    color: white;
+    margin-left: 7%;
+}
+button.btn.btn-default.btnbuscar:hover {
+    padding: 6px 10%;
+    background-color: #ccc;
+    border-color: #ccc;
+}
+.texto-ficha {
+    color: #111;
+    padding-top: 0;
+}
+
+.textoreserva {
+    font-size: 13px;
+}
+.redesficha {
+    font-size: 1.7em;
+    padding: 5px 15px;
+}
+a .redesficha {
+    color: #111;
+}
+a .redesficha:hover {
+    color: #ccc;
+}
+i.fa.fa-facebook.redesficha:hover {
+    color: #3b5998;
+}
+i.fa.fa-twitter.redesficha:hover {
+    color: #55acee;
+}
+i.fa.fa-instagram.redesficha:hover {
+    color: #8a3ab9;
+}
+i.fa.fa-tripadvisor.redesficha:hover {
+    color: #00af87;
+}
+i.fa.fa-globe.redesficha:hover {
+    color: #efde00;
+}
+.datosficha {
+    font-size: 1.3em;
+    width: 30px;
+    text-align: center;
+    color: #777;
+}
+.textodatosficha {
+    font-size: 13px;
+}
+.titulosugerencia1 {
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 2%;
+}
+.titulosugerencia2 {
+    font-size: 16px;
+    text-align: center;
+}
+.descripsugerencia {
+    font-size: 12px;
+    text-align: center;
+}
+.titulocomentarios {
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 2%;
+}
+.iconos {
+    max-width: 40px;
+}
+
+.desact {
+    opacity: 0.2;
+}
+
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+}
+
+/*Comentarios*/
+
+.thumbnail {
+    padding:0px;
+}
+.panel {
+    position:relative;
+}
+.panel>.panel-heading:after,.panel>.panel-heading:before{
+    position:absolute;
+    top:11px;left:-16px;
+    right:100%;
+    width:0;
+    height:0;
+    display:block;
+    content:" ";
+    border-color:transparent;
+    border-style:solid solid outset;
+    pointer-events:none;
+}
+.panel>.panel-heading:after{
+    border-width:7px;
+    border-right-color:#f7f7f7;
+    margin-top:1px;
+    margin-left:2px;
+}
+.panel>.panel-heading:before{
+    border-right-color:#ddd;
+    border-width:8px;
+}
+
+.filtros {
+    padding-top: 0;
+    text-align: right;
+    color: #000;
+}
+
+.menufooter {
+        text-align: left;
+}
+
+.altoocasiones {
+    min-height: 530px;
+}
+
+.fotosocasiones {
+
+}
+
+.fotoscocina {
+    margin: 0 auto;
+}
+
+.panel-login {
+    padding: 25% 0;
+}
+
+a#login-form-link {
+    color: #000 !important;
+}
+
+a#register-form-link {
+    color: #000 !important;
+}
+
+a.forgot-password {
+    color: #9a9a9a !important;
+}
+
+a.forgot-password:hover {
+    color: #444 !important;
+}
+
+.recordar {
+    font-weight: 400 !important;
+    color: #444 !important;
+}
+
+.precioficha {
+    height: 90px;
+    bottom: -54px;
+    display: block;
+}
+
+.sugeridos {
+    margin: 0 auto;
+}
+
+
+
+/*MEDIA QUERIES*/
+
+
+@media only screen and (max-width : 425px) {
+
+    button.navbar-toggle {
+        padding-top: 7%;
+    }
+
+    button.navbar-toggle.collapsed {
+        padding-top: 7%;
+    }
+
+    ul.nav.navbar-nav.navbar-right {
+        background: #ffff00;
+    }
+
+    img.logoweb {
+        width: 230px;
+        padding-top: 10%;
+    }
+
+    .navbar-custom {        
+        height: 80px;
+    }
+
+    section h2.section-heading {
+        font-size: 2em !important;
+        margin-top: 0;
+        margin-bottom: 15px !important;
+    }
+
+    .intro-heading {
+        font-size: 55px !important;
+    }
+
+    .intro-heading {
+        font-size: 45px !important;
+        padding-bottom: 10%;
+    }
+    header .intro-text .intro-lead-in {
+        font-size: 22px !important;
+        line-height: 35px !important;
+    }
+    button.btn.btn-default.btnbuscar {
+        margin-top: 10%;
+    }
+    .filtros {
+        text-align: center;
+    }
+
+    .menufooter {
+            text-align: center;
+    }
+
+    .precioficha {
+        display: none;
+    }
+
+    .texto-ficha {
+        color: #111;
+        padding-top: 13%;
+    }
+
+}

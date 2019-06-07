@@ -1,0 +1,766 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>La Cocina - Dashboard</title>
+
+
+    <!--Preloader-->
+    <script src="js/pace.js"></script>
+    <link rel="stylesheet" href="css/pace.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!--Roboto Font Family-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+
+    <!-- CSS -->
+    <link href="css/lacocina.css" rel="stylesheet">
+    <link href="css/mobile.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/barras.css">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+
+
+    <!--Js-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/comportamientos.js"></script>
+
+    <link rel="stylesheet" href="css/superadminMenu.css">
+
+
+
+</head>
+
+<body>
+
+   
+   
+    <!--CAbecera para Web-->
+    <header>
+
+        <div class="container">
+            <!--Barra de navegacion Full Size-->
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+
+
+
+
+                <div class="row">
+                    <div class="col-xs-5 mobile">
+                        <div class="dropdown">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  Palmares
+  </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">Palmares</a>
+                                <a class="dropdown-item" href="#">Chacras de Coria</a>
+                                <a class="dropdown-item" href="#">Lujan de Cuyo</a>
+                                <a class="dropdown-item" href="#">Aristides Villanueva</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-xs-5 mobile">
+                        <img src="img/LogoResto.png">
+                    </div>
+
+
+
+                    <div class="col-md-4 web">
+                        <img src="img/logo-lacocina.png" class="mx-auto d-block ">
+                    </div>
+                    <div class="col-md-4 web">
+                        <div class="dropdown">
+                            <a class="btn btn-secondary dropdown-toggle text-center mx-auto d-block " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  Palmares
+  </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">Palmares</a>
+                                <a class="dropdown-item" href="#">Chacras de Coria</a>
+                                <a class="dropdown-item" href="#">Lujan de Cuyo</a>
+                                <a class="dropdown-item" href="#">Aristides Villanueva</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+
+                        <img src="img/LogoResto.png" class="web">
+
+                        <a id="menu-toggle" href="#" class="btn btn-primary btn-lg toggle"><i class="fa"><img src="img/iconos/cog.svg"  title="imagen SVG" class="imgSvg"/></i></a>
+                        <div id="sidebar-wrapper">
+                            <ul class="sidebar-nav">
+                                <a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle"><i class="glyphicon glyphicon-remove"></i></a>
+
+                                <li class="has_sub">
+                                    <h2> <i class="fa"><img src="img/iconos/user-circle.svg"  title="imagen SVG" class="imgSvg"/></i>
+                                        <span class="nav-text">
+                           Bienvenido, Ariel Karlen
+                        </span>
+                                    </h2>
+                                </li>
+                                <li>
+                                    <a href="admin-negocio.html" class="hvr-bounce-to-left">
+                       <i class="fa"><img src="img/iconos/building.svg"  title="imagen SVG" class="imgSvg"/></i>
+                        <span class="nav-text">
+                           Administrar Negocios
+                        </span>
+                    </a>
+                                </li>
+                                <li>
+                                    <a href="usuarios.html" class="hvr-bounce-to-left"><i class="fa"><img src="img/iconos/user.svg"  title="imagen SVG" class="imgSvg"/></i>
+                        <span class="nav-text">
+                           Usuarios
+                        </span></a>
+                                </li>
+                                <li>
+                                    <a href="datoscontacto.html" class="hvr-bounce-to-left"><i class="fa"><img src="img/iconos/phone.svg"  title="imagen SVG" class="imgSvg"/></i>
+                        <span class="nav-text">
+                           Datos de Contacto
+                        </span></a>
+                                </li>
+                                <li>
+                                    <a href="proveedores.pdf" class="hvr-bounce-to-left"><i class="fa"><img src="img/iconos/list.svg"  title="imagen SVG" class="imgSvg"/></i>
+                        <span class="nav-text">
+                           Lista de Proveedores
+                        </span></a>
+                                </li>
+                                <li>
+                                    <a href="tutoriales.html" class="hvr-bounce-to-left"><i class="fa"><img src="img/iconos/play.svg"  title="imagen SVG" class="imgSvg"/></i>
+                        <span class="nav-text">
+                           Tutoriales
+                        </span></a>
+                                </li>
+                                <li>
+                                    <a href="index.html" class="hvr-bounce-to-left"><i class="fa"><img src="img/iconos/sign-out-alt.svg"  title="imagen SVG" class="imgSvg"/></i>
+                        <span class="nav-text">
+                           Salir
+                        </span></a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+            </nav>
+
+            <!--Menu Izquierdo-->
+            <nav class="main-menu">
+                <ul>
+                    <li class="izquierdoactive">
+                        <a href="dashboard.html" class="hvr-bounce-to-right">
+                        <i class="fa"><img src="img/iconos/home.svg"  title="imagen SVG" class="imgSvg"/></i>
+                        <span class="nav-text" data-toggle="tooltip" data-placement="right" >
+                            Inicio
+                        </span>
+                    </a>
+
+                    </li>
+                    <li>
+                        <a href="ver-reservas.html" class="hvr-bounce-to-right">
+                         <i class="fa"><img src="img/iconos/check.svg"  title="imagen SVG" class="imgSvg"/></i>
+                        <span class="nav-text">
+                            Ver Reservas Realizadas
+                        </span>
+                    </a>
+
+                    </li>
+                    <li>
+                        <a href="configurar-reservas.html" class="hvr-bounce-to-right">
+                       <i class="fa"><img src="img/iconos/cutlery.svg"  title="imagen SVG" class="imgSvg"/></i>
+                        <span class="nav-text">
+                            Configurar Reservas
+                        </span>
+                    </a>
+
+                    </li>
+                    <li>
+                        <a href="descuentos.html" class="hvr-bounce-to-right">
+                       <i class="fa"><img src="img/iconos/gift.svg"  title="imagen SVG" class="imgSvg"/></i>
+                        <span class="nav-text">
+                            Descuentos y promociones
+                        </span>
+                    </a>
+
+                    </li>
+                    <li>
+                        <a href="horarios.html" class="hvr-bounce-to-right">
+                        <i class="fa"><img src="img/iconos/clock.svg"  title="imagen SVG" class="imgSvg"/></i>
+                        <span class="nav-text">
+                            Horarios de Atención
+                        </span>
+                    </a>
+                    </li>
+                    <li>
+                        <a href="calificaciones.html" class="hvr-bounce-to-right">
+                        <i class="fa"><img src="img/iconos/star.svg"  title="imagen SVG" class="imgSvg"/></i>
+                        <span class="nav-text">
+                            Calificaciones
+                        </span>
+                    </a>
+                    </li>
+                    <li>
+                        <a href="cargar-imagenes.html" class="hvr-bounce-to-right">
+                        <i class="fa"><img src="img/iconos/image.svg"  title="imagen SVG" class="imgSvg"/></i>
+                        <span class="nav-text">
+                            Cargar Imagenes
+                        </span>
+                    </a>
+                    </li>
+                    <li>
+                        <a href="remarketing.html" class="hvr-bounce-to-right">
+                        <i class="fa"><img src="img/iconos/chart-area.svg"  title="imagen SVG" class="imgSvg"/></i>
+                        <span class="nav-text">
+                            Remarketing
+                        </span>
+                    </a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+
+    </header>
+
+    <!--Fin CAbecera para Web-->
+    <!--Fin CAbecera para Mobiles-->
+
+
+    <!--Fin CAbecera para Mobiles-->
+
+
+    <main role="main" class="container">
+
+        <div class="row">
+            <!--Accesos directos-->
+            <div class="col-lg-4">
+                <div class="modulo" id="acceso">
+
+                    <h1>Accesos directos</h1>
+                    <ul id="accesosdirectos">
+                        <li>
+                            <a href="admin-negocio.html">
+                        <i class="fa fa-building"></i>
+                        <span class="nav-text">
+                           Administrar Negocio
+                        </span>
+                    </a>
+                        </li>
+                        <li>
+                            <a href="usuarios.html"><i class="fa fa-user"></i>
+                        <span class="nav-text">
+                           Usuarios
+                        </span></a>
+                        </li>
+                        <li>
+                            <a href="datoscontacto.html"><i class="fa fa-phone"></i>
+                        <span class="nav-text">
+                           Contacto
+                        </span></a>
+                        </li>
+
+                        <li>
+                            <a href="tutoriales.html"><i class="fa fa-list"></i>
+                        <span class="nav-text">
+                           Lista de Proveedores
+                        </span></a>
+                        </li>
+                        <li>
+                            <a href="tutoriales.html"><i class="fa fa-play"></i>
+                        <span class="nav-text">
+                           Tutoriales
+                        </span></a>
+                        </li>
+                        <li class="no-border">
+                            <a href="index.html"><i class="fa fa-sign-out"></i>
+                        <span class="nav-text">
+                           Salir
+                        </span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--Reservas para hoy-->
+            <div class="col-lg-4">
+                <div id="reservasparahoy" class="modulo celeste">
+                    <h1>Hay 5 reservas para hoy <span class="ver"><a href="ver-reservas.html">  - Ver todas </a></span></h1>
+
+                    <div class="content content mCustomScrollbar  mCS-autoHide">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Personas</th>
+                                    <th scope="col">Hora</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Ariel Karlen</th>
+                                    <td>2 Adultos - 3 Niños</td>
+                                    <td>13:30</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ariel Karlen</th>
+                                    <td>2 Adultos - 3 Niños</td>
+                                    <td>13:30</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ariel Karlen</th>
+                                    <td>2 Adultos - 3 Niños</td>
+                                    <td>13:30</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ariel Karlen</th>
+                                    <td>2 Adultos - 3 Niños</td>
+                                    <td>13:30</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ariel Karlen</th>
+                                    <td>2 Adultos - 3 Niños</td>
+                                    <td>13:30</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ariel Karlen</th>
+                                    <td>2 Adultos - 3 Niños</td>
+                                    <td>13:30</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ariel Karlen</th>
+                                    <td>2 Adultos - 3 Niños</td>
+                                    <td>13:30</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ariel Karlen</th>
+                                    <td>2 Adultos - 3 Niños</td>
+                                    <td>13:30</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ariel Karlen</th>
+                                    <td>2 Adultos - 3 Niños</td>
+                                    <td>13:30</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ariel Karlen</th>
+                                    <td>2 Adultos - 3 Niños</td>
+                                    <td>13:30</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--Promociones Activas-->
+            <div class="col-lg-4">
+                <div id="promocionesActivas" class="modulo rosado">
+                    <h1>Hay 4 promociones activas <span class="ver"><a href="#">  - Ver todas </a></span></h1>
+                    <div class="content content mCustomScrollbar  mCS-autoHide">
+                        <div class="row promo">
+
+
+                            <div class="col-md-4 prom-turquesa-izq">
+                                <p>30% OFF</p>
+                            </div>
+                            <div class="col-md-6  prom-turquesa-der">
+                                <h5>Lunes a viernes</h5>
+                                <h6>20 a 22:30 hs</h6>
+                            </div>
+
+
+                        </div>
+
+                        <div class="row promo">
+
+
+                            <div class="col-md-4 prom-rosa-izq">
+                                <p>30% OFF</p>
+                            </div>
+                            <div class="col-md-6  prom-rosa-der">
+                                <h5>Jueves de Mujeres</h5>
+                                <h6>Todo el Día</h6>
+                            </div>
+
+
+                        </div>
+
+                        <div class="row promo">
+
+
+                            <div class="col-md-4 prom-amarillo-izq">
+                                <p>2x1</p>
+                            </div>
+                            <div class="col-md-6  prom-amarillo-der">
+                                <h5>Happy Hour</h5>
+                                <h6>Viernes de 21 a 23 hs</h6>
+                            </div>
+
+
+                        </div>
+                        <div class="row promo">
+
+
+                            <div class="col-md-4 prom-especial-izq">
+                                <img src="img/Promociones/almalbec.png" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-md-6  prom-especial-der">
+                                <h5>Happy Hour</h5>
+                                <h6>Viernes de 21 a 23 hs</h6>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <div id="publicidad" class="modulo rosado">
+                    <img src="img/zuelo.jpg" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <!--Grafico para Proximas Reservas - Google Charts. Column Charts Stacked-->
+                <div id="charts" class="modulo verde">
+                    <h1><span>Reservas</span> para los proximos 7 dias</h1>
+                    <img src="img/05-Modulo.jpg" class="img-fluid">
+
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div id="HorariosAtencion" class="modulo celeste">
+                    <h1><span>Horarios</span> de Atención <span class="ver"><a href="#">  - Configurar </a></span></h1>
+
+                    <div class="content content mCustomScrollbar  mCS-autoHide">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Dia</th>
+                                    <th scope="col">Turno 1</th>
+                                    <th scope="col">Turno 2</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Lunes</th>
+                                    <td>09:30 a 13:30</td>
+                                    <td>21 a 01:30</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Martes</th>
+                                    <td>09:30 a 13:30</td>
+                                    <td>21 a 01:30</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Miercoles</th>
+                                    <td>09:30 a 13:30</td>
+                                    <td>21 a 01:30</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Jueves</th>
+                                    <td>09:30 a 13:30</td>
+                                    <td>21 a 01:30</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Viernes</th>
+                                    <td>09:30 a 13:30</td>
+                                    <td>21 a 01:30</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Sábado</th>
+                                    <td>09:30 a 13:30</td>
+                                    <td>21 a 01:30</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Domingo</th>
+                                    <td class="cerrado">Cerrado</td>
+                                    <td>21 a 01:30</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Feriados</th>
+                                    <td class="cerrado">Cerrado</td>
+                                    <td class="cerrado">Cerrado</td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div id="UltimasReservas" class="modulo naranja">
+                    <h1><span>Reservas</span> de los ultimos 7 dias</h1>
+                    <img src="img/07-Modulo.jpg" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div id="calificaciones" class="modulo rosado">
+                    <h1><span>Calificaciones</span></h1>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="general">Calificacion General</p>
+                        </div>
+                        <div class="col-md-6">
+                            <form>
+                                <p class="clasificacion">
+                                    <label>4,5</label>
+                                    <input id="radio1" type="radio" name="estrellas" value="5">
+                                    <label for="radio1">★</label>
+                                    <input id="radio2" type="radio" name="estrellas" value="4">
+                                    <label for="radio2">★</label>
+                                    <input id="radio3" type="radio" name="estrellas" value="3">
+                                    <label for="radio3">★</label>
+                                    <input id="radio4" type="radio" name="estrellas" value="2">
+                                    <label for="radio4">★</label>
+                                    <input id="radio5" type="radio" name="estrellas" value="1">
+                                    <label for="radio5">★</label>
+
+                                </p>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h6>Atencion</h6>
+                            <div class="progress">
+                                <div id="barra-atencion" class="progress-bar" role="progressbar" style="width: 87%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">4,5</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h6>Lugar</h6>
+                            <div class="progress">
+                                <div id="barra-lugar" class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">4</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h6>Comida</h6>
+                            <div class="progress">
+                                <div id="barra-comida" class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">4</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="slider">
+                    <div class="slide-track">
+                        <div class="slide">
+                            <img src="img/proveedores/R-Cristal.png" alt="" />
+                        </div>
+                        <div class="slide">
+                            <img src="img/proveedores/Lagus.png" alt="" />
+                        </div>
+                        <div class="slide">
+                            <img src="img/proveedores/Zuelo.png" alt="" />
+                        </div>
+                        <div class="slide">
+                            <img src="img/proveedores/Eco.png" alt="" />
+                        </div>
+                        <div class="slide">
+                            <img src="img/proveedores/elite.png" alt="" />
+                        </div>
+                        <div class="slide">
+                            <img src="img/proveedores/Kimberly.png" alt="" />
+                        </div>
+                        <div class="slide">
+                            <img src="img/proveedores/AltaCocina.png" alt="" />
+                        </div>
+                        <div class="slide">
+                            <img src="img/proveedores/R-Cristal.png" alt="" />
+                        </div>
+                        <div class="slide">
+                            <img src="img/proveedores/Lagus.png" alt="" />
+                        </div>
+                        <div class="slide">
+                            <img src="img/proveedores/Zuelo.png" alt="" />
+                        </div>
+                        <div class="slide">
+                            <img src="img/proveedores/Eco.png" alt="" />
+                        </div>
+                        <div class="slide">
+                            <img src="img/proveedores/elite.png" alt="" />
+                        </div>
+                        <div class="slide">
+                            <img src="img/proveedores/Kimberly.png" alt="" />
+                        </div>
+                        <div class="slide">
+                            <img src="img/proveedores/AltaCocina.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="img/mancha-gmg.png" alt="">
+                </div>
+                <div class="col-md-4">
+                    <h4>SOPORTE </h4>
+                    <ul>
+                        <li>soporte@guiamendozagourmet.com</li>
+                        <li> 0800 333 0988</li>
+                        <li>Lunes a viernes de 9 a 18 hs.</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+
+                    <ul class="list-inline social-buttons">
+                        <li><a target="_blank" href="https://twitter.com/guiamendozagour"><i class="fa fa-twitter" style="padding-top: 10px;"></i></a>
+                        </li>
+                        <li><a target="_blank" href="https://www.facebook.com/guiamendozagourmet"><i class="fa fa-facebook" style="padding-top: 10px;"></i></a>
+                        </li>
+                        <li><a target="_blank" href="https://www.instagram.com/guiamendozagourmet/"><i class="fa fa-instagram" style="padding-top: 10px;"></i></a>
+                        </li>
+                    </ul>
+                    <ul class=" quicklinks">
+                        <li>
+                            <span class="copyright">Copyright © GMG 2018</span>
+                        </li>
+                        <li>
+                            Desarrollado por <a style="text-decoration: none;" href="#">Estudio Pronet</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="container superadmin">
+          <nav class="navbar fixed-bottom navbar-light bg-dark">
+        <ul class="nav">
+               
+                <li>
+                  <a href="tipo-de-negocio.html">Tipo de negocio</a>
+                </li>
+                <li>
+                  <a href="regiones.html" role="button" aria-haspopup="true" aria-expanded="false">Regiones</a>
+                </li>
+                <li>
+                  <a href="polos-gastronomicos.html" role="button" aria-haspopup="true" aria-expanded="false">Polos</a>
+                </li>
+                <li>
+                  <a href="tipo-de-cocina.html" role="button" aria-haspopup="true" aria-expanded="false">Cocina</a>
+                </li>
+                <li>
+                  <a href="especialidades.html" role="button" aria-haspopup="true" aria-expanded="false">Especialidades</a>
+                </li>
+                <li>
+                  <a href="ocasiones.html" role="button" aria-haspopup="true" aria-expanded="false">Ocasiones</a>
+                </li>
+                <li>
+                  <a href="servicios.html" role="button" aria-haspopup="true" aria-expanded="false">Servicios</a>
+                </li>
+                <li>
+                  <a href="medio-de-pago.html" role="button" aria-haspopup="true" aria-expanded="false">Formas de pago</a>
+                </li>
+                <li>
+                  <a href="nivel-de-precio.php" role="button" aria-haspopup="true" aria-expanded="false">Precio</a>
+                </li>
+                
+                <li>
+                  <a href="promociones.html">Promociones</a>
+                </li>
+         
+              </ul>
+  
+    </nav>
+    </div>
+    </footer>
+
+    <!--Super Admin Menu-->
+
+  
+
+    <!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script>
+        (function($) {
+            $(window).on("load", function() {
+
+                $("#content-1").mCustomScrollbar({
+                    theme: "minimal"
+                });
+
+            });
+        })(jQuery);
+
+    </script>
+
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        $("#menu-close").click(function(e) {
+            e.preventDefault();
+            $("#sidebar-wrapper").toggleClass("active");
+        });
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#sidebar-wrapper").toggleClass("active");
+        });
+
+    </script>
+
+
+
+</body>
+
+</html>
