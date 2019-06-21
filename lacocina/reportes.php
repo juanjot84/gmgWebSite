@@ -101,10 +101,6 @@ if (!$_SESSION) {
     <main id="TipoNegocio" role="main" class="container">
         <div class="row">
             <div class="col-md-12 ">
-                <div id="btn-ReservaManual" class="naranja justify-content-end">
-                    <button type="button" class="btn btn-primary btn-sm " data-toggle="collapse" data-target="#collapseCrearReserva" aria-expanded="true" aria-controls="collapse01">Nuevo tipo de Negocio</button>
-                </div>
-                <div id="collapseCrearReserva" class="collapse content-collapse" aria-labelledby="collapseCrearReserva" data-parent="#accordion">
                     <div class="modulo naranja">
                         <form autocomplete="off">
                             <div class="row">
@@ -126,21 +122,23 @@ if (!$_SESSION) {
                             </div>
                         </form>
                     </div>
-                </div>
             </div>
         </div>
 
         <div class="row ">
             <div class="col-lg-12">
                 <div class="modulo celeste">
-                    <h1>Tipos de Negocio</h1>
+                    <h1>Reportes de Reservas</h1>
                     <table class="table">
                         <thead class="titulotabla">
                             <tr>
-                                <th>#</th>
-                                <th>Nombre</th>
-                                <th>Descripcion</th>
-                                <th>Acción</th>
+                                <th>Negocio</th>
+                                <th>Reservas Totales</th>
+                                <th>Cubiertos Totales</th>
+                                <th>Valor Cubierto</th>
+                                <th>Reservas Especiales</th>
+                                <th>Valor Cubierto Reserva Especial</th>
+                                <th>Total</th>
                             </tr>
                         </thead>
                         <tbody id="listadoTipoNegocios">
@@ -149,17 +147,26 @@ if (!$_SESSION) {
                                 <td>Restaurante</td>
                                 <td>Local de venta de comida</td>
                                 <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <th>2</th>
                                 <td>Food Truck</td>
                                 <td>Local de venta de comida</td>
                                 <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <th>3</th>
                                 <td>Capacitación</td>
                                <td>Local de venta de comida</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td></td>
                             </tr>
                             <tr>
@@ -167,17 +174,26 @@ if (!$_SESSION) {
                                 <td>Restaurante</td>
                                 <td>Local de venta de comida</td>
                                 <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <th>2</th>
                                 <td>Food Truck</td>
                                 <td>Local de venta de comida</td>
                                 <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <th>3</th>
                                 <td>Capacitación</td>
                                <td>Local de venta de comida</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td></td>
                             </tr>
                             <tr>
@@ -185,17 +201,26 @@ if (!$_SESSION) {
                                 <td>Restaurante</td>
                                 <td>Local de venta de comida</td>
                                 <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <th>2</th>
                                 <td>Food Truck</td>
                                 <td>Local de venta de comida</td>
                                 <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <th>3</th>
                                 <td>Capacitación</td>
                                <td>Local de venta de comida</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td></td>
                             </tr>
                         </tbody>
