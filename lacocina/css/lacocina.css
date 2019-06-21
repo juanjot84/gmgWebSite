@@ -702,7 +702,7 @@ nav.main-menu li.active > a,
     border-radius: 2px;
     background-color: #fff;
     padding: 20px 20px 10px 20px;
-    height: 272px;
+    height: auto;
     border-top: 2px solid #f8981d;
     margin: 0 0 20px 0;
    
