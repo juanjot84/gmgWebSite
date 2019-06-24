@@ -79,16 +79,10 @@ a:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
 }
 
-
-
-
-
 .navbar .row {
     width: 100%;
     margin: 0
 }
-
-
 
 .btn-secondary,
 .btn-secondary:not(:disabled):not(.disabled).active,
@@ -96,9 +90,51 @@ a:hover {
 .show > .btn-secondary.dropdown-toggle {
     background-color: transparent!important;
     border: none;
-    border-radius: 2px
+    border-radius: 2px;
+    color: #fff;
 }
 
+.dropdown-menu {
+    width: 100%;
+    margin: 5px 0 0 0;
+    background-image: url(../img/opacity.png);
+    background-color: transparent;
+    box-shadow: 0 1px 1px 0 rgba(60, 64, 67, .08), 0 1px 3px 1px rgba(60, 64, 67, .16);
+    transition: box-shadow 135ms cubic-bezier(.4, 0, .2, 1);
+    border-radius: 3px;
+
+}
+
+.dropdown-item {
+    color: #fff;
+    text-align: center
+}
+
+.dropdown-item:hover {
+    background-color: #f8981d;
+    color: #fff
+}
+
+/***************Menu Superior Reportes MDZ*/
+.navbar-dark {
+    background-color: #000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
+}
+
+.navbar .row {
+    width: 100%;
+    margin: 0
+}
+
+.btn-secondary2,
+.btn-secondary2:not(:disabled):not(.disabled).active,
+.btn-secondary2:not(:disabled):not(.disabled):active,
+.show > .btn-secondary2.dropdown-toggle {
+    background-color: transparent!important;
+    border: none;
+    border-radius: 2px;
+    color: #4b4b4b;
+}
 
 .dropdown-menu {
     width: 100%;

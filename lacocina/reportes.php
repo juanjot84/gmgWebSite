@@ -8,7 +8,7 @@ $tipoUsuario = $_SESSION['tipoUsuario'];
 if (!$_SESSION) {
        header('Location: index.php');
 } else {
-    if ($tipoUsuario == 'superAdmin') {
+    if ($tipoUsuario == 'mdzUser') {
         
     } else {
         header('Location: index.php');
@@ -101,27 +101,25 @@ if (!$_SESSION) {
     <main id="TipoNegocio" role="main" class="container">
         <div class="row">
             <div class="col-md-12 ">
-                    <div class="modulo naranja">
-                        <form autocomplete="off">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="form-element form-input">
-                                        <input id="nombre" class="form-element-field" placeholder="Ingrese nombre del nuevo tipo de negcio" type="input" required="">
-                                        <div class="form-element-bar"></div>
-                                        <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Nombre</label>
+                <div class="modulo naranja">
+                    <form autocomplete="off">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="dropdown">
+                                    <a class="btn btn-secondary2 dropdown-toggle text-center mx-auto d-block " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Ultima semana
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" href="#">Ultima semana</a>
+                                        <a class="dropdown-item" href="#">Ultimo mes</a>
+                                        <a class="dropdown-item" href="#">Ultimos 30 días</a>
+                                        <a class="dropdown-item" href="#">Ultimo trimestre</a>
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
-                                    <div class="form-element form-input">
-                                        <input id="nombre" class="form-element-field" placeholder="Ingrese descripcion del nuevo tipo de negcio" type="input" required="">
-                                        <div class="form-element-bar"></div>
-                                        <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Descripcion</label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4"><button type="button" class="btn btn-primary btn-sm " data-toggle="collapse" data-target="#collapseCrearReserva" aria-expanded="true" aria-controls="collapse01">Guardar</button></div>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
 
@@ -143,13 +141,13 @@ if (!$_SESSION) {
                         </thead>
                         <tbody id="listadoTipoNegocios">
                             <tr>
-                                <th>1</th>
-                                <td>Restaurante</td>
-                                <td>Local de venta de comida</td>
+                                <th>Bardot - Palmares</th>
+                                <td>40</td>
+                                <td>80</td>
+                                <td>$100 - $500</td>
+                                <td>20</td>
                                 <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>100</td>
                             </tr>
                             <tr>
                                 <th>2</th>
@@ -298,6 +296,7 @@ if (!$_SESSION) {
     </script>
 
  <!--   <script src="js/popper.min.js"></script> -->
+    <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
     <script>

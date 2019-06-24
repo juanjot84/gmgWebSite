@@ -55,6 +55,10 @@ function login() {
         if (tipoUsuario == 'usuarioNegocio') {
           crearSesion(tipoUsuario, idNegocio, token, nombreUsuario, apellidoUsuario);
         }
+        if (tipoUsuario == 'mdzUser') { //tipo de usuario para reportes de mdz
+          idNegocio = '';
+          crearSesion(tipoUsuario, idNegocio, token);
+        }
       },
       error: function (jqXHR, textStatus, errorThrown) {
         $('#overlay').remove();
@@ -105,6 +109,9 @@ function crearSesion(tipoUs, idNeg, token, nombreUsuario, apellidoUsuario) {
             $(location).attr('href', url);
           } else if (tipoUs == 'superAdmin') {
             var url = "negocios.php";
+            $(location).attr('href', url);
+          } else if (tipoUs == 'mdzUser') {
+            var url = "reportes.php";
             $(location).attr('href', url);
           }
         }
