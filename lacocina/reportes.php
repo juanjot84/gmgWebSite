@@ -150,76 +150,103 @@ if (!$_SESSION) {
                                 <td>100</td>
                             </tr>
                             <tr>
-                                <th>2</th>
-                                <td>Food Truck</td>
-                                <td>Local de venta de comida</td>
+                                <th>Bardot - Palmares</th>
+                                <td>40</td>
+                                <td>80</td>
+                                <td>$100 - $500</td>
+                                <td>20</td>
                                 <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>100</td>
                             </tr>
                             <tr>
-                                <th>3</th>
-                                <td>Capacitación</td>
-                               <td>Local de venta de comida</td>
+                                <th>Bardot - Palmares</th>
+                                <td>40</td>
+                                <td>80</td>
+                                <td>$100 - $500</td>
+                                <td>20</td>
                                 <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>100</td>
                             </tr>
                             <tr>
-                                <th>1</th>
-                                <td>Restaurante</td>
-                                <td>Local de venta de comida</td>
+                                <th>Bardot - Palmares</th>
+                                <td>40</td>
+                                <td>80</td>
+                                <td>$100 - $500</td>
+                                <td>20</td>
                                 <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>100</td>
                             </tr>
                             <tr>
-                                <th>2</th>
-                                <td>Food Truck</td>
-                                <td>Local de venta de comida</td>
+                                <th>Bardot - Palmares</th>
+                                <td>40</td>
+                                <td>80</td>
+                                <td>$100 - $500</td>
+                                <td>20</td>
                                 <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>100</td>
                             </tr>
                             <tr>
-                                <th>3</th>
-                                <td>Capacitación</td>
-                               <td>Local de venta de comida</td>
+                                <th>Bardot - Palmares</th>
+                                <td>40</td>
+                                <td>80</td>
+                                <td>$100 - $500</td>
+                                <td>20</td>
                                 <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>100</td>
                             </tr>
                             <tr>
-                                <th>1</th>
-                                <td>Restaurante</td>
-                                <td>Local de venta de comida</td>
+                                <th>Bardot - Palmares</th>
+                                <td>40</td>
+                                <td>80</td>
+                                <td>$100 - $500</td>
+                                <td>20</td>
                                 <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>100</td>
                             </tr>
                             <tr>
-                                <th>2</th>
-                                <td>Food Truck</td>
-                                <td>Local de venta de comida</td>
+                                <th>Bardot - Palmares</th>
+                                <td>40</td>
+                                <td>80</td>
+                                <td>$100 - $500</td>
+                                <td>20</td>
                                 <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>100</td>
                             </tr>
                             <tr>
-                                <th>3</th>
-                                <td>Capacitación</td>
-                               <td>Local de venta de comida</td>
+                                <th>Bardot - Palmares</th>
+                                <td>40</td>
+                                <td>80</td>
+                                <td>$100 - $500</td>
+                                <td>20</td>
                                 <td></td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <th>Bardot - Palmares</th>
+                                <td>40</td>
+                                <td>80</td>
+                                <td>$100 - $500</td>
+                                <td>20</td>
                                 <td></td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <th>Bardot - Palmares</th>
+                                <td>40</td>
+                                <td>80</td>
+                                <td>$100 - $500</td>
+                                <td>20</td>
                                 <td></td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <th>Bardot - Palmares</th>
+                                <td>40</td>
+                                <td>80</td>
+                                <td>$100 - $500</td>
+                                <td>20</td>
                                 <td></td>
+                                <td>100</td>
                             </tr>
                         </tbody>
                     </table>
