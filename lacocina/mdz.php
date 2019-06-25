@@ -4,6 +4,8 @@ session_start();
 
 $idNegocio = $_SESSION['idNegocio'];
 $tipoUsuario = $_SESSION['tipoUsuario'];
+$nombreUsuario = $_SESSION['nombreUsuario'];
+$apellidoUsuario = $_SESSION['apellidoUsuario'];
 
 if (!$_SESSION) {
        header('Location: index.php');
@@ -74,12 +76,12 @@ if (!$_SESSION) {
                                 <li class="has_sub">
                                     <h2> <i class="fa"><img src="img/iconos/user-circle.svg"  title="imagen SVG" class="imgSvg"/></i>
                                         <span class="nav-text">
-                                           Bienvenido, Ariel Karlen
+                                           Bienvenido <?php error_reporting(E_ERROR); echo $nombreUsuario; echo $apellidoUsuario; ?>
                                         </span>
                                     </h2>
                                 </li>
                                 <li>
-                                    <a href="index.html" class="hvr-bounce-to-left"><i class="fa"><img src="img/iconos/sign-out-alt.svg"  title="imagen SVG" class="imgSvg"/></i>
+                                    <a href="<?php error_reporting(E_ERROR); echo $path; ?>scripts/cerrar_sesion.php" class="hvr-bounce-to-left"><i class="fa"><img src="img/iconos/sign-out-alt.svg"  title="imagen SVG" class="imgSvg"/></i>
                                         <span class="nav-text">
                                            Salir
                                         </span>
@@ -139,7 +141,7 @@ if (!$_SESSION) {
                                 <th>Total</th>
                             </tr>
                         </thead>
-                        <tbody id="listadoTipoNegocios">
+                        <tbody id="tableReporte">
                             <tr>
                                 <th>Bardot - Palmares</th>
                                 <td>40</td>

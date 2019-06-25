@@ -111,7 +111,7 @@ function crearSesion(tipoUs, idNeg, token, nombreUsuario, apellidoUsuario) {
             var url = "negocios.php";
             $(location).attr('href', url);
           } else if (tipoUs == 'mdzUser') {
-            var url = "reportes.php";
+            var url = "mdz.php";
             $(location).attr('href', url);
           }
         }
