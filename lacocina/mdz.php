@@ -109,13 +109,13 @@ if (!$_SESSION) {
                             <div class="col-lg-4">
                                 <div class="dropdown">
                                     <a class="btn btn-secondary2 dropdown-toggle text-center mx-auto d-block " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Ultima semana
+                                         <span id="selectorRango">Mes en Curso</span>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Ultima semana</a>
-                                        <a class="dropdown-item" href="#">Ultimo mes</a>
-                                        <a class="dropdown-item" href="#">Ultimos 30 días</a>
-                                        <a class="dropdown-item" href="#">Ultimo trimestre</a>
+                                        <a class="dropdown-item" style="color:#fff" onclick="obtenerReporte('ultimos7')">Ultima semana</a>
+                                        <a class="dropdown-item" style="color:#fff" onclick="obtenerReporte('esteMes')">Mes en Curso</a>
+                                        <a class="dropdown-item" style="color:#fff" onclick="obtenerReporte('ultimos30')">Ultimos 30 días</a>
+                                        <a class="dropdown-item" style="color:#fff" onclick="obtenerReporte('mesPasado')">Mes Anterior</a>
                                     </div>
                                 </div>
                             </div>
@@ -123,6 +123,53 @@ if (!$_SESSION) {
                     </form>
                 </div>
             </div>
+        </div>
+
+
+        <div class="row">
+
+                <div class="col-md-4 ">
+                    <div class="modulo naranja stats margin-stats">
+                        <h1>Reservas Totales</h1>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <h1 class="cantReservas2" id="totalReservas"></h1>
+                            </div>
+                            <div class="col-lg-8">
+                                <p class="fechaReservas" id="fechaTotReservas"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 ">
+                    <div class="modulo rosado stats">
+                        <h1>Cubiertos Totales</h1>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <h1 class="cantReservas2" id="totalCubiertos"></h1>
+                            </div>
+                            <div class="col-lg-8">
+                                <p class="fechaReservas" id="fechaTotCubiertos"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 ">
+                    <div class="modulo verde stats">
+                        <h1>Reservas Especiales Totales</h1>
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <h1 class="cantReservas2" id="totalReservasEspeciales"></h1>
+                            </div>
+                            <div class="col-lg-8">
+                                <p class="fechaReservas" id="fechaTotResEsp"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
         </div>
 
         <div class="row ">
@@ -136,124 +183,18 @@ if (!$_SESSION) {
                                 <th>Reservas Totales</th>
                                 <th>Cubiertos Totales</th>
                                 <th>Valor Cubierto</th>
+                                <th>Comisión por Reserva</th>
                                 <th>Reservas Especiales</th>
-                                <th>Valor Cubierto Reserva Especial</th>
                                 <th>Total</th>
                             </tr>
                         </thead>
                         <tbody id="tableReporte">
-                            <tr>
-                                <th>Bardot - Palmares</th>
-                                <td>40</td>
-                                <td>80</td>
-                                <td>$100 - $500</td>
-                                <td>20</td>
-                                <td></td>
-                                <td>100</td>
-                            </tr>
-                            <tr>
-                                <th>Bardot - Palmares</th>
-                                <td>40</td>
-                                <td>80</td>
-                                <td>$100 - $500</td>
-                                <td>20</td>
-                                <td></td>
-                                <td>100</td>
-                            </tr>
-                            <tr>
-                                <th>Bardot - Palmares</th>
-                                <td>40</td>
-                                <td>80</td>
-                                <td>$100 - $500</td>
-                                <td>20</td>
-                                <td></td>
-                                <td>100</td>
-                            </tr>
-                            <tr>
-                                <th>Bardot - Palmares</th>
-                                <td>40</td>
-                                <td>80</td>
-                                <td>$100 - $500</td>
-                                <td>20</td>
-                                <td></td>
-                                <td>100</td>
-                            </tr>
-                            <tr>
-                                <th>Bardot - Palmares</th>
-                                <td>40</td>
-                                <td>80</td>
-                                <td>$100 - $500</td>
-                                <td>20</td>
-                                <td></td>
-                                <td>100</td>
-                            </tr>
-                            <tr>
-                                <th>Bardot - Palmares</th>
-                                <td>40</td>
-                                <td>80</td>
-                                <td>$100 - $500</td>
-                                <td>20</td>
-                                <td></td>
-                                <td>100</td>
-                            </tr>
-                            <tr>
-                                <th>Bardot - Palmares</th>
-                                <td>40</td>
-                                <td>80</td>
-                                <td>$100 - $500</td>
-                                <td>20</td>
-                                <td></td>
-                                <td>100</td>
-                            </tr>
-                            <tr>
-                                <th>Bardot - Palmares</th>
-                                <td>40</td>
-                                <td>80</td>
-                                <td>$100 - $500</td>
-                                <td>20</td>
-                                <td></td>
-                                <td>100</td>
-                            </tr>
-                            <tr>
-                                <th>Bardot - Palmares</th>
-                                <td>40</td>
-                                <td>80</td>
-                                <td>$100 - $500</td>
-                                <td>20</td>
-                                <td></td>
-                                <td>100</td>
-                            </tr>
-                            <tr>
-                                <th>Bardot - Palmares</th>
-                                <td>40</td>
-                                <td>80</td>
-                                <td>$100 - $500</td>
-                                <td>20</td>
-                                <td></td>
-                                <td>100</td>
-                            </tr>
-                            <tr>
-                                <th>Bardot - Palmares</th>
-                                <td>40</td>
-                                <td>80</td>
-                                <td>$100 - $500</td>
-                                <td>20</td>
-                                <td></td>
-                                <td>100</td>
-                            </tr>
-                            <tr>
-                                <th>Bardot - Palmares</th>
-                                <td>40</td>
-                                <td>80</td>
-                                <td>$100 - $500</td>
-                                <td>20</td>
-                                <td></td>
-                                <td>100</td>
-                            </tr>
+
                         </tbody>
                     </table>
                 </div>
             </div>
+
         </div>
     </main>
 
@@ -309,8 +250,7 @@ if (!$_SESSION) {
       //  window.jQuery || document.write('<script src="js/jquery-slim.min.js"><\/script>')
 
     </script>
-<!--    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script> -->
-
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script> 
         (function($) {
             $(window).on("load", function() {
@@ -323,8 +263,12 @@ if (!$_SESSION) {
         })(jQuery);
 
     </script>
+<!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+<!-- Lodash JavaScript -->
+    <script src="js/lodash.js"></script>
 
- <!--   <script src="js/popper.min.js"></script> -->
+<!--   <script src="js/popper.min.js"></script> -->
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
@@ -339,7 +283,13 @@ if (!$_SESSION) {
         });
 
     </script>
- <!--   <script src="js/calendario.js"></script> -->
+<!-- Funcione de Local JavaScript -->
+    <script src="js/controladores/mdz.controlador.js"></script>
+
+    <script>
+        $(function() { iniciar();} );
+    </script>
+<!--   <script src="js/calendario.js"></script> -->
 </body>
 
 </html>

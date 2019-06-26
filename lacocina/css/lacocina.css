@@ -1380,9 +1380,15 @@ footer ul.quicklinks {
     font-weight: bold
 }
 
+.cantReservas2 {
+    font-size:50px;
+    border: none;
+    font-weight: bold
+}
+
 p.fechaReservas {
  font-size: 14px!important;
-    margin:0;
+ margin-top: 10%;
     
 }
 
