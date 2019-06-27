@@ -104,21 +104,55 @@
             contTotReservas = contTotReservas + local.cantReservas;
             contTotCubiertos = contTotCubiertos + local.cantCubiertos;
             contTotReservasEsp = contTotReservasEsp + local.cantReservasEsp;
+            var cantReservasNormales = local.cantReservas - local.cantReservasEsp;
             var nombreLocal = '';
             if (local.nombreLocal != '') {
                 nombreLocal = ' | ' +local.nombreLocal;
             }
             $("#tableReporte").append(''+
-                '<tr>'+
-                    '<th>'+ local.nombreNegocio + nombreLocal +'</th>'+
-                    '<td>'+local.cantReservas+'</td>'+
-                    '<td>'+local.cantCubiertos+'</td>'+
-                    '<td> $'+local.rangoPrecioInicial+' - $' +local.rangoPrecioFinal+'</td>'+
-                    '<td> $'+local.rangoPrecioComision+'</td>'+
-                    '<td>'+local.cantReservasEsp+'</td>'+
-                    '<td></td>'+
-                    '<td></td>'+
-                '</tr>'+
+                    '<div class="card">'+
+                    '<div class="card-header" id="heading01">'+
+                        '<table class="table table-sm">'+
+                            '<thead>'+
+                                '<tr>'+
+                                    '<th scope="col" class="col5"><a class="" data-toggle="collapse" data-target="#'+local.idLocal+'" aria-expanded="true" aria-controls="'+local.idLocal+'">'+local.nombreNegocio+nombreLocal+'</a></th>'+
+                                    '<th scope="col" class="col6"><a class="" data-toggle="collapse" data-target="#'+local.idLocal+'" aria-expanded="true" aria-controls="'+local.idLocal+'">'+local.cantReservas+'</a></th>'+
+                                    '<th scope="col" class="col6"><a class="" data-toggle="collapse" data-target="#'+local.idLocal+'" aria-expanded="true" aria-controls="'+local.idLocal+'">'+local.cantCubiertos+'</a></th>'+
+                                    '<th scope="col" class="col6"><a class="" data-toggle="collapse" data-target="#'+local.idLocal+'" aria-expanded="true" aria-controls="'+local.idLocal+'">$10999</a></th>'+
+                                    '<th scope="col" class="col4"><a class="" data-toggle="collapse" data-target="#'+local.idLocal+'" aria-expanded="true" aria-controls="'+local.idLocal+'"><i class="fa fa-eye" aria-hidden="true"></i></a></th>'+
+                                '</tr>'+
+                            '</thead>'+
+                        '</table>'+
+                    '</div>'+
+                    '<div id="'+local.idLocal+'" class="collapse content-collapse " aria-labelledby="headingOne" data-parent="#accordion">'+
+                        '<div class="row padding-reservas2 ">'+
+                            '<div class="col-md-4">'+
+                                '<h6><span id="titulo1">Reservas Normales</span></h6>'+
+                                '<div id="contReservasNormales">'+
+                                    '<p>Rango:<span style="color: #f8981d;"> '+local.rangoPrecioInicial+' - '+local.rangoPrecioFinal+'</span> Comisión: <span style="color: #f8981d;"> $'+local.rangoPrecioComision+'</span></p>'+
+                                    '<p>Reservas: <span style="color: #f8981d;"> '+cantReservasNormales+'</span> Cubiertos: <span style="color: #f8981d;"> 10</span> Total: <span style="color: #149b7e;"> $180</span></p>'+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="col-md-4">'+
+                                '<h6><span id="titulo2">Reservas Especiales</span></h6>'+
+                                '<div id="contReservasEspeciales">'+
+                                    '<h1>AlMalbec</h1>'+
+                                    '<p>Rango:<span style="color: #f8981d;"> $100 - $500</span> Comisión: <span style="color: #f8981d;"> $30</span></p>'+
+                                    '<p>Cubiertos: <span style="color: #f8981d;"> 5</span> Total: <span style="color: #149b7e;"> $150</span></p>'+
+                                    '<p>Rango:<span style="color: #f8981d;"> $501 - $9999</span> Comisión: <span style="color: #f8981d;"> $50</span></p>'+
+                                    '<p>Cubiertos: <span style="color: #f8981d;"> 5</span> Total: <span style="color: #149b7e;"> $250</span></p>'+
+                                    '<h1>AlCabernet</h1>'+
+                                    '<p>Comisión: <span style="color: #f8981d;"> $30</span></p>'+
+                                    '<p>Cubiertos: <span style="color: #f8981d;"> 6</span> </span> Total: <span style="color: #149b7e;"> $180</span></p>'+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="col-md-4">'+
+                                '<h6><strong id="titulo3">Total Comisiones</strong></h6>'+
+                                '<p><span style="color: #149b7e;"><strong> $1800</strong></span></p>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+
              '');
         })
 

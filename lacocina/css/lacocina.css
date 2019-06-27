@@ -1269,7 +1269,9 @@ footer ul.quicklinks {
     vertical-align: top!important
 }
 
-
+#titulo1, #titulo2, #titulo3 {
+    color: #00a5d7;
+}
 
 
 #reservas p {
@@ -1445,6 +1447,10 @@ p.detalleReservas {
 
 .bad {
     color: #ce0000
+}
+
+.alturaReservas2 {
+    height: auto
 }
 
 .alturaReservas {
