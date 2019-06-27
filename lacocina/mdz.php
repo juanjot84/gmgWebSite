@@ -174,6 +174,70 @@ if (!$_SESSION) {
 
         <div class="row ">
             <div class="col-lg-12">
+                <div class="modulo celeste alturaReservas">
+                    <nav>
+                        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#Rhoy" role="tab" aria-controls="nav-home" aria-selected="true">Reporte de Reservas</a>
+                        </div>
+                    </nav>
+                    <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="Rhoy" role="tabpanel" aria-labelledby="Rhoy">
+
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="col5">Negocio</th>
+                                        <th scope="col" class="col6">Reservas Totales</th>
+                                        <th scope="col" class="col6">Cubiertos Totales</th>
+                                        <th scope="col" class="col6">Total</th>
+                                        <th scope="col" class="col4"> </th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <div id="accordion">
+                                
+                                <div class="card">
+                                    <div class="card-header" id="heading01">
+                                        <table class="table table-sm">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col" class="col5"><a class="" data-toggle="collapse" data-target="#collapse01" aria-expanded="true" aria-controls="collapse01">elnegocio - nombre l</a></th>
+                                                    <th scope="col" class="col6"><a class="" data-toggle="collapse" data-target="#collapse01" aria-expanded="true" aria-controls="collapse01">10</a></th>
+                                                    <th scope="col" class="col6"><a class="" data-toggle="collapse" data-target="#collapse01" aria-expanded="true" aria-controls="collapse01">20</a></th>
+                                                    <th scope="col" class="col6"><a class="" data-toggle="collapse" data-target="#collapse01" aria-expanded="true" aria-controls="collapse01">$10999</a></th>
+                                                    <th scope="col" class="col4"><a class="" data-toggle="collapse" data-target="#collapse01" aria-expanded="true" aria-controls="collapse01"><i class="fa fa-eye" aria-hidden="true"></i></a></th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                    <div id="collapse01" class="collapse content-collapse " aria-labelledby="headingOne" data-parent="#accordion">
+                                        <div class="row padding-reservas2 ">
+                                            <div class="col-md-4">
+                                                <h6><span>Reservas Normales</span></h6>
+                                                <p>Rango:<span> $150 - $9999</span></p>
+                                                <p>Comisión: <span> $30</span></p>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <h6>Medio de reserva</h6>
+                                                <img src="img/guia.png" alt="">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <h6>Promocion</h6>
+                                                <img src="img/Promociones/Promocion01.jpg" alt="" class="img-fluid">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+
+
+        <div class="row ">
+            <div class="col-lg-12">
                 <div class="modulo celeste">
                     <h1>Reportes de Reservas</h1>
                     <table class="table">
@@ -186,6 +250,7 @@ if (!$_SESSION) {
                                 <th>Comisión por Reserva</th>
                                 <th>Reservas Especiales</th>
                                 <th>Total</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody id="tableReporte">

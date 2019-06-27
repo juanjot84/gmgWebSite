@@ -117,6 +117,7 @@
                     '<td> $'+local.rangoPrecioComision+'</td>'+
                     '<td>'+local.cantReservasEsp+'</td>'+
                     '<td></td>'+
+                    '<td></td>'+
                 '</tr>'+
              '');
         })

@@ -1228,6 +1228,18 @@ footer ul.quicklinks {
     width: 5%
 }
 
+.col4 {
+    width: 10%
+}
+
+.col5 {
+    width: 30%
+}
+
+.col6 {
+    width: 20%
+}
+
 .col10 {
     width: 15%
 }
@@ -1290,6 +1302,10 @@ footer ul.quicklinks {
 
 .padding-reservas {
     padding:20px
+}
+
+.padding-reservas2 {
+    padding:0px 20px 20px 20px
 }
 
 .card .fa {
