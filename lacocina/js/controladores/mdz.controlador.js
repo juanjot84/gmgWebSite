@@ -104,7 +104,7 @@
             contTotReservas = contTotReservas + local.cantReservas;
             contTotCubiertos = contTotCubiertos + local.cantCubiertos;
             contTotReservasEsp = contTotReservasEsp + local.cantReservasEsp;
-            var cantReservasNormales = local.cantReservas - local.cantReservasEsp;
+            var cantReservasNormales = local.cantReservasNormales;
             var nombreLocal = '';
             if (local.nombreLocal != '') {
                 nombreLocal = ' | ' +local.nombreLocal;
@@ -130,20 +130,13 @@
                                 '<h6><span id="titulo1">Reservas Normales</span></h6>'+
                                 '<div id="contReservasNormales">'+
                                     '<p>Rango:<span style="color: #f8981d;"> '+local.rangoPrecioInicial+' - '+local.rangoPrecioFinal+'</span> Comisión: <span style="color: #f8981d;"> $'+local.rangoPrecioComision+'</span></p>'+
-                                    '<p>Reservas: <span style="color: #f8981d;"> '+cantReservasNormales+'</span> Cubiertos: <span style="color: #f8981d;"> 10</span> Total: <span style="color: #149b7e;"> $180</span></p>'+
+                                    '<p>Reservas: <span style="color: #f8981d;"> '+cantReservasNormales+'</span> Cubiertos: <span style="color: #f8981d;"> '+local.cantCubiertosNormales+'</span> Total: <span style="color: #149b7e;"> $'+local.totalCubiertosNormales+'</span></p>'+
                                 '</div>'+
                             '</div>'+
                             '<div class="col-md-4">'+
                                 '<h6><span id="titulo2">Reservas Especiales</span></h6>'+
                                 '<div id="contReservasEspeciales">'+
-                                    '<h1>AlMalbec</h1>'+
-                                    '<p>Rango:<span style="color: #f8981d;"> $100 - $500</span> Comisión: <span style="color: #f8981d;"> $30</span></p>'+
-                                    '<p>Cubiertos: <span style="color: #f8981d;"> 5</span> Total: <span style="color: #149b7e;"> $150</span></p>'+
-                                    '<p>Rango:<span style="color: #f8981d;"> $501 - $9999</span> Comisión: <span style="color: #f8981d;"> $50</span></p>'+
-                                    '<p>Cubiertos: <span style="color: #f8981d;"> 5</span> Total: <span style="color: #149b7e;"> $250</span></p>'+
-                                    '<h1>AlCabernet</h1>'+
-                                    '<p>Comisión: <span style="color: #f8981d;"> $30</span></p>'+
-                                    '<p>Cubiertos: <span style="color: #f8981d;"> 6</span> </span> Total: <span style="color: #149b7e;"> $180</span></p>'+
+
                                 '</div>'+
                             '</div>'+
                             '<div class="col-md-4">'+
@@ -154,6 +147,37 @@
                     '</div>'+
                 '</div>'+
              '');
+
+             if (local.promociones != '') {
+                _.each(local.promociones, function(promocion){
+                    $("#contReservasEspeciales").append(''+
+                      '<h1>'+promocion.nombreCortoPromocion+'</br><span class="ver">Modalidad de Cobro: '+promocion.modalidadCobro+'</span></h1>'+
+                    '');
+                    if (promocion.comisionPromocion != 0) {
+                        $("#contReservasEspeciales").append(''+
+                          '<div id="contComision">'+
+                             '<p>Comisión: <span style="color: #f8981d;">'+promocion.comisionPromocion+'%</span></p>'+
+                             '<p>Opciones Menu: <span style="color: #f8981d;"> 6</span> </span> Total: <span style="color: #149b7e;"> $180</span></p>'+
+                          '</div>'+
+                        '');
+                    }
+                    if (promocion.rangoPromocion.length != 0) {
+                        $("#contReservasEspeciales").append(''+
+                           '<div id="contRangos"></div>'+
+                        '');
+                        _.each(promocion.rangoPromocion, function(rango){
+                            $("#contRangos").append(''+
+                            '<div id="'+rango.idRango+'">'+
+                                '<p>Rango:<span style="color: #f8981d;"> $'+rango.desde+' - $'+rango.hasta+'</span> Comisión: <span style="color: #f8981d;"> $'+rango.valor+'</span></p>'+
+                                '<p>Opciones Menu: <span style="color: #f8981d;"> 5</span> Total: <span style="color: #149b7e;"> $150</span></p>'+
+                            '</div>'+                        
+                          '');
+                        })
+                    }
+
+                })
+             }
+
         })
 
         $("#totalReservas").append(contTotReservas);
