@@ -101,6 +101,7 @@
         var contTotReservasEsp = 0;
         $('#tableReporte,#totalReservas,#totalCubiertos,#totalReservasEspeciales,#fechaTotReservas,#fechaTotCubiertos,#fechaTotResEsp').html('');
         _.each(reservasLocal, function(local){
+            var totalComisionesLocal = local.totalCubiertosNormales;
             contTotReservas = contTotReservas + local.cantReservas;
             contTotCubiertos = contTotCubiertos + local.cantCubiertos;
             contTotReservasEsp = contTotReservasEsp + local.cantReservasEsp;
@@ -118,7 +119,7 @@
                                     '<th scope="col" class="col5"><a class="" data-toggle="collapse" data-target="#'+local.idLocal+'" aria-expanded="true" aria-controls="'+local.idLocal+'">'+local.nombreNegocio+nombreLocal+'</a></th>'+
                                     '<th scope="col" class="col6"><a class="" data-toggle="collapse" data-target="#'+local.idLocal+'" aria-expanded="true" aria-controls="'+local.idLocal+'">'+local.cantReservas+'</a></th>'+
                                     '<th scope="col" class="col6"><a class="" data-toggle="collapse" data-target="#'+local.idLocal+'" aria-expanded="true" aria-controls="'+local.idLocal+'">'+local.cantCubiertos+'</a></th>'+
-                                    '<th scope="col" class="col6"><a class="" data-toggle="collapse" data-target="#'+local.idLocal+'" aria-expanded="true" aria-controls="'+local.idLocal+'">$10999</a></th>'+
+                                    '<th scope="col" class="col6"><a class="" data-toggle="collapse" data-target="#'+local.idLocal+'" aria-expanded="true" aria-controls="'+local.idLocal+'" id="total'+local.idLocal+'"></a></th>'+
                                     '<th scope="col" class="col4"><a class="" data-toggle="collapse" data-target="#'+local.idLocal+'" aria-expanded="true" aria-controls="'+local.idLocal+'"><i class="fa fa-eye" aria-hidden="true"></i></a></th>'+
                                 '</tr>'+
                             '</thead>'+
@@ -141,7 +142,7 @@
                             '</div>'+
                             '<div class="col-md-4">'+
                                 '<h6><strong id="titulo3">Total Comisiones</strong></h6>'+
-                                '<p><span style="color: #149b7e;"><strong> $1800</strong></span></p>'+
+                                '<p><span style="color: #149b7e;" id="totComisiones'+local.idLocal+'"><strong> </strong></span></p>'+
                             '</div>'+
                         '</div>'+
                     '</div>'+
@@ -155,29 +156,62 @@
                     '');
                     if (promocion.comisionPromocion != 0) {
                         $("#contReservasEspeciales").append(''+
-                          '<div id="contComision">'+
+                          '<div id="Com'+promocion._id+'">'+
                              '<p>Comisión: <span style="color: #f8981d;">'+promocion.comisionPromocion+'%</span></p>'+
-                             '<p>Opciones Menu: <span style="color: #f8981d;"> 6</span> </span> Total: <span style="color: #149b7e;"> $180</span></p>'+
+                             '<p>Opciones Menu: <span style="color: #f8981d;"> '+promocion.cantOpcionesMenu+'</span> </span> Total: <span style="color: #149b7e;"> $'+promocion.totalMenuPorcentaje+'</span></p>'+
                           '</div>'+
                         '');
+                        if (promocion.modalidadCobro == 'cubierto+menu') {
+                            $("#Com"+promocion._id).append(''+
+                             '<p>Cubiertos: <span style="color: #f8981d;"> '+promocion.cubiertosProm+'</span> Total: <span style="color: #149b7e;"> $'+promocion.cubiertosProm * local.rangoPrecioComision+'</span></p>'+
+                            '');
+                            totalComisionesLocal = totalComisionesLocal + (promocion.cubiertosProm * local.rangoPrecioComision) + promocion.totalMenuPorcentaje;
+                        } else if (promocion.modalidadCobro == 'menu') {
+                            totalComisionesLocal = totalComisionesLocal + promocion.totalMenuPorcentaje;
+                        } else if (promocion.modalidadCobro == 'cubiertos') {
+                            $("#Com"+promocion._id).html('');
+                            $("#Com"+promocion._id).append(''+
+                              '<p>Cubiertos: <span style="color: #f8981d;"> '+promocion.cubiertosProm+'</span> Total: <span style="color: #149b7e;"> $'+promocion.cubiertosProm * local.rangoPrecioComision+'</span></p>'+
+                            '');
+                            totalComisionesLocal = totalComisionesLocal + (promocion.cubiertosProm * local.rangoPrecioComision);
+                        }
                     }
                     if (promocion.rangoPromocion.length != 0) {
+                        var totalRangos = 0;
                         $("#contReservasEspeciales").append(''+
-                           '<div id="contRangos"></div>'+
+                           '<div id="contRan'+promocion._id+'"></div>'+
                         '');
                         _.each(promocion.rangoPromocion, function(rango){
-                            $("#contRangos").append(''+
+                            totalRangos = totalRangos + rango.totalComision;
+                            $("#contRan"+promocion._id).append(''+
                             '<div id="'+rango.idRango+'">'+
                                 '<p>Rango:<span style="color: #f8981d;"> $'+rango.desde+' - $'+rango.hasta+'</span> Comisión: <span style="color: #f8981d;"> $'+rango.valor+'</span></p>'+
-                                '<p>Opciones Menu: <span style="color: #f8981d;"> 5</span> Total: <span style="color: #149b7e;"> $150</span></p>'+
+                                '<p>Opciones Menu: <span style="color: #f8981d;"> '+rango.cantidad+'</span> Total: <span style="color: #149b7e;"> $'+rango.totalComision+'</span></p>'+
                             '</div>'+                        
                           '');
-                        })
-                    }
+                        });
 
+                        if (promocion.modalidadCobro == 'cubierto+menu') {
+                            $("#contRan"+promocion._id).append(''+
+                             '<p>Cubiertos: <span style="color: #f8981d;"> '+promocion.cubiertosProm+'</span> Total: <span style="color: #149b7e;"> $'+promocion.cubiertosProm * local.rangoPrecioComision+'</span></p>'+
+                            '');
+                            totalComisionesLocal = totalComisionesLocal + (promocion.cubiertosProm * local.rangoPrecioComision) + totalRangos;
+                        } else if (promocion.modalidadCobro == 'menu') {
+                            totalComisionesLocal = totalComisionesLocal + totalRangos;
+                        } else if (promocion.modalidadCobro == 'cubiertos') {
+                            $("#contRan"+promocion._id).html('');
+                            $("#contRan"+promocion._id).append(''+
+                            '<p>Cubiertos: <span style="color: #f8981d;"> '+promocion.cubiertosProm+'</span> Total: <span style="color: #149b7e;"> $'+promocion.cubiertosProm * local.rangoPrecioComision+'</span></p>'+
+                            '');
+                            totalComisionesLocal = totalComisionesLocal + (promocion.cubiertosProm * local.rangoPrecioComision);
+                        }
+                    }
                 })
              }
-
+             $("#total"+local.idLocal).html('');
+             $("#total"+local.idLocal).append('$'+totalComisionesLocal);
+             $("#totComisiones"+local.idLocal).html('');
+             $("#totComisiones"+local.idLocal).append('$'+totalComisionesLocal);
         })
 
         $("#totalReservas").append(contTotReservas);

@@ -189,7 +189,7 @@ if (!$_SESSION) {
                                         <th scope="col" class="col5">Negocio</th>
                                         <th scope="col" class="col6">Total Reservas</th>
                                         <th scope="col" class="col6">Total Cubiertos</th>
-                                        <th scope="col" class="col6">Total</th>
+                                        <th scope="col" class="col6">Total Comisiones</th>
                                         <th scope="col" class="col4"> </th>
                                     </tr>
                                 </thead>
