@@ -79,16 +79,10 @@ a:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
 }
 
-
-
-
-
 .navbar .row {
     width: 100%;
     margin: 0
 }
-
-
 
 .btn-secondary,
 .btn-secondary:not(:disabled):not(.disabled).active,
@@ -96,9 +90,51 @@ a:hover {
 .show > .btn-secondary.dropdown-toggle {
     background-color: transparent!important;
     border: none;
-    border-radius: 2px
+    border-radius: 2px;
+    color: #fff;
 }
 
+.dropdown-menu {
+    width: 100%;
+    margin: 5px 0 0 0;
+    background-image: url(../img/opacity.png);
+    background-color: transparent;
+    box-shadow: 0 1px 1px 0 rgba(60, 64, 67, .08), 0 1px 3px 1px rgba(60, 64, 67, .16);
+    transition: box-shadow 135ms cubic-bezier(.4, 0, .2, 1);
+    border-radius: 3px;
+
+}
+
+.dropdown-item {
+    color: #fff;
+    text-align: center
+}
+
+.dropdown-item:hover {
+    background-color: #f8981d;
+    color: #fff
+}
+
+/***************Menu Superior Reportes MDZ*/
+.navbar-dark {
+    background-color: #000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
+}
+
+.navbar .row {
+    width: 100%;
+    margin: 0
+}
+
+.btn-secondary2,
+.btn-secondary2:not(:disabled):not(.disabled).active,
+.btn-secondary2:not(:disabled):not(.disabled):active,
+.show > .btn-secondary2.dropdown-toggle {
+    background-color: transparent!important;
+    border: none;
+    border-radius: 2px;
+    color: #4b4b4b;
+}
 
 .dropdown-menu {
     width: 100%;
@@ -702,7 +738,7 @@ nav.main-menu li.active > a,
     border-radius: 2px;
     background-color: #fff;
     padding: 20px 20px 10px 20px;
-    height: 272px;
+    height: auto;
     border-top: 2px solid #f8981d;
     margin: 0 0 20px 0;
    
@@ -1192,6 +1228,18 @@ footer ul.quicklinks {
     width: 5%
 }
 
+.col4 {
+    width: 10%
+}
+
+.col5 {
+    width: 30%
+}
+
+.col6 {
+    width: 20%
+}
+
 .col10 {
     width: 15%
 }
@@ -1221,7 +1269,9 @@ footer ul.quicklinks {
     vertical-align: top!important
 }
 
-
+#titulo1, #titulo2, #titulo3 {
+    color: #00a5d7;
+}
 
 
 #reservas p {
@@ -1254,6 +1304,10 @@ footer ul.quicklinks {
 
 .padding-reservas {
     padding:20px
+}
+
+.padding-reservas2 {
+    padding:0px 20px 20px 20px
 }
 
 .card .fa {
@@ -1344,9 +1398,15 @@ footer ul.quicklinks {
     font-weight: bold
 }
 
+.cantReservas2 {
+    font-size:50px;
+    border: none;
+    font-weight: bold
+}
+
 p.fechaReservas {
  font-size: 14px!important;
-    margin:0;
+ margin-top: 10%;
     
 }
 
@@ -1387,6 +1447,10 @@ p.detalleReservas {
 
 .bad {
     color: #ce0000
+}
+
+.alturaReservas2 {
+    height: auto
 }
 
 .alturaReservas {
