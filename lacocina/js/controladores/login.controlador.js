@@ -111,7 +111,7 @@ function crearSesion(tipoUs, idNeg, token, nombreUsuario, apellidoUsuario) {
             var url = "negocios.php";
             $(location).attr('href', url);
           } else if (tipoUs == 'mdzUser') {
-            var url = "mdz.php";
+            var url = "reporte-reservas.php";
             $(location).attr('href', url);
           }
         }

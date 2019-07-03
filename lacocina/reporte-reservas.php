@@ -109,7 +109,7 @@ if (!$_SESSION) {
                             <div class="col-lg-4">
                                 <div class="dropdown">
                                     <a class="btn btn-secondary2 dropdown-toggle text-center mx-auto d-block " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                         <span id="selectorRango">Mes en Curso</span>
+                                         <span id="selectorRango">Mes Anterior</span>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                         <a class="dropdown-item" style="color:#fff" onclick="obtenerReporte('ultimos7')">Ultima semana</a>
@@ -287,7 +287,7 @@ if (!$_SESSION) {
 
     </script>
 <!-- Funcione de Local JavaScript -->
-    <script src="js/controladores/mdz.controlador.js"></script>
+    <script src="js/controladores/reporteReservas.controlador.js"></script>
 
     <script>
         $(function() { iniciar();} );

@@ -4,7 +4,7 @@
 
     function iniciar(){
         $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
-            obtenerReporte('esteMes');
+            obtenerReporte('mesPasado');
         });
     }
 
