@@ -48,14 +48,14 @@ function login() {
         var nombreUsuario = tokenDecoded.nombre;
         var apellidoUsuario = tokenDecoded.apellido;
 
-        if (tipoUsuario == 'superAdmin') {
+        if (tipoUsuario === 'superAdmin') {
           idNegocio = '';
           crearSesion(tipoUsuario, idNegocio, token);
         }
-        if (tipoUsuario == 'usuarioNegocio') {
+        if (tipoUsuario === 'usuarioNegocio') {
           crearSesion(tipoUsuario, idNegocio, token, nombreUsuario, apellidoUsuario);
         }
-        if (tipoUsuario == 'mdzUser') { //tipo de usuario para reportes de mdz
+        if (tipoUsuario === 'mdzUser') { //tipo de usuario para reportes de mdz
           idNegocio = '';
           crearSesion(tipoUsuario, idNegocio, token);
         }
@@ -104,13 +104,13 @@ function crearSesion(tipoUs, idNeg, token, nombreUsuario, apellidoUsuario) {
         error: function () {
         },
         success: function (response) {
-          if (tipoUs == 'usuarioNegocio') {
+          if (tipoUs === 'usuarioNegocio') {
             var url = "dashboard.php";
             $(location).attr('href', url);
-          } else if (tipoUs == 'superAdmin') {
+          } else if (tipoUs === 'superAdmin') {
             var url = "negocios.php";
             $(location).attr('href', url);
-          } else if (tipoUs == 'mdzUser') {
+          } else if (tipoUs === 'mdzUser') {
             var url = "reporte-reservas.php";
             $(location).attr('href', url);
           }
