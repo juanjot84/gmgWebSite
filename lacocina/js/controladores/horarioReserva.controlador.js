@@ -165,6 +165,46 @@ function cargarHorariosSeteados() {
       $("#myRange").val(margenReservar);
       $("#myRange2").val(margenCancelar);
 
+      var minAdultos;
+      if (typeof(data.minimoAdultos) == "undefined"){
+        minAdultos = 1;
+      }else{
+        minAdultos = data.minimoAdultos;
+      }
+      $("#myRange3").val(minAdultos);
+      $("#amin").html('');
+      $("#amin").append(minAdultos);
+
+      var maxAdultos;
+      if (typeof(data.maximoAdultos) == "undefined"){
+        maxAdultos = 1;
+      }else{
+        maxAdultos = data.maximoAdultos;
+      }
+      $("#myRange4").val(maxAdultos);
+      $("#amax").html('');
+      $("#amax").append(maxAdultos);
+
+      var minMenores;
+      if (typeof(data.minimoMenores) == "undefined"){
+        minMenores = 1;
+      }else{
+        minMenores = data.minimoMenores;
+      }
+      $("#myRange5").val(minMenores);
+      $("#mmin").html('');
+      $("#mmin").append(minMenores);
+
+      var maxMenores;
+      if (typeof(data.maximoMenores) == "undefined"){
+        maxMenores = 1;
+      }else{
+        maxMenores = data.maximoMenores;
+      }
+      $("#myRange6").val(maxMenores);
+      $("#mmax").html('');
+      $("#mmax").append(maxMenores);
+
 
       var horariosAtencion = data.idHorarioAtencion;
       var cubiertos = data.idCubiertosDia;
@@ -600,13 +640,29 @@ var cadaMediaHora = function(t1,t2){
   return rangoHoras;
 };
 
-function actualizarMargen(campo){
+function actualizarMargen(campo) {
   var valorAActualizar = $('#'+campo).val();
   var campoAActualizar = '';
-  if(campo == "myRange"){
+  if(campo == "myRange") {
     campoAActualizar = 'margenCreacionReserva';
-  }else{
+  } else if(campo == "myRange2") {
     campoAActualizar = 'margenCancelacionReserva';
+  } else if(campo == "myRange3") {
+    campoAActualizar = 'minimoAdultos';
+    $("#amin").html('');
+    $("#amin").append(valorAActualizar);
+  } else if(campo == "myRange4") {
+    campoAActualizar = 'maximoAdultos';
+    $("#amax").html('');
+    $("#amax").append(valorAActualizar);
+  } else if(campo == "myRange5") {
+    campoAActualizar = 'minimoMenores';
+    $("#mmin").html('');
+    $("#mmin").append(valorAActualizar);
+  } else if(campo == "myRange6") {
+    campoAActualizar = 'maximoMenores';
+    $("#mmax").html('');
+    $("#mmax").append(valorAActualizar);
   }
   var idLocal = $("#idLocalCreado").val();
 

@@ -1,0 +1,614 @@
+h2{
+  font-family: Verdana,sans-serif;
+  font-size: 15px;
+ padding: 2px
+ 
+}
+
+.Slide-carrusell{
+  display: none;
+  /*padding-top: 50px;*/
+}
+.carrusell-elegido{
+  margin-top: 50px;
+  display: inline-block;
+}
+.demo {
+  cursor:pointer
+}
+.carrusell{
+  max-width: 1200px;
+  margin: auto;
+}
+
+.carrusell-row-padding{
+  padding: 15px 9px;
+  align-items: center;
+}
+
+.carrusell-elegir{
+  height: 120px;
+  background-color: #f1f1f1;
+}
+
+.carrusell-section{
+  margin-top: 16px!important;
+  margin-bottom: 16px!important;
+}
+.w3-col.s4 {
+  width: 33.33333%;
+}
+.w3-col{
+  float: left;
+  width: 100%;
+}
+.demo {
+  cursor: pointer;
+}
+.w3-opacity-off, .w3-hover-opacity-off:hover {
+  opacity: 1;
+}
+.w3-opacity, .w3-hover-opacity:hover {
+  opacity: 0.60;
+}
+img {
+  margin-bottom: -5px;
+  border-style: none;
+}
+
+.pointer {
+  cursor: pointer;
+    color: #312783;
+}
+
+.pointer:hover {
+  color: #a7a7a7;
+}
+
+
+.carousel-control.left {
+  /* background-image: -webkit-linear-gradient(left,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%); */
+  background-image: none !important;
+  /* background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.0001))); */
+  /* background-image: linear-gradient(to right,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%); */
+  filter: none !important;
+  background-repeat: repeat-x;
+    width: 50px;
+    
+}
+
+.carousel-control.right {
+ 
+  background-image: none !important;
+  filter: none !important;
+  background-repeat: repeat-x;
+    width: 50px
+}
+
+.glyphicon-chevron-left:before {
+  content: "\e079";
+  color: black !important;
+}
+.glyphicon-chevron-right:before {
+  content: "\e080";
+  color: black !important;
+}
+
+/* GAMA DE COLORES
+â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” */
+.gama-color{
+  /*max-width: 1200px;*/
+  /*margin: auto;*/
+  display: none;
+}
+
+.col-xs-1-10,
+.col-sm-1-10 {
+  position: relative;
+  min-height: 1px;
+}
+
+.col-xs-1-10 {
+  width: 10%;
+  float: left;
+}
+
+.col-txt{
+  font-family: Verdana,sans-serif;
+  font-size: 16px;
+  line-height: 4;
+}
+
+.gama-blue,
+.gama-gray,
+.gama-green,
+.gama-purple,
+.gama-red,
+.gama-yellow {
+  width: 25px;
+  height: 25px;
+  margin: 10px 10px 25px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.gama-blue {
+  background-color: #d8ecf7;
+  border: 1px solid #afcde3;
+}
+
+.gama-gray {
+  background-color: #e2e2e2;
+  border: 1px solid #bdbdbd;
+}
+
+.gama-green {
+  background-color: #d9edc2;
+  border: 1px solid #b2ce96;
+}
+
+.gama-purple {
+  background-color: #e2e2f9;
+  border: 1px solid #bebde9;
+}
+
+.gama-red {
+  background-color: #f9dbdb;
+  border: 1px solid #e9b3b3;
+}
+
+.gama-yellow {
+  background-color: #fef5c4;
+  border: 1px solid #fadf98;
+}
+
+/* FIN GAMA DE COLORES
+â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” */
+
+/* TODO COLORES
+â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” */
+
+.cuadros-todo-color {
+  max-width: 1200px;
+  margin: auto;
+  line-height: 10px;
+}
+
+.carousel-inner {
+  /*position: relative;*/
+  /*width: 100%;*/
+  /*overflow: hidden;*/
+  /*padding-left: 10% !important;*/
+  /*padding-top: 2% !important;*/
+  /*min-height: 200px !important;*/
+  width: 85% !important;
+  position: relative;
+  left: 30px;
+
+}
+
+.carousel-indicators {
+  bottom: 20px;
+  display: none !important;
+}
+
+.todo-color{
+  width: 20px;
+  height: 20px;
+  margin: 10px 10px 25px;
+  overflow: hidden;
+  padding: 20px;
+  border: 1px solid #000000;
+
+}
+.todo-color:hover{
+  cursor: pointer;
+}
+
+.todo-teknolatex-31 {
+  background-color: #2b201e;
+  border: 1px solid #000000;
+}
+.todo-teknolatex-34 {
+  background-color: #661e21;
+  border: 1px solid #000000;
+}
+.todo-teknolatex-33 {
+  background-color: #562111;
+  border: 1px solid #000000;
+}
+.todo-teknolatex-54 {
+  background-color: #882d01;
+  border: 1px solid #000000;
+}
+.todo-teknolatex-51 {
+  background-color: #0d270a;
+  border: 1px solid #000000;
+}
+.todo-teknolatex-39 {
+  background-color: #0b1d33;
+  border: 1px solid #000000;
+}
+.todo-teknolatex-55 {
+  background-color: #7998ad;
+  border: 1px solid #000000;
+}
+.todo-teknolatex-44 {
+  background-color: #3a5863;
+  border: 1px solid #000000;
+}
+.todo-teknolatex-36 {
+  background-color: #585039;
+  border: 1px solid #000000;
+}
+.todo-teknolatex-35 {
+  background-color: #aa5600;
+  border: 1px solid #000000;
+}
+.todo-teknolatex-43 {
+  background-color: #c98520;
+  border: 1px solid #000000;
+}
+.todo-teknolatex-52 {
+  background-color: #791714;
+  border: 1px solid #000000;
+}
+.todo-teknolatex-50 {
+  background-color: #e2b500;
+  border: 1px solid #000000;
+}
+.todo-sintetico-15 {
+  background-color: #581d17;
+  border: 1px solid #000000;
+}
+.todo-sintetico-07 {
+  background-color: #3f2116;
+  border: 1px solid #000000;
+}
+.todo-sintetico-03 {
+  background-color: #650101;
+  border: 1px solid #000000;
+}
+.todo-sintetico-20 {
+  background-color: #920001;
+  border: 1px solid #000000;
+}
+.todo-sintetico-02 {
+  background-color: #740000;
+  border: 1px solid #000000;
+}
+.todo-sintetico-14 {
+  background-color: #c31d03;
+  border: 1px solid #000000;
+}
+.todo-sintetico-10 {
+  background-color: #24130c;
+  border: 1px solid #000000;
+}
+.todo-sintetico-54 {
+  background-color: #412318;
+  border: 1px solid #000000;
+}
+.todo-sintetico-19 {
+  background-color: #a4863d;
+  border: 1px solid #000000;
+}
+.todo-sintetico-21 {
+  background-color: #a05919;
+  border: 1px solid #000000;
+}
+.todo-sintetico-04 {
+  background-color: #edbd03;
+  border: 1px solid #000000;
+}
+.todo-sintetico-4 {
+  background-color: #e28c35;
+  border: 1px solid #000000;
+}
+.todo-sintetico-37 {
+  background-color: #894c15;
+  border: 1px solid #000000;
+}
+.todo-sintetico-36 {
+  background-color: #c7a158;
+  border: 1px solid #000000;
+}
+.todo-sintetico-56 {
+  background-color: #fe9900;
+  border: 1px solid #000000;
+}
+.todo-sintetico-11 {
+  background-color: #c29542;
+  border: 1px solid #000000;
+}
+.todo-sintetico-24 {
+  background-color: #ffda70;
+  border: 1px solid #000000;
+}
+.todo-sintetico-27 {
+  background-color: #001100;
+  border: 1px solid #000000;
+}
+.todo-sintetico-101 {
+  background-color: #023401;
+  border: 1px solid #000000;
+}
+.todo-sintetico-50 {
+  background-color: #002102;
+  border: 1px solid #000000;
+}
+.todo-sintetico-22 {
+  background-color: #013f18;
+  border: 1px solid #000000;
+}
+.todo-sintetico-31 {
+  background-color: #008333;
+  border: 1px solid #000000;
+}
+.todo-sintetico-24 {
+  background-color: #637a10;
+  border: 1px solid #000000;
+}
+.todo-sintetico-18 {
+  background-color: #413d24;
+  border: 1px solid #000000;
+}
+.todo-sintetico-17 {
+  background-color: #372517;
+  border: 1px solid #000000;
+}
+.todo-sintetico-33 {
+  background-color: #b4b677;
+  border: 1px solid #000000;
+}
+.todo-sintetico-29 {
+  background-color: #c8c79b;
+  border: 1px solid #000000;
+}
+.todo-sintetico-23 {
+  background-color: #01011b;
+  border: 1px solid #000000;
+}
+.todo-sintetico-41 {
+  background-color: #011b34;
+  border: 1px solid #000000;
+}
+.todo-sintetico-32 {
+  background-color: #0e2e39;
+  border: 1px solid #000000;
+}
+.todo-sintetico-38 {
+  background-color: #0c6c82;
+  border: 1px solid #000000;
+}
+.todo-sintetico-16 {
+  background-color: #44433e;
+  border: 1px solid #000000;
+}
+.todo-sintetico-35 {
+  background-color: #5b6250;
+  border: 1px solid #000000;
+}
+.todo-sintetico-28 {
+  background-color: #66714f;
+  border: 1px solid #000000;
+}
+.todo-sintetico-26 {
+  background-color: #7d7d7d;
+  border: 1px solid #000000;
+}
+.todo-preparar-amanecer {
+  background-color: #f9d2b5;
+  border: 1px solid #000000;
+}
+.todo-preparar-naranja-pardo {
+  background-color: #f3a574;
+  border: 1px solid #000000;
+}
+.todo-preparar-rosa-clasico {
+  background-color: #ffd4ff;
+  border: 1px solid #000000;
+}
+.todo-preparar-crepusculo {
+  background-color: #f38e72;
+  border: 1px solid #000000;
+}
+.todo-preparar-rosa-viejo {
+  background-color: #efd7bf;
+  border: 1px solid #000000;
+}
+.todo-preparar-desierto {
+  background-color: #f3bf74;
+  border: 1px solid #000000;
+}
+.todo-preparar-coral {
+  background-color: #f9763e;
+  border: 1px solid #000000;
+}
+.todo-preparar-rosa-pantera {
+  background-color: #ffe0ff;
+  border: 1px solid #000000;
+}
+.todo-preparar-rosa-parisien {
+  background-color: #ffd6c2;
+  border: 1px solid #000000;
+}
+.todo-preparar-gres-ceramico {
+  background-color: #cf9845;
+  border: 1px solid #000000;
+}
+.todo-preparar-salmon {
+  background-color: #ecd5b3;
+  border: 1px solid #000000;
+}
+.todo-preparar-piedra {
+  background-color: #999045;
+  border: 1px solid #000000;
+}
+.todo-preparar-mataco {
+  background-color: #d6a65e;
+  border: 1px solid #000000;
+}
+.todo-preparar-marfil {
+  background-color: #ede896;
+  border: 1px solid #000000;
+}
+.todo-preparar-beige {
+  background-color: #af8344;
+  border: 1px solid #000000;
+}
+.todo-preparar-arena {
+  background-color: #e5dca5;
+  border: 1px solid #000000;
+}
+.todo-preparar-nuez {
+  background-color: #cebe5f;
+  border: 1px solid #000000;
+}
+.todo-preparar-vison {
+  background-color: #cac186;
+  border: 1px solid #000000;
+}
+.todo-preparar-crema {
+  background-color: #ebd38d;
+  border: 1px solid #000000;
+}
+.todo-preparar-amarillo-limon {
+  background-color: #f5fa58;
+  border: 1px solid #000000;
+}
+.todo-preparar-verde-ilusion {
+  background-color: #53df58;
+  border: 1px solid #000000;
+}
+.todo-preparar-amarillo-manilla {
+  background-color: #fcde86;
+  border: 1px solid #000000;
+}
+.todo-preparar-amarillo-sahara {
+  background-color: #f7fa87;
+  border: 1px solid #000000;
+}
+.todo-preparar-verde-helecho {
+  background-color: #9ee77b;
+  border: 1px solid #000000;
+}
+.todo-preparar-verde-seco {
+  background-color: #b4a854;
+  border: 1px solid #000000;
+}
+.todo-preparar-verde-claro {
+  background-color: #abf0ad;
+  border: 1px solid #000000;
+}
+.todo-preparar-verde-agua {
+  background-color: #d2f7d5;
+  border: 1px solid #000000;
+}
+.todo-preparar-azul-cosmos {
+  background-color: #84b4c0;
+  border: 1px solid #000000;
+}
+.todo-preparar-azul-violaceo {
+  background-color: #819dc2;
+  border: 1px solid #000000;
+}
+.todo-preparar-verde-turquesa {
+  background-color: #9ceeb0;
+  border: 1px solid #000000;
+}
+.todo-preparar-gris-siberia {
+  background-color: #707264;
+  border: 1px solid #000000;
+}
+.todo-preparar-gris-ceniza {
+  background-color: #a9a99d;
+  border: 1px solid #000000;
+}
+.todo-preparar-celestial {
+  background-color: #b8e6f5;
+  border: 1px solid #000000;
+}
+.todo-preparar-lila {
+  background-color: #eedaf6;
+  border: 1px solid #000000;
+}
+.todo-preparar-verde-parma {
+  background-color: #add4a5;
+  border: 1px solid #000000;
+}
+.todo-preparar-gris-astracan {
+  background-color: #83bf79;
+  border: 1px solid #000000;
+}
+
+
+/* FIN TODO COLORES
+â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” */
+
+
+.area-btn:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+/* CUADROS DE COLORES
+â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” */
+.cuadros-color{
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* FIN CUADROS DE COLORES
+â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” */
+
+.cp-container .cp-pills {
+  display: none !important;
+  list-style-type: none;
+  margin-bottom: 5px;
+  padding: 0;
+  font-size: 12px;
+}
+
+.cp-swatches button {
+  float: left;
+  margin: 7px 7px 0 0;
+  width: 99px;
+  height: 26px;
+  display: none !important;
+  font-size: 25px;
+  padding: 0;
+}
+
+
+
+
+span.redondos {
+   background: #000;
+   border-radius: 0.8em;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 0.8em;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.6em;
+  margin-right: 5px;
+  text-align: center;
+  width: 1.6em; 
+}
+
+
+.marginOp2 {
+    margin:200px 0 0 0
+}
+
+.paddingColores {
+    padding: 0 40px;
+}
+
+.glyphicon-chevron-left {
+    margin-left:-30px 
+}
+
+.glyphicon-chevron-right {
+    margin-right:-30px 
+}

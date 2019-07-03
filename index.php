@@ -639,7 +639,10 @@ $(document).ready( function(){ $.fn.snow();
 });
 </script>-->
 
-
+<script>       var video = document.getElementById('videoFondo');
+video.addEventListener('click',function(){
+  video.play();
+},false);  </script>
 
 </body>
 

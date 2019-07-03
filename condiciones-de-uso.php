@@ -154,34 +154,6 @@
     obtenerListadoCocinas();
 
   </script>
-  
-       <!-- Script para mostrar y ocultar Logo en mobiles-->
-        <script>
-            if ($(window).innerWidth() < 800) {
-                var lastScrollTop = 0;
-                $(window).scroll(function(event) {
-                    var st = $(this).scrollTop();
-                    if (st > lastScrollTop) {
-                        // downscroll code
-                        document.getElementById("LogoMobile").style.display = "none";
-                        document.getElementById("buscador").style.marginTop = "40px";
-                        document.getElementById("nav-icon3").style.top = "20px";
-                        document.getElementById("loguito").style.display = "inline"
-                    } else {
-                        // upscroll code
-                        document.getElementById("LogoMobile").style.display = "inline";
-                        document.getElementById("buscador").style.marginTop = "0px";
-                        document.getElementById("nav-icon3").style.top = "0px";
-                        document.getElementById("loguito").style.display = "none"
-                    }
-                    lastScrollTop = st;
-                });
-            }
-
-        </script>
-
-        <!-- Script para mostrar y ocultar Logo en mobiles-->
-
 
 </body>
 

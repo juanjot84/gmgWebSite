@@ -827,7 +827,7 @@ ul.selecdiashorario {
 }
 
 .titulohorarioatencion {
-    text-transform: uppercase;
+   
     line-height: 4em;
     color: #616161;
     font-weight: 700;
@@ -1154,8 +1154,73 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
+
+
+
+
+        .range-slider input[type="range"] {
+            pointer-events: none;
+            position: absolute;
+            -webkit-appearance: none;
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+         
+            height: 25px;
+            background: #f4f4f4;
+            outline: none;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+            border-radius: 15px;
+            border: 1px solid #e6e6e6;
+        }
+
+        .range-slider input[type="range"]::-webkit-slider-thumb {
+            pointer-events: all;
+            position: relative;
+            z-index: 1;
+            outline: 0;
+          
+            -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #f8981d;
+    cursor: pointer;
+    border-radius: 50%;
+        }
+
+      
+
+        .range-slider input[type=range]::-moz-range-track {
+            position: relative;
+            z-index: -1;
+            background-color: black;
+            border: 0;
+        }
+
+        .range-slider input[type=range]:last-of-type::-moz-range-track {
+            -moz-appearance: none;
+            background: none transparent;
+            border: 0;
+        }
+
+        .range-slider input[type=range]::-moz-focus-outer {
+            border: 0;
+        }
+
+
+.comensales p {
+    font-weight: bold;
+    
+}
+
+.comensales p span {
+    
+    color:#f8981d
+}
+
+
 .horasanticipacion {
-    text-align: center;
+    text-align: left;
     font-weight: bold;
 }
 
@@ -1168,6 +1233,7 @@ input:checked + .slider:before {
     text-transform: uppercase;
     display: block;
     margin-bottom: 10px;
+    text-align: left
 }
 
 /*Fin slider range*/

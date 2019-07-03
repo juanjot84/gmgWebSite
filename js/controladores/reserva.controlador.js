@@ -37,6 +37,26 @@ function getOpcionesReservaLocal(idLocal) {
     success: function (data) {
       $('.titulo').text(data.idNegocio.nombreNegocio + " | " + data.idNegocio.bajadaNegocio);
       $('#direccionLocal').text(data.calleLocal + espacio + data.alturaLocal);
+      var inicAdult;
+      if (typeof(data.minimoAdultos) == "undefined") {
+        inicAdult = 1;
+      } else {
+        inicAdult = parseInt(data.minimoAdultos);
+      }
+      var maxAdult = parseInt(data.maximoAdultos);
+      var inicMen = parseInt(data.minimoMenores);
+      var maxMen = parseInt(data.maximoMenores);
+      var s = ''; //variable que se asigna la s a los valores que son en plural
+      $("#selectAdulto").html('');
+      for (inicAdult; inicAdult <= maxAdult; inicAdult++) {
+        if(inicAdult != 1) { s='s'} else { s = ''} ;
+        $("#selectAdulto").append("<option value="+inicAdult+">"+inicAdult+" adulto"+ s +"</option>");
+      }
+      $("#selectNino").html('');
+      for (inicMen; inicMen <= maxMen; inicMen++) {
+        if(inicMen != 1) { s='s'} else { s = ''} ;
+        $("#selectNino").append("<option value="+inicMen+">"+inicMen+" niño"+ s +"</option>");
+      }
     },
     error: function (jqXHR, textStatus, errorThrown) {
       $('#target').append("jqXHR: " + jqXHR);
@@ -432,8 +452,7 @@ function mostrarDetalleReserva(idReserva, calificar){
     dataType: "json",
     crossDomain: true,
     contentType: "application/json",
-    success: function (data) {
-      reserva = data[0];
+    success: function (reserva) {
       $("#detallesReserva").modal("show");
       $("#botonCancelar").attr("onclick", "cancelarReserva('" + idReserva +"')");
       $("#detalleReservaBotonCancelar").attr("onclick", "cancelarReserva('" + idReserva +"')");

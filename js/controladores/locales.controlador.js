@@ -376,6 +376,10 @@ function obtenerOpcionMenu(idOpcionMenu){
 
 function dibujarListaOpciones(opcionesMenu){
   _.each(_.orderBy(opcionesMenu, ['nombreOpcion'], ['asc']), function(opcion){
+    var precio = '';
+    if(opcion.precioOpcion != 0) {
+      precio = '$'+ opcion.precioOpcion;
+    }
     $("#opcionMenu").append(''+
          '<div class="row separadormodalpromoficha">'+
             '<div class="col-md-4">'+
@@ -386,7 +390,7 @@ function dibujarListaOpciones(opcionesMenu){
               '<p class="decrippromoficha">'+opcion.descripcionOpcion+'</p>'+
             '</div>'+
             '<div class="col-md-2">'+
-              '<h3>$'+opcion.precioOpcion+'</h3>'+
+              '<h3>'+precio+'</h3>'+
               '<br>'+
             '</div>'+
             '<div class="separador"></div>'+

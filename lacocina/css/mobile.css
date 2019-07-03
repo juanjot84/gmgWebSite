@@ -19,9 +19,13 @@
     
     
     .mobile {
-        display: block
+        display: block;
+        text-align: center
     }
     
+    .mobile img {
+        float:none
+    }
 
     .web {
         display: none
@@ -29,12 +33,13 @@
     
       .container {
    padding-left: 20%;
+          margin: 40px 0 0 0;
    
     }
     
     .main-menu {
         
-        top:80px
+        top:110px
     }
     #menu-toggle {
         top:10px;
@@ -46,11 +51,12 @@
     }
     
     #sidebar-wrapper {
-        top:50px
+        top: 110px;
     }
     
     .sidebar-nav {
-        font-size: 10px
+        font-size: 10px;
+            
     }
     
     #acceso {

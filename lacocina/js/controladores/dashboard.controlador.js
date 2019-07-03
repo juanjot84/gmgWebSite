@@ -52,13 +52,16 @@
             crossDomain: true,
             contentType:"application/json",
             success: function (data) {
-              var iconoNegocio = '';
               if (data.urlIconoNegocio != "") {
-                iconoNegocio = data.urlIconoNegocio;
+                $("#logoNegocio2").append(''+
+                  '<img src="'+data.urlIconoNegocio+'"></img>'+
+                ''); 
+
+                $("#logoNegocio").append(''+
+                   '<img src="'+data.urlIconoNegocio+'" class="web">'+
+                '');
               }
-              $("#logoNegocio").append(''+
-                  '<img src="'+iconoNegocio+'" class="web">'+
-              '');
+
             },
             error:function(jqXHR,textStatus,errorThrown)
             {

@@ -230,6 +230,12 @@
        $(location).attr('href',url);
     }
 
+    function verReservas(){
+      var idLocal = $("#idLocal").val();
+      var url = "perfil/reservas.php?id="+idLocal+"";
+      $(location).attr('href',url);
+   }
+
     function cargarLocales(){
        var idNegocio = $("#idNegocio").val();
        var url = "../lacocina/locales.php?idNegocio="+idNegocio+"";

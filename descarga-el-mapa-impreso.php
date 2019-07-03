@@ -81,68 +81,95 @@
   <section id="politicas" class="bg-light-gray" style="margin-top: 5%;">
     <div class="container">
       <div class="row">
+       
         <div class="col-lg-12 text-center">
           <h2 class="section-heading">Descargá el mapa impreso</h2>
         </div>
       </div>
       <div class="row ">
+       <h4 class="tituloAnteriores">#5 - 2018</h4>
         <div class="col-lg-4 text-center">
           
-          <h3 class="elegimapa"> 2018</h3>
-          <h3 class="elegimapa">#4 / CIUDAD • CHACRAS DE CORIA</h3>
           
-          <a target="_blank" href="mapas/ed4CiudadGranMendoza.pdf"><img class="descarga-mapa" src="img/tapas-mapas/Ed04Ciudad.jpg">
+          <h3 class="elegimapa">CIUDAD • GRAN MENDOZA</h3>
+          
+          <a target="_blank" href="mapas/ed5CiudadGranMendoza.pdf"><img class="descarga-mapa" src="img/tapas-mapas/Ed05CiudadGranMendoza.jpg">
           <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h3></a>
         </div>
-        <div class="col-lg-4 text-center">
-          <h3 class="elegimapa">#4 / GRAN MENDOZA / 2018</h3>
-          <a target="_blank" href="mapas/ed4GranMendoza.pdf"><img class="descarga-mapa" src="img/tapas-mapas/Ed04GranMendoza.jpg">
-          <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h3></a>
-        </div>
-        <div class="col-lg-4 text-center">
-          <h3 class="elegimapa">#4 / LUJÁN DE CUYO • MAIPÚ • VALLE DE UCO/ 2018-19</h3>
-          <a target="_blank" href="mapas/ed4LujanMaipuValledeUco.pdf"><img class="descarga-mapa" src="img/tapas-mapas/Ed04MaipuLujan.jpg">
+       <div class="col-lg-4 text-center">
+          <h3 class="elegimapa">LUJÁN DE CUYO • MAIPÚ • VALLE DE UCO</h3>
+          <a target="_blank" href="mapas/ed5LujanMaipuValledeUco.pdf"><img class="descarga-mapa" src="img/tapas-mapas/Ed04MaipuLujan.jpg">
           <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h3></a>
         </div>
       </div>
       <div class="row">
       	<h3>Ediciones Anteriores</h3>
       </div>
-      <div class="row anteriores">
+      
+       <div class="row anteriores">
+       <h4 class="tituloAnteriores">#4 - 2018</h4>
         <div class="col-lg-4 text-center">
-          <h3 class="elegimapa">#3 / CIUDAD • GRAN MENDOZA / 2018</h3>
+          <h4>CIUDAD • CHACRAS DE CORIA</h4>
+          <a target="_blank" href="mapas/mapas/ed4CiudadGranMendoza.pdf"><img class="descarga-mapa" src="img/tapas-mapas/Ed04Ciudad.jpg">
+          <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h3></a>
+        </div>
+        <div class="col-lg-4 text-center">
+          <h4>GRAN MENDOZA</h4>
+          <a target="_blank" href="mapas/ed4GranMendoza.pdf"><img class="descarga-mapa" src="img/tapas-mapas/Ed04GranMendoza.jpg">
+          <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h3></a>
+        </div>
+        <div class="col-lg-4 text-center">
+          <h4>LUJÁN DE CUYO • MAIPÚ • VALLE DE UCO</h4>
+          <a target="_blank" href="ed4LujanMaipuValledeUco.pdf"><img class="descarga-mapa" src="img/tapas-mapas/Ed04MaipuLujan.jpg">
+          <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h3></a>
+        </div>
+      </div>
+       
+       
+       
+       
+       <div class="row anteriores">
+       
+      <h4 class="tituloAnteriores">#3 - 2018</h4>
+        <div class="col-lg-4 text-center">
+          <h4>CIUDAD • GRAN MENDOZA </h4>
           <a target="_blank" href="mapas/ed3GranMendozaCiudad.pdf"><img class="descarga-mapa" src="img/tapas-mapas/Ed03Ciudad.jpg">
           <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h3></a>
         </div>
         <div class="col-lg-4 text-center">
-          <h3 class="elegimapa">#3 / CIUDAD • PALMARES / 2018</h3>
+          <h4>CIUDAD • PALMARES </h4>
           <a target="_blank" href="mapas/ed3CiudadPAlmares.pdf"><img class="descarga-mapa" src="img/tapas-mapas/Ed03Chacras.jpg">
           <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h3></a>
         </div>
         <div class="col-lg-4 text-center">
-          <h3 class="elegimapa">#3 / LUJÁN DE CUYO • MAIPÚ • VALLE DE UCO/ 2018</h3>
+          <h4>LUJÁN DE CUYO • MAIPÚ • VALLE DE UCO/ 2018</h4>
           <a target="_blank" href="mapas/ed3MaipuLujanValleUco3.pdf"><img class="descarga-mapa" src="img/tapas-mapas/Ed03MaipuLujan.jpg">
           <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h3></a>
         </div>
       </div>
       <div class="row anteriores">
+       
+       <h4 class="tituloAnteriores">#2 - 2017-18</h4>
         <div class="col-lg-4 text-center">
-          <h4>#2 / CIUDAD • PALMARES / 2017-18</h4>
+          
+          <h4>CIUDAD • PALMARES </h4>
           <a target="_blank" href="mapas/ed2CiudadPalmares.pdf"><img class="descarga-mapa" src="img/tapas-mapas/tapa-002.jpg">
           <h4 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h4></a>
         </div>
         <div class="col-lg-4 text-center">
-          <h4>#2 / LUJÁN DE CUYO • MAIPÚ / 2017-18</h4>
+          
+          <h4>LUJÁN DE CUYO • MAIPÚ </h4>
           <a target="_blank" href="mapas/ed2LujanMaipu.pdf"><img class="descarga-mapa" src="img/tapas-mapas/tapa-003.jpg">
-          <h4 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h4></a>
+          <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h3></a>
         </div>
         
       </div>
       
       <div class="row anteriores">
-    
+    <h4 class="tituloAnteriores">#1 - 2017</h4>
         <div class="col-lg-4 text-center">
-          <h3 class="elegimapa">#1 / CIUDAD • PALMARES / 2017</h3>
+          
+          <h4>CIUDAD • PALMARES </h4>
           <a target="_blank" href="mapas/ed1CiudadPAlmares.pdf"><img class="descarga-mapa" src="img/tapas-mapas/tapa-001.jpg">
           <h3 class="botdescarmapa text-center"><i class="fa fa-map-o" aria-hidden="true"></i> Descargar</h3></a>
         </div>

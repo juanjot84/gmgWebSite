@@ -356,6 +356,162 @@
          });
   });
 
+  $('#mdMarcNormal').on('show.bs.modal', function (event) {
+    $("#formDropZone3").html('');
+    $("#formDropZone3").append("<form id='dZUpload3' class='dropzone borde-dropzone' style='cursor: pointer;'>"+
+                              "<div class='dz-default dz-message text-center'>"+
+                                "<span><h2>Arrastra la imagen aquí</h2></span><br>"+
+                              "<p>(o Click para seleccionar)</p>"+
+                              "</div></form>");
+         myAwesomeDropzone3 = {
+           url: "scripts/mainMarcNormal.php",
+           addRemoveLinks: true,
+           paramName: "konostech3",
+           maxFilesize: 20, // MB
+           acceptedFiles: '.png',
+           dictRemoveFile: "Eliminar",
+           maxFiles: 1,
+           success: function (file, response) {           
+               var marcNormalName = response;
+                nombreMarcNormal = marcNormalName.trim();
+               var imgMarcNormVieja = $("#marcadorPromocionNormal").val();
+               if (imgMarcNormVieja != '') {
+                 var accion = 'vieja';
+                 eliminarMarcNormal(imgMarcNormVieja, accion);
+               } 
+               $("#marcadorPromocionNormal").val(nombreMarcNormal);
+               $('#contenedorMarcadorNormal').append(  '<br>' +
+               '<li class="miniaturas-orden">'+
+                  '<a href="#">'+
+                    '<img class="miniatura-galeria" src="'+nombreMarcNormal+'">'+
+                  '</a>'+
+                 '<br>'+
+                 '<button title="Eliminar" onClick="eliminarImgMarcNormal(\'' + nombreMarcNormal + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i></button> '+
+               '</li>'+
+           '');
+
+               file.previewElement.classList.add("dz-success");
+              
+           },
+           error: function (file, response) {
+             file.previewElement.classList.add("dz-error");
+             myDropzone2.removeFile(file);
+           }
+           
+         } // FIN myAwesomeDropzone
+
+         var myDropzone3 = new Dropzone("#dZUpload3", myAwesomeDropzone3);    
+         myDropzone3.on("complete", function(file) {
+            if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {  
+           } else {
+             console.log('todavia hay archivos subiendose ');
+           }
+         });
+  });
+
+  function eliminarImgMarcNormal(nombreMarcNormal, accion) {
+    if (_.isUndefined(server)) {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      });
+    }
+    var largoString = nombreMarcNormal.length;
+    var nombreMarcNormal = nombreMarcNormal.substr(45, largoString);
+    var parametros = {
+            "nombreArchivo" : nombreMarcNormal,
+    };
+    $.ajax({
+            data:  parametros, 
+            url:   'scripts/eliminarMarcadorNormal.php', 
+            type:  'post', 
+            success:  function (response) {
+              if (accion == 'vieja') {
+
+              } else {
+                $('#contenedorMarcadorNormal').html('');
+              }
+              
+            }
+    });
+}
+
+  $('#mdMarcSeleccionado').on('show.bs.modal', function (event) {
+    $("#formDropZone4").html('');
+    $("#formDropZone4").append("<form id='dZUpload4' class='dropzone borde-dropzone' style='cursor: pointer;'>"+
+                              "<div class='dz-default dz-message text-center'>"+
+                                "<span><h2>Arrastra la imagen aquí</h2></span><br>"+
+                              "<p>(o Click para seleccionar)</p>"+
+                              "</div></form>");
+        myAwesomeDropzone4 = {
+          url: "scripts/mainMarcNormal.php",
+          addRemoveLinks: true,
+          paramName: "konostech3",
+          maxFilesize: 20, // MB
+          acceptedFiles: '.png',
+          dictRemoveFile: "Eliminar",
+          maxFiles: 1,
+          success: function (file, response) {           
+              var marcSelecName = response;
+                nombreMarcSeleccionado = marcSelecName.trim();
+              var imgSelecVieja = $("#marcadorPromocionSeleccionado").val();
+              if (imgSelecVieja != '') {
+                var accion = 'vieja';
+                eliminarMarcNormal(imgSelecVieja, accion);
+              } 
+              $("#marcadorPromocionSeleccionado").val(nombreMarcSeleccionado);
+              $('#contenedorMarcadorSeleccionado').append(  '<br>' +
+              '<li class="miniaturas-orden">'+
+                  '<a href="#">'+
+                    '<img class="miniatura-galeria" src="'+nombreMarcSeleccionado+'">'+
+                  '</a>'+
+                '<br>'+
+                '<button title="Eliminar" onClick="eliminarImgMarcSeleccionado(\'' + nombreMarcSeleccionado + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i></button> '+
+              '</li>'+
+          '');
+
+              file.previewElement.classList.add("dz-success");
+              
+          },
+          error: function (file, response) {
+            file.previewElement.classList.add("dz-error");
+            myDropzone2.removeFile(file);
+          }
+          
+        } // FIN myAwesomeDropzone
+
+        var myDropzone4 = new Dropzone("#dZUpload4", myAwesomeDropzone4);    
+        myDropzone4.on("complete", function(file) {
+            if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {  
+          } else {
+            console.log('todavia hay archivos subiendose ');
+          }
+        });
+  });
+
+  function eliminarImgMarcSeleccionado(nombreMarcSeleccionado, accion) {
+    if (_.isUndefined(server)) {
+      $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
+      });
+    }
+    var largoString = nombreMarcSeleccionado.length;
+    var nombreMarcSelec = nombreMarcSeleccionado.substr(45, largoString);
+    var parametros = {
+            "nombreArchivo" : nombreMarcSelec,
+    };
+    $.ajax({
+            data:  parametros, 
+            url:   'scripts/eliminarMarcadorNormal.php', 
+            type:  'post', 
+            success:  function (response) {
+              if (accion == 'vieja') {
+
+              } else {
+                $('#contenedorMarcadorSeleccionado').html('');
+              }
+              
+            }
+    });
+}
+
   function cargarFormCrear() {
      limpiarForm();
      dibujarListadoLocales();
@@ -449,49 +605,129 @@
     var duracionPromocionDesde = duracionPromocion.substr(0,10);
     var duracionPromocionHasta = duracionPromocion.substr(13,10);
     var localesSeleccionados = [];
-    var seleccionados = $('input[name=localCheck]:checked');
-      _.each(seleccionados, function(item){ 
-        localesSeleccionados.push(item.value);
-    })
+    var marcadorNormal = $("#marcadorPromocionNormal").val();
+    var marcadorSeleccionado = $("#marcadorPromocionSeleccionado").val();
 
-    var promocion = JSON.stringify({
-      "nombrePromocion": $("#nombrePromocion").val(),
-      "nombreCortoPromocion": $("#nombreCortoPromocion").val(),
-      "colorPromocion" : $("#colorPromocion").val(),
-      "colorSecundarioPromocion" : $("#colorsecundarioPromocion").val(),
-      "comisionPromocion": porcentaje,
-      "impactaEnReserva": impactaEnReserva,
-      "tipoVoucher": tipoVoucher,
-      "voucherPrimerUso": voucherPrimerUso,
-      "horarioPromocion": horarioPromocion,
-      "promocionFlexible": promocionFlexible,
-      "modalidadCobro": $("#modalidadCobro").val(),
-      "imagenWebPromocion": $("#imgPromocionWeb").val(),
-      "imagenAppPromocion": $("#imgPromocionApp").val(),
-      "iconoPromocion": $("#iconoPromocion").val(),
-      "terminosCondicionesPromocion": $("#terminosCondiciones").val(),
-      "rangoPromocion": rangosComisiones,
-      "duracionDesdePromocion": duracionPromocionDesde,
-      "duracionHastaPromocion": duracionPromocionHasta,
-      "idLocal": localesSeleccionados
-    });
-    $('#target').html('sending..');
-    var queryParam = isNew  ? "": "?id=" + $("#idPromocion").val();
-    $.ajax({
-      url: server + '/api/v1/admin/promocion' + queryParam,
-      type: operacion,
-      dataType: "json",
-      crossDomain: true,
-      contentType:"application/json",
-      success: function (data) {
-        var idPromocion = data._id;
-        deshabitarHorariosPromocion(idPromocion);
-      },
-      error:function(jqXHR,textStatus,errorThrown)
-      {
-    },
-    data: promocion
-    });
+    if (marcadorNormal == "" || marcadorSeleccionado == "") {
+        $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {      
+            $.ajax({
+                url: server + '/api/v2/admin/configuraciones',
+                type: 'POST',
+                
+                dataType: "json",
+                crossDomain: true,
+                contentType:"application/json",
+                success: function (data) {
+                  _.each(data, function (configuracion) {
+                    marcadorNormal = configuracion.marcadorMapaNormal;
+                    marcadorSeleccionado = configuracion.marcadorMapaSeleccionado;
+                  });
+                  var seleccionados = $('input[name=localCheck]:checked');
+                  _.each(seleccionados, function(item){ 
+                    localesSeleccionados.push(item.value);
+                })
+            
+                var promocion = JSON.stringify({
+                  "nombrePromocion": $("#nombrePromocion").val(),
+                  "nombreCortoPromocion": $("#nombreCortoPromocion").val(),
+                  "colorPromocion" : $("#colorPromocion").val(),
+                  "colorSecundarioPromocion" : $("#colorsecundarioPromocion").val(),
+                  "comisionPromocion": porcentaje,
+                  "impactaEnReserva": impactaEnReserva,
+                  "tipoVoucher": tipoVoucher,
+                  "voucherPrimerUso": voucherPrimerUso,
+                  "horarioPromocion": horarioPromocion,
+                  "promocionFlexible": promocionFlexible,
+                  "modalidadCobro": $("#modalidadCobro").val(),
+                  "imagenWebPromocion": $("#imgPromocionWeb").val(),
+                  "imagenAppPromocion": $("#imgPromocionApp").val(),
+                  "iconoPromocion": $("#iconoPromocion").val(),
+                  "marcadorPromocionNormal": marcadorNormal,
+                  "marcadorPromocionSeleccionado": marcadorSeleccionado,
+                  "terminosCondicionesPromocion": $("#terminosCondiciones").val(),
+                  "rangoPromocion": rangosComisiones,
+                  "duracionDesdePromocion": duracionPromocionDesde,
+                  "duracionHastaPromocion": duracionPromocionHasta,
+                  "idLocal": localesSeleccionados
+                });
+                $('#target').html('sending..');
+                var queryParam = isNew  ? "": "?id=" + $("#idPromocion").val();
+                $.ajax({
+                  url: server + '/api/v1/admin/promocion' + queryParam,
+                  type: operacion,
+                  dataType: "json",
+                  crossDomain: true,
+                  contentType:"application/json",
+                  success: function (data) {
+                    var idPromocion = data._id;
+                    deshabitarHorariosPromocion(idPromocion);
+                  },
+                  error:function(jqXHR,textStatus,errorThrown)
+                  {
+                },
+                data: promocion
+                });
+
+              },
+              error:function(jqXHR,textStatus,errorThrown)
+              {
+                  $('#target').append("jqXHR: "+jqXHR);
+                  $('#target').append("textStatus: "+textStatus);
+                  $('#target').append("You can not send Cross Domain AJAX requests: "+errorThrown);
+              },
+          });
+        });
+    } else {
+
+            var seleccionados = $('input[name=localCheck]:checked');
+            _.each(seleccionados, function(item){ 
+              localesSeleccionados.push(item.value);
+          })
+
+          var promocion = JSON.stringify({
+            "nombrePromocion": $("#nombrePromocion").val(),
+            "nombreCortoPromocion": $("#nombreCortoPromocion").val(),
+            "colorPromocion" : $("#colorPromocion").val(),
+            "colorSecundarioPromocion" : $("#colorsecundarioPromocion").val(),
+            "comisionPromocion": porcentaje,
+            "impactaEnReserva": impactaEnReserva,
+            "tipoVoucher": tipoVoucher,
+            "voucherPrimerUso": voucherPrimerUso,
+            "horarioPromocion": horarioPromocion,
+            "promocionFlexible": promocionFlexible,
+            "modalidadCobro": $("#modalidadCobro").val(),
+            "imagenWebPromocion": $("#imgPromocionWeb").val(),
+            "imagenAppPromocion": $("#imgPromocionApp").val(),
+            "iconoPromocion": $("#iconoPromocion").val(),
+            "marcadorPromocionNormal": marcadorNormal,
+            "marcadorPromocionSeleccionado": marcadorSeleccionado,
+            "terminosCondicionesPromocion": $("#terminosCondiciones").val(),
+            "rangoPromocion": rangosComisiones,
+            "duracionDesdePromocion": duracionPromocionDesde,
+            "duracionHastaPromocion": duracionPromocionHasta,
+            "idLocal": localesSeleccionados
+          });
+          $('#target').html('sending..');
+          var queryParam = isNew  ? "": "?id=" + $("#idPromocion").val();
+          $.ajax({
+            url: server + '/api/v1/admin/promocion' + queryParam,
+            type: operacion,
+            dataType: "json",
+            crossDomain: true,
+            contentType:"application/json",
+            success: function (data) {
+              var idPromocion = data._id;
+              deshabitarHorariosPromocion(idPromocion);
+            },
+            error:function(jqXHR,textStatus,errorThrown)
+            {
+          },
+          data: promocion
+          });
+
+    }
+
+
   }
 
   function deshabitarHorariosPromocion(idPromocion) {
@@ -518,6 +754,7 @@
     });
   
   }
+
 
   function editarPromocion(idPromocion) {
     $.getScript( "js/controladores/server.js", function( data, textStatus, jqxhr ) {
@@ -578,6 +815,10 @@
           $("#imgPromocionApp").val(promocion.imagenAppPromocion);
           $("#contenedorImagenApp").html('');
           dibujarImagen(promocion.imagenAppPromocion,'contenedorImagenApp');
+          $("#contenedorMarcadorNormal").html('');
+          dibujarImagen(promocion.marcadorPromocionNormal,'contenedorMarcadorNormal');
+          $("#contenedorMarcadorSeleccionado").html('');
+          dibujarImagen(promocion.marcadorPromocionSeleccionado,'contenedorMarcadorSeleccionado');
           var rangoPromocion = promocion.duracionDesdePromocion+' - '+promocion.duracionHastaPromocion;
           $("#duracionPromocion").val(rangoPromocion);
           $("#terminosCondiciones").val(promocion.terminosCondicionesPromocion);
@@ -658,16 +899,23 @@
       metodo = 'Web';
     } else if (contenedor == 'contenedorImagenApp') {
     metodo = 'App';
+    } else if (contenedor == 'contenedorMarcadorNormal') {
+      metodo = 'MarcNormal';
+    } else if (contenedor == 'contenedorMarcadorSeleccionado') {
+      metodo = 'MarcSeleccionado';
     }
-    $('#'+contenedor).append(  '<br>' +
-     '<li class="miniaturas-orden">'+
-        '<a href="#">'+
-          '<img class="miniatura-galeria" src="'+dirImagen+'">'+
-        '</a>'+
-       '<br>'+
-      '<button title="Eliminar" onClick="eliminarImg'+metodo+'(\'' + dirImagen + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i></button> '+
-     '</li>'+
-    '');
+
+    if (dirImagen != "") {
+      $('#'+contenedor).append(  '<br>' +
+      '<li class="miniaturas-orden">'+
+         '<a href="#">'+
+           '<img class="miniatura-galeria" src="'+dirImagen+'">'+
+         '</a>'+
+        '<br>'+
+       '<button title="Eliminar" onClick="eliminarImg'+metodo+'(\'' + dirImagen + '\')" class="btn btn-default botaccion" type="button"><i style="font-size: 1.5em;" class="fa fa-trash" aria-hidden="true"></i></button> '+
+      '</li>'+
+     '');
+    }
   }
 
   function dibujarListadoLocales() {

@@ -55,19 +55,16 @@
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header page-scroll">
-          <a  href="index.php"><img  id="LogoMobile" class="logoweb" src="img/logo-gmg.png"></a>
+        <a  href="index.php"><img class="logoweb" src="img/logo-gmg.png"></a>
 
-        
-           <form id="buscador"class="buscadorresultados" action="resultados-busqueda.php" method="post">
+        <form class="buscadorresultados" action="resultados-busqueda.php" method="post">
             <div class="input-group">
               <input type="text" class="form-control buscadornav2" placeholder="Buscá por nombre, zona o tipo de cocina" name="parametro">
             </div>
             <span class="input-group-btn">
               <button type="submit" class="btn btn-default btnbuscarnav2"><i class="fa fa-search" aria-hidden="true"></i></button>
             </span>
-            
           </form>
-          <!--img id="loguito" src="img/IconoGMGMobile.png" alt=""-->
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
