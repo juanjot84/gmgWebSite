@@ -156,7 +156,7 @@ if (!$_SESSION) {
                 </div>
                 <div class="col-md-4 ">
                     <div class="modulo verde stats">
-                        <h1>Reservas Especiales Totales</h1>
+                        <h1>Total Comisiones</h1>
 
                         <div class="row">
                             <div class="col-lg-4">
